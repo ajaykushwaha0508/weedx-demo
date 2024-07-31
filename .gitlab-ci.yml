@@ -13,7 +13,6 @@ variables:
   DOCKER_CLI: "docker/compose:1.29.2"
   IMAGE_USER: "msawood"
   IMAGE_NAME: "weedx"
-  IMAGE_TAG: "$IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA"
 
 
 cache:
@@ -47,16 +46,18 @@ dockerize-job:
   variables:
     DOCKER_DRIVER: overlay2
   script:
-    - docker build -t $IMAGE_TAG .
+    - docker build -t $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA .
   dependencies:
     - build-job
 
 push-job:
   stage: push
   image: $DOCKER_CLI
+  variables:
+    DOCKER_DRIVER: overlay2
   script:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-    - docker push $IMAGE_TAG
+    - docker push $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA
     - docker docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
     - docker push $IMAGE_USER/$IMAGE_NAME:main
   dependencies:
