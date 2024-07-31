@@ -1,23 +1,48 @@
-image: docker:latest
-
-services:
-  - docker:dind
+stages:
+  - build
+  - dockerize
+  - push
 
 variables:
-  DOCKER_DRIVER: overlay2
+  NODE_IMAGE: "node:21"
+  DOCKER_IMAGE: "docker:latest"
+  DOCKER_CLI: "docker/compose:1.29.2"
+  IMAGE_USER: "msawood"
+  IMAGE_NAME: "weedx"
+  IMAGE_TAG: "$IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA"
+
+cache:
+  paths:
+    - node_modules/
 
 before_script:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 
-stages:
-  - build_push
-
-build_push:
-  stage: build_push
+build-job:
+  stage: build
+  image: $NODE_IMAGE
   script:
-    - docker build -t msawood/weedx:$CI_COMMIT_SHA .
-    - docker tag msawood/weedx:$CI_COMMIT_SHA msawood/weedx:main
-    - docker push msawood/weedx:$CI_COMMIT_SHA
-    - docker push msawood/weedx:main
-  only:
-    - main
+    - npm install --force
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+      - node_modules/
+
+dockerize-job:
+  stage: dockerize
+  image: $DOCKER_IMAGE
+  script:
+    - docker build -t $IMAGE_TAG .
+  dependencies:
+    - build-job
+
+push-job:
+  stage: push
+  image: $DOCKER_CLI
+  script:
+    - docker push $IMAGE_TAG
+    - docker docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
+    - docker push $IMAGE_USER/$IMAGE_NAME:main
+  dependencies:
+    - dockerize-job
