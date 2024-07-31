@@ -28,7 +28,7 @@ export default function Dashboard() {
     const [Category, SetCategory] = React.useState([])
     React.useEffect(() => {
         const fetchData = async () => {
-            Axios("https://api.cannabaze.com/UserPanel/Get-Categories/")
+            Axios("https://apiv2.cannabaze.com/UserPanel/Get-Categories/")
                 .then((response) => {
 
                     SetCategory(response?.data)
@@ -45,7 +45,7 @@ export default function Dashboard() {
 
     }, [])
     React.useEffect(() => {
-    Axios("https://api.cannabaze.com/UserPanel/Get-AllBrand/ ", {})
+    Axios("https://apiv2.cannabaze.com/UserPanel/Get-AllBrand/ ", {})
     .then((response) => {
 
         SetFeaturedBrandArray(response?.data)

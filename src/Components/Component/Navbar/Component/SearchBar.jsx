@@ -32,7 +32,7 @@ const SearchBar = ({ path }) => {
             if(input!==''){
                 // loading = true
                 Setloading(true)
-                Axios.post(`https://api.cannabaze.com/UserPanel/Get-HomePageFilter/`,
+                Axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-HomePageFilter/`,
                 {
                     search: input
                 }
@@ -140,7 +140,7 @@ const SearchBar = ({ path }) => {
 
 
 
-        // Axios.post(`https://api.cannabaze.com/UserPanel/Get-ResultHomeSearchFilter/`,
+        // Axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-ResultHomeSearchFilter/`,
         //     {
         //         id: id,
         //         type: type

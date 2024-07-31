@@ -43,7 +43,7 @@ export function Menuintegration_login({ open, setOpen }) {
     function Submit(data) {
 
         Setloading(true)
-        axios.post("https://api.cannabaze.com/UserPanel/Login/", {
+        axios.post("https://apiv2.cannabaze.com/UserPanel/Login/", {
 
             email: data.email,
             password: data.password

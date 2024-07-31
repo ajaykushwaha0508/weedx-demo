@@ -15,7 +15,7 @@ const AllCategory = () => {
     React.useEffect(() => {
         SetLoading(true)
 
-        Axios(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${id}`, {
+        Axios(`https://apiv2.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${id}`, {
         }
 
         ).then(response => {
@@ -32,7 +32,7 @@ const AllCategory = () => {
     }
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://apiv2.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
             setCategory(data)
 

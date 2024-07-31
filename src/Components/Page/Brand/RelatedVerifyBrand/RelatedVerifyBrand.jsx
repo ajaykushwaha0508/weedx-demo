@@ -20,7 +20,7 @@ const RelatedVerifyBrand = () => {
     React.useEffect(() => {
         if (searchval?.length !== 0) {
             const getData = setTimeout(() => {
-                Axios.post(`https://api.cannabaze.com/UserPanel/SearchProductbyBrand/`, {
+                Axios.post(`https://apiv2.cannabaze.com/UserPanel/SearchProductbyBrand/`, {
                     "brand": id,
                     "search": searchval,
                 }).then((response) => {
@@ -30,11 +30,11 @@ const RelatedVerifyBrand = () => {
 
             return () => clearTimeout(getData)
         } else {
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`,
+            Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`,
             ).then(response => {
                 SetBrandProduct(response.data)
             })
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-BrandById/${id}`,
+            Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-BrandById/${id}`,
             ).then(response => {
                 if (response.data.length === 0) {
                     navigate("/404")

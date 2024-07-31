@@ -51,7 +51,7 @@ const Blogs = () => {
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     React.useEffect(() => {
         const getApi = async () => {
-            const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);
+            const res = await fetch(`https://apiv2.cannabaze.com/UserPanel/Get-GetNewsById/${id}`);
             const data = await res.json();
             if (data.length !== 0) {
                 SetNews(data[0])
@@ -77,7 +77,7 @@ const Blogs = () => {
     }, [id])
     React.useEffect(() => {
         if (Object.keys(News).length !== 0) {
-            axios.post("https://api.cannabaze.com/UserPanel/Update-ViewCounter/", {
+            axios.post("https://apiv2.cannabaze.com/UserPanel/Update-ViewCounter/", {
                 id: News.id
             }).then((response) => {
                 SetViewCount(response.data.data.ViewCount)
@@ -166,7 +166,7 @@ const Blogs = () => {
     }
     function handleDelete(id) {
 
-        axios.delete(`https://api.cannabaze.com/UserPanel/Delete-Comment/${id}`,
+        axios.delete(`https://apiv2.cannabaze.com/UserPanel/Delete-Comment/${id}`,
             {
                 headers: { Authorization: `Bearer ${token_data}` }
             },).then((response) => {

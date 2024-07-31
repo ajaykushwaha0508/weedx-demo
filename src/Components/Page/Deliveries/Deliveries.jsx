@@ -43,7 +43,7 @@ const Deliveries = () => {
                 setloader(true)
             })
 
-            axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`, { ...object }).then((res) => {
+            axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/`, { ...object }).then((res) => {
                 setcontentdata(res.data)
             })
         }
@@ -79,7 +79,7 @@ const Deliveries = () => {
     React.useEffect(() => {
         const sendPostRequest = () => {
             axios.post(
-                `https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
+                `https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/11`,
                 {
                     j: 'https://www.weedx.io' + modifystr(Location.pathname.replace(/\/+$/, ""))
                 }

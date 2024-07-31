@@ -12,7 +12,7 @@ const NewsBlog = () => {
     const [News, SetNews] = useState([])
     useEffect(() => {
         const getApi = async () => {
-            const res = await fetch("https://api.cannabaze.com/UserPanel/Get-News/");
+            const res = await fetch("https://apiv2.cannabaze.com/UserPanel/Get-News/");
             const data = await res.json();
             // SetNews(data)
           

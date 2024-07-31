@@ -15,7 +15,7 @@ const HomePageDealsSignup = () => {
     const onSubmit = (data) => {
 
 
-        Axios.post(`https://api.cannabaze.com/UserPanel/Add-Subscribe/`,
+        Axios.post(`https://apiv2.cannabaze.com/UserPanel/Add-Subscribe/`,
             {
                 email: email
             },

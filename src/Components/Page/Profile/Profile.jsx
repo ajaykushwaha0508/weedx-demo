@@ -65,7 +65,7 @@ const Profile = () => {
         const formdata = new FormData();
         formdata.append('image', w);
         formdata.append('googlelink','');
-        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
+        Axios.post(`https://apiv2.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             formdata,
             {
                 headers: {

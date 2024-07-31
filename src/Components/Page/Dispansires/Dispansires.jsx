@@ -71,7 +71,7 @@ export default function Dispansires() {
     React.useEffect(() => {
         const sendPostRequest = () => {
             axios.post(
-                `https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
+                `https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/14`,
                 {
                     j: 'https://www.weedx.io' + modifystr(Location?.pathname.replace(/\/+$/, ""))
                 }
@@ -95,7 +95,7 @@ export default function Dispansires() {
                     "Country": state.Country?.replace(/-/g, " "),
                     "State": state.State?.replace(/-/g, " "),
                 }
-                Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
+                Axios.post(`https://apiv2.cannabaze.com/UserPanel/FilterDispensaries/`,
                     json
                 ).then(function (response) {
                         setloader(true)
@@ -123,7 +123,7 @@ export default function Dispansires() {
 
                         })
 
-                        axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/   `,{...object}
+                        axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/   `,{...object}
     
                     ).then((res)=>{
                         setcontentdata(res.data)

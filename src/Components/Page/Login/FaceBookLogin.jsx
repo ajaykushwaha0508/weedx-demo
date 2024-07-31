@@ -12,7 +12,7 @@ const FaceBookLogin = () => {
      
       if (response) {
 
-        axios.post("https://api.cannabaze.com/UserPanel/FacebookSignInView/", {
+        axios.post("https://apiv2.cannabaze.com/UserPanel/FacebookSignInView/", {
         access_token:response.accessToken
  
         },

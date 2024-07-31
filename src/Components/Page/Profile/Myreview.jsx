@@ -26,7 +26,7 @@ const Myreview = () => {
     function HellFull (ReviewId){
         if(state.login){
         ProductHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
-            axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
+            axios.get('https://apiv2.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
             {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then((res)=>{
@@ -43,14 +43,14 @@ const Myreview = () => {
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     React.useEffect(()=>{
         if(state.login){
-        axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
+        axios.get('https://apiv2.cannabaze.com/UserPanel/Get-ProductReviewbyUser/',
         {
             headers: { Authorization: `Bearer ${token_data}` }
         }).then((res)=>{
             setallproductreviews(res.data)
           
         })
-        axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
+        axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
             headers: { Authorization: `Bearer ${token_data}` }
         }).then((response)=>{
             setallstorereviews(response.data)
@@ -104,7 +104,7 @@ const Myreview = () => {
     function helpfullStoe(ReviewId){
         if(state.login){
         StoreHelpFull(ReviewId.id ,state.Profile.id).then((res)=>{
-            axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-StoreReviewbyUser/`, {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then((response)=>{
                 setallstorereviews(response.data)

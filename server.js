@@ -89,7 +89,7 @@ app.get('/cannabis-news/:news?/:postId', async (req, res) => {
   const postId = req.params.postId;
   try {
     // Make API call to fetch news post data including OG image URL
-    const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-GetNewsById/${postId}`);
+    const response = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-GetNewsById/${postId}`);
     const postData = response.data[0]; // Assuming response is an array
 
     // Generate dynamic meta tags and title
@@ -106,7 +106,7 @@ app.get('/cannabis-news/:news?/:postId', async (req, res) => {
 app.get("/sitemap/:category", async (req, res) => {
   switch (req.url) {
     case "/sitemap/weed-dispensaries.xml":
-      const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
+      const response1 = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
       if (response1.data[0].Xml) {
 
         const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
@@ -127,7 +127,7 @@ app.get("/sitemap/:category", async (req, res) => {
       }
       break;
     case "/sitemap/weed-deliveries.xml":
-      const response2 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
+      const response2 = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
 
       if (response2.data[0].Xml) {
 
@@ -149,7 +149,7 @@ app.get("/sitemap/:category", async (req, res) => {
       }
       break;
     case "/sitemap/news.xml":
-      const response3 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-News/`);
+      const response3 = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-News/`);
       if (response3) {
         const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -168,7 +168,7 @@ app.get("/sitemap/:category", async (req, res) => {
       }
       break
     case "/sitemap/brand-sitemap.xml":
-      const responsebrand = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllBrand/`);
+      const responsebrand = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AllBrand/`);
       if (responsebrand) {
         const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -187,9 +187,9 @@ app.get("/sitemap/:category", async (req, res) => {
       }
       break
     case "/sitemap/products-sitemap.xml":
-      const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
-      const responsecategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Categories/`);
-      const responseSubCategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`);
+      const response4 = await axios.get(`https://apiv2.cannabaze.com/UserPanel/ListProductView/`);
+      const responsecategory = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Categories/`);
+      const responseSubCategory = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`);
       if (response4) {
         // Generate the first sitemap
         const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
@@ -227,7 +227,7 @@ app.get("/sitemap/:category", async (req, res) => {
 
       break
     case "/Sitemap/Dispensaries_stores.xml":
-      const response5 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
+      const response5 = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Stores/`);
 
       if (response5 && response5.data) {
         const dispensaryUrls = response5.data.filter(url => url.Store_Type === "dispensary")
@@ -250,7 +250,7 @@ app.get("/sitemap/:category", async (req, res) => {
       }
       break
     case "/Sitemap/Delivery_stores.xml":
-      const response6 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
+      const response6 = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Stores/`);
 
       if (response6 && response6.data) {
         const dispensaryUrls = response6.data.filter(url => url.Store_Type !== "dispensary")
@@ -315,7 +315,7 @@ app.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, 
     // Send HTTP requests for each row of data
     for (const data of jsonData) {
       try {
-        const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`, {
+        const response = await axios.post(`https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/14`, {
           j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
         });
         // Do something with the response if needed
@@ -368,7 +368,7 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
     // Send HTTP requests for each row of data
     for (const data of jsonData) {
       try {
-        const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
+        const response = await axios.post(`https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/11`, {
           j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
         });
         // Do something with the response if needed

@@ -19,7 +19,7 @@ function LoginWithGoogle() {
         onError: (error) =>alert('Login Failed:', error)
     })
     async function GoogleAuth(codeResponse) {
-       await axios.post("https://api.cannabaze.com/UserPanel/GoogleView/ ", {
+       await axios.post("https://apiv2.cannabaze.com/UserPanel/GoogleView/ ", {
             token: codeResponse.access_token
         }).then(response => {
                  response.data.picture.slice(0,5) === "https" ?  dispatch({ type: 'GoogleImage', GoogleImage: response.data.picture }) :dispatch({ type: 'GoogleImage', GoogleImage: '' })

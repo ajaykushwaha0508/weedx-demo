@@ -84,7 +84,7 @@ function Context(props) {
 
         if (Boolean(logi) || Boolean(accessToken)) {
             dispatch({ type: 'Login', login: true })
-            axios.get("https://api.cannabaze.com/UserPanel/Get-Addtocart/", {
+            axios.get("https://apiv2.cannabaze.com/UserPanel/Get-Addtocart/", {
                 headers: { Authorization: `Bearer ${logi}` }
             }).then(async function (response) {
                 const CarTProduct = await response?.data;
@@ -134,7 +134,7 @@ function Context(props) {
                 .catch(function (error) {
                     return error
                 })
-            axios.get(`https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-GetUserProfile/`,
                 { headers: { Authorization: `Bearer ${logi}` } }
             )
                 .then((res) => {

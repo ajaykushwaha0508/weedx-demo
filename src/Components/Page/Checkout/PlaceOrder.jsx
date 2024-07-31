@@ -39,7 +39,7 @@ const PlaceOrder = () => {
             headers: { Authorization: `Bearer ${token_data}` }
         };
 
-        Axios.get(`https://api.cannabaze.com/UserPanel/Get-Order/`,
+        Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Order/`,
             config,
         )
             .then((res) => {

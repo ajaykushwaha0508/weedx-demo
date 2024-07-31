@@ -90,7 +90,7 @@ const MyOrder = () => {
     }
     React.useEffect(() => {
         const getData = setTimeout(() => {
-            Getsearch !== "" && axios.post(`https://api.cannabaze.com/UserPanel/OrderSearch/`,
+            Getsearch !== "" && axios.post(`https://apiv2.cannabaze.com/UserPanel/OrderSearch/`,
                 {
                     search: Getsearch
                 },

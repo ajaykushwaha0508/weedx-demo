@@ -58,7 +58,7 @@ export default function DispensoriesDetails(props) {
             dispatch({ type: 'Embeddedstore', Embeddedstore: data })
          }
          else {
-            axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-StoreById/${id}`, {
             }).then(response => {
                 if (response.data.length === 0) {
                     navigate("/404")
@@ -108,7 +108,7 @@ export default function DispensoriesDetails(props) {
             })
          }
 
-        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
+        axios.post("https://apiv2.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
             {
                 "Store_Id": parseInt(id)
             }
@@ -134,7 +134,7 @@ export default function DispensoriesDetails(props) {
         }).catch(
             function (error) {
             })
-        axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
+        axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`, {
         }).then(response => {
             SetDespensariesProductData(response.data)
             setProductload(false)
@@ -144,12 +144,12 @@ export default function DispensoriesDetails(props) {
     useEffect(() => {
 
         if (reviewtype === "All") {
-            axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
 
             }).catch(() => { })
         } else if (reviewtype === "product") {
-            axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`).then((res) => {
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`).then((res) => {
                 SetRating(res.data)
 
             }).catch(() => { })
@@ -174,7 +174,7 @@ export default function DispensoriesDetails(props) {
     }
     function ShowCategoryProduct(Id, name) {
         dispatch({ type: 'Loading', Loading: true })
-        axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
             {
                 "Store_Id": parseInt(id),
                 "Category_Id": Id
@@ -202,7 +202,7 @@ export default function DispensoriesDetails(props) {
     ]
     useEffect(() => {
         if (reviewtype === "product") {
-            axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
+            axios.post('https://apiv2.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
                 "store": id
             }).then((res) => {
                 SetReview(res.data)
@@ -222,7 +222,7 @@ export default function DispensoriesDetails(props) {
             Store_Get_Review(id).then((res) => {
 
 
-                axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
+                axios.post('https://apiv2.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
                     "store": id
                 }).then((response) => {
                     SetReview([...res.data, ...response.data])

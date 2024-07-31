@@ -13,7 +13,7 @@ const SubcategoryProduct = () => {
     React.useEffect(() => {
         SetLoading(true)
 
-        Axios(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${Id}`, {
+        Axios(`https://apiv2.cannabaze.com/UserPanel/Get-ProductBySubCategory/${Id}`, {
         }
 
         ).then(response => {

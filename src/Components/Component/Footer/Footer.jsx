@@ -17,7 +17,7 @@ const Footer = () => {
     const [Categorys, SetCategorys] = React.useState([])
     const [morelist, setmorelist] = React.useState(false)
     React.useEffect(() => {
-        Axios.get("https://api.cannabaze.com/UserPanel/Get-Categories/", {}).then(Response => {
+        Axios.get("https://apiv2.cannabaze.com/UserPanel/Get-Categories/", {}).then(Response => {
             SetCategorys(Response.data)
 
         }).catch(() => {

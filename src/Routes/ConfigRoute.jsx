@@ -330,7 +330,7 @@ const routesConfig = [
         loader: async ({ params }) => {
            
           // Fetch data by ID using params
-          let data=  axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${params.id}`, {
+          let data=  axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-StoreById/${params.id}`, {
           }).then(response => {
     
             if (response.data.length === 0) {

@@ -67,7 +67,7 @@ const LawStateDescription = () => {
                 })
             )
         })
-        axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/13`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/13`,
             {
                 j:'https://www.weedx.io' + location.pathname
             },

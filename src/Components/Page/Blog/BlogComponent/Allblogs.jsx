@@ -46,7 +46,7 @@ const Allblogs = () => {
       if (state.login) {
         
             if(location.pathname.substring(1)==='blogs'){
-              axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
+              axios.get('https://apiv2.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
 
                 let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
                 setallblogs(as)
@@ -58,7 +58,7 @@ const Allblogs = () => {
       
               })
             }else{
-                axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
+                axios.get('https://apiv2.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
               
                 let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
                 setallblogs(as)
@@ -70,7 +70,7 @@ const Allblogs = () => {
             }
       }else{
         if(location.pathname.substring(1)==='blogs'){
-          axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
+          axios.get('https://apiv2.cannabaze.com/UserPanel/Get-NewsbyCategorybyBlog/').then(async (res) => {
             
             let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
             setallblogs(as)
@@ -82,7 +82,7 @@ const Allblogs = () => {
   
           })
         }else{
-            axios.get('https://api.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
+            axios.get('https://apiv2.cannabaze.com/UserPanel/Get-NewsbyCategorybyCANNABISNEWS/').then(async (res) => {
           
             let as = _.orderBy(res.data, [ 'created' ],  [ 'asc', 'desc' ]);
             setallblogs(as)
@@ -96,7 +96,7 @@ const Allblogs = () => {
   }, [location.pathname])
   function Searchbar(e){
     setsearchtext(e)
-   axios.post('https://api.cannabaze.com/UserPanel/Get-BlogSearchApi/', {
+   axios.post('https://apiv2.cannabaze.com/UserPanel/Get-BlogSearchApi/', {
       "search": e
     }, {
       headers: {
@@ -111,7 +111,7 @@ const Allblogs = () => {
     if (state.login) {
         Post_BlogLike(item?.id , !item.Liked ).then((res) => {
        
-        axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/',{
+        axios.get('https://apiv2.cannabaze.com/UserPanel/GetNewsbyUser/',{
       
           headers: { Authorization: `Bearer ${token_data}` }
       

@@ -26,7 +26,7 @@ const EditProfile = () => {
             headers: { Authorization: `Bearer ${token_data}` }
         };
       
-        Axios.get(`https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
+        Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-GetUserProfile/`,
             config,
 
         )
@@ -67,7 +67,7 @@ const EditProfile = () => {
         const formdata = new FormData();
         formdata.append('image', w);
         formdata.append('googlelink','');
-        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
+        Axios.post(`https://apiv2.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             formdata,
             {
                 headers: {

@@ -43,7 +43,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }
             }
-            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
                 config,
             ).then((res) => { 
                 let datax = []
@@ -85,7 +85,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             })
         }
         else {
-            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/GetUserNotification/`,
             ).then((respones) => {
                
                 if(Boolean(respones?.data)){
@@ -114,7 +114,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             return item.Id
         })
    
-        axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/ClearNotification/`,
             {
                 Clear: ab
             },
@@ -131,14 +131,14 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
         const config = {
             headers: { Authorization: `Bearer ${token_data}` }
         }
-        axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/ClearNotification/`,
             {
                 Clear: [e.Id]
             },
             config
         ).then((respones) => {
 
-            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
+            axios.get(`https://apiv2.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
             config,
                 ).then((res) => {
 

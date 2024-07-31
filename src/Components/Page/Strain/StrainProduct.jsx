@@ -11,7 +11,7 @@ const StrainProduct = () => {
 
     React.useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-        axios.post("https://api.cannabaze.com/UserPanel/Get-StrainType/",
+        axios.post("https://apiv2.cannabaze.com/UserPanel/Get-StrainType/",
             {
                 type: type
             }

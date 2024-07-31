@@ -57,7 +57,7 @@ const NewProductDetails = () => {
   })
 
   React.useEffect(() => {
-    Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
+    Axios(`https://apiv2.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     }).then(response => {
       if (response.data.length === 0) {
         navigate('/404')
@@ -88,12 +88,12 @@ const NewProductDetails = () => {
         //   }
         // })
         // )
-        Axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
+        Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-StoreById/${response.data[0]?.Store_id}`, {
         }).then(response => {
           SetDespens(response.data[0])
 
         })
-        Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
+        Axios.post(`https://apiv2.cannabaze.com/UserPanel/YouMayAlsoLike/`,
           {
             category: response.data[0].category_id,
             store_id: response.data[0].Store_id

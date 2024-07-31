@@ -42,7 +42,7 @@ const Product = () => {
 
     React.useEffect(() => {
         const fetchData = async () => {
-            const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
+            const apidata = await fetch("https://apiv2.cannabaze.com/UserPanel/Get-Categories/");
             const data = await apidata.json()
             SetCategory(data)
         }

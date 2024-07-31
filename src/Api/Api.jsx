@@ -3,13 +3,13 @@ import axios from 'axios'
 import Cookies from 'universal-cookie';
 import React from 'react';
 export function registerEmp(usrdata) {
-    let data = axios.post(' https://api.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
+    let data = axios.post(' https://apiv2.cannabaze.com/DeliveryBoy/Add-Employee/', usrdata);
     return data;
 }
 
 // Static Image Api 
 export function StaticImages() {
-    let data = axios.get(`https://api.cannabaze.com/AdminPanel/Get-StaticImages/`
+    let data = axios.get(`https://apiv2.cannabaze.com/AdminPanel/Get-StaticImages/`
     );
     return data;
 }
@@ -24,7 +24,7 @@ export function BlogLike(ID) {
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     if (token_data) {
-        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-BlogLike/${ID}`,
+        let data = axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-BlogLike/${ID}`,
             {
                 headers: { Authorization: `Bearer ${token_data}` }
             },
@@ -32,7 +32,7 @@ export function BlogLike(ID) {
         return data;
     }
     else {
-        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-BlogLike/${ID}`
+        let data = axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-BlogLike/${ID}`
         );
         return data;
     }
@@ -43,7 +43,7 @@ export function Post_BlogLike(id, like) {
     let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
-    let data = axios.post('https://api.cannabaze.com/UserPanel/Add-BlogLike/',
+    let data = axios.post('https://apiv2.cannabaze.com/UserPanel/Add-BlogLike/',
         {
             Blog: id,
             like: like
@@ -60,7 +60,7 @@ export function Get_Comment(ID) {
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     if (token_data) {
-        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Comment/${ID}`,
+        let data = axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Comment/${ID}`,
             {
                 headers: { Authorization: `Bearer ${token_data}` }
             },
@@ -68,7 +68,7 @@ export function Get_Comment(ID) {
         return data;
     }
     else {
-        let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Comment/${ID}`
+        let data = axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Comment/${ID}`
         );
         return data;
     }
@@ -78,7 +78,7 @@ export function Post_Comment(id, Comment) {
     let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
-    let data = axios.post('https://api.cannabaze.com/UserPanel/Add-Comment/',
+    let data = axios.post('https://apiv2.cannabaze.com/UserPanel/Add-Comment/',
         {
             Blog: id,
             comment: Comment
@@ -90,7 +90,7 @@ export function Post_Comment(id, Comment) {
     return data;
 }
 export function ViewCountApi(id) {
-    let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-BlogView/`,
+    let data = axios.post(`https://apiv2.cannabaze.com/UserPanel/Add-BlogView/`,
         {
             blog: id
         },
@@ -99,7 +99,7 @@ export function ViewCountApi(id) {
 }
 export function DespensioriesItem(object) {
     let data = axios.post(
-        'https://api.cannabaze.com/UserPanel/Get-Dispensaries/',
+        'https://apiv2.cannabaze.com/UserPanel/Get-Dispensaries/',
         object
     ).then(response => {
         return response?.data
@@ -114,7 +114,7 @@ export function DespensioriesItem(object) {
 }
 
 export function Store_OverAllGet_Review(id) {
-    let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageStoreReviewAndRating/${id}`,
+    let data = axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AverageStoreReviewAndRating/${id}`,
     ).then(response => {
         return response.data
     }).catch(
@@ -130,7 +130,7 @@ export function Store_Add_Review(Review) {
     let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
-    let data = axios.post(`https://api.cannabaze.com/UserPanel/Add-StoreReview/`,
+    let data = axios.post(`https://apiv2.cannabaze.com/UserPanel/Add-StoreReview/`,
         Review,
         {
             headers: { Authorization: `Bearer ${token_data}` }
@@ -148,7 +148,7 @@ export function Delete_StoreReview(id) {
     let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
-    let data = axios.delete(`https://api.cannabaze.com/UserPanel/Delete-StoreReview/${id}`,
+    let data = axios.delete(`https://apiv2.cannabaze.com/UserPanel/Delete-StoreReview/${id}`,
         {
             headers: { Authorization: `Bearer ${token_data}` }
         },
@@ -166,7 +166,7 @@ export async function Store_Get_UserComment(id, storeId) {
     let token_data = cookies.get('User_Token_access')
     let accessToken = localStorage.getItem('User_Token_access');
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
-    let res = await axios.get(`https://api.cannabaze.com/UserPanel/Get-getStoreReviewbyId/${id}/${storeId}`,
+    let res = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-getStoreReviewbyId/${id}/${storeId}`,
         {
             headers: { Authorization: `Bearer ${token_data}` }
         },
@@ -176,7 +176,7 @@ export async function Store_Get_UserComment(id, storeId) {
 }
 
 export async function Store_Get_Review(id) {
-    let res = await axios.get(` https://api.cannabaze.com/UserPanel/Get-StoreReview/${id}`,
+    let res = await axios.get(` https://apiv2.cannabaze.com/UserPanel/Get-StoreReview/${id}`,
     );
     return res;
 }
@@ -184,7 +184,7 @@ export async function Store_Get_Review(id) {
 // Store Review Api   Dispensaries   
 
 export function Homepagebanner() {
-    let banner = axios(`https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/`, {
+    let banner = axios(`https://apiv2.cannabaze.com/UserPanel/Get-AllHomePageBanner/`, {
 
     }
 
@@ -199,14 +199,14 @@ export function Homepagebanner() {
     return banner
 }
 export function getAllNews() {
-    let allnews = axios.get("https://api.cannabaze.com/UserPanel/Get-News/").then((response) => {
+    let allnews = axios.get("https://apiv2.cannabaze.com/UserPanel/Get-News/").then((response) => {
         return response.data;
     })
     return allnews
 }
 export function CategoryProductsearch( object , id) {
     return (
-        axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, object).then((res) => {
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-ProductByCategory/${id}`, object).then((res) => {
             return res
         }).then((response) => {
 
@@ -223,7 +223,7 @@ export function CategoryProductsearch( object , id) {
 
 export function GetProduct(object) {
     return (
-        axios.post(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-AllProduct/`,
             object
         ).then(response => {
             return response
@@ -237,7 +237,7 @@ export function GetProduct(object) {
 export function SubCategoryApi(_id) {
     return (
 
-        axios.get(`https://api.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
+        axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-SubCategoryByCategory/${_id}`).then((res) => {
             return res
         })
     )
@@ -246,7 +246,7 @@ export function SubCategoryApi(_id) {
 export function SubCategoryApibyname(name) {
     return (
 
-        axios.get(`https://api.cannabaze.com/UserPanel/Get-SubcategoryByCategoryname/${name?.toUpperCase()}`).then((res) => {
+        axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-SubcategoryByCategoryname/${name?.toUpperCase()}`).then((res) => {
             return res
         })
     )
@@ -255,7 +255,7 @@ export function SubCategoryApibyname(name) {
 
 export function SubcategoryProduct(object, id) {
     return (
-        axios.post(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`, object).then((res) => {
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-ProductBySubCategory/${id}`, object).then((res) => {
             return res.data
         }).catch((err) => {
            
@@ -267,7 +267,7 @@ export function SubcategoryProduct(object, id) {
 export function GetAllDelivery(object) {
     return (
         axios.post(
-            'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
+            'https://apiv2.cannabaze.com/UserPanel/Get-DeliveryStores/',
             object
         ).then(response => {
             if(Boolean(response.data.length)){
@@ -326,7 +326,7 @@ export function GetAllDelivery(object) {
 
 export function PriceFilter(value, Store_id) {
     return (
-        axios.post(`https://api.cannabaze.com/UserPanel/PriceFilter/`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/PriceFilter/`,
             {
                 "MinPrice": value[0],
                 "MaxPrice": value[1],
@@ -347,7 +347,7 @@ export function StoreHelpFull(ReviewID, USerID) {
         headers: { Authorization: `Bearer ${token_data}` }
     };
     return (
-        axios.post(`https://api.cannabaze.com/UserPanel/Add-Helpfull/`,
+        axios.post(`https://apiv2.cannabaze.com/UserPanel/Add-Helpfull/`,
 
             {
                 "review": ReviewID,

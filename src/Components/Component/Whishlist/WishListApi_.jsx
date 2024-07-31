@@ -10,7 +10,7 @@ function WishListPost(id) {
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
 
 
-  let data = axios.post(` https://api.cannabaze.com/UserPanel/Add-Wishlist/`,
+  let data = axios.post(` https://apiv2.cannabaze.com/UserPanel/Add-Wishlist/`,
     { product: id },
     {
       headers: { Authorization: `Bearer ${token_data}` }
@@ -27,7 +27,7 @@ async function WishListget() {
     headers: { Authorization: `Bearer ${token_data}` }
   };
 
-  let data = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Wishlist/`,
+  let data = await axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Wishlist/`,
   config
   );
   return data;

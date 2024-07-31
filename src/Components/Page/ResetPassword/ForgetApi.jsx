@@ -2,7 +2,7 @@ import axios from "axios";
 
 function Forget_password(res) {
 
-    let data = axios.post(`https://api.cannabaze.com/UserPanel/ForgetPasswordAPI/`,
+    let data = axios.post(`https://apiv2.cannabaze.com/UserPanel/ForgetPasswordAPI/`,
         res
     );
 
@@ -10,7 +10,7 @@ function Forget_password(res) {
 
 }
 function Forget_Otp(Otp,Email) {
-    let data = axios.post(`https://api.cannabaze.com/UserPanel/ValidateOTPForgetPassword/`,
+    let data = axios.post(`https://apiv2.cannabaze.com/UserPanel/ValidateOTPForgetPassword/`,
         
     {
         otp:Otp,
@@ -22,7 +22,7 @@ function Forget_Otp(Otp,Email) {
 }
 
 function ConfirmPassword(Email,password) {
-    let data = axios.post(`https://api.cannabaze.com/UserPanel/VerifyOtpForgetPassword/ `,
+    let data = axios.post(`https://apiv2.cannabaze.com/UserPanel/VerifyOtpForgetPassword/ `,
         
     {
         email:Email,

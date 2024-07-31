@@ -102,7 +102,7 @@ const Notification = ({ Profile, Api, SetApi }) => {
         }
     }
     React.useEffect(() => {
-        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
+        Axios.post(`https://apiv2.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
             {
                 EmailBoolean: Checked.Email,
                 NewsLetter: Checked.News_Letter ? Checked.News_Letter : false,
@@ -132,7 +132,7 @@ const Notification = ({ Profile, Api, SetApi }) => {
             headers: { Authorization: `Bearer ${token_data}` }
         };
       
-        Axios.get(`https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
+        Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-GetUserProfile/`,
             config,
 
         )

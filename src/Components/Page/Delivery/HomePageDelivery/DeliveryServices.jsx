@@ -90,7 +90,7 @@ const DeliveryServices = () => {
         }
         function Delivery(object) {
             return (
-                axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`,
+                axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/`,
                     object
                 ).then((response) => {
                     if(response?.data?.length !==0)

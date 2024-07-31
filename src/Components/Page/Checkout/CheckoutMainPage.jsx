@@ -75,7 +75,7 @@ const CheckOutMainPage = () => {
             formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
             formdata.append('City', asdsd === "Delivery" ? state.DeliveryCity : state.AllProduct[0]?.City)
             Boolean(state.CoupounAmount)&&   formdata.append('DiscountedAmount',   state?.Cart_subTotal - state.CoupounAmount)
-            await Axios.post('https://api.cannabaze.com/UserPanel/Add-Order/',
+            await Axios.post('https://apiv2.cannabaze.com/UserPanel/Add-Order/',
                 formdata,
                 config,
                 {
@@ -101,7 +101,7 @@ const CheckOutMainPage = () => {
 
     }
     React.useEffect(() => {
-        state.login && Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
+        state.login && Axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
             if (data.data.length !== 0) {
                 data.data.map((user, key) => {
 

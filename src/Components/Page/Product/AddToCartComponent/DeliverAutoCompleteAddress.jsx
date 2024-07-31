@@ -91,7 +91,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
   });
 
   function CheckPostal(data, name , alldata) {
-    Axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`,
+    Axios.post(`https://apiv2.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`,
       {
         "PinCode": data,
         Store: Store

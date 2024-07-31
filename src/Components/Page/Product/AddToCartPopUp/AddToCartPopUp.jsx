@@ -29,7 +29,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                 headers: { Authorization: `Bearer ${token_data}` }
             };
 
-            axios.post("https://api.cannabaze.com/UserPanel/ClearAddtoCart/",
+            axios.post("https://apiv2.cannabaze.com/UserPanel/ClearAddtoCart/",
             NewData,
             config,
             ).then(response => {

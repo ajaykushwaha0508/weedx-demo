@@ -17,7 +17,7 @@ const VerifyBrands = () => {
     React.useEffect(() => {
        
         Axios.get(
-            'https://api.cannabaze.com/UserPanel/Get-AllBrand/ ',
+            'https://apiv2.cannabaze.com/UserPanel/Get-AllBrand/ ',
 
         ).then(response => {
             SetVerifyArrayData(response.data)

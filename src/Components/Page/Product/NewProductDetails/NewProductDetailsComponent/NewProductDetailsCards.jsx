@@ -82,7 +82,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                 Country:Event.Store_Country
 
             })
-            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
+            await axios.post("https://apiv2.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
                     Brand_Id: Event.Brand_id,

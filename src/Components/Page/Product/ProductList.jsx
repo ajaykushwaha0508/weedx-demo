@@ -81,7 +81,7 @@ const ProductList = ({ arr , link="products" }) => {
 
       });
       await axios.post(
-          "https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
+          "https://apiv2.cannabaze.com/UserPanel/Add-AddtoCart/",
 
           {
             Brand_Id: Event.Brand_id,
@@ -222,7 +222,7 @@ const ProductList = ({ arr , link="products" }) => {
             City:Event.Store_City 
 
         })
-        await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
+        await axios.post("https://apiv2.cannabaze.com/UserPanel/Add-AddtoCart/",
 
             {
                 Brand_Id: Event.Brand_id,

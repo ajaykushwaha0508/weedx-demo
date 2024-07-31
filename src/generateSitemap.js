@@ -5,7 +5,7 @@ const cron = require("node-cron");
 async function generateSitemap() {
 
 
-  axios.get(`https://api.cannabaze.com/UserPanel/Get-Categories/`,
+  axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-Categories/`,
   ).then((respones) => {
      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -21,7 +21,7 @@ async function generateSitemap() {
   // Write the sitemap XML to a file
   fs.writeFileSync('../public/Sitemap/sitemapcategory.xml', sitemapXml);
   })
-  axios.get(`https://api.cannabaze.com/UserPanel/Get-AllProduct/`,
+  axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AllProduct/`,
   ).then((respones) => {
    
      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -39,7 +39,7 @@ async function generateSitemap() {
   // Write the sitemap XML to a file
   fs.writeFileSync('../public/Sitemap/sitemapproduct.xml', sitemapXml);
   })
-  axios.get(`https://api.cannabaze.com/UserPanel/Get-AllBrand/`,
+  axios.get(`https://apiv2.cannabaze.com/UserPanel/Get-AllBrand/`,
   ).then((respones) => {
 
      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

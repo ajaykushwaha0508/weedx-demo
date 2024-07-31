@@ -59,7 +59,7 @@ const PromoCode = () => {
                 "date": formatDate(),
                 "Time": getCurrentTime()
             }
-            axios.post(` https://api.cannabaze.com/UserPanel/PromoCodeCheck/`,
+            axios.post(` https://apiv2.cannabaze.com/UserPanel/PromoCodeCheck/`,
                 data,
                 {
                     headers: { Authorization: `Bearer ${token_data}` }
@@ -82,7 +82,7 @@ const PromoCode = () => {
     }
 
     function clear() {
-        axios.get(`https://api.cannabaze.com/UserPanel/RemovePromocode/`, {
+        axios.get(`https://apiv2.cannabaze.com/UserPanel/RemovePromocode/`, {
             headers: { Authorization: `Bearer ${token_data}` }
         }).then((res) => {
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })

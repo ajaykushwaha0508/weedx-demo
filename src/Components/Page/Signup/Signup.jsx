@@ -21,7 +21,7 @@ const Signup = () => {
     const classes = useStyles()
     function Submit(State) {
       
-      Axios.post('https://api.cannabaze.com/UserPanel/UserAlreadyExist/',{
+      Axios.post('https://apiv2.cannabaze.com/UserPanel/UserAlreadyExist/',{
         email:State.email
       }).then((res)=>{
         if(res.data.email !== "Email is already Registered"){

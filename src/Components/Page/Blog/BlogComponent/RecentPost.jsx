@@ -9,7 +9,7 @@ const RecentPost = () => {
    const [News, SetNews] = React.useState([])
     React.useEffect(() => {
         const getApi = async () => {
-            const res = await fetch("https://api.cannabaze.com/UserPanel/Get-News/");
+            const res = await fetch("https://apiv2.cannabaze.com/UserPanel/Get-News/");
             const data = await res.json();
            
            let newdata= data.filter((item )=>{

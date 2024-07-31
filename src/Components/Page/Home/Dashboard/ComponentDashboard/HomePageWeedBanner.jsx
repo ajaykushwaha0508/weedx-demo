@@ -10,7 +10,7 @@ const HomePageWeedBanner=()=>{
     const [data,setdata] = React.useState([]) 
    
     React.useEffect(() => {
-        Axios("https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/ ")
+        Axios("https://apiv2.cannabaze.com/UserPanel/Get-PromotionalBanners/ ")
         .then((response)=>{
             setdata(response?.data)
            

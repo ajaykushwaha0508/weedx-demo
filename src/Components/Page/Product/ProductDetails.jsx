@@ -41,10 +41,10 @@ const ProductDetail = () => {
     const [Product, SetProduct] = React.useState([])
     const [CartClean, SetCartClean] = React.useState(false)
     React.useEffect(() => {
-        Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${Id}`, {
+        Axios(`https://apiv2.cannabaze.com/UserPanel/Get-ProductById/${Id}`, {
         }).then(response => {
             SetProductDetails(response.data)
-            Axios(`https://api.cannabaze.com/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
+            Axios(`https://apiv2.cannabaze.com/UserPanel/Get-DispensaryByid/${response.data[0].Store_id}`, {
             }).then(response => {
               
                 SetStore_id(response.data)
@@ -61,7 +61,7 @@ const ProductDetail = () => {
                 alert("Something Goes Wrong")
                 // SetProduct(Product => ({ ...Product, discount: "None" }))
             })
-            Axios(`https://api.cannabaze.com/UserPanel/Get-Dispensary_Product`, {
+            Axios(`https://apiv2.cannabaze.com/UserPanel/Get-Dispensary_Product`, {
 
 
         }).then(response => {
@@ -145,7 +145,7 @@ const ProductDetail = () => {
                 StoreName: Event.StoreName
 
             })
-            await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
+            await axios.post("https://apiv2.cannabaze.com/UserPanel/Add-AddtoCart/",
 
                 {
                     Product_id: Event.id,
