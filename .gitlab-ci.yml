@@ -1,0 +1,23 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+before_script:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+
+stages:
+  - build_push
+
+build_push:
+  stage: build_push
+  script:
+    - docker build -t msawood/weedx:$CI_COMMIT_SHA .
+    - docker tag msawood/weedx:$CI_COMMIT_SHA msawood/weedx:main
+    - docker push msawood/weedx:$CI_COMMIT_SHA
+    - docker push msawood/weedx:main
+  only:
+    - main
