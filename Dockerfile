@@ -1,23 +1,32 @@
-# Use an official Node.js 21 runtime as a parent image
+# Build Stage
+FROM node:21 AS build
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the application (optional, if you have a build step)
+RUN npm run build
+
+# Run Stage
 FROM node:21
 
 # Install PM2 globally
 RUN npm install -g pm2
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json (if available) to the working directory
-COPY package*.json ./
-
-# Install the application dependencies
-RUN npm install --force
-
-# Copy the rest of the application code to the working directory
-COPY . .
-
-# Run Build
-RUN npm run build
+# Copy only the necessary files from the build stage
+COPY --from=build /usr/src/app /usr/src/app
 
 # Expose the port the app runs on
 EXPOSE 3000
