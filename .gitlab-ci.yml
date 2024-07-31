@@ -15,9 +15,6 @@ cache:
   paths:
     - node_modules/
 
-before_script:
-  - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-
 build-job:
   stage: build
   image: $NODE_IMAGE
@@ -41,6 +38,7 @@ push-job:
   stage: push
   image: $DOCKER_CLI
   script:
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker push $IMAGE_TAG
     - docker docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
     - docker push $IMAGE_USER/$IMAGE_NAME:main
