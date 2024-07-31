@@ -2,7 +2,6 @@ stages:
   - install
   - build
   - dockerize
-  - push
 
 services:
   - docker:dind
@@ -47,18 +46,9 @@ dockerize-job:
     DOCKER_DRIVER: overlay2
   script:
     - docker build -t $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA .
-  dependencies:
-    - build-job
-
-push-job:
-  stage: push
-  image: $DOCKER_CLI
-  variables:
-    DOCKER_DRIVER: overlay2
-  script:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker push $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA
     - docker docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
     - docker push $IMAGE_USER/$IMAGE_NAME:main
   dependencies:
-    - dockerize-job
+    - build-job
