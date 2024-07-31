@@ -1,4 +1,5 @@
 stages:
+  - install
   - build
   - dockerize
   - push
@@ -15,16 +16,25 @@ variables:
 #   paths:
 #     - node_modules/
 
+install-job:
+  stage: install
+  image: $NODE_IMAGE
+  script:
+    - npm install --force
+  artifacts:
+    paths:
+      - node_modules/
+
 build-job:
   stage: build
   image: $NODE_IMAGE
   script:
-    - npm install --force
     - CI=false npm run build -- --max-warnings=0
+  dependencies:
+    - install-job
   artifacts:
     paths:
       - build/
-      - node_modules/
 
 dockerize-job:
   stage: dockerize

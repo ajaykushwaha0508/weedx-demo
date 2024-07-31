@@ -13,6 +13,8 @@ COPY package.json ./package.json
 COPY package-lock.json ./package-lock.json
 COPY public ./public
 
+RUN npm install -g pm2
+
 # Make start.sh executable
 RUN chmod +x start.sh
 
