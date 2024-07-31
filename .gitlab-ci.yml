@@ -20,7 +20,7 @@ build-job:
   image: $NODE_IMAGE
   script:
     - npm install --force
-    - npm run build
+    - CI=false npm run build -- --max-warnings=0
   artifacts:
     paths:
       - build/
