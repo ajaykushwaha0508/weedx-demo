@@ -48,7 +48,7 @@ dockerize-job:
     - docker build -t $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA .
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker push $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA
-    - docker docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
+    - docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
     - docker push $IMAGE_USER/$IMAGE_NAME:main
   dependencies:
     - build-job
