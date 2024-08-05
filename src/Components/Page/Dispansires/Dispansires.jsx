@@ -73,7 +73,7 @@ export default function Dispansires() {
             axios.post(
                 `https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/14`,
                 {
-                    j: 'https://www.weedx.io' + modifystr(Location?.pathname.replace(/\/+$/, ""))
+                    j: 'https://www.weedx.io'+Location?.pathname
                 }
             ).then((res) => {
             }).catch((err) => {
@@ -85,6 +85,9 @@ export default function Dispansires() {
 
         return () => clearTimeout(timeoutId);
     }, [Location]);
+
+    // console.log('https://www.weedx.io'+Location?.pathname , Location?.pathname)
+
     React.useEffect(() => {
 
         if (searchtext !== "") {
@@ -137,6 +140,7 @@ export default function Dispansires() {
             return () => clearTimeout(timeoutId);
         }
     }, [searchtext, state])
+
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
             dispatch({ type: 'route', route: "" })
@@ -158,6 +162,7 @@ export default function Dispansires() {
         }
 
     }
+
     const classes = useStyles()
     return (
         <div className="row  dispensaries_centers">

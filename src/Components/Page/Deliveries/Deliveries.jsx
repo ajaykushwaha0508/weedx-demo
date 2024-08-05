@@ -81,7 +81,7 @@ const Deliveries = () => {
             axios.post(
                 `https://apiv2.cannabaze.com/UserPanel/Update-SiteMap/11`,
                 {
-                    j: 'https://www.weedx.io' + modifystr(Location.pathname.replace(/\/+$/, ""))
+                    j: 'https://www.weedx.io'+Location?.pathname
                 }
             ).then((res) => {
             }).catch((err) => {
