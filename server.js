@@ -663,7 +663,8 @@ app.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, re
 });
 
 app.get('/sitemap.xml', (req, res) => {
-  const sitemap = `
+  const sitemap = 
+  `
     <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <sitemap>
         <loc>https://www.weedx.io/sitemap/products-sitemap.xml</loc>
