@@ -119,7 +119,7 @@ app.get("/sitemap/:category", async (req, res) => {
             `).join('')}
           </urlset>`;
         res.setHeader('Content-Type', 'text/xml');
-        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate') // Cache the feed for 24 hours
         res.write(sitemapXmll);
         res.end();
         //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
