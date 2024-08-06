@@ -174,7 +174,6 @@ app.get("/sitemap/:category", async (req, res) => {
               ${responsebrand.data.map((url) => `
                 <url>
                    <loc>${`${"https://www.weedx.io/brands"}/${modifystr(url.name)}/${url.id}`}</loc>
-
                   <changefreq>daily</changefreq>
                   <priority>0.7</priority>
                 </url>
