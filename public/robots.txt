@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: /checkout
-Sitemap: https://www.weedx.io/sitemap.xml
