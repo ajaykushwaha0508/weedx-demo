@@ -407,7 +407,8 @@ app.prepare().
     server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
       res.send(`User-agent: *
-   Disallow: /`);
+Disallow: /checkout
+Sitemap: https://www.weedx.io/sitemap.xml`);
     });
 
     // Handle all other routes with Next.js
