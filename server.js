@@ -404,7 +404,7 @@ app.prepare().
     //   }
     // });
 
-    server.get('/robots.txt', (req, res) => {
+      server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
       res.send(`User-agent: *
 Disallow: /checkout
