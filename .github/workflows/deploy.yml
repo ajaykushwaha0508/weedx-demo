@@ -44,7 +44,7 @@ jobs:
     
     - run: npm install --force
     
-    - run: CI=false npm run build -- --max-warnings=0
+    - run: npm run build
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
