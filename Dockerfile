@@ -5,13 +5,7 @@ FROM node:21
 WORKDIR /app
 
 # Copy the build directory, server.js, start.sh, node_modules, package.json, package-lock.json, and public directory
-COPY build ./build
-COPY server.js ./server.js
-COPY start.sh ./start.sh
-COPY node_modules ./node_modules
-COPY package.json ./package.json
-COPY package-lock.json ./package-lock.json
-COPY public ./public
+COPY . ./
 
 RUN npm install -g pm2
 
