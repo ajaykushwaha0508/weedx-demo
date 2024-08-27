@@ -412,6 +412,7 @@ Disallow:
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
 
+    
     // Handle all other routes with Next.js
     server.get('*', (req, res) => {
 
