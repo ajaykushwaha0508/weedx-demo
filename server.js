@@ -38,8 +38,6 @@ function modifystr(str) {
     return str.toLowerCase()
   }
 }
-
-
 app.prepare().
   then(() => {
     const server = express();
