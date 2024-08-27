@@ -72,7 +72,7 @@ const HomePageBanner = ({props}) => {
                                                         title="Weedx.io Promotion banner"
                                                         width={500}
                                                         height={10}
-                                                        quality={300}
+                                                        quality={50}
                                                         className='HomePageBanner_image'
                                         
                                                         loader={imageLoader}

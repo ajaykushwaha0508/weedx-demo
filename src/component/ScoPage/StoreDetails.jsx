@@ -39,12 +39,12 @@ function StoreDetails({ Despen  }) {
         media: {
             title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Media | Weedx.io`,
             description: `Browse media or menu from ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis delivery services with high quality products.`,
-            robot: "canonical",
+            robot: "noindex, follow",
         },
         menu: {
             title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Menu | Weedx.io`,
             description: `Browse media or menu from ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis delivery services with high quality products.`,
-            robot: "canonical",
+            robot: "noindex, follow",
         },
     };
 
@@ -91,12 +91,12 @@ function StoreDetails({ Despen  }) {
         <Head>
             <title>{metaTag.title}</title>
             <meta name="description" content={metaTag.description} />
-            <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io/${asPath}`}  />
+            <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`}  />
             <meta name="robots" content={metaTag.robot} />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={metaTag.title} />
             <meta property="og:description" content={metaTag.description} />
-            <meta property="og:url" content={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io/${asPath}`} />
+            <meta property="og:url" content={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`} />
             <meta property="og:image" content={Despen[0]?.Store_Image || ''} />
             <meta property="og:image:alt" content={Despen[0]?.Store_Name || ''} />
             <meta property="twitter:card" content="summary_large_image" />

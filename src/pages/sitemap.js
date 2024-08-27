@@ -1,6 +1,7 @@
 import Createcontext from "@/hooks/context"
 import Link from "next/link";
 import React from "react";
+import {SitemapSeo} from "@/component/ScoPage/DealsSeo"
 const Sitemap = () => {
     const { state } = React.useContext(Createcontext)
 
@@ -21,6 +22,7 @@ const Sitemap = () => {
     ]
     return (
         <div >
+            <SitemapSeo></SitemapSeo>
             {
                 pages.map((data , index) => {
                     return (

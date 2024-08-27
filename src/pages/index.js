@@ -6,12 +6,10 @@ const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'))
 const CategoryProduct = dynamic(() => import('../component/category/category'));
 const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
 const HomePageWeedBanner = dynamic(() => import('../component/home/HomePageWeedBanner'));
-const Map = dynamic(() => import('../component/home/map/map'));
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'));
 const NewsBlog = dynamic(() => import('../component/home/Newsblog'),  { ssr: true });
 // const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));
-import cookie from 'cookie';
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import Createcontext from "@/hooks/context";
 import { modifystr } from "@/hooks/utilis/commonfunction";
@@ -34,9 +32,9 @@ export default function Home({ initialData }) {
         <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>
         <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Shop Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
         <FeaturedBrand CardDataArray={initialData.brand} />
-        <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
+        {/* <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
           <Map height={"297px"} width={"100%"}></Map>
-        </div>
+        </div> */}
         <Staticcontent></Staticcontent>
         <NewsBlog data={initialData.news}></NewsBlog>
     </>
@@ -56,7 +54,7 @@ const transformString = (str) => {
 };
 
 export async function getServerSideProps(context) {
-  // console.log(context.req.headers['x-fetchlocation'], "index page")
+    // console.log(context.req.headers['x-fetchlocation'], "index page")
   const cookies = JSON.parse(context.req.headers['x-fetchlocation'] || '');
   const object = {
     City: transformString(cookies.city) || '',
