@@ -32,7 +32,7 @@ import { modifystr } from "@/hooks/utilis/commonfunction";
 import { useRouter } from "next/router";
 import htmlParser from 'html-react-parser';
 import Link from "next/link";
-import DOMPurify from "dompurify";
+
 const Blogs = (props) => {
     console.log(props.data[0].news)
     let News = props.data[0]
