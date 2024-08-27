@@ -90,12 +90,12 @@ function StoreDetails({ Despen, locationStore }) {
             <title>{metaTag.title}</title>
             <meta name="title" content={metaTag.title} />
             <meta name="description" content={metaTag.description} />
-            <link rel="canonical" href={`https://weedx.io${asPath}`} />
+            <link rel="canonical" href={`https://www.weedx.io/${asPath}`} />
             <meta name="robots" content={metaTag.robot} />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={metaTag.title} />
             <meta property="og:description" content={metaTag.description} />
-            <meta property="og:url" content={`https://weedx.io${asPath}`} />
+            <meta property="og:url" content={`https://www.weedx.io/${asPath}`} />
             <meta property="og:image" content={Despen[0]?.Store_Image || ''} />
             <meta property="og:image:alt" content={Despen[0]?.Store_Name || ''} />
             <meta property="twitter:card" content="summary_large_image" />
