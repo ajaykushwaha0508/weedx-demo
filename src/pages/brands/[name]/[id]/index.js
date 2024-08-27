@@ -11,7 +11,7 @@ import ProductSearchResult from "@/component/productcard/ProductSearchResult";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 const RelatedVerifyBrand = (props) => {
     const classes = useStyles()
-    const { pathname } = useRouter()
+    const { pathname ,asPath } = useRouter()
     const { state } = React.useContext(Createcontext)
     let { id, Name } = props.params;
     const navigate = useRouter()
@@ -46,17 +46,12 @@ const RelatedVerifyBrand = (props) => {
                     GetBrandDetails(response.data[0])
                 }
             })
-            // document.documentElement.scrollTo({
-            //     top: 0,
-            //     left: 0,
-            //     behavior: "instant", // Optional if you want to skip the scrolling animation
-            // });
         }
     }, [searchval, id])
     return (
         BrandDetails?.length !== 0 && <div className="container">
-              {state.permission === false && <Currentlocation></Currentlocation>}
-            <BrandDetailsSeo brandname={Name} location={pathname}></BrandDetailsSeo>
+              {state.permission && <Currentlocation></Currentlocation>}
+            <BrandDetailsSeo brandname={Name} location={asPath}></BrandDetailsSeo>
             <RelatedVerifyBanner BrandDetails={BrandDetails} />
             <div className="row  center mx-0 mt-4 mb-4">
                 <div className="col-md-3 px-0">

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 
-function StoreDetails({ Despen, locationStore }) {
+function StoreDetails({ Despen  }) {
     const { pathname, query, asPath } = useRouter();
     const tab = query.details ? query.details[1] : '';
     const isWeedDelivery = pathname.slice(0, 16) === "/weed-deliveries";
@@ -39,12 +39,12 @@ function StoreDetails({ Despen, locationStore }) {
         media: {
             title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Media | Weedx.io`,
             description: `Browse media or menu from ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis delivery services with high quality products.`,
-            robot: "NOINDEX, FOLLOW",
+            robot: "canonical",
         },
         menu: {
             title: `Weed Delivery in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Menu | Weedx.io`,
             description: `Browse media or menu from ${Despen[0]?.Store_Name} marijuana delivery in ${Despen[0]?.City}, ${Despen[0]?.State}. Get the best cannabis delivery services with high quality products.`,
-            robot: "NOINDEX, FOLLOW",
+            robot: "canonical",
         },
     };
 
@@ -84,18 +84,19 @@ function StoreDetails({ Despen, locationStore }) {
             "reviewCount": Despen[0]?.TotalRating?.toString() || "0",
         }
     };
+  
 
+    
     return (
         <Head>
             <title>{metaTag.title}</title>
-            <meta name="title" content={metaTag.title} />
             <meta name="description" content={metaTag.description} />
-            <link rel="canonical" href={`https://www.weedx.io/${asPath}`} />
+            <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io/${asPath}`}  />
             <meta name="robots" content={metaTag.robot} />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={metaTag.title} />
             <meta property="og:description" content={metaTag.description} />
-            <meta property="og:url" content={`https://www.weedx.io/${asPath}`} />
+            <meta property="og:url" content={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io/${asPath}`} />
             <meta property="og:image" content={Despen[0]?.Store_Image || ''} />
             <meta property="og:image:alt" content={Despen[0]?.Store_Name || ''} />
             <meta property="twitter:card" content="summary_large_image" />
