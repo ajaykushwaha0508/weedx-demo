@@ -7,7 +7,7 @@ function NewsSeo({location}) {
         return (
             <Head>
                 <title>{"Weedx Blog: Cannabis Knowledge & Industry Insights."}</title>
-                <meta name="title" content={`Weedx Blog: Cannabis Knowledge & Industry Insights.`}/>
+   
                 <meta name='description' content={" Stay informed with the WeedX Blog! Get the latest tips, trends, and expert insights on all things cannabis. Enhance your knowledge and stay ahead in the industry."} />
                 <link rel="canonical" href={`https://www.weedx.io/${location}`} /> 
                 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
@@ -48,7 +48,6 @@ function SingleNewsSeo({Title ,Description ,location}) {
     return (
         <Head>
             <title>{`${Title} | weedx.io`}</title>
-            <meta name="title" content={`${Title} | weedx.io`}/>
             <meta name='description' content={Description} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>

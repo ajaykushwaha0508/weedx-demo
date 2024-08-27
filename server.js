@@ -193,7 +193,7 @@ app.prepare().
           break
         case "/sitemap/delivery-stores-sitemap.xml":
           const response6 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`)
-          if (response6 && response6.data){
+          if (response6 && response6.data) {
             const dispensaryUrls = response6.data.filter(url => url.Store_Type !== "dispensary")
               .map(url => `
                   <url>
@@ -286,6 +286,206 @@ app.prepare().
           </url>
           </urlset>
           `);
+          res.end();
+
+          break
+        case "/sitemap/law-sitemap.xml":
+          res.setHeader('Content-Type', 'text/xml');
+          res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+          res.write(`<?xml version="1.0" encoding="UTF-8"?>
+  <urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alabama/1</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alaska/2</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-arizona/3</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-arkansas/4</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-california/5</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-colorado/6</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-connecticut/7</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-delaware/8</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-florida/9</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-georgia/10</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-guam/11</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-hawaii/12</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-idaho/13</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-illinois/14</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-indiana/15</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-kansas/16</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-kentucky/17</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-louisiana/18</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-lowa/19</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-maine/20</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-maryland/21</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-massachusetts/22</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-michigan/23</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-minnesota/24</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-washington/25</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-west-virginia/26</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wisconsin/27</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wyoming/28</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alberta/29</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-british-columbia/30</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-canada/31</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-manitoba/32</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-brunswickers/33</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-newfoundland-and-labrador/34</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-northwest-territories/35</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nova-scotia/36</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nunavut/37</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-ontario/38</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
+</urlset>`);
           res.end();
 
           break
@@ -402,7 +602,7 @@ app.prepare().
     //   }
     // });
 
-      server.get('/robots.txt', (req, res) => {
+    server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
       res.send(`User-agent: *
 Disallow:  
@@ -410,7 +610,7 @@ Disallow:
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
 
-    
+
     // Handle all other routes with Next.js
     server.get('*', (req, res) => {
 

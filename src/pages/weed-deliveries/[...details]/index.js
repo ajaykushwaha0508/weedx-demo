@@ -304,7 +304,7 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-    console.log(!location.asPath.includes('/menu-integration')  ,'dfhgfhxfn fdb xhxf')
+
     return (
       
             // !Despen.length ? <Loader /> 
