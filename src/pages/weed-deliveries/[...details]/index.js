@@ -210,6 +210,8 @@ export default function DispensoriesDetails(props) {
 
         }
     }, [state.Profile, id, api])
+
+    
     const onSubmit = () => {
 
         const formdata = new FormData();
@@ -302,7 +304,7 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-    // console.log(params.asPath ,'dfhgfhxfn fdb xhxf')
+    console.log(!location.asPath.includes('/menu-integration')  ,'dfhgfhxfn fdb xhxf')
     return (
       
             // !Despen.length ? <Loader /> 
@@ -426,8 +428,8 @@ export default function DispensoriesDetails(props) {
                                     <div className="iconcircl"> <Image unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
                                 </div>
                                 <h3 className="noreview_title">{`Discover More Savings Soon!`}</h3>
-                                <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
-                                <p className="noreview_description w-lg-50">{`In the meantime, explore the diverse range of products available at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
+                                <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<b>{Despen[0]?.Store_Name}</b>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
+                                <p className="noreview_description w-lg-50">{`In the meantime, explore the diverse range of products available at `}<b>{Despen[0]?.Store_Name}</b>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
                             </div>
                         }
                     </div>
@@ -452,7 +454,6 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
     const storeId = _.findIndex(context.params.details, item => !isNaN(parseInt(item)));
-    console.log(context.params.details[storeId])
     // console.log(context.params.details[storeId])
     let data = [];
     let productdata = []

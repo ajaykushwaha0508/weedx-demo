@@ -91,22 +91,22 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
             })
         }
         else {
-            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
-            ).then((respones) => {
+            // axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
+            // ).then((respones) => {
                
-                if(Boolean(respones?.data)){
-                    let newdata = respones.data.Blog.map((data) => {
-                        return { "link": `/${data.category_name==="BLOGS"? "blogs":"cannabis-news"}/${modifystr(data.Title)}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.created }
-                    })
-                    Setnotificationdata(()=>newdata)
+            //     if(Boolean(respones?.data)){
+            //         let newdata = respones.data.Blog.map((data) => {
+            //             return { "link": `/${data.category_name==="BLOGS"? "blogs":"cannabis-news"}/${modifystr(data.Title)}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.created }
+            //         })
+            //         Setnotificationdata(()=>newdata)
 
-                }
-                else {
-                    Setnotificationdata([{ ...notificationdata, "link": `/`, 'title': "Welcome TO WeedX" }])
-                }
-            }).catch((err) => {
+            //     }
+            //     else {
+            //         Setnotificationdata([{ ...notificationdata, "link": `/`, 'title': "Welcome TO WeedX" }])
+            //     }
+            // }).catch((err) => {
 
-            })
+            // })
         }
     }, [state.login])
 

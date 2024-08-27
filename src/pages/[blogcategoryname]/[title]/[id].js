@@ -26,13 +26,15 @@ import _ from "lodash"
 import Cookies from 'universal-cookie';
 import { RWebShare } from "react-web-share";
 import { WhisList } from "@/component/Whishlist/WhisList";
-// import { useLocation, useParams  } from "react-router-dom";
 import axios from "axios";
 import { SingleNewsSeo } from "@/component/ScoPage/NewsSeo";
 import { modifystr } from "@/hooks/utilis/commonfunction";
 import { useRouter } from "next/router";
+import htmlParser from 'html-react-parser';
 import Link from "next/link";
+import DOMPurify from "dompurify";
 const Blogs = (props) => {
+    console.log(props.data[0].news)
     let News = props.data[0]
     const ref = useRef(null)
     const classes = useStyles()
@@ -145,18 +147,19 @@ const Blogs = (props) => {
             console.error(error)
         })
     }
-
+    function createMarkup(c) {
+        return { __html: c };
+    }
 
     if (!Object.keys(News).length) {
         return <BlogSkeleton />
     }
 
-
     else {
 
         // console.log(News)
         return (
-            <React.Fragment>
+            <>
                 <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={props.url}></SingleNewsSeo>
                 <div className="container" >
                     <div className="row mx-1" ref={ref}>
@@ -170,12 +173,6 @@ const Blogs = (props) => {
                         </div>
 
                         <div className="p-0 blogEditorContainer">
-                            <div className=" UserNmae_Blog">
-
-                                <div className="UserNmae">
-
-                                </div>
-                            </div>
                             <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
                                 <div className="overlay_blog"></div>
                                 <h1 className="blog_Title ">{News?.Title}</h1>
@@ -183,7 +180,9 @@ const Blogs = (props) => {
                             <div className="blog_text_container"  >
                                 <div className="blogEditorPaddings ">
 
-                                    <div className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html: News?.Description }} />
+                                    <div className="linkTaginsideEditer" dangerouslySetInnerHTML={{
+                        __html:News.Description,
+                      }} />
                                 </div>
                             </div>
                             <div className="blog_text_container" >
@@ -223,7 +222,7 @@ const Blogs = (props) => {
                                     </div>
                                     <div className="col viewsBlog BlogSocal like" id="center1">
                                         <IconButton onClick={(() => { PostLike(color()?.like) })}>
-                                            <AiFillHeart 
+                                            <AiFillHeart
                                             // color={state?.login && color()?.like && "#31B665"}
                                             ></AiFillHeart>
                                         </IconButton>
@@ -325,7 +324,7 @@ const Blogs = (props) => {
 
                                                                                         <FaEdit color='31B665' />
                                                                                         Edit
-                                                                                    </ListItem>                                                                                                      
+                                                                                    </ListItem>
                                                                                 </List>
                                                                             </Select>
 
@@ -396,7 +395,7 @@ const Blogs = (props) => {
                     </div>
                 </div>
                 <Newsletter />
-            </React.Fragment>
+            </>
         )
     }
 }
@@ -422,14 +421,15 @@ export async function getStaticProps(context) {
         }
 
         const data = await res.json();
-        // console.log(data)
+        const parsedDescription = htmlParser(data[0].Description);
+        // console.log(parsedDescription)
         return {
             props: {
-            
-                    data: data,
-                    url: "context.resolvedUrl",
-                    category: blogcategoryname,
-                
+                // news: parsedDescription,
+                data: data,
+                url: "context.resolvedUrl",
+                category: blogcategoryname,
+
             },
         };
     } catch (error) {
