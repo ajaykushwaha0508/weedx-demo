@@ -33,7 +33,7 @@ const RecentPost = () => {
                                 {News?.map((ele, index) => {
   
                                         return (
-                                            <Link href={`/${ele.Category_Name==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index}> 
+                                            <Link href={`/${ele.CategoryName==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index}> 
                                                 <div className="new_blog_card">
                                                     <div className="new_blog_card_img">
                                                         <Image width={500} height={500}

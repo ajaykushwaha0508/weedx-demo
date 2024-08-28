@@ -20,6 +20,9 @@ export async function getServerSideProps({ res }) {
     <sitemap>
       <loc>https://www.weedx.io/sitemap/news-sitemap.xml</loc>
     </sitemap>
+     <sitemap>
+      <loc>https://www.weedx.io/sitemap/blogs-sitemap.xml</loc>
+    </sitemap>
     <sitemap>
       <loc>https://www.weedx.io/sitemap/delivery-stores-sitemap.xml</loc>
     </sitemap>

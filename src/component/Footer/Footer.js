@@ -9,6 +9,7 @@ import { BiMobile } from "react-icons/bi"
 import { HiOutlineMail } from "react-icons/hi"
 import Image from "next/image"
 import logoimage from '../../../public/image/weedx.io logo.png'
+// import logoimage from '../../../public/weedx.iologo.png'
 import Link from "next/link"
 import { modifystr } from "@/hooks/utilis/commonfunction"
 const Footer = () => {
