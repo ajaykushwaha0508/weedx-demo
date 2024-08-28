@@ -1,7 +1,6 @@
 import Head from "next/head"
 
 function NewsSeo({location}) {
-    console.log(location)
  
     if(location === 'blogs'){
         return (
@@ -43,7 +42,7 @@ function NewsSeo({location}) {
         )
     }
 }
-function SingleNewsSeo({Title ,Description ,location}) {
+function SingleNewsSeo({Title ,Description ,location , image}) {
     
     return (
         <Head>
@@ -56,6 +55,7 @@ function SingleNewsSeo({Title ,Description ,location}) {
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`${Title} | weedx.io`} />
             <meta property="og:description" content={Description} />
+            <meta property="og:image" content={image} />
             { /* End Facebook tags */}
 
             { /* Twitter tags */}
@@ -63,6 +63,7 @@ function SingleNewsSeo({Title ,Description ,location}) {
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
             <meta name="twitter:title" content={`${Title} | weedx.io`} />
             <meta name="twitter:description" content={Description} />
+            <meta property="og:image" content={image} />
         </Head>
     )
 }
