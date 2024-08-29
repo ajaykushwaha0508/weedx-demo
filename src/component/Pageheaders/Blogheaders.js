@@ -39,7 +39,7 @@ const Blogheaders = (props) => {
         return () => clearTimeout(getData)
       }, [searchtext])
   return (
-    <div className='p-md-0 p-2 d-md-flex  justify-content-between align-items-center'>
+    <div className='p-md-0 d-md-flex  justify-content-between align-items-center'>
         <div className='col-lg-3'> <h1 className='section_main_title'>{props.title}</h1> </div>
         <ClickAwayListener onClickAway={()=>{setsearchtext('');setallblogs([])}}>
           <div className='customsearchbarbox'>

@@ -16,8 +16,8 @@ const HomePageBanner = ({props}) => {
     };
 
     const imageLoader = ({ src, width, quality }) => {
-        return `${src}`
-      }
+    return `${src}?w=${width}&q=${quality || 100}`;
+    }
     return (
         <React.Fragment>
             {
@@ -35,14 +35,15 @@ const HomePageBanner = ({props}) => {
                                         <SwiperSlide key={index}>
                                             <div className='col-12 homePageBanner_container'>
                                                 <a href={items?.Link !== null ? items?.Link : "#"}>
-                                                    <Image  src={items?.Banner}
+                                                    <Image  
+                                                    src={items?.Banner}
                                                         alt="Weedx.io Promotion banner"
                                                         title="Weedx.io Promotion banner"
                                                         width={1500}
-                                                        quality={75}
+                                                        quality={1}
                                                         height={500}
                                                         loader={imageLoader}
-                                                        unoptimized={true}
+                                                        // unoptimized={true}
                                                         className='HomePageBanner_image'
                                                     />
                                                 </a>
@@ -72,7 +73,7 @@ const HomePageBanner = ({props}) => {
                                                         title="Weedx.io Promotion banner"
                                                         width={500}
                                                         height={10}
-                                                        quality={50}
+                                                        quality={10}
                                                         className='HomePageBanner_image'
                                         
                                                         loader={imageLoader}
