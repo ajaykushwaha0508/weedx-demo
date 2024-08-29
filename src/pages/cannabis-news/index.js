@@ -83,9 +83,10 @@ const Allblogs = (props) => {
                   <div className="blogCardImg">
                     <Link href={blogUrl}>
                       <Image
-                        unoptimized={true}
+                        // unoptimized={true}
                         width={500}
                         height={500}
+                        quality={100}
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}
