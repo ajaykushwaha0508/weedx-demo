@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import { RWebShare } from "react-web-share";
 import { useState } from "react";
 import React from "react";
-// import '../../../../../styles/AppStyle.css'
+import { useRouter } from "next/router";
 import Image from "next/image";
 const RelatedVerifyBanner = ({ BrandDetails }) => {
     const [readmore, setreadmore] = useState(false)
@@ -13,7 +13,6 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
             setreadmore(!readmore)
         }
     };
-
     return (
             <div className="brandProfileBanner row center">
 
@@ -23,7 +22,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                       <div className="shareiconcontainer ">
                         <IconButton aria-label="share icons">
                             <RWebShare
-                                data={{ url: window.location.href }}
+                                data={{ url: 'https://www.weedx.io/'+useRouter().asPath}}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665" >

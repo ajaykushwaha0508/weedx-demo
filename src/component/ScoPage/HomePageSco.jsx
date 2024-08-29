@@ -3,8 +3,9 @@ import Head from "next/head"
 function HomePageSco({location  }) {
     return (
         <Head>
+            
             <title>{"Marijuana Dispensaries & Delivery Near Me | weedx.io |"}</title>
-            <meta name="title" content={`Marijuana Dispensaries & Delivery Near Me | weedx.io |`}/>
+           
             <meta name='description' content={" In weedx.io, find high quality Recreational and Medical Marijuana Dispensaries & Delivery Near you. Order online and get best deals on your weed near you"} />
             <link rel="canonical" href={`https://www.weedx.io`} /> 
             <meta itemProp="name" content="WeedX" />

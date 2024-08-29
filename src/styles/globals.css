@@ -801,6 +801,7 @@ overflow-x: hidden; */
   }
 }
 #layout {
+  margin-top: 130px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -3755,8 +3756,8 @@ border-radius: 3px;
   gap: 0;
   border: 1px solid gray;
   border-radius: 5px;
-  padding: 5px;
-  /* overflow: hidden; */
+  /* padding: 5px; */
+  overflow: hidden;
   position: relative;
 }
 .customsearchbarbox input{

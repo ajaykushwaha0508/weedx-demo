@@ -152,7 +152,6 @@ function Embedded({ Despen, locationStore  }) {
     return (
         <Head>
             <title>{MetaTag.title}</title>
-            <meta name="title" content={`Marijuana Dispensaries & Delivery Near Me | weedx.io |`} />
             <meta name='description' content={MetaTag.discription} />
             <link rel="canonical" href={`https://www.weedx.io${locationStore}`} />
             <meta itemProp="name" content="WeedX" />

@@ -105,7 +105,7 @@ const Navbar = () => {
     return (
         <React.Fragment>
             <div className='container p-0'>
-                <div ref={ref} className='sticky-top' id='Navbar_box' style={{ background: "white", padding: "10px 0" }}>
+                <div ref={ref}  id='Navbar_box' style={{ background: "white", padding: "10px 0" }}>
                     <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                         {
                             Hamburger ?
@@ -143,7 +143,7 @@ const Navbar = () => {
                         </Grid>
                         <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                             <div className='col-12 Login_Sigup_button Heder_icon' style={{ justifyContent: "end", marginLeft: "-20px" }}>
-                                <Link href="/WhisLists">
+                                <Link href="/whislists">
                                     <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
                                         <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
                                     </Badge>

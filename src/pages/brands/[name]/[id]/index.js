@@ -1,17 +1,16 @@
 import RelatedVerifyBanner from "@/component/Brand/RelatedVerifyBrand/RelatedVerifyComponent/RelatedVerifyBrandBanner"
 import SearchBar from '@mkyy/mui-search-bar';
-
 import { useRouter } from "next/router";
 import React from "react";
-import Axios from "axios";
 import useStyles from "@/styles/style";
 import Createcontext from "@/hooks/context"
 import { BrandDetailsSeo } from "@/component/ScoPage/BrandsSeo";
 import ProductSearchResult from "@/component/productcard/ProductSearchResult";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
+import { modifystr } from "@/hooks/utilis/commonfunction";
 const RelatedVerifyBrand = (props) => {
     const classes = useStyles()
-    const { pathname ,asPath } = useRouter()
+    const { pathname, asPath } = useRouter()
     const { state } = React.useContext(Createcontext)
     let { id, Name } = props.params;
     const navigate = useRouter()
@@ -19,57 +18,40 @@ const RelatedVerifyBrand = (props) => {
     const [searchval, Setsearchval] = React.useState("")
     const [BrandDetails, GetBrandDetails] = React.useState([])
 
-    React.useEffect(() => {
-        if (searchval?.length !== 0) {
-            const getData = setTimeout(() => {
-                Axios.post(`https://api.cannabaze.com/UserPanel/SearchProductbyBrand/`, {
-                    "brand": id,
-                    "search": searchval,
-                }).then((response) => {
-                    SetBrandProduct(response.data);
-                });
-            }, 1000)
+    // React.useEffect(() => {
+    //     if (searchval?.length !== 0) {
+    //         const getData = setTimeout(() => {
+    //             Axios.post(`https://api.cannabaze.com/UserPanel/SearchProductbyBrand/`, {
+    //                 "brand": id,
+    //                 "search": searchval,
+    //             }).then((response) => {
+    //                 SetBrandProduct(response.data);
+    //             });
+    //         }, 1000)
 
-            return () => clearTimeout(getData)
-        } else {
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${id}`,
-            ).then(response => {
-                SetBrandProduct(response.data)
-            })
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-BrandById/${id}`,
-            ).then(response => {
-                if (response.data.length === 0) {
-                    navigate.push("/404")
-                }
-                else {
-
-                    GetBrandDetails(response.data[0])
-                }
-            })
-        }
-    }, [searchval, id])
+    //         return () => clearTimeout(getData)
+    //     } 
+    // }, [searchval])
     return (
-        BrandDetails?.length !== 0 && <div className="container">
-              {state.permission && <Currentlocation></Currentlocation>}
-            <BrandDetailsSeo brandname={Name} location={asPath}></BrandDetailsSeo>
-            <RelatedVerifyBanner BrandDetails={BrandDetails} />
+      <div className="container">
+            {state.permission && <Currentlocation></Currentlocation>}
+            <BrandDetailsSeo brandname={props.params.brand[0].name.toLowerCase()} location={asPath}></BrandDetailsSeo>
+            <RelatedVerifyBanner BrandDetails={props.params.brand[0]} />
             <div className="row  center mx-0 mt-4 mb-4">
-                <div className="col-md-3 px-0">
-                    {/* <ProductFilter/> */}
-                </div>
                 <div className="col-md-9">
-                    <div>  <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }}
+                    <div> 
+                         {/* <SearchBar style={{ background: "#FFFFF", border: "1px solid #31B665" }}
 
                         value={searchval} onChange={(e) => { Setsearchval(e) }}
                         className={classes.strainTypSearchBar}
                         width={"100%"} placeholder="Search Menu"
                         closeIcon={<button onClick={() => Setsearchval("")}>clear</button>}
-                    />
+                    /> */}
                     </div>
                 </div>
 
             </div>
-            <ProductSearchResult RelatedProductResult={BrandProduct} />
+            <ProductSearchResult RelatedProductResult={props.params.product} />
         </div>
     )
 }
@@ -78,12 +60,38 @@ export default RelatedVerifyBrand
 
 
 export async function getServerSideProps(context) {
-    return {
-      props: {
-        params: {
-          id: context.params.id ,
-          Name:context.params.name
+
+    let product = []
+    let brand = []
+    try {
+        const brandresponse = await (await fetch(`https://api.cannabaze.com/UserPanel/Get-BrandById/${context.params.id}`)).json();
+        if (modifystr(context.params.name) === modifystr(brandresponse[0].name) && parseInt(brandresponse[0].id) === parseInt(context.params.id)) {
+            brand =  brandresponse
+            const response = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${context.params.id}`);
+            if (response.ok) {
+                product = await response.json();
+            } else {
+                product =  []
+            }
         }
-      }
+        else {
+            return {
+                notFound: true, // Redirect to 404 if no data found
+            };
+        }
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+
+    return {
+        props: {
+            params: {
+                id: context.params.id,
+                Name: context.params.name ,  
+                product: product,
+                brand:brand
+            }
+        }
     };
-  }
+}

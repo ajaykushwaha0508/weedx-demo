@@ -45,7 +45,6 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
     return (
         <Head>
             <title> {`${Productname}  `}</title>
-            <meta name="title" content={`${Productname}`} />
             <meta name='description' content={`${Productnm} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis ${useRouter().pathname.slice(0, 16) === "/weed-deliveries" ? `Delivery` : `Dispensary`} in ${City}, ${State}.`} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} />
             <meta name="robots" content={robot}></meta>
@@ -75,7 +74,6 @@ function ProductSeo({ location, review }) {
 
         <Head>
             <title>{"Shop High-Quality Marijuana products Near You | weedx.io |"}</title>
-            <meta name="title" content={`Shop High-Quality Marijuana products Near You | weedx.io |`} />
             <meta name='description' content={"Shop High-Quality Marijuana products from top brands near you. Recreational and Medical Marijuana Dispensaries & Delivery Near me. Order online from weedx.io"} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
@@ -103,7 +101,6 @@ function ProductCategorySeo({ categoryname, location }) {
 
         <Head>
             <title>{`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`}</title>
-            <meta name="title" content={`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`} />
             <meta name='description' content={` weedx.io best place to find your favorite Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You. Explore different strains from different brands with different deals and offers.`} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
