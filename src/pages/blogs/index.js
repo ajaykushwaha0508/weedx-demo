@@ -80,73 +80,75 @@ const Allblogs = (props) => {
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
               <div className="row blogListCard mx-0" key={index}>
-                <div className="col-3 p-0 d-flex align-items-center">
+                <div className='blogTOp'>
+                  <div className="col-4 blog1">
                     <Link href={blogUrl}>
-                  <div className={classes.blogCardImage}>
                       <Image
+                        className='imageBlogSection'
+                        width={100}
+                        height={100}
                         unoptimized={true}
-                        width={280}
-                        height={250}
                         src={items.Image}
-                        alt={items.Alt_Text || ''}
+                        alt={items.Alt_Text}
                         title={items.Alt_Text}
                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                       />
+                    </Link>
+
                   </div>
-                    </Link>
-                </div>
-                <div className="col-9">
-                  <div className="blogcardText">
-                    <div className="blogDate">
-                      <span>{items.Publish_Date.slice(0, 10)}</span>
-                    </div>
-                    <Link href={blogUrl}>
-                      <h2 className="blogcardHeading">{items.Title}</h2>
-                    </Link>
-                    <div
-                    onClick={()=>{ router.push(blogUrl)}}
-                      className="blogcardDescription"
-                      dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
-                    />
-                    <div className="row extra_function extra_function_destop">
-                      <div className="col-3">
-                        <span className="action_icons"><AiFillEye /></span>
-                        <span>{items.ViewCount} Views</span>
+                  <div className="col">
+                    <div className="blogcardText">
+                      <div className="blogDate">
+                        <span>{items.Publish_Date.slice(0, 10)}</span>
                       </div>
-                      <div className="col-3">
-                        <span className="action_icons"><BiCommentDetail /></span>
-                        <span>{items.commentCount}</span>
-                      </div>
-                      <div className="col-3">
-                        <span
-                          onClick={() => PostLike(items)}
-                          className="action_icons"
-                        >
-                          {state?.login && items.Liked ? (
-                            <AiFillHeart color="#31B655" />
-                          ) : (
-                            <FaRegHeart color="#31B655" />
-                          )}
-                        </span>
-                        <span>{items.likeCount}</span>
-                      </div>
-                      <div className="col-3">
-                        <span className="action_icons">
-                          <RWebShare
-                            data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
-                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                            onClick={() => console.info("share successful!")}
-                            color="#31B665"
+                      <Link href={blogUrl}>
+                        <h2 className="blogcardHeading">{items.Title}</h2>
+                      </Link>
+                      <div
+                        onClick={() => { router.push(blogUrl) }}
+                        className="blogcardDescription"
+                        dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
+                      />
+                      <div className="row extra_function extra_function_destop">
+                        <div className="col-3">
+                          <span className="action_icons"><AiFillEye /></span>
+                          <span>{items.ViewCount} Views</span>
+                        </div>
+                        <div className="col-3">
+                          <span className="action_icons"><BiCommentDetail /></span>
+                          <span>{items.commentCount}</span>
+                        </div>
+                        <div className="col-3">
+                          <span
+                            onClick={() => PostLike(items)}
+                            className="action_icons"
                           >
-                            <BsShareFill />
-                          </RWebShare>
-                        </span>
-                        <span>Share</span>
+                            {state?.login && items.Liked ? (
+                              <AiFillHeart color="#31B655" />
+                            ) : (
+                              <FaRegHeart color="#31B655" />
+                            )}
+                          </span>
+                          <span>{items.likeCount}</span>
+                        </div>
+                        <div className="col-3">
+                          <span className="action_icons">
+                            <RWebShare
+                              data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
+                              sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                              onClick={() => console.info("share successful!")}
+                              color="#31B665"
+                            >
+                              <BsShareFill />
+                            </RWebShare>
+                          </span>
+                          <span>Share</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-12">
+                <div className="col-12 mt-1">
                   <div className="row extra_function extra_function_mobile">
                     <div className="col-3">
                       <span className="action_icons"><AiFillEye /></span>
@@ -170,7 +172,7 @@ const Allblogs = (props) => {
                       </span>
                     </div>
                     <div className="col-3">
-                         <button> loadmore</button>
+                      {/* Additional actions can be added here */}
                     </div>
                   </div>
                 </div>

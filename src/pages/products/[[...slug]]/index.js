@@ -243,7 +243,7 @@ export const getServerSideProps = async (context) => {
         City: transformString(locationData.city),
         Country: transformString(locationData.country),
         State: transformString(locationData.state),
-        limit: 20
+        limit: 1000
     };
 
     let product = [];

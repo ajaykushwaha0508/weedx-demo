@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
   const cookies = new Cookies();
   const Layout = layouts[Component.layout] || layouts.default;
   const isNotWeedPath = !/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname);
+
   React.useEffect(() => {
     NProgress.configure({ showSpinner: false });
     const handleStart = () => {
@@ -43,6 +44,7 @@ export default function App({ Component, pageProps }) {
       Router.events.off('routeChangeError', handleStop);
     };
   }, []);
+  
   return (
     <GoogleOAuthProvider clientId="418178406595-vqsd5staarqh0pibnho4l4s63gio1bm4.apps.googleusercontent.com">
       <Context>

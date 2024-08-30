@@ -17,6 +17,8 @@ function NewsSeo({location}) {
                 <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
                 <meta name="twitter:title" content={"Weedx Blog: Cannabis Knowledge & Industry Insights."} />
                 <meta name="twitter:description" content={" Stay informed with the WeedX Blog! Get the latest tips, trends, and expert insights on all things cannabis. Enhance your knowledge and stay ahead in the industry."} />
+                <meta property="og:image" content={'/WEEDX(1).png'} />
+           
             </Head>
         )
     }else{
@@ -31,6 +33,7 @@ function NewsSeo({location}) {
                 <meta property="og:type" content={"website"} />
                 <meta property="og:title" content={"Today's Latest Cannabis and Marijuana News | weedx.io"} />
                 <meta property="og:description" content={" Weedx.io: Your trusted source for the latest cannabis industry news, updates, trends, and insights. Discover breaking stories and expert analysis here."} />
+                <meta property="og:image" content={'/WEEDX(1).png'} />
                 { /* End Facebook tags */}
     
                 { /* Twitter tags */}

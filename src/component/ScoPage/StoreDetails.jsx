@@ -84,14 +84,12 @@ function StoreDetails({ Despen  }) {
             "reviewCount": Despen[0]?.TotalRating?.toString() || "0",
         }
     };
-  
-
     
     return (
         <Head>
             <title>{metaTag.title}</title>
             <meta name="description" content={metaTag.description} />
-            <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`}  />
+            <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${ asPath.includes('weed-deliveries') ? "weed-deliveries" : 'weed-dispensaries'}/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`}  />
             <meta name="robots" content={metaTag.robot} />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={metaTag.title} />
