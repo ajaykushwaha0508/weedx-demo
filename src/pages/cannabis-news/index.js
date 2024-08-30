@@ -79,74 +79,76 @@ const Allblogs = (props) => {
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
               <div className="row blogListCard mx-0" key={index}>
-                <div className="col-3 p-0 d-flex align-items-center">
-                  <div className="blogCardImg">
+                <div className='blogTOp'>
+                  <div className="col-4 blog1">
                     <Link href={blogUrl}>
                       <Image
-                        // unoptimized={true}
-                        width={500}
-                        height={500}
-                        quality={100}
+                        className='imageBlogSection'
+                        width={100}
+                        height={100}
+                        // quality={100}
+                        unoptimized={true}
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}
                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                       />
                     </Link>
+
                   </div>
-                </div>
-                <div className="col-9">
-                  <div className="blogcardText">
-                    <div className="blogDate">
-                      <span>{items.Publish_Date.slice(0, 10)}</span>
-                    </div>
-                    <Link href={blogUrl}>
-                      <h2 className="blogcardHeading">{items.Title}</h2>
-                    </Link>
-                    <div
-                    onClick={()=>{ router.push(blogUrl)}}
-                      className="blogcardDescription"
-                      dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
-                    />
-                    <div className="row extra_function extra_function_destop">
-                      <div className="col-3">
-                        <span className="action_icons"><AiFillEye /></span>
-                        <span>{items.ViewCount} Views</span>
+                  <div className="col">
+                    <div className="blogcardText">
+                      <div className="blogDate">
+                        <span>{items.Publish_Date.slice(0, 10)}</span>
                       </div>
-                      <div className="col-3">
-                        <span className="action_icons"><BiCommentDetail /></span>
-                        <span>{items.commentCount}</span>
-                      </div>
-                      <div className="col-3">
-                        <span
-                          onClick={() => PostLike(items)}
-                          className="action_icons"
-                        >
-                          {state?.login && items.Liked ? (
-                            <AiFillHeart color="#31B655" />
-                          ) : (
-                            <FaRegHeart color="#31B655" />
-                          )}
-                        </span>
-                        <span>{items.likeCount}</span>
-                      </div>
-                      <div className="col-3">
-                        <span className="action_icons">
-                          <RWebShare
-                            data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
-                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                            onClick={() => console.info("share successful!")}
-                            color="#31B665"
+                      <Link href={blogUrl}>
+                        <h2 className="blogcardHeading">{items.Title}</h2>
+                      </Link>
+                      <div
+                        onClick={() => { router.push(blogUrl) }}
+                        className="blogcardDescription"
+                        dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
+                      />
+                      <div className="row extra_function extra_function_destop">
+                        <div className="col-3">
+                          <span className="action_icons"><AiFillEye /></span>
+                          <span>{items.ViewCount} Views</span>
+                        </div>
+                        <div className="col-3">
+                          <span className="action_icons"><BiCommentDetail /></span>
+                          <span>{items.commentCount}</span>
+                        </div>
+                        <div className="col-3">
+                          <span
+                            onClick={() => PostLike(items)}
+                            className="action_icons"
                           >
-                            <BsShareFill />
-                          </RWebShare>
-                        </span>
-                        <span>Share</span>
+                            {state?.login && items.Liked ? (
+                              <AiFillHeart color="#31B655" />
+                            ) : (
+                              <FaRegHeart color="#31B655" />
+                            )}
+                          </span>
+                          <span>{items.likeCount}</span>
+                        </div>
+                        <div className="col-3">
+                          <span className="action_icons">
+                            <RWebShare
+                              data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
+                              sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                              onClick={() => console.info("share successful!")}
+                              color="#31B665"
+                            >
+                              <BsShareFill />
+                            </RWebShare>
+                          </span>
+                          <span>Share</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-12">
+                <div className="col-12 mt-1">
                   <div className="row extra_function extra_function_mobile">
                     <div className="col-3">
                       <span className="action_icons"><AiFillEye /></span>
@@ -206,16 +208,16 @@ export async function getStaticProps(context) {
       body: JSON.stringify({
         "category": 1,
         "limit": 1000
-    })
+      })
     }).catch(() => null);
-    const json =  await  res.json()
+    const json = await res.json()
     const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field  
     // console.log(data)
     return {
       props: {
         initialData: data,
       },
-       revalidate: 60,
+      revalidate: 60,
     };
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -223,7 +225,7 @@ export async function getStaticProps(context) {
       props: {
         initialData: [],
       },
-       revalidate: 60,
+      revalidate: 60,
     };
   }
 }

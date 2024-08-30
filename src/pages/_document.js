@@ -72,7 +72,7 @@ export default class MyDocument extends Document {
           />
 
           {/* Website JSON-LD */}
-          {/* <script
+          <script
             id="website-jsonld"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -89,7 +89,7 @@ export default class MyDocument extends Document {
               }
               `,
             }}
-          /> */}
+          />
 
         </Head>
         <body>

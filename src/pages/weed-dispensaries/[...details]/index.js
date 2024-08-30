@@ -74,6 +74,7 @@ export default function DispensoriesDetails(props) {
             }
         ).then(async response => {
             const d = []
+            var flattenedArray = Object.values(response.data).flat()
             response.data.map((data) => {
                 d.push(data[0])
                 var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
@@ -126,6 +127,7 @@ export default function DispensoriesDetails(props) {
         }
 
     }
+    
     function ShowCategoryProduct(Id, name) {
         dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
