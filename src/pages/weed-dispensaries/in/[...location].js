@@ -154,7 +154,7 @@ const Dispensaries = (props) => {
             country: props?.location?.country,
             state: props?.location?.state,
             city: props?.location?.city,
-            route:props?.location?.route,
+            route: props?.location?.route,
             formatted_address: props?.formatted_address
         };
         const date = new Date();
@@ -182,7 +182,7 @@ const Dispensaries = (props) => {
             }
 
             // Use shallow routing to navigate to the constructed URL
-
+            console.log(props.isDirectHit)
             props.isDirectHit && navigate.replace(url, 0, { shallow: true });
         }
     }, [props.location]);
@@ -245,27 +245,58 @@ const Dispensaries = (props) => {
                             </Box>
                             <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
                                 <TabPanel value={value} index={0}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}  urlcscr = {props.location}/>
+                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={1}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}  urlcscr = {props.location}/>
+                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata}  urlcscr = {props.location}/>
+                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr = {props.location} />
+                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                             </Box>
                         </Box>
                         :
-                        <Wronglocation  title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
+                        <Wronglocation title={' No dispensaries available'} description={'We apologize, but it appears that there are no dispensaries available in your location. Would you like to enter a different address to search for a nearby dispensary?'} />
                     )
                 }
             </div>
         </div>
     );
 };
+
+async function postData(createurl, value, address) {
+    const url = 'https://api.cannabaze.com/UserPanel/Update-SiteMap/14';
+    const data = {
+      j: createurl,
+      address: value,
+      formate: ", " + address
+    };
+  
+    try {
+      const response = await fetch(url, {
+        method: 'POST', // Specify the request method as POST
+        headers: {
+          'Content-Type': 'application/json', // Set the content type to JSON
+        },
+        body: JSON.stringify(data) // Convert the data object to a JSON string
+      });
+  
+      if (!response.ok) {
+          console.trace(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json(); // Parse the JSON response
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+  
+  
+
+
 export const getServerSideProps = async (context) => {
     const cookies = cookie.parse(context.req.headers.cookie || '');
     context.res.setHeader(
@@ -301,17 +332,24 @@ export const getServerSideProps = async (context) => {
 
     if (isDirectHit) {
         const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-        const k = await Location(decodedLocation, type);
+        const k = await Location(decodedLocation, type , context , 14 , 'dispensaries');
         country1 = k.country || "";
         state = k.state || "";
         city = k.city || "";
         route = k.route || ""
         formatted_address = k.formatted_address || "";
     } else {
-        formatted_address = JSON.parse(cookies.fetchlocation).formatted_address
         country1 = locationParams[0] || "";
         state = locationParams[1] || "";
         city = locationParams[2] || "";
+        formatted_address = JSON.parse(cookies.fetchlocation).formatted_address
+       const createurl = Boolean(route) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+       : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
+         : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
+           : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
+     await postData(createurl, true, formatted_address)
+        
+      
     }
 
     const object = {
