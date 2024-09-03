@@ -53,14 +53,13 @@ app.prepare().
         case "/sitemap/dispensaries-location-sitemap.xml":
 
           const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
-          console.log(response1)
           if (response1.data[0].Xml) {
 
             const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${response1.data[0].Xml.map((url) => `
               <url>
-                <loc>${url}</loc>
+                <loc>${url.split(',')[0].trim()}</loc>
                 <changefreq>daily</changefreq>
                 <priority>0.8</priority>
               </url>
