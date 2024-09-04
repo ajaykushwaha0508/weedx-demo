@@ -42,56 +42,70 @@ const Deliveries = (props) => {
 
     const [contentdata, setcontentdata] = React.useState([])
 
-
+    console.log(props.locationAPI && props.isDirectHit)
     React.useEffect(() => {
         dispatch({ type: 'Location', Location: props?.formatted_address })
 
-        if (props.isDirectHit)
+        if (props.locationAPI) {
             dispatch({ type: 'permission', permission: true });
-        dispatch({ type: 'Country', Country: props?.location?.country });
-        dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
-        dispatch({ type: 'State', State: props?.location?.state });
-        dispatch({ type: 'statecode', statecode: props?.location?.statecode });
-        dispatch({ type: 'City', City: props?.location?.city })
-        dispatch({ type: 'citycode', citycode: props?.location?.citycode });
-        dispatch({ type: 'route', route: props?.location?.route });
-        const setLocation = {
-            country: props?.location?.country,
-            state: props?.location?.state,
-            city: props?.location?.city,
-            route: props?.location?.route,
-            formatted_address: props?.formatted_address
-        };
-        const date = new Date();
-        date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
-        props.isDirectHit && cookies.set('fetchlocation', JSON.stringify(setLocation), {
-            expires: date,
-            path: '/' // Set the path where the cookie is accessible
-        });
-        {
-            const { country, state, city, route } = props.location || {};
-            // Build the URL based on available location data
-            let url = '/weed-deliveries/in/';
-            if (route) {
-                url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}/${modifystr(route)}`;
-            }
-            else if (city) {
-                url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}`;
-            } else if (state) {
-                url += `${modifystr(country) || 'default-country'}/${modifystr(state)}`;
-            } else if (country) {
-                url += modifystr(country);
-            } else {
-                url = '/weed-deliveries/default-country'; // Fallback URL
-            }
+            dispatch({ type: 'Country', Country: props?.location?.country });
+            dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
+            dispatch({ type: 'State', State: props?.location?.state });
+            dispatch({ type: 'statecode', statecode: props?.location?.statecode });
+            dispatch({ type: 'City', City: props?.location?.city })
+            dispatch({ type: 'citycode', citycode: props?.location?.citycode });
+            dispatch({ type: 'route', route: props?.location?.route });
 
-            // Use shallow routing to navigate to the constructed URL
-            console.log(props.isDirectHit)
-            props.isDirectHit && navigate.replace(url, 0, { shallow: true });
+            {
+                const { country, state, city, route } = props.location || {};
+                // Build the URL based on available location data
+                let url = '/weed-deliveries/in/';
+                if (route) {
+                    url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}/${modifystr(route)}`;
+                }
+                else if (city) {
+                    url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}`;
+                } else if (state) {
+                    url += `${modifystr(country) || 'default-country'}/${modifystr(state)}`;
+                } else if (country) {
+                    url += modifystr(country);
+                } else {
+                    url = '/weed-deliveries/default-country'; // Fallback URL
+                }
+
+                // Use shallow routing to navigate to the constructed URL
+
+                props.isDirectHit && navigate.replace(url, 0, { shallow: true });
+            }
         }
-    }, [props.location]);
+        else {
+            if (props.isDirectHit) {
+                dispatch({ type: 'permission', permission: true });
+                dispatch({ type: 'Country', Country: props?.location?.country });
+                dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
+                dispatch({ type: 'State', State: props?.location?.state });
+                dispatch({ type: 'statecode', statecode: props?.location?.statecode });
+                dispatch({ type: 'City', City: props?.location?.city })
+                dispatch({ type: 'citycode', citycode: props?.location?.citycode });
+                dispatch({ type: 'route', route: props?.location?.route });
+                const setLocation = {
+                    country: props?.location?.country,
+                    state: props?.location?.state,
+                    city: props?.location?.city,
+                    route: props?.location?.route,
+                    formatted_address: props?.formatted_address
+                };
+                const date = new Date();
+                date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
+                cookies.set('fetchlocation', JSON.stringify(setLocation), {
+                    expires: date,
+                    path: '/' // Set the path where the cookie is accessible
+                });
+            }
+        }
+    }, [props.locationAPI]);
 
-    console.log(props.isDirectHit)
+
 
 
 
@@ -126,7 +140,7 @@ const Deliveries = (props) => {
 
     }
 
-    console.log(props.isDirectHit)
+
     return (
         // <RoutingDespen>
         <div>
@@ -259,28 +273,6 @@ export async function GetAllDelivery(object) {
     }
 }
 
-async function postData(createurl, value, address) {
-    const url = 'https://api.cannabaze.com/UserPanel/Update-SiteMap/11';
-    const data = {
-      j: createurl,
-      address: value,
-      formate: ", " + address
-    };
-  
-    try {
-      const response = await fetch(url, {
-        method: 'POST', // Specify the request method as POST
-        headers: {
-          'Content-Type': 'application/json', // Set the content type to JSON
-        },
-        body: JSON.stringify(data) // Convert the data object to a JSON string
-      });
-  
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-
 export const getServerSideProps = async (context) => {
     const cookies = cookie.parse(context.req.headers.cookie || '');
     context.res.setHeader(
@@ -306,41 +298,25 @@ export const getServerSideProps = async (context) => {
 
     const locationParams = context.params.location || [];
     let country1 = "", state = "", city = "", formatted_address = "", route = "";
-
     let type = {
         country: locationParams[0] || "",
         state: locationParams[1] || "",
         city: locationParams[2] || "",
-        route: locationParams[3] || ""
+        route: locationParams[3] || "",
+        formatted_address: Boolean(JSON.parse(cookies?.fetchlocation)?.formatted_address) ? JSON?.parse(cookies?.fetchlocation)?.formatted_address : ""
     };
-    if (isDirectHit) {
-        const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-        const k = await Location(decodedLocation, type , context , 11 , 'deliveries');
-        country1 = k.country || "";
-        state = k.state || "";
-        city = k.city || "";
-        route = k.route,
-            formatted_address = k.formatted_address || "";
-
-    } else {
-        formatted_address = JSON.parse(cookies.fetchlocation).formatted_address
-        country1 = locationParams[0] || "";
-        state = locationParams[1] || "";
-        city = locationParams[2] || "";
-        route = locationParams[3] || "";
-        const createurl = Boolean(route) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-        : Boolean(city) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
-          : Boolean(state) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}`
-            : Boolean(country1) && `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}`
-      await postData(createurl, true, formatted_address)
-    }
-
+    const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
+    const k = await Location(decodedLocation, type, context, 11, 'deliveries', isDirectHit);
+    country1 = k.country || "";
+    state = k.state || "";
+    city = k.city || "";
+    route = k.route,
+        formatted_address = k.formatted_address || "";
     const object = {
         City: transformString(city) || '',
         Country: transformString(country1) || '',
         State: transformString(state) || '',
     };
-
     const object1 = {
         ...object,
         limit: 10
@@ -377,7 +353,8 @@ export const getServerSideProps = async (context) => {
                         route: route,
                     },
                     formatted_address: formatted_address,
-                    isDirectHit
+                    isDirectHit,
+                    locationAPI: k.api
                 }
             };
         } else {
@@ -392,7 +369,8 @@ export const getServerSideProps = async (context) => {
                         route: route,
                     },
                     formatted_address: formatted_address,
-                    isDirectHit
+                    isDirectHit,
+                    locationAPI: k.api
                 }
             };
         }
