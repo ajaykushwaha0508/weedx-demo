@@ -139,51 +139,50 @@ const Dispensaries = (props) => {
 
 
     React.useEffect(() => {
-        console.log(props.isDirectHit, props.location)
         dispatch({ type: 'Location', Location: props?.formatted_address })
-        if (props.isDirectHit)
-            dispatch({ type: 'permission', permission: true });
-        dispatch({ type: 'Country', Country: props?.location?.country });
-        dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
-        dispatch({ type: 'State', State: props?.location?.state });
-        dispatch({ type: 'statecode', statecode: props?.location?.statecode });
-        dispatch({ type: 'City', City: props?.location?.city })
-        dispatch({ type: 'citycode', citycode: props?.location?.citycode });
-        dispatch({ type: 'route', route: props?.location?.route });
-        const setLocation = {
-            country: props?.location?.country,
-            state: props?.location?.state,
-            city: props?.location?.city,
-            route: props?.location?.route,
-            formatted_address: props?.formatted_address
-        };
-        const date = new Date();
-        date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
-        props.isDirectHit && cookies.set('fetchlocation', JSON.stringify(setLocation), {
-            expires: date,
-            path: '/' // Set the path where the cookie is accessible
-        });
-
+        if (props.locationAPI)
         {
-            const { country, state, city, route } = props.location || {};
-            // Build the URL based on available location data
-            let url = '/weed-dispensaries/in/';
-            if (Boolean(route)) {
-                url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}/${modifystr(route)}`;
+            {
+                const { country, state, city, route } = props.location || {};
+                let url = '/weed-dispensaries/in/';
+                if (Boolean(route)) {
+                    url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`;
+                }
+                else if (Boolean(city)) {
+                    url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`;
+                } else if (Boolean(state)) {
+                    url += `${modifystr(country)}/${modifystr(state)}`;
+                } else if (Boolean(country)) {
+                    url += modifystr(country);
+                }
+               navigate.replace(url, 0, { shallow: true });
             }
-            else if (Boolean(city)) {
-                url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}`;
-            } else if (Boolean(state)) {
-                url += `${modifystr(country) || 'default-country'}/${modifystr(state)}`;
-            } else if (Boolean(country)) {
-                url += modifystr(country);
-            } else {
-                url = '/weed-dispensaries/default-country'; // Fallback URL
+        }
+        else {
+            if(props.isDirectHit){
+                dispatch({ type: 'permission', permission: true });
+                dispatch({ type: 'Country', Country: props?.location?.country });
+                dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
+                dispatch({ type: 'State', State: props?.location?.state });
+                dispatch({ type: 'statecode', statecode: props?.location?.statecode });
+                dispatch({ type: 'City', City: props?.location?.city })
+                dispatch({ type: 'citycode', citycode: props?.location?.citycode });
+                dispatch({ type: 'route', route: props?.location?.route });
+        
+                const setLocation = {
+                    country: props?.location?.country,
+                    state: props?.location?.state,
+                    city: props?.location?.city,
+                    route: props?.location?.route,
+                    formatted_address: props?.formatted_address
+                };
+                const date = new Date();
+                date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
+                cookies.set('fetchlocation', JSON.stringify(setLocation), {
+                    expires: date,
+                    path: '/' // Set the path where the cookie is accessible
+                });
             }
-
-            // Use shallow routing to navigate to the constructed URL
-            console.log(props.isDirectHit)
-            props.isDirectHit && navigate.replace(url, 0, { shallow: true });
         }
     }, [props.location]);
 
@@ -270,31 +269,31 @@ const Dispensaries = (props) => {
 async function postData(createurl, value, address) {
     const url = 'https://api.cannabaze.com/UserPanel/Update-SiteMap/14';
     const data = {
-      j: createurl,
-      address: value,
-      formate: ", " + address
+        j: createurl,
+        address: value,
+        formate: ", " + address
     };
-  
+
     try {
-      const response = await fetch(url, {
-        method: 'POST', // Specify the request method as POST
-        headers: {
-          'Content-Type': 'application/json', // Set the content type to JSON
-        },
-        body: JSON.stringify(data) // Convert the data object to a JSON string
-      });
-  
-      if (!response.ok) {
-          console.trace(`HTTP error! Status: ${response.status}`);
-      }
-  
-      const result = await response.json(); // Parse the JSON response
+        const response = await fetch(url, {
+            method: 'POST', // Specify the request method as POST
+            headers: {
+                'Content-Type': 'application/json', // Set the content type to JSON
+            },
+            body: JSON.stringify(data) // Convert the data object to a JSON string
+        });
+
+        if (!response.ok) {
+            console.trace(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.json(); // Parse the JSON response
     } catch (error) {
-      console.error('Error:', error);
+        console.error('Error:', error);
     }
-  }
-  
-  
+}
+
+
 
 
 export const getServerSideProps = async (context) => {
@@ -327,30 +326,17 @@ export const getServerSideProps = async (context) => {
         country: locationParams[0] || "",
         state: locationParams[1] || "",
         city: locationParams[2] || "",
-        route: locationParams[3] || ""
+        route: locationParams[3] || "",
+        formatted_address: Boolean(JSON.parse(cookies?.fetchlocation)?.formatted_address) ? JSON?.parse(cookies?.fetchlocation)?.formatted_address : ""
     };
+    const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
+    const k = await Location(decodedLocation, type, context, 14, 'dispensaries', isDirectHit);
+    country1 = k.country || "";
+    state = k.state || "";
+    city = k.city || "";
+    route = k.route || ""
+    formatted_address = k.formatted_address || "";
 
-    if (isDirectHit) {
-        const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-        const k = await Location(decodedLocation, type , context , 14 , 'dispensaries');
-        country1 = k.country || "";
-        state = k.state || "";
-        city = k.city || "";
-        route = k.route || ""
-        formatted_address = k.formatted_address || "";
-    } else {
-        country1 = locationParams[0] || "";
-        state = locationParams[1] || "";
-        city = locationParams[2] || "";
-        formatted_address = JSON.parse(cookies.fetchlocation).formatted_address
-       const createurl = Boolean(route) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-       : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
-         : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
-           : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
-     await postData(createurl, true, formatted_address)
-        
-      
-    }
 
     const object = {
         City: transformString(city) || '',
@@ -405,7 +391,8 @@ export const getServerSideProps = async (context) => {
                         route: route,
                     },
                     formatted_address: formatted_address,
-                    isDirectHit
+                    isDirectHit,
+                    locationAPI: k.api
                 }
             };
         } else {
@@ -420,7 +407,8 @@ export const getServerSideProps = async (context) => {
                         route: route,
                     },
                     formatted_address: formatted_address,
-                    isDirectHit
+                    isDirectHit,
+                    locationAPI: k.api
                 }
             };
         }
