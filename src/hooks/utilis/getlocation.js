@@ -257,7 +257,7 @@ async function location(value, type, data, id, weburl, isDirectHit) {
           : Boolean(type.city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}/${modifystr(type.city)}`
             : Boolean(type.state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}`
               : Boolean(type.country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}`
-        await postData(createurl, true, type.formatted_address, id)
+        // await postData(createurl, true, type.formatted_address, id)
         return {
           city: type.city || "",
           state: type.state || "",
