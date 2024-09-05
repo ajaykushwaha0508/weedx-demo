@@ -381,7 +381,7 @@ export const getServerSideProps = async (context) => {
         };
 
         const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-        const k = await Location(decodedLocation, type, context, 11, 'dispensaries', isDirectHit);
+        const k = await Location(decodedLocation, type, context, 14, 'dispensaries', isDirectHit);
         country1 = k.country || "";
         state = k.state || "";
         city = k.city || "";
@@ -404,7 +404,7 @@ export const getServerSideProps = async (context) => {
             : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
               : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
                 : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
-            await postData(createurl, false, formatted_address, 11)
+            await postData(createurl, false, formatted_address, 14)
     }
 
 
