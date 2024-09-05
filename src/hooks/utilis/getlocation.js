@@ -4,8 +4,8 @@ const _ = require('lodash')
 import Cookies from 'universal-cookie';
 
 async function postData(createurl, value, address, id) {
-
-  const url = `https://api.cannabaze.com/UserPanel/Update-SiteMap/${id}`;
+console.log(createurl, value, address, id)
+  const url = ` http://127.0.0.1:8000/UserPanel/Update-SiteMap/${id}`;
   const data = {
     j: createurl,
     address: value,
@@ -20,7 +20,8 @@ async function postData(createurl, value, address, id) {
       },
       body: JSON.stringify(data) // Convert the data object to a JSON string
     });
-
+    const l =  await response.json()
+console.log(l)
   } catch (error) {
     console.error('Error:', error);
   }
@@ -76,6 +77,7 @@ async function location(value, type, data, id, weburl) {
         };
       }
       else {
+        console.log(data.results)
         const addressComponents = data.results[0].address_components || [];
         formatted_address = data?.results[0]?.formatted_address;
 
