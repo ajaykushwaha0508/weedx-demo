@@ -77,7 +77,7 @@ async function location(value, type, data, id, weburl) {
         };
       }
       else {
-        console.log(data.results)
+   
         const addressComponents = data.results[0].address_components || [];
         formatted_address = data?.results[0]?.formatted_address;
 
