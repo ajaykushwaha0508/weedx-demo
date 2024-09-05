@@ -435,7 +435,7 @@ export const getServerSideProps = async (context) => {
 
         const data = await response.json();
         let productResponse = [];
-        productResponse == await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+        productResponse = await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -444,11 +444,10 @@ export const getServerSideProps = async (context) => {
         });
 
         if (!productResponse.ok) {
-            throw new Error('Failed to fetch products');
+            productResponse = []
         }
-
         const productData = await productResponse.json();
-        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type === "dispensary") : []
+        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type !== "dispensary") : []
         if (data === "No Dispensary in your area") {
             return {
                 props: {
@@ -462,7 +461,8 @@ export const getServerSideProps = async (context) => {
                     },
                     formatted_address: formatted_address,
                     isDirectHit,
-                    locationAPI: k.api
+                    locationApi,
+                    setCookies
                 }
             };
         } else {
@@ -478,7 +478,8 @@ export const getServerSideProps = async (context) => {
                     },
                     formatted_address: formatted_address,
                     isDirectHit,
-                    locationAPI: k.api
+                    locationApi,
+                    setCookies
                 }
             };
         }
