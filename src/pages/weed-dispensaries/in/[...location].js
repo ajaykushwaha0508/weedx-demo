@@ -434,8 +434,8 @@ export const getServerSideProps = async (context) => {
         }
 
         const data = await response.json();
-
-        const productResponse = await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+        let productResponse = [];
+        productResponse == await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -448,8 +448,7 @@ export const getServerSideProps = async (context) => {
         }
 
         const productData = await productResponse.json();
-        const products = productData?.filter(item => item.Store_Type === "dispensary");
-
+        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type === "dispensary") : []
         if (data === "No Dispensary in your area") {
             return {
                 props: {

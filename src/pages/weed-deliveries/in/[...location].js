@@ -441,7 +441,7 @@ export const getServerSideProps = async (context) => {
             productResponse = []
         }
         const productData = await productResponse.json();
-        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type === "dispensary") : []
+        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type !== "dispensary") : []
 
         if (data === "No Dispensary in your area") {
             return {
