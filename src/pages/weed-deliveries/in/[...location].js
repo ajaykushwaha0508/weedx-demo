@@ -119,7 +119,6 @@ const Deliveries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
                 const { country, state, city, route } = props.location || {}
-                console.log( country, state, city, route , "8888888888888888888888888888")
                 let url = '/weed-deliveries/in/';
                 if (route) {
                     url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`;
