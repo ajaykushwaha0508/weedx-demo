@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 
 async function postData(createurl, value, address, id) {
 console.log(createurl, value, address, id)
-  const url = ` http://127.0.0.1:8000/UserPanel/Update-SiteMap/${id}`;
+  const url = `https://api.cannabaze.com/UserPanel/Update-SiteMap/${id}`;
   const data = {
     j: createurl,
     address: value,
