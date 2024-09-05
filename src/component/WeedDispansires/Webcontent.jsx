@@ -119,7 +119,6 @@ const WebContent = ({ state, Store = [], modifystr, from, url, product, location
                         </AccordionDetails>
                     </Accordion>
                 </div>
-                {console.log(urlcscr)}
                 <div className="col-lg-6 webContent my-2">
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header" >
