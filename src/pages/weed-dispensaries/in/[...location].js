@@ -139,10 +139,11 @@ const Dispensaries = (props) => {
 
 
     React.useEffect(() => {
-        
-        if (props.isDirectHit ) {
-            if( props.locationApi === false &&  props.setCookies === "notnaivigation"){
-                
+       
+        if (props.isDirectHit || props.isFromGoogle) {
+            dispatch({ type: 'Location', Location: props?.formatted_address })
+            
+            if (props.locationApi === false && props.setCookies === "notnaivigation") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
@@ -166,7 +167,8 @@ const Dispensaries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
             }
-            else if( props.locationApi &&  props.setCookies === "notnaivigation") {
+
+            else if (props.locationApi && props.setCookies === "notnaivigation") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
@@ -175,7 +177,6 @@ const Dispensaries = (props) => {
                 dispatch({ type: 'statecode', statecode: props?.location?.statecode });
                 dispatch({ type: 'City', City: props?.location?.city })
                 dispatch({ type: 'citycode', citycode: props?.location?.citycode });
-                dispatch({ type: 'route', route: props?.location?.route });
                 const setLocation = {
                     country: props?.location?.country,
                     state: props?.location?.state,
@@ -190,7 +191,7 @@ const Dispensaries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
             }
-            else if ( props.locationApi &&  props.setCookies === "navigate") {
+            else if (props.locationApi && props.setCookies === "navigate") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
@@ -227,7 +228,7 @@ const Dispensaries = (props) => {
                 } else {
                     url = '/weed-deliveries/'; // Fallback URL
                 }
-    
+
                 navigate.replace(url, 0, { shallow: true });
 
 
@@ -400,11 +401,11 @@ export const getServerSideProps = async (context) => {
         city = cookies?.fetchlocation?.city || "";
         route = cookies?.fetchlocation?.route || "",
             formatted_address = cookies?.fetchlocation?.formatted_address || "";
-            const createurl = Boolean(route) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+        const createurl = Boolean(route) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
             : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
-              : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
-                : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
-            await postData(createurl, false, formatted_address, 14)
+                : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
+                    : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
+        await postData(createurl, false, formatted_address, 14)
     }
 
 
@@ -462,7 +463,8 @@ export const getServerSideProps = async (context) => {
                     formatted_address: formatted_address,
                     isDirectHit,
                     locationApi,
-                    setCookies
+                    setCookies,
+                    isFromGoogle
                 }
             };
         } else {
@@ -479,7 +481,8 @@ export const getServerSideProps = async (context) => {
                     formatted_address: formatted_address,
                     isDirectHit,
                     locationApi,
-                    setCookies
+                    setCookies,
+                    isFromGoogle
                 }
             };
         }
