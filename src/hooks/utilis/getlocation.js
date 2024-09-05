@@ -43,8 +43,7 @@ function splitAtFirstComma(str) {
 }
 
 
-async function location(value, type, data, id, weburl, isDirectHit) {
-  const cookies = new Cookies();
+async function location(value, type, data, id, weburl) {
   let city = "", state = "", country = "", route = "", formatted_address;
   let citycode = "", statecode = "", countrycode = "";
   let ci = ""
@@ -60,410 +59,326 @@ async function location(value, type, data, id, weburl, isDirectHit) {
   if (matchedUrl) {
     const formateAddresing = splitAtFirstComma(matchedUrl)[1];
     if (!formateAddresing) {
-      if (!isDirectHit) {
-        const createurl = Boolean(type.route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}/${modifystr(type.city)}/${modifystr(type.route)}`
-          : Boolean(type.city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}/${modifystr(type.city)}`
-            : Boolean(type.state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}`
-              : Boolean(type.country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}`
-        await postData(createurl, true, type.formatted_address, id)
+      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
+      const data = await response.json();
+      if (data.error_message) {
         return {
-          city: type.city || "",
-          state: type.state || "",
-          country: type.country || "",
-          route: type.route || '',
-          formatted_address: type.formatted_address || "",
+          city: 'New-York' || "",
+          state: "New-York" || "",
+          country: "United-States" || "",
+          formatted_address: type.formatted_address || "New York, NY, USA",
           citycode: "",
-          statecode: "",
-          countrycode: "",
-          api: false
+          statecode: "NY",
+          countrycode: "US",
+          api: false,
+          cookies: "notnaivigation"
 
         };
-
       }
       else {
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
-        const data = await response.json();
-        if (data.error_message) {
-          console.warn(data.error_message)
-          return {
-            city: type.city || "",
-            state: type.state || "",
-            country: type.country || "",
-            route: type.route || '',
-            formatted_address: type.formatted_address || "New York, NY, USA",
-            citycode: "",
-            statecode: "NY",
-            countrycode: "US",
-            api: false
+        const addressComponents = data.results[0].address_components || [];
+        formatted_address = data?.results[0]?.formatted_address;
 
-          };
+        addressComponents.map((data) => {
+          let l = data.types[0]
+          if (data.types[0] === "political") {
+            let rever = data.types.reverse()
+            let l = rever[0] === "political" ? rever[1] : rever[0]
+            object[l] = data.long_name
+            short[l] = data?.short_name
+          }
+          else {
+
+            object[l] = data.long_name
+            short[l] = data?.short_name
+          }
+        })
+
+        if (Boolean(object.country)) {
+          let Coun = object.country.replace(/\s/g, '-');
+          // dispatch({ type: 'Country', Country: Coun });
+          // dispatch({ type: 'countrycode', countrycode: short.country });
+          country = Coun
+          countrycode = short.country
         }
-        else {
-          const addressComponents = data.results[0].address_components || [];
-          formatted_address = data?.results[0]?.formatted_address;
-          addressComponents.map((data) => {
-            let l = data.types[0]
-            if (data.types[0] === "political") {
-              let rever = data.types.reverse()
-              let l = rever[0] === "political" ? rever[1] : rever[0]
-              object[l] = data.long_name
-              short[l] = data?.short_name
-            }
-            else {
+        else if (Object.keys(object).length === 1) {
+          let Coun = Object.values(object)[0].replace(/\s/g, '-');
+          country = Coun
+          countrycode = short.country
+        }
+        if (Boolean(object.administrative_area_level_1)) {
 
-              object[l] = data.long_name
-              short[l] = data?.short_name
-            }
-          })
+          let sta = object.administrative_area_level_1.replace(/\s/g, '-');
 
-          if (Boolean(object.country)) {
-            let Coun = object.country.replace(/\s/g, '-');
-            // dispatch({ type: 'Country', Country: Coun });
-            // dispatch({ type: 'countrycode', countrycode: short.country });
-            country = Coun
-            countrycode = short.country
+          statecode = short.administrative_area_level_1
+          state = sta
+
+        }
+        if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
+
+          if (Boolean(object.administrative_area_level_3)) {
+            ci = object.administrative_area_level_3.replace(/\s/g, '-')
+
+            citycode = short.administrative_area_level_3
+            city = ci
           }
-          else if (Object.keys(object).length === 1) {
-            let Coun = Object.values(object)[0].replace(/\s/g, '-');
-            country = Coun
-            countrycode = short.country
+          if (Boolean(object.sublocality) && Boolean(object.locality)) {
+            ci = object.sublocality.replace(/\s/g, '-')
+            citycode = short.sublocality
+            city = ci
           }
-          if (Boolean(object.administrative_area_level_1)) {
-
-            let sta = object.administrative_area_level_1.replace(/\s/g, '-');
-
-            statecode = short.administrative_area_level_1
-            state = sta
-
+          else if (Boolean(object.locality)) {
+            ci = object.locality.replace(/\s/g, '-')
+            citycode = short.locality
+            city = ci
           }
-          if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
+          else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
+            ci = object.establishment.replace(/\s/g, '-')
+            citycode = short.establishment
+            city = ci
+          }
+          else if (Boolean(object.sublocality_level_1)) {
+            ci = object.sublocality_level_1.replace(/\s/g, '-')
+            citycode = short.sublocality_level_1
+            city = ci
+          }
 
-            if (Boolean(object.administrative_area_level_3)) {
-              ci = object.administrative_area_level_3.replace(/\s/g, '-')
-
-              citycode = short.administrative_area_level_3
-              city = ci
-            }
-            if (Boolean(object.sublocality) && Boolean(object.locality)) {
-              ci = object.sublocality.replace(/\s/g, '-')
-              citycode = short.sublocality
-              city = ci
-            }
-            else if (Boolean(object.locality)) {
-              ci = object.locality.replace(/\s/g, '-')
-              citycode = short.locality
-              city = ci
-            }
-            else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
-              ci = object.establishment.replace(/\s/g, '-')
-              citycode = short.establishment
-              city = ci
-            }
-            else if (Boolean(object.sublocality_level_1)) {
-              ci = object.sublocality_level_1.replace(/\s/g, '-')
-              citycode = short.sublocality_level_1
-              city = ci
-            }
-
-            if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-              ci = object.sublocality_level_1.replace(/\s/g, '-')
-              citycode = short.sublocality_level_1
-              city = ci
-            }
-            if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-              ci = object.sublocality_level_1.replace(/\s/g, '-')
-              citycode = short.sublocality_level_1
-              city = ci
-            }
-            if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
-              ci = object.locality.replace(/\s/g, '-')
-              citycode = short.locality
-              city = ci
-            }
-            else {
-              if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
-                if (!ci) {
-                  ci = object.administrative_area_level_2.replace(/\s/g, '-')
-                  citycode = short.administrative_area_level_2
-                  city = ci
-                }
+          if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+            ci = object.sublocality_level_1.replace(/\s/g, '-')
+            citycode = short.sublocality_level_1
+            city = ci
+          }
+          if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+            ci = object.sublocality_level_1.replace(/\s/g, '-')
+            citycode = short.sublocality_level_1
+            city = ci
+          }
+          if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
+            ci = object.locality.replace(/\s/g, '-')
+            citycode = short.locality
+            city = ci
+          }
+          else {
+            if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
+              if (!ci) {
+                ci = object.administrative_area_level_2.replace(/\s/g, '-')
+                citycode = short.administrative_area_level_2
+                city = ci
               }
             }
-
           }
-          if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
-            if (Boolean(object.route)) {
-              route = object.route.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.sublocality)) {
-              route = object.sublocality.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.neighborhood)) {
-              route = object.neighborhood.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.establishment)) {
-              route = object.establishment.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.sublocality_level_2)) {
-              route = object.sublocality_level_2.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
 
-          }
-          const createurl = Boolean(route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-            : Boolean(city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
-              : Boolean(state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
-                : Boolean(country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
-          await postData(createurl, false, formatted_address, id)
-          return {
-            city,
-            state,
-            country,
-            route,
-            citycode,
-            statecode,
-            countrycode,
-            formatted_address,
-            api: true
-          };
         }
+        if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
+          if (Boolean(object.route)) {
+            route = object.route.replace(/\s/g, '-');
+            // dispatch({ type: 'route', route: route });
+          }
+          else if (Boolean(object.sublocality)) {
+            route = object.sublocality.replace(/\s/g, '-');
+            // dispatch({ type: 'route', route: route });
+          }
+          else if (Boolean(object.neighborhood)) {
+            route = object.neighborhood.replace(/\s/g, '-');
+            // dispatch({ type: 'route', route: route });
+          }
+          else if (Boolean(object.establishment)) {
+            route = object.establishment.replace(/\s/g, '-');
+            // dispatch({ type: 'route', route: route });
+          }
+          else if (Boolean(object.sublocality_level_2)) {
+            route = object.sublocality_level_2.replace(/\s/g, '-');
+            // dispatch({ type: 'route', route: route });
+          }
+
+        }
+        const createurl = Boolean(route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+          : Boolean(city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
+            : Boolean(state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
+              : Boolean(country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
+        await postData(createurl, false, formatted_address, id)
+
+        return {
+          city,
+          state,
+          country,
+          route,
+          citycode,
+          statecode,
+          countrycode,
+          formatted_address,
+          api: true,
+          cookies: "notnaivigation"
+        };
       }
+
     }
     else {
+
       return {
         city: type.city || "",
         state: type.state || "",
         country: type.country || "",
         route: type.route || '',
         formatted_address: formateAddresing,
-        api: false
-        // citycode: "",
-        // statecode: "NY",
-        // countrycode: "US",
-        // api: false
+        api: true,
+        cookies: "notnaivigation"
 
       };
     }
   }
   else {
-    try {
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
+    const data = await response.json();
+    if (data.error_message) {
+      console.warn(data.error_message)
+      return {
+        city: 'New-York' || "",
+        state: "New-York" || "",
+        country: "United-States" || "",
+        route:  '',
+        formatted_address: type.formatted_address || "New York, NY, USA",
+        citycode: "",
+        statecode: "NY",
+        countrycode: "US",
+        api: false,
+        cookies: "notnaivigation"
 
-      if (!isDirectHit) {
-        const createurl = Boolean(type.route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}/${modifystr(type.city)}/${modifystr(type.route)}`
-          : Boolean(type.city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}/${modifystr(type.city)}`
-            : Boolean(type.state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}/${modifystr(type.state)}`
-              : Boolean(type.country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(type.country)}`
-        // await postData(createurl, true, type.formatted_address, id)
-        return {
-          city: type.city || "",
-          state: type.state || "",
-          country: type.country || "",
-          route: type.route || '',
-          formatted_address: type.formatted_address || 'New York, NY, USA',
-          api: false
+      };
+    }
+    else {
+      const addressComponents = data.results[0].address_components || [];
+      formatted_address = data?.results[0]?.formatted_address;
 
-        };
-
-
-      }
-
-      else {
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
-        const data = await response.json();
-        if (data.error_message) {
-          console.warn(data.error_message)
-
-
-          const setLocation = {
-            country: 'United-States',
-            state: 'New-York',
-            city: 'New-York',
-            formatted_address: 'New York, NY, USA'
-          };
-          const date = new Date();
-          date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
-          cookies.set('fetchlocation', JSON.stringify(setLocation), {
-            expires: date,
-            path: '/' // Set the path where the cookie is accessible
-          });
-          return {
-            city: type.city || "",
-            state: type.state || "",
-            country: type.country || "",
-            route: type.route || '',
-            formatted_address: "New York, NY, USA",
-            citycode: "",
-            statecode: "NY",
-            countrycode: "US",
-            api: false
-
-          };
-
+      addressComponents.map((data) => {
+        let l = data.types[0]
+        if (data.types[0] === "political") {
+          let rever = data.types.reverse()
+          let l = rever[0] === "political" ? rever[1] : rever[0]
+          object[l] = data.long_name
+          short[l] = data?.short_name
         }
         else {
 
-          const addressComponents = data.results[0].address_components || [];
-          formatted_address = data?.results[0]?.formatted_address;
-
-          addressComponents.map((data) => {
-            let l = data.types[0]
-            if (data.types[0] === "political") {
-              let rever = data.types.reverse()
-              let l = rever[0] === "political" ? rever[1] : rever[0]
-              object[l] = data.long_name
-              short[l] = data?.short_name
-            }
-            else {
-
-              object[l] = data.long_name
-              short[l] = data?.short_name
-            }
-          })
-
-          if (Boolean(object.country)) {
-            let Coun = object.country.replace(/\s/g, '-');
-            // dispatch({ type: 'Country', Country: Coun });
-            // dispatch({ type: 'countrycode', countrycode: short.country });
-            country = Coun
-            countrycode = short.country
-          }
-          else if (Object.keys(object).length === 1) {
-            let Coun = Object.values(object)[0].replace(/\s/g, '-');
-            country = Coun
-            countrycode = short.country
-          }
-          if (Boolean(object.administrative_area_level_1)) {
-
-            let sta = object.administrative_area_level_1.replace(/\s/g, '-');
-            // dispatch({ type: 'State', State: sta });
-            // dispatch({ type: 'statecode', statecode: short.administrative_area_level_1 });
-            statecode = short.administrative_area_level_1
-            state = sta
-
-          }
-          if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
-
-            if (Boolean(object.administrative_area_level_3)) {
-              ci = object.administrative_area_level_3.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.administrative_area_level_3});
-              citycode = short.administrative_area_level_3
-              city = ci
-            }
-            if (Boolean(object.sublocality) && Boolean(object.locality)) {
-              ci = object.sublocality.replace(/\s/g, '-')
-              citycode = short.sublocality
-              city = ci
-            }
-            else if (Boolean(object.locality)) {
-              ci = object.locality.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.locality});
-              citycode = short.locality
-              city = ci
-            }
-            else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
-              ci = object.establishment.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.establishment});
-              citycode = short.establishment
-              city = ci
-            }
-            else if (Boolean(object.sublocality_level_1)) {
-              ci = object.sublocality_level_1.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.sublocality_level_1});
-              citycode = short.sublocality_level_1
-              city = ci
-            }
-
-            if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-              ci = object.sublocality_level_1.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.sublocality_level_1});
-              citycode = short.sublocality_level_1
-              city = ci
-            }
-            if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-              ci = object.sublocality_level_1.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.sublocality_level_1});
-              citycode = short.sublocality_level_1
-              city = ci
-            }
-            if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
-              ci = object.locality.replace(/\s/g, '-')
-              // dispatch({ type: 'City', City: ci })
-              // dispatch({ type: 'citycode', citycode: short.locality});
-              citycode = short.locality
-              city = ci
-            }
-            else {
-              if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
-                if (!ci) {
-                  ci = object.administrative_area_level_2.replace(/\s/g, '-')
-                  // dispatch({ type: 'City', City: ci })
-                  // dispatch({ type: 'citycode', citycode: short.administrative_area_level_2});
-                  citycode = short.administrative_area_level_2
-                  city = ci
-                }
-              }
-            }
-
-          }
-          if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
-            if (Boolean(object.route)) {
-              route = object.route.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.sublocality)) {
-              route = object.sublocality.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.neighborhood)) {
-              route = object.neighborhood.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.establishment)) {
-              route = object.establishment.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-            else if (Boolean(object.sublocality_level_2)) {
-              route = object.sublocality_level_2.replace(/\s/g, '-');
-              // dispatch({ type: 'route', route: route });
-            }
-
-          }
-          const createurl = Boolean(route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-            : Boolean(city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
-              : Boolean(state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
-                : Boolean(country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
-          await postData(createurl, true, formatted_address, id)
-          return {
-            city,
-            state,
-            country,
-            route,
-            citycode,
-            statecode,
-            countrycode,
-            formatted_address,
-            api: true
-          };
+          object[l] = data.long_name
+          short[l] = data?.short_name
         }
-      }
-    }
+      })
 
-    catch (error) {
+      if (Boolean(object.country)) {
+        let Coun = object.country.replace(/\s/g, '-');
+        // dispatch({ type: 'Country', Country: Coun });
+        // dispatch({ type: 'countrycode', countrycode: short.country });
+        country = Coun
+        countrycode = short.country
+      }
+      else if (Object.keys(object).length === 1) {
+        let Coun = Object.values(object)[0].replace(/\s/g, '-');
+        country = Coun
+        countrycode = short.country
+      }
+      if (Boolean(object.administrative_area_level_1)) {
+
+        let sta = object.administrative_area_level_1.replace(/\s/g, '-');
+
+        statecode = short.administrative_area_level_1
+        state = sta
+
+      }
+      if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
+
+        if (Boolean(object.administrative_area_level_3)) {
+          ci = object.administrative_area_level_3.replace(/\s/g, '-')
+
+          citycode = short.administrative_area_level_3
+          city = ci
+        }
+        if (Boolean(object.sublocality) && Boolean(object.locality)) {
+          ci = object.sublocality.replace(/\s/g, '-')
+          citycode = short.sublocality
+          city = ci
+        }
+        else if (Boolean(object.locality)) {
+          ci = object.locality.replace(/\s/g, '-')
+          citycode = short.locality
+          city = ci
+        }
+        else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
+          ci = object.establishment.replace(/\s/g, '-')
+          citycode = short.establishment
+          city = ci
+        }
+        else if (Boolean(object.sublocality_level_1)) {
+          ci = object.sublocality_level_1.replace(/\s/g, '-')
+          citycode = short.sublocality_level_1
+          city = ci
+        }
+
+        if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+          ci = object.sublocality_level_1.replace(/\s/g, '-')
+          citycode = short.sublocality_level_1
+          city = ci
+        }
+        if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
+          ci = object.sublocality_level_1.replace(/\s/g, '-')
+          citycode = short.sublocality_level_1
+          city = ci
+        }
+        if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
+          ci = object.locality.replace(/\s/g, '-')
+          citycode = short.locality
+          city = ci
+        }
+        else {
+          if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
+            if (!ci) {
+              ci = object.administrative_area_level_2.replace(/\s/g, '-')
+              citycode = short.administrative_area_level_2
+              city = ci
+            }
+          }
+        }
+
+      }
+      if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
+        if (Boolean(object.route)) {
+          route = object.route.replace(/\s/g, '-');
+          // dispatch({ type: 'route', route: route });
+        }
+        else if (Boolean(object.sublocality)) {
+          route = object.sublocality.replace(/\s/g, '-');
+          // dispatch({ type: 'route', route: route });
+        }
+        else if (Boolean(object.neighborhood)) {
+          route = object.neighborhood.replace(/\s/g, '-');
+          // dispatch({ type: 'route', route: route });
+        }
+        else if (Boolean(object.establishment)) {
+          route = object.establishment.replace(/\s/g, '-');
+          // dispatch({ type: 'route', route: route });
+        }
+        else if (Boolean(object.sublocality_level_2)) {
+          route = object.sublocality_level_2.replace(/\s/g, '-');
+          // dispatch({ type: 'route', route: route });
+        }
+
+      }
+      const createurl = Boolean(route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+        : Boolean(city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
+          : Boolean(state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
+            : Boolean(country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
+      await postData(createurl, false, formatted_address, id)
       return {
-        city: '',
-        state: '',
-        country: '',
-        route: ''
+        city,
+        state,
+        country,
+        route,
+        citycode,
+        statecode,
+        countrycode,
+        formatted_address,
+        api: true,
+        cookies: "navigate"
       };
     }
   }

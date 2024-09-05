@@ -139,27 +139,11 @@ const Dispensaries = (props) => {
 
 
     React.useEffect(() => {
-        dispatch({ type: 'Location', Location: props?.formatted_address })
-        if (props.locationAPI)
-        {
-            {
-                const { country, state, city, route } = props.location || {};
-                let url = '/weed-dispensaries/in/';
-                if (Boolean(route)) {
-                    url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`;
-                }
-                else if (Boolean(city)) {
-                    url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`;
-                } else if (Boolean(state)) {
-                    url += `${modifystr(country)}/${modifystr(state)}`;
-                } else if (Boolean(country)) {
-                    url += modifystr(country);
-                }
-               navigate.replace(url, 0, { shallow: true });
-            }
-        }
-        else {
-            if(props.isDirectHit){
+        
+        if (props.isDirectHit ) {
+            if( props.locationApi === false &&  props.setCookies === "notnaivigation"){
+                
+                dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
                 dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
@@ -168,7 +152,6 @@ const Dispensaries = (props) => {
                 dispatch({ type: 'City', City: props?.location?.city })
                 dispatch({ type: 'citycode', citycode: props?.location?.citycode });
                 dispatch({ type: 'route', route: props?.location?.route });
-        
                 const setLocation = {
                     country: props?.location?.country,
                     state: props?.location?.state,
@@ -183,8 +166,75 @@ const Dispensaries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
             }
+            else if( props.locationApi &&  props.setCookies === "notnaivigation") {
+                dispatch({ type: 'Location', Location: props?.formatted_address })
+                dispatch({ type: 'permission', permission: true });
+                dispatch({ type: 'Country', Country: props?.location?.country });
+                dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
+                dispatch({ type: 'State', State: props?.location?.state });
+                dispatch({ type: 'statecode', statecode: props?.location?.statecode });
+                dispatch({ type: 'City', City: props?.location?.city })
+                dispatch({ type: 'citycode', citycode: props?.location?.citycode });
+                dispatch({ type: 'route', route: props?.location?.route });
+                const setLocation = {
+                    country: props?.location?.country,
+                    state: props?.location?.state,
+                    city: props?.location?.city,
+                    route: props?.location?.route,
+                    formatted_address: props?.formatted_address
+                };
+                const date = new Date();
+                date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
+                cookies.set('fetchlocation', JSON.stringify(setLocation), {
+                    expires: date,
+                    path: '/' // Set the path where the cookie is accessible
+                });
+            }
+            else if ( props.locationApi &&  props.setCookies === "navigate") {
+                dispatch({ type: 'Location', Location: props?.formatted_address })
+                dispatch({ type: 'permission', permission: true });
+                dispatch({ type: 'Country', Country: props?.location?.country });
+                dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
+                dispatch({ type: 'State', State: props?.location?.state });
+                dispatch({ type: 'statecode', statecode: props?.location?.statecode });
+                dispatch({ type: 'City', City: props?.location?.city })
+                dispatch({ type: 'citycode', citycode: props?.location?.citycode });
+                dispatch({ type: 'route', route: props?.location?.route });
+                const setLocation = {
+                    country: props?.location?.country,
+                    state: props?.location?.state,
+                    city: props?.location?.city,
+                    route: props?.location?.route,
+                    formatted_address: props?.formatted_address
+                };
+                const date = new Date();
+                date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
+                cookies.set('fetchlocation', JSON.stringify(setLocation), {
+                    expires: date,
+                    path: '/' // Set the path where the cookie is accessible
+                });
+                const { country, state, city, route } = props.location || {}
+                console.log( country, state, city, route , "8888888888888888888888888888")
+                let url = '/weed-deliveries/in/';
+                if (route) {
+                    url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}/${modifystr(route)}`;
+                }
+                else if (city) {
+                    url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}`;
+                } else if (state) {
+                    url += `${modifystr(country) || 'default-country'}/${modifystr(state)}`;
+                } else if (country) {
+                    url += modifystr(country);
+                } else {
+                    url = '/weed-deliveries/'; // Fallback URL
+                }
+    
+                navigate.replace(url, 0, { shallow: true });
+
+
+            }
         }
-    }, [props.location]);
+    }, [props.isDirectHit]);
 
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
@@ -297,15 +347,17 @@ async function postData(createurl, value, address) {
 
 
 export const getServerSideProps = async (context) => {
-    const cookies = cookie.parse(context.req.headers.cookie || '');
     context.res.setHeader(
         'Cache-Control',
         'public, s-maxage=10, stale-while-revalidate=59'
     )
+
     const { req, query } = context;
     const { headers: { referer }, url } = req;
     const isDirectHit = !referer || referer === req.url;
-    // console.log(req.url , "urlx")
+    let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
+
+    // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
 
     const transformString = (str) => {
         if (typeof str !== "string" || !str.trim()) {
@@ -319,23 +371,43 @@ export const getServerSideProps = async (context) => {
             .join(' ');          // Join the words back into a single string
     };
 
-    const locationParams = context.params.location || [];
-    let country1 = "", state = "", city = "", formatted_address = "", route = "";
 
-    let type = {
-        country: locationParams[0] || "",
-        state: locationParams[1] || "",
-        city: locationParams[2] || "",
-        route: locationParams[3] || "",
-        formatted_address: Boolean(JSON.parse(cookies?.fetchlocation)?.formatted_address) ? JSON?.parse(cookies?.fetchlocation)?.formatted_address : ""
-    };
-    const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-    const k = await Location(decodedLocation, type, context, 14, 'dispensaries', isDirectHit);
-    country1 = k.country || "";
-    state = k.state || "";
-    city = k.city || "";
-    route = k.route || ""
-    formatted_address = k.formatted_address || "";
+    if (isDirectHit) {
+        const locationParams = context.params.location || [];
+        const type = {
+            country: locationParams[0] || "",
+            state: locationParams[1] || "",
+            city: locationParams[2] || "",
+            route: locationParams[3] || "",
+        };
+
+        const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
+        const k = await Location(decodedLocation, type, context, 11, 'dispensaries', isDirectHit);
+        country1 = k.country || "";
+        state = k.state || "";
+        city = k.city || "";
+        route = k.route || "";
+        formatted_address = k.formatted_address || "";
+        locationApi = k.api,
+            setCookies = k.cookies
+
+    }
+
+    else {
+        const cookies = context.req?.headers?.cookie ? cookie.parse(context.req.headers.cookie) : {};
+        cookies.fetchlocation = cookies.fetchlocation ? JSON.parse(cookies.fetchlocation) : null;
+        country1 = cookies?.fetchlocation?.country || "";
+        state = cookies?.fetchlocation?.state || "";
+        city = cookies?.fetchlocation?.city || "";
+        route = cookies?.fetchlocation?.route || "",
+            formatted_address = cookies?.fetchlocation?.formatted_address || "";
+            const createurl = Boolean(route) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+            : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
+              : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
+                : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
+            await postData(createurl, false, formatted_address, 11)
+    }
+
 
 
     const object = {
