@@ -45,7 +45,8 @@ const Deliveries = (props) => {
 
     React.useEffect(() => {
         
-        if (props.isDirectHit ) {
+        if (props.isDirectHit  || props.isFromGoogle) {
+            dispatch({ type: 'Location', Location: props?.formatted_address })
             if( props.locationApi === false &&  props.setCookies === "notnaivigation"){
                 
                 dispatch({ type: 'Location', Location: props?.formatted_address })
@@ -458,7 +459,8 @@ export const getServerSideProps = async (context) => {
                     formatted_address: formatted_address,
                     isDirectHit,
                     locationApi,
-                    setCookies
+                    setCookies,
+                    isFromGoogle
                 }
             };
         } else {
@@ -475,7 +477,8 @@ export const getServerSideProps = async (context) => {
                     formatted_address: formatted_address,
                     isDirectHit,
                     locationApi,
-                    setCookies
+                    setCookies,
+                    isFromGoogle
                 }
             };
         }
