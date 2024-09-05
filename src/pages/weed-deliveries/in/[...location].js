@@ -359,6 +359,7 @@ export const getServerSideProps = async (context) => {
     const { req, query } = context;
     const { headers: { referer }, url } = req;
     const isDirectHit = !referer || referer === req.url;
+    const isFromGoogle = referer && referer.includes('google');
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
 
     // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
@@ -376,7 +377,7 @@ export const getServerSideProps = async (context) => {
     };
 
 
-    if (isDirectHit) {
+    if (isDirectHit || isFromGoogle) {
         const locationParams = context.params.location || [];
         const type = {
             country: locationParams[0] || "",
