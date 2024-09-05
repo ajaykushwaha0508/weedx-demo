@@ -122,12 +122,12 @@ const Deliveries = (props) => {
                 console.log( country, state, city, route , "8888888888888888888888888888")
                 let url = '/weed-deliveries/in/';
                 if (route) {
-                    url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}/${modifystr(route)}`;
+                    url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`;
                 }
                 else if (city) {
-                    url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}`;
+                    url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`;
                 } else if (state) {
-                    url += `${modifystr(country) || 'default-country'}/${modifystr(state)}`;
+                    url += `${modifystr(country)}/${modifystr(state)}`;
                 } else if (country) {
                     url += modifystr(country);
                 } else {
