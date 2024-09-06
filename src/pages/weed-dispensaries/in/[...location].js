@@ -139,10 +139,10 @@ const Dispensaries = (props) => {
 
 
     React.useEffect(() => {
-       
+
         if (props.isDirectHit || props.isFromGoogle) {
             dispatch({ type: 'Location', Location: props?.formatted_address })
-            
+
             if (props.locationApi === false && props.setCookies === "notnaivigation") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
@@ -234,7 +234,7 @@ const Dispensaries = (props) => {
 
             }
         }
-    }, [props.isDirectHit]);
+    }, [props.isDirectHit, props.isFromGoogle]);
 
     function breadcrumCountry(country, state1, city) {
         if (Boolean(city)) {
@@ -334,7 +334,7 @@ async function postData(createurl, value, address) {
         });
 
         if (!response.ok) {
-            console.trace(`HTTP error! Status: ${response.status}`);
+            console.trace(`HTTP error! Staus: ${response.status}`);
         }
 
         const result = await response.json(); // Parse the JSON response
@@ -356,7 +356,7 @@ export const getServerSideProps = async (context) => {
     const { headers: { referer }, url } = req;
     const isDirectHit = !referer || referer === req.url;
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
-    const isFromGoogle = referer && referer.includes('google');
+    const isFromGoogle = referer?.includes('google') || false;
     // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
 
     const transformString = (str) => {
@@ -371,7 +371,7 @@ export const getServerSideProps = async (context) => {
             .join(' ');          // Join the words back into a single string
     };
 
-
+    console.log(isDirectHit || isFromGoogle)
     if (isDirectHit || isFromGoogle) {
         const locationParams = context.params.location || [];
         const type = {
@@ -405,6 +405,7 @@ export const getServerSideProps = async (context) => {
             : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
                 : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
                     : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
+    
         await postData(createurl, false, formatted_address, 14)
     }
 

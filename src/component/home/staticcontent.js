@@ -1,8 +1,7 @@
 import React from 'react';
-import Createcontext from "../../hooks/context"
+
 import Image from 'next/image';
 const Staticcontent = () => {
-    const { state, dispatch } = React.useContext(Createcontext)
     return (
         <div>
             <div className="About_weedx">
@@ -23,7 +22,7 @@ const Staticcontent = () => {
                                 // }} 
                                 width={100}
                                     height={100}
-                                    src={state?.StaticImage?.AboutUs1}
+                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs1/about1.webp'}
                                     alt=" Online Ordering"
                                     title=" Online Ordering"
                                 />
@@ -51,7 +50,7 @@ const Staticcontent = () => {
                                     unoptimized={true}
                                     width={100}
                                     height={100}
-                                    src={state?.StaticImage?.AboutUs2}
+                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs2/about2.webp'}
                                     alt="Delivery Services"
                                     title="Delivery Services"
                                 />
@@ -79,7 +78,7 @@ const Staticcontent = () => {
                                     unoptimized={true}
                                     width={100}
                                     height={100}
-                                    src={state?.StaticImage?.AboutUs3}
+                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs3/about3.webp'}
                                     alt="Dispensary Listings"
                                     title="Dispensary Listings"
                                 />
@@ -103,7 +102,7 @@ const Staticcontent = () => {
                                 <Image
                                     width={100}
                                     height={100}
-                                    src={state?.StaticImage?.AboutUs4}
+                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs4/about4.webp'}
                                     alt="Retailer Listings"
                                     title="Retailer Listings"
                                     unoptimized={true}

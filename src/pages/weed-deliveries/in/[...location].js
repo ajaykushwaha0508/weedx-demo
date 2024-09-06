@@ -139,7 +139,7 @@ const Deliveries = (props) => {
 
             }
         }
-    }, [props.isDirectHit]);
+    }, [props.isDirectHit , props.isFromGoogle]);
 
 
     // const { country, state, city, route } = props.location || {};
@@ -360,11 +360,10 @@ export const getServerSideProps = async (context) => {
     const { req, query } = context;
     const { headers: { referer }, url } = req;
     const isDirectHit = !referer || referer === req.url;
-    const isFromGoogle = referer && referer.includes('google');
+    const isFromGoogle = referer?.includes('google') || false;
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
-
     // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-
+  console.log(isDirectHit || isFromGoogle)
     const transformString = (str) => {
         if (typeof str !== "string" || !str.trim()) {
             return '';
@@ -376,8 +375,8 @@ export const getServerSideProps = async (context) => {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
             .join(' ');          // Join the words back into a single string
     };
-
-
+   console.log(context.params.location)
+   
     if (isDirectHit || isFromGoogle) {
         const locationParams = context.params.location || [];
         const type = {
@@ -388,6 +387,7 @@ export const getServerSideProps = async (context) => {
         };
 
         const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
+        console.log(decodedLocation)
         const k = await Location(decodedLocation, type, context, 11, 'deliveries', isDirectHit);
         country1 = k.country || "";
         state = k.state || "";

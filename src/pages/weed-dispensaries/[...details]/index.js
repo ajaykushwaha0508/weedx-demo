@@ -466,7 +466,6 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
     const storeId = _.findIndex(context.params.details, item => !isNaN(parseInt(item)));
-    // console.log(context.params.details[storeId])
     let data = [];
     let productdata = []
     try {
@@ -484,16 +483,42 @@ export async function getStaticProps(context) {
         };
     }
 
-    return {
-        props: {
-            params: {
-                id: context.params.details[storeId],
-                tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
-                storeData: data[0],
-                product: productdata
-            }
-        },
-    };
+    else {
+        if (storeId === 1 && modifystr(data[0].Store_Name) === context.params.details[0] &&   parseInt(context.params.details[storeId]) === data[0]?.id ) {
+            return {
+                props: {
+                    params: {
+                        id: context.params.details[storeId],
+                        tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
+                        storeData: data[0],
+                        product: productdata,
+                    },
+                },
+            };
+        } else if (
+            storeId !== 1 &&
+            modifystr(data[0].Store_Name) === context.params.details[0] &&
+            ["menu", "store-details", "review", "deals"].includes(context.params.details[1]) &&
+            parseInt(context.params.details[storeId]) === data[0].id
+        ) {
+            return {
+                props: {
+                    params: {
+                        id: context.params.details[storeId],
+                        tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
+                        storeData: data[0],
+                        product: productdata,
+                    },
+                },
+            };
+        } else {
+            // Redirect to 404 if conditions are not met
+            return {
+                notFound: true,
+            };
+        }
+        
+    }
 }
 
 
