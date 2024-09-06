@@ -211,7 +211,7 @@ export default function DispensoriesDetails(props) {
         }
     }, [state.Profile, id, api])
 
-    
+
     const onSubmit = () => {
 
         const formdata = new FormData();
@@ -306,11 +306,11 @@ export default function DispensoriesDetails(props) {
     }
 
     return (
-      
-            // !Despen.length ? <Loader /> 
-            // : 
-            <div>
-                {/* <div> 
+
+        // !Despen.length ? <Loader /> 
+        // : 
+        <div>
+            {/* <div> 
                     {(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") &&
                     <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
                         {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>
@@ -318,123 +318,123 @@ export default function DispensoriesDetails(props) {
                     </div>
                 }
                 </div> */}
-                <div>
-                    {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
+            <div>
+                {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
                     ?
                     <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>
                     :
                     // <Embedded Despen={Despen} locationStore={location.asPath}></Embedded>
                     ""
-}
-                        <div>
-
-                            <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
-                            {" >"} 
-                            <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", modifystr(Despen[0]?.Store_Name) , id)}>{Despen[0]?.Store_Name}</span>
-                            {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
-                        </div>
-                    
-                </div>
-                {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
-                    ? <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>  :  ""
                 }
-                <div className="container-fluid product_container" >
-                    {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
-                    <div className="row">
-                        <div className="col-12">
-                            {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
-                        </div>
-                        {
-                            (tab === 'menu' || tab === undefined) &&
-                            <React.Fragment>
-                                {!productload ? <> {!location.asPath.includes('/menu-integration') ?
-                                    (Boolean(DespensariesData.length) ?
-                                        <>
-                                            <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-                                            <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                                <ProductFilter Store_id={Despen[0]?.id}
-                                                    id={id}
-                                                    ProductFilterData={ProductFilterData}
-                                                    Setarr1={DespensariesData}
-                                                    arr={DespensariesData}
-                                                />
-                                                <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                    <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
-                                                </div>
-                                            </div>
-                                        </>
-                                        :
-                                        <div id='oopss'>
-                                            <div id='error-text'>
-                                                <Image unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
-                                                <span>{`Menu Not Available`}</span>
-                                                <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses`}</p>
-                                                <span onClick={() => { navigate.push(`/weed-deliveries/in/${Despen[0]?.Country &&  Despen[0]?.Country.replaceAll(" " , '-').toLowerCase()}/${Despen[0]?.State &&  Despen[0]?.State.replaceAll(" " , '-').toLowerCase()}/${Despen[0]?.City &&  Despen[0]?.City.replaceAll(" " , '-').toLowerCase()}`) }} className="back">{`VIEW OTHER BUSINESSES`}</span>
-                                            </div>
-                                        </div>
-                                    ) :
-                                    (!productload ?
-                                        (Boolean(DespensariesData.length) ? <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                <div>
+
+                    <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
+                    {" >"}
+                    <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", modifystr(Despen[0]?.Store_Name), id)}>{Despen[0]?.Store_Name}</span>
+                    {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
+                </div>
+
+            </div>
+            {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
+                ? <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails> : ""
+            }
+            <div className="container-fluid product_container" >
+                {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
+                <div className="row">
+                    <div className="col-12">
+                        {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
+                    </div>
+                    {
+                        (tab === 'menu' || tab === undefined) &&
+                        <React.Fragment>
+                            {!productload ? <> {!location.asPath.includes('/menu-integration') ?
+                                (Boolean(DespensariesData.length) ?
+                                    <>
+                                        <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
+                                        <div className="col-12 productCat_cont" style={{ display: "contents" }}>
                                             <ProductFilter Store_id={Despen[0]?.id}
-                                                ProductFilterData={ProductFilterData}
-                                                Setarr1={SetDespensariesProductData}
-                                                arr={DespensariesData}
                                                 id={id}
+                                                ProductFilterData={ProductFilterData}
+                                                Setarr1={DespensariesData}
+                                                arr={DespensariesData}
                                             />
                                             <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
                                                 <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                             </div>
                                         </div>
-                                            :
-                                            <div id='oopss'>
-                                                <div id='error-text'>
-                                                    <Image unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
-                                                    <span>{`Menu Not Available`}</span>
-                                                    <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses `}</p>
-                                                    <span className="back">{`VIEW OTHER BUSINESSES`}</span>
-                                                </div>
-                                            </div>)
+                                    </>
+                                    :
+                                    <div id='oopss'>
+                                        <div id='error-text'>
+                                            <Image unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
+                                            <span>{`Menu Not Available`}</span>
+                                            <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses`}</p>
+                                            <span onClick={() => { navigate.push(`/weed-deliveries/in/${Despen[0]?.Country && Despen[0]?.Country.replaceAll(" ", '-').toLowerCase()}/${Despen[0]?.State && Despen[0]?.State.replaceAll(" ", '-').toLowerCase()}/${Despen[0]?.City && Despen[0]?.City.replaceAll(" ", '-').toLowerCase()}`) }} className="back">{`VIEW OTHER BUSINESSES`}</span>
+                                        </div>
+                                    </div>
+                                ) :
+                                (!productload ?
+                                    (Boolean(DespensariesData.length) ? <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                        <ProductFilter Store_id={Despen[0]?.id}
+                                            ProductFilterData={ProductFilterData}
+                                            Setarr1={SetDespensariesProductData}
+                                            arr={DespensariesData}
+                                            id={id}
+                                        />
+                                        <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                            <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                        </div>
+                                    </div>
                                         :
-                                        <DispensoriesAddressSkeleton />
-                                    )
-                                }
-                                </> :
-                                    <DispensoriesAddressSkeleton />}
-                            </React.Fragment>
-                        }
-                        {
-                            tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
-                        }
-                        {
-                            tab === 'review' && <Review
-                                HellFull={HellFull}
-                                type={`store`}
-                                reviewtype={reviewtype}
-                                setReviewtype={setReviewtype}
-                                delBtn={Despen}
-                                handleEdit={handleEdit}
-                                reviewloading={reviewloading}
-                                handleDelete={handleDelete}
-                                Rating={Rating}
-                                onSubmit={onSubmit}
-                                GetProductReview={GetProductReview}
-                                SetGetProductReview={SetGetProductReview}
-                                AllReview={AllReview}
-                                SetReview={SetReview}></Review>
-                        }
-                        {
-                            tab === 'deals' && <div className="noReview">
-                                <div className="noreviewicon">
-                                    <div className="iconcircl"> <Image unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
-                                </div>
-                                <h3 className="noreview_title">{`Discover More Savings Soon!`}</h3>
-                                <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<b>{Despen[0]?.Store_Name}</b>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
-                                <p className="noreview_description w-lg-50">{`In the meantime, explore the diverse range of products available at `}<b>{Despen[0]?.Store_Name}</b>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
+                                        <div id='oopss'>
+                                            <div id='error-text'>
+                                                <Image unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
+                                                <span>{`Menu Not Available`}</span>
+                                                <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses `}</p>
+                                                <span className="back">{`VIEW OTHER BUSINESSES`}</span>
+                                            </div>
+                                        </div>)
+                                    :
+                                    <DispensoriesAddressSkeleton />
+                                )
+                            }
+                            </> :
+                                <DispensoriesAddressSkeleton />}
+                        </React.Fragment>
+                    }
+                    {
+                        tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
+                    }
+                    {
+                        tab === 'review' && <Review
+                            HellFull={HellFull}
+                            type={`store`}
+                            reviewtype={reviewtype}
+                            setReviewtype={setReviewtype}
+                            delBtn={Despen}
+                            handleEdit={handleEdit}
+                            reviewloading={reviewloading}
+                            handleDelete={handleDelete}
+                            Rating={Rating}
+                            onSubmit={onSubmit}
+                            GetProductReview={GetProductReview}
+                            SetGetProductReview={SetGetProductReview}
+                            AllReview={AllReview}
+                            SetReview={SetReview}></Review>
+                    }
+                    {
+                        tab === 'deals' && <div className="noReview">
+                            <div className="noreviewicon">
+                                <div className="iconcircl"> <Image unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
                             </div>
-                        }
-                    </div>
+                            <h3 className="noreview_title">{`Discover More Savings Soon!`}</h3>
+                            <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<b>{Despen[0]?.Store_Name}</b>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
+                            <p className="noreview_description w-lg-50">{`In the meantime, explore the diverse range of products available at `}<b>{Despen[0]?.Store_Name}</b>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
+                        </div>
+                    }
                 </div>
             </div>
+        </div>
 
     )
 }
@@ -454,7 +454,6 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
     const storeId = _.findIndex(context.params.details, item => !isNaN(parseInt(item)));
-    // console.log(context.params.details[storeId])
     let data = [];
     let productdata = []
     try {
@@ -465,23 +464,50 @@ export async function getStaticProps(context) {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
-
     if (data.length === 0) {
         return {
             notFound: true, // Redirect to 404 if no data found
         };
     }
 
-    return {
-        props: {
-            params: {
-                id: context.params.details[storeId],
-                tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
-                storeData: data[0],
-                product: productdata
-            }
-        },
-    };
+    else {
+        if (storeId === 1 && modifystr(data[0].Store_Name) === context.params.details[0] &&   parseInt(context.params.details[storeId]) === data[0]?.id ) {
+            return {
+                props: {
+                    params: {
+                        id: context.params.details[storeId],
+                        tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
+                        storeData: data[0],
+                        product: productdata,
+                    },
+                },
+            };
+        } else if (
+            storeId !== 1 &&
+            modifystr(data[0].Store_Name) === context.params.details[0] &&
+            ["menu", "store-details", "review", "deals"].includes(context.params.details[1]) &&
+            parseInt(context.params.details[storeId]) === data[0].id
+        ) {
+            return {
+                props: {
+                    params: {
+                        id: context.params.details[storeId],
+                        tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
+                        storeData: data[0],
+                        product: productdata,
+                    },
+                },
+            };
+        } else {
+            // Redirect to 404 if conditions are not met
+            return {
+                notFound: true,
+            };
+        }
+        
+    }
+
+ 
 }
 
 

@@ -101,7 +101,7 @@ function StoreDetails({ Despen  }) {
             <meta property="twitter:title" content={metaTag.title} />
             <meta property="twitter:description" content={metaTag.description} />
             <meta property="twitter:image" content={Despen[0]?.Store_Image || ''} />
-            <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
+          {Boolean(Despen[0]?.rating)  && <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>}
         </Head>
     );
 }

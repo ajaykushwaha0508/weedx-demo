@@ -185,12 +185,6 @@ function Context(props) {
                 dispatch({ type: 'Cart_subTotal', Cart_subTotal: AllTotal })
             }
         }
-        StaticImages().then((response) => {
-            dispatch({ type: 'StaticImage', StaticImage: response?.data?.data[0] })
-        }).catch((error) => {
-            dispatch({ type: 'StaticImage', StaticImage: [] })
-            console.trace(error)
-        })
 
     }, [state.ApiProduct, state.login])
 
