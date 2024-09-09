@@ -124,7 +124,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 <div className="col-12 Slider_content_center " >
                     <Link
                         className="LinkColor"
-                        href={`/weed-dispensaries/in/${state?.Country?.toLowerCase() || 'default-country'}/${state?.State?.toLowerCase() || 'default-state'}/${state?.City?.toLowerCase() || 'default-city'}`}
+                        href={`/weed-dispensaries/in/${state?.Country?.toLowerCase()    }/${state?.State?.toLowerCase() || 'default-state'}/${state?.City?.toLowerCase() || 'default-city'}`}
                     ><p onClick={closeNav} className="m-0 d-flex"><span ><FaClinicMedical color="#31B655" fontSize={25} /></span>Dispensaries</p></Link>
                
                 </div>

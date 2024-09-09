@@ -215,7 +215,7 @@ const Dispensaries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
                 const { country, state, city, route } = props.location || {}
-                let url = '/weed-deliveries/in/';
+                let url = '/weed-dispensaries/in/';
                 if (route) {
                     url += `${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`;
                 }
@@ -226,7 +226,7 @@ const Dispensaries = (props) => {
                 } else if (country) {
                     url += modifystr(country);
                 } else {
-                    url = '/weed-deliveries/'; // Fallback URL
+                    url = '/weed-dispensaries/'; // Fallback URL
                 }
 
                 navigate.replace(url, 0, { shallow: true });

@@ -465,7 +465,7 @@ export async function getStaticPaths() {
     };
 }
 export async function getStaticProps(context) {
-    const storeId = _.findIndex(context.params.details, item => !isNaN(parseInt(item)));
+        const storeId = _.findIndex(context.params.details, item => !isNaN(item) && !isNaN(parseFloat(item)));
     let data = [];
     let productdata = []
     try {
