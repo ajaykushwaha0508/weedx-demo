@@ -32,6 +32,7 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                                     width={100}
                                                     height={100}
                                                     unoptimized={true}
+                                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                     className={location.pathname.includes('/menu-integration') ? ' Integrated-catagoriesTabImg' : ' catagoriesTabImg'} />
                                             </div>
                                             <div className='col center Category_title' >

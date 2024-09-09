@@ -54,7 +54,7 @@ app.prepare().
 
           const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
           if (response1.data[0].Xml) {
-// split(':')[0].trim()
+            // split(':')[0].trim()
             const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${response1.data[0].Xml.map((url) => `
@@ -556,112 +556,6 @@ app.prepare().
       }
     })
 
-    // server.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
-    //   try {
-    //     // Check if a file is uploaded
-    //     if (!req.file) {
-    //       res.status(400).send('No CSV file uploaded');
-    //       return;
-    //     }
-
-    //     // Parse CSV data into JSON
-    //     const jsonData = req.file.buffer
-    //       .toString('utf8')
-    //       .split('\n')
-    //       .map((line, index) => {
-    //         // Skip empty lines
-    //         if (!line.trim()) return null;
-
-    //         // Split the line into columns
-    //         const columns = line.split(',');
-
-    //         // Skip headers (assuming they are in the first row)
-    //         if (index === 0) return null;
-
-    //         // Create an object for each row
-    //         return {
-    //           country: columns[0].trim(),
-    //           state: columns[1].trim(),
-    //           city: columns[2].trim()
-    //         };
-    //       })
-    //       .filter(row => row !== null); // Remove null entries (headers or empty lines)
-
-    //     // Array to store all HTTP request promises
-    //     const requestPromises = [];
-
-    //     // Send HTTP requests for each row of data
-    //     for (const data of jsonData) {
-    //       try {
-    //         const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/14`, {
-    //           j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
-    //         });
-    //         // Do something with the response if needed
-    //       } catch (error) {
-    //         console.error('Error making HTTP request:', error);
-    //       }
-    //     }
-
-    //     // Send the response after all requests have completed
-    //     res.status(200).send('CSV file received and processed successfully');
-    //   } catch (error) {
-    //     console.error('Error processing CSV file:', error);
-    //     res.status(500).send('Internal Server Error');
-    //   }
-    // });
-    // server.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, res) => {
-    //   try {
-    //     // Check if a file is uploaded
-    //     if (!req.file) {
-    //       res.status(400).send('No CSV file uploaded');
-    //       return;
-    //     }
-
-    //     // Parse CSV data into JSON
-    //     const jsonData = req.file.buffer
-    //       .toString('utf8')
-    //       .split('\n')
-    //       .map((line, index) => {
-    //         // Skip empty lines
-    //         if (!line.trim()) return null;
-
-    //         // Split the line into columns
-    //         const columns = line.split(',');
-
-    //         // Skip headers (assuming they are in the first row)
-    //         if (index === 0) return null;
-
-    //         // Create an object for each row
-    //         return {
-    //           country: columns[0].trim(),
-    //           state: columns[1].trim(),
-    //           city: columns[2].trim()
-    //         };
-    //       })
-    //       .filter(row => row !== null); // Remove null entries (headers or empty lines)
-
-    //     // Array to store all HTTP request promises
-    //     const requestPromises = [];
-
-    //     // Send HTTP requests for each row of data
-    //     for (const data of jsonData) {
-    //       try {
-    //         const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
-    //           j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
-    //         });
-    //         // Do something with the response if needed
-    //       } catch (error) {
-    //         console.error('Error making HTTP request:', error);
-    //       }
-    //     }
-
-    //     // Send the response after all requests have completed
-    //     res.status(200).send('CSV file received and processed successfully');
-    //   } catch (error) {
-    //     console.error('Error processing CSV file:', error);
-    //     res.status(500).send('Internal Server Error');
-    //   }
-    // });
 
     server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
@@ -672,7 +566,7 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
     });
 
 
-    // Handle all other routes with Next.js
+
     server.get('*', (req, res) => {
 
       return handle(req, res);

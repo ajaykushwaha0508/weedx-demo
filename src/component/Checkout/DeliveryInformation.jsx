@@ -98,7 +98,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                             </div>
                             <div className='row'>
                                 <div className='col-8 delivery_option_img_div_height' >
-                                    <Image  unoptimized={true} width={100} height={100} style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
+                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true} width={100} height={100} style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
                                 </div>
 
 

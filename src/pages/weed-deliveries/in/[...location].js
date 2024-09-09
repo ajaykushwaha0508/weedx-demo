@@ -363,7 +363,7 @@ export const getServerSideProps = async (context) => {
     const isFromGoogle = referer?.includes('google') || false;
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
     // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-  console.log(isDirectHit || isFromGoogle)
+//   console.log(isDirectHit || isFromGoogle)
     const transformString = (str) => {
         if (typeof str !== "string" || !str.trim()) {
             return '';

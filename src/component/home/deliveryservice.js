@@ -91,6 +91,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                                                     src={items?.Store_Image}
                                                                     alt={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
                                                                     title={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
+                                                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                                     className=' dispensories_image  center-block'
                                                                 />
                                                             </Link>
@@ -142,7 +143,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                     <div className='nodeliveryinhomepage' >
                                         <div className='nodeliveryinhomeimage'>
                                             <Image
-                                                onError={handleImageError}
+                                                 onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                 width={100}
                                                 unoptimized={true}
                                                 height={100} src='/NOTDELIVERED.png' alt='NOTDELIVERED' title='NOTDELIVERED' />

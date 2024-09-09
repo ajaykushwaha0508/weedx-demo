@@ -40,6 +40,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                             <div className="col-md-2 col-sm-4  col-3 newFlavour_image_container_height">
                                                                 <div className='newFlavourimage_div'>
                                                                     <Image
+                                                                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                                         unoptimized={true}
                                                                         width={100}
                                                                         height={100}

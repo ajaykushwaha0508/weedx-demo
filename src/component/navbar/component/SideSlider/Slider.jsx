@@ -68,6 +68,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                         <Link href="/">
                                             {/* <LazyLoadImage className='navbar_logo_image'  src='/image/WeedWhiteLogo.webp' alt='WeedX.io logo' title="Weedx.io logo" /> */}
                                             <Image
+                                              onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                 unoptimized={true}
                                                 className={'navbarLogoImage'} // Apply CSS module class
                                                 src="/image/WeedWhiteLogo.webp"
@@ -97,6 +98,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 //     event.target.src = "/image/user.webp"
                                                 //     event.onerror = null
                                                 // }} 
+                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                 unoptimized={true}
                                                 width={100}
                                                 height={100}

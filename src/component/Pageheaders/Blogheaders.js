@@ -54,7 +54,7 @@ const Blogheaders = (props) => {
                       <Link href={`/${router?.pathname?.substring(1)}/${item?.Url_slug === ("" || null || undefined) ? modifystr(item?.Title) : modifystr(item?.Url_slug)}/${item?.id}`}>
                         <div className='searcheslists'>
                           <div className='searcheslists_image'>
-                            <Image width={100} height={100} src={item.Image} alt='image'/>
+                            <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} src={item.Image} alt='image'/>
                           </div>
                           <h3>{item.Title}</h3>
                         </div>

@@ -12,7 +12,7 @@ function AboutusSeo() {
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` About Us-weedx.io | Weed Dispensary & Delivery Near Me | `} />
             <meta property="og:description" content={`weedx.io discover cannabis products and order them from best delivery and dispensary services near you. Explore the best dispensary and get the best weed`} />
-            <meta property="og:image" content={'/WEEDX(1).png'} />
+            <meta property="og:image" content={'/weedxlogo.png'} />
             { /* End Facebook tags */}
 
             { /* Twitter tags */}
@@ -20,7 +20,7 @@ function AboutusSeo() {
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
             <meta name="twitter:title" content={` About Us-weedx.io | Weed Dispensary & Delivery Near Me | `} />
             <meta name="twitter:description" content={`weedx.io discover cannabis products and order them from best delivery and dispensary services near you. Explore the best dispensary and get the best weed`} />
-            <meta property="og:image" content={'/WEEDX(1).png'} />
+            <meta property="og:image" content={'/weedxlogo.png'} />
        
         </Head>
     )
@@ -38,7 +38,7 @@ function TermsAndConditions() {
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` Terms And Conditions - weedx.io | `} />
             <meta property="og:description" content={`Terms & Conditions weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed. `} />
-            <meta property="og:image" content={'/WEEDX(1).png'} />
+            <meta property="og:image" content={'/weedxlogo.png'} />
             { /* End Facebook tags */}
 
             { /* Twitter tags */}
@@ -46,7 +46,7 @@ function TermsAndConditions() {
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
             <meta name="twitter:title" content={` Terms And Conditions - weedx.io | `} />
             <meta name="twitter:description" content={`Terms & Conditions weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed. `} />
-            <meta property="og:image" content={'/WEEDX(1).png'} />
+            <meta property="og:image" content={'/weedxlogo.png'} />
         </Head>
     )
 }

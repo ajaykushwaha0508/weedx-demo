@@ -302,6 +302,8 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
       onFocus()
     }
   }, [state.locationFocus])
+
+
   return (
     <>
 
@@ -338,6 +340,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
 
             onChange={(e) => {
               Setformatted_address(e.target.value);
+              // console.log("kjdkfjdjkf")
               getPlacePredictions({
                 input: e.target.value
               })

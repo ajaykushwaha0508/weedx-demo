@@ -27,7 +27,7 @@ const Brand = ({VerifyArrayData}) => {
 
                                                 <Link    href={`/brands/${modifystr(items.name)}/${items.id}`}>
                                                     <div className="col-6  verifyBrand_image_container ">
-                                                        <Image unoptimized={true} width={100} height={100} className="verify_brand_image" src={`${items.Brand_Logo}`} alt={items.name} title={items.name} />
+                                                        <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} className="verify_brand_image" src={`${items.Brand_Logo}`} alt={items.name} title={items.name} />
 
                                                     </div>
                                                     <div className="col-6 verify_content_container">

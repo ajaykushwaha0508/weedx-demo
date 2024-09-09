@@ -33,6 +33,7 @@ const LawsOptions = (props) => {
                                                         width={100}
                                                         unoptimized={true}
                                                         height={100}
+                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         alt={val.name}
                                                         title={val.name}
                                                         />

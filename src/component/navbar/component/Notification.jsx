@@ -217,7 +217,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                                 <Link href={data.link} onClick={()=>{setnotify(false)}}>
                                                     <div className="notification_img">
                                                         <div className="notiimgCircle">
-                                                            <Image  unoptimized={true} width={100} height={100} src={data.Image} alt={data.title} title={data.title} />
+                                                            <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={data.Image} alt={data.title} title={data.title} />
                                                         </div>
                                                     </div>
                                                 </Link>
@@ -260,7 +260,7 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                                             <Link href={data.link} onClick={()=>{setnotify(false) ; removenotify(data)}}>
                                                 <div className="notification_img">
                                                     <div className="notiimgCircle">
-                                                        <Image unoptimized={true} width={100} height={100} src={data?.image} alt={data.title} title={data.title} onError={() => this.img.src = '/image/weedx.io logo.png'} />
+                                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={data?.image} alt={data.title} title={data.title} onError={() => this.img.src = '/image/weedx.io logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>

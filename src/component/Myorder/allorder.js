@@ -48,6 +48,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                           <div key={index} className="place_order_product_cart ">
                           <div className="place_order_product_cart_image">
                               <Image 
+                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                               unoptimized={true}
                             width={100} 
                             height={100}

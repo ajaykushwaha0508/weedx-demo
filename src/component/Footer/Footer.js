@@ -39,7 +39,7 @@ const Footer = () => {
                         <div className="row main_content_logo">
                             <div className=" footer_logo_container">
                                 <div className="footerLogo">
-                                    <Image unoptimized={true} width={100} height={100} className="footer_logo_image" src={logoimage.src} alt="weedx.io logo" title="weedx.io logo" />
+                                    <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} className="footer_logo_image" src={logoimage.src} alt="weedx.io logo" title="weedx.io logo" />
                                 </div>
 
                                 <div className="contact_info">

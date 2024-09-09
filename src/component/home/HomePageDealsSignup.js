@@ -44,7 +44,7 @@ const HomePageDealsSignup = () => {
                     <div className='row'>
                         <div className='col-md-6 col-12 d-md-inline d-none'>
                             <div className='newsletterImage text-center'>
-                                <Image unoptimized={true} width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
+                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
                             </div>
                         </div>
                         <div className='col-md-6  col-12'>
