@@ -36,6 +36,7 @@ const HomePageBanner = ({props}) => {
                                             <div className='col-12 homePageBanner_container'>
                                                 <a href={items?.Link !== null ? items?.Link : "#"}>
                                                     <Image  
+                                                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                     src={items?.Banner}
                                                         alt="Weedx.io Promotion banner"
                                                         title="Weedx.io Promotion banner"
@@ -67,6 +68,7 @@ const HomePageBanner = ({props}) => {
                                                 <a href={items?.Link !== null ? items?.Link : "#"} >
 
                                                     <Image
+                                                    
                                                         unoptimized={true}
                                                         src={items?.mobile}
                                                         alt="Weedx.io Promotion banner"
@@ -75,7 +77,7 @@ const HomePageBanner = ({props}) => {
                                                         height={10}
                                                         quality={10}
                                                         className='HomePageBanner_image'
-                                        
+                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         loader={imageLoader}
                                                     />
                                                 </a>

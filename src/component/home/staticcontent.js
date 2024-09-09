@@ -25,6 +25,7 @@ const Staticcontent = () => {
                                     src={'https://selnew.s3.amazonaws.com/media/AboutUs1/about1.webp'}
                                     alt=" Online Ordering"
                                     title=" Online Ordering"
+                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                 />
                             </div>
                             <div className="about_text">
@@ -49,6 +50,7 @@ const Staticcontent = () => {
                                     // }}
                                     unoptimized={true}
                                     width={100}
+                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     height={100}
                                     src={'https://selnew.s3.amazonaws.com/media/AboutUs2/about2.webp'}
                                     alt="Delivery Services"
@@ -77,6 +79,7 @@ const Staticcontent = () => {
                                     // }}
                                     unoptimized={true}
                                     width={100}
+                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     height={100}
                                     src={'https://selnew.s3.amazonaws.com/media/AboutUs3/about3.webp'}
                                     alt="Dispensary Listings"
@@ -105,6 +108,7 @@ const Staticcontent = () => {
                                     src={'https://selnew.s3.amazonaws.com/media/AboutUs4/about4.webp'}
                                     alt="Retailer Listings"
                                     title="Retailer Listings"
+                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     unoptimized={true}
                                 />
                             </div>

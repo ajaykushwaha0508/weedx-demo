@@ -32,10 +32,7 @@ const HomePageWeedBanner=({props})=>{
                <div   className='col-12 homePageBanner_container' >
                <a href={ ele.Link !== null ? ele.Link : "#" }>
                         <Image
-                        // onError={event => {
-                        //     event.target.src = "/image/VANNER_2.png"
-                        //     event.onerror = null
-                        // }}
+                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                         unoptimized={true}
                         width={1400} height={500}
                         loader={imageLoader}
@@ -63,6 +60,7 @@ const HomePageWeedBanner=({props})=>{
                             <div className='col-12 homePageBanner_container'>
                                 <a href={ ele.Link !== null ? ele.Link : "#" }>
                                 <Image unoptimized={true}
+                                  onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                         width={100} height={10}
                                         loader={imageLoader}
                                 src={`${ele?.mobile}`}

@@ -84,6 +84,7 @@ const Index = () => {
                                         src={AllOrder_data[0]?.Product[0]?.Image}
                                         alt={AllOrder_data[0]?.Product[0]?.ProductName}
                                         title={AllOrder_data[0]?.Product[0]?.ProductName}
+                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     />
                                 </div>
                             </section>

@@ -378,7 +378,7 @@ export default function DispensoriesDetails(props) {
                                     :
                                     <div id='oopss'>
                                         <div id='error-text'>
-                                            <Image unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
+                                            <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
                                             <span>{`Menu Not Available`}</span>
                                             <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses`}</p>
                                             <span onClick={() => { navigate.push(`/weed-deliveries/in/${Despen[0]?.Country && Despen[0]?.Country.replaceAll(" ", '-').toLowerCase()}/${Despen[0]?.State && Despen[0]?.State.replaceAll(" ", '-').toLowerCase()}/${Despen[0]?.City && Despen[0]?.City.replaceAll(" ", '-').toLowerCase()}`) }} className="back">{`VIEW OTHER BUSINESSES`}</span>
@@ -400,7 +400,7 @@ export default function DispensoriesDetails(props) {
                                         :
                                         <div id='oopss'>
                                             <div id='error-text'>
-                                                <Image unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
+                                                <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
                                                 <span>{`Menu Not Available`}</span>
                                                 <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses `}</p>
                                                 <span className="back">{`VIEW OTHER BUSINESSES`}</span>
@@ -437,7 +437,7 @@ export default function DispensoriesDetails(props) {
                     {
                         tab === 'deals' && <div className="noReview">
                             <div className="noreviewicon">
-                                <div className="iconcircl"> <Image unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
+                                <div className="iconcircl"> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
                             </div>
                             <h3 className="noreview_title">{`Discover More Savings Soon!`}</h3>
                             <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>

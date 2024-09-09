@@ -27,13 +27,14 @@ import { modifystr } from "../../hooks/utilis/commonfunction";
 const ProductList = ({ arr , link="products" }) => {
   const cookies = new Cookies();
   const [page, setPage] = React.useState(1);
+  const showdata =  arr
   const [productperpage, setproductperPage] = React.useState(8);
   const Navigate = useRouter();
   const location = useRouter()
   const [CartClean, SetCartClean] = React.useState(false);
   const [adding, setadding] = React.useState('')
   const [popup, SetPopup] = React.useState(true)
-  const [showdata, setShowdata] = React.useState( 'No');
+  // const [showdata, setShowdata] = React.useState( 'No');
   let token_data = cookies.get("User_Token_access");
   let accessToken 
   if (typeof window !== 'undefined') {
@@ -377,21 +378,21 @@ const ProductList = ({ arr , link="products" }) => {
       setpaginateddata(assa)
   };
 
-  React.useEffect(() => {
-    let newdata = arr.filter((item) => {
-      return item.Prices[0]?.Price[0]?.Stock === "IN Stock"
-    })
-    let newdata2 = arr.filter((item) => {
-      return item.Prices[0]?.Price[0]?.Stock !== "IN Stock"
-    })
-    setShowdata(newdata.concat(newdata2))
-    if(location.pathname.includes('/menu-integration')){
-    let assa = newdata.concat(newdata2).slice(0,productperpage)
-    setpaginateddata(assa)
-    }else{
-      setpaginateddata(newdata.concat(newdata2))
-    }
-  }, [arr]);
+  // React.useEffect(() => {
+  //   let newdata = arr.filter((item) => {
+  //     return item.Prices[0]?.Price[0]?.Stock === "IN Stock"
+  //   })
+  //   let newdata2 = arr.filter((item) => {
+  //     return item.Prices[0]?.Price[0]?.Stock !== "IN Stock"
+  //   })
+  //   setShowdata(newdata.concat(newdata2))
+  //   if(location.pathname.includes('/menu-integration')){
+  //   let assa = newdata.concat(newdata2).slice(0,productperpage)
+  //   setpaginateddata(assa)
+  //   }else{
+  //     setpaginateddata(newdata.concat(newdata2))
+  //   }
+  // }, [arr]);
 
   React.useEffect(()=>{
     let width= window.innerWidth
@@ -402,7 +403,6 @@ const ProductList = ({ arr , link="products" }) => {
     }
   },[])
 
-
   return (
     <>
       {(showdata?.length !== 0 && typeof(showdata) !== "string") ? (
@@ -412,7 +412,7 @@ const ProductList = ({ arr , link="products" }) => {
               className="row  mx-2"
               style={{ height: "auto", marginBottom: "10px" }}
             >
-              {paginateddata?.map((ele, index) => {
+              {arr?.map((ele, index) => {
                 return (
                   <div
                     className={location.pathname.includes('/menu-integration') ? "col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6  "  :"col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 "}
@@ -456,6 +456,7 @@ const ProductList = ({ arr , link="products" }) => {
                               className="product_search_result_image"
                              width={100}
                              unoptimized={true}
+                             onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                              height={100}
                               src={`${ele?.images[0]?.image}`}
                               alt={ele.Product_Name}

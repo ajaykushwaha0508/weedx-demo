@@ -32,10 +32,11 @@ const RelatedVerifyBrand = (props) => {
     //         return () => clearTimeout(getData)
     //     } 
     // }, [searchval])
+    console.log(props.params.brand[0].Brand_Logo)
     return (
       <div className="container">
             {state.permission && <Currentlocation></Currentlocation>}
-            <BrandDetailsSeo brandname={props.params.brand[0].name.toLowerCase()} location={asPath}></BrandDetailsSeo>
+            <BrandDetailsSeo brandname={props.params.brand[0].name.toLowerCase()} location={asPath} image={props.params.brand[0].Brand_Logo}></BrandDetailsSeo>
             <RelatedVerifyBanner BrandDetails={props.params.brand[0]} />
             <div className="row  center mx-0 mt-4 mb-4">
                 <div className="col-md-9">

@@ -148,7 +148,7 @@ const SearchBar = ({ path }) => {
             }
         }
         else if (type === "Brand") {
-            router.push(`/brands/${t.value}/${t.id}`);
+            router.push(`/brands/${modifystr(t.value)}/${t.id}`);
         }
         else if (type === "Sub Category") {
             router.push(`/Products/${modifystr(t.Category)}/${modifystr(t.value)}/${t.id}`);

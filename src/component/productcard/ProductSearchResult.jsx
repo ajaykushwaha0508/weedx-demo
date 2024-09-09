@@ -320,6 +320,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                 id: items.id
                                                             }}  >
                                                             <Image
+                                                              onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                                 unoptimized={true}
                                                                 className="product_search_result_image"
                                                                 width={100}
@@ -421,6 +422,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                         id: items.id
                                                     }}  >
                                                     <Image
+                                                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         unoptimized={true}
                                                         className="product_search_result_image"
                                                         width={100}
