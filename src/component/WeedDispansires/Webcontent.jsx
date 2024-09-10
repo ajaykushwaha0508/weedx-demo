@@ -49,6 +49,7 @@ const WebContent = ({ state, Store = [], modifystr, from, url, product, location
     //         }
     //     })
     // },[state])
+
     return (
         <div >
             <div className="col-12 webContent">
