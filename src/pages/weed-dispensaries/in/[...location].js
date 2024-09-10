@@ -16,6 +16,7 @@ import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Location from '../../../hooks/utilis/getlocation';
 import Cookies from 'universal-cookie';
 import cookie from 'cookie';
+import axios from 'axios';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
@@ -52,97 +53,16 @@ const Dispensaries = (props) => {
     const navigate = useRouter()
     const { state, dispatch } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
-    const [contentdata, setcontentdata] = React.useState([])
+    let contentdata = props.content || []
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: props.formatted_address || state.Location }]
     const locations = props?.formatted_address
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    // React.useEffect(() => {
-    //     const sendPostRequest = () => {
-    //         axios.post(
-    //             `https://api.cannabaze.com/UserPanel/Update-SiteMap/14`,
-    //             {
-    //                 j: 'https://www.weedx.io' + modifystr(Location?.pathname.replace(/\/+$/, ""))
-    //             }
-    //         ).then((res) => {
-    //         }).catch((err) => {
-    //         });
-    //     };
-
-
-    //     const timeoutId = setTimeout(sendPostRequest, 2000);
-
-    //     return () => clearTimeout(timeoutId);
-    // }, [Location]);
-
-    // React.useEffect(() => {
-
-    //     if (searchtext !== "") {
-    //         const getData = setTimeout(() => {
-    //             const json = {
-    //                 "store": searchtext,
-    //                 "City": state.City,
-    //                 "Country": state.Country?.replace(/-/g, " "),
-    //                 "State": state.State?.replace(/-/g, " "),
-    //             }
-    //             Axios.post(`https://api.cannabaze.com/UserPanel/FilterDispensaries/`,
-    //                 json
-    //             ).then(function (response) {
-    //                 setloader(true)
-    //                 SetStore(() => response?.data);
-    //             })
-    //                 .catch(function (error) {
-    //                     setloader(true)
-    //                     console.trace(error);
-    //                 });
-    //         }, 1000)
-    //         return () => clearTimeout(getData)
-    //     } else {
-    //         const sendPostRequest = () => {
-    //             try {
-    //                 const object = { City: state.City.replace(/-/g, " "), "Country": state.Country?.replace(/-/g, " "), "State": state.State?.replace(/-/g, " "), }
-    //                 // state.Country !== "" && DespensioriesItem(object)
-    //                 //     .then((res) => {
-
-    //                 //         if (res === "No Dispensary in your area") {
-    //                 //         }
-    //                 //         else {
-    //                 //             SetStore(res)
-    //                 //         }
-    //                 //         setloader(true)
-
-    //                 //     })
-
-    //                 axios.post(`https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/`, { ...object }
-
-    //                 ).then((res) => {
-    //                     setcontentdata(res.data)
-    //                 })
-
-    //             } catch (error) {
-
-    //             }
-    //         }
-    //         const timeoutId = setTimeout(sendPostRequest, 1000);
-    //         return () => clearTimeout(timeoutId);
-    //     }
-    // }, [searchtext, state])
-    //   console.log( props.location)
-
-
-    // React.useEffect(() => {
-    //     dispatch({ type: 'Location', Location: props?.formatted_address  })
-
-    //     // navigate.push(`/weed-dispensaries/${props.location.country || 'default-country'}/${props.location.state || 'default-state'}/${props.location.city || 'default-city'}`,undefined ,  { shallow: false });
-    // }, [props])
-
-
     React.useEffect(() => {
 
         if (props.isDirectHit || props.isFromGoogle) {
-            dispatch({ type: 'Location', Location: props?.formatted_address })
-
+            dispatch({ type: 'Location', Location: props?.formatted_address})
             if (props.locationApi === false && props.setCookies === "notnaivigation") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
@@ -257,7 +177,6 @@ const Dispensaries = (props) => {
         }
 
     }
-
     return (
         <div className="w-100 mx-auto  dispensaries_centers">
             <DispensariesSco location={navigate?.asPath} format_Address={props?.formatted_address} ></DispensariesSco>
@@ -344,6 +263,12 @@ async function postData(createurl, value, address) {
 }
 
 
+function capitalizeFirstLetter(string) {
+    return string
+        .split(/[\s-]/)  // Split by both space and hyphen
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter, lowercase the rest
+        .join(' ');  // Join the words back with spaces
+}
 
 
 export const getServerSideProps = async (context) => {
@@ -371,7 +296,6 @@ export const getServerSideProps = async (context) => {
             .join(' ');          // Join the words back into a single string
     };
 
-    console.log(isDirectHit || isFromGoogle)
     if (isDirectHit || isFromGoogle) {
         const locationParams = context.params.location || [];
         const type = {
@@ -408,89 +332,97 @@ export const getServerSideProps = async (context) => {
     
         await postData(createurl, false, formatted_address, 14)
     }
-
-
-
+    
     const object = {
         City: transformString(city) || '',
         Country: transformString(country1) || '',
         State: transformString(state) || '',
     };
-
     const object1 = {
         ...object,
-        limit: 10
+        limit: 10,
     };
-
+    const object2 = {
+        City: capitalizeFirstLetter(city.replace(/-/g, ' ')),
+        State: capitalizeFirstLetter(state.replace(/-/g, ' ')),
+        Country: capitalizeFirstLetter(country1.replace(/-/g, ' ')),
+    };
     try {
-        const response = await fetch('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(object)
-        });
 
-        if (!response.ok) {
+        // Fetch product data and webpage content in parallel   
+        const [productResponse, Dispensaries ,  Webcontent] = await Promise.all([
+            fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object1),
+            }),
+            fetch('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object2),
+            }),
+            fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object2),
+            })
+        ]);
+
+        // Handle product response
+        if (!Dispensaries.ok) {
             throw new Error('Failed to fetch dispensaries');
         }
 
-        const data = await response.json();
-        let productResponse = [];
-        productResponse = await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(object1)
-        });
-
-        if (!productResponse.ok) {
-            productResponse = []
+        let products = [];
+        if (productResponse.ok) {
+            const productData = await productResponse.json();
+            products = productData !== "No Product Found"
+                ? productData.filter(item => item.Store_Type !== "dispensary")
+                : [];
         }
-        const productData = await productResponse.json();
-        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type !== "dispensary") : []
+        // Handle webpage content response
+        let content = [];
+        if (Webcontent.ok) {
+            content = await Webcontent.json();
+        }
+        // Fetch delivery data and check if no dispensary found
+        const data = await Dispensaries.json();
         if (data === "No Dispensary in your area") {
             return {
                 props: {
                     store: [],
                     product: [],
-                    location: {
-                        country: country1,
-                        state: state,
-                        city: city,
-                        route: route,
-                    },
-                    formatted_address: formatted_address,
+                    location: { country: country1, state: state, city: city, route },
+                    formatted_address,
                     isDirectHit,
                     locationApi,
                     setCookies,
-                    isFromGoogle
-                }
-            };
-        } else {
-            return {
-                props: {
-                    store: data,
-                    product: products,
-                    location: {
-                        country: country1,
-                        state: state,
-                        city: city,
-                        route: route,
-                    },
-                    formatted_address: formatted_address,
-                    isDirectHit,
-                    locationApi,
-                    setCookies,
-                    isFromGoogle
+                    isFromGoogle,
+                    content,
                 }
             };
         }
+
+        // Return props if data is available
+        return {
+            props: {
+                store: data,
+                product: products,
+                location: { country: country1, state: state, city: city, route },
+                formatted_address,
+                isDirectHit,
+                locationApi,
+                setCookies,
+                isFromGoogle,
+                content,
+            }
+        };
     } catch (error) {
         console.error('Error fetching data:', error);
+
+        // Handle errors gracefully and return a 404 page
         return {
-            notFound: true
+            notFound: true,
         };
     }
 };

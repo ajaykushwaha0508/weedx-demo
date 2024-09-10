@@ -1,15 +1,10 @@
-// import DeliveryPickupMenu from "./DeliveriesComponent/DeliveryPickupMenu"
-// import DeliveryMenuBar from "./DeliveriesComponent/DeliveryMenuBar/DeliveryMenuBar  "
 import React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../../hooks/context"
-// import { useLocation, usenavigate.push, Link } from "react-router-dom"
-import { parseCookies } from 'nookies';
 import { useRouter } from 'next/router';
-import axios from "axios"
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -18,16 +13,10 @@ import TabPanel from '@mui/lab/TabPanel';
 import useStyles from '../../../styles/style';
 import dynamic from 'next/dynamic'
 const DeliveryItemsCard = dynamic(() => import('../../../component/DeliveriesComponent/DeliveryMenuBar/DeliveryItemsCards'), { ssr: true });
-const Text = dynamic(() => import('../../../layout/text'), { ssr: true });
-// import DeliveryItemsCard from "../../../component/DeliveriesComponent/DeliveryMenuBar/DeliveryItemsCards";
 import { Delivery } from '../../../component/ScoPage/Deliveries';
 import Wronglocation from "../../../component/skeleton/Wronglocation"
-import Loader from "../../../component/Loader/Loader";
-// import Neighborhood from "../Dispansires/DispansiresComponent/loactoncomponent/Neighborhood";
-// import Zipcode from "../Dispansires/DispansiresComponent/loactoncomponent/Zipcode";
 import WebContent from "../../../component/WeedDispansires/Webcontent";
 import { modifystr } from "../../../hooks/utilis/commonfunction";
-import RoutingDespen from '../../../hooks/utilis/Routingdespen';
 import Location from '../../../hooks/utilis/getlocation';
 import Cookies from 'universal-cookie';
 import cookie from 'cookie';
@@ -38,17 +27,16 @@ const Deliveries = (props) => {
     const locations = props.formatted_address
     const Location = useRouter()
     const navigate = useRouter()
-    // console.log(props)
-    
-    const [contentdata, setcontentdata] = React.useState([])
+
+    let contentdata = props.content || []
 
 
     React.useEffect(() => {
-        
-        if (props.isDirectHit  || props.isFromGoogle) {
+
+        if (props.isDirectHit || props.isFromGoogle) {
             dispatch({ type: 'Location', Location: props?.formatted_address })
-            if( props.locationApi === false &&  props.setCookies === "notnaivigation"){
-                
+            if (props.locationApi === false && props.setCookies === "notnaivigation") {
+
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
@@ -72,7 +60,7 @@ const Deliveries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
             }
-            else if( props.locationApi &&  props.setCookies === "notnaivigation") {
+            else if (props.locationApi && props.setCookies === "notnaivigation") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
@@ -96,7 +84,7 @@ const Deliveries = (props) => {
                     path: '/' // Set the path where the cookie is accessible
                 });
             }
-            else if ( props.locationApi &&  props.setCookies === "navigate") {
+            else if (props.locationApi && props.setCookies === "navigate") {
                 dispatch({ type: 'Location', Location: props?.formatted_address })
                 dispatch({ type: 'permission', permission: true });
                 dispatch({ type: 'Country', Country: props?.location?.country });
@@ -133,34 +121,15 @@ const Deliveries = (props) => {
                 } else {
                     url = '/weed-deliveries/'; // Fallback URL
                 }
-    
+
                 navigate.replace(url, 0, { shallow: true });
 
 
             }
         }
-    }, [props.isDirectHit , props.isFromGoogle]);
+    }, [props.isDirectHit, props.isFromGoogle]);
 
 
-    // const { country, state, city, route } = props.location || {};
-            // Build the URL based on available location data
-            // let url = '/weed-deliveries/in/';
-            // if (route) {
-            //     url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}/${modifystr(route)}`;
-            // }
-            // else if (city) {
-            //     url += `${modifystr(country) || 'default-country'}/${modifystr(state) || 'default-state'}/${modifystr(city)}`;
-            // } else if (state) {
-            //     url += `${modifystr(country) || 'default-country'}/${modifystr(state)}`;
-            // } else if (country) {
-            //     url += modifystr(country);
-            // } else {
-            //     url = '/weed-deliveries/default-country'; // Fallback URL
-            // }
-
-            // // Use shallow routing to navigate to the constructed URL
-            // console.log(props.isDirectHit)
-            // props.isDirectHit && navigate.replace(url, 0, { shallow: true });
 
 
 
@@ -194,8 +163,6 @@ const Deliveries = (props) => {
         }
 
     }
-
-
     return (
         // <RoutingDespen>
         <div>
@@ -246,25 +213,28 @@ const Deliveries = (props) => {
 
                         }
                     </div>
+                    <div className="col-12 webContent">
+                        <h2 className="section_main_title">{contentdata?.Title}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
+                    </div>
                     {contentdata.length !== 0 &&
                         contentdata?.Faq[0]?.title !== '' &&
-                        <>  <h3 className="section_main_title">FAQs</h3>
-
+                        <>  <h3 className="section_main_title">{`FAQs`}</h3>
                             <div className="row">
                                 {
                                     contentdata?.Faq?.map((item, index) => {
-                                        return <div className="col-lg-6 webContent my-2" key={index}> <Accordion>
-                                            <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1-content"
-                                                id="panel1-header"
-                                            >
-                                                <h3 >{item.title}</h3>
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                <p>{item.answer}</p>
-                                            </AccordionDetails>
-                                        </Accordion></div>
+                                        return (<div className="col-lg-6 webContent my-2" key={index}>
+                                            <Accordion>
+                                                <AccordionSummary
+                                                    expandIcon={<ExpandMoreIcon />}
+                                                    aria-controls="panel1-content"
+                                                    id="panel1-header" >
+                                                    <h3 >{item.title}</h3>
+                                                </AccordionSummary>
+                                                <AccordionDetails>
+                                                    <p>{item.answer}</p>
+                                                </AccordionDetails>
+                                            </Accordion></div>)
                                     })
                                 }
 
@@ -327,30 +297,40 @@ export async function GetAllDelivery(object) {
         return [];
     }
 }
+
+function capitalizeFirstLetter(string) {
+    return string
+        .split(/[\s-]/)  // Split by both space and hyphen
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter, lowercase the rest
+        .join(' ');  // Join the words back with spaces
+}
+
+
+
 async function postData(createurl, value, address, id) {
 
     const url = `https://api.cannabaze.com/UserPanel/Update-SiteMap/${id}`;
     const data = {
-      j: createurl,
-      address: value,
-      formate: ", " + address
+        j: createurl,
+        address: value,
+        formate: ", " + address
     };
-  
-    try {
-      const response = await fetch(url, {
-        method: 'POST', // Specify the request method as POST
-        headers: {
-          'Content-Type': 'application/json', // Set the content type to JSON
-        },
-        body: JSON.stringify(data) // Convert the data object to a JSON string
-      });
-  
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
 
-  
+    try {
+        const response = await fetch(url, {
+            method: 'POST', // Specify the request method as POST
+            headers: {
+                'Content-Type': 'application/json', // Set the content type to JSON
+            },
+            body: JSON.stringify(data) // Convert the data object to a JSON string
+        });
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
 export const getServerSideProps = async (context) => {
     context.res.setHeader(
         'Cache-Control',
@@ -363,7 +343,7 @@ export const getServerSideProps = async (context) => {
     const isFromGoogle = referer?.includes('google') || false;
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
     // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-//   console.log(isDirectHit || isFromGoogle)
+    //   console.log(isDirectHit || isFromGoogle)
     const transformString = (str) => {
         if (typeof str !== "string" || !str.trim()) {
             return '';
@@ -375,8 +355,7 @@ export const getServerSideProps = async (context) => {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
             .join(' ');          // Join the words back into a single string
     };
-   console.log(context.params.location)
-   
+
     if (isDirectHit || isFromGoogle) {
         const locationParams = context.params.location || [];
         const type = {
@@ -387,7 +366,6 @@ export const getServerSideProps = async (context) => {
         };
 
         const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-        console.log(decodedLocation)
         const k = await Location(decodedLocation, type, context, 11, 'deliveries', isDirectHit);
         country1 = k.country || "";
         state = k.state || "";
@@ -395,7 +373,7 @@ export const getServerSideProps = async (context) => {
         route = k.route || "";
         formatted_address = k.formatted_address || "";
         locationApi = k.api,
-            setCookies = k.cookies
+        setCookies = k.cookies
 
     }
 
@@ -407,11 +385,11 @@ export const getServerSideProps = async (context) => {
         city = cookies?.fetchlocation?.city || "";
         route = cookies?.fetchlocation?.route || "",
             formatted_address = cookies?.fetchlocation?.formatted_address || "";
-            const createurl = Boolean(route) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+        const createurl = Boolean(route) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
             : Boolean(city) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
-              : Boolean(state) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}`
-                : Boolean(country1) && `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}`
-            await postData(createurl, false, formatted_address, 11)
+                : Boolean(state) ? `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}/${modifystr(state)}`
+                    : Boolean(country1) && `https://www.weedx.io/weed-deliveries/in/${modifystr(country1)}`
+        await postData(createurl, false, formatted_address, 11)
     }
 
 
@@ -425,67 +403,83 @@ export const getServerSideProps = async (context) => {
     };
     const object1 = {
         ...object,
-        limit: 10
+        limit: 10,
     };
+    const object2 = {
+        City: capitalizeFirstLetter(city.replace(/-/g, ' ')),
+        State: capitalizeFirstLetter(state.replace(/-/g, ' ')),
+        Country: capitalizeFirstLetter(country1.replace(/-/g, ' ')),
+    };
+
     try {
-        const response = await GetAllDelivery(object);
-        const data = await response;
-        let productResponse = [];
-        productResponse = await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(object1)
-        });
+        // Fetch delivery data
+        const deliveryPromise = GetAllDelivery(object);
 
-        if (!productResponse.ok) {
-            productResponse = []
+        // Fetch product data and webpage content in parallel   
+        const [productResponse, Webcontent] = await Promise.all([
+            fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object1),
+            }),
+            fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object2),
+            })
+        ]);
+
+        // Handle product response
+        let products = [];
+        if (productResponse.ok) {
+            const productData = await productResponse.json();
+            products = productData !== "No Product Found"
+                ? productData.filter(item => item.Store_Type !== "dispensary")
+                : [];
         }
-        const productData = await productResponse.json();
-        const products = productData !== "No Product Found" ? productData?.filter(item => item.Store_Type !== "dispensary") : []
-
-        if (data === "No Dispensary in your area") {
+        // Handle webpage content response
+        let content = [];
+        if (Webcontent.ok) {
+            content = await Webcontent.json();
+        }
+        // Fetch delivery data and check if no dispensary found
+        const deliveryData = await deliveryPromise;
+        if (deliveryData === "No Dispensary in your area") {
             return {
                 props: {
                     store: [],
                     product: [],
-                    location: {
-                        country: country1,
-                        state: state,
-                        city: city,
-                        route: route,
-                    },
-                    formatted_address: formatted_address,
+                    location: { country: country1, state: state, city: city, route },
+                    formatted_address,
                     isDirectHit,
                     locationApi,
                     setCookies,
-                    isFromGoogle
-                }
-            };
-        } else {
-            return {
-                props: {
-                    store: data,
-                    product: products,
-                    location: {
-                        country: country1,
-                        state: state,
-                        city: city,
-                        route: route,
-                    },
-                    formatted_address: formatted_address,
-                    isDirectHit,
-                    locationApi,
-                    setCookies,
-                    isFromGoogle
+                    isFromGoogle,
+                    content,
                 }
             };
         }
+
+        // Return props if data is available
+        return {
+            props: {
+                store: deliveryData,
+                product: products,
+                location: { country: country1, state: state, city: city, route },
+                formatted_address,
+                isDirectHit,
+                locationApi,
+                setCookies,
+                isFromGoogle,
+                content,
+            }
+        };
     } catch (error) {
         console.error('Error fetching data:', error);
+
+        // Handle errors gracefully and return a 404 page
         return {
-            notFound: true
+            notFound: true,
         };
     }
 };
