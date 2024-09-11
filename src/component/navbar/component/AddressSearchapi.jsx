@@ -296,8 +296,6 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
     });
   }
   React.useEffect(() => {
-
-
     if (state.locationFocus) {
       onFocus()
     }

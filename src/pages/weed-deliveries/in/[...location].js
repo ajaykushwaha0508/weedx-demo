@@ -422,7 +422,7 @@ export const getServerSideProps = async (context) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(object1),
             }),
-            fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
+           !Boolean(route) && fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(object2),
@@ -460,7 +460,6 @@ export const getServerSideProps = async (context) => {
             };
         }
 
-        // Return props if data is available
         return {
             props: {
                 store: deliveryData,

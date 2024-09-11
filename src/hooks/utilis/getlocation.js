@@ -20,7 +20,7 @@ async function postData(createurl, value, address, id) {
       body: JSON.stringify(data) // Convert the data object to a JSON string
     });
     const l = await response.json()
-    console.log(l)
+    // console.log(l)
   } catch (error) {
     console.error('Error:', error);
   }
