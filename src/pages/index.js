@@ -7,7 +7,7 @@ const CategoryProduct = dynamic(() => import('../component/category/category'));
 const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
 const HomePageWeedBanner = dynamic(() => import('../component/home/HomePageWeedBanner'));
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'));
-const NewsBlog = dynamic(() => import('../component/home/Newsblog'),  { ssr: true });
+const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
 // const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
@@ -16,7 +16,7 @@ import { modifystr } from "@/hooks/utilis/commonfunction";
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
   const [Skeleton, SetSkeleton] = React.useState(true)
-  const Navigate =  useRouter()
+  const Navigate = useRouter()
   function ShowCategoryProduct(id, name) {
 
     Navigate.push(`/products/${modifystr(name)}/${id}`);
@@ -24,19 +24,19 @@ export default function Home({ initialData }) {
 
   return (
     <>
-     {state.permission && <Currentlocation></Currentlocation>}
+      {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
-        <HomePageBanner props={initialData.topbanner}> </HomePageBanner>
-        <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
-        <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery}  initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
-        <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>
-        <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Shop Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
-        <FeaturedBrand CardDataArray={initialData.brand} />
-        {/* <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
+      <HomePageBanner props={initialData.topbanner}> </HomePageBanner>
+      <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
+      <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>
+      <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Shop Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <FeaturedBrand CardDataArray={initialData.brand} />
+      {/* <div className="col-12 border" style={{ height: "300px", position: "relative", top: "15px" }}>
           <Map height={"297px"} width={"100%"}></Map>
         </div> */}
-        <Staticcontent></Staticcontent>
-        <NewsBlog data={initialData.news}></NewsBlog>
+      <Staticcontent></Staticcontent>
+      <NewsBlog data={initialData.news}></NewsBlog>
     </>
   );
 }
@@ -54,7 +54,7 @@ const transformString = (str) => {
 };
 
 export async function getServerSideProps(context) {
-    // console.log(context.req.headers['x-fetchlocation'], "index page")
+  // console.log(context.req.headers['x-fetchlocation'], "index page")
   const cookies = JSON.parse(context.req.headers['x-fetchlocation'] || '');
   const object = {
     City: transformString(cookies.city) || '',
@@ -113,10 +113,22 @@ export async function getServerSideProps(context) {
         },
         body: JSON.stringify(object)
       }).catch(() => null),
-      fetchWithTimeout('https://apiv2.cannabaze.com/UserPanel/Get-News/').catch(() => null),
+      fetchWithTimeout('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "category": 2,
+            "limit": 10
+          })
+        }
+
+      ).catch(() => null),
     ]);
 
-    const [topbanner, category, bottembannner, getbrand, GetDelivery1, Dispensaries1 , news1] = await Promise.all([
+    const [topbanner, category, bottembannner, getbrand, GetDelivery1, Dispensaries1, news1] = await Promise.all([
       banner ? banner.json().catch(() => []) : [],
       callcategory ? callcategory.json().catch(() => []) : [],
       bannner2 ? bannner2.json().catch(() => []) : [],
@@ -132,7 +144,7 @@ export async function getServerSideProps(context) {
       brand: getbrand || [],
       GetDelivery: GetDelivery1 || [],
       Dispensaries: Dispensaries1 || [],
-      news:news1,
+      news: news1,
       formatted_address: cookies.formatted_address,
       City: transformString(cookies.city) || '',
       State: transformString(cookies.state) || '',

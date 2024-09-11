@@ -10,13 +10,15 @@ const WeedDispansires = dynamic(() => import('../../../component/WeedDispansires
 const DispensariesSco = dynamic(() => import('../../../component/ScoPage/dispensariessco'), { ssr: true });
 // import { DispensariesSco } from "../ScoPage/dispensariessco"
 import Createcontext from "@/hooks/context"
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import Wronglocation from "../../../component/skeleton/Wronglocation";
 import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Location from '../../../hooks/utilis/getlocation';
 import Cookies from 'universal-cookie';
 import cookie from 'cookie';
 import axios from 'axios';
+import { useRouter } from 'next/router';
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
@@ -56,6 +58,7 @@ const Dispensaries = (props) => {
     let contentdata = props.content || []
     const DispensorShopLocation = [{ name: "Weed Dispensaries in", city: props.formatted_address || state.Location }]
     const locations = props?.formatted_address
+    // console.log(props?.formatted_address)
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -156,25 +159,73 @@ const Dispensaries = (props) => {
         }
     }, [props.isDirectHit, props.isFromGoogle]);
 
-    function breadcrumCountry(country, state1, city) {
-        if (Boolean(city)) {
-            dispatch({ type: 'route', route: "" })
-            dispatch({ type: 'Location', Location: state.City })
-            navigate.push(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
-        }
-        else if (Boolean(state1)) {
-            dispatch({ type: 'Location', Location: state.State })
-            dispatch({ type: 'City', City: "" })
-            dispatch({ type: 'route', route: "" })
-            navigate.push(`/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
-        }
-        else if (Boolean(country)) {
-            dispatch({ type: 'State', State: "" })
-            dispatch({ type: 'City', City: "" })
-            dispatch({ type: 'route', route: "" })
-            dispatch({ type: 'Location', Location: state.Country })
-            navigate.push(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/`)
-        }
+   async function breadcrumCountry(country, state1, city) {
+        // if (Boolean(city)) {
+        //     dispatch({ type: 'route', route: "" })
+        //     dispatch({ type: 'Location', Location: state.City })
+        //     navigate.push(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
+        // }
+        // else if (Boolean(state1)) {
+        //     // dispatch({ type: 'Location', Location: state.State })
+        //     // dispatch({ type: 'City', City: "" })
+        //     // dispatch({ type: 'route', route: "" })
+        //     // navigate.push(`/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
+        //     const l=   {
+        //         resolvedUrl : `/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`
+        //     }   
+        //    const  type = ""
+        //     const k = await Location((state?.State + state.Country)  , type , l, 14, 'dispensaries'); 
+        //     console.log(k)
+        //     const setLocation = {
+        //         country: k?.country,
+        //         state: k?.state,
+        //         city: k?.city,
+        //         route: k?.route,
+        //         formatted_address: k?.formatted_address
+        //     };
+        //     const date = new Date();
+        //     date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
+        //     cookies.set('fetchlocation', JSON.stringify(setLocation), {
+        //         expires: date,
+        //         path: '/' // Set the path where the cookie is accessible
+        //     });       
+        //     dispatch({ type: 'Location', Location: k?.formatted_address })
+        //     dispatch({ type: 'permission', permission: true });
+        //     dispatch({ type: 'Country', Country: k?.country });
+        //     dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
+        //     dispatch({ type: 'State', State: k?.state });
+        //     dispatch({ type: 'statecode', statecode: k?.statecode });
+        //     dispatch({ type: 'City', City: k?.city })
+        //     dispatch({ type: 'citycode', citycode: k?.citycode });
+        //     dispatch({ type: 'route', route: k?.route });                
+        //     navigate.push({
+        //         pathname: `/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`
+        //       });
+        // }
+        // else if (Boolean(country)) {         
+        //  const l=   {
+        //         resolvedUrl : `/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/`
+        //     }   
+        //    const  type = ""
+        //     const k = await Location(state.Country, type , l, 14, 'dispensaries'); 
+        //     console.log(k)
+        //     const setLocation = {
+        //         country: k?.country,
+        //         state: k?.state,
+        //         city: k?.city,
+        //         route: k?.route,
+        //         formatted_address: k?.formatted_address
+        //     };
+        //     const date = new Date();
+        //     date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
+        //     cookies.set('fetchlocation', JSON.stringify(setLocation), {
+        //         expires: date,
+        //         path: '/' // Set the path where the cookie is accessible
+        //     });                       
+        //     navigate.push({
+        //         pathname: `/weed-dispensaries/in/${modifystr(k?.country)}/`
+        //       });
+        // }
 
     }
     return (
@@ -272,6 +323,7 @@ function capitalizeFirstLetter(string) {
 
 
 export const getServerSideProps = async (context) => {
+  
     context.res.setHeader(
         'Cache-Control',
         'public, s-maxage=10, stale-while-revalidate=59'
@@ -282,7 +334,7 @@ export const getServerSideProps = async (context) => {
     const isDirectHit = !referer || referer === req.url;
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
     const isFromGoogle = referer?.includes('google') || false;
-    // const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
+    
 
     const transformString = (str) => {
         if (typeof str !== "string" || !str.trim()) {
@@ -296,7 +348,8 @@ export const getServerSideProps = async (context) => {
             .join(' ');          // Join the words back into a single string
     };
 
-    if (isDirectHit || isFromGoogle) {
+
+    if (isDirectHit || isFromGoogle ) {
         const locationParams = context.params.location || [];
         const type = {
             country: locationParams[0] || "",
@@ -306,7 +359,7 @@ export const getServerSideProps = async (context) => {
         };
 
         const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
-        const k = await Location(decodedLocation, type, context, 14, 'dispensaries', isDirectHit);
+        const k = await Location(decodedLocation, type, context, 14, 'dispensaries');
         country1 = k.country || "";
         state = k.state || "";
         city = k.city || "";
@@ -361,7 +414,7 @@ export const getServerSideProps = async (context) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(object2),
             }),
-            fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
+          !Boolean(route) &&  fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(object2),
@@ -399,6 +452,7 @@ export const getServerSideProps = async (context) => {
                     setCookies,
                     isFromGoogle,
                     content,
+                
                 }
             };
         }
@@ -415,6 +469,7 @@ export const getServerSideProps = async (context) => {
                 setCookies,
                 isFromGoogle,
                 content,
+                
             }
         };
     } catch (error) {
