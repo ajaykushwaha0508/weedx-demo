@@ -78,15 +78,15 @@ jobs:
     
     - name: Get Task Defination
       run: | 
-        aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION_PROD }} --query taskDefinition > task-definition-prod.json
+        aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION_PROD }} --query taskDefinition > task-definition.json
     
-    - name: Fill in the new image ID in the Amazon ECS task definition
+    - name: Fill in the new image ID in the Amazon ECS task definition - Prod
       id: task-def-prod
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       env:
         CONTAINER_NAME: weedx
       with:
-        task-definition: task-definition-prod.json
+        task-definition: task-definition.json
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
     
