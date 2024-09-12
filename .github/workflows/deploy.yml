@@ -9,9 +9,9 @@ on:
 
 env:
   AWS_REGION: us-east-1                             
-  ECS_SERVICE: ServiceWeedx                 
+  ECS_SERVICE: WeedxStage                 
   ECS_CLUSTER: Weedx                 
-  ECS_TASK_DEFINITION: TaskWeedx 
+  ECS_TASK_DEFINITION: TaskWeedxStage 
   ORG: selnox                                     
                                                
 
@@ -81,4 +81,4 @@ jobs:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: false
+        wait-for-service-stability: true
