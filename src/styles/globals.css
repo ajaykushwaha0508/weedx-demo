@@ -12125,3 +12125,10 @@ height: 25%;
 
 } */
 }
+
+
+@media (max-width: 986px) {
+  .loginwithgoogle {
+    display: none;
+  }
+}

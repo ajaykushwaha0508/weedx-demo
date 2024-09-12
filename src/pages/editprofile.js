@@ -125,8 +125,8 @@ const EditProfile = () => {
                                 }
                             </div>
                             <div className="w-100 profileInput_container">
-                                <label for="profile image" className="change_profile_container_padding">
-                                    <input onChange={(event) => { handleImage(event) }} type="file" capture="environment" hidden id="profile image" />
+                                <label for="profile image" className="change_profile_container_padding loginwithgoogle">
+                                    <input onChange={(event) => { handleImage(event) }}  type="file"  accept="image/*" multiple={false} hidden id="profile image" />
                                     <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">{`Change profile`}</span>
                                     {Error !== '' && <p style={{ color: "red", fontSize: 'x-small' }}>{Error}</p>}
                                 </label>
