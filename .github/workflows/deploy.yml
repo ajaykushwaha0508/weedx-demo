@@ -12,7 +12,7 @@ env:
   ECS_SERVICE: WeedxStage                 
   ECS_CLUSTER: Weedx                 
   ECS_TASK_DEFINITION: TaskWeedxStage
-  ECS_TASK_DEFINITION_PROD: TaskWeedxStage
+  ECS_TASK_DEFINITION_PROD: TaskWeedx
   ORG: selnox                                     
                                                
 
