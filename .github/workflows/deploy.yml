@@ -11,7 +11,8 @@ env:
   AWS_REGION: us-east-1                             
   ECS_SERVICE: WeedxStage                 
   ECS_CLUSTER: Weedx                 
-  ECS_TASK_DEFINITION: TaskWeedxStage 
+  ECS_TASK_DEFINITION: TaskWeedxStage
+  ECS_TASK_DEFINITION_PROD: TaskWeedxStage
   ORG: selnox                                     
                                                
 
@@ -74,11 +75,25 @@ jobs:
         task-definition: task-definition.json
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
-
+    
+    - name: Get Task Defination
+      run: | 
+        aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION_PROD }} --query taskDefinition > task-definition-prod.json
+    
+    - name: Fill in the new image ID in the Amazon ECS task definition
+      id: task-def-prod
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      env:
+        CONTAINER_NAME: weedx
+      with:
+        task-definition: task-definition-prod.json
+        container-name: ${{ env.CONTAINER_NAME }}
+        image: ${{ steps.build-image.outputs.image }}
+    
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
+        wait-for-service-stability: false
