@@ -173,7 +173,7 @@ const Login = () => {
                 <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
             </div>
             <div className='row  signup_margins_top'>
-                <div className='col-lg-12 '>
+                <div className='col-lg-12  loginwithgoogle' >
                     <LoginWithGoogle></LoginWithGoogle>
                 </div>
             </div>
