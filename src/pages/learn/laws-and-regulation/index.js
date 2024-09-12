@@ -26,7 +26,7 @@ const Index = (props) => {
             <Law location={router.asPath}></Law>
                 <div className='row'>
             <div className='col-12'>
-                <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
+                <Box sx={{ width: '100%', typography: 'body1', }}>
                     <TabContext value={value}>
                         <Box className={`${classes.learn_tab_background} ${classes.learn_tab}`} sx={{ marginLeft: "-5px", borderColor: 'divider' }}>
                             <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">

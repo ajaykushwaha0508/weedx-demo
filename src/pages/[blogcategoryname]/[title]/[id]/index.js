@@ -408,7 +408,6 @@ export async function getServerSideProps(context) {
         if (!res.ok) {
             throw new Error('Failed to fetch');
         }
-
         const data = await res.json();
         if( modifystr(data[0].category_name) === blogcategoryname &&  modifystr(data[0].Title) === title && parseInt(id) === parseInt(data[0].id))
         return {

@@ -49,7 +49,7 @@ const SideNavbar = ({ closeNav, Open }) => {
     }
     const Redirect = (items) => {
 
-        Navigate.push("/profile")
+        Navigate.push("/editprofile")
         closeNav()
     }
 
