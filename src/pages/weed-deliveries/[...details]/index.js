@@ -444,15 +444,14 @@ export default function DispensoriesDetails(props) {
 
 
 export async function getStaticPaths() {
-    // Fetch all possible paths here
-    // Example: const paths = [{ params: { storeId: '1' } }, { params: { storeId: '2' } }];
-    const paths = []; // Return an empty array to generate no pages at build time
 
-    return {
-        paths,
-        fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
-    };
-}
+        const paths = []; 
+
+        return {
+            paths,
+            fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
+        };
+    }
 export async function getStaticProps(context) {
 
     const storeId = _.findIndex(context.params.details, item => !isNaN(item) && !isNaN(parseFloat(item)));
