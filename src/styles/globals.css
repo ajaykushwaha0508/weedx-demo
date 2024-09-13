@@ -12162,4 +12162,10 @@ height: 25%;
     gap: 5px;
     align-items: flex-start;
   }
+  .section_box .section_box_heading{
+    font-size: 18px;
+  }
+  .section_box .section_box_para{
+    font-size: 14px;
+  }
 }

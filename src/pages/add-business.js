@@ -2,12 +2,14 @@ import React from "react";
 import { useRef } from "react";
 import Link from "next/link";
 import Business from "@/component/tableofcontent/Business";
+import Businesspageseo from "@/component/ScoPage/businesspageseo";
 const Businesspage = () => {
   const ref = useRef(null);
 
   return (
     <div className="About_business">
-      <div className="container">
+      <Businesspageseo/>
+     
         <div className="term_condition">
           <div className="container-fluid">
             <div className="tc_hero">
@@ -127,10 +129,11 @@ const Businesspage = () => {
                       </p>
                     </li>
                   </ul>
+                 <p> <Link href={'https://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></p>
                 </div>
                 <div className="section_box" id="claim_your_existing_business_listing">
                   <h3 className="section_box_heading">{`Claim Your Existing Business Listing`}</h3>
-                  <p className="section_box_para">{`If you find your business already listed on WeedX.io but need to claim it, you can easily do so by reaching out to us. Simply send us an email at `} <b>{`info@weedx.io,  `}</b> {`and our team will assist you in claiming and managing your existing business listing.`}</p>
+                  <p className="section_box_para">{`If you find your business already listed on WeedX.io but need to claim it, you can easily do so by reaching out to us. Simply send us an email at `} <b><Link href="mailto:info@weedx.io">{`info@weedx.io,  `}</Link></b> {`and our team will assist you in claiming and managing your existing business listing.`}</p>
                 </div>
                 <div className="section_box" id="integration_with_cannabaze">
                   <h3 className="section_box_heading">{`Integration with Cannabaze`}</h3>
@@ -170,11 +173,11 @@ const Businesspage = () => {
                 </div>
                 <div className="section_box" id="">
                   <h3 className="section_box_heading">{`Need Help? We’re Here for You!`}</h3>
-                  <p className="section_box_para">{`If you have any questions or need support, feel free to reach out to us. Just drop us an email at  `} <b>{`info@weedx.io,  `}</b> {`and our support team will be happy to assist you.`}</p>
+                  <p className="section_box_para">{`If you have any questions or need support, feel free to reach out to us. Just drop us an email at  `} <b><Link href="mailto:info@weedx.io">{`info@weedx.io,  `}</Link></b> {`and our support team will be happy to assist you.`}</p>
                 </div>
                 <div className="section_box" id="">
                   <h3 className="section_box_heading">{`Join the WeedX.io Community Today!`}</h3>
-                  <p className="section_box_para">{`Ready to take your cannabis business to the next level? Start growing your audience, simplifying your operations, and expanding your reach with `}  <b> {`WeedX.io.`} </b> {` List your dispensary, delivery service, or brand today and get started with the best cannabis e-commerce platform around.`}</p>
+                  <p className="section_box_para">{`Ready to take your cannabis business to the next level? Start growing your audience, simplifying your operations, and expanding your reach with `}  <b><Link href={'/'}> {`WeedX.io.`}</Link> </b> {` List your dispensary, delivery service, or brand today and get started with the best cannabis e-commerce platform around.`}</p>
                   <p className="section_box_para"></p>
                 </div>
               </div>
@@ -184,7 +187,7 @@ const Businesspage = () => {
             </div>
           </div>
         </div>
-      </div>
+   
     </div>
   );
 };
