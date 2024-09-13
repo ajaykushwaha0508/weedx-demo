@@ -31,16 +31,15 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
 
                     </div>
                     <div className="row mt-4 mx-0">
-                        <div className="col-6 EditProfilOnlineOrder_name_flelds">
+                        <div className="col-7 EditProfilOnlineOrder_name_flelds">
                             <div className='EditProfileOnline_name'>
                                 <span className='editProfile_name'>{`Mobile Number`}</span>
                             </div>
                             <div className="EditProfileOnlineOrder">
                                 <p className="editProfileLoginParaStyle">{Profile.MobilePhone}</p>
                             </div>
-
                         </div>
-                        <div className="col-6 EditProfilOnlineEdit_icons_flelds">
+                        <div className="col-5 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
                                 <AddMobileNumberPopup  Mobile={Profile.MobilePhone} Api={Api} SetApi={SetApi}/>
 
@@ -84,7 +83,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
 
                     </div>
                     <div className="row mt-4 mx-0">
-                        <div className="col-6 EditProfilOnlineOrder_name_flelds">
+                        <div className="col-7 EditProfilOnlineOrder_name_flelds">
                         <div className='EditProfileOnline_name'>
                                 <span className='editProfile_name'>{`Medical Card Details`}</span>
                             </div>
@@ -93,7 +92,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                             </div>
                            
                         </div>
-                        <div className="col-6 EditProfilOnlineEdit_icons_flelds">
+                        <div className="col-5 EditProfilOnlineEdit_icons_flelds">
                             <div className='EditProfileOnline_name'>
                                 <MedicalCardDetailsPopup   Profile={Profile} Api={Api} SetApi={SetApi}/>
                             </div>

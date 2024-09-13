@@ -96,7 +96,7 @@ const EditProfile = () => {
             <div className="row">
                 <div className="col-12 profile_setting_container mt-4">
                     <div className="EditProfile_heading_cont d-lg-none d-block">
-                        <Link href="/Profile"><span><IconButton><IoChevronBackSharp color="#707070" size={18} /></IconButton></span><span className="editProfile_backBtn">Back Profile</span></Link>
+                        <Link href="/"><span><IconButton><IoChevronBackSharp color="#707070" size={18} /></IconButton></span><span className="editProfile_backBtn">Back to Home</span></Link>
                     </div>
                     <div className="EditProfile_heading_cont">
                         <h1 className="EditProfile_heading">{`Profile Setting`}</h1>

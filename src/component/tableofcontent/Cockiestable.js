@@ -43,7 +43,7 @@ const Cockiestable = ({referal}) => {
               router.pathname.includes("#introduction") &&
               "activeTable"
             }
-          >{`1.  Introduction `}</li>
+          >{`1. Introduction `}</li>
         </Link>
         <Link href={{ hash: `#what_are_cookies` }}>
           <li
@@ -105,11 +105,9 @@ const Cockiestable = ({referal}) => {
           >{`7. Changes to This Cookie Policy `}</li>
         </Link>
         <Link href={{ hash: `#contact_us` }}>
-          <li
-            className={
+          <li className={
               router.pathname.includes("#contact_us") && "activeTable"
-            }
-          >
+            } >
             {` 8. Contact Us`}{" "}
           </li>
         </Link>

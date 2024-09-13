@@ -62,7 +62,7 @@ const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,revie
                                                     },
                                                 }} />
                                         </div>
-                                        <p>{AllReview?.length} Review</p>
+                                        <p className="mb-0">{AllReview?.length} Review</p>
                                     </div>
 
                                 </div>

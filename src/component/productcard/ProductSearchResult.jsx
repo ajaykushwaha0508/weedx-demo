@@ -372,14 +372,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                         :
 
                                                                         items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                            <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
-                                                                                onClick={() => { AddToCart(items) }} >
-                                                                                <span><FaShoppingCart size={18} /> </span> Add To Cart
-                                                                            </LoadingButton>
-                                                                            :
-                                                                            <LoadingButton className={`${classes.odsbtn}`} >
-                                                                                <span><FaShoppingCart size={18} /> </span>  Out of Stock
-                                                                            </LoadingButton>
+                                                                        <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
+                                                                            onClick={() => { AddToCart(items) }} >
+                                                                            <span><FaShoppingCart size={18} /> </span> Add To Cart
+                                                                        </LoadingButton>
+                                                                        :
+                                                                        <LoadingButton className={`${classes.odsbtn}`} >
+                                                                            <span><FaShoppingCart size={18} /> </span>  Out of Stock
+                                                                        </LoadingButton>
                                                                 }
                                                                 {
                                                                     CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
@@ -396,7 +396,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                         </Swiper>
                     </div>
                     :
-                    <div className="product_card_wrapper p-0 ppddd">
+                    <div className="product_card_wrapper p-0">
                         {
                             // Boolean( showdata.length !== 0) ?
                             RelatedProductResult?.map((items, index) => {

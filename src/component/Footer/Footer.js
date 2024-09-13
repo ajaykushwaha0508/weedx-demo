@@ -98,6 +98,9 @@ const Footer = () => {
                                     <Link href={`https://cannabaze.com/signup`}>
                                         <span className="footer_li ellipsis" ><span className="text-capitalize">{`Add Delivery`}</span></span>
                                     </Link>
+                                    <Link href={`/add-business`}>
+                                        <span className="footer_li ellipsis" ><span className="text-capitalize">{`Add Business`}</span></span>
+                                    </Link>
 
                                 </div>
                             </div>
