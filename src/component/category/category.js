@@ -15,7 +15,7 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                         !Skeleton ? <div className="catagoryTabs_section">
 
                             {
-                                Object.keys(Params).length === 0 ? <h2 className='shopByCategoryHeading'>Shop By Category</h2> : null
+                                Object.keys(Params).length === 0 ? <h2 className='shopByCategoryHeading'>Shop Byyyy Category</h2> : null
                             }
 
                             <ScrollContainer className="ScrollContainerRelative">
