@@ -414,7 +414,7 @@ export const getServerSideProps = async (context) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(object2),
             }),
-          !Boolean(route) &&  fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/', {
+          !Boolean(route) &&  fetch('https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(object2),

@@ -43,6 +43,7 @@ export default function DispensoriesDetails(props) {
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
     const DespensariesData = product
+    const [categoryProduct, SetCategoryProduct] = React.useState([])
     const data = false
     const { state, dispatch } = React.useContext(Createcontext)
     const location = useRouter()
@@ -68,32 +69,32 @@ export default function DispensoriesDetails(props) {
             SetDespens(data)
             dispatch({ type: 'Embeddedstore', Embeddedstore: data })
         }
-        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
-            {
-                "Store_Id": parseInt(id)
+        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
+            "Store_Id": parseInt(id)
+        })
+        .then(async (response) => {
+            // Extract the first element of each data item
+            const d = response.data.map(data => data[0]);
+            
+            // Remove duplicates by 'id'
+            const uniqueUsersByID = _.uniqBy(d, 'id');
+            
+            // Set unique categories
+            SetCategory(uniqueUsersByID);
+            
+            // If Category is defined, check for matching categories
+            if (category) {
+                uniqueUsersByID.forEach((data) => {
+                    if (category === data.name.toLowerCase()) {
+                        ShowCategoryProduct(data.id, category);
+                    }
+                });
             }
-        ).then(async response => {
-            const d = []
-            var flattenedArray = Object.values(response.data).flat()
-            response.data.map((data) => {
-                d.push(data[0])
-                var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-                SetCategory(uniqueUsersByID)
-                if (Category !== undefined) {
-                    uniqueUsersByID.map((data) => {
-                        if (Category === data.name.toLowerCase()) {
-                            ShowCategoryProduct(data.id, Category)
-                        }
-                        return data
-
-                    })
-                }
-
-                return data
-            })
-        }).catch(
-            function (error) {
-            })
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+        
     }, [id])
 
     useEffect(() => {
@@ -137,12 +138,7 @@ export default function DispensoriesDetails(props) {
             }
         ).then(response => {
             dispatch({ type: 'Loading', Loading: false })
-            if (Category !== name) {
-                if (Boolean(location.asPath.slice(0, 16) === "/weed-deliveries") || Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries")) {
-                    window.history.replaceState(null, '', `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${"menu"}/${modifystr(name)}/${id}`);
-                }
-            }
-            SetDespensariesProductData(response.data)
+            SetCategoryProduct( response.data)
             setProductload(false)
         }).catch(
             function (error) {
@@ -371,7 +367,7 @@ export default function DispensoriesDetails(props) {
                                                 arr={DespensariesData}
                                             />
                                             <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                             </div>
                                         </div>
                                     </>
@@ -394,7 +390,7 @@ export default function DispensoriesDetails(props) {
                                             id={id}
                                         />
                                         <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                            <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                            <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                         </div>
                                     </div>
                                         :
@@ -494,6 +490,7 @@ export async function getStaticProps(context) {
                         product: productdata,
                     },
                 },
+                revalidate: 60,
             };
         } else if (
             storeId !== 1 &&
@@ -510,6 +507,7 @@ export async function getStaticProps(context) {
                         product: productdata,
                     },
                 },
+                revalidate: 60,                                 
             };
         } else {
             // Redirect to 404 if conditions are not met

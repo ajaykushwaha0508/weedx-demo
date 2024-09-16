@@ -29,8 +29,6 @@ const StoreDetails = dynamic(() => import('../../../component/ScoPage/StoreDetai
 // import { StoreDetails } from "../../../component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../hooks/apicall/api";
 import Createcontext from "../../../hooks/context"
-import Loader from "../../../component/Loader/Loader";
-
 import DispensoriesAddressSkeleton from "../../../component/skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Swal from 'sweetalert2';
@@ -39,10 +37,11 @@ import Link from "next/link";
 import Image from "next/image";
 export default function DispensoriesDetails(props) {
     const navigate = useRouter()
-    const { id, storeData, product } = props.params
+    var { id, storeData, product } = props.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
-    const DespensariesData = product
+    var  DespensariesData =  product
+    const [categoryProduct, SetCategoryProduct] = React.useState([])
     const data = false
     const { state, dispatch } = React.useContext(Createcontext)
     const location = useRouter()
@@ -68,31 +67,32 @@ export default function DispensoriesDetails(props) {
             SetDespens(data)
             dispatch({ type: 'Embeddedstore', Embeddedstore: data })
         }
-        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ",
-            {
-                "Store_Id": parseInt(id)
+        axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
+            "Store_Id": parseInt(id)
+        })
+        .then(async (response) => {
+            // Extract the first element of each data item
+            const d = response.data.map(data => data[0]);
+            
+            // Remove duplicates by 'id'
+            const uniqueUsersByID = _.uniqBy(d, 'id');
+            
+            // Set unique categories
+            SetCategory(uniqueUsersByID);
+            
+            // If Category is defined, check for matching categories
+            if (category) {
+                uniqueUsersByID.forEach((data) => {
+                    if (category === data.name.toLowerCase()) {
+                        ShowCategoryProduct(data.id, category);
+                    }
+                });
             }
-        ).then(async response => {
-            const d = []
-            response.data.map((data) => {
-                d.push(data[0])
-                var uniqueUsersByID = _.uniqBy(d, 'id'); //removed if had duplicate id
-                SetCategory(uniqueUsersByID)
-                if (Category !== undefined) {
-                    uniqueUsersByID.map((data) => {
-                        if (Category === data.name.toLowerCase()) {
-                            ShowCategoryProduct(data.id, Category)
-                        }
-                        return data
-
-                    })
-                }
-
-                return data
-            })
-        }).catch(
-            function (error) {
-            })
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+        
     }, [id])
 
     useEffect(() => {
@@ -126,6 +126,7 @@ export default function DispensoriesDetails(props) {
         }
 
     }
+
     function ShowCategoryProduct(Id, name) {
         dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
@@ -135,12 +136,7 @@ export default function DispensoriesDetails(props) {
             }
         ).then(response => {
             dispatch({ type: 'Loading', Loading: false })
-            if (Category !== name) {
-                if (Boolean(location.asPath.slice(0, 16) === "/weed-deliveries") || Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries")) {
-                    window.history.replaceState(null, '', `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${"menu"}/${modifystr(name)}/${id}`);
-                }
-            }
-            SetDespensariesProductData(response.data)
+            SetCategoryProduct( response.data)
             setProductload(false)
         }).catch(
             function (error) {
@@ -360,7 +356,7 @@ export default function DispensoriesDetails(props) {
                                                 arr={DespensariesData}
                                             />
                                             <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                <ProductList  arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                             </div>
                                         </div>
                                     </>
@@ -383,7 +379,7 @@ export default function DispensoriesDetails(props) {
                                             id={id}
                                         />
                                         <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                            <ProductList arr={DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                            <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                         </div>
                                     </div>
                                         :
@@ -444,35 +440,38 @@ export default function DispensoriesDetails(props) {
 
 
 export async function getStaticPaths() {
+    const paths = []; 
 
-        const paths = []; 
+    return {
+        paths,
+        fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
+    };
+}
 
-        return {
-            paths,
-            fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
-        };
-    }
 export async function getStaticProps(context) {
-
     const storeId = _.findIndex(context.params.details, item => !isNaN(item) && !isNaN(parseFloat(item)));
     let data = [];
-    let productdata = []
+    let productdata = [];
+
     try {
         const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${context.params.details[storeId]}`);
         const product = await axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`);
-        productdata = product.data
+        productdata = product.data;
         data = response.data;
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+
     if (data.length === 0) {
         return {
             notFound: true, // Redirect to 404 if no data found
         };
-    }
-
-    else {
-        if (storeId === 1 && modifystr(data[0].Store_Name) === context.params.details[0] &&   parseInt(context.params.details[storeId]) === data[0]?.id ) {
+    } else {
+        if (
+            storeId === 1 &&
+            modifystr(data[0].Store_Name) === context.params.details[0] &&
+            parseInt(context.params.details[storeId]) === data[0]?.id
+        ) {
             return {
                 props: {
                     params: {
@@ -482,6 +481,7 @@ export async function getStaticProps(context) {
                         product: productdata,
                     },
                 },
+                revalidate: 60, // Revalidate the page every 60 seconds
             };
         } else if (
             storeId !== 1 &&
@@ -498,17 +498,13 @@ export async function getStaticProps(context) {
                         product: productdata,
                     },
                 },
+                revalidate: 60,
             };
         } else {
-            // Redirect to 404 if conditions are not met
             return {
                 notFound: true,
             };
         }
-        
     }
-
- 
 }
-
 
