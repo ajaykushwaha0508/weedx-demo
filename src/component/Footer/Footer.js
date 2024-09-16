@@ -101,7 +101,6 @@ const Footer = () => {
                                     <Link href={`/add-business`}>
                                         <span className="footer_li ellipsis" ><span className="text-capitalize">{`Add Business`}</span></span>
                                     </Link>
-
                                 </div>
                             </div>
 
