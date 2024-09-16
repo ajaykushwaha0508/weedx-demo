@@ -1573,7 +1573,7 @@ const useStyles = makeStyles({
   odsbtn:{
     "&.MuiButtonBase-root":{
       width: "100%",
-      height: "30px",
+      // height: "30px",
        fontSize: "14px" ,
        color:"red" ,
         border: '2px solid red',

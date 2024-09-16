@@ -24,9 +24,6 @@ const usePlaceholderStyles = makeStyles(theme => ({
   }
 }));
 const NewProductDetails = (props) => {
-
-  //  const {ProductDetailsSeo} =  Seo
-  // console.log(props.data[0]?.Store_id , "potpduct")  
   const { id } = props.id;
   const StoreProduct =  props.likeproduct
   const [discount, setdiscount] = React.useState({
@@ -122,6 +119,7 @@ const NewProductDetails = (props) => {
     product_OverAllGet_Review(props.data[0].id).then((res) => {
 
       SetRating(res?.data)
+      console.log(res?.data ,'ddgdf')
     }).catch(() => { })
   }, [props.data[0].id, api])
 

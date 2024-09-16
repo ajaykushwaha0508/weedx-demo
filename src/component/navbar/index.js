@@ -115,7 +115,7 @@ const Navbar = () => {
                                             <Image
                                               onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                             unoptimized={true}
-                                                className={"navbarLogoImage"} // Apply CSS module class
+                                                className={"navbarLogoImage"}
                                                 src={image1.src}
                                                 alt="WeedX.io logo"
                                                 title="WeedX.io logo"

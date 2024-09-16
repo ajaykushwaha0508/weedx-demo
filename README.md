@@ -38,11 +38,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-remove component
-
-react-lazy-load-image-component# Weedx_next
-# Weedx_next
-scp -i "weedxpem.pem" .next.zip ubuntu@ec2-44-203-3-121.compute-1.amazonaws.com:/home/ubuntu/Weedx
-ssh -i "weedxpem.pem" ubuntu@ec2-44-203-3-121.compute-1.amazonaws.com
