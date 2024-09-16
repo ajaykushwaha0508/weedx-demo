@@ -14,8 +14,7 @@ const Businesspage = () => {
           <div className="container-fluid">
             <div className="tc_hero">
               <h1 className="page_heading">
-                {" "}
-                {`Add Your Cannabis Business to WeedX.io`}
+                {`Add Your Business to WeedX.io`}
               </h1>
             </div>
 
@@ -129,7 +128,9 @@ const Businesspage = () => {
                       </p>
                     </li>
                   </ul>
-                 <button className="addbusinessbtn"> <Link href={'https://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></button>
+                  <div className="text-center">
+                    <button className="addbusinessbtn"> <Link href={'https://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></button>
+                 </div>
                 </div>
                 <div className="section_box" id="claim_your_existing_business_listing">
                   <h3 className="section_box_heading">{`Claim Your Existing Business Listing`}</h3>
