@@ -441,7 +441,6 @@ export const getServerSideProps = async (context) => {
         let content = [];
         if (Webcontent.ok) {
             content = await Webcontent.json();
-            console.log(content)
         }
         // Fetch delivery data and check if no dispensary found
         const deliveryData = await deliveryPromise;
