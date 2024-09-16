@@ -12,7 +12,7 @@ import React, { useMemo, useState } from 'react';
 import { isShopOpen, modifystr } from '../../hooks/utilis/commonfunction'
 // import { Link, useParams, useLocation } from 'react-router-dom';
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"; 
 import Image from "next/image";
 const NewFlavourBanner = ({ delBtn }) => {
     const location = useRouter()
