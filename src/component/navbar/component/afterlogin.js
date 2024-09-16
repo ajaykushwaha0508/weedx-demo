@@ -39,11 +39,21 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
                         <hr />
                         <section className='navbarProfileDropDownSection'>
                             <ol className='navbar_profile_orderList px-0'>
-                                <Link href={'/editprofile'} onClick={() => setDropDownState(false)}> <li className='profile_list'> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
-                                <Link href={'/myorder'} onClick={() => setDropDownState(false)}> <li className='profile_list'> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
-                                <Link href={'/whislists'} onClick={() => setDropDownState(false)}> <li className='profile_list'> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
-                                <Link href={'/myreviews'} onClick={() => setDropDownState(false)}> <li className='profile_list'> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
-                                <Link href={'/helpcenter'} onClick={() => setDropDownState(false)}> <li className='profile_list'> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
+                                <Link href={'/editprofile'} 
+                                // onClick={() => setDropDownState(false)}
+                                > <li className='profile_list'> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
+                                <Link href={'/myorder'} 
+                                // onClick={() => setDropDownState(false)}
+                                > <li className='profile_list'> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
+                                <Link href={'/whislists'} 
+                                // onClick={() => setDropDownState(false)}
+                                > <li className='profile_list'> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
+                                <Link href={'/myreviews'} 
+                                // onClick={() => setDropDownState(false)}
+                                > <li className='profile_list'> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
+                                <Link href={'/helpcenter'} 
+                                // onClick={() => setDropDownState(false)}
+                                > <li className='profile_list'> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
                                 <li className='profile_list' onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
                             </ol>
                         </section>

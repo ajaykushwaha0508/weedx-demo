@@ -100,16 +100,20 @@ export default function DispensoriesDetails(props) {
         if (reviewtype === "All") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
+                console.log(res?.data ,'ddgdf')
+
 
             }).catch(() => { })
         } else if (reviewtype === "product") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`).then((res) => {
                 SetRating(res.data)
+                console.log(res?.data ,'ddgdf')
 
             }).catch(() => { })
         } else {
             Store_OverAllGet_Review(id).then((res) => {
                 SetRating(res)
+                console.log(res?.data ,'ddgdf')
 
             }).catch(() => { })
         }

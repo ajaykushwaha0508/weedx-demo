@@ -29,6 +29,7 @@ const Allblogs = (props) => {
   // const [isdata, setisdata] = useState(true)
   // const [loader, setloader] = React.useState(true)
   // const [searchtext, setsearchtext] = useState('')
+  
   // const classes = useStyles()
   const cookies = new Cookies();
   let token_data = cookies.get('User_Token_access')

@@ -97,7 +97,7 @@ const Login = () => {
         });
     },[])
     return (
-        <React.Fragment>
+        <React.Fragment className='my-3'>
                     <LoginSeo></LoginSeo>
                     <div className="login_signup_reset_container ">
                             <div className='col-12  signup_head'>
