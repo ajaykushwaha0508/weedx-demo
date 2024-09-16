@@ -90,7 +90,7 @@ const Footer = () => {
                                 <div className="footer_main_list">
                                     <p className="footer_menu_heading">{`For Business`}</p>
                                     <Link href={`https://cannabaze.com/signup`} >
-                                        <span className="footer_li ellipsis" >Add <span className="text-capitalize"> {`Dispensaries`}</span></span>
+                                        <span className="footer_li ellipsis" ><span className="text-capitalize"> {`Add Dispensaries`}</span></span>
                                     </Link>
                                     <Link href={`https://cannabaze.com/signup`}>
                                         <span className="footer_li ellipsis" ><span className="text-capitalize">{`Add Brand`}</span></span>

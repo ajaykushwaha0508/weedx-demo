@@ -129,7 +129,7 @@ const Businesspage = () => {
                       </p>
                     </li>
                   </ul>
-                 <p> <Link href={'https://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></p>
+                 <button className="addbusinessbtn"> <Link href={'https://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></button>
                 </div>
                 <div className="section_box" id="claim_your_existing_business_listing">
                   <h3 className="section_box_heading">{`Claim Your Existing Business Listing`}</h3>
@@ -191,5 +191,6 @@ const Businesspage = () => {
     </div>
   );
 };
-
 export default Businesspage;
+
+

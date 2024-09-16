@@ -91,8 +91,8 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 </Link>
                                             </span>
                                         </div>
-                                        <div className='w-50 text-end'>
 
+                                        <div className='w-50 text-end'>
                                             <span className="manuclosebtn d-flex justify-content-end " onClick={closeNav}> <RxCross2 color="#fff" size={25} /></span>
                                         </div>
                                     </div>
