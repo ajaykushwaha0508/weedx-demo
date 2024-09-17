@@ -52,25 +52,21 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <div className="col-md-9 col-sm-8 d-none d-sm-inline newFlavourContent_height" style={{ position: "0px" }}>
+                                                            <div className="col-md-9 col-sm-8 d-none d-sm-flex newFlavourContent_height" style={{ position: "0px" }}>
                                                                 <div className='w-100'>
                                                                     <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
                                                                         <h1 className='New_flavour_font_size_head'>{data.Store_Name}</h1>
                                                                     </div>
                                                                     <div className='col-12'>
-
-                                                                        <div className='new_flavour_flex New_flavour_font_size_paragraph my-1'>
+                                                                        <div className='new_flavour_flex New_flavour_font_size_paragraph my-1 d-flex gap-2'>
                                                                             <IoLocationSharp /><h4 id='NewFlav_margins' className='newFlavourBannerSubHead'>{data.Store_Address}</h4>
                                                                         </div>
-
-
                                                                     </div>
                                                                     <div className='col-12  d-flex gap-lg-4 gap-md-3 justify-content-sm-start justify-content-between align-items-center'>
 
                                                                         <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph'>
                                                                             <p className='newFlavBanerRatingFontStyle'>{data?.rating?.toFixed(1)}</p>
                                                                             <BsStarFill size={16} color="#31B665" className="product_search_rating_star" />
-
                                                                         </div>
 
                                                                         <div className='newFlav_inner_div new_flavour_flex New_flavour_font_size_paragraph newFlav_margin'>

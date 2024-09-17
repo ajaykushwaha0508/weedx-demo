@@ -30,7 +30,7 @@ const Index = (props) => {
                     <TabContext value={value}>
                         <Box className={`${classes.learn_tab_background} ${classes.learn_tab}`} sx={{ marginLeft: "-5px", borderColor: 'divider' }}>
                             <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
-                                <Tab label="Law" value="/learn/laws-and-regulation" />
+                                    <Tab label="Law" value="/learn/laws-and-regulation" />
                                     <p className='Lawsection_New' onClick={()=>{ router.push('/cannabis-news')}}> {`All News`}</p>
                                     <p  className='Lawsection_New' onClick={()=>{ router.push('/blogs')}}> {`Blogs`}</p>
                                 {/* <Tab label="All News" value="" onClick={()=>{ router.push('/cannabis-news')}} /> */}
