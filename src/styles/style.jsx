@@ -263,23 +263,18 @@ const useStyles = makeStyles({
   },
   muiBtn_Signup: {
     "&.MuiButtonBase-root": {
-      // backgroundColor: "white",
       color: "white",
-      // outline: "1px solid #00b96a",
       backgroundColor: "#00b96a",
       borderRadius: "5px",
-      // boxShadow:"box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
       minWidth: "100%",
       textTransform: "none",
-      width: "120px"
-      , height: "45px"
+      width: "120px",
+      height: "45px",
+      border:'none',
     },
     "&.MuiButtonBase-root:hover": {
-
       color: "white",
       background: "#00b96a",
-      // boxShadow: "2px 2px"
-
     }
   },
   homePageButton: {
