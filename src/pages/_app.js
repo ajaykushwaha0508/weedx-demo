@@ -7,8 +7,12 @@ import layout from "../layout/layout"
 import React from "react";
 import layout1 from "../layout/layout1"
 import { Context } from "../hooks/context"
+import dynamic from 'next/dynamic';
+
+const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
+
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
-import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup";
+// import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup";
 import { useRouter } from "next/router";
 import Router from 'next/router';
 import NProgress from 'nprogress';
