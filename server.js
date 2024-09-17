@@ -565,6 +565,9 @@ Disallow:
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
     
+
+
+    
     server.get('*', (req, res) => {
 
       return handle(req, res);
