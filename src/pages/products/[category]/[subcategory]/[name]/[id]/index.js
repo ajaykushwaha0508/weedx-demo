@@ -331,41 +331,6 @@ const NewProductDetails = (props) => {
 }
 export default NewProductDetails
 
-
-// export async function getServerSideProps(context) {
-//   const { id } = context.params;
-
-//   // Replace `id` with actual dynamic value in your API call
-//   const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`);
-//   const data = await res.json();
-//   const response = await fetch('https://api.cannabaze.com/UserPanel/YouMayAlsoLike/', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       category: data[0].category_id,
-//       store_id: data[0].Store_id,
-//     }),
-//   });
-
-//   if (!response.ok) {
-//     throw new Error(`HTTP error! Status: ${response.status}`);
-//   }
-
-//   const responseData = await response.json();
-
-
-//   return {
-//     props: {
-//       data,
-//       id: id ,// Pass the fetched data to your component as a prop
-//       likeproduct: responseData
-//     }
-//   };
-// }
-
-
 export async function getServerSideProps(context) {
   const { category, subcategory, name, id } = context.params;
 

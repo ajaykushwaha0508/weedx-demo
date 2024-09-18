@@ -1,11 +1,16 @@
 const express = require('express');
 const next = require('next');
+const multer = require('multer');
 const cookieParser = require('cookie-parser');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const ip = '192.168.1.20';
 const axios = require('axios');
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 function modifystr(str) {
   if (typeof str !== 'string') {
     return ''
@@ -46,8 +51,47 @@ app.prepare().
     // Custom route example
 
     server.get('/custom-route', (req, res) => {
-      return app.render(req, res, '/custom-route', req.query);
+      const urls = [
+
+      ];
+    
+    const fetchWithDelay = async (urls, delay) => {
+      const fetchUrl = async (url, retries = 3) => {
+          try {
+              const response = await axios.get(url, { timeout: 15000 });
+  
+              // Check if the response is JSON
+              const contentType = response.headers['content-type'];
+              if (contentType && contentType.includes('application/json')) {
+                  const data = response.data;
+                  console.log(`Fetched data from ${url}:`, data);
+              } else {
+                  console.error(`Unexpected content type for ${url}: ${contentType}`);
+                  console.error(`Response body:`, response.data); // This will log the HTML or other content
+              }
+          } catch (error) {
+              console.error(`Error fetching ${url}:`, error.message);
+  
+              // Retry logic
+              if (retries > 0) {
+                  console.log(`Retrying ${url} (${retries} attempts left)`);
+                  await new Promise(res => setTimeout(res, delay)); // Delay before retrying
+                  return await fetchUrl(url, retries - 1);
+              } else {
+                  console.error(`Failed to fetch ${url} after multiple attempts`);
+              }
+          }
+      };
+  
+      for (let i = 0; i < urls.length; i++) {
+          await new Promise(res => setTimeout(res, i * delay)); // Delay between each request
+          await fetchUrl(urls[i]);
+      }
+  };
+      console.log("Cutim_route")
+    fetchWithDelay(urls, 10); // 10000 ms = 10 seconds
     });
+
     server.get("/sitemap/:category", async (req, res) => {
       switch (req.url) {
         case "/sitemap/dispensaries-location-sitemap.xml":
@@ -565,9 +609,115 @@ Disallow:
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
     
-
-
+    server.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
+      try {
+        // Check if a file is uploaded
+        if (!req.file) {
+          res.status(400).send('No CSV file uploaded');
+          return;
+        }
     
+        // Parse CSV data into JSON
+        const jsonData = req.file.buffer
+          .toString('utf8')
+          .split('\n')
+          .map((line, index) => {
+            // Skip empty lines
+            if (!line.trim()) return null;
+    
+            // Split the line into columns
+            const columns = line.split(',');
+    
+            // Skip headers (assuming they are in the first row)
+            if (index === 0) return null;
+    
+            // Create an object for each row
+            return {
+              country: columns[0].trim(),
+              state: columns[1].trim(),
+              city: columns[2].trim()
+            };
+          })
+          .filter(row => row !== null); // Remove null entries (headers or empty lines)
+    
+        // Array to store all HTTP request promises
+        const requestPromises = [];
+    
+        // Send HTTP requests for each row of data
+        for (const data of jsonData) {
+          try {
+            const response = await axios.post(`https://api.cannabaze.com/UserPanel/UpdateSiteMapManual/14`, {
+              j: `https://www.weedx.io/weed-dispensaries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
+            });
+            // Do something with the response if needed
+          } catch (error) {
+            res.status(200).send('CSV file received and processed successfully');
+            console.error('Error making HTTP request:', error);
+          }
+        }
+    
+        // Send the response after all requests have completed
+        res.status(200).send('CSV file received and processed successfully');
+      } catch (error) {
+        console.error('Error processing CSV file:', error);
+        res.status(500).send('Internal Server Error');
+      }
+    });
+    server.post('/weed-deliveries/upload-csv', upload.single('csvFile'), async (req, res) => {
+      try {
+        // Check if a file is uploaded
+        if (!req.file) {
+          res.status(400).send('No CSV file uploaded');
+          return;
+        }
+    
+        // Parse CSV data into JSON
+        const jsonData = req.file.buffer
+          .toString('utf8')
+          .split('\n')
+          .map((line, index) => {
+            // Skip empty lines
+            if (!line.trim()) return null;
+    
+            // Split the line into columns
+            const columns = line.split(',');
+    
+            // Skip headers (assuming they are in the first row)
+            if (index === 0) return null;
+    
+            // Create an object for each row
+            return {
+              country: columns[0].trim(),
+              state: columns[1].trim(),
+              city: columns[2].trim()
+            };
+          })
+          .filter(row => row !== null); // Remove null entries (headers or empty lines)
+    
+        // Array to store all HTTP request promises
+        const requestPromises = [];
+    
+        // Send HTTP requests for each row of data
+        for (const data of jsonData) {
+          try {
+            const response = await axios.post(`https://api.cannabaze.com/UserPanel/Update-SiteMap/11`, {
+              j: `https://www.weedx.io/weed-deliveries/in/${modifystr(data.country)}/${modifystr(data.state)}/${modifystr(data.city)}`
+            });
+            // Do something with the response if needed
+          } catch (error) {
+            console.error('Error making HTTP request:', error);
+          }
+        }
+    
+        // Send the response after all requests have completed
+        res.status(200).send('CSV file received and processed successfully');
+      } catch (error) {
+        console.error('Error processing CSV file:', error);
+        res.status(500).send('Internal Server Error');
+      }
+    });
+
+
     server.get('*', (req, res) => {
 
       return handle(req, res);
