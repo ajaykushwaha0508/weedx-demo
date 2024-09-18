@@ -2583,9 +2583,8 @@ scrollbar-width: none;  /* Firefox */
 
 /* DispensoriesOpenResult */
 .dispensories_main_container {
-  z-index: 1;
   background: white;
-  /* overflow-x: hidden;
+  /* overflow-x: hidden
   overflow-y: scroll; */
   padding-bottom: 20px;
   -ms-overflow-style: none;  /* IE and Edge */
