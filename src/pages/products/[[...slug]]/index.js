@@ -12,7 +12,7 @@ import SkeletonCard from '@/component/skeleton/DashBoardSkeleton/DispensoriesAdd
 // import ProductSearchResult from "@/component/productcard/ProductSearchResult"
 import Createcontext from "@/hooks/context"
 import _, { kebabCase } from "lodash"
-import {SubCategoryApibyname } from "@/hooks/apicall/api"
+import { SubCategoryApibyname } from "@/hooks/apicall/api"
 import { modifystr } from "@/hooks/utilis/commonfunction";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 const CategoryProduct = dynamic(() => import('@/component/category/category'), { ssr: true });
@@ -139,7 +139,7 @@ const Product = (props) => {
                                         setIsDropdownOpen(!isDropdownOpen)
                                     }}>
                                         {selectedOption && (
-                                            <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} unoptimized={true} src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} title={selectedOption.name} className="dropdown-option-image" />
+                                            <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} unoptimized={true} src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} title={selectedOption.name} className="dropdown-option-image" />
                                         )}
                                         <span className="dropdown-option-label">
                                             {selectedOption ? selectedOption.name : 'Sort by Subcategory '}
@@ -149,7 +149,7 @@ const Product = (props) => {
                                     <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
                                         {subcategories?.map((option, index) => (
                                             <li key={index} onClick={() => selectOption(option)}>
-                                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} unoptimized={true} src={`${option.SubCategoryImage}`} alt={option.name} title={option.name} className="dropdown-option-image" />
+                                                <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} unoptimized={true} src={`${option.SubCategoryImage}`} alt={option.name} title={option.name} className="dropdown-option-image" />
                                                 <span className="dropdown-option-label">{option.name}</span>
                                             </li>
                                         ))}
@@ -205,41 +205,40 @@ const Product = (props) => {
         </React.Fragment>)
 }
 export default Product
-export const getServerSideProps = async (context) => {
 
-    const { req, res } = context;
-    let allCookies
+
+
+export const getServerSideProps = async (context) => {
+    const { req, res, params, query } = context;
+    let locationData = {};
+
+    // Check for 'x-fetchlocation' header and parse it if available
     if (req.headers["x-fetchlocation"]) {
         try {
             const jsonObject = JSON.parse(req.headers["x-fetchlocation"]);
-            allCookies = jsonObject
+            locationData = jsonObject;
         } catch (error) {
-            console.error('Error decoding or parsing cookie:', error);
+            console.error('Error decoding or parsing fetchlocation header:', error);
         }
     } else {
-        console.log('fetchlocation cookie not found');
+        console.log('fetchlocation header not found');
     }
 
-
-    const locationData = allCookies;
-
+    // Utility function to transform strings
     const transformString = (str) => {
-        if (!str) {
-            return '';
-        }
         return str
-            .replace(/-/g, " ")
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
+            ? str.replace(/-/g, " ").split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+            : '';
     };
 
+    // Cache control
     res.setHeader(
         'Cache-Control',
         'public, s-maxage=60, stale-while-revalidate=59'
     );
 
-    const object = {
+    // Prepare location data for the request payload
+    const locationObject = {
         City: transformString(locationData.city),
         Country: transformString(locationData.country),
         State: transformString(locationData.state),
@@ -248,70 +247,92 @@ export const getServerSideProps = async (context) => {
 
     let product = [];
     try {
+        // Fetch category data
         const apidata = await fetch("https://api.cannabaze.com/UserPanel/Get-Categories/");
-        const category = await apidata.json()
-        switch (true) {
-            case context.params.slug?.length === 2:
-                try {
-                    const response = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${context.query.slug[1]}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(object)
-                    });
+        const category = await apidata.json();
+        if (params.slug?.length === 2) {
+            product = await fetchProductByCategory(query.slug[1], locationObject);
+            const categoryMatch = modifystr(product[0]?.category_name) === query.slug[0] &&
+                parseInt(query.slug[1]) === product[0]?.category_id;
 
-                    const data = await response.json();
-                    product = data === "There is no Product" ? [] : data;
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-                break;
-            case context.params.slug?.length === 3:
-                try {
-                    const response = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${context.query.slug[2]}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(object)
-                    });
-
-                    const data = await response.json();
-                    product = data === "There is no Product" ? [] : data;
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-                break;
-            default:
-                const response = await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(object)
-                });
-
-                const data = await response.json();
-                if (data !== "No Product Found" && data.length !== 0) {
-                    product = data;
-                }
-                break;
+            if (!categoryMatch) {
+                return { notFound: true };
+            }
+        } else if (params.slug?.length === 3) {
+            // Fetch products by subcategory
+            product = await fetchProductBySubCategory(query.slug[2], locationObject);
+            const subcategoryMatch = modifystr(product[0]?.category_name) === query.slug[0] &&
+            query.slug[1] === modifystr(product[0]?.SubcategoryName) &&  parseInt(query.slug[2]) === product[0]?.Sub_Category_id ;
+            if (!subcategoryMatch) {
+                return { notFound: true };
+            }
+        } else {
+            // Fetch all products
+            product = await fetchAllProducts(locationObject);
         }
+
+        // Return props if products are found
         return {
             props: {
-                product: product,
+                product: product.length ? product : [],
                 loading: false,
                 location: locationData,
                 category: category,
-                id: context.params.slug?.length > 1 ? context?.query?.slug[1] : ''
+                id: params.slug?.length > 1 ? query.slug[1] : ''
             },
         };
 
     } catch (error) {
         console.error('Error fetching data:', error);
-        return {
-            notFound: false,
-        };
+        return { notFound: true };
     }
 };
+
+// Helper function to fetch products by category
+const fetchProductByCategory = async (categoryId, locationObject) => {
+    try {
+        const response = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${categoryId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(locationObject)
+        });
+        const data = await response.json();
+        return data === "There is no Product" ? [] : data;
+    } catch (error) {
+        console.error('Error fetching products by category:', error);
+        return [];
+    }
+};
+
+// Helper function to fetch products by subcategory
+const fetchProductBySubCategory = async (subCategoryId, locationObject) => {
+    try {
+        const response = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${subCategoryId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(locationObject)
+        });
+        const data = await response.json();
+        return data === "There is no Product" ? [] : data;
+    } catch (error) {
+        console.error('Error fetching products by subcategory:', error);
+        return [];
+    }
+};
+
+// Helper function to fetch all products
+const fetchAllProducts = async (locationObject) => {
+    try {
+        const response = await fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(locationObject)
+        });
+        const data = await response.json();
+        return data === "No Product Found" ? [] : data;
+    } catch (error) {
+        console.error('Error fetching all products:', error);
+        return [];
+    }
+};
+
