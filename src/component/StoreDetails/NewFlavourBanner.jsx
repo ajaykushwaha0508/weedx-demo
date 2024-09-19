@@ -154,7 +154,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                             <div className=" newFlavourContent_height" style={{ position: "0px" }}>
                                                                 <div className='w-100'>
                                                                     <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
-                                                                        <h1 className='New_flavour_font_size_head'>{data.Store_Name}</h1>
+                                                                        <h2 className='New_flavour_font_size_head'>{data.Store_Name}</h2>
                                                                     </div>
                                                                     <div className='col-12'>
 
