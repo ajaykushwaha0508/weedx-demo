@@ -32,7 +32,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                             return (
                                 <React.Fragment key={index}>
                                     <div className={location.pathname.includes('/menu-integration') ? 'row integratdclass' : "row"} >
-                                        <div className="col-12   position-relative">
+                                      <div className="col-12   position-relative">
                                             {
                                                 delBtn?.map((data) => {
                                                     return (
@@ -56,7 +56,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                                 <div className='w-100'>
                                                                     <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
                                                                         <h1 className='New_flavour_font_size_head'>{data.Store_Name}</h1>
-                                                                    </div>
+                                                           </div>
                                                                     <div className='col-12'>
                                                                         <div className='new_flavour_flex New_flavour_font_size_paragraph my-1 d-flex gap-2'>
                                                                             <IoLocationSharp /><h4 id='NewFlav_margins' className='newFlavourBannerSubHead'>{data.Store_Address}</h4>
@@ -129,7 +129,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                     )
                                                 })
                                             }
-                                        </div>
+                                        </div> 
                                         <div className="col-12 newFlavour_container_mobile  position-relative">
                                             {
                                                 delBtn?.map((data) => {
@@ -153,7 +153,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                             <div className=" newFlavourContent_height" style={{ position: "0px" }}>
                                                                 <div className='w-100'>
                                                                     <div className='col-12 New_flavour_font_size_paragraph  fontStyle'>
-                                                                        <h1 className='New_flavour_font_size_head'>{data.Store_Name}</h1>
+                                                                        <h2 className='New_flavour_font_size_head'>{data.Store_Name}</h2>
                                                                     </div>
                                                                     <div className='col-12'>
 
