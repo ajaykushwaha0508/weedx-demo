@@ -391,6 +391,9 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                 <p>
                                     <Rating name="read-only" className={`mx-2 ${classes.homePageStarIconscolor}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
                                     <span>
+                                        {
+                                            console.log(Product)
+                                        }
                                     </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} {Product?.TotalRating !== 0 ? `(${Product?.TotalRating})` : `(0)`} </span>
                                 </p>
                             </div>
