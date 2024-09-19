@@ -133,7 +133,6 @@ const NewFlavourBanner = ({ delBtn }) => {
                                         <div className="col-12 newFlavour_container_mobile  position-relative">
                                             {
                                                 delBtn?.map((data) => {
-                                                    console.log(data)
                                                     return (
                                                         <div className="newFlavour_container_mobile_box" key={data.id}>
                                                             <div className="newFlavour_image_container_height">

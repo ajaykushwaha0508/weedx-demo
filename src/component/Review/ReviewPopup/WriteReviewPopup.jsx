@@ -218,7 +218,7 @@ import Image from "next/image";
                   </div>
                   <div className="col-12">
                      <div className="reviewImage">
-                      <input type='file' id="Reviewimage" accept="image/*,video/*" className="d-none" onChange={onImageChange}  />
+                      <input  type='file' id="Reviewimage" accept="image/*,video/*" className="d-none" onChange={onImageChange}  />
                         <label htmlFor="Reviewimage" className="Reviewimagebox">
                            <div className="text-center">
                                <p className="text-center"><IoCloudUploadOutline size={22} /> <span>Drop Image And Video here or click to upload</span>
