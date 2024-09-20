@@ -261,6 +261,24 @@ const useStyles = makeStyles({
 
     }
   },
+  businessaccordion:{
+    backgroundColor:'transparent',
+    boxShadow:'none',
+    border:'none',
+
+    marginBottom:'10px',
+    "& .MuiButtonBase-root ":{
+      padding:'0',
+      "& .MuiAccordionSummary-content":{
+        borderLeft:'4px solid #31B655',
+        padding:'0 10px'
+      },
+    },
+   
+    "& p":{
+      marginBottom:'0',
+    }
+  },
   muiBtn_Signup: {
     "&.MuiButtonBase-root": {
       color: "white",
