@@ -13,8 +13,9 @@ import Advertisseo from '@/component/ScoPage/advertisseo';
 
 const advertise = () => {
   return (
-    <>
+    <>  
       <Advertisseo/>
+      
       <div className={classes.ad_page}>
           <div className='container'>
             
