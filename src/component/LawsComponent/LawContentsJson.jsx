@@ -1962,84 +1962,368 @@ const Content = [
             {
                 Country: 'USA',
                 id: 23,
-                name: "Michigan",
-                content: [
-                    {
-                        title: "Is weed legal in Michigan?",
-                        content:` <p>Yes, marijuana is indeed legal in Michigan, both for medical and recreational use. Michigan's journey towards cannabis legalization has been a significant and evolving one, offering residents a carefully regulated market for marijuana consumption.</p>`
-                    },
-                    {
-                        title: "Legislation History in Michigan",
-                        content: `<div>
-                            <p>Michigan's path to marijuana legalization has witnessed transformative changes:</p>
-                            <ol>
-                                <li>Medical Marijuana (2008): In 2008, Michigan voters approved the Michigan Compassionate Care Initiative, legalizing medical marijuana for patients with qualifying conditions. This marked the beginning of a regulated medical cannabis program.</li>
-                                <li>Recreational Legalization (2018): In November 2018, Proposal 1, also known as the Michigan Regulation and Taxation of Marihuana Act, was passed, allowing recreational marijuana for adults aged 21 and older. This legislation established the framework for regulating and taxing the adult-use cannabis market.</li>
-                            </ol>
-                        </div>`
-                    },
-                    {
-                        title: "Cannabis Possession in Michigan",
-                        content: `<div>
-                            <p>Michigan's cannabis possession laws are clearly defined, catering to both recreational users and medical patients. For adults aged 21 and older, the legal limit for cannabis possession stands at 2.5 ounces (71 grams), with an additional allowance of up to 15 grams in concentrate form. This enables responsible adults to enjoy a variety of cannabis products while maintaining a clear legal boundary.</p>
-                            <p>In public, recreational users in Michigan can legally possess up to 2.5 ounces (71 grams) of marijuana. However, when within the comfort of their homes, adults have the freedom to keep up to 10 ounces (283 grams) of marijuana, provided it is stored securely. This ensures that individuals can have a reasonable supply of cannabis without infringing on the law's provisions. Meanwhile, patients in the state's medical marijuana program, along with their primary caregivers, can also possess up to 10 ounces, providing essential relief and access to those who depend on cannabis as medicine. These well-defined possession limits reflect Michigan's commitment to balancing individual freedom and public safety in the realm of cannabis consumption.</p>
-                        </div>`
+                name: " Michigan",
+                // content: [
 
-                    },
-                    {
-                        title: "Where is it safe to purchase weed in Michigan?",
-                        content: `<p>Licensed cannabis dispensaries are the only legal places to purchase marijuana for recreational use in Michigan. These establishments provide a variety of cannabis products, including flowers, edibles, concentrates, and more.</p>`
-                    },
-                    {
-                        title: "Where is it safe to consume cannabis in Michigan?",
-                        content:` <div>
-                            <p>While marijuana consumption is legal in private residences, public consumption is strictly prohibited. It's essential to enjoy cannabis responsibly and discreetly in the privacy of your own home to avoid potential legal issues.</p>
-                        </div>`
-                    },
-                    {
-                        title: "Is home cultivation allowed in Michigan?",
-                        content: `<div>
-                            <p>Michigan's marijuana laws extend to personal cultivation, granting residents aged 21 and older the right to grow their cannabis plants. The state allows individuals to cultivate up to 12 marijuana plants per household for personal use. Moreover, those keen on nurturing their cannabis crops at home are entitled to possess the harvest from these plants, with an upper limit of 10 ounces (284 grams) within their residences. It's important to note that while adults can share small quantities of cannabis, they are not permitted to sell it without the requisite licensing. To ensure compliance with the law, it's vital for home growers to maintain the privacy and security of their cultivation space, ensuring that the plants are not visible from public view.</p>
-                            <p>For patients and primary caregivers registered under Michigan's medical marijuana program, the rules align with those for personal cultivation. These individuals can possess up to 10 ounces of cannabis and may cultivate and possess the harvest from a maximum of 12 cannabis plants at any given time. However, it's crucial for patients to indicate their intent to grow cannabis on their registry application. To adhere to regulations, home-cultivated plants must be securely kept in a locked and enclosed space, guaranteeing their safe and responsible management. If caregivers wish to cultivate larger quantities, they must apply for a Michigan commercial cultivation license, underscoring the state's commitment to responsible and regulated cannabis production.</p>
-                        </div>`
-                    },
-                    {
-                        title: "Finding licensed dispensaries in Michigan",
-                        content: `<p>The Marijuana Regulatory Agency (MRA) oversees the licensing and regulation of cannabis businesses in Michigan. You can check their website for a list of licensed recreational and medical marijuana dispensaries, allowing you to find a reputable and legal source for your cannabis needs.</p>`
-                    },
-                    {
-                        title: "Medical marijuana in Michigan?",
-                        content: `<div>
-                            <p>The Michigan Medical Marihuana Program (MMMP) stands as a beacon of hope for individuals dealing with debilitating medical conditions, offering them legal access to medical marijuana through a carefully regulated process. Patients seeking this vital resource must be 18 years or older to qualify under the current MMMP laws. Additionally, if patients choose to designate a primary caregiver, it's essential to list the caregiver on their registry application. To serve as a primary caregiver, one must be at least 21 years old and must not have a history of violent or drug-related felonies, with a clean record for the past 10 years. A primary caregiver is permitted to care for up to five qualifying patients, ensuring those in need receive the necessary support.</p>
-                            <p>The MMMP focuses on providing access to medical cannabis for patients battling specific debilitating medical conditions, including but not limited to Alzheimer's disease, ALS, cancer, Crohn's disease, glaucoma, hepatitis C, HIV/AIDS, and nail-patella syndrome. The program also extends its support to individuals dealing with chronic or debilitating conditions or treatments that manifest as cachexia (wasting syndrome), seizures (including epilepsy-related seizures), severe and chronic pain, severe nausea, and severe and persistent muscle spasms (such as those seen in multiple sclerosis). The application process for medical marijuana certification in Michigan involves several key steps, including obtaining a recommendation from a qualified physician, submitting the MMMP application form, providing proof of Michigan residency, paying a $60 fee for the registry card, designating a caregiver if needed, and paying a $25 caregiver application fee while submitting a copy of the caregiver's ID. It's crucial for Michigan patients to be aware that a valid registry ID card, when presented alongside another state-issued ID like a driver's license, is the only form of identification that ensures protection from potential arrest in the state. This emphasizes the importance of adhering to the program's official procedures to secure legal access to medical cannabis.</p>
-                        </div>`
+                //     {
+                //         title: "Is weed legal in Michigan?",
+                //         content:` <p>Yes, marijuana is indeed legal in Michigan, both for medical and recreational use. Michigan's journey towards cannabis legalization has been a significant and evolving one, offering residents a carefully regulated market for marijuana consumption.</p>`
+                //     },
+                //     {
+                //         title: "Legislation History in Michigan",
+                //         content: `<div>
+                //             <p>Michigan's path to marijuana legalization has witnessed transformative changes:</p>
+                //             <ol>
+                //                 <li> <b>Medical Marijuana (2008):</b> In 2008, Michigan voters approved the Michigan Compassionate Care Initiative, legalizing medical marijuana for patients with qualifying conditions. This marked the beginning of a regulated medical cannabis program.</li>
+                //                 <li><b>Recreational Legalization (2018):</b> In November 2018, Proposal 1, also known as the Michigan Regulation and Taxation of Marihuana Act, was passed, allowing recreational marijuana for adults aged 21 and older. This legislation established the framework for regulating and taxing the adult-use cannabis market.</li>
+                //             </ol>
+                //         </div>`
+                //     },
+                //     {
+                //         title: "Cannabis Possession in Michigan",
+                //         content: `<div>
+                //             <p>Michigan's cannabis possession laws are clearly defined, catering to both recreational users and medical patients. For adults aged 21 and older, the legal limit for cannabis possession stands at 2.5 ounces (71 grams), with an additional allowance of up to 15 grams in concentrate form. This enables responsible adults to enjoy a variety of cannabis products while maintaining a clear legal boundary.</p>
+                //             <p>In public, recreational users in Michigan can legally possess up to 2.5 ounces (71 grams) of marijuana. However, when within the comfort of their homes, adults have the freedom to keep up to 10 ounces (283 grams) of marijuana, provided it is stored securely. This ensures that individuals can have a reasonable supply of cannabis without infringing on the law's provisions. Meanwhile, patients in the state's medical marijuana program, along with their primary caregivers, can also possess up to 10 ounces, providing essential relief and access to those who depend on cannabis as medicine. These well-defined possession limits reflect Michigan's commitment to balancing individual freedom and public safety in the realm of cannabis consumption.</p>
+                //         </div>`
 
-                    },
-                    {
-                        title: "Caregivers in Massachusetts",
-                        content: `<p>Registered patients may designate a caregiver to help manage their medical cannabis use, especially if they have difficulty accessing dispensaries or cultivating their own marijuana. Caregivers must also register with the state and undergo a background check.</p>`
-                    },
+                //     },
+                //     {
+                //         title: "Where is it safe to purchase weed in Michigan?",
+                //         content: `<p>Licensed cannabis dispensaries are the only legal places to purchase marijuana for recreational use in Michigan. These establishments provide a variety of cannabis products, including flowers, edibles, concentrates, and more.</p>`
+                //     },
+                //     {
+                //         title: "Where is it safe to consume cannabis in Michigan?",
+                //         content:` <div>
+                //             <p>While marijuana consumption is legal in private residences, public consumption is strictly prohibited. It's essential to enjoy cannabis responsibly and discreetly in the privacy of your own home to avoid potential legal issues.</p>
+                //         </div>`
+                //     },
+                //     {
+                //         title: "Is home cultivation allowed in Michigan?",
+                //         content: `<div>
+                //             <p>Michigan's marijuana laws extend to personal cultivation, granting residents aged 21 and older the right to grow their cannabis plants. The state allows individuals to cultivate up to 12 marijuana plants per household for personal use. Moreover, those keen on nurturing their cannabis crops at home are entitled to possess the harvest from these plants, with an upper limit of 10 ounces (284 grams) within their residences. It's important to note that while adults can share small quantities of cannabis, they are not permitted to sell it without the requisite licensing. To ensure compliance with the law, it's vital for home growers to maintain the privacy and security of their cultivation space, ensuring that the plants are not visible from public view.</p>
+                //             <p>For patients and primary caregivers registered under Michigan's medical marijuana program, the rules align with those for personal cultivation. These individuals can possess up to 10 ounces of cannabis and may cultivate and possess the harvest from a maximum of 12 cannabis plants at any given time. However, it's crucial for patients to indicate their intent to grow cannabis on their registry application. To adhere to regulations, home-cultivated plants must be securely kept in a locked and enclosed space, guaranteeing their safe and responsible management. If caregivers wish to cultivate larger quantities, they must apply for a Michigan commercial cultivation license, underscoring the state's commitment to responsible and regulated cannabis production.</p>
+                //         </div>`
+                //     },
+                //     {
+                //         title: "Finding licensed dispensaries in Michigan",
+                //         content: `<p>The Marijuana Regulatory Agency (MRA) oversees the licensing and regulation of cannabis businesses in Michigan. You can check their website for a list of licensed recreational and medical marijuana dispensaries, allowing you to find a reputable and legal source for your cannabis needs.</p>`
+                //     },
+                //     {
+                //         title: "Medical marijuana in Michigan?",
+                //         content: `<div>
+                //             <p>The Michigan Medical Marihuana Program (MMMP) stands as a beacon of hope for individuals dealing with debilitating medical conditions, offering them legal access to medical marijuana through a carefully regulated process. Patients seeking this vital resource must be 18 years or older to qualify under the current MMMP laws. Additionally, if patients choose to designate a primary caregiver, it's essential to list the caregiver on their registry application. To serve as a primary caregiver, one must be at least 21 years old and must not have a history of violent or drug-related felonies, with a clean record for the past 10 years. A primary caregiver is permitted to care for up to five qualifying patients, ensuring those in need receive the necessary support.</p>
+                //             <p>The MMMP focuses on providing access to medical cannabis for patients battling specific debilitating medical conditions, including but not limited to Alzheimer's disease, ALS, cancer, Crohn's disease, glaucoma, hepatitis C, HIV/AIDS, and nail-patella syndrome. The program also extends its support to individuals dealing with chronic or debilitating conditions or treatments that manifest as cachexia (wasting syndrome), seizures (including epilepsy-related seizures), severe and chronic pain, severe nausea, and severe and persistent muscle spasms (such as those seen in multiple sclerosis). The application process for medical marijuana certification in Michigan involves several key steps, including obtaining a recommendation from a qualified physician, submitting the MMMP application form, providing proof of Michigan residency, paying a $60 fee for the registry card, designating a caregiver if needed, and paying a $25 caregiver application fee while submitting a copy of the caregiver's ID. It's crucial for Michigan patients to be aware that a valid registry ID card, when presented alongside another state-issued ID like a driver's license, is the only form of identification that ensures protection from potential arrest in the state. This emphasizes the importance of adhering to the program's official procedures to secure legal access to medical cannabis.</p>
+                //         </div>`
 
-                    {
-                        title: "Lab Testing",
-                        content: `<p>To ensure the safety and quality of cannabis products in Michigan, all products must undergo rigorous lab testing for potency, contaminants, and other factors. This testing guarantees that consumers receive safe and accurately labelled products.</p>`
-                    },
-                    {
-                        title: "Frequently Asked Questions",
-                        content: `<div>
-                            <ol>
-                                <li>Can I smoke weed in public in Michigan?</li>
-                                <p>No, public consumption of cannabis is illegal in Michigan. It should only be consumed in private residences.</p>
-                                <li>What are the penalties for underage possession of marijuana in Michigan?</li>
-                                <p>Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
-                                <li> Can I transport marijuana in my car in Michigan?</li>
-                                <p>Yes, you can transport marijuana in your car, but it must be in a sealed container in the trunk or a locked glove compartment.</p>
-                                <li>Can you go to a dispensary in Michigan without a card?</li>
-                                <p>No, to enter a medical marijuana dispensary, you need an MMMP card. But cannabis is legal for adults 21 and older in the state so you can go to any recreational retailer.</p>
-                            </ol>
-                        </div>`
-                    },
+                //     },
+                //     {
+                //         title: "Caregivers in Massachusetts",
+                //         content: `<p>Registered patients may designate a caregiver to help manage their medical cannabis use, especially if they have difficulty accessing dispensaries or cultivating their own marijuana. Caregivers must also register with the state and undergo a background check.</p>`
+                //     },
 
+                //     {
+                //         title: "Lab Testing",
+                //         content: `<p>To ensure the safety and quality of cannabis products in Michigan, all products must undergo rigorous lab testing for potency, contaminants, and other factors. This testing guarantees that consumers receive safe and accurately labelled products.</p>`
+                //     },
+                //     {
+                //         title: "Frequently Asked Questions",
+                //         content: `<div>
+                //             <ol>
+                //                 <li>Can I smoke weed in public in Michigan?</li>
+                //                 <p>No, public consumption of cannabis is illegal in Michigan. It should only be consumed in private residences.</p>
+                //                 <li>What are the penalties for underage possession of marijuana in Michigan?</li>
+                //                 <p>Possession of marijuana by individuals under 21 can result in fines and mandatory drug education programs, but it does not lead to criminal charges.</p>
+                //                 <li> Can I transport marijuana in my car in Michigan?</li>
+                //                 <p>Yes, you can transport marijuana in your car, but it must be in a sealed container in the trunk or a locked glove compartment.</p>
+                //                 <li>Can you go to a dispensary in Michigan without a card?</li>
+                //                 <p>No, to enter a medical marijuana dispensary, you need an MMMP card. But cannabis is legal for adults 21 and older in the state so you can go to any recreational retailer.</p>
+                //             </ol>
+                //         </div>`
+                //     },
+
+                // ]
+                content:[
+                            {
+                                title: "Cannabis Laws in Michigan",
+                                content:` <p>Michigan has emerged as a significant player in the cannabis industry, becoming a beacon of progressive legislation in the Midwest. The state’s cannabis laws are designed to cater to both medical patients and recreational users, with a strong focus on safety, regulation, and accessibility. However, understanding these laws can be challenging, given their complexity and constant evolution. This guide aims to demystify the legal landscape of cannabis in Michigan, covering everything from possession limits and licensing requirements to social equity programs and environmental impacts.</p>`
+                            },
+                            {
+                                title: "The Evolution of Cannabis Legislation in Michigan",
+                                content: `<div>
+                                    <p>Michigan's journey began in 2008 with the legalization of medical marijuana through the <b>Michigan Medical Marihuana Act (MMMA).</b>
+                                     A decade later, in 2018, Michigan became the first Midwestern state to legalize adult recreational use with the <a href={'https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Initiated-Law-1-of-2018.pdf'}> Michigan Regulation and Taxation of Marihuana Act (MRTMA). </a>Together, these laws created a robust framework for medical and recreational cannabis, establishing Michigan as a progressive leader in cannabis regulation.</p>
+                                  
+                                </div>`
+                            },
+                            {
+                                title: "Medical vs. Recreational Cannabis in Michigan",
+                                content: `<div>
+                                    <p>Michigan distinguishes between medical and recreational cannabis with varying regulations for purchase, possession, and cultivation.</p>
+                                  
+                                </div>`
+                            },
+                            {
+                                title: "Medical Cannabis (MMMA)",
+                                content: `<div>
+                                   <ul>   
+                                        <li> <b>Eligibility:</b> Residents with qualifying conditions can apply for a medical marijuana card through the Michigan Marijuana Regulatory Agency (MRA).</li>
+                                        <li><b>Possession Limits:</b> Patients can possess up to 2.5 ounces of usable cannabis or equivalent products.</li>
+                                        <li><b>Cultivation :</b> Patients and their caregivers may grow up to 12 plants for personal use.</li>
+                                        <li><b>Caregivers:</b> Caregivers can grow cannabis for up to five patients, with a limit of 12 plants per patient.</li>
+                                        <li><b>Qualifying Conditions :</b>  Conditions include cancer, HIV/AIDS, PTSD, chronic pain, glaucoma, and Crohn’s disease.</li>
+                                         
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Recreational Cannabis (MRTMA)",
+                                content: `<div>
+                                   <ul>   
+                                        <li> <b>Eligibility:</b> Adults aged 21 and older can purchase and possess cannabis.</li>
+                                        <li><b>Possession Limits:</b> Adults may possess up to 2.5 ounces of cannabis in public or 15 grams of concentrates and store up to 10 ounces at home.</li>
+                                        <li><b>Cultivation :</b> Up to 12 plants can be grown per household in a secure, non-visible area</li>
+                                        <li><b>Public Use:</b>  Public consumption is illegal except in licensed consumption lounges</li>  
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Licensing and Business Regulations",
+                                content: `<div>
+                                    <p>The <> Michigan Marijuana Regulatory Agency (MRA)</b> oversees licensing for dispensaries, growers, processors, transporters, and more. The licensing process ensures businesses comply with safety, security, and regulatory measures.</p>
+                                </div>`
+                            },
+                            {
+                                title: "Types of Licenses:",
+                                content: `<div>
+                                   <ul>   
+                                        <li> <b>Grower License:</b> Different tiers for cultivating cannabis.</li>
+                                        <li><b>Processor License: </b> For creating cannabis products like edibles, concentrates, and tinctures.</li>
+                                        <li><b>Retailer License :</b> For dispensaries selling to medical patients and recreational consumers.</li>
+                                        <li><b>Transporter License:</b> For transporting cannabis between licensed facilities.</li>
+                                        <li><b>Microbusiness License: </b>Small businesses can grow, process, and sell directly to consumers, with a limit of 150 plants.</li>  
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Application Process:",
+                                content: `<p>The process includes prequalification, background checks, and a review of financials. Local ordinances may also apply.</p>`
+                            },
+                            {
+                                title: "Taxes and Fees:",
+                                content: `<ul>
+                                    <li>Recreational cannabis is subject to a 10% excise tax and a 6% sales tax, while medical sales incur only the 6% sales tax</li>
+                                    <li>Tax revenue is allocated to local governments, schools, roads, and public safety programs.</li>
+                                </ul>`
+                            },
+                            {
+                                title: "Possession, Consumption, and Cultivation Laws",
+                                content: `
+                                <div>
+                                  <p>Possession:</p>
+                                   <ul>
+                                    <li> <b>Recreational Users:</b>  Can carry up to 2.5 ounces in public and 10 ounces at home.</li>
+                                    <li><b>Medical Patients: </b> Can carry up to 2.5 ounces of usable marijuana.</li>
+                                    <li><b>Concentrates :</b> The limit is 15 grams for both recreational users and patients.</li>
+                                   </ul>
+                                   <p>Cultivation :</p>
+                                    <ul>
+                                    <li> <b>Home Cultivation :</b>  Adults can grow up to 12 plants, while caregivers may grow 12 plants per patient, with a cap of 72 plants for five patients. Plants must be secured and not visible from public spaces.</li>
+                                   
+                                   </ul>
+                                </div>
+                               
+                                
+                                `
+                            },
+                            {
+                                title: "Public Consumption:",
+                                content: `<p>Public cannabis use is prohibited, except in licensed lounges. Driving under the influence of cannabis is illegal and carries penalties similar to alcohol DUIs.</p>`
+                            },
+                            {
+                                title: "Federal vs. State Law: Cannabis and Employment",
+                                content: `<p>While cannabis is legal in Michigan, it remains illegal under federal law, which can affect federal employees and those in federally regulated industries. Employers in Michigan are allowed to enforce drug-free workplace policies, meaning employees could face termination or refusal of employment due to cannabis use, even if it’s legal under state law.</p>`
+                            },
+                            {
+                                title: "Cannabis and Housing:",
+                                content: `<p>Landlords can prohibit cannabis use on their properties. However, medical marijuana patients may seek accommodation under the Americans with Disabilities Act (ADA). This is a grey legal area and varies on a case-by-case basis.</p>`
+                            },
+                            {
+                                title: "Expungement of Cannabis-Related Crimes",
+                                content: `<p>In 2020, Michigan introduced laws allowing expungement of certain cannabis-related offenses. Those eligible can seek to have records cleared for low-level offenses like possession or cultivation of small amounts of cannabis.</p>`
+                            },
+                            {
+                                title: "Government Resources for Cannabis Compliance",
+                                content: `<ul>
+                                    <li><b>Michigan Marijuana Regulatory Agency (MRA):</b>  Regulates cannabis businesses and provides resources on licensing and compliance. Visit here.</li>
+                                    <li><b>Michigan Department of Licensing and Regulatory Affairs (LARA)</b>Oversees the regulation of the cannabis industry. Visit here.</li>
+                                    <li><b>Michigan State Police (MSP)</b> Offers information on cannabis laws and penalties for violations. Visit here.</li>
+                                </ul>`
+                            },
+                            {
+                                title: "Common Legal Violations and Penalties",
+                                content: `<ul>
+                                    <li><b>Over-possession :</b>Carrying more than 2.5 ounces can result in fines or jail time.</li>
+                                    <li><b>Public Consumption:</b>Fines start at $100 for consuming in public.</li>
+                                    <li><b>Unlicensed Sales</b> Selling cannabis without a license can lead to severe legal penalties</li> 
+                                    <li><b>Driving Under the Influence</b>  Similar penalties as alcohol-related DUIs apply to cannabis.</li>
+                                </ul>`
+                            },
+                            {
+                                title: "Local Restrictions: Cities and Counties with Cannabis Bans",
+                                content:`<p>Some local governments in Michigan have opted to ban or limit cannabis businesses. However, personal possession and use remain legal under state law.</p>`
+                            },
+                            {
+                                title: "Cities and Counties Opting Out:",
+                                content:`<p>Cities like Birmingham, Livonia, Plymouth, and Wyoming have either banned or heavily restricted cannabis businesses. Despite this, personal possession and consumption are protected by state law.</p>`
+                            },
+                            {
+                                title: "Unique Features of Cannabis Laws in Michigan",
+                                content: `<div>
+                                   <ul>   
+                                        <li> <b>Low Excise Tax :</b>  Michigan’s 10% excise tax on recreational cannabis is among the lowest in the country, helping combat the black market.</li>
+                                        <li><b>Generous Possession Limits: </b> Michigan’s allowance of 2.5 ounces in public and 10 ounces at home is among the highest in the U.S.</li>
+                                        <li><b>Affordable Pricing:</b>Since legalization, cannabis prices in Michigan have dropped significantly, with the average recreational ounce costing under $100 by 2024.</li>
+                                        <li><b>Second-Largest Market: </b> Michigan has become the second-largest cannabis market in the U.S., with over $1.1 billion in sales in early 2024.</li>
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Social Equity Program in Michigan",
+                                content: `<div>
+                                <p>Michigan’s Social Equity Program is a key initiative to create fairness in the cannabis industry by helping those disproportionately impacted by past cannabis laws.</p>
+                                   <ul>   
+                                        <li> <b>Eligibility :</b> The program targets individuals from areas hit hardest by cannabis prohibition or those with prior cannabis convictions, offering them a fair shot in the industry.</li>
+
+                                        <li><b>Support : </b>Participants benefit from reduced application fees, technical guidance, and compliance support, leveling the playing field in a competitive market.</li>
+
+                                        <li><b>Impact :</b>The program has opened doors for many but also faces criticism regarding its effectiveness. Efforts are ongoing to improve the program and better address past disparities.</li>
+                                       
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Environmental Impact of Cannabis Cultivation in Michigan",
+                                content: `<div>
+                                <p>As Michigan’s cannabis industry expands, so do concerns about its environmental impact.</p>
+                                   <ul>   
+                                        <li> <b>Energy Use :</b> Indoor cultivation demands high energy for lighting, heating, and cooling, raising concerns about the carbon footprint, especially in regions dependent on non-renewable energy sources.</li>
+                                        
+                                        <li><b>Water Consumption : </b> Cannabis cultivation is water-intensive, potentially straining local water supplies, particularly in areas already facing water shortages.</li>
+
+                                        <li><b>Sustainable Practices :</b> In response, many Michigan growers are adopting eco-friendly practices like solar power, energy-efficient lighting, and sustainable water use to minimize their environmental impact.</li>
+                                       
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Michigan vs. Other Legal States",
+                                content: `<div>
+                                <p> Michigan’s cannabis laws stand out in several areas when compared to other states.</p>
+                                   <ul>   
+                                        <li> <b>Tax Rates</b> With a 10% excise tax on recreational cannabis, Michigan’s rate is lower than states like California (15%) and Illinois (varied by THC content). This lower tax rate helps combat the black market and makes legal cannabis more accessible.</li>
+                                        
+                                        <li><b>Possession and Cultivation Limits : </b> Michigan allows the possession of up to 2.5 ounces in public and 10 ounces at home, with a generous allowance of 12 plants per household for recreational use. These limits surpass those in many other states, such as California and Colorado.</li>
+
+                                        <li><b>Cannabis Tourism :</b> While still developing, Michigan’s cannabis tourism industry is gaining momentum. The state’s progressive laws and diverse attractions make it an emerging destination for cannabis enthusiasts.</li>
+                                       
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Cannabis Tourism in Michigan",
+                                content: `<div>
+                                <p>Cannabis tourism is becoming a significant part of Michigan’s economy, offering new opportunities for businesses.</p>
+                                   <ul>   
+                                        <li> <b>Cannabis Lounges</b>Michigan’s cannabis lounges provide a legal, social setting for cannabis consumption, attracting both locals and tourists.</li>
+                                        <li><b>Events and Festivals : </b> Events like Ann Arbor’s Hash Bash draw visitors from across the country, celebrating cannabis culture and advocacy.</li>
+                                        <li><b>Cannabis Tours :</b>Farm tours and dispensary visits are popular, offering an educational experience and direct access to products.</li>
+                                       
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Health and Safety Regulations for Cannabis Products",
+                                content: `<div>
+                                <p>Michigan’s strict health and safety regulations ensure that cannabis products are safe and high-quality.</p>
+                                   <ul>   
+                                        <li> <b>Testing Requirements :</b>All products undergo rigorous testing for contaminants like mold and pesticides, ensuring consumer safety and product quality.</li>
+                                        <li><b>Edibles and Infused Products : </b> Regulations on edibles include dosage limits and strict labeling to prevent accidental consumption, particularly by children. Child-resistant packaging is mandatory to enhance safety.</li>
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: " Federal Law vs. Michigan State Law: Navigating the Conflict ",
+                                content: `<div>
+                                <p> Despite cannabis being legal in Michigan, it remains illegal at the federal level, creating challenges for businesses and consumers.</p>
+                                   <ul>   
+                                        <li><b> Banking Challenges : </b> Federal restrictions make it difficult for cannabis businesses to access banking services, forcing many to operate on a cash-only basis, which increases the risk of theft and financial mismanagement. </li>
+                                        <li><b> Travel Concerns: </b>  Transporting cannabis across state lines remains illegal, even between states where cannabis is legal, creating legal risks for travelers.</li>
+                                        <li><b>Federal Prohibition Impact: </b> Federal prohibition limits research, insurance options, and interstate commerce, hindering the cannabis industry’s growth and scientific understanding.</li>
+                                       
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: " The Future of Cannabis in Michigan",
+                                content: `<div>
+                                <p>Michigan’s cannabis industry is poised for continued growth, with several trends and potential legal changes on the horizon </p>
+                                   <ul>   
+                                        <li><b>Cannabis Delivery Services : </b>  The rapid expansion of delivery services offers convenience to consumers and new opportunities for businesses, with technological advancements expected to drive further growth.</li>
+                                        <li><b>Potential Legal Changes : </b> Discussions are ongoing about expanding cannabis lounges and amending laws to address banking access, further integrating cannabis into Michigan’s economy.</li>
+                                        <li><b>Economic Growth Projections: </b> Cannabis legalization has already boosted Michigan’s economy, and projections indicate continued growth, with significant contributions to job creation, tax revenue, and local business development.</li>
+                                      
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: " Community Impact and Economic Benefits of Cannabis Legalization ",
+                                content: `<div>
+                                <p>Cannabis legalization has had a profound impact on Michigan’s communities and economy. </p>
+                                   <ul>   
+                                        <li><b>Job Creation
+                                        : </b>  The industry has created thousands of jobs, providing new opportunities and contributing to economic stability across the state.
+                                        </li>
+                                        <li><b>Local Business Growth
+                                        : </b> Beyond cannabis-specific businesses, industries like construction, security, and compliance have benefited, strengthening Michigan’s economy.
+                                        </li>
+                                        <li><b>Revenue for Public Services
+                                        : </b> Cannabis tax revenue funds public services like education, infrastructure, and public safety, improving the quality of life for residents statewide.
+                                        </li>
+                                       
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: " The Role of CBD and Hemp in Michigan ",
+                                content: `<div>
+                                <p> CBD and hemp are also key players in Michigan’s cannabis landscape.</p>
+                                   <ul>   
+                                        <li><b>Hemp Legislation : </b> Under the 2018 Farm Bill, hemp-derived products are legal in Michigan, fueling a thriving industry focused on products like textiles, food, and CBD extracts. </li>
+                                        <li><b>CBD Market : </b>  The CBD market is booming in Michigan, with widespread availability and increasing consumer interest, though regulatory challenges and the need for consumer education remain.</li>
+                                    </ul>
+                                </div>`
+                            },
+                            {
+                                title: "Frequently Asked Questions",
+                                content: `<div>
+                                    <ol>
+                                        <li>Is it legal to drive with cannabis in Michigan?</li>
+                                        <p>Yes, but it must be in a sealed container, and driving under the influence is illegal.</p>
+                                        <li> Can I grow cannabis at home in Michigan?</li>
+                                        <p> Yes, adults can grow up to 12 plants for personal use.</p>
+                                        <li>How much cannabis can I legally possess in Michigan?</li>
+                                        <p> You can carry 2.5 ounces in public and store up to 10 ounces at home.</p>
+                                        <li> Can I consume cannabis in public in Michigan?</li>
+                                        <p>No, public consumption is illegal, but licensed lounges allow for social use.</p>
+                                        <li>Are there expungement options for past cannabis convictions in Michigan? </li>
+                                        <p> Yes, individuals with certain offenses can apply for expungement.</p>
+                                        <li> Can landlords prohibit cannabis use in rental properties?</li>
+                                        <p> Yes, but medical patients may have some protections under the ADA.</p>
+                                        <li> Are there any cities or counties in Michigan where cannabis is banned?</li>
+                                        <p>Yes, cities like Birmingham, Livonia, and Plymouth prohibit cannabis businesses, but personal use remains legal. </p>
+                                    </ol>
+                                </div>`
+                            },
                 ]
             },
             {
