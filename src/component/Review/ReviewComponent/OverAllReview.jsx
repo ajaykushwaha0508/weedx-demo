@@ -16,6 +16,7 @@ const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,revie
         { starValue: 1, bgcolor: "#31B665", completed: Rating?.OneStar },
 
     ];
+
     return (
         <div className="w-100 ">
             
