@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import Createcontext from "../../hooks/context"
-import React from "react"
 function Advertisseo(){
     return (
         <Head>
