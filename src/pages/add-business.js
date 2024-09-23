@@ -15,6 +15,8 @@ import Bgheader from "@/component/bgheader/Bgheader";
 import Add_business2 from '../../public/image/add_business2.png'
 import Add_business1 from '../../public/image/add_business2.png'
 import useStyles from "@/styles/style";
+
+
 const Businesspage = () => {
   const ref = useRef(null);
 const ssss = useStyles()

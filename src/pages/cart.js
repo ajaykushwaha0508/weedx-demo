@@ -22,7 +22,6 @@ const AddToCart = () => {
     return (
 
         <div className="container">
-
        { state.permission===false && <Currentlocation></Currentlocation> }
             <Cart></Cart>
             {
