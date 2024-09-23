@@ -93,7 +93,6 @@ export async function getServerSideProps(context) {
       clearTimeout(id);
       return response;
     };
-
     const [banner, callcategory, bannner2, brand, GetDelivery, Dispensaries, news] = await Promise.all([
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/').catch(() => null),
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-Categories/').catch(() => null),
@@ -133,7 +132,7 @@ export async function getServerSideProps(context) {
       callcategory ? callcategory.json().catch(() => []) : [],
       bannner2 ? bannner2.json().catch(() => []) : [],
       brand ? brand.json().catch(() => []) : [],
-      GetDelivery ? GetDelivery.json().catch(() => []) : [],
+      GetDelivery ? GetDelivery.json().catch(() => []) : [], 
       Dispensaries ? Dispensaries.json().catch(() => []) : [],
       news ? news.json().catch(() => []) : []
     ]);
