@@ -402,7 +402,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                             RelatedProductResult?.map((items, index) => {
                                 if (items.id !== currentProductID) {
                                     return (
-                                        <div className="productSearch_result_container" key={index}>
+                                        <div className="productSearch_result_container akak" key={index}>
                                             {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className="discountTag">{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
                                             <div className="productSearchResultImage_container">
                                                 <div className="product_whish_list">
