@@ -1,5 +1,5 @@
 import Head from "next/head"
-const   businesspageseo = () => {
+const businesspageseo = () => {
   return (
     <Head>
             <title>{`Add Your Cannabis Business - Dispensary, Delivery Service, or Brand on WeedX.io
