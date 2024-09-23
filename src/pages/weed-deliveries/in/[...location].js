@@ -410,7 +410,7 @@ export const getServerSideProps = async (context) => {
         State: capitalizeFirstLetter(state.replace(/-/g, ' ')),
         Country: capitalizeFirstLetter(country1.replace(/-/g, ' ')),
     };
-  console.log(object)
+``
     try {
         // Fetch delivery data
         const deliveryPromise = GetAllDelivery(object);
