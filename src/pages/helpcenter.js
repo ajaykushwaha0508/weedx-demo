@@ -30,7 +30,6 @@ const Helpcenter = () => {
         <div className='helpcenter'>
             <HelpcenterSeo></HelpcenterSeo>
             <div className='container-fluid'>
-                {/* <Bgheader text="Welcome To The WeedX.io Help Center" /> */}
                 <div className='bgHedaer'>
                     <div className='text_on_Learn_banner'>
                         <h1>{'Welcome To The WeedX.io Help Center'}</h1>
@@ -38,8 +37,6 @@ const Helpcenter = () => {
                 </div>
                 <div className='helpcenterConent row'>
                     <div className="col-lg-8 col-12">
-
-
                         <h2 className='helpHeading'>{`1. Getting Started `}</h2>
                         <div className="help_contentBox" id='help1'>
                             <h3 className="helpTitle">{`Registering an Account`}</h3>

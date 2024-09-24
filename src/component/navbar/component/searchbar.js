@@ -179,75 +179,65 @@ const SearchBar = ({ path }) => {
             <div className="col_Search">
                 <div className={` nav_search_bar_div center`} id='navsearchConntainer' style={{ display: (openLocation && searchBarWidth) && "block" }}>
                     <AutoComplete
-                        id="SearchBar"
-                        disableClearable
-                        open={open}
-                        onOpen={() => {
-                            setOpen(true);
-                        }}
-                        onClose={() => {
-                            setOpen(false);
-                        }}
-                        classes={{ paper: classes.paper }}
-                        // onClick={Search}
-                        filterOptions={x => x}
-
-                        // ListboxProps={{ style: { width: '100%' } }}
-                        componentsProps={{ popper: { style: { height: '100%', width: `${optionWidth}px` } } }}
-                        onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
-                        // onClick={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
-                        // getoptionselected={(option, value) => option?.description === value?.description}
-                        getOptionLabel={(option) => option?.value}
-                        options={SearchData}
-                        groupBy={(option) => option.type}
-                        renderOption={(props, t) => {
-                            return (
-                                <div {...props} style={{ color: "black" }} >
-                                    <ul className='PopperLIst'>
-                                        {/* <div> */}
-                                        <li onClick={(event, value) => SearchAPi(t?.id, t?.type, t)} className='searchBarListStyles' key={t.value}>
-                                            <Image
-                                            unoptimized={true}
-                                                onError={handleImageError}
-                                                className={"searchBarImageStyles"} // Apply CSS module class
-                                                src={t.image}
-                                                alt={t.value}
-                                                title={t.value}
-                                                width={35}
-                                                height={35}
-                                            />
-                                            <span className='searchBarSpanValue'> {`${t.value}`}</span>
-                                        </li>
-                                        {/* </div> */}
+                                id="SearchBar"
+                                disableClearable
+                                open={open}
+                                onOpen={() => { setOpen(true); }}
+                                onClose={() => { setOpen(false); }}
+                                classes={{ paper: classes.paper }}
+                                filterOptions={x => x}
+                                componentsProps={{ popper: { style: { height: '100%', width: `${optionWidth}px` } } }}
+                                onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
+                                getOptionLabel={(option) => option?.value}
+                                options={SearchData}
+                                groupBy={(option) => option.type}
+                                renderOption={(props, t) => {
+                                    return (
+                                        <div {...props} style={{ color: "black" }} >
+                                            <ul className='PopperLIst'>
+                                                {/* <div> */}
+                                                <li onClick={(event, value) => SearchAPi(t?.id, t?.type, t)} className='searchBarListStyles' key={t.value}>
+                                                    <Image
+                                                    unoptimized={true}
+                                                        onError={handleImageError}
+                                                        className={"searchBarImageStyles"} // Apply CSS module class
+                                                        src={t.image}
+                                                        alt={t.value}
+                                                        title={t.value}
+                                                        width={35}
+                                                        height={35}
+                                                    />
+                                                    <span className='searchBarSpanValue'> {`${t.value}`}</span>
+                                                </li>
+                                                {/* </div> */}
 
 
-                                    </ul>
-                                </div>
-                            )
-                        }}
-                        // loading={loading}
-                        sx={{ width: open && searchBarWidth ? "100%" : "100%" }}
-                        renderInput={(params) => <TextField
-                            {...params}
-                            onChange={Search}
-                            placeholder="Products Brands Retailers and more"
-                            className={` ${classes.Bar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
-                            style={{ borderRadius: (open && searchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && searchBarWidth ? "none" : "inline-flex", width: open && searchBarWidth ? "100%" : "100%" }}
-                            InputProps={{
-                                ...params.InputProps,
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <BsSearch color="#858585" size={16} />
-                                    </InputAdornment>
-                                ),
-                                endAdornment: (
-                                    <React.Fragment>
-                                        {loading ? (
-                                            <CircularProgress color="inherit" size={20} />
-                                        ) : null}
-                                    </React.Fragment>
-                                ),
-                            }}
+                                            </ul>
+                                        </div>
+                                    )
+                                }}
+                                sx={{ width: open && searchBarWidth ? "100%" : "100%" }}
+                                renderInput={(params) => <TextField
+                                {...params}
+                                onChange={Search}
+                                placeholder="Products Brands Retailers and more"
+                                className={` ${classes.Bar_padding} SearchBar nav_search_bar_div  ${classes.SearchBar_Text}`}
+                                style={{ borderRadius: (open && searchBarWidth) ? " 16px 16px 16px 16px" : " 16px 0px 0px 16px", top: "0px", display: openLocation && searchBarWidth ? "none" : "inline-flex", width: open && searchBarWidth ? "100%" : "100%" }}
+                                InputProps={{
+                                    ...params.InputProps,
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <BsSearch color="#858585" size={16} />
+                                        </InputAdornment>
+                                    ),
+                                    endAdornment: (
+                                        <React.Fragment>
+                                            {loading ? (
+                                                <CircularProgress color="inherit" size={20} />
+                                            ) : null}
+                                        </React.Fragment>
+                                    ),
+                                }}
                         />
                         }
                     />

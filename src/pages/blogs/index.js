@@ -18,44 +18,42 @@ import Cookies from 'universal-cookie';
 import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
+import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
 const Allblogs = (props) => {
   const router = useRouter()
-  let showabledata= props?.initialData || []
   const { state } = React.useContext(Createcontext)
-  let itemno = 10; // Ensure itemno is defined
-    async function calldata(){
-      const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          "category": 2,
-          "limit": itemno
-      })
-      }).catch(() => null);
-      const json =  await  res.json()
-      const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field 
-      showabledata = data
-    }
-  if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', () => {
-      let scroll = window.scrollY; // Current scroll position
-      const element = document.getElementById("skeleton"); // The element you're checking against
-      
-      if (element) { // Make sure element exists
-        let height = window.innerHeight; // Height of the viewport
-        const rect = element.getBoundingClientRect().top + window.pageYOffset; // Element's distance from the top of the page
-  
-        if ((rect - height < scroll) && itemno === 10) {
-       
-          itemno += 10; 
-         
-
-        }
-      }
-    });
-  }
+  // let itemno = 10; // Ensure itemno is defined
+    // async function calldata(){
+    //   const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       "category": 2,
+    //       "limit": itemno
+    //   })
+    //   }).catch(() => null);
+    //   const json =  await  res.json()
+    //   const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field 
+    //   showabledata = data
+    // }
+  // if (typeof window !== 'undefined') {
+  //   window.addEventListener('scroll', () => {
+  //     let scroll = window.scrollY; // Current scroll position
+  //     const element = document.getElementById("skeleton"); // The element you're checking against
+  //     if (element) { // Make sure element exists
+  //       let height = window.innerHeight; // Height of the viewport
+  //       const rect = element.getBoundingClientRect().top + window.pageYOffset; // Element's distance from the top of the page
+  //       console.log(scroll)
+  //       console.log(height)
+  //       console.log(rect)
+  //       if ((rect - height < scroll) && itemno === 10) {
+  //         itemno += 10;
+  //       }
+  //     }
+  //   });
+  // }
   const cookies = new Cookies();
   let token_data = cookies.get('User_Token_access')
   let accessToken
@@ -96,8 +94,8 @@ const Allblogs = (props) => {
       {state.permission && <Currentlocation />}
       <div>
         <Blogheaders title="Blogs" />
-        <div className="blogListWrapper">
-          {showabledata?.map((items, index) => {
+         <div className="blogListWrapper">
+          {props?.initialData?.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
@@ -201,8 +199,9 @@ const Allblogs = (props) => {
               </div>
             );
           })}
-          <div id='skeleton'></div>
         </div>
+        <Blogscroller />
+
       </div>
     </div>
   )
