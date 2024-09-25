@@ -9301,10 +9301,6 @@ color: #616161;
 .section_box ul li .section_box_para{
    margin-bottom: 0;
 }
-
-
-
-
 @media (max-width:1800px) {
   .nav_li.nav_list1 ul {
     gap: 6%
