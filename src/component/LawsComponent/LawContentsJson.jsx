@@ -2044,7 +2044,7 @@ const Content = [
                 // ]
                 content:[
                             {
-                                title: "Cannabis Laws in Michigan",
+                                title: "Michigan's Cannabis Law: A Clear Guide to Legal Use and Business",
                                 content:` <p>Michigan has emerged as a significant player in the cannabis industry, becoming a beacon of progressive legislation in the Midwest. The state’s cannabis laws are designed to cater to both medical patients and recreational users, with a strong focus on safety, regulation, and accessibility. However, understanding these laws can be challenging, given their complexity and constant evolution. This guide aims to demystify the legal landscape of cannabis in Michigan, covering everything from possession limits and licensing requirements to social equity programs and environmental impacts.</p>`
                             },
                             {
@@ -2089,7 +2089,7 @@ const Content = [
                             {
                                 title: "Licensing and Business Regulations",
                                 content: `<div>
-                                    <p>The <> Michigan Marijuana Regulatory Agency (MRA)</b> oversees licensing for dispensaries, growers, processors, transporters, and more. The licensing process ensures businesses comply with safety, security, and regulatory measures.</p>
+                                    <p>The <b> Michigan Marijuana Regulatory Agency (MRA)</b> oversees licensing for dispensaries, growers, processors, transporters, and more. The licensing process ensures businesses comply with safety, security, and regulatory measures.</p>
                                 </div>`
                             },
                             {

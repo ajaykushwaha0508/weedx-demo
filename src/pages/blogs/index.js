@@ -1,16 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import Link from 'next/link';
-import SearchBar from '@mkyy/mui-search-bar';
-import useStyles from "@/styles/style.jsx";
+// import SearchBar from '@mkyy/mui-search-bar';
+// import useStyles from "@/styles/style.jsx";
 import axios from "axios";
 import { useRouter } from 'next/router';
 import { BlogLike, Post_BlogLike } from "@/hooks/apicall/api.js"
 import { FaRegHeart } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "@/component/ScoPage/NewsSeo";
-import DeliveryItemsCardSkeleton from '@/component/skeleton/DeliveryItemsCardSkeleton.jsx';
 import _, { assignWith } from "lodash";
 import Image from 'next/image';
 import Createcontext from '@/hooks/context.js';
@@ -19,27 +18,17 @@ import Cookies from 'universal-cookie';
 import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
-import classes from "@/styles/customstyle.module.scss"
-
+import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
 const Allblogs = (props) => {
-  // const [allblogs, setallblogs] = useState(props.initialData)
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
-  // const [value, SetValue] = React.useState([])
-  // const [allLikes, SetallLikes] = React.useState([])
-  // const [isdata, setisdata] = useState(true)
-  // const [loader, setloader] = React.useState(true)
-  // const [searchtext, setsearchtext] = useState('')
-  // const classes = useStyles()
   const cookies = new Cookies();
   let token_data = cookies.get('User_Token_access')
-
   let accessToken
   if (typeof window !== 'undefined') {
     accessToken = localStorage.getItem('User_Token_access');
   }
-  if (Boolean(accessToken)) { token_data = accessToken }
-
+  if(Boolean(accessToken)){ token_data = accessToken }
 
   function PostLike(item) {
 
@@ -67,15 +56,14 @@ const Allblogs = (props) => {
       router.push('/login')
     }
   }
-
   return (
     <div>
       <NewsSeo location={router.pathname.substring(1)} />
       {state.permission && <Currentlocation />}
       <div>
         <Blogheaders title="Blogs" />
-        <div className="blogListWrapper">
-          {props?.initialData.map((items, index) => {
+         <div className="blogListWrapper">
+          {props?.initialData?.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
@@ -180,9 +168,10 @@ const Allblogs = (props) => {
             );
           })}
         </div>
+        <Blogscroller />
+
       </div>
     </div>
-
   )
 }
 
@@ -190,7 +179,6 @@ export default Allblogs
 
 // export async function getStaticPaths() {
 //   const paths = []; // Return an empty array to generate no pages at build time
-
 //   return {
 //       paths,
 //       fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
@@ -207,12 +195,11 @@ export async function getStaticProps(context) {
       },
       body: JSON.stringify({
         "category": 2,
-        "limit": 1000
+        "limit": 10
     })
     }).catch(() => null);
     const json =  await  res.json()
     const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field  
-    // console.log(data)
     return {
       props: {
         initialData: data,

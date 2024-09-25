@@ -15,7 +15,12 @@ const Index = (props) => {
       <LawState Title={`Cannabis Law in ${props?.initialData?.name}`} State={props?.initialData?.Country} location={router.asPath}></LawState>
       <div className="container-fluid">
         <div className="row">
-          <Bgheader text={props.initialData?.name} />
+          {/* <Bgheader text={props.initialData?.name} /> */}
+          <div className='bgHedaer'>
+            <div className='text_on_Learn_banner'>
+              <h2>{props.initialData?.name}</h2>
+              </div>
+          </div>
           <div className="law_contertn">
             <div className="col-12 lawStateDescriptionHeadings">
               <h1 className="LawStateDescriptionHeading">

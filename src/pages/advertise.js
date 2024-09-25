@@ -7,8 +7,8 @@ import { FaPhoneAlt } from "react-icons/fa";
 import Link from 'next/link';
 import Image from 'next/image';
 import Ads1 from '../../public/image/ads1.gif'
-import Ads2 from '../../public/image/ads2.png'
-import Ads3 from '../../public/image/ads3.png'
+import Ads2 from '../../public/image/ads2.gif'
+import Ads3 from '../../public/image/ads3.gif'
 // import Advertisseo from '@/component/ScoPage/advertisseo';
 import Head from 'next/head';
 const advertise = () => {
@@ -60,7 +60,7 @@ const advertise = () => {
                 </div>
                 <div className={classes.ad_imageTextSection}>
                     <div className={classes.ad_Img_Area}>
-                      <Image src={Ads2.src} unoptimized={true} width={400} height={400}/>
+                      <Image src={Ads2.src} unoptimized={true} width={400} height={250}/>
                     </div>
                     <div className={classes.ad_textArea}>
                       <h4>{`2. Sponsored Listings`}</h4>
@@ -86,7 +86,7 @@ const advertise = () => {
                       </ul>
                     </div>
                     <div className={classes.ad_Img_Area}>
-                      <Image src={Ads3.src} unoptimized={true} width={400} height={400}/>
+                      <Image src={Ads3.src} unoptimized={true} width={400} height={250}/>
                     </div>
                 </div>
                 <div  className={`${classes.ad_imageTextSection}`}>

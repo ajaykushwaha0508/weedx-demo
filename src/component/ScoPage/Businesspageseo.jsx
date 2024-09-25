@@ -6,9 +6,9 @@ const businesspageseo = () => {
  `}</title>
             <meta name='description' content={`List your dispensary, delivery service, or cannabis brand on WeedX.io. Easily manage inventory and orders with Cannabaze, available on mobile. Get started now!
 `} />
-            <link rel="canonical" href={`https://weedx.io/add-business`} />
+        
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
-           
+            <link rel="canonical"  href={'https://www.weedx.io/add-business'} />
            {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`Add Your Cannabis Business - Dispensary, Delivery Service, or Brand on WeedX.io
