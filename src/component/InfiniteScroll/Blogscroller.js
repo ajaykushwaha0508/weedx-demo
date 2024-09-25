@@ -44,7 +44,7 @@ const Blogscroller = () => {
             try {
                 const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
                     method: 'POST',
-                    headers: {
+                    headers: { 
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
