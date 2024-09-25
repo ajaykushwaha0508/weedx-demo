@@ -40,7 +40,6 @@ const Blogscroller = () => {
 
     const calldata = async () => {
         if (showabledata.length % 10 === 0) {
-            console.log(showabledata.length)
             try {
                 const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
                     method: 'POST',
