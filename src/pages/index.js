@@ -21,7 +21,6 @@ export default function Home({ initialData }) {
 
     Navigate.push(`/products/${modifystr(name)}/${id}`);
   }
-
   return (
     <>
       {state.permission && <Currentlocation></Currentlocation>}
@@ -67,9 +66,6 @@ export async function getServerSideProps(context) {
       delete object[key];
     }
   }
-
-
-
   const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
@@ -84,7 +80,6 @@ export async function getServerSideProps(context) {
       },
     };
   };
-
   try {
     const fetchWithTimeout = async (url, options = {}, timeout = 5000) => {
       const controller = new AbortController();
@@ -141,7 +136,7 @@ export async function getServerSideProps(context) {
       category: category || [],
       bottembannner: bottembannner || [],
       brand: getbrand || [],
-      GetDelivery: GetDelivery1 || [],
+      GetDelivery: GetDelivery1 === "No Delivery in your Area" ?  [] :  GetDelivery1,
       Dispensaries: Dispensaries1 || [],
       news: news1,
       formatted_address: cookies.formatted_address,

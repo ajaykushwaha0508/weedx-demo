@@ -53,8 +53,6 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
           return '/'; // Default fallback if no valid state is provided
         }
       };
-
-
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">
@@ -72,10 +70,11 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                 </Link>
                             </div>
                             {
+                                
                                Boolean(DeliveryService.length) ?
                                  <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
                                     <ScrollContainer className="ScrollContainerRelative">
-                                        {DeliveryService.map((items, index) => {
+                                        {DeliveryService?.map((items, index) => {
                                             return (
 
                                                 <div className='dispensoriesContainer' key={index}>
