@@ -216,7 +216,7 @@ import Image from "next/image";
                       })}
                     />
                   </div>
-                  <div className="col-12">
+                  <div className="col-12 d-md-block d-none">
                      <div className="reviewImage">
                       <input  type='file' id="Reviewimage" accept="image/*,video/*" className="d-none" onChange={onImageChange}  />
                         <label htmlFor="Reviewimage" className="Reviewimagebox">

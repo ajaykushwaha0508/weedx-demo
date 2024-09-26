@@ -11,8 +11,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { modifystr } from '@/hooks/utilis/commonfunction';
 import Image from "next/image";
+import  Swal from 'sweetalert2';
+
 const AddToCartReview = () => {
-    const Swal = require('sweetalert2')
+
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useRouter();
     const cookies = new Cookies();

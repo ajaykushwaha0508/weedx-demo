@@ -2,16 +2,21 @@ import React, { useContext } from "react"
 import { IoChevronBackSharp } from "react-icons/io5"
 import EditProfileLogin from "@/component/EditProfile/EditProfileComponent/EditProfileLogin"
 import EditProfileOnlineOrder from "@/component/EditProfile/EditProfileOnlineOrder/EditProfileOnlineOrder"
-import Notification from "@/component/EditProfile/EditProfileComponent/Notification"
+// import Notification from "@/component/EditProfile/EditProfileComponent/Notification"
 import { IconButton } from "@mui/material"
 import Resizer from 'react-image-file-resizer';
 import { AiFillCamera } from "react-icons/ai";
 import Link from "next/link"
 import Cookies from 'universal-cookie';
+import clases from '../styles/customstyle.module.scss'
 import Image from "next/image"
 import Axios from 'axios';
 import Createcontext from "../hooks/context"
+import  Swal from 'sweetalert2';
+import Router from 'next/router'
+
 const EditProfile = () => {
+    
     const { state, dispatch } = useContext(Createcontext)
     const cookies = new Cookies();
     const [Profile, SetProfile] = React.useState({})
@@ -90,7 +95,32 @@ const EditProfile = () => {
             })
         })
     }
-
+    const deleteaccount = ()=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then( async (result) => {
+            if (result.isConfirmed) {
+                localStorage.removeItem('User_Token_access');
+                cookies.remove('User_Token_access');
+                await dispatch({ type: 'Login', login: false });
+                await dispatch({ type: 'ApiProduct' });
+                await dispatch({ type: 'Profile', Profile: [] });
+               
+                await Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+                Router.push('/');
+            }
+        });
+    }
     return (
         <div className="container">
             <div className="row">
@@ -136,7 +166,10 @@ const EditProfile = () => {
                 </div>
                 <EditProfileLogin Profile={Profile} Api={Api} SetApi={SetApi} />
                 <EditProfileOnlineOrder Profile={Profile} Api={Api} SetApi={SetApi} />
-                <Notification Profile={Profile} Api={Api} SetApi={SetApi} />
+                {/* <Notification Profile={Profile} Api={Api} SetApi={SetApi} /> */}
+                <div className={clases.delete_account_btn_wrapper}>
+                    <button onClick={()=>{deleteaccount()}}>Delete Account</button>
+                </div>
             </div>
 
         </div>

@@ -112,7 +112,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                         {
                                             state.login === true
                                                 ?
-                                                <div className='navbarProfileDropDown_container' ref={profileRef}>
+                                                <div className='position-relative' ref={profileRef}>
                                                     <Grid display={{ md: "flex" }} justifyContent="flex-end">
                                                         <div className='Navbar_profile_logo_container'>
                                                             <LazyLoadImage

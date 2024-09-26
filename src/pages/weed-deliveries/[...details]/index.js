@@ -35,6 +35,7 @@ import Swal from 'sweetalert2';
 import gifimage from '../../../../public/image/gif.svg'
 import Link from "next/link";
 import Image from "next/image";
+import clases from '@/styles/customstyle.module.scss'
 export default function DispensoriesDetails(props) {
     const navigate = useRouter()
     var { id, storeData, product } = props.params
@@ -327,11 +328,10 @@ export default function DispensoriesDetails(props) {
                     // <Embedded Despen={Despen} locationStore={location.asPath}></Embedded>
                     ""
                 }
-                <div>
+                <div className={clases.page_breadcrum}>
 
-                    <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
-                    {" >"}
-                    <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", modifystr(Despen[0]?.Store_Name), id)}>{Despen[0]?.Store_Name}</span>
+                    <span  onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"} {" > "}</span>
+                    <span  onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", modifystr(Despen[0]?.Store_Name), id)}>{Despen[0]?.Store_Name}</span>
                     {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
                 </div>
 

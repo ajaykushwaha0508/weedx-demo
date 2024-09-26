@@ -17,11 +17,12 @@ import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from './LoginWithGoogle';
 import Createcontext from "../../../Hooks/Context"
 import { LoginSeo } from '../../Component/ScoPage/CommenpageSeo';
+import  Swal from 'sweetalert2';
+
 const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
     const location = useLocation();
-    const Swal = require('sweetalert2')
     const { state, dispatch } = React.useContext(Createcontext)
     const Navigate = useNavigate()
     const [loading, Setloading] = React.useState(false)

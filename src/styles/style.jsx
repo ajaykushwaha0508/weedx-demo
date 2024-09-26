@@ -135,13 +135,10 @@ const useStyles = makeStyles({
 
   SearchBar_Text: {
     "& .MuiOutlinedInput-notchedOutline": {
-      border: "0px",
-      paddingTop: '8.5px',
-      paddingLeft: "20px"
-
-
-    }
-    ,
+        border: "0px",
+        paddingTop: '8.5px',
+        paddingLeft: "20px"
+    },
     "& .MuiInputBase-input": {
       height: "15px"
     }
@@ -823,7 +820,14 @@ const useStyles = makeStyles({
     "& .MuiBadge-badge": {
       background: "#31B665",
       color: "#FFFFFF"
-    }
+    },
+    '@media (max-width: 576px)': {
+      "& .MuiBadge-badge": {
+      background: "#31B665",
+      color: "#FFFFFF",
+      display:'none',
+    },
+     }
   },
   searchBar_padding: {
     "&.MuiTextField-root": {

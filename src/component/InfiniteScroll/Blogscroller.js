@@ -11,9 +11,10 @@ import { BiCommentDetail } from "react-icons/bi";
 import Createcontext from '@/hooks/context.js';
 import _, { assignWith } from "lodash";
 import Image from 'next/image';
+let limit =0
+
 const Blogscroller = () => {
     const router = useRouter();
-    const DeliverItemsCardArray = [1, 2, 3]
     const { state } = useContext(Createcontext);
     const [showabledata, setshowabledata] = useState([]);
     let pageheightfixed = 0;
@@ -39,7 +40,9 @@ const Blogscroller = () => {
     }, [showabledata]);
 
     const calldata = async () => {
-        if (showabledata.length % 10 === 0) {
+     
+        if (showabledata.length === limit) {
+            limit=showabledata.length ===0 ? 20 : showabledata.length+10
             try {
                 const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
                     method: 'POST',
@@ -51,13 +54,11 @@ const Blogscroller = () => {
                         "limit": showabledata.length ===0 ? 20 : showabledata.length+10
                     })
                 });
-
                 if (!res.ok) {
                     throw new Error('Failed to fetch data');
                 }
-
                 const json = await res.json();
-                const data = _.orderBy(json, ['created'], ['desc']);
+                const data = await  _.orderBy(json, ['created'], ['desc']);
                 
                 setshowabledata(data);
             } catch (error) {
@@ -73,9 +74,9 @@ const Blogscroller = () => {
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
               <div className="row blogListCard mx-0" key={index}>
-                <div className='blogTOp'>
-                  <div className="col-4 blog1">
-                    <Link href={blogUrl}>
+                <div className='row'>
+                  <div className="col-4">
+                    <Link href={blogUrl} className="d-block">
                       <Image
                         className='imageBlogSection'
                         width={100}
@@ -176,7 +177,7 @@ const Blogscroller = () => {
         <div id='skeleton'>
             {   showabledata.length % 10 === 0 &&
                 <div className="col-md-12 col-12 DeliveryItemsCardSkeleton">
-                    {DeliverItemsCardArray.map((items, index) => {
+                    {[1, 2, 3].map((items, index) => {
                         return (
                             <React.Fragment key={index}>
                                 <div className="col-12 eachDeliveryItemsCardLeftSkeleton">

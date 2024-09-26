@@ -80,9 +80,9 @@ const Allblogs = (props) => {
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
               <div className="row blogListCard mx-0" key={index}>
-                <div className='blogTOp'>
-                  <div className="col-4 blog1">
-                    <Link href={blogUrl}>
+                <div className='row'>
+                  <div className="col-4">
+                    <Link href={blogUrl} className='d-sm-block d-flex justify-content-center align-items-center h-100'>
                       <Image
                         className='imageBlogSection'
                         width={100}
@@ -100,7 +100,7 @@ const Allblogs = (props) => {
                   <div className="col">
                     <div className="blogcardText">
                       <div className="blogDate">
-                        <span>{items.Publish_Date.slice(0, 10)}</span>
+                        <span>{items?.Publish_Date?.slice(0, 10)}</span>
                       </div>
                       <Link href={blogUrl}>
                         <h2 className="blogcardHeading">{items.Title}</h2>
@@ -151,15 +151,15 @@ const Allblogs = (props) => {
                 </div>
                 <div className="col-12 mt-1">
                   <div className="row extra_function extra_function_mobile">
-                    <div className="col-3">
-                      <span className="action_icons"><AiFillEye /></span>
+                    <div className="col-4">
+                      <span className="action_icons"><AiFillEye   color="#31B655"/></span>
                       <span>{items.ViewCount}</span>
                     </div>
-                    <div className="col-3">
-                      <span className="action_icons"><BiCommentDetail /></span>
+                    <div className="col-4">
+                      <span className="action_icons"><BiCommentDetail  color="#31B655" /></span>
                       <span>{items.commentCount}</span>
                     </div>
-                    <div className="col-3">
+                    <div className="col-4">
                       <span
                         className="action_icons"
                         onClick={() => PostLike(items)}
@@ -168,13 +168,11 @@ const Allblogs = (props) => {
                           <AiFillHeart color="#31B655" />
                         ) : (
                           <FaRegHeart color="#31B655" />
-                        )}
+                        )}    </span>
                         <span>{items.likeCount}</span>
-                      </span>
+                  
                     </div>
-                    <div className="col-3">
-                      {/* Additional actions can be added here */}
-                    </div>
+                  
                   </div>
                 </div>
               </div>
