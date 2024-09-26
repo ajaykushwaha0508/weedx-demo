@@ -260,36 +260,35 @@ export async function GetAllDelivery(object) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(object),
-        });
+        });     
 
         const data = await response.json();
 
         if (data.length) {
-            const result = data.reduce((acc, current) => {
-                const x = acc.find(item => item.id === current.id);
-                if (!x) {
-                    const newCurr = {
-                        Store_Name: current.Store_Name,
-                        Category: [{ [current.Category]: current.ProductCount }],
-                        id: current.id,
-                        Store_Image: current.Store_Image,
-                        Store_Address: current.Store_Address,
-                        rating: current.rating,
-                        TotalRating: current.TotalRating,
-                        DeliveryTime: current.SetbyMin,
-                        DeliveryPrice: current.DeliveryPrice,
-                    };
-                    return acc.concat([newCurr]);
-                } else {
-                    const currData = x.Category.filter(d => d === current.Category);
-                    if (!currData.length) {
-                        x.Category.push({ [current.Category]: current.ProductCount });
-                    }
-                    return acc;
-                }
-            }, []);
-
-            return result;
+            // const result = data.reduce((acc, current) => {
+            //     const x = acc.find(item => item.id === current.id);
+            //     if (!x) {
+            //         const newCurr = {
+            //             Store_Name: current.Store_Name,
+            //             Category: [{ [current.Category]: current.ProductCount }],
+            //             id: current.id,
+            //             Store_Image: current.Store_Image,
+            //             Store_Address: current.Store_Address,
+            //             rating: current.rating,
+            //             TotalRating: current.TotalRating,
+            //             DeliveryTime: current.SetbyMin,
+            //             DeliveryPrice: current.DeliveryPrice,
+            //         };
+            //         return acc.concat([newCurr]);
+            //     } else {
+            //         const currData = x.Category.filter(d => d === current.Category);
+            //         if (!currData.length) {
+            //             x.Category.push({ [current.Category]: current.ProductCount });
+            //         }
+            //         return acc;
+            //     }
+            // }, []);
+            return data;
         } else {
             return [];
         }
@@ -400,6 +399,7 @@ export const getServerSideProps = async (context) => {
         City: transformString(city) || '',
         Country: transformString(country1) || '',
         State: transformString(state) || '',
+        limit: 1000
     };
     const object1 = {
         ...object,

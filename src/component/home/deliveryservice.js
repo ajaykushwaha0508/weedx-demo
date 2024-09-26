@@ -53,8 +53,6 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
           return '/'; // Default fallback if no valid state is provided
         }
       };
-
-      console.log(DeliveryService)
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">

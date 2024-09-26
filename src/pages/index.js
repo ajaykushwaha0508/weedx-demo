@@ -66,9 +66,6 @@ export async function getServerSideProps(context) {
       delete object[key];
     }
   }
-
-
-
   const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
@@ -83,7 +80,6 @@ export async function getServerSideProps(context) {
       },
     };
   };
-  console.log(object)
   try {
     const fetchWithTimeout = async (url, options = {}, timeout = 5000) => {
       const controller = new AbortController();
