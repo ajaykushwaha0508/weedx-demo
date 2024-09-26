@@ -1,6 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap");
+.page_breadcrum span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 .lawDisclaimer {
   font-size: 12px;
   font-weight: 400;
@@ -107,6 +110,249 @@
 }
 .ad_page button:hover a {
   color: #31B655;
+}
+
+.NavbarBox {
+  background-color: #fff;
+  padding: 10px 0;
+}
+.NavbarBox .openbtn {
+  border-radius: 4px;
+  height: 25px;
+  width: 27px;
+  background-color: transparent;
+  color: #555555;
+  border: 1px solid #31B655;
+}
+.NavbarBox .Heder_icon {
+  justify-content: flex-end;
+  gap: 5%;
+  margin-top: 10px;
+  display: flex;
+}
+
+.notificationList {
+  min-width: 350px;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  border: 1px solid gray;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.notificationList::-webkit-scrollbar {
+  display: none;
+}
+.notificationList .notificationHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #fff;
+  height: 12%;
+  width: 320px;
+  margin: 0 auto;
+}
+.notificationList .notificationHeader .notifytitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+.notificationList .notificationHeader .clearNotify {
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.3s ease;
+}
+.notificationList .notificationHeader .clearNotify:hover {
+  text-decoration: underline;
+}
+.notificationList .notificationContainer {
+  height: 87%;
+  overflow-y: scroll;
+  padding: 5px 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+.notificationList .notificationContainer::-webkit-scrollbar {
+  display: none;
+}
+.notificationList .notificationContainer .notification_box {
+  width: 320px;
+  display: flex;
+  gap: 10px;
+  background-color: #fff;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+.notificationList .notificationContainer .notification_box .notification_img {
+  width: 50px;
+}
+.notificationList .notificationContainer .notification_box .notification_img .notiimgCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.notificationList .notificationContainer .notification_box .notification_img .notiimgCircle img {
+  width: 100%;
+  height: 100%;
+}
+.notificationList .notificationContainer .notification_box .notititle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2b2b2b;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  overflow: hidden;
+}
+.notificationList .notificationContainer .notification_box .notify_date {
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+  display: block;
+  text-align: end;
+}
+
+.Navbar_profile_logo_container {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.Navbar_profile_logo_container .Navbar_logo_imgs {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.profileDropdown_container {
+  right: 0px;
+  z-index: 2;
+  position: absolute;
+  width: 260px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.profileDropdown_container .Navbar_proflie_image_name_section {
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+.profileDropdown_container .Navbar_proflie_image_name_section .profile_names {
+  font-weight: 700;
+  font-size: 16px;
+  color: #2c2525;
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+.profileDropdown_container .navbar_profile_orderList {
+  padding: 0;
+}
+.profileDropdown_container .navbar_profile_orderList .profile_list {
+  margin-left: 8px;
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  align-items: center;
+}
+.profileDropdown_container .navbar_profile_orderList .profile_list span {
+  font-size: 20px;
+}
+.profileDropdown_container .navbar_profile_orderList .profile_list:hover {
+  color: #31B665;
+}
+
+.nav_list1 a {
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+}
+.nav_list1 ul li {
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 15px;
+  position: relative;
+  opacity: 0.7;
+  font-weight: 500;
+  display: flex;
+  gap: 40px;
+  list-style-type: none;
+  justify-content: flex-end;
+  margin-right: 40px;
+  font-family: "Inter", sans-serif;
+}
+.nav_list1 ul li:hover {
+  opacity: 1;
+  color: #00b96a;
+  text-decoration: underline;
+}
+.nav_list1 ul li:hover::before {
+  width: 100%;
+}
+.nav_list1 ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #00b96a;
+  transition: all 0.45s;
+}
+.nav_list1 ul li > .anchor:hover::before {
+  width: 80%;
+}
+
+/* navbar */
+.canabisLawMainHeadings {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.delete_account_btn_wrapper {
+  padding: 20px 0;
+}
+.delete_account_btn_wrapper button {
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(196, 0, 0);
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 8px 15px;
 }
 
 @media (max-width: 1200px) {
@@ -235,5 +481,13 @@
   }
   .ad_page ul li p {
     margin-bottom: 8px;
+  }
+  .notificationList {
+    min-width: 300px;
+    z-index: 10;
+    right: -50px;
+  }
+  .canabisLawMainHeadings {
+    font-size: 16px;
   }
 }/*# sourceMappingURL=customstyle.module.css.map */

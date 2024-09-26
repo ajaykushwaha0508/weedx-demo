@@ -158,240 +158,246 @@ const Blogs = (props) => {
             <React.Fragment>
                       {state.permission && <Currentlocation />}
                 <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={router.asPath} image={News?.Image}></SingleNewsSeo>
-                <div className="container" >
-<div className="row mx-1">
-    <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
-        <section className=" col-2 backButton_section">
-            <div className="col-12 backBtnCol_searchBar_height">
-                <Link href={props.category === 'blogs' ? "/blogs" : "/cannabis-news"}><span style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span></Link>
-                <Link href={props.category === 'blogs' ? "/blogs" : "/cannabis-news"}><span onClick={() => { Location?.pathname?.split('/')[1] === "cannabis-news" ? router.push(Location?.pathname?.split('/')[1] === "cannabis-news" ? '/cannabis-news' : '/blogs') : router.push('/blogs') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span></Link>
-            </div>
-        </section>
-    </div>
+                <div className="" >
+                <div className="row mx-1">
+                    <div className="col-12 w-100 row align-items-center justify-content-between blog_searchBar_container px-0">
+                        <section className=" col-2 backButton_section">
+                            <div className="col-12 backBtnCol_searchBar_height">
+                                <Link href={props.category === 'blogs' ? "/blogs" : "/cannabis-news"}><span style={{ marginLeft: "-4px", cursor: 'pointer' }}> <IoChevronBack color="#000000" size={20} /></span></Link>
+                                <Link href={props.category === 'blogs' ? "/blogs" : "/cannabis-news"}><span onClick={() => { Location?.pathname?.split('/')[1] === "cannabis-news" ? router.push(Location?.pathname?.split('/')[1] === "cannabis-news" ? '/cannabis-news' : '/blogs') : router.push('/blogs') }} style={{ cursor: 'pointer' }} className="blogBackSpan">Back</span></Link>
+                            </div>
+                        </section>
+                    </div>
+                       
+                            
+                         
+                                <div className="p-0 blogEditorContainer">
+                            <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
+                                <div className="overlay_blog"></div>
+                                <h1 className="blog_Title ">{News?.Title}</h1>
+                            </section>
+                            <div className="blog_text_container"  >
+                                <div className="blogEditorPaddings ">
 
-    <div className="p-0 blogEditorContainer">
-        <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
-            <div className="overlay_blog"></div>
-            <h1 className="blog_Title ">{News?.Title}</h1>
-        </section>
-        <div className="blog_text_container"  >
-            <div className="blogEditorPaddings ">
+                                    <figure className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html:News.Description}} />
+                                </div>
+                            </div>
+                            <div className="blog_text_container" >
 
-                <figure className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html:News.Description}} />
-            </div>
-        </div>
-        <div className="blog_text_container" >
+                                <div className="col-12 Linkofblog ">
+                                    <div className="col BlogSocal" id="center1">
 
-            <div className="col-12 Linkofblog ">
-                <div className="col BlogSocal" id="center1">
+                                        <RWebShare
+                                            data={{ url: "https://www.weedx.io" + props.url }}
+                                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                            onClick={() => console.info("share successful!")}
+                                            color="#31B665" >
+                                            <IconButton>
+                                                <BsFillShareFill size={16}></BsFillShareFill>
+                                            </IconButton>
+                                        </RWebShare>
 
-                    <RWebShare
-                        data={{ url: "https://www.weedx.io" + props.url }}
-                        sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                        onClick={() => console.info("share successful!")}
-                        color="#31B665" >
-                        <IconButton>
-                            <BsFillShareFill size={16}></BsFillShareFill>
-                        </IconButton>
-                    </RWebShare>
-
-                    <div className="blogViewCounts destop_view">Share</div>
-                </div>
-                <div className="col viewsBlog" id="center1">
-                    <IconButton>
-                        <IoEyeSharp></IoEyeSharp>
-                    </IconButton>
-
-                    <span className="blogViewCounts">{News.ViewCount} <span className="destop_view">Views</span></span>
-
-
-                </div>
-
-                <div className="col viewsBlog BlogSocal" id="center1"
-                 onClick={scrolltocomment}
-                 >
-
-                    <IconButton>
-                        <BiCommentDetail />
-                    </IconButton>
-                    <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
-
-                </div>
-                <div className="col viewsBlog BlogSocal like" id="center1">
-                    <IconButton onClick={(() => { PostLike(color()?.like) })}>
-                        <AiFillHeart
-                        // color={state?.login && color()?.like && "#31B665"}
-                        ></AiFillHeart>
-                    </IconButton>
-                    <span className="blogViewCounts">{value?.LinkCount}</span>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
-    <RecentPost />
-    <RecentPostComment scrolltocomment={scrolltocomment} id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} Get={GetComment} />
-    <div>
-        <section className="px-0" id="blodComment">
-            <div className="col-12 blogsCommentCountCol">
-                <div className="col-6">
-                    <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>
-                </div>
-                <div className="col-6 blogCommentCardArrowBtn">
-                    {ShowCards ? (
-                        <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowUp /></IconButton>
-                    ) : (
-                        <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowDown /></IconButton>
-
-                    )}
-
-                </div>
-            </div>
-            {
-                ShowCards && (
-                    <section>
-
-                        {
-                            (state.login && Boolean(usercomment?.length)) &&
-                            usercomment?.map((val, index) => {
-
-                                const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
-                                return (
-                                    <div className="border blogCommentEachCards" key={index}>
-
-                                        <div className="col-12 blogsCommentCardDateCol">
-                                            <span className="blogsCommentCardDate">{CommentDate}</span>
-
-                                        </div>
-                                        <div className="col-12 d-flex align-items-center">
-                                            <div className="commentCardImages">
-                                                <div className="imageContainer">
-                                                    <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={500} height={500} src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
-                                                </div>
-                                            </div>
-                                            <div className="commentCradContentSection">
-                                                <h2 className="blogCommentName">{val.username}</h2>
-                                                <div className="col-12">
-                                                    <p className="blogUserComments">{val.comment}</p>
-                                                </div>
-
-                                            </div>
-                                            {state.login && state?.Profile?.id === val.user && (
-                                                <div className="col d-flex justify-content-center align-items-center">
-                                                    {/* <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton> */}
-                                                    <span className='userreviewaction'> {
-                                                        <Select
-
-                                                            IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
-                                                            sx={{
-                                                                boxShadow: "none",
-                                                                padding: '0',
-
-                                                                ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                                                                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                                                                {
-                                                                    border: 0,
-                                                                    outline: "none"
-
-                                                                },
-                                                                "& .MuiSelect-select": {
-                                                                    padding: '0 10px !important'
-                                                                },
-                                                                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                                                                {
-                                                                    border: 0,
-                                                                    outline: "none"
-                                                                },
-                                                                "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
-                                                                "&:hover": {
-                                                                    ".MuiSelect-icon": {
-                                                                        color: "#31B665"
-                                                                    }
-                                                                },
-                                                            }}
-                                                        >
-                                                            <List className={classes.orderEditList}>
-                                                                <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(val.id)}>
-                                                                    <AiFillDelete color='31B665' />
-                                                                    Delete
-                                                                </ListItem>
-                                                                <ListItem button className={classes.orderEditListitem}>
-
-                                                                    <FaEdit color='31B665' />
-                                                                    Edit
-                                                                </ListItem>
-                                                            </List>
-                                                        </Select>
-
-                                                    }</span>
-                                                </div>
-                                            )}
-
-
-
-
-                                        </div>
+                                        <div className="blogViewCounts destop_view">Share</div>
                                     </div>
-                                )
-                            })
-                        }
+                                    <div className="col viewsBlog" id="center1">
+                                        <IconButton>
+                                            <IoEyeSharp></IoEyeSharp>
+                                        </IconButton>
 
-                        {newdata?.map((val, index) => {
+                                        <span className="blogViewCounts">{News.ViewCount} <span className="destop_view">Views</span></span>
 
-                            const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
-                            return (
-                                <div className="border blogCommentEachCards" key={index}>
-
-                                    <div className="col-12 blogsCommentCardDateCol">
-                                        <span className="blogsCommentCardDate">{CommentDate}</span>
 
                                     </div>
-                                    <div className="col-12 d-flex justify-content-center">
-                                        <div className="commentCardImages">
-                                            <div className="imageContainer">
-                                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={500} height={500}
-                                                    src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
-                                            </div>
-                                        </div>
-                                        <div className="commentCradContentSection">
-                                            <h2 className="blogCommentName">{val.username}</h2>
-                                            <div className="col-12">
-                                                <p className="blogUserComments">{val.comment}</p>
-                                            </div>
 
-                                        </div>
-                                        {state.login && state?.Profile?.id === val.user && (
-                                            <div className="col d-flex justify-content-center align-items-center">
-                                                <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton>
+                                    <div className="col viewsBlog BlogSocal" id="center1"
+                                    onClick={scrolltocomment}
+                                    >
 
-                                            </div>
-                                        )}
+                                        <IconButton>
+                                            <BiCommentDetail />
+                                        </IconButton>
+                                        <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
 
-
-
-
+                                    </div>
+                                    <div className="col viewsBlog BlogSocal like" id="center1">
+                                        <IconButton onClick={(() => { PostLike(color()?.like) })}>
+                                            <AiFillHeart
+                                            // color={state?.login && color()?.like && "#31B665"}
+                                            ></AiFillHeart>
+                                        </IconButton>
+                                        <span className="blogViewCounts">{value?.LinkCount}</span>
                                     </div>
                                 </div>
-                            )
-                        })}
 
-                        <BlogPaginate
-                            postsPerPage={postsPerPage}
-                            totalPosts={CommentCardArrays.length}
-                            paginate={paginate}
-                            previousPage={previousPage}
-                            nextPage={nextPage}
-                        />
-                    </section>
-                )
-                }
-        </section>
-    </div>
 
-</div>
-</div>
+                            </div>
+                                </div>
+                           
+                               <RecentPost />
+                     
+                
+                    {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
+            
+                    <RecentPostComment scrolltocomment={scrolltocomment} id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} Get={GetComment} />
+                    <div>
+                        <section className="px-0" id="blodComment">
+                            <div className="col-12 blogsCommentCountCol">
+                                <div className="col-6">
+                                    <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>
+                                </div>
+                                <div className="col-6 blogCommentCardArrowBtn">
+                                    {ShowCards ? (
+                                        <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowUp /></IconButton>
+                                    ) : (
+                                        <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowDown /></IconButton>
+
+                                    )}
+
+                                </div>
+                            </div>
+                            {
+                                ShowCards && (
+                                    <section>
+
+                                        {
+                                            (state.login && Boolean(usercomment?.length)) &&
+                                            usercomment?.map((val, index) => {
+
+                                                const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
+                                                return (
+                                                    <div className="border blogCommentEachCards" key={index}>
+
+                                                        <div className="col-12 blogsCommentCardDateCol">
+                                                            <span className="blogsCommentCardDate">{CommentDate}</span>
+
+                                                        </div>
+                                                        <div className="col-12 d-flex align-items-center">
+                                                            <div className="commentCardImages">
+                                                                <div className="imageContainer">
+                                                                    <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={500} height={500} src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
+                                                                </div>
+                                                            </div>
+                                                            <div className="commentCradContentSection">
+                                                                <h2 className="blogCommentName">{val.username}</h2>
+                                                                <div className="col-12">
+                                                                    <p className="blogUserComments">{val.comment}</p>
+                                                                </div>
+
+                                                            </div>
+                                                            {state.login && state?.Profile?.id === val.user && (
+                                                                <div className="col d-flex justify-content-center align-items-center">
+                                                                    {/* <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton> */}
+                                                                    <span className='userreviewaction'> {
+                                                                        <Select
+
+                                                                            IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
+                                                                            sx={{
+                                                                                boxShadow: "none",
+                                                                                padding: '0',
+
+                                                                                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                                                                                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                                                                                {
+                                                                                    border: 0,
+                                                                                    outline: "none"
+
+                                                                                },
+                                                                                "& .MuiSelect-select": {
+                                                                                    padding: '0 10px !important'
+                                                                                },
+                                                                                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                                                                                {
+                                                                                    border: 0,
+                                                                                    outline: "none"
+                                                                                },
+                                                                                "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
+                                                                                "&:hover": {
+                                                                                    ".MuiSelect-icon": {
+                                                                                        color: "#31B665"
+                                                                                    }
+                                                                                },
+                                                                            }}
+                                                                        >
+                                                                            <List className={classes.orderEditList}>
+                                                                                <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(val.id)}>
+                                                                                    <AiFillDelete color='31B665' />
+                                                                                    Delete
+                                                                                </ListItem>
+                                                                                <ListItem button className={classes.orderEditListitem}>
+
+                                                                                    <FaEdit color='31B665' />
+                                                                                    Edit
+                                                                                </ListItem>
+                                                                            </List>
+                                                                        </Select>
+
+                                                                    }</span>
+                                                                </div>
+                                                            )}
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+
+                                        {newdata?.map((val, index) => {
+
+                                            const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
+                                            return (
+                                                <div className="border blogCommentEachCards" key={index}>
+
+                                                    <div className="col-12 blogsCommentCardDateCol">
+                                                        <span className="blogsCommentCardDate">{CommentDate}</span>
+
+                                                    </div>
+                                                    <div className="col-12 d-flex justify-content-center">
+                                                        <div className="commentCardImages">
+                                                            <div className="imageContainer">
+                                                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={500} height={500}
+                                                                    src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
+                                                            </div>
+                                                        </div>
+                                                        <div className="commentCradContentSection">
+                                                            <h2 className="blogCommentName">{val.username}</h2>
+                                                            <div className="col-12">
+                                                                <p className="blogUserComments">{val.comment}</p>
+                                                            </div>
+
+                                                        </div>
+                                                        {state.login && state?.Profile?.id === val.user && (
+                                                            <div className="col d-flex justify-content-center align-items-center">
+                                                                <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton>
+
+                                                            </div>
+                                                        )}
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+
+                                        <BlogPaginate
+                                            postsPerPage={postsPerPage}
+                                            totalPosts={CommentCardArrays.length}
+                                            paginate={paginate}
+                                            previousPage={previousPage}
+                                            nextPage={nextPage}
+                                        />
+                                    </section>
+                                )
+                                }
+                        </section>
+                    </div>
+
+                </div>
+                </div>
                 <Newsletter />
             </React.Fragment>
         )

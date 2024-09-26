@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import LawStateContent from "@/component/LawsComponent/LawStateContent";
 import Content from "@/component/LawsComponent/LawContentsJson";
-import Bgheader from "@/component/bgheader/Bgheader";
 import _ from "lodash";
 import classes from '@/styles/customstyle.module.scss';
 import { LawState } from '../../../component/ScoPage/LearnSeo';
@@ -15,7 +14,6 @@ const Index = (props) => {
       <LawState Title={`Cannabis Law in ${props?.initialData?.name}`} State={props?.initialData?.Country} location={router.asPath}></LawState>
       <div className="container-fluid">
         <div className="row">
-          {/* <Bgheader text={props.initialData?.name} /> */}
           <div className='bgHedaer'>
             <div className='text_on_Learn_banner'>
               <h2>{props.initialData?.name}</h2>

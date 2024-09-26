@@ -23,7 +23,6 @@ const SearchBar = ({ path }) => {
         event.preventDefault()
         Setinput(event.target.value)
     }
-
     React.useEffect(() => {
 
         const getdata = setTimeout(() => {
@@ -177,7 +176,8 @@ const SearchBar = ({ path }) => {
     return (
         <React.Fragment>
             <div className="col_Search">
-                <div className={` nav_search_bar_div center`} id='navsearchConntainer' style={{ display: (openLocation && searchBarWidth) && "block" }}>
+                <div className={` nav_search_bar_div center`} id='navsearchConntainer'
+                 style={{ display: (openLocation && searchBarWidth) && "block" }}>
                     <AutoComplete
                                 id="SearchBar"
                                 disableClearable
@@ -186,19 +186,19 @@ const SearchBar = ({ path }) => {
                                 onClose={() => { setOpen(false); }}
                                 classes={{ paper: classes.paper }}
                                 filterOptions={x => x}
-                                componentsProps={{ popper: { style: { height: '100%', width: `${optionWidth}px` } } }}
+                                // componentsProps={{ popper: { style: { height: '100%', width: `${optionWidth}px` } } }}
                                 onChange={(event, value) => SearchAPi(value?.id, value?.type, value, event)}
                                 getOptionLabel={(option) => option?.value}
                                 options={SearchData}
                                 groupBy={(option) => option.type}
                                 renderOption={(props, t) => {
                                     return (
-                                        <div {...props} style={{ color: "black" }} >
+                                        <div {...props} className='text-dark'>
                                             <ul className='PopperLIst'>
                                                 {/* <div> */}
                                                 <li onClick={(event, value) => SearchAPi(t?.id, t?.type, t)} className='searchBarListStyles' key={t.value}>
                                                     <Image
-                                                    unoptimized={true}
+                                                        unoptimized={true}
                                                         onError={handleImageError}
                                                         className={"searchBarImageStyles"} // Apply CSS module class
                                                         src={t.image}
@@ -209,9 +209,6 @@ const SearchBar = ({ path }) => {
                                                     />
                                                     <span className='searchBarSpanValue'> {`${t.value}`}</span>
                                                 </li>
-                                                {/* </div> */}
-
-
                                             </ul>
                                         </div>
                                     )

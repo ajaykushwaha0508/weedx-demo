@@ -31,7 +31,7 @@ const RecentPost = () => {
                         <ScrollContainer className="ScrollContainerRelative">
                         
                                 {News?.map((ele, index) => {
-  
+                                    console.log(ele)
                                         return (
                                             <Link href={`/${ele.CategoryName==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index}> 
                                                 <div className="new_blog_card">

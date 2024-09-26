@@ -107,7 +107,7 @@ const Signup = () => {
         <div className='signupHorizontalLine'></div> <span className='px-2 login_OR'>OR</span> <div className='signupHorizontalLine'></div>
     </div>
     <div className='signup_margins_top'>
-        <div className='col-lg-12 loginwithgoogle '>
+        <div className='col-lg-12 '>
            <LoginWithGoogle/>
         </div>
 

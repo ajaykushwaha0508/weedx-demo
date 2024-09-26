@@ -9,54 +9,41 @@ import { TbEdit } from "react-icons/tb";
 import { FaHandsHelping } from "react-icons/fa";
 import useStyles from "@/styles/style";
 import Image from 'next/image';
+import clases from '@/styles/customstyle.module.scss'
 const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Logout }) => {
     const classes = useStyles();
     return (
-        <div>
-         { state.login ?  <div className='navbarProfileDropDown_container' ref={profileRef}>
+        <div >
+         { state.login ? <div className='position-relative' ref={profileRef}>
                 <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
-                    <div className='Navbar_profile_logo_container'>
-                        <Image
-                        unoptimized={true}
+                    <div className={clases.Navbar_profile_logo_container}>
+                        <Image   unoptimized={true}
                             src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
                             alt='Profile'
                             width={100}
                             height={100}
                             title='Profile'
-                            className="Navbar_logo_imgs"
+                            className={clases.Navbar_logo_imgs}
                             onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                             onClick={handleClickDropdown}
                         />
                     </div>
                 </Grid>
                 {dropDownState &&
-                    <div className='profileDropdown_container'>
-                        <section className='Navbar_proflie_image_name_section'>
-                            <div className='profile_name_container'>
-                                <p className='profile_names ellipsis'>{state.Profile.username}</p>
-                            </div>
+                    <div className={clases.profileDropdown_container}>
+                        <section className={clases.Navbar_proflie_image_name_section}>
+                           <p className={`${clases.profile_names} ellipsis`}>{state.Profile.username}</p>
                         </section>
                         <hr />
-                        <section className='navbarProfileDropDownSection'>
-                            <ol className='navbar_profile_orderList px-0'>
-                                <Link href={'/editprofile'} 
-                                // onClick={() => setDropDownState(false)}
-                                > <li className='profile_list'> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
-                                <Link href={'/myorder'} 
-                                // onClick={() => setDropDownState(false)}
-                                > <li className='profile_list'> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
-                                <Link href={'/whislists'} 
-                                // onClick={() => setDropDownState(false)}
-                                > <li className='profile_list'> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
-                                <Link href={'/myreviews'} 
-                                // onClick={() => setDropDownState(false)}
-                                > <li className='profile_list'> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
-                                <Link href={'/helpcenter'} 
-                                // onClick={() => setDropDownState(false)}
-                                > <li className='profile_list'> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
-                                <li className='profile_list' onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
-                            </ol>
-                        </section>
+                     
+                        <ol className={clases.navbar_profile_orderList}>
+                            <Link href={'/editprofile'}> <li className={clases.profile_list}> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
+                            <Link href={'/myorder'}> <li className={clases.profile_list}> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
+                            <Link href={'/whislists'}> <li className={clases.profile_list}> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
+                            <Link href={'/myreviews'}> <li className={clases.profile_list}> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
+                            <Link href={'/helpcenter'}> <li className={clases.profile_list}> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
+                            <li className={clases.profile_list} onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
+                        </ol>
                     </div>
                 }
             </div>

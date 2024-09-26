@@ -22,6 +22,8 @@ import Cookies from 'universal-cookie';
 import { CiLock } from "react-icons/ci"
 import Menuintregration_google from './MenuIntregration_google';
 import Createcontext from "../../hooks/context"
+import  Swal from 'sweetalert2';
+
 export function Menuintegration_login({ open, setOpen }) {
     const handleClose = () => {
         setOpen(false);
@@ -31,8 +33,7 @@ export function Menuintegration_login({ open, setOpen }) {
     const cookies = new Cookies();
     const method = useForm()
     const location = useLocation();
-    const Swal = require('sweetalert2')
- 
+
     const { state, dispatch } = React.useContext(Createcontext)
     const [loading, Setloading] = React.useState(false)
     const classes = useStyles()

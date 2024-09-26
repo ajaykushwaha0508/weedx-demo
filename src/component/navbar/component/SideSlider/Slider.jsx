@@ -7,7 +7,7 @@ import Link from "next/link";
 import Createcontext from "../../../../hooks/context"
 import { FaHome, FaClinicMedical, FaIdeal, FaProductHunt } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
-import { SiBrandfolder, SiFuturelearn } from "react-icons/si";
+import { SiFuturelearn } from "react-icons/si";
 import { RxCross2 } from "react-icons/rx";
 import { URL } from 'url';
 import Cookies from 'universal-cookie';

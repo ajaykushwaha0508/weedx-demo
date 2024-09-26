@@ -5,28 +5,23 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic'
 const SideNavbar = dynamic(() => import('../navbar/component/SideSlider/Slider') ,{ssr:false});
 const Afterlogin = dynamic(() => import('../navbar/component/afterlogin') ,{ssr:false});
-// import SideNavbar from "../navbar/component/SideSlider/Slider";
-import Button from '@mui/material/Button';
 import useStyles from "../../styles/style";
-import { FiShoppingBag } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
-import { MdReviews } from "react-icons/md";
-import { TbLogout } from "react-icons/tb";
-import { TbEdit } from "react-icons/tb";
-import { FaHandsHelping } from "react-icons/fa";
-import SearchBar from "../navbar/component/searchbar";
+// import SearchBar from "../navbar/component/searchbar";
+const SearchBar =  dynamic(() => import('../navbar/component/searchbar') ,{ssr:false});
 import { AiFillHeart } from "react-icons/ai";
 import Image from 'next/image';
-import Notification from './component/Notification';
+const Notification =  dynamic(() => import('./component/Notification') ,{ssr:false}); ;
+// import Notification from './component/Notification';
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import SliderLink from "../navbar/component/SideSlider/SilderLink";
+import SliderLink from "@/component/navbar/component/SideSlider/SilderLink"
 import Createcontext from "../../hooks/context";
 import Cookies from 'universal-cookie';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/router';
 import image1 from "../../../public/weedx.iologo.png"
+import clases from '@/styles/customstyle.module.scss'
 const Navbar = () => {
     const cookies = new Cookies();
     const ref = React.useRef(null);
@@ -34,10 +29,6 @@ const Navbar = () => {
     const Location = useRouter();
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
-    const [windowDimension, setWindowDimension] = React.useState({
-        winWidth: 0,
-        winHeight: 0,
-    });
     const [Hamburger, setHamburger] = React.useState(true);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -45,10 +36,6 @@ const Navbar = () => {
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
     const detectSize = () => {
-        setWindowDimension({
-            winWidth: window?.innerWidth,
-            winHeight: window?.innerHeight,
-        });
         setHamburger(window?.innerWidth <= 991 ? false : true);
     };
     React.useEffect(() => {
@@ -105,30 +92,19 @@ const Navbar = () => {
     return (
         <React.Fragment>
             <div className='container p-0'>
-                <div ref={ref}  id='Navbar_box' style={{ background: "white", padding: "10px 0" }}>
+                <div ref={ref} className={clases.NavbarBox}  id='Navbar_box' >
                     <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                         {
                             Hamburger ?
                                 <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
-                                    <span>
                                         <Link href="/">
-                                            <Image
-                                              onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                            unoptimized={true}
-                                                className={"navbarLogoImage"}
-                                                src={image1.src}
-                                                alt="WeedX.io logo"
-                                                title="WeedX.io logo"
-                                                width={50}
-                                                height={50}
-                                            />
+                                            <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}  className={"navbarLogoImage"} src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} />
                                         </Link>
-                                    </span>
                                 </Grid>
                                 :
                                 <Grid container xs={3} md={2} xl={2} alignItems="center">
-                                    <div className='center' style={{ marginLeft: "15px" }}>
-                                        <button className="openbtn Border" onClick={openNav}>☰</button>
+                                    <div className='center ml-3' >
+                                        <button className={clases.openbtn} onClick={openNav}>☰</button>
                                     </div>
                                 </Grid>
                         }
@@ -137,13 +113,13 @@ const Navbar = () => {
                                 Hamburger ?
                                     <SearchBar path={Location.pathname} />
                                     :
-                                    <span className='mobileNavLogo'>
+                                    <div className='text-center'>
                                         <Link href="/"><Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
-                                    </span>
+                                    </div>
                             }
                         </Grid>
                         <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
-                            <div className='col-12 Login_Sigup_button Heder_icon' style={{ justifyContent: "end", marginLeft: "-20px" }}>
+                            <div className={clases.Heder_icon} >
                                 <Link href="/whislists">
                                     <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
                                         <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
