@@ -288,6 +288,9 @@
 .profileDropdown_container .navbar_profile_orderList .profile_list:hover {
   color: #31B665;
 }
+.profileDropdown_container .navbar_profile_orderList li {
+  list-style-type: none;
+}
 
 .nav_list1 a {
   text-align: center;
@@ -295,11 +298,18 @@
   text-decoration: none;
   display: flex;
 }
+.nav_list1 ul {
+  gap: 6%;
+  cursor: pointer;
+  display: flex;
+  /* justify-content: center;  */
+  list-style-type: none;
+  color: gray;
+}
 .nav_list1 ul li {
   color: black;
   font-size: 16px;
   text-decoration: none;
-  margin: 15px;
   position: relative;
   opacity: 0.7;
   font-weight: 500;
@@ -309,6 +319,7 @@
   justify-content: flex-end;
   margin-right: 40px;
   font-family: "Inter", sans-serif;
+  margin: 0px 0% 0 0%;
 }
 .nav_list1 ul li:hover {
   opacity: 1;
@@ -353,6 +364,54 @@
   line-height: 1.5;
   font-weight: 600;
   padding: 8px 15px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0;
+  background: white;
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.sidebar .SliderImageProfile_container {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.sidebar .SliderImageProfile_container .Slider_inner_profile_imgs {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.sidebar .slider_image_profile_names_conatiner {
+  width: 60%;
+}
+.sidebar .slider_image_profile_names_conatiner .slider_image_name_heading {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+.sidebar .Slider_content_center {
+  display: grid;
+  justify-content: flex-start;
+  padding-left: 20px;
+  font-size: 16px;
+}
+.sidebar .Slider_content_center a span {
+  margin-right: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -489,5 +548,11 @@
   }
   .canabisLawMainHeadings {
     font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .Slider_inner_profile_imgs {
+    width: 30px;
+    height: 30px;
   }
 }/*# sourceMappingURL=customstyle.module.css.map */

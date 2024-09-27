@@ -97,9 +97,7 @@ const Navbar = () => {
                         {
                             Hamburger ?
                                 <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
-                                        <Link href="/">
-                                            <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}  className={"navbarLogoImage"} src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} />
-                                        </Link>
+                                        <Link href="/">   <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}   src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                                 </Grid>
                                 :
                                 <Grid container xs={3} md={2} xl={2} alignItems="center">
@@ -110,8 +108,7 @@ const Navbar = () => {
                         }
                         <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
                             {
-                                Hamburger ?
-                                    <SearchBar path={Location.pathname} />
+                                Hamburger ?  <SearchBar path={Location.pathname} />
                                     :
                                     <div className='text-center'>
                                         <Link href="/"><Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
