@@ -15,6 +15,7 @@ export async function middleware(req) {
       state: 'New-York',
       city: 'New-York',
       formatted_address: 'New York, NY, USA'
+      
     };
     location = JSON.stringify(setLocation);
     
