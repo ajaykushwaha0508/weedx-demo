@@ -10,6 +10,7 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import DeliverServiceSkeleton from '@/component/skeleton/DeliveryServicesSkeleton'
 import Image from "next/image";
+import clases from '@/styles/customstyle.module.scss'
 const Newsblog = (props) => {
      const News =  props.data
     return (
@@ -18,7 +19,7 @@ const Newsblog = (props) => {
                    <div className="d-flex align-items-center justify-content-between">
                       <h3 className="section_main_title">{`Trendings`}</h3>
                       <Link href={'/cannabis-news'}>
-                        <span className="viewallbtn">{`View All`} <FaArrowRight/></span>
+                        <span className={clases.viewallbtn}>{`View All`} <FaArrowRight/></span>
                       </Link>
                     </div>
                     <div className="blogs_card_slider">

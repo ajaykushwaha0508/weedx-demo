@@ -14,6 +14,7 @@ import Createcontext from "../../hooks/context"
 import { modifystr } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
 import Link from 'next/link';
+import clases from '@/styles/customstyle.module.scss'
 // import { DespensioriesItem } from '@/hooks/apicall/api';
 const DeliveryServices = ({ link, title, data , location , initialData }) => {
     let DeliveryService = data || []
@@ -66,77 +67,63 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                     {link === "weed-deliveries" && <h3 className='section_main_subtitle'>{location}</h3>}
                                 </div>
                                 <Link href={link === "weed-deliveries" ?getDeliveryHref() : getDispensariesHref()}>
-                                    <span className="viewallbtn">View All <FaArrowRight /></span>
+                                    <span className={clases.viewallbtn}>View All <FaArrowRight /></span>
                                 </Link>
                             </div>
                             {
                                 
-                               Boolean(DeliveryService.length) ?
-                                 <div className="col-12  my-4 mt-2 recentViewProductSlider" id="width" ref={ref}>
-                                    <ScrollContainer className="ScrollContainerRelative">
-                                        {DeliveryService?.map((items, index) => {
-                                            return (
-
-                                                <div className='dispensoriesContainer' key={index}>
-                                                    <div className=' dispensoriesAddressBorder'>
-                                                        <div className='dispensoriesAddresCardimg'>
-                                                            <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
-                                                                <Image
-                                                                    unoptimized={true}
-                                                                    width={100}
-                                                                    height={100}
-                                                                    quality={100}
-                                                                    src={items?.Store_Image}
-                                                                    alt={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
-                                                                    title={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
-                                                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                                    className=' dispensories_image  center-block'
-                                                                />
-                                                            </Link>
-                                                        </div>
-                                                        <div className='dispensoriesContentContainer'>
-                                                            <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
-                                                                <div className='col-12'>
-
-                                                                    <div className=' dis_right_div'>
-                                                                        <p className='ellipsis dispensoriesHeadings'>{items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)}</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='col-12 '>
-
-                                                                    <div className=' Dispensaries_card_discription'>
-                                                                        <div className=''>
-                                                                            <span className='span_nav'><BiMap className={classes.disPen_Icons} /></span>
-                                                                        </div>
-
-                                                                        <div className='col-10'>
-                                                                            <p className='ellipsis mb-0'>{items?.Store_Address}</p>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-
-                                                            </Link>
-                                                            <div className='homecardRating'>
-                                                                <Link href={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${'review'}/${items?.id}`}>
-                                                                    <div className=' w-100 d-flex align-items-center gap-2'>
-                                                                        <span className='DeliveryServicesRatingTitle'>{items?.rating !== null ? items?.rating.toFixed(1) : 0}</span>
-                                                                        <Rating className={classes.homePageStarIcons} color='#fff' name="read-only" value={items?.rating === null ? 0 : items?.rating} readOnly />
-                                                                    </div>
+                                    Boolean(DeliveryService.length) ?
+                                    <div className={clases.recentViewProductSlider} id="width" ref={ref}>
+                                        <ScrollContainer className="ScrollContainerRelative">
+                                            {DeliveryService?.map((items, index) => {
+                                                return (
+                                                    <div className={clases.dispensoriesContainer} key={index}>
+                                                        <div className={clases.dispensoriesAddressBorder}>
+                                                            <div className={clases.dispensoriesAddresCardimg}>
+                                                                <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
+                                                                    <Image
+                                                                        unoptimized={true}
+                                                                        width={100}
+                                                                        height={100}
+                                                                        quality={100}
+                                                                        src={items?.Store_Image}
+                                                                        alt={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
+                                                                        title={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
+                                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                                        className={`${clases.dispensories_image}  center-block`}
+                                                                    />
                                                                 </Link>
                                                             </div>
-                                                            <div className='col-12  mt-2'>
-                                                                <Box className={`${classes.loadingBtnTextAndBack}`} >
-                                                                    <LoadingButton onClick={() => { navigate.push(`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`) }} style={{ width: "100%" }}>Order Pickup</LoadingButton>
-                                                                </Box>
+                                                            <div className={clases.dispensoriesContentContainer}>
+                                                                <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
+                                                                
+                                                                    <p className={`ellipsis ${clases.dispensoriesHeadings}`}>{items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)}</p>
+                                                                        <div className={clases.Dispensaries_card_discription}>
+                                                                            <span><BiMap className={classes.disPen_Icons} /></span>
+                                                                            <p className='ellipsis mb-0'>{items?.Store_Address}</p>
+                                                                        </div>
+                                                                  
+                                                                </Link>
+                                                                <div className={clases.homecardRating}>
+                                                                    <Link href={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${'review'}/${items?.id}`}>
+                                                                        <div className=' w-100 d-flex align-items-center gap-2'>
+                                                                            <span className={clases.DeliveryServicesRatingTitle}>{items?.rating !== null ? items?.rating.toFixed(1) : 0}</span>
+                                                                            <Rating className={classes.homePageStarIcons} color='#fff' name="read-only" value={items?.rating === null ? 0 : items?.rating} readOnly />
+                                                                        </div>
+                                                                    </Link>
+                                                                </div>
+                                                                <div className='col-12  mt-2'>
+                                                                    <Box className={`${classes.loadingBtnTextAndBack}`} >
+                                                                        <LoadingButton onClick={() => { navigate.push(`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`) }} style={{ width: "100%" }}>{`Order Pickup`}</LoadingButton>
+                                                                    </Box>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            )
-                                        })}
-                                    </ScrollContainer>
-                                </div>
+                                                )
+                                            })}
+                                        </ScrollContainer>
+                                    </div>
                                     :
                                     <div className='nodeliveryinhomepage' >
                                         <div className='nodeliveryinhomeimage'>

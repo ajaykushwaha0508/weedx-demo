@@ -4,25 +4,24 @@ import { useRouter } from 'next/router';
 import Categoryskeleton from "../skeleton/categoryskeleton";
 import { FirstLetterCaps } from "../../hooks/utilis/commonfunction"
 import Image from 'next/image';
+import clases from '@/styles/customstyle.module.scss'
 const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
     const Params = useRouter().query;
     const location = useRouter()
     return (
         <React.Fragment>
-            <div className=' CategoryBordrr'>
+            <div className={clases.CategoryBordrr}>
                 <div className='row'>
                     {
-                        !Skeleton ? <div className="catagoryTabs_section">
-
+                        !Skeleton ? <div className={clases.catagoryTabs_section}>
                             {
-                                Object.keys(Params).length === 0 ? <h2 className='shopByCategoryHeading'>Shop By Category</h2> : null
+                                Object.keys(Params).length === 0 ? <h2 className={clases.shopByCategoryHeading}>{`Shop By Category`}</h2> : null
                             }
-
                             <ScrollContainer className="ScrollContainerRelative">
                                 {Category?.map((ele, index) => {
                                 
                                     return (
-                                        <div className='CategorySliderImageBlock' key={index}>
+                                        <div className={clases.CategorySliderImageBlock} key={index}>
                                             <div className='slider1'>
 
                                                 <Image
@@ -33,9 +32,9 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                                     height={100}
                                                     unoptimized={true}
                                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                    className={location.pathname.includes('/menu-integration') ? ' Integrated-catagoriesTabImg' : ' catagoriesTabImg'} />
+                                                    className={clases.catagoriesTabImg} />
                                             </div>
-                                            <div className='col center Category_title' >
+                                            <div className={`col center ${clases.Category_title}`} >
                                                 <p>{FirstLetterCaps(ele?.name?.substr(0, 100))}</p>
                                             </div>
 
@@ -49,7 +48,6 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                     }
                 </div>
             </div>
-
         </React.Fragment>
     )
 }
