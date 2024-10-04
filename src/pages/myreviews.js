@@ -135,10 +135,10 @@ const Myreview = () => {
                             </div>
                             <div className="product_cart_review">
                                 {Boolean(item.rating) && new Array(item?.review?.rating).fill(null).map((_, index) => (
-                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" key={index} />
+                                    <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
                                 {new Array(5 - item.review?.rating).fill(null).map((_, index) => (
-                                    <BsStar size={16} color="#31B665" className="product_search_rating_star" key={index} />
+                                    <BsStar size={16} color="#31B665" className="" key={index} />
                                 ))}
                             </div>
                             <h2 className="Myreview_titile">{item.review.Title}</h2>
@@ -190,10 +190,10 @@ const Myreview = () => {
                             </div>
                             <div className="product_cart_review">
                                 {Boolean(item.rating) && new Array(item?.rating).fill(null).map((_, index) => (
-                                    <BsStarFill size={16} color="#31B665" className="product_search_rating_star" key={index} />
+                                    <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
                                 {new Array(5 - (item?.rating)).fill(null).map((_, index) => (
-                                    <BsStar size={16} color="#31B665" className="product_search_rating_star" key={index} />
+                                    <BsStar size={16} color="#31B665" className="" key={index} />
                                 ))}
                             </div>
                             <h2 className="Myreview_titile">{item.Title}</h2>

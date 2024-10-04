@@ -454,6 +454,11 @@ const useStyles = makeStyles({
       },   
     },
   },
+  storeheaderbtn:{
+    "&.MuiButtonBase-root":{
+      height:'30px',
+    }
+  },
   differstoreaddtocartbtn:{
     "& .MuiButton-text": {
       fontSize: ".5rem",

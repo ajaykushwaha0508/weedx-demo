@@ -1,10 +1,9 @@
 import React,{useEffect} from "react";
 import ScrollContainer from "react-indiana-drag-scroll"
-// import parse from 'html-react-parser';
 import { useParams } from "react-router-dom";
 import Link from "next/link";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "next/image";
+import clases from '@/styles/customstyle.module.scss'
 import { modifystr } from "@/hooks/utilis/commonfunction";
 const RecentPost = () => {
  const id = useParams()
@@ -31,11 +30,11 @@ const RecentPost = () => {
                         <ScrollContainer className="ScrollContainerRelative">
                         
                                 {News?.map((ele, index) => {
-                                    console.log(ele)
+                                    
                                         return (
-                                            <Link href={`/${ele.CategoryName==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index}> 
-                                                <div className="new_blog_card">
-                                                    <div className="new_blog_card_img">
+                                            <Link href={`/${ele.CategoryName==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index} className="d-block"> 
+                                                <div className={clases.new_blog_card}>
+                                                    <div className={clases.new_blog_card_img}>
                                                         <Image width={500} height={500}
                                                         src={`${ele.Image}`}
                                                         alt={ele.Title}
@@ -45,16 +44,13 @@ const RecentPost = () => {
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         style={{ pointerEvents: "none" }} />
                                                     </div>
-                                                    <div className="new_blog_card_text">  
-                                                        <span className="latest_font_size  ">
-                                                            {ele.Title}
-                                                        </span>
+                                                    <div className={clases.new_blog_card_text}>  
+                                                        <span className={clases.latest_font_size }>  {ele.Title} </span>
                                                     </div>
                                                 </div>
                                             </Link>
                                         )                                   
                                 })}
-                        
                         </ScrollContainer>
                     </div>
             

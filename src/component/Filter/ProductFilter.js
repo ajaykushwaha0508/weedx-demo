@@ -347,8 +347,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
     }, [value])
 
     return (
-        <>
-            <div className="col-12  p-0 mt-4 product_search_and_select">
+   <>
+            <div className="col-12 product_search_and_select">
                 <div className="col-2 product_search_bar">
                    
                        <div  className="form-outline" data-mdb-input-init>
@@ -397,7 +397,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                 {ProductFilterData?.map((ele, index) => {
                     const { Id, Name, Icons } = ele;
                     return (
-                        <div key={index} className={ location.pathname.includes('/menu-integration')?"integrated-filter_manu_items":"filter_manu_items"}>
+                        <div key={index} className={"filter_manu_items"}>
                             <div className="col-12 d-flex align-items-center prodCat_gap product_category_border "
                               onClick={() => HandleOpenEvent(Id, Name)}
                               >
@@ -481,7 +481,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                 })
 
                 }
-                <Grid container display={{ xs: "inlineBlock", md: "none", lg: "none" }}>
+                <Grid container display={{ xs: "inline", md: "none", lg: "none" }}>
 
                     {SortedArrayData.map((ele, index) => {
                         const { Id, name } = ele
@@ -492,29 +492,29 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                                     <li className="">{name}</li>
                                     <li>  {(Id === OpenSortedData) ? "" : <FiChevronRight />}</li>
                                 </ol>
-                {Id === OpenSortedData ? (
-                  <ClickAwayListener
-                    onClickAway={() => {
-                      SetOpenSortedData(null);
-                    }}
-                  >
-                    <div className="border product_Sorted_filter_dropdown">
-                      <ol className="productFilter_sortedList">
-                        {SortedData.map((ele, index) => {
-                          return <li key={index}>{ele.type}</li>;
-                        })}
-                      </ol>
-                    </div>
-                  </ClickAwayListener>
-                ) : (
-                  ""
-                )}
-              </div>
-            );
-              })}
+                                {Id === OpenSortedData ? (
+                                <ClickAwayListener
+                                    onClickAway={() => {
+                                    SetOpenSortedData(null);
+                                    }}
+                                >
+                                    <div className="border product_Sorted_filter_dropdown">
+                                    <ol className="productFilter_sortedList">
+                                        {SortedData.map((ele, index) => {
+                                        return <li key={index}>{ele.type}</li>;
+                                        })}
+                                    </ol>
+                                    </div>
+                                </ClickAwayListener>
+                                ) : (
+                                ""
+                                )}
+                            </div>
+                            );
+                            })}
                 </Grid>
             </div>
-        </>
+            </>
     );
 };
 export default ProductFilter

@@ -511,7 +511,7 @@ const ProductList = ({ arr , link="products" }) => {
                                   <BsStarFill
                                     size={16}
                                     color="#31B665"
-                                    className="product_search_rating_star"
+                                    className=""
                                     key={indesx}
                                   />
                                 ))}
@@ -522,7 +522,7 @@ const ProductList = ({ arr , link="products" }) => {
                                 key={index}
                                   size={16}
                                   color="#31B665"
-                                  className="product_search_rating_star"
+                                  className=""
                                 />
                               )
                             })}

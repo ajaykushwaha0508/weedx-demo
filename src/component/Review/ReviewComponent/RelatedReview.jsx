@@ -186,11 +186,11 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
                                             <div className='reviewSectionRating'>
                                                 {ele.rating && new Array(ele.rating).fill(null).map(( data , index) => (
-                                                    <BsStarFill key={index} size={16} color="#31B665" className="product_search_rating_star" />
+                                                    <BsStarFill key={index} size={16} color="#31B665" className="" />
                                                 ))}
 
                                                 {new Array(5 - ele.rating).fill(null).map(( data , index) => (
-                                                    <BsStar  key={index} size={16} color="#31B665" className="product_search_rating_star" />
+                                                    <BsStar  key={index} size={16} color="#31B665" className="" />
                                                 ))}
                                             </div>
                                         </div>

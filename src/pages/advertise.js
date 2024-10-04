@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Ads1 from '../../public/image/ads1.gif'
 import Ads2 from '../../public/image/ads2.gif'
 import Ads3 from '../../public/image/ads3.gif'
+import AdvertiseBanner from "../../public/image/AdvertiseBanner.webp"
 // import Advertisseo from '@/component/ScoPage/advertisseo';
 import Head from 'next/head';
 const advertise = () => {
@@ -35,7 +36,11 @@ const advertise = () => {
       <div className={classes.ad_page}>
           <div className='container'>
             
-              <Bgheader text={'Advertise with WeedX.io'}/>
+                {/* <Bgheader text={'Advertise with WeedX.io'}/> */}
+                  <div className={classes.adversticebanner_header}>
+                    <h1>{'Advertise with WeedX.io'}</h1>
+                    <Image src={AdvertiseBanner.src} alt={"banner image"}  width={400} height={100} />
+                  </div>
             
               <div className='my-md-5 my-3'>
                 <h3>{`Reach Your Target Audience in the Cannabis Industry`}</h3>
@@ -104,7 +109,7 @@ const advertise = () => {
                 <div> 
                   <h2>{`Contact Information:`}</h2>
                   <p> <span><MdEmail /></span> <b>{`Email:`}</b>  <Link href={'mailto:info@weedx.io'}>{` info@weedx.io`}</Link></p>
-                  <p> <span><FaPhoneAlt /></span> <b>{`WhatsApp:`}</b>  <Link href={'tel:+1 530-385-8664'}>{`+1 530-385-8664`}</Link></p>
+                  <p> <span><FaPhoneAlt /></span> <b>{`WhatsApp:`}</b>  <a href={'https://api.whatsapp.com/send/?phone=+1530-385-8664'}>{`+1 530-385-8664`}</a></p>
                 </div>
               </div>
           </div>

@@ -8,25 +8,19 @@ import useStyles from "../../../styles/style"
 // import ProductFilter from "../../../component/Filter/ProductFilter";
 const ProductFilter = dynamic(() => import('../../../component/Filter/ProductFilter'), { ssr: true });
 const ProductList = dynamic(() => import('../../../component/productcard/ProductList'), { ssr: true });
-// import ProductList from "../../../component/productcard/ProductList";
 import { BsLayoutSplit } from "react-icons/bs"
 import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import _ from "lodash"
-// import NewFlavourBanner from "../../../component/StoreDetails/NewFlavourBanner";
 const NewFlavourBanner = dynamic(() => import('../../../component/StoreDetails/NewFlavourBanner'), { ssr: true });
-// import StoreDetailMenuItem from "../../../component/StoreDetails/StoreDetailComponent/StoreDetailMenuItem";
 const StoreDetailMenuItem = dynamic(() => import('../../../component/StoreDetails/StoreDetailComponent/StoreDetailMenuItem'), { ssr: true });
 import CategoryProduct from "../../../component/category/category";
-// import ComponentStoreDetails from "../../../component/StoreDetails/StoreDetailComponent/ComponentStoreDetails"
 const ComponentStoreDetails = dynamic(() => import('../../../component/StoreDetails/StoreDetailComponent/ComponentStoreDetails'), { ssr: true });
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
-// import { ProductHelpFull } from '../../Product/ProductApi'
 import Review from "../../../component/Review/Review";
 const StoreDetails = dynamic(() => import('../../../component/ScoPage/StoreDetails'), { ssr: true });
-// import { StoreDetails } from "../../../component/ScoPage/StoreDetails"
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../hooks/apicall/api";
 import Createcontext from "../../../hooks/context"
 import Loader from "../../../component/Loader/Loader";
@@ -38,6 +32,7 @@ import gifimage from '../../../../public/image/gif.svg'
 import Link from "next/link";
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.scss'
+import Oops from "@/component/Oops/Oops";
 export default function DispensoriesDetails(props) {
     const navigate = useRouter()
     const { id, storeData, product } = props.params
@@ -346,12 +341,12 @@ export default function DispensoriesDetails(props) {
             {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
                 ? <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails> : ""
             }
-            <div className="container-fluid product_container" >
+            <div className=" product_container" >
                 {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
-                <div className="row">
-                    <div className="col-12">
+                <div >
+                  
                         {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
-                    </div>
+                 
                     {
                         (tab === 'menu' || tab === undefined) &&
                         <React.Fragment>
@@ -359,7 +354,7 @@ export default function DispensoriesDetails(props) {
                                 (Boolean(DespensariesData.length) ?
                                     <>
                                         <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-                                        <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                        <div className="row" >
                                             <ProductFilter Store_id={Despen[0]?.id}
                                                 id={id}
                                                 ProductFilterData={ProductFilterData}
@@ -372,36 +367,25 @@ export default function DispensoriesDetails(props) {
                                         </div>
                                     </>
                                     :
-                                    <div id='oopss'>
-                                        <div id='error-text'>
-                                            <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
-                                            <span>{`Menu Not Available`}</span>
-                                            <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses`}</p>
-                                            <span onClick={() => { navigate.push(`/weed-deliveries/in/${Despen[0]?.Country && Despen[0]?.Country.replaceAll(" ", '-').toLowerCase()}/${Despen[0]?.State && Despen[0]?.State.replaceAll(" ", '-').toLowerCase()}/${Despen[0]?.City && Despen[0]?.City.replaceAll(" ", '-').toLowerCase()}`) }} className="back">{`VIEW OTHER BUSINESSES`}</span>
-                                        </div>
-                                    </div>
+                                 
+                                    <Oops/>
                                 ) :
                                 (!productload ?
                                     (Boolean(DespensariesData.length) ? <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                        <ProductFilter Store_id={Despen[0]?.id}
-                                            ProductFilterData={ProductFilterData}
-                                            Setarr1={SetDespensariesProductData}
-                                            arr={DespensariesData}
-                                            id={id}
-                                        />
-                                        <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                            <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
-                                        </div>
-                                    </div>
-                                        :
-                                        <div id='oopss'>
-                                            <div id='error-text'>
-                                                <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={gifimage.src} alt="no product" />
-                                                <span>{`Menu Not Available`}</span>
-                                                <p className="p-a">{`This business hasn't posted its menu on Weedx.io yet. Click below to discover other nearby businesses `}</p>
-                                                <span className="back">{`VIEW OTHER BUSINESSES`}</span>
+                                            <ProductFilter Store_id={Despen[0]?.id}
+                                                ProductFilterData={ProductFilterData}
+                                                Setarr1={SetDespensariesProductData}
+                                                arr={DespensariesData}
+                                                id={id}
+                                            />
+                                            <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                                <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                             </div>
-                                        </div>)
+                                        </div>
+                                        :
+                                      
+                                        <Oops/>
+                                        )
                                     :
                                     <DispensoriesAddressSkeleton />
                                 )
