@@ -49,15 +49,7 @@ const Login = () => {
                 cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-
-                // if (state === null || location.state.location.pathname === '/cart') {
-                //     router.push(-1)
-                // } else {
                     router.push('/')
-
-                // }
-
-
                 Setloading(false)
             }
             else {

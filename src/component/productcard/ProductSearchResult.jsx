@@ -81,7 +81,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 StoreName: Event.StoreName,
                 Country: Event.Store_Country,
                 State: Event.Store_State,
-                City: Event.Store_City
+                City: Event.Store_City,
+                Store_Type: Event.Store_Type
 
             })
             await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -100,7 +101,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                     SubcategoryName: Event.SubcategoryName,
                     Country: Event.Store_Country,
                     State: Event.Store_State,
-                    City: Event.Store_City
+                    City: Event.Store_City,
+                    Store_Type: Event.Store_Type
 
                 }
                 , config
@@ -145,7 +147,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 StoreName: Event.StoreName,
                 Country: Event.Store_Country,
                 State: Event.Store_State,
-                City: Event.Store_City
+                City: Event.Store_City,
+                Store_Type: Event.Store_Type
 
             }
             SetNewData(Arry)

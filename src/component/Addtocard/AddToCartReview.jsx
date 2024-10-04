@@ -21,9 +21,7 @@ const AddToCartReview = () => {
        let token_data = cookies.get('User_Token_access')
        let accessToken 
        if (typeof window !== 'undefined') {
-   
             accessToken = localStorage.getItem('User_Token_access');
-   
        }
     if(  Boolean(accessToken) ){ token_data  =  accessToken};
     const [Loadingmines, SetLoadingmines] = React.useState(false);
@@ -32,65 +30,59 @@ const AddToCartReview = () => {
     const [wondowWidth, setWindowWidth] = useState('')
     const [AfterDiscount, SetAfterDiscount] = React.useState()
     async function DeleteItem(Id, id) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You want to remove this product from Cart!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#31B665',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, remove it!'
-        }).then((result) => {
-
+        try {
+            const result = await Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to remove this product from Cart!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#31B665',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, remove it!',
+            });
+    
             if (result.isConfirmed) {
-                const myPromise = new Promise((resolve, reject) => {
-                    if (state.login) {
+                SetLoadingDelete(true);  // Show loading indicator
+    
+                if (state.login) {
+                    // If user is logged in, send API request
+                    try {
                         const config = {
                             headers: { Authorization: `Bearer ${token_data}` }
                         };
-                        Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
-                            config,
-                            SetLoadingDelete(true)
-                        )
-                            .then(async (res) => {
-                                await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                                SetLoadingDelete(false)
-                                resolve();
-                            })
-                            .catch((error) => {
-                                SetLoadingDelete(false)
-                                reject();
-                            })
+                        await Axios.delete(`https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`, config);
+                        
+                        // Update cart state
+                        await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
+                    } catch (error) {
+                        console.error("Failed to delete item from server", error);
+                    } finally {
+                        SetLoadingDelete(false);  // Hide loading indicator
                     }
-                    else {
-                        var obj = JSON.parse(localStorage.getItem("items"));
-                        for (var i = 0; i < obj.length; i++) {
-                            if (obj[i].Product_id === Id) {
-                                obj.splice(i, 1);
-                                break;
-                            }
-                        }
-                        if (typeof window !== 'undefined') {
-   
-                            accessToken = localStorage.getItem('User_Token_access');
-                   
-                       }
-                        resolve();
+                } else {
+                    // If user is not logged in, remove item from local storage
+                    const items = JSON.parse(localStorage.getItem("items")) || [];
+                    const updatedItems = items.filter(item => item.Product_id !== Id);
+    
+                    localStorage.setItem("items", JSON.stringify(updatedItems));
+    
+                    if (typeof window !== 'undefined') {
+                        accessToken = localStorage.getItem('User_Token_access');  // Fetch token from localStorage if available
                     }
-                })
-                myPromise.then(async () => {
-                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                    Swal.fire(
-                        'Removed!',
-                        'Your product has been removed.',
-                        'success'
-                    )
-                })
+    
+                    // Update cart state for non-logged in user
+                    await dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
+                }
+    
+                // Show success message
+                await Swal.fire('Removed!', 'Your product has been removed.', 'success');
             }
-        })
-
-
+        } catch (error) {
+            SetLoadingDelete(false);  // Ensure loading state is reset in case of errors
+            console.error("An error occurred during item deletion", error);
+        }
     }
+    
     async function Quantity(Id, Cart, Event) {
 
         if (Event?.Price?.Quantity > Event.Cart_Quantity) {

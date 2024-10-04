@@ -49,7 +49,7 @@ const Dispensoriescart = ({ ele }) => {
                     </div>
                 }
                     </div>
-                    <div className={clases.homecardRating}>
+                    <div className={classes.homecardRating}>
                     <Link  href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${"review"}/${ele.id}`}>
                         <div className="col-12 d-flex dispensories_content_paragraphs">
                             <span className='disOPenResRating'>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
