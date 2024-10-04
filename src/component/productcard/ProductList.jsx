@@ -60,7 +60,7 @@ const ProductList = ({ arr , link="products" }) => {
   });
   const [NewData, SetNewData] = React.useState([]);
   const Addtocard = async (Event) => {
-  
+    console.log(Event.Store_Type)
     if (token_data) {
       const AddData = _.filter(
         Price,
@@ -91,7 +91,8 @@ const ProductList = ({ arr , link="products" }) => {
         StoreName: Event.StoreName,
         City: Event.Store_City,
         State: Event.Store_State,
-        Country: Event.Store_Country
+        Country: Event.Store_Country,
+        Store_Type: Event.Store_Type
 
       });
       await axios.post(
@@ -157,7 +158,8 @@ const ProductList = ({ arr , link="products" }) => {
         StoreName: Event.StoreName,
         City: Event.Store_City,
         State: Event.Store_State,
-        Country: Event.Store_Country
+        Country: Event.Store_Country,
+       Store_Type: Event.Store_Type
       };
       SetNewData(Arry);
       if (AddTOCard.length !== 0) {
@@ -206,7 +208,6 @@ const ProductList = ({ arr , link="products" }) => {
     }
   };
   async function AddToCart2(Event, counter, SelectWeight, handleClose) {
-       
     setadding(Event.id)
     const AddData = _.filter(Event.Prices, Price => Price);
     const PriceArrry = _.find(AddData[0].Price, Price => Price.id === SelectWeight);
@@ -233,7 +234,8 @@ const ProductList = ({ arr , link="products" }) => {
             StoreName: Event.StoreName,
             Country:Event.Store_Country,
             State: Event.Store_State,
-            City:Event.Store_City 
+            City:Event.Store_City ,
+            Store_Type: Event.Store_Type
 
         })
         await axios.post("https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
@@ -252,7 +254,8 @@ const ProductList = ({ arr , link="products" }) => {
                 SubcategoryName: Event.SubcategoryName,
                 Country:Event.Store_Country,
                 State: Event.Store_State,
-                City:Event.Store_City 
+                City:Event.Store_City ,
+                Store_Type: Event.Store_Type
 
             }
             , config
@@ -297,7 +300,8 @@ const ProductList = ({ arr , link="products" }) => {
             StoreName: Event.StoreName,
             Country:Event.Store_Country,
             State: Event.Store_State,
-            City:Event.Store_City 
+            City:Event.Store_City ,
+            Store_Type: Event.Store_Type
 
         }
         SetNewData(Arry)

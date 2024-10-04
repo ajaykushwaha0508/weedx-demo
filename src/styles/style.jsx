@@ -666,7 +666,7 @@ const useStyles = makeStyles({
   flotchceckoutbtn:{
     width:'100%',
     '&.MuiLoadingButton-root':{
-      backgroundColor:'#31B665',
+      backgroundColor:'white',
       color:'#fff', 
       height:'50px',
       fontSize:'16px',
