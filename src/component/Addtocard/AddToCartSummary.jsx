@@ -273,8 +273,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       <div className="col-12 order_summary_flex">
         <div className=" add_prod_cart_summary_p">
           <p>State tax</p>
-          <p>$0</p>
         </div>
+          <p>$0</p>
       </div>
       <div className="col-12 order_summary_flex">
         <div className=" add_prod_cart_summary_p">
