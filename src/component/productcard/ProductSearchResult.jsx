@@ -344,11 +344,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                 <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
                                                                 <div className="product_cart_review">
                                                                     {new Array(items.rating).fill(null).map((itwm, index) => (
-                                                                        <BsStarFill key={index + 1} size={16} color="#31B665" className="product_search_rating_star" />
+                                                                        <BsStarFill key={index + 1} size={16} color="#31B665" className="" />
                                                                     ))}
 
                                                                     {new Array(5 - items.rating).fill(null).map((item, index) => (
-                                                                        <BsStar key={index + 1} size={16} color="#31B665" className="product_search_rating_star" />
+                                                                        <BsStar key={index + 1} size={16} color="#31B665" className="" />
                                                                     ))}
                                                                 </div>
                                                             </div>
@@ -448,11 +448,11 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
                                                     <div className="product_cart_review">
                                                         {new Array(items.rating).fill(null).map((itwm, index) => (
-                                                            <BsStarFill key={index + 1} size={16} color="#31B665" className="product_search_rating_star" />
+                                                            <BsStarFill key={index + 1} size={16} color="#31B665" className="" />
                                                         ))}
 
                                                         {new Array(5 - items.rating).fill(null).map((item, index) => (
-                                                            <BsStar key={index + 1} size={16} color="#31B665" className="product_search_rating_star" />
+                                                            <BsStar key={index + 1} size={16} color="#31B665" className="" />
                                                         ))}
                                                         <span className="product_search_result_sub_heading ">({items.TotalRating})</span>
                                                     </div>

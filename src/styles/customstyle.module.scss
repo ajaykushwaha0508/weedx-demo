@@ -70,6 +70,23 @@
     padding: 2px 4px;
   }
 .ad_page{
+    .adversticebanner_header{
+        position: relative;
+        h1{
+            position: absolute;
+            font-size: 38px;
+            width: 60%;
+            font-weight: 700;
+            line-height: 1.5;
+            top: 50%;
+            left:50%;
+            transform: translate(-50% , -50%);
+        }
+            img{
+                width: 100%;
+                height: auto;
+            }
+    }
     .ad_imageTextSection{
         margin-bottom: 50px;
         display: flex;
@@ -753,8 +770,8 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
       max-height: 100%;
       height: auto;
     }
-  }
-  .about_card_Wraper {
+}
+.about_card_Wraper {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -798,7 +815,185 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
 		}
 	}
 }
-
+.new_blog_card {
+	width: 220px;
+	border-radius: 8px;
+	background-color: hsla(225, 2%, 66%, 0.1);
+	padding: 10px;
+	border: 1px solid #e9e9e9;
+	height: 100%;
+	.new_blog_card_img {
+		width: 100%;
+		height: 140px;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.new_blog_card_text {
+		margin-top: 10px;
+		.latest_font_size {
+			display: block;
+			font-weight: 600;
+			font-size: 14px;
+			color: #3a3a3a;
+			line-height: 1.5;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
+	}
+}
+.StoreHeader{
+    background-color: #EEFFF5;
+    position: relative;
+    padding: 20px;
+    .storeShareBtn{
+        background-color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        &:hover{
+            transition: all 0.3s ease;
+            transform: scale(1.1); 
+        }
+    }
+    .newFlavourimage_div {
+        height: 180px;
+        width: 180px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        cursor: pointer;
+        overflow: hidden;
+        img{
+            max-width: 100%;
+            min-width: 80%;
+            height: auto;
+            max-height: 100%;
+        }
+    }
+    .newFlavourBannerSubHead {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.5;
+        color: #383838;
+        margin-bottom: 0;
+    }
+    .StoreHeader_Heading{
+        font-size: 18px;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        line-height: 2;
+        color: #242424;
+        margin-bottom: 0;
+    }
+    .marginLeftnewFlavStore {
+        margin: 0;
+        color: #949494;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all .3s ease;
+        cursor: pointer;
+        &:hover{
+            color: #31B655;
+        }
+      }
+      
+    
+}
+.StoreDetailMenuItem_container{
+  background-color: #F6F6F6;
+  ul.store_detail_order_list {
+    display: flex;
+    list-style: none;
+    color: #828282;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    li.store_detail_list {
+        min-width: 16%;
+        padding: 10px 0;
+        color: #252525;
+        span.storeDetalMenuItemCursor {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+           
+            font-family: "Poppins", sans-serif;
+            &:hover{
+                color: #31B655;
+                transition: all 0.3s ease;
+            }
+        }
+      }
+  }
+}
+.oopss {
+	background: #fff;
+	width: 600px;
+	height: 100%;
+	padding: 50px;
+	line-height: 1.5em;
+	border-radius: 8px;
+	margin: 20px auto;
+	.errortext {
+		font-size: 22px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-family: "Shabnam", Tahoma, sans-serif;
+		color: #31B655;
+		direction: rtl;
+		img {
+			margin: 0 auto;
+			height: 280px;
+			width: 250px;
+		}
+		span {
+			font-size: 28px;
+			text-align: center;
+			font-weight: 700;
+		}
+		p {
+			
+				font-size: 16px;
+				line-height: 1.5;
+				font-weight: 500;
+				text-align: center;
+				margin: 10px 0 15px 0;
+		}
+		.back {
+			background: #fff;
+			color: #31B655;
+			font-size: 16px;
+			text-decoration: none;
+			margin: 0.5em auto 0;
+			padding: 8px 12px;
+			border-radius: 500px;
+			cursor: pointer;
+			border-radius: 5px;
+			border: 1px solid #31B655;
+			font-weight: 600;
+			transition: all 300ms ease;
+		}
+	}
+}
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
@@ -870,6 +1065,29 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         }
 } 
 @media (max-width: 992px){
+    .StoreDetailMenuItem_container{
+        position: sticky;
+        top: 144px;
+        ul.store_detail_order_list {
+         justify-content: space-around;
+         padding: 0;
+          li.store_detail_list {
+             
+              span.storeDetalMenuItemCursor {
+                  font-size: 14px;
+                 
+              }
+            }
+        }
+      }
+      .adversticebanner_header{
+        position: relative;
+        h1{
+            font-size: 22px;
+            width: 80%;
+        }
+           
+    }
     .ad_page{
         .ad_imageTextSection{
             margin-bottom: 40px;
@@ -941,6 +1159,30 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
     }
 }
 @media (max-width: 768px){
+    .oopss {
+        width: 100%;
+        padding: 10px;
+        .errortext {
+            font-size: 22px;
+            img {
+                height: 200px;
+            }
+            span {
+                font-size: 22px;
+            }
+            p {
+               
+                    font-size: 14px;
+                
+            }
+            .back {
+                font-size: 15px;
+                padding: 8px;
+                font-weight: 600;
+            }
+        }
+    }
+    
     .ad_page{
         .ad_imageTextSection{
             margin-bottom: 40px;
@@ -1080,9 +1322,27 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
                 }}
        }
     }
+    .StoreHeader{
+        padding: 15px;
+       
+        .newFlavourimage_div {
+            height: 100px;
+            width: 100px;
+           
+        }
+    
+    }
 }
 @media (max-width: 576px){
     .ad_page{
+        .adversticebanner_header{
+            position: relative;
+            h1{
+                font-size: 18px;
+                width: 90%;
+            }
+               
+        }
         .ad_imageTextSection{
             margin-bottom: 24px;
             .ad_textArea{
@@ -1132,6 +1392,18 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
      
 }
 @media (max-width: 480px){
+    .StoreDetailMenuItem_container{
+      
+        ul.store_detail_order_list {
+        
+          li.store_detail_list {
+             
+              span.storeDetalMenuItemCursor {
+                  font-size: 14px;
+              }
+            }
+        }
+    }
     .viewallbtn{
         font-size: 14px;
       }
@@ -1235,7 +1507,21 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         .acard_title{
         text-align: center;
       }}}
-      }
+    }
+    .StoreHeader{
+       
+      
+        .newFlavourimage_div {
+            height: 75px;
+            width: 75px;
+        }
+        .newFlavourBannerSubHead {
+            font-size: 12px;
+        }
+        .StoreHeader_Heading{
+            font-size: 16px;
+        }
+    }
 }
 @media (max-width:400px){
     footer {

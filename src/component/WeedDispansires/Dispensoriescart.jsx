@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Rating } from '@mui/material';
 import { modifystr , isShopOpen } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
+import clases from '@/styles/customstyle.module.scss'
 const Dispensoriescart = ({ ele }) => {
   const classes = useStyles()
   return (

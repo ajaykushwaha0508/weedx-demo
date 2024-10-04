@@ -107,11 +107,11 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                 </div>
                                 <div className="product_cart_review my-3">
                                     { new Array(items.rating).fill(null).map((data, index) => (
-                                        <BsStarFill key={index} size={16} color="#31B665" className="product_search_rating_star" />
+                                        <BsStarFill key={index} size={16} color="#31B665" className="" />
                                     ))}
 
                                     {new Array(5 - items.rating).fill(null).map((data, index) => (
-                                        <BsStar key ={index} size={16} color="#31B665" className="product_search_rating_star" />
+                                        <BsStar key ={index} size={16} color="#31B665" className="" />
                                     ))}
                                 </div>
                                 <div className='weight_font my-3'>

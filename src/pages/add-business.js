@@ -4,7 +4,7 @@ import Link from "next/link";
 import Business from "@/component/tableofcontent/Business";
 import Businesspageseo from "@/component/ScoPage/businesspageseo";
 import classes from '@/styles/customstyle.module.scss'
-
+import AdvertiseBanner from '../../public/image/ADDBUSINESSBanner.webp';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -31,7 +31,11 @@ const ssss = useStyles()
                 {`Add Your Business to WeedX.io`}
               </h1>
             </div> */}
-            <Bgheader text={'Add Your Business to WeedX.io'}/>
+            {/* <Bgheader text={'Add Your Business to WeedX.io'}/> */}
+            <div className={classes.adversticebanner_header}>
+                    <h1>{'Add Your Business to WeedX.io'}</h1>
+                    <Image src={AdvertiseBanner.src} alt={"banner image"}  width={400} height={100} />
+                  </div>
 
             <div className={`${classes.tbusiness_content} justify-content-between`}>
               <div className={classes.tbusiness_maincentent}>

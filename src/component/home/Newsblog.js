@@ -8,7 +8,6 @@ import Link from "next/link";
 import ScrollContainer from 'react-indiana-drag-scroll';
 // import { LazyLoadImage } from "react-lazy-load-image-component";
 import { modifystr } from "../../hooks/utilis/commonfunction";
-import DeliverServiceSkeleton from '@/component/skeleton/DeliveryServicesSkeleton'
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.scss'
 const Newsblog = (props) => {
@@ -26,9 +25,9 @@ const Newsblog = (props) => {
                         <ScrollContainer className="ScrollContainerRelative">
                                 {News?.map((ele, index) => {
                                     return (
-                                        <Link href={`/${ ele.CategoryName ==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index}> 
-                                            <div className="new_blog_card">
-                                                <div className="new_blog_card_img">
+                                        <Link href={`/${ ele.CategoryName ==='BLOGS'? "blogs":'cannabis-news'}/${modifystr(ele.Title)}/${ele.id}`} key={index} className="d-block"> 
+                                            <div className={clases.new_blog_card}>
+                                                <div className={clases.new_blog_card_img}>
                                                     <Image 
                                                      width={100}
                                                      height={100}
@@ -39,16 +38,16 @@ const Newsblog = (props) => {
                                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                     style={{ pointerEvents: "none" }} />
                                                 </div>
-                                                <div className="new_blog_card_text">  
-                                                    <span className=" latest_font_size text-capitalize">
+                                                <div className={clases.new_blog_card_text}>  
+                                                    <span className={`${clases.latest_font_size} text-capitalize`}>
                                                         {ele.Title}
                                                     </span>
-                                                  
                                                 </div>
                                             </div>
                                         </Link>
                                     )
-                                })}
+                                   })
+                                }
                           
                         </ScrollContainer>
                  
