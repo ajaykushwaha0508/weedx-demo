@@ -64,7 +64,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         console.log("weed-dispensaries/")
         navigate.push({
           pathname: '/login',
-        });;
+        });
       }
       return;
     }
@@ -273,8 +273,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       <div className="col-12 order_summary_flex">
         <div className=" add_prod_cart_summary_p">
           <p>State tax</p>
-        </div>
           <p>$0</p>
+        </div>
       </div>
       <div className="col-12 order_summary_flex">
         <div className=" add_prod_cart_summary_p">
