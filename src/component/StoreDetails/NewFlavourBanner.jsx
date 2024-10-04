@@ -30,7 +30,7 @@ const NewFlavourBanner = ({ delBtn }) => {
            
                {  delBtn?.map((data, index) =>
                  {  
-                    return  <div className="d-flex align-items-md-start align-items-center   gap-lg-5 gap-md-4 gap-2">
+                    return  <div className="d-flex align-items-md-start align-items-center   gap-lg-5 gap-md-4 gap-2" key={index}>
                         <div className="d-inline">
                             <div className={clases.newFlavourimage_div}>
                                 <Image
@@ -100,7 +100,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                 {  
                     delBtn?.map((data, index) =>
                     { 
-                       return  <div className="d-block d-md-none">
+                       return  <div className="d-block d-md-none" key={index}>
                             <div className="d-flex gap-3 my-2 align-items-center">
                                 <div className='d-flex gap-1 align-items-center'>
                                     <BsStarFill size={16} color="#FFD700" />
