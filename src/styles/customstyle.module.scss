@@ -13,9 +13,62 @@
     border-radius: 5px;
     border: 1px solid #ebebeb;
 }
+.viewallbtn{
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all .3s ease;
+    &:hover{
+        color: #31B655;
+    }
+}
 .blogCardImage {
     width: 100px;
 }
+.CategoryBordrr{
+    .catagoryTabs_section{
+       padding: 10px;
+       .shopByCategoryHeading {
+        font-weight: 700;
+        font-size: 25px;
+        color: #333333;
+        line-height: 2;
+      }
+      .CategorySliderImageBlock{
+        .catagoriesTabImg{
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: all .3s ease;
+            object-fit: cover;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            &:hover{
+                border: 2px solid #31B665;
+              }
+          }
+          .Category_title{ 
+                p{
+                font-weight: 400;
+                font-size: 14px;
+                color: #707070;
+                margin: 0;
+                text-transform: capitalize;
+            }
+        }
+      }
+    }
+}
+.homecardRating{
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background-color: #31B655;
+    border-radius:  0 10px 0 10px;
+    padding: 2px 4px;
+  }
 .ad_page{
     .ad_imageTextSection{
         margin-bottom: 50px;
@@ -424,7 +477,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
       }
 }
-
 footer {
 	.footer_main_div_display {
 		border: 1px solid #E7E7E7;
@@ -596,6 +648,157 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
 	color: #31B665;
 	font-weight: 600;
 }
+.homeBannerContainer{
+    .mobile_imges{
+        display: none;
+      }
+      
+    .homePageBanner_container {
+        width: 100%;
+        margin-bottom: 12px;
+        .HomePageBanner_image {
+            width: 100%;
+            height: 100%;
+          }
+    }
+}
+.recentViewProductSlider {
+	scrollbar-width: none;
+	display: flex;
+	flex-wrap: nowrap;
+	border-radius: 6px;
+	color: #333;
+	padding: 1rem;
+	overflow-x: auto;
+	overflow-y: hidden;
+	height: auto;
+	padding-left: 14px;
+	margin: 20px 0;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+    .dispensoriesContainer{
+        min-width: 200px;
+        position: relative;
+        overflow: hidden;
+        width: 200px;
+        .dispensoriesAddressBorder {
+            background: #FFFFFF;
+            border: 1px solid #31B665;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all .4s ease;
+      
+          &:hover{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+           }
+           .dispensoriesAddresCardimg{
+            .dispensories_image {
+                width: 100%;
+                height: 140px;
+                margin: 0 auto;
+                display: block;
+                padding: 10px;
+                padding-bottom: 0;
+              }
+           }
+           .dispensoriesContentContainer {
+            padding: 15px;
+              .dispensoriesHeadings {
+                color: #282625;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin: 0;
+              }
+              .Dispensaries_card_discription {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              }
+              .Dispensaries_card_discription p , .Dispensaries_card_discription span  {
+                color: #949494;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+              .homecardRating{
+                position: absolute;
+                top: 1px;
+                right: 1px;
+                background-color: #31B655;
+                border-radius:  0 10px 0 10px;
+                padding: 2px 4px;
+                .DeliveryServicesRatingTitle {
+                    color: #ffffff;
+                    font-size: 11px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                  }
+              }
+           }
+        }
+    }
+}
+.FeaturedBrandImageContainer{
+    width: 160px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      max-height: 100%;
+      height: auto;
+    }
+  }
+  .about_card_Wraper {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	.about_card {
+		transition: all .3s ease;
+		padding: 20px;
+		width: 23%;
+		border-radius: 14px;
+		border: 1px solid #E1E1E1;
+		background: #FFF;
+		&:hover {
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+		}
+		.about_text {
+			.acard_title {
+				color: #191A1A;
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: normal;
+				text-align: center;
+			}
+			.acard_description {
+				color: #5A7184;
+				font-size: 13px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				margin-bottom: 0;
+			}
+		}
+		.about_card_img {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
@@ -616,7 +819,14 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         font-size: 18px;
       }
 }
-
+@media only screen and (max-width: 1366px){
+    .about_card_Wraper {
+        .about_card{
+            padding: 10px;
+            width: 24%;
+        }
+    }
+  }
 @media (max-width: 1200px){
     .ad_page{
         .ad_imageTextSection{
@@ -659,7 +869,7 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             }
         }
 } 
-@media (max-width:992px){
+@media (max-width: 992px){
     .ad_page{
         .ad_imageTextSection{
             margin-bottom: 40px;
@@ -718,12 +928,19 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
     }
     .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li{
         font-size: 14px;
-      }
-      footer .footer_main_list p.footer_menu_heading{
-        font-size: 16px;
-      }
+    }
+    footer .footer_main_list p.footer_menu_heading{
+    font-size: 16px;
+    }  
+    .about_card_Wraper {
+         row-gap: 30px;
+        .about_card{
+            padding: 25px;
+            width: 48%;
+        }
+    }
 }
-@media (max-width:768px){
+@media (max-width: 768px){
     .ad_page{
         .ad_imageTextSection{
             margin-bottom: 40px;
@@ -802,8 +1019,69 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
            }
         }
     }
+    .homeBannerContainer{
+        .destop_image{
+            display: none;
+        }
+        .mobile_imges{
+            display: block;
+        }
+    }
+    .CategoryBordrr{
+        .catagoryTabs_section{
+           padding: 10px;  
+          .CategorySliderImageBlock{
+                .catagoriesTabImg{
+                    width: 100px;
+                    height: 100px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .recentViewProductSlider {
+        .dispensoriesContainer{
+            min-width: 180px;
+            .dispensoriesAddressBorder{
+                .dispensoriesContentContainer {
+                    padding: 10px;
+                    .dispensoriesHeadings {
+                    font-size: 18px;
+                    margin-bottom: 5px;
+                    }
+                    
+                    .Dispensaries_card_discription {
+                    p{
+                        font-size: 14px;
+                    }
+                    }
+                    .homecardRating{
+                    .DeliveryServicesRatingTitle {
+                        font-size: 16px;
+                    }
+                    }
+                }
+            }
+        }
+       
+    }
+    .FeaturedBrandImageContainer {
+        width: 120px;
+        height: 90px;
+    }
+    .about_card_Wraper {
+        .about_card{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            .about_text {.acard_title{
+                text-align: left;
+                }}
+       }
+    }
 }
-@media (max-width:576px){
+@media (max-width: 576px){
     .ad_page{
         .ad_imageTextSection{
             margin-bottom: 24px;
@@ -853,7 +1131,10 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
       }
      
 }
-@media (max-width:480px){
+@media (max-width: 480px){
+    .viewallbtn{
+        font-size: 14px;
+      }
     .Slider_inner_profile_imgs{
         width: 30px;
         height: 30px;
@@ -891,6 +1172,70 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             }
         }
     }
+    .homeBannerContainer{
+      .homePageBanner_container{
+        margin-bottom: 0;
+      }
+    }
+    .CategoryBordrr{
+        .catagoryTabs_section{
+            .shopByCategoryHeading {
+                font-size: 16px;
+                margin-left: 0px;
+            }
+            .CategorySliderImageBlock{
+                .catagoriesTabImg{
+                    width: 75px;
+                    height: 75px;
+                    cursor: pointer;
+                }
+                .Category_title {
+                    font-size: 12px;
+                  }
+            }
+         }
+    }
+    .recentViewProductSlider {
+        .dispensoriesContainer{
+            min-width: 180px;
+            .dispensoriesAddressBorder{
+                .dispensoriesAddresCardimg{
+                    .dispensories_image {
+                        height: 140px;
+                      }
+                   }
+                .dispensoriesContentContainer {
+                    padding: 10px;
+                  
+                    .dispensoriesHeadings {
+                        font-size: 16px;
+                    }
+                    
+                    
+                    .Dispensaries_card_discription {
+                        p{
+                            font-size: 14px;
+                        }
+                    }
+                    .homecardRating{
+                        .DeliveryServicesRatingTitle {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+    .about_card_Wraper {
+        .about_card{
+        padding: 20px;
+      flex-wrap: wrap;
+      .about_text {
+        .acard_title{
+        text-align: center;
+      }}}
+      }
 }
 @media (max-width:400px){
     footer {
@@ -920,4 +1265,16 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
           }
         }
     }   
+   
+      .CategoryBordrr{
+        .catagoryTabs_section{
+            
+            .CategorySliderImageBlock{
+               
+                .Category_title {
+                    font-size: 10px;
+                }
+            }
+         }
+    }
 }

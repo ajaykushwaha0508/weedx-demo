@@ -39,7 +39,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                                 <h2 className='ellipsis DeliveryItem_heading'>{items.Store_Name}</h2>
                                             </div>
                                             <div>
-                                                <div className='homecardRating'>
+                                                <div className={clases.homecardRating}>
                                                     <Link href={`/weed-deliveries/${modifystr(items.Store_Name)}/${"review"}/${items.id}`}>
                                                         <div className="d-flex dispensories_content_paragraphs">
                                                             <span className='disOPenResRating'>{items.rating === null ? 0 : items.rating.toFixed(0) +".0"}</span>

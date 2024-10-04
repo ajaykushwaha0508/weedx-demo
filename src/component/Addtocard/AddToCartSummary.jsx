@@ -57,10 +57,14 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
   // console.log(state)
   const CheckoutProcess = (event, j) => {
     if (!state.login) {
+      console.log("dfhksdfksdf")
       if (navigate.pathname === '/carts') {
         setOpen(true);
       } else {
-        navigate.push("/login", { query: { navigate } });
+        console.log("weed-dispensaries/")
+        navigate.push({
+          pathname: '/login',
+        });;
       }
       return;
     }
@@ -276,7 +280,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         <div className=" add_prod_cart_summary_p">
           <p>Delivery fee</p>
         </div>
-          <p>${state.DeliveryPrice}</p>
+          <p>${state.DeliveryPrice || "0"}</p>
       </div>
       <div className="col-12 order_Summary_total_container">
         <div className=" order_summary_flex">
@@ -314,7 +318,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                   CheckoutProcess(e);
                 }}
                 className={classes.flotchceckoutbtn}
-                type="submit"
+                // type="submit"
               >
                 {" "}
                 proceed to checkout{" "}

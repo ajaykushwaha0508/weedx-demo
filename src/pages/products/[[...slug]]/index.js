@@ -262,7 +262,7 @@ export const getServerSideProps = async (context) => {
             // Fetch products by subcategory
             product = await fetchProductBySubCategory(query.slug[2], locationObject);
             const subcategoryMatch = modifystr(product[0]?.category_name) === query.slug[0] &&
-            query.slug[1] === modifystr(product[0]?.SubcategoryName) &&  parseInt(query.slug[2]) === product[0]?.Sub_Category_id ;
+                query.slug[1] === modifystr(product[0]?.SubcategoryName) && parseInt(query.slug[2]) === product[0]?.Sub_Category_id;
             if (!subcategoryMatch) {
                 return { notFound: true };
             }

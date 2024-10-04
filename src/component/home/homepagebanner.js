@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import HomePageBannerSkeleton from '../skeleton/DashBoardSkeleton/HomePageBannerSkeleton.jsx';
+import clases from '@/styles/customstyle.module.scss'
 const HomePageBanner = ({props}) => {
     
     const [Skeletoncom, SetSkeleton] = React.useState(false)
@@ -22,9 +23,8 @@ const HomePageBanner = ({props}) => {
         <React.Fragment>
             {
                 !Skeletoncom ?
-
-                    <div className="homeBannerContainer">
-                        <div className="destop_image">
+                    <div className={clases.homeBannerContainer}>
+                        <div className={clases.destop_image}>
                             <Swiper loop={true} autoplay={{
                                 delay: 25000,
                                 disableOnInteraction: false,
@@ -33,19 +33,18 @@ const HomePageBanner = ({props}) => {
                                 {props?.reverse()?.map((items, index) => {
                                     return (
                                         <SwiperSlide key={index}>
-                                            <div className='col-12 homePageBanner_container'>
+                                            <div className={`col-12 ${clases.homePageBanner_container}`}>
                                                 <a href={items?.Link !== null ? items?.Link : "#"}>
                                                     <Image  
-                                                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                    src={items?.Banner}
+                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                        src={items?.Banner}
                                                         alt="Weedx.io Promotion banner"
                                                         title="Weedx.io Promotion banner"
                                                         width={1500}
                                                         quality={1}
                                                         height={500}
                                                         loader={imageLoader}
-                                                        // unoptimized={true}
-                                                        className='HomePageBanner_image'
+                                                        className={clases.HomePageBanner_image}
                                                     />
                                                 </a>
                                             </div>
@@ -54,7 +53,7 @@ const HomePageBanner = ({props}) => {
                                 })}
                             </Swiper>
                         </div>
-                        <div className="mobile_imges">
+                        <div className={clases.mobile_imges}>
                             <Swiper loop={true} autoplay={{
                                 delay: 2000,
 
@@ -64,11 +63,10 @@ const HomePageBanner = ({props}) => {
 
                                     return (
                                         <SwiperSlide key={index}>
-                                            <div className='col-12 homePageBanner_container'>
+                                            <div className={`col-12 ${clases.homePageBanner_container}`}>
                                                 <a href={items?.Link !== null ? items?.Link : "#"} >
 
                                                     <Image
-                                                    
                                                         unoptimized={true}
                                                         src={items?.mobile}
                                                         alt="Weedx.io Promotion banner"
@@ -76,7 +74,7 @@ const HomePageBanner = ({props}) => {
                                                         width={500}
                                                         height={10}
                                                         quality={10}
-                                                        className='HomePageBanner_image'
+                                                        className={clases.HomePageBanner_image}
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         loader={imageLoader}
                                                     />
@@ -96,6 +94,5 @@ const HomePageBanner = ({props}) => {
 
         </React.Fragment>
     )
-
 }
 export default HomePageBanner

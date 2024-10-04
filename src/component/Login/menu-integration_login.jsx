@@ -8,7 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useLocation } from 'react-router-dom'
+import  useLocation  from 'next/router'
 import useStyles from "../../styles/style"
 import { useForm } from "react-hook-form";
 import axios from 'axios';

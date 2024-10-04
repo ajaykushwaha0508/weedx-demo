@@ -952,35 +952,7 @@ input[type=checkbox] {
 
 
 /* dispensories card */
-.dispensoriesHeadings {
-  color: #282625;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin: 0;
-}
 
-.Dispensaries_card_discription {
- 
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.Dispensaries_card_discription p {
-  color: #949494;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.Dispensaries_card_discription span {
-  color: #949494;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 .dispensoriesAddressRatingCol span.rating_title{
   color: #949494;
 font-size: 14px;
@@ -988,39 +960,14 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
-.shopByCategoryHeading {
- 
-  font-weight: 700;
-  font-size: 25px;
-  color: #333333;
-  line-height: 2;
-}
+
 /* end */
 
 
 /* category */
 
-.catagoriesTabImg{
-  width: 120px;
-  height: 120px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  transition: all .3s ease;
-  object-fit: cover;
-  border: 2px solid transparent;
-  border-radius: 50%;
-}
-.catagoriesTabImg:hover{
-  border: 2px solid #31B665;
-}
-.Category_title p{
-  font-weight: 400;
-  font-size: 14px;
-  color: #707070;
-  margin: 0;
-  text-transform: capitalize;
-}
+
+
 
 /*end*/
 /* weedCard */
@@ -3169,24 +3116,8 @@ border-radius: 3px;
   font-size: 15px;
   color: #707070;
 }
-
-
-
-
 /* end */
 /* recentViewProduct */
-.recentViewProductSlider {
-  scrollbar-width: none;
-  display: flex;
-  flex-wrap: nowrap;
-  border-radius: 6px;
-  color: #333;
-  padding: 1rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: auto;
-  padding-left: 14px;
-}
 .customSearchBar:focus{
   border: 1px solid #31B655;
   box-shadow: none !important;
@@ -3322,16 +3253,7 @@ border-radius: 3px;
   /* background: url(); */
 }
 
-.dispensoriesAddressBorder {
-  background: #FFFFFF;
-  border: 1px solid #31B665;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all .4s ease;
-}
-.dispensoriesAddressBorder:hover{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
- }
+
 .RecentViewScrollContainerRelative {
   width: 100%;
   display: flex;
@@ -3350,23 +3272,14 @@ border-radius: 3px;
   justify-content: flex-start;
   position: relative;
 }
-.dispensoriesContentContainer {
-  padding: 15px;
-}
+
 .lawOptionCountry_state_List{
   transition: all .3s ease;
 }
 .lawOptionCountry_state_List:hover{
   color: #31B655;
 }
-.dispensories_image {
-  width: 100%;
-  height: 140px;
-  margin: 0 auto;
-  display: block;
-  padding: 10px;
-  padding-bottom: 0;
-}
+
 .recentViewProductCard {
   width: 306px;
   flex: 0 0 auto;
@@ -3376,9 +3289,7 @@ border-radius: 3px;
   height: 100%;
   border: 1px solid #949494;
 }
-.recentViewProductSlider::-webkit-scrollbar {
-  display: none;
-}
+
 .recentViewImageContainer {
   height: 120px;
 }
@@ -3627,12 +3538,6 @@ background: #31B665;
 /* end */
 
 /* bestDealCards */
-.bestDealsCard_Heading_offers {
-  font-weight: 700;
-  font-size: 36px;
-  color: #000000;
-}
-
 .bestDealCards {
   height: auto;
 }
@@ -3889,13 +3794,7 @@ background: #31B665;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.432);
 }
-.DeliveryServicesRatingTitle {
-  color: #ffffff;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
+
 .dispensoriesBanner {
   background: #E8FFF1;
   height: 130px;
@@ -4906,15 +4805,7 @@ margin: 0;
 .sliderProfile_list ol li {
   list-style: none;
 }
-.viewallbtn{
-  color: #000;
-  font-size: 18px;
-  font-weight: 500;
-  transition: all .3s ease;
-}
-.viewallbtn:hover{
-  color: #31B655;
-}
+
 .slider_profile_list {
   margin-left: 8px;
   color: #707070;
@@ -6530,20 +6421,8 @@ width: max-content;
 .BackPageBtn .backPgBtnImg img{
   width: 100%;
 }
-.dispensoriesContainer{
-  min-width: 200px;
-  position: relative;
-  overflow: hidden;
-  width: 200px;
-}
-.homecardRating{
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  background-color: #31B655;
-  border-radius:  0 10px 0 10px;
-  padding: 2px 4px;
-}
+
+
 .productDetailsCardWeigth , .productDetailsCardQuestity{
    display: flex;
    align-items: center;
@@ -6966,53 +6845,6 @@ line-height: 2;
  }
 }
 /* End */
-
-
-/* Home .css */ 
-.mobile_imges{
-  display: none;
-
-}
-.homePageBanner_container {
-  width: 100%;
-  margin-bottom: 12px;
-}
-
-.HomePageBanner_image {
-  width: 100%;
-  height: 100%;
-}
-
-.feature_brands_section{
-padding: 40px 0;
-}
-
-
-
-/* .featuredBrandTitle {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 2;
-  color: #525252;
-  text-align: center;
-  margin-bottom: 0;
-} */
-.feature_brands{
-width: 200px;
-cursor: pointer;
-
-}
-.feature_brands .FeaturedBrandImageContainer{
-  width: 200px;
-height: 120px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-.feature_brands .FeaturedBrandImageContainer img{
-  max-height: 100%;
-  height: auto;
-}
 .About_weedx{
   background-color: #F9F9F9;
   padding: 30px 20px;
@@ -7029,48 +6861,7 @@ align-items: center;
   line-height: normal;
   text-align: center;
 }
-.about_card_Wraper{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-margin-top: 30px;
-}
-.about_card_Wraper .about_card{
-transition: all .3s ease;
-padding: 20px;
-width: 23%;
-border-radius: 14px;
-border: 1px solid #E1E1E1;
-background: #FFF;
-}
-.about_card_Wraper .about_card:hover{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-.about_card_Wraper .about_card .about_text .acard_title{
-  color: #191A1A;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-align: center;
-}
-.about_card_Wraper .about_card .about_text .acard_description{
-  color: #5A7184;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 0;
-}
-.about_card_Wraper .about_card .about_card_img{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-.about_card_Wraper .about_card .about_card_img img{
-  max-width: 100%;
-}
+
 .new_blog_card{
   width: 220px;
   border-radius: 8px;
@@ -7080,17 +6871,17 @@ background: #FFF;
   height: 100%;
 }
 .actionBtn{
-    margin-top: 10px;
-    transition: all .4s ease;
-    color: #31B665; 
-    width: 100%; 
-    border: 2px solid #31B665;
-    height: 38px;
-    font-size: 14px; 
-    border-radius: 5px;
-    text-transform: none;
-    background-color: #ffff;
-    font-weight: 500;
+  margin-top: 10px;
+  transition: all .4s ease;
+  color: #31B665; 
+  width: 100%; 
+  border: 2px solid #31B665;
+  height: 38px;
+  font-size: 14px; 
+  border-radius: 5px;
+  text-transform: none;
+  background-color: #ffff;
+  font-weight: 500;
 }
 .textCapitalize{
   text-transform: lowercase;
@@ -7104,8 +6895,8 @@ background: #FFF;
   background-color: #00b96a;
 }
 .new_blog_card .new_blog_card_img{
-   width: 100%;
-   height: 140px;
+  width: 100%;
+  height: 140px;
 }
 .new_blog_card .new_blog_card_img img{
   width: 100%;
@@ -8883,13 +8674,7 @@ color: #616161;
     font-size: 14px;
   }
 }
-@media only screen and (max-width: 1366px){
-  .about_card_Wraper .about_card{
-    padding: 10px;
-    width: 24%;
-  }
 
-}
 @media (min-width: 1330px) {
   .prod_inc_dec_quant_heading h1 {
     font-size: 18px;
@@ -9174,16 +8959,11 @@ color: #616161;
   .BlogContainer section{
     width: 342px;
   }
-  .about_card_Wraper .about_card{
-    padding: 25px;
-    width: 48%;
-  }
+
   .despensories_card_container {
     width: 48%;
   }
-  .about_card_Wraper{
-  row-gap: 30px;
-  }
+
   .Display_blog {
     display: block;
   }
@@ -9256,10 +9036,6 @@ color: #616161;
   .noReview .noreview_description{
     width: 100%;
   }
-  .feature_brands .FeaturedBrandContainer  .FeaturedBrandImageContainer {
-    width: 180px;
-    height: 180px;
-}
   .newProductAboutUs_headings {
     font-size: 18px;
   }
@@ -9382,32 +9158,19 @@ color: #616161;
   .add_prod_cart_summary_p p {
     font-size: 12px;
   }
-    .mobile_imges{
-        display: block;
-    
-    }
+
     .About_weedx .section_main_description{
       font-size: 12px;
     }
-    .destop_image{
-        display: none;
-    }
-    .about_card_Wraper .about_card{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    
-    }
+ 
+ 
     .about_card_img{
       width: 25%;
     }
     .about_text{
       width: 70%;
     }
-    .about_card_Wraper .about_card .about_text .acard_title{
-    text-align: left;
-    }
+
     .despensories_card_container {
       width: 100%;
     }
@@ -9570,11 +9333,8 @@ font-size: 24px;
   }
   .blogCommentEachCards{
     width: 100%;
-  }
-  .feature_brands .FeaturedBrandContainer .FeaturedBrandImageContainer {
-    width: 150px;
-    height: 90px;
-}
+  }  
+  
   .mobile_view{
     display: block;
   }
@@ -9584,9 +9344,7 @@ font-size: 24px;
   .prod_cat_left_sec {
     width: 100%;
     overflow-x: scroll;
-
   }
-
   .prod_filter_icon {
    display: none;
   }
@@ -9669,17 +9427,6 @@ font-size: 24px;
   .newProductAboutUs_description{
     font-size: 14px;
   }
-  .DeliveryServicesRatingTitle {
-    font-size: 16px;
-  }
- 
-  .dispensoriesHeadings {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  .Dispensaries_card_discription p {
-    font-size: 14px;
-}
 
   .weedx_number_container ol li {
     font-size: 12px;
@@ -9688,17 +9435,6 @@ font-size: 24px;
   .homePageSignupBtnMargin {
     margin-top: 20px;
   }
-  .Category_title {
-    font-size: 16px;
-    margin-top: 15px;
-  }
-  .catagoriesTabImg{
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-  }
- 
-
 
    .noreview_title {
      font-size: 18px;
@@ -10023,13 +9759,9 @@ font-size: 24px;
   .loginCkBtn:hover{
     font-size: 12px;
   }
-  .feature_brands .FeaturedBrandContainer .FeaturedBrandImageContainer {
-    width: 120px;
-    height: 80px;
-}
-.newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image{
-  height: auto;
-}
+  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image{
+    height: auto;
+  }
   .search_bar_box{
     width: 100%;
   }
@@ -10203,10 +9935,6 @@ font-size: 24px;
     font-size: 24px;
   }
 
-  .bestDealsCard_Heading_offers {
-    font-size: 14px;
-  }
-
   .bestDealsHead_container {
     font-size: 14px;
   }
@@ -10292,10 +10020,7 @@ font-size: 24px;
   .AddProductCartContainerinner .Add_product_cart_left_container_item{
     width: 200%;
   }
-  .shopByCategoryHeading {
-    font-size: 16px;
-    margin-left: 0px;
-  }
+ 
   .CategoryBordrr{
    padding: 0 16px;
   }
@@ -10312,31 +10037,9 @@ font-size: 24px;
   .productListHeadings{
     font-size: 14px;
   }
-  .DeliveryServicesRatingTitle{
-     font-size: 14px;
-  }
   .strainTypeInner_container {
     height: 160px;
-}
-  .catagoriesTabImg{
-    width: 75px;
-    height: 75px;
-    cursor: pointer;
-}
- 
-
-  .dispensoriesContentContainer {
-    padding: 10px;
-}
-.dispensoriesHeadings {
-  font-size: 16px;
-}
-
-.DeliveryServicesRatingTitle {
-  
-  font-size: 14px;
-}
-
+  }
   .section_main_title {
     font-size: 16px;
     margin-bottom: 0;
@@ -10344,13 +10047,6 @@ font-size: 24px;
   .section_main_subtitle { 
       font-size: 12px;
   }
-  .viewallbtn{
-    font-size: 14px;
-  }
-  .homePageBanner_container{
-    margin-bottom: 0;
-  }
- 
   .backwoodar_heading {
     font-size: 16px;
   }
@@ -10590,13 +10286,6 @@ font-size: 24px;
       .New_flav_btn a{
         width: 100%;
       }
- 
-    .dispensories_image {
-      height: 140px;
-    }
-    .dispensoriesContainer{
-      min-width: 180px;
-    } 
     .contentarea .thankforsubscribe {
       font-size: 20px;
       word-spacing: 7px;
@@ -10707,16 +10396,12 @@ font-size: 24px;
     background-color: #F9F9F9;
     padding:10px;
   }
-  .catagoryTabs_section{
-    padding: 10px;
-  }
+
   .FeaturedBrandImage_height {
     height: 200px;
     width: 100%;
   }
-  .about_card_Wraper .about_card{
-    padding: 20px;
-  }
+
 
   .about_card_img{
     width: 100%;
@@ -10724,13 +10409,8 @@ font-size: 24px;
   .about_text{
     width: 100%;
   }
-  .about_card_Wraper .about_card{
-  flex-wrap: wrap;
-  
-  }
-  .about_card_Wraper .about_card .about_text .acard_title{
-    text-align: center;
-  }
+
+
   .isweedLegalHeading{
     font-size: 18px;
   }
@@ -10798,9 +10478,7 @@ font-size: 24px;
   .order_conform_card{
     width: 100%;
   }
-  .Category_title {
-    font-size: 12px;
-  }
+
  .login_signup_reset_container {
     width: 100%;
  }
@@ -10855,9 +10533,7 @@ font-size: 24px;
   .headingTypeLabelContainerThirdFourth {
     padding-top: 54px;
   }
-  .Category_title {
-    font-size: 10px;
-  }
+
   .qty_selector{
     width: 120px;
     font-size: 14px;
@@ -10872,12 +10548,11 @@ font-size: 24px;
   }
 }
 @media(max-width:320px) {
-  
- .prod_cat_right_sec .row>*{
-    padding-left: 5px  !important;
-    padding-right: 5px !important;
- }
- .addToCartHeadingss {
-  font-size: 18px !important;
- }
+  .prod_cat_right_sec .row>*{
+      padding-left: 5px  !important;
+      padding-right: 5px !important;
+  }
+  .addToCartHeadingss {
+    font-size: 18px !important;
+  }
 }
