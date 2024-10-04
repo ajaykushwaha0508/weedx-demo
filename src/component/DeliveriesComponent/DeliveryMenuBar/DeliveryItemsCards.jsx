@@ -9,6 +9,7 @@ import { GiFlowerPot } from "react-icons/gi"
 import Link from 'next/link';
 import { Rating } from '@mui/material';
 import Image from 'next/image';
+import clases from '@/styles/customstyle.module.scss'
 import { modifystr } from '@/hooks/utilis/commonfunction';
 const DeliveryItemsCard = ({ Deliverie }) => {
     const classes = useStyles()
