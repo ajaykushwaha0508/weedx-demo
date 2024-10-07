@@ -19,7 +19,7 @@ import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { CiLock } from "react-icons/ci"
 import LoginWithGoogle from '../component/LoginWithGoogle/LoginWithGoogle';
 import Createcontext from "../hooks/context"
-const Login = () => {
+const Login = (props) => {
     const cookies = new Cookies();
     const pathname = usePathname()
     const method = useForm()
@@ -29,7 +29,7 @@ const Login = () => {
     const classes = useStyles()
     const [showPassword, setShowPassword] = React.useState(false);
     const router = useRouter()
-    const { query } = router;
+
     const [dulicate] = React.useState([])
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
@@ -49,7 +49,7 @@ const Login = () => {
                 cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                    router.push('/')
+                props.redirect === "cart" ?  router.push('/cart') : router.push('/')
                 Setloading(false)
             }
             else {
@@ -185,3 +185,12 @@ const Login = () => {
 }
 
 export default Login
+
+
+export async function getServerSideProps(context) {
+    return {
+        props: {
+            redirect: context.query.referer || ''
+        }
+    }
+}

@@ -318,7 +318,7 @@ const AddToCartReview = () => {
                         </div>
                     </>
                     :
-                    <div className="">
+                    <div >
                         {AfterDiscount?.map((ele, index) => {
                             let wrigh;
                             if (ele.Price.Weight) {
@@ -329,8 +329,7 @@ const AddToCartReview = () => {
                             return (
                                 <div className="addtoproduct_card" key={index}>
                                     <div className='mb_addtoproduct_card_img'>
-                                        <Link href={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Sub_Category_id}`}>
-
+                                        <Link href={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
                                             <Image
                                             width={100}
                                             height={100}
