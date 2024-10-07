@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import dynamic from 'next/dynamic'
 import useStyles from "../../../styles/style"
-// import ProductFilter from "../../../component/Filter/ProductFilter";
 const ProductFilter = dynamic(() => import('../../../component/Filter/ProductFilter'), { ssr: true });
 const ProductList = dynamic(() => import('../../../component/productcard/ProductList'), { ssr: true });
 import { BsLayoutSplit } from "react-icons/bs"
@@ -298,35 +297,14 @@ export default function DispensoriesDetails(props) {
     }
         return (
 
-        // !Despen.length ? <Loader /> 
-        // : 
+      
         <div>
-            {/* <div>
-                {location.asPath.slice(0, 18) === "/weed-dispensaries" && (
-                    <div style={{ fontSize: '12px' }}>
-                        <span
-                            style={{ fontSize: '12px', cursor: 'pointer' }}
-                            onClick={() => navigationtab('/weed-dispensaries')}
-                        >
-                            weed-dispensaries
-                        </span>
-                        {" >"}
-                        <span
-                            style={{ fontSize: '12px', cursor: 'pointer' }}
-                            onClick={() => navigationtab('/weed-dispensaries', params.StoreName, id)}
-                        >
-                            {params.StoreName}
-                        </span>
-                        {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
-                    </div>
-                )}
-            </div> */}
+           
             <div>
                 {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
                     ?
                     <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>
                     :
-                    // <Embedded Despen={Despen} locationStore={location.asPath}></Embedded>
                     ""
                 }
                 <div className={clases.page_breadcrum}>
@@ -354,17 +332,19 @@ export default function DispensoriesDetails(props) {
                                 (Boolean(DespensariesData.length) ?
                                     <>
                                         <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-                                        <div className="row" >
-                                            <ProductFilter Store_id={Despen[0]?.id}
-                                                id={id}
-                                                ProductFilterData={ProductFilterData}
-                                                Setarr1={DespensariesData}
-                                                arr={DespensariesData}
-                                            />
-                                            <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                       
+                                            <div className="row" >
+                                                <ProductFilter Store_id={Despen[0]?.id}
+                                                    id={id}
+                                                    ProductFilterData={ProductFilterData}
+                                                    Setarr1={DespensariesData}
+                                                    arr={DespensariesData}
+                                                />
+                                                <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                                    <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                </div>
                                             </div>
-                                        </div>
+                                        
                                     </>
                                     :
                                  

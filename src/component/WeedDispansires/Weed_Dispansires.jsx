@@ -7,11 +7,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../hooks/context";
 import dynamic from 'next/dynamic'
+import newclases from '@/styles/customstyle.module.scss';
 const WebContent = dynamic(() => import('../WeedDispansires/Webcontent'), { ssr: true });
 import { modifystr } from "../../hooks/utilis/commonfunction";
 const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, product, location  ,  urlcscr}) => {
     const { state } = useContext(Createcontext)
- 
     return (
         <React.Fragment>
 
@@ -23,7 +23,7 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                                 <div className="row">
                                     <div className="col-12 dispensories_open_search_result mt-2">
                                         <div className="form-outline" data-mdb-input-init>
-                                            <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......" type="search" id="form1" className={searchtext?.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+                                            <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......" type="search" id="form1" className={searchtext?.length !== 0 ? `form-control ${newclases.customSearchBar}` : `form-control ${newclases.customSearchBar} ${newclases.customSearchBarsearchicon}`} />
                                         </div>
                                     </div>
                                 </div>
