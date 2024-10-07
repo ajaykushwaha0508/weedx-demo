@@ -35,7 +35,7 @@ const Signup = () => {
             }else{
                 router.push({
                     pathname: '/signupwithemail',
-                    query: { state:  { State } }
+                    query: { useremail:   State.email  }
                 })
             }
         }else{
@@ -47,13 +47,6 @@ const Signup = () => {
      
       
     }
-    React.useEffect(()=>{
-        document.documentElement.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant", // Optional if you want to skip the scrolling animation
-        });
-    },[])
   return (
     <div className="login_signup_reset_container ">
     <div className='row'>
@@ -64,8 +57,6 @@ const Signup = () => {
     </div>
     <form onSubmit={method.handleSubmit(Submit)}>
         <div className='row'>
-            {/* <label htmlFor='Email'>Email</label> */}
-
             <div className='col-lg-12  mt-2'>
                 <TextField
                     id="Email"

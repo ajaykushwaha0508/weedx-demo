@@ -57,14 +57,13 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
   // console.log(state)
   const CheckoutProcess = (event, j) => {
     if (!state.login) {
-      console.log("dfhksdfksdf")
       if (navigate.pathname === '/carts') {
         setOpen(true);
       } else {
-        console.log("weed-dispensaries/")
         navigate.push({
           pathname: '/login',
-        });
+          query: { referer:  'cart'  }
+      })
       }
       return;
     }
