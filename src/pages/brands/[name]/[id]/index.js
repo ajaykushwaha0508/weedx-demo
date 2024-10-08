@@ -32,7 +32,7 @@ const RelatedVerifyBrand = (props) => {
     //         return () => clearTimeout(getData)
     //     } 
     // }, [searchval])
-    console.log(props.params.brand[0].Brand_Logo)
+
     return (
       <div className="container">
             {state.permission && <Currentlocation></Currentlocation>}

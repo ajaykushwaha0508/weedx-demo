@@ -64,7 +64,7 @@ app.prepare().
               const contentType = response.headers['content-type'];
               if (contentType && contentType.includes('application/json')) {
                   const data = response.data;
-                  console.log(`Fetched data from ${url}:`, data);
+                 
               } else {
                   console.error(`Unexpected content type for ${url}: ${contentType}`);
                   console.error(`Response body:`, response.data); // This will log the HTML or other content

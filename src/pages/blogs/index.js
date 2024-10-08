@@ -20,7 +20,6 @@ import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
 const Allblogs = (props) => {
-  console.log(props)
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
   const cookies = new Cookies();
@@ -200,7 +199,6 @@ export async function getStaticProps(context) {
     }).catch(() => null);
     const json =  await  res.json()
     const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field  
-    console.log(data)
     return {
       props: {
         initialData: data,
