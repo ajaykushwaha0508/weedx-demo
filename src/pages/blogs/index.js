@@ -20,6 +20,7 @@ import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
 const Allblogs = (props) => {
+  console.log(props)
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
   const cookies = new Cookies();
@@ -35,7 +36,7 @@ const Allblogs = (props) => {
     if (state.login) {
       Post_BlogLike(item?.id, !item.Liked).then((res) => {
 
-        axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/', {
+        axios.get('https://api.cannabaze.com/UserPanel/GetNewbyUser/', {
 
           headers: { Authorization: `Bearer ${token_data}` }
 
@@ -49,7 +50,8 @@ const Allblogs = (props) => {
         })
 
       }).catch(() => {
-
+        setallblogs([])
+        setloader(false)
       })
     }
     else {
@@ -186,7 +188,7 @@ export default Allblogs
 
 export async function getStaticProps(context) {
   try {
-    const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+    const res = await fetch('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -198,6 +200,7 @@ export async function getStaticProps(context) {
     }).catch(() => null);
     const json =  await  res.json()
     const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field  
+    console.log(data)
     return {
       props: {
         initialData: data,

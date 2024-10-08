@@ -175,7 +175,7 @@ app.prepare().
           break;
         case "/sitemap/news-sitemap.xml":
           try {
-            const res1 = await axios.post('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+            const res1 = await axios.post('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
               category: 1,
               limit: 49000
             }, {
@@ -214,7 +214,7 @@ app.prepare().
           break
         case "/sitemap/blogs-sitemap.xml":
           try {
-            const res1 = await axios.post('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+            const res1 = await axios.post('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
               category: 2,
               limit: 49000
             }, {
@@ -716,8 +716,6 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
         res.status(500).send('Internal Server Error');
       }
     });
-
-
     server.get('*', (req, res) => {
 
       return handle(req, res);

@@ -8,7 +8,6 @@ const DeliveryServices = dynamic(() => import('../component/home/deliveryservice
 const HomePageWeedBanner = dynamic(() => import('../component/home/HomePageWeedBanner'));
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'));
 const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
-// const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import Createcontext from "@/hooks/context";
@@ -107,7 +106,7 @@ export async function getServerSideProps(context) {
         },
         body: JSON.stringify(object)
       }).catch(() => null),
-      fetchWithTimeout('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/',
+      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/',
         {
           method: 'POST',
           headers: {
@@ -119,7 +118,8 @@ export async function getServerSideProps(context) {
           })
         }
 
-      ).catch(() => null),
+      ).catch((error) => {
+      } ),
     ]);
 
     const [topbanner, category, bottembannner, getbrand, GetDelivery1, Dispensaries1, news1] = await Promise.all([
