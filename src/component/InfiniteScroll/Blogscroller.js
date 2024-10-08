@@ -44,7 +44,7 @@ const Blogscroller = () => {
         if (showabledata.length === limit) {
             limit=showabledata.length ===0 ? 20 : showabledata.length+10
             try {
-                const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+                const res = await fetch('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json'

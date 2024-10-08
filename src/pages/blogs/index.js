@@ -35,7 +35,7 @@ const Allblogs = (props) => {
     if (state.login) {
       Post_BlogLike(item?.id, !item.Liked).then((res) => {
 
-        axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/', {
+        axios.get('https://api.cannabaze.com/UserPanel/GetNewbyUser/', {
 
           headers: { Authorization: `Bearer ${token_data}` }
 
@@ -49,7 +49,8 @@ const Allblogs = (props) => {
         })
 
       }).catch(() => {
-
+        setallblogs([])
+        setloader(false)
       })
     }
     else {
@@ -186,7 +187,7 @@ export default Allblogs
 
 export async function getStaticProps(context) {
   try {
-    const res = await fetch('https://apiv2.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+    const res = await fetch('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
