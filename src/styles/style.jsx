@@ -667,14 +667,16 @@ const useStyles = makeStyles({
     width:'100%',
     '&.MuiLoadingButton-root':{
       backgroundColor:'white',
-      color:'#fff', 
+      color:'#31B655', 
       height:'50px',
       fontSize:'16px',
       fontWeight:'600',
+      border:'1px solid #31B655',
       "&:hover":{
-           backgroundColor:'#fff',
-           borderColor:'#31B655',
-           color:'#31B655'
+        backgroundColor:'#31B655',
+        borderColor:'#fff',
+        color:'#fff',
+        transition:'all .3s ease'
       }
     }
   },

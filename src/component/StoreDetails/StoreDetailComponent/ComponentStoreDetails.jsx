@@ -12,82 +12,71 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MdSecurity } from "react-icons/md";
 import Openingtime from "./Openingtime";
+import newcalsses from '@/styles/customstyle.module.scss'
 const StoreDetail1 = ({ storeDetails }) => {
-  // console.log(storeDetails ,'storeDetails')
   return (
-    <div className="container-fluid container-lg-full mt-3">
-      <div className="amenities_container">
-        <div className="row center">
-          <div className="col-12  ">
-            <h2 className="amenties_nameHeading">Amenities</h2>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12 ">
-            <ol className="amenities_list">
+    <div className={`${newcalsses.StoreDetailspage} mt-3`}>
+      <div className={newcalsses.amenities_container}>
+       
+            <h2 className={newcalsses.amenties_nameHeading}>{`Amenities`}</h2>
+            <ol className={newcalsses.amenities_list}>
             
               {storeDetails[0]?.Recreational === true && (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <BsFillCarFrontFill /> Recreational
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}>
+                    <BsFillCarFrontFill /> {`Recreational`}
                   </p>
                 </li>
               )}
               {storeDetails[0]?.CarParking ? (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <AiFillCar /> Car Parking
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}>
+                    <AiFillCar /> {`Car Parking`}
                   </p>
                 </li>
               ) : null}
               {storeDetails[0]?.High_chairs_available ? (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <FaWheelchair /> Has Wheel chairs available
-                  </p>
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}>
+                    <FaWheelchair />{` Has Wheel chairs available`} </p>
                 </li>
               ) : null}
 
               {storeDetails[0]?.Medical ? (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <AiOutlinePlus /> Medical
-                  </p>
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}><AiOutlinePlus /> {`Medical`} </p>
                 </li>
               ) : null}
               {storeDetails[0]?.Minimum_21_years_or_older ? (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <MdDoNotDisturb /> 21 years or older
-                  </p>
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}> <MdDoNotDisturb /> {`21 years or older`} </p>
                 </li>
               ) : null}
 
               {storeDetails[0]?.Security_Staff ? (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <MdSecurity /> Security
-                  </p>
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}> <MdSecurity /> {`Security`} </p>
                 </li>
               ) : null}
               {storeDetails[0]?.Cash_on_Delivery ? (
-                <li className="amenties_list_items">
-                  <p className="m-0 amenities_list_item_paragrap listfontStyle">
-                    <BsCashCoin /> COD
-                  </p>
+                <li className={newcalsses.amenties_list_items}>
+                  <p className={newcalsses.amenities_list_item_paragrap}> <BsCashCoin />{` COD`} </p>
                 </li>
               ) : null}
+              {
+                (storeDetails[0]?.Security_Staff || storeDetails[0]?.Cash_on_Delivery || storeDetails[0]?.Minimum_21_years_or_older || storeDetails[0]?.Medical ||  storeDetails[0]?.High_chairs_available ||  storeDetails[0]?.CarParking || storeDetails[0]?.Recreational ) ||   <li className={newcalsses.amenties_list_items}>
+                <p className={newcalsses.amenities_list_item_paragrap}> {`No Amenities Available`} </p>
+              </li>
+              }
             </ol>
-          </div>
-        </div>
+       
       </div>
       <div className="row  my-2">
-        <div className="col-lg-8 store_detail_container my-2 order-sm-first order-last">
-          <div className="row">
+        <div className="col-lg-8 h-100 my-2 order-sm-first order-last">
+       
             <div className="destop_view">
-              <div className="col-12 StoreDetail_paragraph  store_middle_content_top ">
-                <p>About Us</p>
-              </div>
+              <p className={newcalsses.StoreDetail_paragraph}>
+              {`  About Us`}</p>
               <div
                 dangerouslySetInnerHTML={{
                   __html: storeDetails[0]?.Stores_Description,
@@ -99,11 +88,10 @@ const StoreDetail1 = ({ storeDetails }) => {
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <div className="col-12 StoreDetail_paragraph  store_middle_content_top ">
-                    <p>About Us</p>
-                  </div>
+                  id="panel1a-header">
+                  <p className={newcalsses.StoreDetail_paragraph}>
+                    {`About Us`}
+                  </p>
                 </AccordionSummary>
                 <AccordionDetails>
                   <p
@@ -114,7 +102,6 @@ const StoreDetail1 = ({ storeDetails }) => {
                 </AccordionDetails>
               </Accordion>
             </div>
-
             <div className="row mx-0">
               {
                 (storeDetails[0]?.CurbSide_Pickup && Boolean(storeDetails[0]?.CurbSidePickupHours)) && 
@@ -150,67 +137,67 @@ const StoreDetail1 = ({ storeDetails }) => {
                   </div>
                 )}
             </div>
-          </div>
         </div>
-        <div className="col-lg-4 storeDetail_container my-2">
-          <div className="">
-            <h3 className=" store_detail_menu_heading">
+        <div className="col-lg-4  my-2">
+            <h3 className={newcalsses.store_detail_menu_heading} title={storeDetails[0]?.Store_Name}>
               {storeDetails[0]?.Store_Name}
             </h3>
-            <div className="col-12">
-              <ol className="store_detail_SideMenuBar_order_list">
-                {storeDetails[0]?.Stores_Website && (
-                  <li className="StoreDetailSidemenuBarList">
-                    <CiGlobe />
+            <ol className={newcalsses.store_detail_SideMenuBar_order_list}>
+              {storeDetails[0]?.Stores_Website && (
+                <li className={newcalsses.StoreDetailSidemenuBarList}>
+                  <CiGlobe />
 
-                    <span className="StoreDetailSideMenu_listItems text-lowercase">
-                      {" "}
-                      {storeDetails[0]?.Stores_Website}
-                    </span>
-                  </li>
-                )}
-                {storeDetails[0]?.Stores_MobileNo && (
-                  <li className="StoreDetailSidemenuBarList">
-                    <BsTelephone />
-                    <span className="StoreDetailSideMenu_listItems">
-                      {" "}
-                      {storeDetails[0]?.Stores_MobileNo}
-                    </span>
-                  </li>
-                )}
-                {storeDetails[0]?.Order_Type && (
-                  <li className="StoreDetailSidemenuBarList">
-                    <GrDeliver />
-                    <span className="StoreDetailSideMenu_listItems">
-                      {" "}
-                      {storeDetails[0]?.Order_Type}
-                    </span>
-                  </li>
-                )}
-                {storeDetails[0]?.Store_Type && (
-                  <li className="StoreDetailSidemenuBarList">
-                    <IoStorefrontSharp />
-                    <span className="StoreDetailSideMenu_listItems">
-                      {" "}
-                      {storeDetails[0]?.Store_Type}
-                    </span>
-                  </li>
-                )}
-                {storeDetails[0]?.CurbSideStreet && (
-                  <li className="StoreDetailSidemenuBarList">
-                    <IoLocationOutline />
-                    <span className="StoreDetailSideMenu_listItems">
-                      {" "}
-                      {storeDetails[0]?.CurbSideStreet}
-                    </span>
-                  </li>
-                )}
-              </ol>
-            </div>
-          </div>
+                  <span className={`${newcalsses.StoreDetailSideMenu_listItems} text-lowercase`}>
+                    {storeDetails[0]?.Stores_Website}
+                  </span>
+                </li>
+              )}
+              {storeDetails[0]?.Stores_MobileNo && (
+                <li className={newcalsses.StoreDetailSidemenuBarList}>
+                  <BsTelephone />
+                  <span className={newcalsses.StoreDetailSideMenu_listItems}>
+                    
+                    {storeDetails[0]?.Stores_MobileNo}
+                  </span>
+                </li>
+              )}
+              {storeDetails[0]?.Order_Type && (
+                <li className={newcalsses.StoreDetailSidemenuBarList}>
+                  <GrDeliver />
+                  <span className={newcalsses.StoreDetailSideMenu_listItems}>
+                    {" "}
+                    {storeDetails[0]?.Order_Type}
+                  </span>
+                </li>
+              )}
+              {storeDetails[0]?.Store_Type && (
+                <li className={newcalsses.StoreDetailSidemenuBarList}>
+                  <IoStorefrontSharp />
+                  <span className={newcalsses.StoreDetailSideMenu_listItems}>
+                    {" "}
+                    {storeDetails[0]?.Store_Type}
+                  </span>
+                </li>
+              )}
+              {storeDetails[0]?.CurbSideStreet && (
+                <li className={newcalsses.StoreDetailSidemenuBarList}>
+                  <IoLocationOutline />
+                  <span className={newcalsses.StoreDetailSideMenu_listItems}>
+                    {" "}
+                    {storeDetails[0]?.CurbSideStreet}
+                  </span>
+                </li>
+              )}
+            </ol>
         </div>
       </div>
     </div>
   );
 };
 export default StoreDetail1;
+
+
+//    *   3
+//   ***  2
+//  *****  1
+// *******

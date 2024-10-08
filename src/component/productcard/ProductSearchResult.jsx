@@ -355,7 +355,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                     ))}
                                                                 </div>
                                                             </div>
-                                                            <div className=" productPriceDivHeight">
+                                                            <div className="text-dark">
                                                                 <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
                                                             </div>
                                                             <div className="discount_boc">{
@@ -460,7 +460,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                         <span className="product_search_result_sub_heading ">({items.TotalRating})</span>
                                                     </div>
                                                 </div>
-                                                <div className=" productPriceDivHeight">
+                                                <div className=" text-dark">
                                                     <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
                                                 </div>
                                                 <div className="discount_boc">{
