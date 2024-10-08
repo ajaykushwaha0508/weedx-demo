@@ -13,36 +13,36 @@ import Slider from "@mui/material/Slider";
 import { PriceFilter } from "../../hooks/apicall/api";
 import Createcontext from "../../hooks/context";
 import Loader from "../Loader/Loader";
-
+import newclases from '@/styles/customstyle.module.scss';
 
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
-  const classes = useStyles();
-  const ref = useRef();
-  const location =useRouter()
-  const { state, dispatch } = React.useContext(Createcontext);
-  const [select, setselect] = useState("Sort by A to Z");
-  const [searchtext, setsearchtext] = React.useState("")
-  const [weightitems, setweightitems] = useState([]);
-  const [loading, setloading] = useState(false);
-  const [stainitems, setstainitems] = useState([]);
-  const [OpenEvent, SetOpenEvent] = useState(null);
-  const [OpenSortedData, SetOpenSortedData] = useState(null);
-  const [Filter, SetFilter] = useState([]);
-  const [SubCategory, SetSubCategory] = useState([]);
-  const [catname, setcatname] = useState("");
-  const [catname2, setcatname2] = useState("");
-  const SortedArrayData = [{ Id: 1, name: "Sort by" }];
-  const SortedData = [
-    { type: "Sort by A to Z" },
-    { type: "Sort by Z to A" },
-    { type: "Sort by low to high" },
-    { type: "Sort by high to low" },
-  ];
+    const classes = useStyles();
+    const ref = useRef();
+    const location =useRouter()
+    const { state, dispatch } = React.useContext(Createcontext);
+    const [select, setselect] = useState("Sort by A to Z");
+    const [searchtext, setsearchtext] = React.useState("")
+    const [weightitems, setweightitems] = useState([]);
+    const [loading, setloading] = useState(false);
+    const [stainitems, setstainitems] = useState([]);
+    const [OpenEvent, SetOpenEvent] = useState(null);
+    const [OpenSortedData, SetOpenSortedData] = useState(null);
+    const [Filter, SetFilter] = useState([]);
+    const [SubCategory, SetSubCategory] = useState([]);
+    const [catname, setcatname] = useState("");
+    const [catname2, setcatname2] = useState("");
+    const SortedArrayData = [{ Id: 1, name: "Sort by" }];
+    const SortedData = [
+        { type: "Sort by A to Z" },
+        { type: "Sort by Z to A" },
+        { type: "Sort by low to high" },
+        { type: "Sort by high to low" },
+    ];
 
-      const [value, setValue] = React.useState();
-      function valuetext(value) {
-        return `${value}°C`;
-      }
+    const [value, setValue] = React.useState();
+    function valuetext(value) {
+    return `${value}°C`;
+    }
     const handleChangepp = (event, newValue) => {
       setValue(newValue);
     };
@@ -195,7 +195,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
          }
         }
     }
-
     React.useEffect(()=>{
        if(weightitems.length !== 0){
          Axios.post('https://api.cannabaze.com/UserPanel/WeightFilter/',{
@@ -211,7 +210,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
         })
        }
     },[weightitems])
-
     React.useEffect(()=>{
         if(stainitems.length !== 0){
           Axios.post('https://api.cannabaze.com/UserPanel/StrainFilterProduct/',{
@@ -227,8 +225,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
          })
         }
      },[stainitems])
-
-
     function FilterSubCategorydata(SubCategoryid, SubCategory_name, categoryName) {
        {!location.pathname.includes('/menu-integration') &&  dispatch({ type: 'Loading', Loading: true })}
         Axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`, {
@@ -245,7 +241,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                 alert("Something Goes Wrong")
             })
     }
-    
     const handleChange = (event) => {
 
         setselect(event.target.value)
@@ -296,7 +291,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
             })
         }
     };
-  
     function searchHnadelchange(e) {
 
         let timer;
@@ -326,7 +320,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
       }, 1500);
 
     };
-
     React.useEffect(() => {
 
         
@@ -336,9 +329,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
       
         PriceFilter(value,Store_id).then((res) => {
             Setarr1 = res?.data
-            dispatch({ type: 'Loading', Loading: false })
-            }).catch(() => {
-                // navigate('/fourzerothree')   
+                dispatch({ type: 'Loading', Loading: false })
+            }).catch(() => {  
                 dispatch({ type: 'Loading', Loading: false });
             })
         }, 1500);
@@ -347,9 +339,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
     }, [value])
 
     return (
-   <>
-            <div className="col-12 product_search_and_select">
-                <div className="col-2 product_search_bar">
+        <>
+            <div className={`col-12 ${newclases.product_search_and_select}`}>
+                <div className="col-12 col-md-2">
                    
                        <div  className="form-outline" data-mdb-input-init>
                         <input value={searchtext} onChange={(e) => {
@@ -360,11 +352,11 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                          type="search" 
                          id="form1" 
 
-                         className={searchtext.length !== 0 ? "form-control customSearchBar" : "form-control customSearchBar customSearchBarsearchicon"} />
+                         className={searchtext.length !== 0 ? `form-control ${newclases.customSearchBar}` : `form-control ${newclases.customSearchBar} ${newclases.customSearchBarsearchicon}`} />
                       
                     </div>
                 </div>
-                <div className="col-10 product_select">
+                <div className="col-10 d-flex justify-content-end">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
 
                         <FormControl className={classes.muiSelect}  >
@@ -372,114 +364,101 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                                 labelId="demo-simple-select-label"
                                 value={select}
                                 onChange={handleChange}
-
                                 size="small"
                                 defaultValue={'Sort by A to Z'}
-                                style={{ width: "160px", height: "36px" }}
                                 displayEmpty
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-
                                 <MenuItem value={"Sort by A to Z"}>  Sort by A to Z </MenuItem>
                                 <MenuItem value={"Sort by Z to A"}>Sort by Z to A</MenuItem>
                                 <MenuItem value={"Price hight to low"}>Price high to low</MenuItem>
                                 <MenuItem value={"Price low to high"}>Price low to high</MenuItem>
-
-
-
                             </Select>
                         </FormControl>
-
                     </Grid>
                 </div>
             </div>
-            <div className=" col-lg-3 col-xxl-2 col-md-12 gap-sm-0 gap-2 prod_cat_left_sec  center">
+            <div className={` col-lg-3 col-xxl-2 col-md-12 gap-sm-0 gap-2 ${newclases.prod_cat_left_sec}`}>
                 {ProductFilterData?.map((ele, index) => {
                     const { Id, Name, Icons } = ele;
-                    return (
-                        <div key={index} className={"filter_manu_items"}>
-                            <div className="col-12 d-flex align-items-center prodCat_gap product_category_border "
-                              onClick={() => HandleOpenEvent(Id, Name)}
-                              >
-                                    <p className="m-0 prod_filter_icon" >{Icons}</p>
-                                    <p className="m-0 product_filter_name">{Name}</p>
-                                    <p className="m-0 brand_right_arrow">{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons}  /> : <FiChevronRight className={classes.muiIcons} />}</p>
-                            </div>
-                         
-                                    {(Id === OpenEvent) ?
-                                        (
-                                            <ClickAwayListener onClickAway={() => {SetOpenEvent(null) }}>
-                                                {
-                                                   loading ? (location.pathname.includes('/menu-integration') ? <React.Fragment></React.Fragment>:<Loader/>)
-                                                 :
-                                                    <div className=" product_category_border product_category_dropdown" id="Related_Brand_Data" ref={ref}>
+                        return (
+                            <div key={index} className={newclases.filter_manu_items}>
+                                        <div className="col-12 d-flex align-items-center px-2 gap-2" onClick={() => HandleOpenEvent(Id, Name)} >
+                                                <p className="m-0 d-none" >{Icons}</p>
+                                                <p className="m-0">{Name}</p>
+                                                <p className={`m-0 ${newclases.brand_right_arrow}`}>{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons}  /> : <FiChevronRight className={classes.muiIcons} />}</p>
+                                        </div>
+                                        {   
+                                            (Id === OpenEvent) ?
+                                            (
+                                                <ClickAwayListener onClickAway={() => {SetOpenEvent(null) }}>
+                                                    { loading ? <Loader/>
+                                                      : <div className={newclases.product_category_dropdown} id="Related_Brand_Data" ref={ref}>
 
-                                                        {
-                                                            Filter.length !== 0 ?
-                                                                Filter?.map((data , index) => {
-                                                                
-                                                                    return (
-                                                                        <div key={index}>
-                                                                            <div className="col-10 product_category_dropdown_cursor">
-                                                                            {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
-                                                                            </div>
-                                                                            {
-                                                                                SubCategory?.map((SubCategory ,index) => {
-                                                                                  
-                                                                                    return (
-                                                                                        SubCategory.CatgoryId === data.id
-                                                                                        &&
-                                                                                        <div key={index} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
-                                                                                            <input type="radio" id={SubCategory.SubCategory_name} name={data.name} value={SubCategory.SubCategory_name} />  <label htmlFor={SubCategory.SubCategory_name}>{SubCategory.SubCategory_name}</label>
-                                                                                        </div>
-                                                                                    )
-                                                                                })
-                                                                            }
-                                                                        </div>
-                                                                    )
-                                                                })
-                                                                :
-                                                                Id === 4 ?
-                                                                    <Box >
-                                                                        <Slider
-                                                                            getAriaLabel={() => "Price range"}
-                                                                            sx={{
-                                                                                '& .MuiSlider-thumb': {
-                                                                                    color: "#31B665"
-                                                                                },
-                                                                                '& .MuiSlider-track': {
-                                                                                    color: "#31B665"
-                                                                                },
-                                                                                '& .MuiSlider-rail': {
-                                                                                    color: "black"
-                                                                                },
-                                                                                '& .MuiSlider-active': {
-                                                                                    color: "green"
+                                                            {
+                                                                Filter.length !== 0 ?
+                                                                    Filter?.map((data , index) => {
+                                                                        return (
+                                                                            <div key={index}>
+                                                                                <div className={`col-10 ${newclases.product_category_dropdown_cursor}`}>
+                                                                                {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
+                                                                                </div>
+                                                                                {
+                                                                                    SubCategory?.map((SubCategory ,index) => {  
+                                                                                    
+                                                                                        return (
+                                                                                            SubCategory.CatgoryId === data.id
+                                                                                            &&
+                                                                                            <div key={index} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className={`col-10 ${product_sub_category_dropDown_cursor}`}>
+                                                                                                <input type="radio" id={SubCategory.SubCategory_name} name={data.name} value={SubCategory.SubCategory_name} />  <label htmlFor={SubCategory.SubCategory_name}>{SubCategory.SubCategory_name}</label>
+                                                                                            </div>
+                                                                                        )
+                                                                                    })
                                                                                 }
-                                                                            }}
-                                                                            value={value}
-                                                                            onChange={handleChangepp}
-                                                                            getAriaValueText={valuetext}
-                                                                            valueLabelDisplay="auto"
-                                                                            min={1}
-                                                                            max={1000}
-                                                                            defaultValue={[100, 500]}
-                                                                        />
-                                                                    </Box>
-                                                                     :
-                                                                <p className="m-0">No Category Found</p>
-                                                        }
-                                                    </div>
-                                                  }
-                                            </ClickAwayListener>
-                                        )
-                                        :
-                                        ""
-                                    }
-                        </div>
-                    )
-                })
-
+                                                                            </div>
+                                                                        )
+                                                                    })
+                                                                    :
+                                                                    Id === 4 ?
+                                                                        <Box >
+                                                                            <Slider
+                                                                                getAriaLabel={() => "Price range"}
+                                                                                sx={{
+                                                                                    '& .MuiSlider-thumb': {
+                                                                                        color: "#31B665"
+                                                                                    },
+                                                                                    '& .MuiSlider-track': {
+                                                                                        color: "#31B665"
+                                                                                    },
+                                                                                    '& .MuiSlider-rail': {
+                                                                                        color: "black"
+                                                                                    },
+                                                                                    '& .MuiSlider-active': {
+                                                                                        color: "green"
+                                                                                    }
+                                                                                }}
+                                                                                value={value}
+                                                                                onChange={handleChangepp}
+                                                                                getAriaValueText={valuetext}
+                                                                                valueLabelDisplay="auto"
+                                                                                min={1}
+                                                                                max={1000}
+                                                                                defaultValue={[100, 500]}
+                                                                            />
+                                                                        </Box>
+                                                                        :
+                                                                    <p className="m-0">No Category Found</p>
+                                                            }
+                                                        </div>
+                                                    }
+                                                </ClickAwayListener>
+                                            )
+                                            :
+                                            ""
+                                        }
+                            </div>
+                        )
+                    })
                 }
                 <Grid container display={{ xs: "inline", md: "none", lg: "none" }}>
 
@@ -514,7 +493,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                             })}
                 </Grid>
             </div>
-            </>
+        </>
     );
 };
 export default ProductFilter

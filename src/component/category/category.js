@@ -22,8 +22,7 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                 
                                     return (
                                         <div className={clases.CategorySliderImageBlock} key={index}>
-                                            <div className='slider1'>
-
+                                           
                                                 <Image
                                                     onClick={() => { ShowCategoryProduct(ele.id, ele.name) }}
                                                     src={ele.categoryImages} alt={ele.name.substr(0, 100)}
@@ -33,7 +32,7 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                                     unoptimized={true}
                                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                     className={clases.catagoriesTabImg} />
-                                            </div>
+                                          
                                             <div className={`col center ${clases.Category_title}`} >
                                                 <p>{FirstLetterCaps(ele?.name?.substr(0, 100))}</p>
                                             </div>

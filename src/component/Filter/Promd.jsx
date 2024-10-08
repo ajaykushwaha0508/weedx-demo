@@ -330,7 +330,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                          <label className="form-label" for="form1">Search</label> 
                     </div>
                 </div>
-                <div className="col-10 product_select">
+                <div className="col-10 d-flex justify-content-end">
                     <Grid container display={{ xs: "none", md: "contents", lg: "contents" }}>
 
                         <FormControl className={classes.muiSelect}  >
@@ -338,10 +338,8 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                 labelId="demo-simple-select-label"
                                 value={select}
                                 onChange={handleChange}
-
                                 size="small"
                                 defaultValue={'Sort by A to Z'}
-                                style={{ width: "160px", height: "36px" }}
                                 displayEmpty
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
@@ -356,7 +354,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                     </Grid>
                 </div>
             </div>
-            <div className="col-lg-2 col-md-12 gap-sm-0 gap-2 prod_cat_left_sec  center">
+            <div className="col-lg-2 col-md-12 gap-sm-0 gap-2 prod_cat_left_sec">
 
                 {ProductFilterData.map((ele, index) => {
                     const { Id, Name, Icons } = ele;
@@ -368,7 +366,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                 <p className="m-0 prod_filter_icon" >{Icons}</p>
 
 
-                                <p className="m-0 product_filter_name">{Name}</p>
+                                <p className="m-0">{Name}</p>
 
 
 
