@@ -78,18 +78,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       }
   
       if (isCartPage) {
-        // navigate.push(location.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", {
-        //   query: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
-        // });
-        // navigate.push({
-        //   pathname: location.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout",
-        //   query: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
-        // });
+       
         navigate.push(navigate.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", undefined, { shallow: true, state:  { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions } });
-        // navigate.push('/about', undefined,  { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions });
-
-
-
       } else if (!state.DeliveryOption || !state.DeliveryInformation) {
         alert("First fill the form");
         return;
@@ -100,9 +90,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       }
     } else if (["pickup_btn", "CurbsidePickup"].includes(state.selectDeliveryoptions)) {
       if (isCartPage) {
-        // navigate.push(location.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", {
-        //   query: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
-        // });
+
         navigate.push({
           pathname: navigate.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout",
           query: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
@@ -296,19 +284,17 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       </div>
       <div className="add_prod_cart_p">
         {
-          state.DeliveryPrice === 0 ?
+           state.DeliveryPrice === 0 ?
             <p>Taxes are Shows</p>
             :
-            <p style={{ color: "#e78d8d" }}> Minimum order card value {state.MinimumOrderPrice}</p>
+            <p style={{ color: "#e78d8d" }}>{` Minimum order card value`} {state.MinimumOrderPrice}</p>
         }
       </div>
       <PromoCode />
       <div className="col-12 AddProd_cart_center_btn">
         {navigate.pathname === "/cart" ? (
           (OpenDelivery || OpenPickup) && (
-            <Box
-              className={` add_product_btn floatingbtn AddProduct_Cart_Btn `}
-            >
+            <Box className={` add_product_btn floatingbtn AddProduct_Cart_Btn `}>
               <LoadingButton
                 variant="outlined"
                 loading={CheckOut_Loading}
@@ -317,7 +303,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                   CheckoutProcess(e);
                 }}
                 className={classes.flotchceckoutbtn}
-                // type="submit"
               >
                 {" "}
                 proceed to checkout{" "}

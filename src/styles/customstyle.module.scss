@@ -1023,7 +1023,18 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
                 }
             }
         }
+        
       }
+      .productFilter_sortedList {
+        list-style: none;
+        z-index: 1;
+        li {
+          cursor: pointer;
+        }
+        
+      }
+      
+ 
       
 }
 .product_sub_category_dropDown_cursor {
@@ -1190,9 +1201,195 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         display: none;
     }
 }
+.prod_inner_cont {
+    border-radius: 8px;
+    border: 1px solid #E7E7E7;
+    transition: all .2s ease;
+    padding: 15px ;
+    position: relative;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    &:hover{
+        border: 1px solid #31B665;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;      
+    }
+    .product_inner_rowspan {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+    .prod_cat_cont {
+        height: 277px;
+        display: grid;
+        place-items: center;
+        .prod_cat_img{ 
+            position: relative;
+            padding: 0;
+            img{
+                width: 100%;
+                font-size:8px;
+                height: 254px ;
+                height: 254px ;
+            }
+            .prod_img_btn {
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                justify-content: space-between;
+                width: 100%;
+                display: flex;
+                .cat_prod_inner_btn {
+                    border-style: none;
+                    border-radius: 16px;
+                    color: #FFFFFF;
+                    font-size: 12px;
+                    height: auto;
+                    line-height: 14px;
+                    padding: 2px 8px;
+                    width: -webkit-max-content;
+                    width: max-content;
+                    &.btn2{
+                        background: rgb(19, 190, 235)
+                    }
+                    &.btn1{
+                        background: rgb(255, 114, 0);
+                    }
+                  }
+            }
+        }
+    }
+    .product_cat_allProduct{
+        width: 100%;
+        h3.productListHeadings {
+            font-size: 16px;
+            color: #000000;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .productSearch{
+            margin-bottom: 10px;
+            font-size: 12px;
+            .productSearchPrice{
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+    }
+}
+.StoreDetailspage{
+    .amenities_container {
+        background-color: #F6F6F6;
+        padding: 15px;
+        .amenties_nameHeading {
+            color: #1a1a1a;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.5;
+            font-family: "Poppins";
+           
+        }
+        .amenities_list {
+            display: flex;
+            list-style: none;
+            color: #828282;
+            gap: 25px;
+            width: 100%;
+            align-items:center;
+            margin: 0;
+            padding: 0;
+            -ms-overflow-style: none; 
+            scrollbar-width: none;  
+            overflow-x: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .amenities_list_item_paragrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: black;
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                text-wrap: nowrap;
+                margin: 0;
+             }
+        }
+       
+      }
+      .StoreDetail_paragraph {
+        color: #222222;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+      .store_detail_menu_heading {
+        color: #000000;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        margin-top: 5px;
+      }
+      .store_detail_SideMenuBar_order_list {
+        width: 100%;
+        display: block;
+        list-style: none;
+        color: #828282;
+        margin-top: 10px;
+        padding-left: 0px;
+        .StoreDetailSidemenuBarList {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 22px;
+            .StoreDetailSideMenu_listItems {
+                height: 30px;
+                display: grid;
+                align-items: center;
+                font-size: 16px;
+                word-break: break-word;
+                text-transform: capitalize;
+              }
+          }
+      }
+}
+.addtoCart_headingss{
+    p{
+        font-size: 16px;
+        font-weight: 500;
+        color: #222;
+        line-height: 1.5;
+    }
+    .addToCartHeadingss {
+        color: #000000;
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
+    }
+    .StoreDetailspage{
+        .amenities_container {
+            .amenities_list {
+                gap: 3%;
+            }
+          }
+          .store_detail_SideMenuBar_order_list {
+            .StoreDetailSidemenuBarList {
+                 
+                .StoreDetailSideMenu_listItems {
+                    font-size: 14px;
+                }
+            }
+          }
     }
 }
 @media (max-width: 1400px){
@@ -1210,14 +1407,14 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         font-size: 18px;
       }
 }
-@media only screen and (max-width: 1366px){
+@media (max-width: 1366px){
     .about_card_Wraper {
         .about_card{
             padding: 10px;
             width: 24%;
         }
     }
-  }
+}
 @media (max-width: 1200px){
     .ad_page{
         .ad_imageTextSection{
@@ -1274,8 +1471,24 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             margin-top: 0px;
             background-color: #FFFFFF;
             position: absolute;
-            /* max-width:fit-content */
+           
+           
           }
+        
+      }
+      .product_Sorted_filter_dropdown {
+        position: absolute;
+        right: 10px;
+        width: 200px;
+        margin-top: 4px;
+        cursor: pointer;
+        border: 1px solid #E7E7E7;
+        background-color: #FFFFFF;
+      }
+      .prodfilterSortedListGap {
+        display: flex;
+        gap: 10px;
+        height: 45px;
       }
   }
 }
@@ -1294,8 +1507,8 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
               }
             }
         }
-      }
-      .adversticebanner_header{
+    }
+    .adversticebanner_header{
         position: relative;
         h1{
             font-size: 22px;
@@ -1372,6 +1585,29 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             width: 48%;
         }
     }
+    .prodfilterSortedListGap{
+        margin-bottom: 0;
+        padding: 0;
+        height: 100%;
+        align-items: center;
+        background-color: #f9f9f9;
+        height:30px;
+        width: 120px;
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+    }
+    .StoreDetailspage{
+        .amenities_container {   
+        .amenities_list {
+            gap: 7%;
+        }
+        }
+        .store_detail_SideMenuBar_order_list {
+        .StoreDetailSidemenuBarList {
+            min-width: 30%;  
+            }
+        }
+    }
 }
 @media (max-width: 768px){
     .oopss {
@@ -1397,7 +1633,11 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             }
         }
     }
-    
+    .store_detail_SideMenuBar_order_list{
+        .StoreDetailSidemenuBarList {
+            min-width: 47%;
+        }
+    }
     .ad_page{
         .ad_imageTextSection{
             margin-bottom: 40px;
@@ -1547,6 +1787,14 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         }
     
     }
+    .prod_cat_left_sec {
+        width: 100%;
+        overflow-x: scroll;
+        .filter_manu_items{
+            width: 20%;
+            line-height: 30px;
+        }
+    }
 }
 @media (max-width: 576px){
     .ad_page{
@@ -1607,6 +1855,9 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
      
 }
 @media (max-width: 480px){
+    .NavbarBox{
+        padding: 0;
+    }
     .StoreDetailMenuItem_container{
       
         ul.store_detail_order_list {
@@ -1621,7 +1872,7 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
     }
     .viewallbtn{
         font-size: 14px;
-      }
+    }
     .Slider_inner_profile_imgs{
         width: 30px;
         height: 30px;
@@ -1742,6 +1993,117 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         .StoreHeader_Heading{
             font-size: 16px;
         }
+    }
+    .prod_cat_left_sec {
+        .filter_manu_items{
+            width: 120px;
+            border: 1px solid gainsboro;
+            color: rgba(0, 0, 0);
+            line-height: 30px;
+            font-size: 14px;
+           
+                .filter_manu_items{
+                 
+                   
+                    .product_category_dropdown{
+                      
+                        .product_category_dropdown_cursor {
+                            p{
+                               font-size: 18px;
+                            }
+                        }
+                    }
+                    
+                  }
+                 
+                  
+             
+                  
+            
+        }
+        .product_Sorted_filter_dropdown {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-top: 4px;
+            cursor: pointer;
+            border: 1px solid #E7E7E7;
+            background-color: #FFFFFF;
+            left: 0;
+            z-index: 10;
+            .productFilter_sortedList {
+              li{
+                    padding: 10px 0;
+                    font-size: 18px;
+               }
+            }
+        }
+        .prodfilterSortedListGap{
+            margin-bottom: 0;
+            padding: 0;
+            height: 100%;
+            align-items: center;
+            background-color: #f9f9f9;
+            height:30px;
+            width: 120px;
+            border: 1px solid gainsboro;
+            border-radius: 3px;
+          }
+    }
+    .prod_inner_cont{
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px;
+        .prod_cat_cont{
+            height: auto;
+            .prod_cat_img {
+                img {
+                   height: 120px;
+                }
+                .prod_img_btn{
+                    .cat_prod_inner_btn {
+                        font-size: 7px;
+                      }
+                }
+            }
+        }
+        .productListHeadings{
+            font-size: 14px;
+          }
+    }
+    .StoreDetailspage{
+        .amenities_container {
+           
+            .amenties_nameHeading {
+             margin-left: 20px;
+               
+            }
+            .amenities_list {
+               gap: 6%;
+               
+                .amenities_list_item_paragrap {
+                   
+                 }
+            }
+           
+          }
+          .StoreDetail_paragraph {
+         
+          }
+          .store_detail_menu_heading {
+           
+          }
+          .store_detail_SideMenuBar_order_list {
+          
+            .StoreDetailSidemenuBarList {
+                    min-width: 50%;
+                    gap: 10px;
+                .StoreDetailSideMenu_listItems {
+                   font-size: 13px; 
+                }
+              }
+          }
     }
 }
 @media (max-width:400px){

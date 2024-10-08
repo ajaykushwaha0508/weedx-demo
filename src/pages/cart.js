@@ -9,6 +9,7 @@ import EmptyCard from "@/component/Addtocard/EmptyCard"
 import { Cart } from "@/component/ScoPage/CommenpageSeo";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { modifystr } from "@/hooks/utilis/commonfunction";
+import newclases from '@/styles/customstyle.module.scss';
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
     const location = useRouter()
@@ -21,29 +22,28 @@ const AddToCart = () => {
             <Cart></Cart>
             {
                 state?.AllProduct?.length !== 0
-                    ?
-
-
-
-                    <div className="row mt-4">
-                        <div className="col-12 addTocard_main_container_height">
-                            {location.pathname !== '/carts' && <div className="col-12 addtoCart_headingss">
+                ?
+                <div className="row mt-4">
+                    <div className="col-12">
+                        {location.pathname !== '/carts' && <div className={`col-12 ${newclases.addtoCart_headingss}`}>
                                 <p className="mb-0">{`Your Cart from`}</p>
-                                <Link href={`${state.AllProduct[0].Store_Type === "dispensary" ? "/weed-dispensaries" : "/weed-deliveries"}/${modifystr(state.AllProduct[0]?.StoreName)}/${state.AllProduct[0]?.Store_id}`}>          <h1 className="addToCartHeadingss"> {state.AllProduct[0]?.StoreName} </h1> </Link>
+                                <Link href={`${state.AllProduct[0].Store_Type === "dispensary" ? "/weed-dispensaries" : "/weed-deliveries"}/${modifystr(state.AllProduct[0]?.StoreName)}/${state.AllProduct[0]?.Store_id}`}>        
+                                     <h1 className={newclases.addToCartHeadingss}> {state.AllProduct[0]?.StoreName} </h1>
+                                </Link>
                             </div>
-                            }
-                            <div className="row  AddProductCartContainer">
-                                <div className="col-lg-8 col-12 AddProductCartContainerinner">
-                                    <AddToCartReview />
-                                </div>
-                                <div className="col-lg-4 col-md-6 col-12">
-                                    <AddToCartSummary />
-                                </div>
+                        }
+                        <div className="row ">
+                            <div className="col-lg-8 col-12 d-block mb-2">
+                                <AddToCartReview />
+                            </div>
+                            <div className="col-lg-4 col-md-6 col-12">
+                                <AddToCartSummary />
                             </div>
                         </div>
                     </div>
-                    :
-                    <EmptyCard></EmptyCard>
+                </div>
+                :
+                <EmptyCard></EmptyCard>
             }
         </div >
     )

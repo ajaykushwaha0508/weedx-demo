@@ -465,30 +465,30 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                     {SortedArrayData.map((ele, index) => {
                         const { Id, name } = ele
                         return (
-                            <div key={index} onClick={() => HandleOpenSortedData(Id, name)}>
-                                <ol className="productFilter_sortedList prodfilterSortedListGap">
-                                    <li> {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}</li>
-                                    <li className="">{name}</li>
-                                    <li>  {(Id === OpenSortedData) ? "" : <FiChevronRight />}</li>
-                                </ol>
-                                {Id === OpenSortedData ? (
-                                <ClickAwayListener
-                                    onClickAway={() => {
-                                    SetOpenSortedData(null);
-                                    }}
-                                >
-                                    <div className="border product_Sorted_filter_dropdown">
-                                    <ol className="productFilter_sortedList">
-                                        {SortedData.map((ele, index) => {
-                                        return <li key={index}>{ele.type}</li>;
-                                        })}
+                                <div key={index} onClick={() => HandleOpenSortedData(Id, name)}>
+                                    <ol className={`${newclases.productFilter_sortedList} ${newclases.prodfilterSortedListGap}`}>
+                                        <li> {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}</li>
+                                        <li className="">{name}</li>
+                                        <li>  {(Id === OpenSortedData) ? "" : <FiChevronRight />}</li>
                                     </ol>
-                                    </div>
-                                </ClickAwayListener>
-                                ) : (
-                                ""
-                                )}
-                            </div>
+                                    {Id === OpenSortedData ? (
+                                    <ClickAwayListener
+                                        onClickAway={() => {
+                                        SetOpenSortedData(null);
+                                        }}
+                                    >
+                                        <div className={`border ${newclases.product_Sorted_filter_dropdown}`}>
+                                            <ol className={newclases.productFilter_sortedList}>
+                                                {SortedData.map((ele, index) => {
+                                                return <li key={index}>{ele.type}</li>;
+                                                })}
+                                            </ol>
+                                        </div>
+                                    </ClickAwayListener>
+                                    ) : (
+                                    ""
+                                    )}
+                                </div>
                             );
                             })}
                 </Grid>
