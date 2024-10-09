@@ -43,11 +43,11 @@ import Image from "next/image";
   const compressImage = (file) => {
     Resizer.imageFileResizer(
       file,
-      300, // max width
-      300, // max height
-      'webp', // compress format
-      70, // quality
-      0, // rotation
+      300, 
+      300,
+      'webp', 
+      70,
+      0, 
       (uri) => {
 
         setImages([ ...images , uri]);

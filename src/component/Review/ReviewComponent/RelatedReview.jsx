@@ -129,7 +129,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     return (
         <React.Fragment>
             <div className='container-fluid'>
-                <div className="row center reviewCardWrapper">
+                <div className="row center">
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
                         return (
@@ -305,49 +305,49 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                 </div>
             </div>
             <Dialog
-        open={imageopup}
-        onClose={()=>{setImagepopup(false)}}
-        className={classes.WriteReviewDialog}
-      >
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 writeReviewContainer px-0">
-              <div className="col-12 writeReviewCloseIconContainer">
-                <IconButton onClick={()=>{setImagepopup(false)}} aria-label="closebutton">
-                  <RiCloseCircleFill color="#949494" size={24} />
-                </IconButton>
-              </div>
-              <div className='Reviewimageslidewrapper'>
-                   <Swiper
-                    pagination={{
-                    type: 'fraction',
-                    }}
-                    initialSlide={sliderdata.index}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper"
-                   >
-                    {
-                        sliderdata?.image?.map((item , index)=>{
-                            return  <SwiperSlide key={index}> <div className='Reviewimageslidebox'><Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={item.image} alt='review image' title='review image'/></div></SwiperSlide>
-                        })
-                    }
-                     {
-                        sliderdata?.video?.map((item, index )=>{
-                            return  <SwiperSlide  key={index} > <div className='Reviewimageslidebox'>  <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='video'/></div></SwiperSlide>
-                        })
-                    }
-                        {/* <SwiperSlide> <div className='Reviewimageslidebox'></div></SwiperSlide> */}
-                        
-                   </Swiper>
-             </div>
-            </div>
-          </div>
-        </div>
-           </Dialog >
-           {
-                                  open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+                    open={imageopup}
+                    onClose={()=>{setImagepopup(false)}}
+                    className={classes.WriteReviewDialog}
+                >
+                    <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-12 writeReviewContainer px-0">
+                        <div className="col-12 writeReviewCloseIconContainer">
+                            <IconButton onClick={()=>{setImagepopup(false)}} aria-label="closebutton">
+                            <RiCloseCircleFill color="#949494" size={24} />
+                            </IconButton>
+                        </div>
+                        <div className='Reviewimageslidewrapper'>
+                            <Swiper
+                                pagination={{
+                                type: 'fraction',
+                                }}
+                                initialSlide={sliderdata.index}
+                                navigation={true}
+                                modules={[Pagination, Navigation]}
+                                className="mySwiper"
+                            >
+                                {
+                                    sliderdata?.image?.map((item , index)=>{
+                                        return  <SwiperSlide key={index}> <div className='Reviewimageslidebox'><Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={item.image} alt='review image' title='review image'/></div></SwiperSlide>
+                                    })
                                 }
+                                {
+                                    sliderdata?.video?.map((item, index )=>{
+                                        return  <SwiperSlide  key={index} > <div className='Reviewimageslidebox'>  <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='video'/></div></SwiperSlide>
+                                    })
+                                }
+                                    {/* <SwiperSlide> <div className='Reviewimageslidebox'></div></SwiperSlide> */}
+                                    
+                            </Swiper>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+           </Dialog >
+            {
+                open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
+            }
         </React.Fragment>
     )
 }

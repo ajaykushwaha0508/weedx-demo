@@ -14,14 +14,14 @@ import Image from "next/image";
 import  Swal from 'sweetalert2';
 import newclasess from "@/styles/customstyle.module.scss"
 const AddToCartReview = () => {
-    const { state, dispatch } = React.useContext(Createcontext)
-    const Navigate = useRouter();
-    const cookies = new Cookies();
-    let token_data = cookies.get('User_Token_access')
-    let accessToken 
-    if (typeof window !== 'undefined') {
-        accessToken = localStorage.getItem('User_Token_access');
-    }
+        const { state, dispatch } = React.useContext(Createcontext)
+        const Navigate = useRouter();
+        const cookies = new Cookies();
+        let token_data = cookies.get('User_Token_access')
+        let accessToken 
+        if (typeof window !== 'undefined') {
+            accessToken = localStorage.getItem('User_Token_access');
+        }
         if(  Boolean(accessToken) ){ token_data  =  accessToken};
         const [Loadingmines, SetLoadingmines] = React.useState(false);
         const [LoadingPlue, SetLoadingPluse] = React.useState(false);
@@ -200,7 +200,7 @@ const AddToCartReview = () => {
         }, [state.AllProduct])
 
     return (
-        <React.Fragment>
+      
             <div className="col-12  AddProductCartContainerinner">
                 {wondowWidth > 768 ?
                     <>
@@ -372,7 +372,7 @@ const AddToCartReview = () => {
                     </div>
                 }
             </div>
-        </React.Fragment >
+  
     )
 }
 export default AddToCartReview

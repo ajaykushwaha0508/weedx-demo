@@ -299,7 +299,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                         >
                             {
                                 RelatedProductResult?.map((items, index) => {
-
+                                    // items.rating =0
                                     if (items.id !== currentProductID) {
                                         return (
                                             <SwiperSlide key={index}>
