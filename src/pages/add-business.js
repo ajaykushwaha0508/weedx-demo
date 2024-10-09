@@ -26,34 +26,28 @@ const ssss = useStyles()
      
         <div className={classes.business}>
           <div className="container-fluid">
-            {/* <div className={classes.tbusiness_hero}>
-              <h1 className={classes.page_heading}>
-                {`Add Your Business to WeedX.io`}
-              </h1>
-            </div> */}
-            {/* <Bgheader text={'Add Your Business to WeedX.io'}/> */}
+          
             <div className={classes.adversticebanner_header}>
-                    <h1>{'Add Your Business to WeedX.io'}</h1>
-                    <Image src={AdvertiseBanner.src} alt={"banner image"}  width={400} height={100} />
-                  </div>
-
+                <h1>{'Add Your Business to WeedX.io'}</h1>
+                <Image src={AdvertiseBanner.src} alt={"banner image"}  width={1200} height={400} />
+            </div>
             <div className={`${classes.tbusiness_content} justify-content-between`}>
               <div className={classes.tbusiness_maincentent}>
                 <div className={classes.section_box}  id="grow_your_business_with_weedx.io"  >
                   <h2 className={classes.section_box_heading}>
                     {`Grow Your Business with WeedX.io`}
                   </h2>
-                  <p className={classes.section_box_para}>
-                    {`Join the leading cannabis platform and get your business in front of thousands of potential customers. Whether you're running a `}
-                    <b>{`dispensary`}</b>
-                    {`, offering`} <b>{` delivery services`} </b>
-                    {`, or building a`} <b> {`cannabis brand, WeedX.io`}</b>
-                    {` helps you connect with the right audience and grow your reach.`}{" "}
-                  </p>
-                  <p className={classes.section_box_para}>
-                    {`By listing your business with us, you'll not only gain visibility but also manage your inventory and orders through our powerful backend platform,`}{" "}
-                    <b>{` Cannabaze.`}</b>
-                  </p>
+                    <p className={classes.section_box_para}>
+                      {`Join the leading cannabis platform and get your business in front of thousands of potential customers. Whether you're running a `}
+                      <b>{`dispensary`}</b>
+                      {`, offering`} <b>{` delivery services`} </b>
+                      {`, or building a`} <b> {`cannabis brand, WeedX.io`}</b>
+                      {` helps you connect with the right audience and grow your reach.`}{" "}
+                    </p>
+                    <p className={classes.section_box_para}>
+                      {`By listing your business with us, you'll not only gain visibility but also manage your inventory and orders through our powerful backend platform,`}{" "}
+                      <b>{` Cannabaze.`}</b>
+                    </p>
                 </div>
                 <div className={classes.section_boxBanner} >
                   <h2 className={classes.section_box_heading}>{`Why List Your Business on WeedX.io?`}</h2>

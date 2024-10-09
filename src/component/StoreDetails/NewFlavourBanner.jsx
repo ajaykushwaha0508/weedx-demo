@@ -89,19 +89,20 @@ const NewFlavourBanner = ({ delBtn }) => {
                                     <BsStarFill size={16} color="#FFD700" />
                                     <p className={clases.marginLeftnewFlavStore}>{data?.rating?.toFixed(1)}</p>
                                 </div>
+                                {/* 
+                                        <div className='d-flex gap-1 align-items-center'>
+                                            <TbCircleFilled  size={16} color="gray" />
+                                            <Link
+                                                href={location.pathname.includes("weed-dispensaries")
+                                                    ? `${modifystr(data.Store_Name)}/store-details/${delBtn[0].id}`
+                                                    :
+                                                    location.pathname.includes("/weed-deliveries") &&
 
-                                <div className='d-flex gap-1 align-items-center'>
-                                    <TbCircleFilled  size={16} color="gray" />
-                                    <Link
-                                        href={location.pathname.includes("weed-dispensaries")
-                                            ? `${modifystr(data.Store_Name)}/store-details/${delBtn[0].id}`
-                                            :
-                                            location.pathname.includes("/weed-deliveries") &&
+                                                    `/weed-deliveries/${modifystr(data.Store_Name)}/store-details/${delBtn[0].id}`}>
 
-                                            `/weed-deliveries/${modifystr(data.Store_Name)}/store-details/${delBtn[0].id}`}>
-
-                                        <p className={clases.marginLeftnewFlavStore} >Store details</p></Link>
-                                </div>
+                                                <p className={clases.marginLeftnewFlavStore} >Store details</p></Link>
+                                        </div>
+                                */}
 
                                 <div className='d-flex gap-1 align-items-center'>
                                     <TbCircleFilled size={16}  color={shopopen ? "#31B665" : "red"} />
@@ -109,11 +110,11 @@ const NewFlavourBanner = ({ delBtn }) => {
                                 </div>
                             </div>
                             <div className=' d-flex  my-3 gap-3 align-items-center '>
-                                {
+                                {/* {
                                     data.StoreEmail !== "" && data.StoreEmail !== null &&
                                     <Box className={`${classes.loadingBtnTextAndBack}`}  >  <LoadingButton className={`${classes.storeheaderbtn}`} variant="outlined">{'Email'}</LoadingButton>
                                     </Box>
-                                }
+                                } */}
 
                                 {
                                     data.Stores_MobileNo !== '' && data.Stores_MobileNo !== null && <Box

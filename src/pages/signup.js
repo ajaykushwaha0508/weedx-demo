@@ -97,7 +97,7 @@ const Signup = () => {
     <div className='w-100 d-flex mt-4 center'>
         <div className='signupHorizontalLine'></div> <span className='px-2 login_OR'>OR</span> <div className='signupHorizontalLine'></div>
     </div>
-    <div className='signup_margins_top'>
+    <div className='signup_margins_top d-md-block d-none'>
         <div className='col-lg-12 '>
            <LoginWithGoogle/>
         </div>

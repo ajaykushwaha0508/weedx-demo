@@ -156,7 +156,7 @@ const Blogs = (props) => {
         // console.log(News)
         return (
             <React.Fragment>
-                      {state.permission && <Currentlocation />}
+                {state.permission && <Currentlocation />}
                 <SingleNewsSeo Title={News?.Meta_title} Description={News?.Meta_Description} location={router.asPath} image={News?.Image}></SingleNewsSeo>
                 <div className="" >
                 <div className="row mx-1">
@@ -168,76 +168,69 @@ const Blogs = (props) => {
                             </div>
                         </section>
                     </div>
-                       
-                            
-                         
-                                <div className="p-0 blogEditorContainer">
-                            <section className="blog_Image" style={{ backgroundImage: `url(${News.Image})` }} >
-                                <div className="overlay_blog"></div>
-                                <h1 className="blog_Title ">{News?.Title}</h1>
-                            </section>
-                            <div className="blog_text_container"  >
-                                <div className="blogEditorPaddings ">
+                    <div className="p-0 blogEditorContainer">
+                        <section className="blog_Image">
+                            <Image src={News.Image} alt="image" width={1200} height={900} />
+                        </section>
+                        <h1 className="blog_Title ">{News?.Title}</h1>
+                        <div className="blog_text_container"  >
+                            <div className="blogEditorPaddings ">
 
-                                    <figure className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html:News.Description}} />
+                                <figure className="linkTaginsideEditer" dangerouslySetInnerHTML={{ __html:News.Description}} />
+                            </div>
+                        </div>
+                        <div className="blog_text_container" >
+
+                            <div className="col-12 Linkofblog ">
+                                <div className="col BlogSocal" id="center1">
+
+                                    <RWebShare
+                                        data={{ url: "https://www.weedx.io" + props.url }}
+                                        sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                                        onClick={() => console.info("share successful!")}
+                                        color="#31B665" >
+                                        <IconButton>
+                                            <BsFillShareFill size={16}></BsFillShareFill>
+                                        </IconButton>
+                                    </RWebShare>
+
+                                    <div className="blogViewCounts destop_view">Share</div>
+                                </div>
+                                <div className="col viewsBlog" id="center1">
+                                    <IconButton>
+                                        <IoEyeSharp></IoEyeSharp>
+                                    </IconButton>
+
+                                    <span className="blogViewCounts">{News.ViewCount} <span className="destop_view">Views</span></span>
+
+
+                                </div>
+
+                                <div className="col viewsBlog BlogSocal" id="center1"
+                                onClick={scrolltocomment}
+                                >
+
+                                    <IconButton>
+                                        <BiCommentDetail />
+                                    </IconButton>
+                                    <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
+
+                                </div>
+                                <div className="col viewsBlog BlogSocal like" id="center1">
+                                    <IconButton onClick={(() => { PostLike(color()?.like) })}>
+                                        <AiFillHeart
+                                        // color={state?.login && color()?.like && "#31B665"}
+                                        ></AiFillHeart>
+                                    </IconButton>
+                                    <span className="blogViewCounts">{value?.LinkCount}</span>
                                 </div>
                             </div>
-                            <div className="blog_text_container" >
-
-                                <div className="col-12 Linkofblog ">
-                                    <div className="col BlogSocal" id="center1">
-
-                                        <RWebShare
-                                            data={{ url: "https://www.weedx.io" + props.url }}
-                                            sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                                            onClick={() => console.info("share successful!")}
-                                            color="#31B665" >
-                                            <IconButton>
-                                                <BsFillShareFill size={16}></BsFillShareFill>
-                                            </IconButton>
-                                        </RWebShare>
-
-                                        <div className="blogViewCounts destop_view">Share</div>
-                                    </div>
-                                    <div className="col viewsBlog" id="center1">
-                                        <IconButton>
-                                            <IoEyeSharp></IoEyeSharp>
-                                        </IconButton>
-
-                                        <span className="blogViewCounts">{News.ViewCount} <span className="destop_view">Views</span></span>
 
 
-                                    </div>
-
-                                    <div className="col viewsBlog BlogSocal" id="center1"
-                                    onClick={scrolltocomment}
-                                    >
-
-                                        <IconButton>
-                                            <BiCommentDetail />
-                                        </IconButton>
-                                        <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
-
-                                    </div>
-                                    <div className="col viewsBlog BlogSocal like" id="center1">
-                                        <IconButton onClick={(() => { PostLike(color()?.like) })}>
-                                            <AiFillHeart
-                                            // color={state?.login && color()?.like && "#31B665"}
-                                            ></AiFillHeart>
-                                        </IconButton>
-                                        <span className="blogViewCounts">{value?.LinkCount}</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                                </div>
-                           
-                               <RecentPost />
-                     
-                
+                        </div>
+                    </div>
+                    <RecentPost />
                     {WishList && <WhisList open1={WishList} SetWishList={SetWishList}></WhisList>}
-            
                     <RecentPostComment scrolltocomment={scrolltocomment} id={id} GetUserComment={Getcommnet} SetUserComment={Setcommnet} Get={GetComment} />
                     <div>
                         <section className="px-0" id="blodComment">
@@ -395,7 +388,6 @@ const Blogs = (props) => {
                                 }
                         </section>
                     </div>
-
                 </div>
                 </div>
                 <Newsletter />
@@ -404,7 +396,9 @@ const Blogs = (props) => {
     }
 
 
-
+function arraychecker(num){
+    num
+}
 
 export async function getServerSideProps(context) {
     try {

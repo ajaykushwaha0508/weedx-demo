@@ -1553,9 +1553,7 @@ scrollbar-width: none;  /* Firefox */
 .create_container_height {
   height: auto;
 }
-.filter_review {
-  margin: 20px 0;
-}
+
 /* end */
 /* DeliveryOption_container */
 .DeliveryOption_container {
@@ -2059,12 +2057,7 @@ scrollbar-width: none;  /* Firefox */
 /* end */
 
 /* OverAllReview */
-.overall_review_container {
-  /* height: 295px; */
-  height: auto;
-  border: 1px solid #DCD9D9;
 
-}
 
 
 
@@ -5496,50 +5489,10 @@ line-height: normal;
 
 /* end */
 /* writeReview */
-.writeReviewCloseIconContainer {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 10px;
-}
-
-.writeReviewContainer {
-  padding: 20px 20px;
-}
 
 
-.reviewImage .Reviewimagebox{
-  min-height: 280px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px dashed #727CA4;
-  width: 1005;
- 
-}
-.reviewImage .Reviewimagebox span.reviewnote{
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 400;
-    width: 80%;
-    margin: 0 auto;
-    display: block;
-}
-.writeReviewHeadings {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  text-align: center;
-  
-}
-.secRatingHeadings {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 32px;
-  text-align: center;
-  
-}
+
+
 .textinput  textarea:focus{
    border: none;
    outline: none;
@@ -5563,13 +5516,6 @@ line-height: normal;
   outline: 1px solid #31B665;
 }
 
-.writeReviewLabel {
-  color: #363535;
-  font-size: 14px;
-  margin-bottom: 7px;
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-}
 
 
 
@@ -6581,12 +6527,8 @@ line-height: 2;
     font-size: 1rem;
     text-align: center;
   }
-
-
   /* **************End***************** */
-    .review_secton{
-        position: relative;
-    }
+ 
     .reviews_writer{
       font-family: "Poppins", sans-serif;
       font-size: 14px;
@@ -6595,31 +6537,14 @@ line-height: 2;
       text-align: left;
       margin: 0;
     }
-    .reviews_description {
-        position: sticky;
-        top: 150px;
-        height: fit-content;
-    }
     .related_review_content{
-        position: relative;
-        display: contents;
-        width: -webkit-fill-available;
-        word-break: break-all;
-    }
-    .related_review_container{
-      margin-bottom: 20px;
-      border-bottom: 2px solid  #F8F7F4;
       position: relative;
+      display: contents;
+      width: -webkit-fill-available;
+      word-break: break-all;
     }
-    .reviewdateTexyt{
-      font-family: "Inter", sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 1.6;
-      text-align: left;
-      color: #858585;
-      margin-bottom: 12px;
-    }
+
+
     .related_review_image{
     width: 36px;
     height: 36px;
@@ -6696,29 +6621,7 @@ line-height: 2;
     color: #a5a5a5;
     margin: 0;
    }
-   .reviewImagewrapper{
-    display: flex;
-    gap: 15px;
-    align-items: center;
-   }
-   .reviewImagewrapper .reviewimagebox{
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-   }
-   .reviewImagewrapper .reviewvideobox{
-    width: 120px;
-    max-height: 100px;
-   }
-   .reviewImagewrapper .reviewvideobox video{
-    width: 100%;
-    cursor: pointer;
-   }
-
-   .reviewImagewrapper .reviewimagebox  .reviewImage{
-    width: 100%;
-    height: 100%;
-   }
+   
    .related_review_footer{
     display: flex;
     justify-content: flex-start;
@@ -6763,38 +6666,6 @@ line-height: 2;
    .customteatfsdfg.MuiRating-root .MuiRating-iconEmpty{
     color: red;
    }
-   .media_list{
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    padding: 30px 0;
-   }
-   .media_list .crossbtn{
-      position: absolute;
-      top: 0%;
-      right: 0%;
-      transform: translate(0% , -50%);
-      z-index: 100;
-       cursor: pointer;
-   }
-   .media_list .uploadedImage{
-    width:70px;
-    height: 70px;
-    position: relative;
-   }
-   .media_list .uploadedImage img{
-    width: 100%;
-    height: 100%;
-   }
-   .media_list .uploadedVideo{
-    width: 100px;
-    height: 70px;
-    position: relative;
-   }
-   .media_list .uploadedVideo video{
-    width: 100%;
-    height: 100%;
-   }
    .related_review_footer_paragraph{
     width: 50px;
     height: 50px;
@@ -6808,18 +6679,7 @@ line-height: 2;
     filter: drop-shadow(0 0 0 #15111a);
     transform: translate(0, 5px);
   }
-  .reviewImage .Reviewimagebox{
-    margin-top: 20px;
-    min-height: 160px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px dashed #727CA4;
-    width: 100%;
-    border-radius: 20px;
-    background-color: hsla(229, 21%, 85%, 0.2);
-    gap: 10px;
-  }
+
   .Reviewimageslidewrapper .mySwiper{
    height: unset !important;
   }
@@ -6950,7 +6810,7 @@ line-height: 2;
   }
   .term_condition .tc_topic_list{
       position: sticky;
-      top: 20%;
+      top: 144px;
       max-height: 70vh;
       overflow-x: hidden;
       overflow-y: scroll;
@@ -7156,6 +7016,7 @@ margin: 0;
   border: 1px solid #E6E6E6;
   height: 100%;
   margin-top: 40px;
+  width: 70%;
 }
 .blogEditorContainer .UserNmae_Blog {
   display: flex;
@@ -7173,35 +7034,25 @@ margin: 0;
   line-height: normal;
 }
 .blogEditorContainer .blog_Image {
-  position: relative;
-  height: 17rem;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+height: auto;
+
 }
-.blogEditorContainer .blog_Image .overlay_blog {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6431372549);
+.blogEditorContainer .blog_Image img{
+width: 100%;
+height: auto;
 }
-.blogEditorContainer .blog_Image .blog_Title {
+.blogEditorContainer .blog_Title {
   font-weight: 800;
-  font-size: 32px;
-  top: 50%;
-  left: 50%;
-  width: 45%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  color: rgb(255, 255, 255);
+  font-size: 28px;
+  color:#000;
   text-transform: capitalize;
   word-break: break-word;
 }
 .blogEditorContainer .blog_text_container p {
   font-size: 16px;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
   font-family: "Montserrat", sans-serif;
 }
 .blogEditorContainer .blog_text_container h1 {
@@ -7242,7 +7093,7 @@ margin: 0;
   margin-top: 15px;
 }
 .blogEditorContainer .blog_text_container .blogEditorPaddings P strong {
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 .blogEditorContainer .blog_text_container .blogEditorPaddings ul li {
   margin-bottom: 10px;
@@ -7475,11 +7326,7 @@ margin: 0;
   display: flex;
   height: auto;
 }
-.AddProductCartContainerinner {
-  display: block;
-  height: auto;
-  margin-bottom: 10px;
-}
+
 .add_prod_span_amount {
   color: #31B665;
   font-weight: 600;
@@ -8301,7 +8148,7 @@ color: #616161;
     flex: 0 0 auto;
     width: 16.66666667%;
   }
-  .blogEditorContainer .blog_Image .blog_Title{
+  .blogEditorContainer .blog_Title{
     font-weight: 700;
     font-size: 20px;
     width: 70%;
@@ -8955,15 +8802,10 @@ font-size: 24px;
     font-size: 15px;
     font-weight: 600;
   }
-
-.cartProductHeadings {
-  width: 200% !important;
-}
 .order_conform_card .card_message{
   margin: 0;
   font-size: 14px;
 }
-
 .BackPageBtn {
   font-size: 12px;
   line-height: 1.6;
@@ -9448,7 +9290,7 @@ font-size: 24px;
     .blogListWrapper .blogListCard {
       width: 100%;
     }
-    .blogEditorContainer .blog_Image .blog_Title{
+    .blogEditorContainer  .blog_Title{
       font-weight: 700;
       font-size: 24px;
       width: 90%;

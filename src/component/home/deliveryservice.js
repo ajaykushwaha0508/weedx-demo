@@ -22,8 +22,6 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
     const { state } = React.useContext(Createcontext)
     const classes = useStyles()
     const ref = React.useRef(null);
-
-
     const handleImageError = (event) => {
         event.target.onerror = null; // Reset to prevent infinite loop
         event.target.src = "/weedx.iologo.png"; // Replace with your fallback image source
@@ -38,7 +36,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
         } else if (state.Country) {
           return `/weed-deliveries/in/${state.Country.toLowerCase()}`;
         } else {
-          return '/'; // Default fallback if no valid state is provided
+          return '/'; 
         }
       };
       const getDispensariesHref = () => {
@@ -63,7 +61,10 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
 
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="">
-                                    <h2 className='section_main_title'>{title}</h2>
+                                    {
+                                        title === 'Weed Dispensaries Near You'?<h1 className='section_main_title'>{title}</h1>:<h2 className='section_main_title'>{title}</h2>
+                                    }
+                                    
                                     {link === "weed-deliveries" && <h3 className='section_main_subtitle'>{location}</h3>}
                                 </div>
                                 <Link href={link === "weed-deliveries" ?getDeliveryHref() : getDispensariesHref()}>

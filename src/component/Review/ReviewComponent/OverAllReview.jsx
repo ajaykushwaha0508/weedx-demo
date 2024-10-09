@@ -24,10 +24,8 @@ const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,revie
                     <div className="overall_review_container">
                         <div className="">
                             <div className="m-2 text-end">
-                                <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} reviewloading={reviewloading} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />
-                             
+                                <WriteReviewPopup onSubmit={onSubmit}   GetProductReview={GetProductReview} reviewloading={reviewloading} SetGetProductReview={SetGetProductReview}  api={api} SetApi={SetApi} />                           
                             </div>
-
                         </div>
                         <div className="row">
                             <div className="col-xxl-3 col-12 left_circularbar_container">

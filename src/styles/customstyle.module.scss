@@ -1372,6 +1372,161 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         margin-bottom: 20px;
     }
 }
+.AddProductCartContainerinner{
+    display: block;
+    height: auto;
+    margin-bottom: 10px;
+    
+    .cartProductHeadings {
+        width: 200% !important;
+    }
+}
+.review_secton{
+    position: relative;
+    .filter_review {
+        margin: 20px 0;
+      }
+      .reviews_description {
+        position: sticky;
+        top: 150px;
+        height: fit-content;
+        .overall_review_container {
+            height: auto;
+            border: 1px solid #DCD9D9;
+          }
+    }
+    .writeReviewContainer {
+        padding: 20px 20px;
+        .writeReviewCloseIconContainer {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+          .writeReviewHeadings {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 32px;
+            text-align: center;
+          }          
+          .secRatingHeadings {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 32px;
+            text-align: center;
+            
+          }
+          .writeReviewLabel {
+            color: #363535;
+            font-size: 14px;
+            margin-bottom: 7px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+          }
+          
+    }
+    .reviewImage {
+        
+        .Reviewimagebox{
+            min-height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #727CA4;
+            width: 1005;
+        }
+        .Reviewimagebox {
+            span.reviewnote{
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 400;
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            }
+        }
+    }
+    .reviewImagewrapper{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+           .reviewimagebox{
+            width: 60px;
+            height: 60px;
+            margin-top: 20px;
+            min-height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #727CA4;
+            width: 100%;
+            border-radius: 20px;
+            background-color: hsla(229, 21%, 85%, 0.2);
+            gap: 10px;
+            cursor: pointer;
+            .reviewImage{
+                width: 100%;
+                height: 100%;
+               }
+           }
+           .reviewvideobox{
+            width: 120px;
+            max-height: 100px;
+            video{
+                width: 100%;
+                cursor: pointer;
+               }
+           }
+    }
+    .media_list {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 30px 0;
+        .uploadedImage{
+            width:70px;
+            height: 70px;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .uploadedVideo{
+            width: 100px;
+            height: 70px;
+            position: relative;
+            video{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .crossbtn{
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            transform: translate(0% , -50%);
+            z-index: 100;
+             cursor: pointer;
+         }
+    }
+    .related_review_container{
+        margin-bottom: 20px;
+        border-bottom: 2px solid  #F8F7F4;
+        position: relative;
+        .reviewdateTexyt{
+            font-family: "Inter", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.6;
+            text-align: left;
+            color: #858585;
+            margin-bottom: 12px;
+        }
+    }
+}
+
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
