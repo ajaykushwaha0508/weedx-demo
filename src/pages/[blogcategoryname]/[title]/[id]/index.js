@@ -149,11 +149,6 @@ const Blogs = (props) => {
             console.error(error)
         })
     }
-
-
-
-
-        // console.log(News)
         return (
             <React.Fragment>
                 {state.permission && <Currentlocation />}

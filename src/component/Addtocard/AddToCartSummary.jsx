@@ -29,7 +29,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
   const HandlePickupAndDelivery = (e) => {
     SetOpenPickup(!OpenPickup);
     SetOpenDelivery(false);
-    if (e.currentTarget.id === "pickup_btn") {
+    if (e === "pickup_btn") {
       SetOpenPickup(!OpenPickup);
       SetOpenDelivery(false);
       if (state.AllProduct[0]?.StoreCurbsidePickup) {
@@ -44,7 +44,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         });
       }
 
-    } else if (e.currentTarget.id === "delivery_btn") {
+    } else if (e === "delivery_btn") {
       SetOpenDelivery(!OpenDelivery);
       SetOpenPickup(false);
       dispatch({
@@ -52,9 +52,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         selectDeliveryoptions: "delivery_btn",
       });
     }
-
   };
-  // console.log(state)
   const CheckoutProcess = (event, j) => {
     if (!state.login) {
       if (navigate.pathname === '/carts') {
@@ -132,8 +130,14 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     })
     setanyoutstock(nss)
   }, [state?.AllProduct])
-
-
+  console.log(state.AllProduct[0])
+   useEffect(()=>{
+      if(state.AllProduct[0]?.StoreCurbsidePickup && state.AllProduct[0]?.StorePickup){
+        HandlePickupAndDelivery('delivery_btn')
+      }else if(!state.AllProduct[0]?.StoreDelivery){
+        HandlePickupAndDelivery('pickup_btn') 
+      }
+  } , [state.AllProduct[0]])
   return (
     <div className="col-12 Add_product_cart_right_container_summary">
       <div className="col-12 AddProdCartFont_weight">
@@ -151,7 +155,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                     backgroundColor: OpenDelivery && "#00b96a",
                     color: OpenDelivery && "white",
                   }}
-                  onClick={HandlePickupAndDelivery}
+                  onClick={()=>HandlePickupAndDelivery('delivery_btn')}
                   id="delivery_btn"
                   variant="outlined"
                 >
@@ -173,7 +177,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                     }}
                     variant="outlined"
                     id="pickup_btn"
-                    onClick={HandlePickupAndDelivery}
+                    onClick={()=>HandlePickupAndDelivery('pickup_btn')}
                   >
                     {state.AllProduct[0]?.StoreCurbsidePickup
                       ? "Curbside Pickup"
@@ -202,12 +206,11 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           </LoadingButton>
         </Box>
       )}
-
       <div className="col-12">
         {OpenDelivery && (
           <div className="col-12 mt-4 ">
             <div className=" addtocart_textfield mt-2">
-              <label htmlFor="name-field">MY STREET ADDRESS</label>
+              <label htmlFor="name-field">{`MY STREET ADDRESS`}</label>
               <DeliverAutoCompleteAddress
                 OpenDelivery={OpenDelivery}
                 className={classes.textFieldcartsummeryPage}
@@ -216,7 +219,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
             </div>
             <div className=" addtocart_textfield mt-3">
               <label htmlFor="name-field">
-                APARTMENT OR SUITE NUMBER
+                {`APARTMENT OR SUITE NUMBER`}
                 <TextField
                   className={classes.textFieldcartsummeryPage}
                   name="contact"
@@ -269,15 +272,15 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         </div>
           <p>${state.DeliveryPrice || "0"}</p>
       </div>
-      <div className="col-12 order_Summary_total_container">
+        <div className="col-12 order_Summary_total_container">
         <div className=" order_summary_flex">
           <div className=" add_prod_cart_summary_p">
-            <p className="m-0">Total Amount</p>
-            {Boolean(state.CoupounAmount) && <p className="m-0">Discount Amount</p>}
+            <p className="m-0 text-white">Total Amount</p>
+            {Boolean(state.CoupounAmount) && <p className="m-0 ">Discount Amount</p>}
           </div>
           <div className=" ">
-            {Boolean(state.CoupounAmount) ? <del   ><span className="m-0" style={{ color: '#fff', textDecoration: 'line-through 2px #000' }}>${state.Cart_subTotal}</span></del> : <p className="m-0">${state.Cart_subTotal}</p>}
-            {Boolean(state.CoupounAmount) && <p className="m-0">${state.Cart_subTotal - state.CoupounAmount}</p>}
+            {Boolean(state.CoupounAmount) ? <del className="text-white"  ><span className="m-0 text-white" >${state.Cart_subTotal}</span></del> : <p className="m-0 text-white">${state.Cart_subTotal}</p>}
+            {Boolean(state.CoupounAmount) && <p className="m-0 text-white">${state.Cart_subTotal - state.CoupounAmount}</p>}
           </div>
         </div>
 

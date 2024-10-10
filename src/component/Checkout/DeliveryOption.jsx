@@ -37,12 +37,12 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
         SetShowDeliveryRestData(true)
     }
 
-    function CheckBox(event) {
+    // function CheckBox(event) {
 
-        SetCheckbox({
-            ...Checkbox, [event.target.name]: event.target.checked
-        });
-    }
+    //     SetCheckbox({
+    //         ...Checkbox, [event.target.name]: event.target.checked
+    //     });
+    // }
     React.useEffect(()=>{
         if(Time === ""){
             if(Hours !== null  && Hours !== undefined){
@@ -57,16 +57,13 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
         }
     },[ Hours])
     return (
-        <React.Fragment>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 center">
-                        <div className="col-12 col-lg-12 col-md-12 col-sm-12  DeliveryOption_container">
-                            <div className="col-12 height_for_inner_div" style={{    display: 'flex' ,justifyContent: 'space-between' , marginBottom:"12px"}}>
-                                <h1 className='font_size_paragraph'>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  Options</h1>
-                               
+       
+                        <div className="DeliveryOption_container">
+                            <div className="col-12 d-flex justify-content-between align-items-center">
+                                {/* <h1 className='font_size_paragraph'>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  Options</h1> */}
+                               <p></p>
                                {
-                                ShowDeliveryRestData ? null :  <Button     variant="outlined" sx={{
+                                    ShowDeliveryRestData ? null :  <Button     variant="outlined" sx={{
                                     color: '#31B665',
                                     borderColor:'#31B665',
                                     fontSize:'12px',
@@ -82,8 +79,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                
 
                             </div>
-                            <div className="col-12 height_for_inner_div" >
-                                <p  style={{fontWeight:'600'}}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }    {`Address`}</p>
+                            <div className="col-12" >
+                                <h3 className='mb-0 height_for_delivery_instruction_div'>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }    {`Address`}</h3>
 
                                 {DeliveryOptionData?.map((ele, index) => {
                                     return (
@@ -96,13 +93,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 })}
 
                             </div>
-                            <div className="col-12 flex_for_delivery  d-flex aling-item-center  p-2">
-                              
-                                  
+                            <div className="col-12   d-flex aling-item-center ">
                                     <p className='text-break'>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : <>{ state.DeliveryAddress} <Link href={'/cart'}><FiEdit  color='#31B665' /></Link> </>   }  </p>
-
-                             
-                           
                             </div>
                             
                             {
@@ -113,13 +105,11 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 : 
                                 ShowDeliveryRestData ?
                                         <div className="col-12 height_for_inner_div ">
-                                            <p style={{fontWeight:'500'}}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  {`time`}</p>
+                                            <h3 className='height_for_delivery_instruction_div'>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  {`time`}</h3>
                                         </div>
                                     :
                                         <React.Fragment>
-                                            <div><p  style={{fontWeight:'600'}}> Pickup Time </p> 
-                                            </div>
-                                        
+                                            <h3 className='height_for_delivery_instruction_div'> Pickup Time </h3>
                                             <p className='m-0'> {Time}</p>
                                         </React.Fragment>
                               
@@ -149,7 +139,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                                         Hours?.map((data , index)=>{
                                                             return(
                                                                 <MenuItem key={index}  value={data?.day + " " + data?.Open?.map((time)=>time.Time1) +"-"+ data?.Open?.map((time)=>time.Time2)}>
-                                                                  <div> <span className='col-7'> { data?.day[0].toUpperCase() + data?.day.slice(1)} :- </span> <span>{data?.Open?.map((time)=>time.Time1)}</span>-<span>{data?.Open?.map((time)=>time.Time2)}</span></div>
+                                                                  <div className='rwo'> <span className='col-5'><b> { data?.day[0].toUpperCase() + data?.day.slice(1)} :- </b></span> <span className='col-5'>  {data?.Open?.map((time)=>time.Time1)} - {data?.Open?.map((time)=>time.Time2)}</span></div>
                                                                 </MenuItem>
                                                             )
                                                         })
@@ -160,62 +150,17 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
 
 
                                     </div>
-                                    <div className="col-12 height_for_delivery_instruction_div ">
-                                        <p style={{fontWeight:'500'}}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" } {` Instruction`}</p>
+                                    <h3 className='height_for_delivery_instruction_div'>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" } {` Instruction`}</h3>
 
-
-                                    </div>
                                     <div className="col-12 height_for_delivery_instruction_textarea_div ">
-                                        <div className='col-12  text_area_margin height_for_delivery_instruction_textarea_div'>
-
+                                        <div className='col-12 height_for_delivery_instruction_textarea_div'>
                                             <textarea className="textAreaDeliveryOptions" id="textAreaExample4"></textarea>
                                         </div>
-
                                     </div>
 
                                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
 
-                                        <div className='col-12 flex_for_delivery'>
-                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2  center'>
-                                             
-                                                <input id="checkbox-id"
-                                                    onChange={CheckBox}
-                                                    checked={Checkbox.DeliveryTime}
-                                                    name='DeliveryTime'
-                                                    type='checkbox'
-                                                     required
-                                                />
-
-                                            </div>
-                                            <div className='col-10  col-lg-10 col-md-10 col-sm-10  font_size_checkbox_paragraph'>
-                                                <p>{`**Please check this box if you are available for all day delivery (8AM-7PM).`}</p>
-                                            </div>
-
-                                        </div>
-                                        <div className='col-12 flex_for_delivery'>
-                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 center '>
-                                                <input checked={Checkbox.deliveryinstructions} onChange={CheckBox} name='deliveryinstructions' type='checkbox' required />
-                                            </div>
-                                            <div className='col-10  col-lg-10 col-md-10 col-sm-10 font_size_checkbox_paragraph'>
-                                                <p>{`Please check this box if the information entered is for a caregiver. If so, please add the patient information
-                                                    (first name, last name, DOB, Medical Marijuana ID number) in the delivery instructions.`}</p>
-                                            </div>
-
-                                        </div>
-                                        <div className='col-12 flex_for_delivery'>
-                                            <div className='col-2 col-sm-2 col-md-2 col-lg-2 center'>
-                                                <input checked={Checkbox.documented} onChange={CheckBox} name="documented" type='checkbox' required />
-                                            </div>
-                                            <div className='col-10  col-lg-10 col-md-10 col-sm-10 justify-content-start font_size_checkbox_paragraph'>
-                                                <p>{`I confirm that the provided customer information meets my medical requirements. I agree to present required documentation upon delivery. Any updates to my medical history or medications have been noted. For questions about cannabis use, please consult your physician or our pharmacists.*`}</p>
-                                          
-                                            </div>
-
-                                        </div>
-                                        <div className='col-12'>
-                                            <p>{`Please agree to the store's required terms`}</p>
-
-                                        </div>
+                                   
                                         <div className='col-12 col-lg-4 height_delivery_option_buttton'>
                                             <Box
                                                 className={`  ${classes.loadingBtnTextAndBack}`}
@@ -229,13 +174,6 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 </div>
                             }
                         </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </React.Fragment>
     )
 }
 export default DeliveryOption

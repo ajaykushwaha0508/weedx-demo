@@ -8,8 +8,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import SearchBar from "../searchbar";
 import Badge from "@mui/material/Badge";
+import { HiSpeakerphone } from "react-icons/hi";
 import useStyles from "../../../../styles/style";
 import IconButton from "@mui/material/IconButton";
+import newclases from '@/styles/customstyle.module.scss'
 import Notification from "../Notification";
 export default function DashBoardLink({ state }) {
   const classes = useStyles();
@@ -57,14 +59,14 @@ export default function DashBoardLink({ state }) {
     } else if (state?.Country) {
       return `/weed-dispensaries/in/${state.Country.toLowerCase()}`;
     } else {
-      return "/"; // Default fallback if no valid state is provided
+      return "/";
     }
   };
 
   return (
     <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
       <Grid container spacing={2}>
-        <Grid xs={8} md={9} display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="col nav_list1">
             <ul className="p-0">
               <Link
@@ -114,10 +116,25 @@ export default function DashBoardLink({ state }) {
             </ul>
           </div>
         </Grid>
-
+        <Grid xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
+          <div className="d-flex gap-1 justify-content-center">
+            <button class={newclases.btnaddss}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            
+                {` Add Business`}
+            </button>
+            <button class={newclases.btnaddss}>
+              <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
+              {`Advertise`}
+            </button>
+          </div>
+        </Grid>
         <Grid
           xs={6}
-          md={3}
+          md={2}
           spacing={2}
           display={{ xs: "none", md: "block", lg: "block" }}
         >

@@ -102,11 +102,7 @@ const CheckOutMainPage = () => {
                     pathname:location.pathname === '/menu-integration/checkout' ?"/menu-integration/order-placed":`/order-placed/${response.data.data.OrderId}`,
                     query: datanew
                 }, `/order-placed/${response.data.data.OrderId}`);
-                // navigate.push({
-                //     pathname:location.pathname === '/menu-integration/checkout' ?"/menu-integration/order-placed":"/order-placed",
-                //     query:datanew,
-                //   });
-                // navigate.push( location.pathname === '/menu-integration/checkout' ?"/menu-integration/order-placed":"/order-placed", { query: datanew })
+             
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
             }).catch(
                 function (error) {
@@ -139,10 +135,8 @@ const CheckOutMainPage = () => {
     return (
         <ProtectRout>
             <div className="container">
-
-
                 <div className="row">
-                    <div className="col-md-8 col-lg-6 col-sm-12 col-12">
+                    <div className="col-md-8 col-xl-8 col-lg-7 col-sm-12 col-12">
                         <div className="row ">
                             <div className="col-lg-12">
                                 <DeliveryOption Time={Time} SetTime={SetTime} Hours={state?.AllProduct[0]?.StoreHours} DeliveryOptionData={DeliveryOptionData} address={InputValues} SetShowData={SetShowData} />
@@ -182,7 +176,7 @@ const CheckOutMainPage = () => {
                         </div>
 
                     </div>
-                    <div className="col-md-8 col-lg-5 col-sm-12 col-12">
+                    <div className="col-md-8 col-xl-4 col-lg-5 col-sm-12 col-12">
                         <div className="row checkout_main_page_addtocart_margin">
                             <div className="col-lg-12  checkout_main_page_summary">
                                 <AddToCartSummary SetDeliveryOptionData={SetDeliveryOptionData} Total={abc} SubmitData={SubmitData}
@@ -191,17 +185,11 @@ const CheckOutMainPage = () => {
                                     Details={Details}
                                     SetDetails={SetDetails}
                                 />
-
                             </div>
 
                         </div>
                     </div>
-
                 </div>
-
-
-
-
             </div>
         </ProtectRout>
     )

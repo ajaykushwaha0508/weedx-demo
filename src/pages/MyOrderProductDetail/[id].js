@@ -10,6 +10,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import useStyles from "@/styles/style";
 import Swal from 'sweetalert2';
+import { ConstructionOutlined } from "@mui/icons-material";
 
 const Index = () => {
     const router = useRouter();
@@ -147,7 +148,7 @@ const Index = () => {
                                 </section>
                                 <div>
                                     <span className="customerNameFontss">Store Name: </span>
-                                    <span>{AllOrder_data[0]?.SellerName}</span>
+                                    <span>{AllOrder_data[0]?.StoreName}</span>
                                 </div>
                                 <div>
                                     <span className="customerNameFontss">Customer Name: </span>

@@ -25,10 +25,7 @@ const Payment = ({ SetShowPlaceOrder }) => {
         setValue(event.target.value);
     };
     return (
-        <React.Fragment>
-            <div className="container-fluid">
-                <div className="row center deliver_row_margin">
-                    <div className="col-lg-12 col-md-12 col-sm-12 col-12 payment_container">
+                    <div className="DeliveryOption_container">
                         <div className="row">
                             <div className="col-12 d-flex justify-content-between align-items-center">
                                 <p className='font_size_paragraph' onClick={ShowAgainPaymentRestData}>Payment Method</p>
@@ -50,49 +47,28 @@ const Payment = ({ SetShowPlaceOrder }) => {
                             </div>
 
                         </div>
-                        {    PaymentRestData &&
+                        {   
+                         PaymentRestData &&
                             <div>
-
-                              
-                                 
-
+                             
+                                        <Box  className={classes.deliveryOptionRadioBtn} >
+                                            <FormControl>
+                                                <RadioGroup  aria-labelledby="demo-controlled-radio-buttons-group" name="controlled-radio-buttons-group" value={value}  onChange={handleChange}  >
+                                                    <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="We Accept Cash On Delivery" />
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </Box>
                                
-                                <div className="row">
-                                    <div className="col-12">
-                                        <Box
-                                        className={classes.deliveryOptionRadioBtn}
-                                        >
-                                        <FormControl>
-                                            <RadioGroup
-                                                aria-labelledby="demo-controlled-radio-buttons-group"
-                                                name="controlled-radio-buttons-group"
-                                                value={value}
-                                                onChange={handleChange}
-                                            >
-                                                <FormControlLabel value="I plan to pay delivery at cash" control={<Radio />} label="We Accept Cash On Delivery" />
-
-                                            </RadioGroup>
-                                        </FormControl>
-                                         </Box>
-                                    </div>
-                                </div>
-                                <div className='row mt-4'>
+                              
                                     <div className='col-12 col-lg-4 height_delivery_information_btn'>
-                                        <Box
-                                            className={`  ${classes.loadingBtnTextAndBack}`}
-                                        >
+                                        <Box className={`  ${classes.loadingBtnTextAndBack}`} >
                                             <LoadingButton onClick={HandlePaymentRestData} variant="outlined">continue</LoadingButton>
                                         </Box>
                                     </div>
 
-                                </div>
-                            </div>}
+                            </div>
+                        }
                     </div>
-
-                </div>
-
-            </div >
-        </React.Fragment>
     )
 }
 export default Payment

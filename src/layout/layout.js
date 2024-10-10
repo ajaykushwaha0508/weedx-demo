@@ -5,6 +5,7 @@ const Navbar = dynamic(() => import('../component/navbar'));
 const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'), { ssr: false });
 import Footer from '@/component/Footer/Footer';
 // import Chartbot from '@/component/chartbot/Chartbot';
+import newclases from '@/styles/customstyle.module.scss';
 const Layout = ({ children }) => {
 
   return (
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
         </Grid>
       </div>
       <Footer/>
+   
       <Chartbot></Chartbot>
     </div>
   );
