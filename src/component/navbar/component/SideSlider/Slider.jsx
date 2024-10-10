@@ -9,6 +9,8 @@ import { FaHome, FaClinicMedical, FaIdeal, FaProductHunt } from "react-icons/fa"
 import { TbTruckDelivery } from "react-icons/tb";
 import { SiFuturelearn } from "react-icons/si";
 import { RxCross2 } from "react-icons/rx";
+import { HiSpeakerphone } from "react-icons/hi";
+
 // import { URL } from 'url';
 import Cookies from 'universal-cookie';
 import Image from "next/image";
@@ -158,6 +160,19 @@ const SideNavbar = ({ closeNav, Open }) => {
                             <Link className="text-dark" href="/learn/laws-and-regulation"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25} /></span>Law</p></Link>
                         </div>
                         <hr></hr>
+                        <div className="d-flex justify-content-center align-items-center gap-2">
+                            <button class={clases.btnaddss}>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    {` Add Business`}
+                            </button>
+                            <button class={clases.btnaddss}>
+                                <p className={clases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
+                                {`Advertise`}
+                            </button>
+                        </div>
                 </div>
                 <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
                     {

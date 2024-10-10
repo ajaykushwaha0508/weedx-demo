@@ -207,10 +207,13 @@ const useStyles = makeStyles({
   },
   muiSelectTime:{
     "&.MuiFormControl-root": {
-      width: "320px",
-      height: "38px",
+      width: "100%",
+    
       minWidth: "120px",
-      margin: "1px"
+      margin: "1px",
+   " & .MuiSelect-select" :{
+ padding:'6px 20px'
+    }
     },
     "& .MuiInputLabel-root.Mui-focused ": {
       color: "#31B665"
