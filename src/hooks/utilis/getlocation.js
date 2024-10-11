@@ -13,31 +13,29 @@ async function postData(createurl, value, address, id) {
 
   try {
     const response = await fetch(url, {
-      method: 'POST', // Specify the request method as POST
+      method: 'POST', 
       headers: {
-        'Content-Type': 'application/json', // Set the content type to JSON
+        'Content-Type': 'application/json', 
       },
-      body: JSON.stringify(data) // Convert the data object to a JSON string
+      body: JSON.stringify(data) 
     });
     const l = await response.json()
-    // console.log(l)
+
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
 function splitAtFirstComma(str) {
-  // Find the index of the first comma
+
   const commaIndex = str.indexOf(',');
 
-  // If there's no comma, return the string as a single element array
   if (commaIndex === -1) {
     return [str];
   }
 
-  // Split the string into two parts: before and after the first comma
   const beforeComma = str.slice(0, commaIndex);
-  const afterComma = str.slice(commaIndex + 1).trim(); // Trim spaces after comma
+  const afterComma = str.slice(commaIndex + 1).trim(); 
 
   return [beforeComma, afterComma];
 }
