@@ -12,9 +12,27 @@ const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import Createcontext from "@/hooks/context";
 import { modifystr } from "@/hooks/utilis/commonfunction";
+import axios from "axios";
+
+const transformString = (str) => {
+  if (typeof str !== "string" || !str.trim()) {
+    return '';
+  }
+
+  return str
+    .replace(/-/g, " ")  // Replace hyphens with spaces
+    .split(' ')          // Split the string into an array of words
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
+    .join(' ');          // Join the words back into a single string
+};
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
   const [Skeleton, SetSkeleton] = React.useState(true)
+  const [data , setdata] =  React.useState([])
+  
+  React.useEffect(()=>{
+    setdata(initialData.Dispensaries)
+  },[])
   const Navigate = useRouter()
   function ShowCategoryProduct(id, name) {
 
@@ -28,7 +46,7 @@ export default function Home({ initialData }) {
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
       <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>
-      <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={data} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <NewsBlog data={initialData.news}></NewsBlog>
@@ -36,32 +54,28 @@ export default function Home({ initialData }) {
   );
 }
 
-const transformString = (str) => {
-  if (typeof str !== "string" || !str.trim()) {
-    return '';
-  }
 
-  return str
-    .replace(/-/g, " ")  // Replace hyphens with spaces
-    .split(' ')          // Split the string into an array of words
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
-    .join(' ');          // Join the words back into a single string
-};
+
+
+
 
 export async function getServerSideProps(context) {
-  // console.log(context.req.headers['x-fetchlocation'], "index page")
   const cookies = JSON.parse(context.req.headers['x-fetchlocation'] || '');
+  
   const object = {
     City: transformString(cookies.city) || '',
     State: transformString(cookies.state) || '',
     Country: transformString(cookies.country) || '',
     limit: 10
   };
+
+  // Remove empty keys
   for (const key in object) {
     if (object[key] === '') {
       delete object[key];
     }
   }
+
   const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
@@ -70,20 +84,37 @@ export async function getServerSideProps(context) {
           topbanner: [],
           category: [],
           bottembannner: [],
-          brand: []
+          brand: [],
         },
         error: 'Failed to fetch data',
       },
     };
   };
-  try {
-    const fetchWithTimeout = async (url, options = {}, timeout = 5000) => {
-      const controller = new AbortController();
-      const id = setTimeout(() => controller.abort(), timeout);
-      const response = await fetch(url, { ...options, signal: controller.signal });
-      clearTimeout(id);
+
+  const fetchWithTimeout = async (url, options = {}, timeout = 5000) => {
+    const source = axios.CancelToken.source();
+    const timeoutId = setTimeout(() => source.cancel(), timeout);
+
+    try {
+      const response = await axios({
+        url,
+        cancelToken: source.token,
+        ...options,
+      });
+      clearTimeout(timeoutId);
       return response;
-    };
+    } catch (error) {
+      clearTimeout(timeoutId);
+      if (axios.isCancel(error)) {
+        console.error('Request canceled due to timeout');
+      } else {
+        console.error('Request failed:', error);
+      }
+      throw error;
+    }
+  };
+
+  try {
     const [banner, callcategory, bannner2, brand, GetDelivery, Dispensaries, news] = await Promise.all([
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/').catch(() => null),
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-Categories/').catch(() => null),
@@ -94,46 +125,43 @@ export async function getServerSideProps(context) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(object)
+        data: JSON.stringify(object),
       }).catch(() => null),
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(object)
+        data: JSON.stringify(object),
       }).catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            "category": 2,
-            "limit": 10
-          })
-        }
-
-      ).catch((error) => {
-      } ),
+      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify({
+          category: 2,
+          limit: 10,
+        }),
+      }).catch(() => null),
     ]);
 
     const [topbanner, category, bottembannner, getbrand, GetDelivery1, Dispensaries1, news1] = await Promise.all([
-      banner ? banner.json().catch(() => []) : [],
-      callcategory ? callcategory.json().catch(() => []) : [],
-      bannner2 ? bannner2.json().catch(() => []) : [],
-      brand ? brand.json().catch(() => []) : [],
-      GetDelivery ? GetDelivery.json().catch(() => []) : [], 
-      Dispensaries ? Dispensaries.json().catch(() => []) : [],
-      news ? news.json().catch(() => []) : []
+      banner ? banner.data : [],
+      callcategory ? callcategory.data : [],
+      bannner2 ? bannner2.data : [],
+      brand ? brand.data : [],
+      GetDelivery ? GetDelivery.data : [],
+      Dispensaries ? Dispensaries.data : [],
+      news ? news.data : [],
     ]);
+console.log(Dispensaries1)
     const responseData = {
       topbanner: topbanner || [],
       category: category || [],
       bottembannner: bottembannner || [],
       brand: getbrand || [],
-      GetDelivery: GetDelivery1 === "No Delivery in your Area" ?  [] :  GetDelivery1,
+      GetDelivery: GetDelivery1 === 'No Delivery in your Area' ? [] : GetDelivery1,
       Dispensaries: Dispensaries1 || [],
       news: news1,
       formatted_address: cookies.formatted_address,
@@ -146,11 +174,8 @@ export async function getServerSideProps(context) {
       props: {
         initialData: responseData,
       },
-      // revalidate: 60,
     };
   } catch (error) {
     return handleError(error);
   }
 }
-
-

@@ -84,7 +84,7 @@ async function location(value, type, data, id, weburl) {
           let l = data.types[0]
           if (data.types[0] === "political") {
             let rever = data.types.reverse()
-            let l = rever[0] === "political" ? rever[1] : rever[0]
+            let l = rever[0]
             object[l] = data.long_name
             short[l] = data?.short_name
           }
