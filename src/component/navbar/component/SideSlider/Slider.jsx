@@ -68,6 +68,8 @@ const SideNavbar = ({ closeNav, Open }) => {
     // const href = new URL(`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`, '/weed-dispensaries/in/'); // replace with your base URL
     // const normalizedHref = href.pathname.replace(/\/\/+/g, '/');
 
+    const link = () => {Navigate.push("/add-business")}
+    const link1  = () => {Navigate.push("/advertise")}
     return (
         <React.Fragment>
             <div id="mySidebar" className={clases.sidebar} style={{ width: Open ? "300px" : "0px" }}>
@@ -161,14 +163,14 @@ const SideNavbar = ({ closeNav, Open }) => {
                         </div>
                         <hr></hr>
                         <div className="d-flex justify-content-center align-items-center gap-2">
-                            <button class={clases.btnaddss}>
+                            <button class={clases.btnaddss} onClick={link}>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     {` Add Business`}
                             </button>
-                            <button class={clases.btnaddss}>
+                            <button class={clases.btnaddss} onClick={link1}>
                                 <p className={clases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
                                 {`Advertise`}
                             </button>

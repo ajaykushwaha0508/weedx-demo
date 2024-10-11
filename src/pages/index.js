@@ -32,7 +32,7 @@ export default function Home({ initialData }) {
   
   React.useEffect(()=>{
     setdata(initialData.Dispensaries)
-  },[])
+  },[initialData.Dispensaries])
   const Navigate = useRouter()
   function ShowCategoryProduct(id, name) {
 
