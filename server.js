@@ -14,6 +14,7 @@ const upload = multer({ storage: storage });
 function modifystr(str) {
   if (typeof str !== 'string') {
     return ''
+
   }
   else {
     str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -54,42 +55,42 @@ app.prepare().
       const urls = [
 
       ];
-    
-    const fetchWithDelay = async (urls, delay) => {
-      const fetchUrl = async (url, retries = 3) => {
+
+      const fetchWithDelay = async (urls, delay) => {
+        const fetchUrl = async (url, retries = 3) => {
           try {
-              const response = await axios.get(url, { timeout: 15000 });
-  
-              // Check if the response is JSON
-              const contentType = response.headers['content-type'];
-              if (contentType && contentType.includes('application/json')) {
-                  const data = response.data;
-                 
-              } else {
-                  console.error(`Unexpected content type for ${url}: ${contentType}`);
-                  console.error(`Response body:`, response.data); // This will log the HTML or other content
-              }
+            const response = await axios.get(url, { timeout: 15000 });
+
+            // Check if the response is JSON
+            const contentType = response.headers['content-type'];
+            if (contentType && contentType.includes('application/json')) {
+              const data = response.data;
+
+            } else {
+              console.error(`Unexpected content type for ${url}: ${contentType}`);
+              console.error(`Response body:`, response.data); // This will log the HTML or other content
+            }
           } catch (error) {
-              console.error(`Error fetching ${url}:`, error.message);
-  
-              // Retry logic
-              if (retries > 0) {
-                  console.log(`Retrying ${url} (${retries} attempts left)`);
-                  await new Promise(res => setTimeout(res, delay)); // Delay before retrying
-                  return await fetchUrl(url, retries - 1);
-              } else {
-                  console.error(`Failed to fetch ${url} after multiple attempts`);
-              }
+            console.error(`Error fetching ${url}:`, error.message);
+
+            // Retry logic
+            if (retries > 0) {
+              console.log(`Retrying ${url} (${retries} attempts left)`);
+              await new Promise(res => setTimeout(res, delay)); // Delay before retrying
+              return await fetchUrl(url, retries - 1);
+            } else {
+              console.error(`Failed to fetch ${url} after multiple attempts`);
+            }
           }
-      };
-  
-      for (let i = 0; i < urls.length; i++) {
+        };
+
+        for (let i = 0; i < urls.length; i++) {
           await new Promise(res => setTimeout(res, i * delay)); // Delay between each request
           await fetchUrl(urls[i]);
-      }
-  };
+        }
+      };
       console.log("Cutim_route")
-    fetchWithDelay(urls, 10); // 10000 ms = 10 seconds
+      fetchWithDelay(urls, 10); // 10000 ms = 10 seconds
     });
 
     server.get("/sitemap/:category", async (req, res) => {
@@ -599,8 +600,6 @@ app.prepare().
         // code block executed if expression doesn't match any case
       }
     })
-
-
     server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
       res.send(`User-agent: *
@@ -608,7 +607,7 @@ Disallow:
 
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
-    
+
     server.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
       try {
         // Check if a file is uploaded
@@ -616,7 +615,7 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
           res.status(400).send('No CSV file uploaded');
           return;
         }
-    
+
         // Parse CSV data into JSON
         const jsonData = req.file.buffer
           .toString('utf8')
@@ -624,13 +623,13 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
           .map((line, index) => {
             // Skip empty lines
             if (!line.trim()) return null;
-    
+
             // Split the line into columns
             const columns = line.split(',');
-    
+
             // Skip headers (assuming they are in the first row)
             if (index === 0) return null;
-    
+
             // Create an object for each row
             return {
               country: columns[0].trim(),
@@ -639,10 +638,10 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
             };
           })
           .filter(row => row !== null); // Remove null entries (headers or empty lines)
-    
+
         // Array to store all HTTP request promises
         const requestPromises = [];
-    
+
         // Send HTTP requests for each row of data
         for (const data of jsonData) {
           try {
@@ -655,7 +654,7 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
             console.error('Error making HTTP request:', error);
           }
         }
-    
+
         // Send the response after all requests have completed
         res.status(200).send('CSV file received and processed successfully');
       } catch (error) {
@@ -670,7 +669,7 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
           res.status(400).send('No CSV file uploaded');
           return;
         }
-    
+
         // Parse CSV data into JSON
         const jsonData = req.file.buffer
           .toString('utf8')
@@ -678,13 +677,13 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
           .map((line, index) => {
             // Skip empty lines
             if (!line.trim()) return null;
-    
+
             // Split the line into columns
             const columns = line.split(',');
-    
+
             // Skip headers (assuming they are in the first row)
             if (index === 0) return null;
-    
+
             // Create an object for each row
             return {
               country: columns[0].trim(),
@@ -693,10 +692,10 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
             };
           })
           .filter(row => row !== null); // Remove null entries (headers or empty lines)
-    
+
         // Array to store all HTTP request promises
         const requestPromises = [];
-    
+
         // Send HTTP requests for each row of data
         for (const data of jsonData) {
           try {
@@ -708,7 +707,7 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
             console.error('Error making HTTP request:', error);
           }
         }
-    
+
         // Send the response after all requests have completed
         res.status(200).send('CSV file received and processed successfully');
       } catch (error) {
@@ -720,6 +719,7 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
 
       return handle(req, res);
     });
+
 
     server.listen(3000, (err) => {
       if (err) throw err;
