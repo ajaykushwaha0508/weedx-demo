@@ -15,6 +15,7 @@ import newclases from '@/styles/customstyle.module.scss'
 import Notification from "../Notification";
 export default function DashBoardLink({ state }) {
   const classes = useStyles();
+
   const [current_route, Setcurrent_route] = React.useState();
   const [notify, setnotify] = React.useState(false);
   const [textnotify, settextnotify] = React.useState(false);
@@ -62,7 +63,8 @@ export default function DashBoardLink({ state }) {
       return "/";
     }
   };
-
+  const link = () => {location.push("/add-business")}
+  const link1  = () => {location.push("/advertise")}
   return (
     <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
       <Grid container spacing={2}>
@@ -118,7 +120,7 @@ export default function DashBoardLink({ state }) {
         </Grid>
         <Grid xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="d-flex gap-1 justify-content-center">
-            <button class={newclases.btnaddss}>
+            <button class={newclases.btnaddss} onClick={link}>
               <span></span>
               <span></span>
               <span></span>
@@ -126,7 +128,7 @@ export default function DashBoardLink({ state }) {
             
                 {` Add Business`}
             </button>
-            <button class={newclases.btnaddss}>
+            <button class={newclases.btnaddss} onClick={link1}>
               <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
               {`Advertise`}
             </button>
