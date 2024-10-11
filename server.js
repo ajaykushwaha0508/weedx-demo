@@ -52,46 +52,15 @@ app.prepare().
     // Custom route example
 
     server.get('/custom-route', (req, res) => {
-      const urls = [
-
-      ];
-
-      const fetchWithDelay = async (urls, delay) => {
-        const fetchUrl = async (url, retries = 3) => {
-          try {
-            const response = await axios.get(url, { timeout: 15000 });
-
-            // Check if the response is JSON
-            const contentType = response.headers['content-type'];
-            if (contentType && contentType.includes('application/json')) {
-              const data = response.data;
-
-            } else {
-              console.error(`Unexpected content type for ${url}: ${contentType}`);
-              console.error(`Response body:`, response.data); // This will log the HTML or other content
-            }
-          } catch (error) {
-            console.error(`Error fetching ${url}:`, error.message);
-
-            // Retry logic
-            if (retries > 0) {
-              console.log(`Retrying ${url} (${retries} attempts left)`);
-              await new Promise(res => setTimeout(res, delay)); // Delay before retrying
-              return await fetchUrl(url, retries - 1);
-            } else {
-              console.error(`Failed to fetch ${url} after multiple attempts`);
-            }
-          }
-        };
-
-        for (let i = 0; i < urls.length; i++) {
-          await new Promise(res => setTimeout(res, i * delay)); // Delay between each request
-          await fetchUrl(urls[i]);
-        }
-      };
-      console.log("Cutim_route")
-      fetchWithDelay(urls, 10); // 10000 ms = 10 seconds
-    });
+      // Get the origin from the request headers
+      const origin = req.get('Origin') || req.headers.host;
+      
+      // Create the full origin URL
+      const fullOrigin = `${req.protocol}://${origin}`;
+      console.log(origin , fullOrigin , "fdgdgfd")
+      // Return the origin as a response
+      res.json({ origin: fullOrigin });
+  });
 
     server.get("/sitemap/:category", async (req, res) => {
       switch (req.url) {

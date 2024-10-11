@@ -322,19 +322,14 @@ function capitalizeFirstLetter(string) {
 }
 
 
-export const getServerSideProps = async (context) => {
-  
-    context.res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-    )
+export const getServerSideProps= async (context) => {
 
     const { req, query } = context;
     const { headers: { referer }, url } = req;
     const isDirectHit = !referer || referer === req.url;
     let country1 = "", state = "", city = "", formatted_address = "", route = "", locationApi = "", setCookies = "";
     const isFromGoogle = referer?.includes('google') || false;
-    
+     let data 
 
     const transformString = (str) => {
         if (typeof str !== "string" || !str.trim()) {
@@ -359,6 +354,7 @@ export const getServerSideProps = async (context) => {
         };
 
         const decodedLocation = locationParams.map((param) => decodeURIComponent(param)).reverse().join(' ');
+    
         const k = await Location(decodedLocation, type, context, 14, 'dispensaries');
         country1 = k.country || "";
         state = k.state || "";
@@ -366,7 +362,7 @@ export const getServerSideProps = async (context) => {
         route = k.route || "";
         formatted_address = k.formatted_address || "";
         locationApi = k.api,
-            setCookies = k.cookies
+        setCookies = k.cookies
 
     }
 
@@ -420,10 +416,10 @@ export const getServerSideProps = async (context) => {
                 body: JSON.stringify(object2),
             })
         ]);
-
+ 
         // Handle product response
         if (!Dispensaries.ok) {
-            throw new Error('Failed to fetch dispensaries');
+            data = []
         }
 
         let products = [];
@@ -438,8 +434,14 @@ export const getServerSideProps = async (context) => {
         if (Webcontent.ok) {
             content = await Webcontent.json();
         }
-        // Fetch delivery data and check if no dispensary found
-        const data = await Dispensaries.json();
+
+        if (Dispensaries.ok) {
+            data = await Dispensaries.json() || [];
+            
+        }
+
+        
+
         if (data === "No Dispensary in your area") {
             return {
                 props: {
