@@ -50,7 +50,6 @@ const ProductList = ({ arr , link="products" }) => {
   });
   const [NewData, SetNewData] = React.useState([]);
   const Addtocard = async (Event) => {
-    console.log(Event.Store_Type)
     if (token_data) {
       const AddData = _.filter(
         Price,

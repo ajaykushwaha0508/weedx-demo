@@ -38,7 +38,7 @@ const advertise = () => {
             
                 {/* <Bgheader text={'Advertise with WeedX.io'}/> */}
                   <div className={classes.adversticebanner_header}>
-                    <h1>{'Advertise with WeedX.io'}</h1>
+                    <h1>{'Advertise with '} <span> {'WeedX.io'}</span></h1>
                     <Image src={AdvertiseBanner.src} alt={"banner image"}  width={400} height={100} />
                   </div>
             

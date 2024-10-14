@@ -16,7 +16,6 @@ import Add_business2 from '../../public/image/add_business2.png'
 import Add_business1 from '../../public/image/add_business2.png'
 import useStyles from "@/styles/style";
 
-
 const Businesspage = () => {
   const ref = useRef(null);
 const ssss = useStyles()
@@ -28,7 +27,7 @@ const ssss = useStyles()
           <div className="container-fluid">
           
             <div className={classes.adversticebanner_header}>
-                <h1>{'Add Your Business to WeedX.io'}</h1>
+                <h1>{'Add Your Business to'} <span> {'WeedX.io'} </span></h1>
                 <Image src={AdvertiseBanner.src} alt={"banner image"}  width={1200} height={400} />
             </div>
             <div className={`${classes.tbusiness_content} justify-content-between`}>

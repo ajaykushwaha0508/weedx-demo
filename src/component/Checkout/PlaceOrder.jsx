@@ -54,7 +54,6 @@ const PlaceOrder = ({orderid}) => {
         })
         
     }, [])
-console.log(Order)
     return (
         <React.Fragment>
             <div className="container-fluid">

@@ -8,7 +8,7 @@ import Image from "next/image"
 import Createcontext from "@/hooks/context";
 import Button from '@mui/material/Button';
 import { FaRegIdCard } from "react-icons/fa";
-
+import newclases from '@/styles/customstyle.module.scss';
 const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails , DefalutImage , SetDefalutimage }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()
@@ -18,16 +18,14 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
         if(image === undefined){
             SetDefalutimage(true)
             window.scroll(0,5)
+        }else{
+            SetShowDeliveryInformation(true)
+            SetShowRestDeliveryInformation(false)
+            dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
+            SetDetails({
+                ...Details, ["DateOfBirth"]: data.DateOfBirth
+            });
         }
-    else{
-        SetShowDeliveryInformation(true)
-        SetShowRestDeliveryInformation(false)
-        dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
-        SetDetails({
-            ...Details, ["DateOfBirth"]: data.DateOfBirth
-        });
-
-    }
     }
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
@@ -57,39 +55,39 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     return (
       
 
-            <div className='DeliveryOption_container'>
+            <div className={newclases.DeliveryOption_container}>
               
               
-                        <div className=" d-flex justify-content-between align-items-center">
-                            <h1 className="font_size_paragraph" >Your Information</h1>
-                            {
-                                ShowRestDeliveryInformation ? null :
-                            
-                            <Button     variant="outlined" sx={{
-                                    color: '#31B665',
+                    <div className=" d-flex justify-content-between align-items-center">
+                        <h1 className="font_size_paragraph" >Your Information</h1>
+                        {
+                            ShowRestDeliveryInformation ? null :
+                        
+                        <Button     variant="outlined" sx={{
+                                color: '#31B665',
+                                borderColor:'#31B665',
+                                fontSize:'12px',
+                                textTransform:'capitalize',
+                                '&:hover': {
+                                    color: "white",
+                                    backgroundColor:'#31B665',
                                     borderColor:'#31B665',
-                                    fontSize:'12px',
-                                    textTransform:'capitalize',
-                                    '&:hover': {
-                                        color: "white",
-                                        backgroundColor:'#31B665',
-                                        borderColor:'#31B665',
-                                    },
-                                    }} onClick={ShowAgainDeliverInformation}>Edit</Button>
-                                }
-                        </div>
+                                },
+                                }} onClick={ShowAgainDeliverInformation}>Edit</Button>
+                            }
+                    </div>
                   
                     {    
                         ShowRestDeliveryInformation &&
                             <div>
                              
                                     <div className="col-12  ">
-                                        <h3 className="height_for_delivery_instruction_div">Enter Your Information</h3>
+                                        <h3 className={newclases.height_for_delivery_instruction_div}>Enter Your Information</h3>
 
                                     </div>
                          
                                
-                                        <h3 className="height_for_delivery_instruction_div">Photo Id</h3>
+                                        <h3 className={newclases.height_for_delivery_instruction_div}>Photo Id</h3>
                                   
                                         <input accept="image/*" type='file'  id='idcardimage' className="d-none" onChange={SelectImage} />
                                      { image === undefined &&
@@ -238,18 +236,15 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     </div>
                                   
                                        
-                                            <h3 className="height_for_delivery_instruction_div">Medical Marijuana</h3>
+                                            <h3 className={newclases.height_for_delivery_instruction_div}>{`Medical Marijuana`}</h3>
 
 
                                     
 
                                     <div className='row'>
-                                        <div className="  font_color delivery_information_font_family">
-                                            <p>Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.</p>
-
-
+                                        <div className="  font_color   delivery_information_font_family">
+                                            <p>{`Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.`}</p>
                                         </div>
-
                                     </div>
                                     <div className='row'>
                                         <div className=" font_color delivery_information_font_family">
