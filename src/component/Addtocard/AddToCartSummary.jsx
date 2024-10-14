@@ -6,7 +6,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import useStyles from "@/styles/style";
 import Createcontext from "@/hooks/context";
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
-// import { useForm, FormProvider, Controller } from "react-hook-form";
+import newclases from '@/styles/customstyle.module.scss';
 import PromoCode from "./Promocode";
 import { Menuintegration_login } from "@/component/Login/menu-integration_login";
 const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails, Details }) => {
@@ -130,7 +130,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
     })
     setanyoutstock(nss)
   }, [state?.AllProduct])
-  console.log(state.AllProduct[0])
    useEffect(()=>{
       if(state.AllProduct[0]?.StoreCurbsidePickup && state.AllProduct[0]?.StorePickup){
         HandlePickupAndDelivery('delivery_btn')
@@ -139,41 +138,40 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
       }
   } , [state.AllProduct[0]])
   return (
-    <div className="col-12 Add_product_cart_right_container_summary">
-      <div className="col-12 AddProdCartFont_weight">
-        <h5>Order Summary</h5>
-      </div>
+    <div className={newclases.Add_product_cart_right_container_summary}>
+        <h5 className={newclases.AddProdCartFont_weight}>Order Summary</h5>
+
       {(Boolean(navigate.pathname !== "/checkout") || Boolean(navigate.pathname !== "/checkout")) ? (
-        <div className="col-12 d-flex addToCart_deliver">
+        <div className="w-100 d-flex align-items-center py-2 ">
           {state.AllProduct[0]?.StoreDelivery && (
             <div className="col-6">
               <Box
-                className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+                className={`px-1   ${classes.loadingBtnTextAndBack}`}
               >
                 <LoadingButton
                   style={{
-                    backgroundColor: OpenDelivery && "#00b96a",
-                    color: OpenDelivery && "white",
+                    backgroundColor: OpenDelivery && "#d8d8d8",
+                    color: OpenDelivery && "#000",
                   }}
                   onClick={()=>HandlePickupAndDelivery('delivery_btn')}
                   id="delivery_btn"
                   variant="outlined"
                 >
-                  Delivery
+                  {`Delivery`}
                 </LoadingButton>
               </Box>
             </div>
           )}
 
           <div className="col-6">
-            {(state.AllProduct[0]?.StoreCurbsidePickup ||
-              state.AllProduct[0]?.StorePickup) && (
+            {((state.AllProduct[0]?.StoreCurbsidePickup ||
+              state.AllProduct[0]?.StorePickup)) && (
                 <Box
-                  className={`px-1 add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`} >
+                  className={`px-1  ${classes.loadingBtnTextAndBack}`} >
                   <LoadingButton
                     style={{
-                      backgroundColor: OpenPickup && "#00b96a",
-                      color: OpenPickup && "white",
+                      backgroundColor: OpenPickup && "#d8d8d8",
+                      color: OpenPickup && "#000",
                     }}
                     variant="outlined"
                     id="pickup_btn"
@@ -189,7 +187,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         </div>
       ) : (
         <Box
-          className={`add_product_btn AddProduct_Cart_Btn ${classes.loadingBtnTextAndBack}`}
+          className={`  ${classes.loadingBtnTextAndBack}`}
         >
           <LoadingButton
             sx={{
@@ -206,10 +204,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           </LoadingButton>
         </Box>
       )}
-      <div className="col-12">
         {OpenDelivery && (
-          <div className="col-12 mt-4 ">
-            <div className=" addtocart_textfield mt-2">
+          <div className="my-3">
+            <div className=" w-xl-50 w-lg-75 w-100 mt-2">
               <label htmlFor="name-field">{`MY STREET ADDRESS`}</label>
               <DeliverAutoCompleteAddress
                 OpenDelivery={OpenDelivery}
@@ -217,7 +214,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                 Store={state.AllProduct[0].Store_id}
               ></DeliverAutoCompleteAddress>
             </div>
-            <div className=" addtocart_textfield mt-3">
+            <div className="  w-xl-50 w-lg-75 w-100 mt-3">
               <label htmlFor="name-field">
                 {`APARTMENT OR SUITE NUMBER`}
                 <TextField
@@ -235,69 +232,58 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
             </div>
           </div>
         )}
-      </div>
-      <div className="col-12 mt-2">
         {OpenPickup && (
-          <div className="col-lg-12  pickup_div">
-            <h3 className="addresHeading"> Pickup Address</h3>
+          <div className={newclases.pickup_div} >
+            <h3 className={newclases.addresHeading}> {`Pickup Address`}</h3>
             <p>{state.AllProduct[0]?.StoreAddress}</p>
           </div>
         )}
-      </div>
-      <div className="col-12 order_summary_flex mt-4">
-        <div className=" add_prod_cart_summary_p">
-          <p>Subtotal</p>
-        </div>
-       
+      <div className={newclases.order_summary_flex}>
+          <p className={newclases.add_prod_cart_summary_p}>{`Subtotal`}</p>
           <p>${state.Cart_subTotal}</p>
-        
       </div>
-      <div className="col-12 order_summary_flex">
-        <div className=" add_prod_cart_summary_p">
-          <p>Est. excise tax</p>
-        </div>
-      
+      <div className={newclases.order_summary_flex}>
+          <p className={newclases.add_prod_cart_summary_p}>{`Est. excise tax`}</p>
           <p>$0</p>
       
       </div>
-      <div className="col-12 order_summary_flex">
-        <div className=" add_prod_cart_summary_p">
-          <p>State tax</p>
-        </div>
+      <div className={newclases.order_summary_flex}>
+      
+          <p className={newclases.add_prod_cart_summary_p}>{`State tax`}</p>
+    
           <p>$0</p>
       </div>
-      <div className="col-12 order_summary_flex">
-        <div className=" add_prod_cart_summary_p">
-          <p>Delivery fee</p>
-        </div>
+      <div className={newclases.order_summary_flex}>
+          <p className={newclases.add_prod_cart_summary_p}>{`Delivery fee`}</p>
           <p>${state.DeliveryPrice || "0"}</p>
       </div>
-        <div className="col-12 order_Summary_total_container">
-        <div className=" order_summary_flex">
-          <div className=" add_prod_cart_summary_p">
-            <p className="m-0 text-white">Total Amount</p>
-            {Boolean(state.CoupounAmount) && <p className="m-0 ">Discount Amount</p>}
+      <div className={newclases.order_Summary_total_container}>
+        <div className={newclases.order_summary_flex}>
+          <div >
+            <p className={`m-0  ${newclases.add_prod_cart_summary_p}`}>{`Total Amount`}</p>
+            {Boolean(state.CoupounAmount) && <p className="m-0 ">{`Discount Amount`}</p>}
           </div>
-          <div className=" ">
-            {Boolean(state.CoupounAmount) ? <del className="text-white"  ><span className="m-0 text-white" >${state.Cart_subTotal}</span></del> : <p className="m-0 text-white">${state.Cart_subTotal}</p>}
-            {Boolean(state.CoupounAmount) && <p className="m-0 text-white">${state.Cart_subTotal - state.CoupounAmount}</p>}
+          <div>
+            {Boolean(state.CoupounAmount) ? <del className=""  ><span className="m-0 " >${state.Cart_subTotal}</span></del> : <p className="m-0 ">${state.Cart_subTotal}</p>}
+            {Boolean(state.CoupounAmount) && <p className="m-0 ">${state.Cart_subTotal - state.CoupounAmount}</p>}
           </div>
         </div>
 
       </div>
-      <div className="add_prod_cart_p">
+      <div className={newclases.add_prod_cart_p}>
         {
            state.DeliveryPrice === 0 ?
-            <p>Taxes are Shows</p>
+            <p className="mb-0">{`Taxes are Shows`}</p>
             :
             <p style={{ color: "#e78d8d" }}>{` Minimum order card value`} {state.MinimumOrderPrice}</p>
         }
       </div>
       <PromoCode />
-      <div className="col-12 AddProd_cart_center_btn">
+      <div className="">
         {navigate.pathname === "/cart" ? (
           (OpenDelivery || OpenPickup) && (
-            <Box className={` add_product_btn floatingbtn AddProduct_Cart_Btn `}>
+
+            <Box className={`  floatingbtn  `}>
               <LoadingButton
                 variant="outlined"
                 loading={CheckOut_Loading}
@@ -314,7 +300,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
           )
         ) : (
           <Box
-            className={` add_product_btn floatingbtn AddProduct_Cart_Btn`}
+            className={`  floatingbtn `}
           >
             <LoadingButton
               loading={CheckOut_Loading}

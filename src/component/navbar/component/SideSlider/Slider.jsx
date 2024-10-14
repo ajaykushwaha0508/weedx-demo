@@ -64,12 +64,11 @@ const SideNavbar = ({ closeNav, Open }) => {
         Navigate.push("/editprofile")
         closeNav()
     }
-
-    // const href = new URL(`/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`, '/weed-dispensaries/in/'); // replace with your base URL
-    // const normalizedHref = href.pathname.replace(/\/\/+/g, '/');
-
-    const link = () => {Navigate.push("/add-business")}
-    const link1  = () => {Navigate.push("/advertise")}
+    const link = () => {
+        Navigate.push("/add-business")
+        closeNav()
+    }
+    const link1  = () => {Navigate.push("/advertise"); closeNav()}
     return (
         <React.Fragment>
             <div id="mySidebar" className={clases.sidebar} style={{ width: Open ? "300px" : "0px" }}>
@@ -90,7 +89,6 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                         width={50}
                                                         height={50}
                                                     />
-
                                                 </Link>
                                             </span>
                                         </div>
@@ -107,10 +105,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 <div className={clases.SliderImageProfile_container}>
 
                                                     <Image
-                                                        // onError={event => {
-                                                        //     event.target.src = "/image/user.webp"
-                                                        //     event.onerror = null
-                                                        // }} 
+                                                      
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         unoptimized={true}
                                                         width={100}
@@ -146,10 +141,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             <Link className="text-dark" href={`/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0 d-flex"><span><TbTruckDelivery color="#31B655" fontSize={25} /></span>Deliveries</p></Link>
                         </div>
                         <hr></hr>
-                        {/* <div className={`col-12 ${clases.Slider_content_center}`} >
-                            <Link className="text-dark" href="/brands"><p onClick={closeNav} className="m-0 d-flex"><span><SiBrandfolder color="#31B655" fontSize={25}/></span> Brand</p></Link>
-                        </div>
-                        <hr></hr> */}
+                       
                         <div className={`col-12 ${clases.Slider_content_center}`} >
                             <Link className="text-dark" href="/products"> <p onClick={closeNav} className="m-0 d-flex"><span><FaProductHunt color="#31B655" fontSize={25} /></span>Products</p></Link>
                         </div>

@@ -17,13 +17,13 @@ const AddToCart = () => {
 
     return (
 
-        <div className="container">
+        <div className="container py-lg-2 py-4">
             {state.permission === false && <Currentlocation></Currentlocation>}
             <Cart></Cart>
             {
                 state?.AllProduct?.length !== 0
                 ?
-                <div className="row mt-4">
+                <div className="row mt-sm-4">
                     <div className="col-12">
                         {location.pathname !== '/carts' && <div className={`col-12 ${newclases.addtoCart_headingss}`}>
                                 <p className="mb-0">{`Your Cart from`}</p>

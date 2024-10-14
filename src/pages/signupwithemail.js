@@ -14,7 +14,6 @@ import axios from 'axios';
 import Tooltip from '@mui/material/Tooltip';
 import { RxCross2 } from "react-icons/rx";
 const SignupWithEmail = (props) => {
-    console.log(props.email)
     const Navigate = useRouter()
     const location = useRouter();
     const [showPassword, setShowPassword] = React.useState(false);
