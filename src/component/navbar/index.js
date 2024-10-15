@@ -97,7 +97,7 @@ const Navbar = () => {
                         {
                             Hamburger ?
                                 <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
-                                        <Link href="/">   <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}   src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
+                                        <Link href="/"> <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}   src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                                 </Grid>
                                 :
                                 <Grid container xs={3} md={2} xl={2} alignItems="center">

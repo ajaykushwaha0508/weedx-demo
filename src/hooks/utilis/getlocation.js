@@ -40,8 +40,8 @@ function splitAtFirstComma(str) {
   return [beforeComma, afterComma];
 }
 
-
 async function location(value, type, data, id, weburl) {
+  console.log(value)
   let city = "", state = "", country = "", route = "", formatted_address;
   let citycode = "", statecode = "", countrycode = "";
   let ci = ""
