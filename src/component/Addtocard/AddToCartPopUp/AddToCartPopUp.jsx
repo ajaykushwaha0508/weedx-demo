@@ -3,17 +3,20 @@ import Modal from '@mui/material/Modal';
 import useStyles from '@/styles/style';
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Createcontext from "../../../hooks/context"
 import { GiShoppingCart } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import Cookies from 'universal-cookie';
 import axios from "axios";
 import { useRouter } from 'next/router';
+import { CircularProgress } from '@mui/material';
+import { Dialog } from '@mui/material';
 const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
+    console.log(CartClean)
     const classes = useStyles()
     const Navigate = useRouter()
     const cookies = new Cookies();
+
     let token_data = cookies.get('User_Token_access')
     let accessToken 
     if (typeof window !== 'undefined') {
@@ -21,10 +24,10 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
         accessToken = localStorage.getItem('User_Token_access');
 
     }
+
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const { state ,dispatch } = React.useContext(Createcontext)
     const [Loading, SetLoading] = React.useState(false)
-    const [layout, setLayout] = React.useState(CartClean);
     function CleanData() {
         if (state.login) {
             SetLoading(true)
@@ -59,13 +62,25 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     }
     function Redirect (){
     SetCartClean(false)
-    Navigate("/cart")
+    Navigate.push("/cart")
     
     }
+
+    const handleClose = () => {
+        console.log("#31B665")
+        SetCartClean(false)
+    };
     return (
-        <Modal open={!!layout} onClose={() => {  SetCartClean(false) }}>
+    <React.Fragment>    
+        <Dialog 
+        open={CartClean} 
+        onClose={handleClose}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+        >
+            <Box>
             <div className='differentstorepopup'>
-                <ClickAwayListener onClickAway={()=>{SetCartClean(false)}}>
+                {/* <ClickAwayListener onClickAway={()=>{SetCartClean(false)}}> */}
                     <div className='popupbox'>
                         <div className='col-12 AddToCartImageContainer'>
                             <div className='addToCartPopUpImage_background mx-auto'>
@@ -87,7 +102,11 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                             <Box
                                 className={`  ${classes.differstoreaddtocartbtn}`}
                             >
-                                <LoadingButton variant="outlined" loading={Loading} onClick={CleanData} type={'submit'}>Start a new cart</LoadingButton>
+                                <LoadingButton 
+                                  loadingIndicator={
+                                    <CircularProgress size={16} sx={{ color: 'white' }} />  // Change 'red' to any color you want
+                                  }
+                                className={Loading && 'loading' } variant="outlined" loading={Loading} onClick={CleanData} type={'submit'}>Start a new cart</LoadingButton>
                             </Box>
                         </div>
                         <div className='col-12 my-2'>
@@ -99,9 +118,11 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
                         </div>
                         <span className='popupctrossbtn' onClick={()=>{SetCartClean(false)}}><RxCross2 size={22} color='red' /></span>
                     </div>
-                </ClickAwayListener>
+                {/* </ClickAwayListener> */}
             </div>
-        </Modal>
+            </Box>
+        </Dialog>
+        </React.Fragment>
     )
 }
 export default AddToCartPopUp
