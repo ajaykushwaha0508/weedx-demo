@@ -155,7 +155,6 @@ export async function getServerSideProps(context) {
       Dispensaries ? Dispensaries.data : [],
       news ? news.data : [],
     ]);
-console.log(Dispensaries1)
     const responseData = {
       topbanner: topbanner || [],
       category: category || [],

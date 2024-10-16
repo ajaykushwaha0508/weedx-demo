@@ -52,10 +52,11 @@ const CheckOutMainPage = () => {
     const config = {
         headers: { Authorization: `Bearer ${token_data}` }
     };
+    
     async function SubmitData() {
 
 
-        if (image !== undefined) {
+       
             let asdsd = 'Delivery'
 
             if (state.selectDeliveryoptions === "pickup_btn") {
@@ -66,20 +67,20 @@ const CheckOutMainPage = () => {
             } else if (state.selectDeliveryoptions === "delivery_btn") {
                 asdsd = 'Delivery'
             }
-      
+          
             const formdata = new FormData();
-            // formdata.append('IdCard', Dataimage);
-            // formdata.append('FirstName', Details.FirstName);
-            // formdata.append('LastName', Details.LastName);
-            // formdata.append('DateOfBirth', Details.DateOfBirth);
-            // formdata.append('MobileNo', Details.MobileNo);
-            // formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
+            Boolean(Dataimage)  && formdata.append('IdCard', Dataimage);
+            formdata.append('FirstName', Details.FirstName);
+            formdata.append('LastName', Details.LastName);
+            formdata.append('DateOfBirth', Details.DateOfBirth);
+            formdata.append('MobileNo', Details.MobileNo);
+            Boolean(Details.MedicalMarijuanaNumber)  &&    formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
             formdata.append('subtotal', state?.Cart_subTotal);
             formdata.append('Product', JSON.stringify(state.AllProduct));
             formdata.append('Store', state.AllProduct[0]?.Store_id);
             formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
             formdata.append('DeliveryTime', Time);
-            // formdata.append('Email', Details.Email)
+            formdata.append('Email', Details.Email)
             formdata.append('Order_Type', asdsd)
             formdata.append('Country', asdsd === "Delivery" ? state.DeliveryCountry : state.AllProduct[0]?.Country);
             formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
@@ -108,12 +109,9 @@ const CheckOutMainPage = () => {
             }).catch(
                 function (error) {
                     SetLoading(false)
-                })
+            })
            
-        }
-        else (
-            SetDefalutimage(true)
-        )
+      
 
     }
     React.useEffect(() => {

@@ -12,7 +12,6 @@ import Image from "next/image";
 import clases from '@/styles/customstyle.module.scss'
 const Newsblog = (props) => {
      const News =  props.data
-     console.log(News)
     return (
         <React.Fragment>
             <div className="px-sm-0 px-3">

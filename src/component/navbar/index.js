@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback } from 'react';
 import React from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import Link from 'next/link';
@@ -86,9 +86,9 @@ const Navbar = () => {
             document.removeEventListener('click', handleClickOutsideProfile, true);
         };
     }, [dropDownState]);
-    const handleClickDropdown = () => {
+    const handleClickDropdown = useCallback(() => {
         setDropDownState((prevState) => !prevState);
-    };
+    })
     return (
         <React.Fragment>
             <div className='container p-0'>

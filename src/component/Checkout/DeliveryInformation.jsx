@@ -5,9 +5,14 @@ import useStyles from "@/styles/style"
 import React from 'react';
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import { AiTwotoneQuestionCircle } from "react-icons/ai";
+
 import { RxCross2 } from "react-icons/rx";
 import { FaCamera } from "react-icons/fa";
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 import Createcontext from "@/hooks/context";
+import { BsExclamationCircleFill } from "react-icons/bs";
 import Button from '@mui/material/Button';
 import { FaRegIdCard } from "react-icons/fa";
 import newclases from '@/styles/customstyle.module.scss';
@@ -17,17 +22,14 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     const [ShowRestDeliveryInformation, SetShowRestDeliveryInformation] = React.useState(true)
     const classes = useStyles()
     const HandleDeliveryInformation = (data) => {
-        if(image === undefined){
-            SetDefalutimage(true)
-            window.scroll(0,5)
-        }else{
+      
             SetShowDeliveryInformation(true)
             SetShowRestDeliveryInformation(false)
             dispatch({ type: 'DeliveryInformation', DeliveryInformation: true })
             SetDetails({
                 ...Details, ["DateOfBirth"]: data.DateOfBirth
             });
-        }
+        
     }
     const ShowAgainDeliverInformation = () => {
         SetShowRestDeliveryInformation(true)
@@ -61,7 +63,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
               
               
                     <div className=" d-flex justify-content-between align-items-center">
-                        <h1 className={newclases.font_size_paragraph} >{`Your Information`}</h1>
+                        <h1 className={newclases.font_size_paragraph} >{` Customer Information`}</h1>
                         {
                             ShowRestDeliveryInformation ? null :  
                             <Button     variant="outlined" sx={{
@@ -81,10 +83,13 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                         ShowRestDeliveryInformation &&
                             <div>
                              
-                                    <div className="col-12  ">
-                                        <h3 className={newclases.height_for_delivery_instruction_div}>{`Enter Your Information`}</h3>
-                                    </div>
-                                        <h3 className={newclases.height_for_delivery_instruction_div}>{`Photo Id`}</h3>
+                              
+                                            <h3 className={newclases.height_for_delivery_instruction_div}>{`Photo ID  (Optional)`} <Tooltip title="Upload your ID to verify your age. If not uploaded, please bring a valid ID for verification during pickup or upon delivery.">
+                                            <IconButton>
+                                        
+                                            <AiTwotoneQuestionCircle size={12} />
+                                            </IconButton>
+                                            </Tooltip></h3>
                                         <input accept="image/*" type='file'  id='idcardimage' className="d-none" onChange={SelectImage} />
                                      { image === undefined &&
                                        <label htmlFor="idcardimage" className={newclases.iamgelabelbox}>
@@ -105,33 +110,33 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
                                                 value={Details.FirstName }
-                                                label="First name on photo id"
+                                                label="First name *"
                                                 variant="standard"
                                                 fullWidth
                                                 onChange={((e)=>handleChange(e))}
                                                 name='FirstName'
                                                 inputRef={method.register({
-                                                    required: "FirstName is required*.",
+                                                    required: "First name is required*.",
                                                 }
                                                 )}
-                                                helperText={method.errors?.FirstName?.message}
+                                                // helperText={method.errors?.FirstName?.message}
                                                 error={Boolean(method.errors?.FirstName)}
                                             />
                                         </div>
                                         <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
-                                                label="Last name on photo id"
+                                                label="Last name *"
                                                 variant="standard"
                                                 value={Details.LastName}
                                                 onChange={((e)=>handleChange(e))}
                                                 fullWidth
                                                 name='LastName'
                                                 inputRef={method.register({
-                                                    required: "LastName is required*.",
+                                                    required: "Last name is required*.",
                                                 }
                                                 )}
-                                                helperText={method.errors?.LastName?.message}
+                                                // helperText={method.errors?.LastName?.message}
                                                 error={Boolean(method.errors?.LastName)}
                                             />
                                         </div>
@@ -178,7 +183,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
-                                                label="Email"
+                                                label="Email *"
                                                 value={Details.Email}
                                                 onChange={((e)=>handleChange(e))}
                                                 variant="standard"
@@ -192,7 +197,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                     }
                                                 }
                                                 )}
-                                                helperText={method.errors?.Email?.message}
+                                                // helperText={method.errors?.Email?.message}
                                                 error={Boolean(method.errors?.Email)}
                                             />
                                         </div>
@@ -204,7 +209,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 type='tel'
                                                 onChange={((e)=>handleChange(e))}
                                                 value={Details.MobileNo}
-                                                label="Mobile phone"
+                                                label="Mobile phone *"
                                                 variant="standard"
                                                 fullWidth
                                                 name='MobileNo'
@@ -220,7 +225,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                     }
                                                 }
                                                 )}
-                                                helperText={method.errors?.MobileNo?.message}
+                                                // helperText={method.errors?.MobileNo?.message}
                                                 error={Boolean(method.errors?.MobileNo)}
                                             />
 
@@ -228,30 +233,40 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         </div>
 
                                     </div>
-                                      <h3 className={`mb-0 ${newclases.height_for_delivery_instruction_div}`}>{`Medical Marijuana`}</h3>           
-                                      <p className={newclases.height_for_delivery_instruction }>{`Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.`}</p>
-                              
+                                      <h3 className={`mb-0 ${newclases.height_for_delivery_instruction_div}`}>{`Medical Marijuana`}   
+                                        <Tooltip title="If you're purchasing medical cannabis, please enter your Medical Marijuana ID.">
+                                                <IconButton>
+                                                {/* <BsExclamationCircleFill size={18} color="gray" /> */}
+                                                <AiTwotoneQuestionCircle size={12} />
+
+                                                </IconButton>
+                                                </Tooltip>
+                                                </h3>           
+                                      {/* <p className={newclases.height_for_delivery_instruction }>{`Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.`}</p>
+                               */}
                                     <div className='row'>
                                      <div className="col-12">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
                                                 onChange={handleChange}
                                                 value={Details.MedicalMarijuanaNumber}
-                                                label="Medical Marijuana Number"
+                                                label="Medical Marijuana ID (If Applicable)"
                                                 variant="standard"
                                                 fullWidth
                                                 name="MedicalMarijuanaNumber"
-                                                inputRef={method.register({
-                                                    required: "Enter valid Id Number is required*.",
-                                                }
-                                                )}
-                                                helperText={method.errors?.MedicalMarijuanaNumber?.message}
-                                                error={Boolean(method.errors?.MedicalMarijuanaNumber)}  /></div>
+                                                // inputRef={method.register({
+                                                //     required: "Enter valid Id Number is required*.",
+                                                // }
+                                                // )}
+                                                // helperText={method.errors?.MedicalMarijuanaNumber?.message}
+                                                // error={Boolean(method.errors?.MedicalMarijuanaNumber)}  
+                                                />
+                                                </div>
                                     </div>
                                     <div className='row my-4'>
                                         <div className='col-12 col-lg-4 '>
                                             <Box  className={`  ${classes.loadingBtnTextAndBack}`} >
-                                                <LoadingButton type='submit' variant="outlined">{`continue`}</LoadingButton>
+                                                <LoadingButton type='submit' variant="outlined">{`Save`}</LoadingButton>
                                             </Box>
                                         </div>
 

@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 import { CircularProgress } from '@mui/material';
 import { Dialog } from '@mui/material';
 const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
-    console.log(CartClean)
     const classes = useStyles()
     const Navigate = useRouter()
     const cookies = new Cookies();
@@ -67,7 +66,6 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     }
 
     const handleClose = () => {
-        console.log("#31B665")
         SetCartClean(false)
     };
     return (

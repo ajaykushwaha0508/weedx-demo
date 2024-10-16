@@ -25,7 +25,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
                             title='Profile'
                             className={clases.Navbar_logo_imgs}
                             onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                            onClick={handleClickDropdown}
+                            onClick={()=>handleClickDropdown()}
                         />
                     </div>
                 </Grid>
