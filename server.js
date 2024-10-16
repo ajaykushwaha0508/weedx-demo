@@ -576,7 +576,6 @@ Disallow:
 
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
-
     server.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
       try {
         // Check if a file is uploaded

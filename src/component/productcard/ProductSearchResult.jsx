@@ -235,30 +235,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
         }
     }
 
-    //   React.useEffect(  ()=>{
-    //     if(currentProductID === undefined){
-    //         let a =  RelatedProductResult.filter((item)=>{
-    //             return item?.Prices[0]?.Price[0]?.Stock === "IN Stock" && item.rating !== 0
-    //         })
-    //         let b =  RelatedProductResult.filter((item)=>{
-    //             return item?.Prices[0]?.Price[0]?.Stock === "IN Stock" && item.rating === 0
-    //         })
-    //         Setshowdata(a.concat(b))
-    //     }else{
-    //         let ababa=  RelatedProductResult.filter((item)=>{
-    //             return item?.Prices[0]?.Price[0]?.Stock === "IN Stock" && item?.category_name === CategoryName?.category_name
-    //         })
-    //             if(ababa?.length ===1){
-    //                 axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${CategoryName?.category_id}`).then((res)=>{
-    //                   Setshowdata(res.data)
-    //                 })
-
-    //             }else{
-    //                Setshowdata(ababa)
-    //             }
-    //     }
-
-    // },[RelatedProductResult])
     return (
         <React.Fragment>
             <div className="row mx-0 marginProductSearchResult">
@@ -295,8 +271,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                     slidesPerView: 5
                                 },
 
-                            }}
-                        >
+                            }}>
                             {
                                 RelatedProductResult?.map((items, index) => {
                                     // items.rating =0
@@ -323,7 +298,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                 id: items.id
                                                             }}  >
                                                             <Image
-                                                              onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                                 unoptimized={true}
                                                                 className="product_search_result_image"
                                                                 width={100}
@@ -375,17 +350,17 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                         :
 
                                                                         items?.Prices[0].Price[0].Stock === "IN Stock" ?
-                                                                        <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
-                                                                            onClick={() => { AddToCart(items) }} >
-                                                                            <span><FaShoppingCart size={18} /> </span> Add To Cart
-                                                                        </LoadingButton>
-                                                                        :
-                                                                        <LoadingButton className={`${classes.odsbtn}`} >
-                                                                            <span><FaShoppingCart size={18} /> </span>  Out of Stock
-                                                                        </LoadingButton>
+                                                                            <LoadingButton loading={adding === items.id} loadingIndicator={<CircularProgress color="inherit" size={16} />}
+                                                                                onClick={() => { AddToCart(items) }} >
+                                                                                <span><FaShoppingCart size={18} /> </span> Add To Cart
+                                                                            </LoadingButton>
+                                                                            :
+                                                                            <LoadingButton className={`${classes.odsbtn}`} >
+                                                                                <span><FaShoppingCart size={18} /> </span>  Out of Stock
+                                                                            </LoadingButton>
                                                                 }
                                                                 {
-                                                                    CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
+                                                                    CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} set={true} />
                                                                 }
                                                             </Box>
                                                         </div>
@@ -425,7 +400,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                         id: items.id
                                                     }}  >
                                                     <Image
-                                                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         unoptimized={true}
                                                         className="product_search_result_image"
                                                         width={100}
@@ -467,7 +442,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
                                                         <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>  and more Offers
                                                     </div>
-                                                }</div>
+                                                }</div> 
 
 
                                                 <div className="my-2">
@@ -489,10 +464,9 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                         <span><FaShoppingCart size={18} /> </span>  Out of Stock
                                                                     </LoadingButton>
                                                         }
-                                                        {
-                                                            CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
-                                                        }
+                                                        
                                                     </Box>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -504,6 +478,10 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                     </div>
                 }
             </div>
+            {
+              CartClean && 
+              <AddToCartPopUp CartClean={CartClean} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard}   />
+             }
             {/* {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>} */}
             <PreCheckout />
         </React.Fragment>

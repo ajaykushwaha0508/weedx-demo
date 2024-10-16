@@ -32,7 +32,7 @@ export default function Home({ initialData }) {
   
   React.useEffect(()=>{
     setdata(initialData.Dispensaries)
-  },[initialData.Dispensaries])
+  },[initialData?.Dispensaries])
   const Navigate = useRouter()
   function ShowCategoryProduct(id, name) {
 
@@ -42,7 +42,7 @@ export default function Home({ initialData }) {
     <>
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
-      <HomePageBanner props={initialData.topbanner}> </HomePageBanner>
+      <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
       <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>

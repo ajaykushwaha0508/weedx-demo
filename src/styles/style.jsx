@@ -463,7 +463,7 @@ const useStyles = makeStyles({
     }
   },
   differstoreaddtocartbtn:{
-    "& .MuiButton-text": {
+  "& .MuiButton-text": {
       fontSize: ".5rem",
     },
     "& .MuiLoadingButton-root": {
@@ -504,7 +504,18 @@ const useStyles = makeStyles({
         }
       },   
     },
+    "& .MuiLoadingButton-root.loading": {
+      // color:"white",
+      backgroundColor: "#31B665",  // Set to default
+      border: "none",
+    },
   },
+
+
+
+
+
+
   Cencell: {
     "& .MuiButton-text": {
       fontSize: ".5rem",
@@ -835,7 +846,8 @@ const useStyles = makeStyles({
       "& .MuiBadge-badge": {
       background: "#31B665",
       color: "#FFFFFF",
-      display:'none',
+      
+      // display:'none',
     },
      }
   },

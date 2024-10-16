@@ -255,7 +255,7 @@ export const getServerSideProps = async (context) => {
             const categoryMatch = modifystr(product[0]?.category_name) === query.slug[0] &&
                 parseInt(query.slug[1]) === product[0]?.category_id;
 
-            if (!categoryMatch) {
+            if (!categoryMatch && !product.length === 0) {
                 return { notFound: true };
             }
         } else if (params.slug?.length === 3) {
@@ -297,9 +297,8 @@ const fetchProductByCategory = async (categoryId, locationObject) => {
             body: JSON.stringify(locationObject)
         });
         const data = await response.json();
-        return data === "There is no Product" ? [] : data;
+        return Boolean(data.length) ? data : [];
     } catch (error) {
-        console.error('Error fetching products by category:', error);
         return [];
     }
 };
