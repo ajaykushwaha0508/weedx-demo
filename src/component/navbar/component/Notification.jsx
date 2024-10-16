@@ -248,12 +248,13 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
                         Boolean(notificationdata.length !==0)
                
                         ?   notificationdata?.map((data, index) => {
+                     
                                 return (
                                         <div key={index} className={clases.notification_box}>
                                             <Link href={data.link} onClick={()=>{setnotify(false) ; removenotify(data)}}>
                                                 <div className={clases.notification_img}>
                                                     <div className={clases.notiimgCircle}>
-                                                        <Image   unoptimized={true} width={100} height={100} src={data?.image} alt={data.title} title={data.title} onError={() => this.img.src = '/image/weedx.io logo.png'} />
+                                                        <Image   unoptimized={true} width={100} height={100} src={data?.image} alt={data.title} title={data.title} onError={() => '/image/weedx.io logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>

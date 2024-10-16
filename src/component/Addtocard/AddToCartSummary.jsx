@@ -137,9 +137,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         HandlePickupAndDelivery('pickup_btn') 
       }
   } , [state.AllProduct[0]])
-  console.log((state.AllProduct[0]?.StoreCurbsidePickup +
-    state.AllProduct[0]?.StorePickup) + state.AllProduct[0]?.StoreDelivery)
-    
   return (
     <div className={newclases.Add_product_cart_right_container_summary}>
         <h5 className={newclases.AddProdCartFont_weight}>Order Summary</h5>

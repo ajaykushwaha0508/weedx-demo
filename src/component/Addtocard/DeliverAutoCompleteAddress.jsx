@@ -101,7 +101,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
       .then(response => {
         if (response.data === "Not Found") {
           SetAddress(name)
-          Seterror('Out Of Delivery Zone')
+          Seterror('We’re sorry, but your delivery address is outside our service area.')
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
         }
         else {
@@ -153,11 +153,11 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
           ),
           endAdornment: <InputAdornment position="end">
 
-            {error === 'Street Address Missing' || error === 'Out Of Delivery Zone' ? <BiErrorCircle className='help-block'></BiErrorCircle> : <IoCheckmarkSharp />}
+            {error === 'Street Address Missing' || error === 'We’re sorry, but your delivery address is outside our service area.' ? <BiErrorCircle className='help-block'></BiErrorCircle> : <IoCheckmarkSharp />}
 
           </InputAdornment>
         }}
-        error={Boolean(error === 'Street Address Missings' || error === 'Out Of Delivery Zone')}
+        error={Boolean(error === 'Street Address Missings' || error === 'We’re sorry, but your delivery address is outside our service area.')}
       />
       {
         error !== "" && <span className="help-block" style={{ color: error === "Success" && "green" }}>{error}</span>
