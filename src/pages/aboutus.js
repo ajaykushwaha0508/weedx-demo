@@ -10,16 +10,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-// import './Aboutus.css'
+
 import {AboutusSeo}  from "@/component/ScoPage/CommenpageSeo"
 const AboutUs = () => {
-    React.useEffect(() => {
-        document.documentElement.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant",
-        })
-    }, [])
     const ClientPreachSlider = styled(Slider)`
 
     .slick-arrow{
