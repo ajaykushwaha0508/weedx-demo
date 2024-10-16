@@ -1421,8 +1421,8 @@ scrollbar-width: none;  /* Firefox */
 .login_bottom {
  
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 28px;
   text-align: center;
   margin-bottom: 0;
@@ -1434,6 +1434,7 @@ scrollbar-width: none;  /* Firefox */
   line-height: 20px;
   text-align: center;
   text-decoration: underline;
+  color: #0077ff;
 }
 .signInfo span:hover{
    color: #31B655;
@@ -1559,11 +1560,7 @@ scrollbar-width: none;  /* Firefox */
   margin-right: 10px;
 }
 
-.font_size_paragraph {
-  font-size: 20px;
-  color: #000000;
-  font-weight: 700;
-}
+
 
 .deliveroption_cursor p {
   cursor: pointer;
@@ -1591,21 +1588,8 @@ scrollbar-width: none;  /* Firefox */
 
 /* end */
 /* DeliveryInformation */
-.delivery_information_font_family {
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-}
 
 
-.font_color {
-  color: rgb(102, 102, 102);
-  margin-top: 4px;
-  font-size: 15px;
-}
-
-.height_delivery_information_btn {
-  height: 50px;
-}
 .paymentChange{
   color: #000000;
   font-weight: 400;
@@ -1613,25 +1597,11 @@ scrollbar-width: none;  /* Firefox */
   cursor: pointer;
 }
 
-
-.delivery_option_image {
-  width: 50%;
-  height: 100%;
-}
 /* end */
 /* Payment */
 
 
-.iamgelabelbox{
-  width: 100%;
-  height: 150px;
-  border: 2px dashed #7c7c7c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 5px;
-}
+
 /* end */
 /* checkoutmainpage */
 .checkout_main_page_summary {
@@ -1795,7 +1765,7 @@ scrollbar-width: none;  /* Firefox */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .disOPenResRating {
-  color: #31B655;
+  color: #fff;
   font-size: 12px;
   font-weight: 500;
 }
@@ -2286,19 +2256,13 @@ border-radius: 3px;
 }
 /* end */
 /* DeliverymenuBar */
-.delivery_menuBar_container {
-  height: auto;
-}
+
 
 .deliveries_container_height {
   height: auto;
 
 }
 
-.deliveries_centers {
-  display: grid;
-  justify-content: center;
-}
 
 /* end */
 /* newProductCategorySliderContainer */
@@ -5076,11 +5040,6 @@ line-height: normal;
   justify-content: flex-end;
   gap: 30px;
 }
-
-.height_text_field {
-  height: 52px;
-}
-
 /* end */
 /* Promocode */
 

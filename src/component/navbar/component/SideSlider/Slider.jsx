@@ -155,14 +155,14 @@ const SideNavbar = ({ closeNav, Open }) => {
                         </div>
                         <hr></hr>
                         <div className="d-flex justify-content-center align-items-center gap-2">
-                            <button class={clases.btnaddss} onClick={link}>
+                            <button className={clases.btnaddss} onClick={link}>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     {` Add Business`}
                             </button>
-                            <button class={clases.btnaddss} onClick={link1}>
+                            <button className={clases.btnaddss} onClick={link1}>
                                 <p className={clases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
                                 {`Advertise`}
                             </button>

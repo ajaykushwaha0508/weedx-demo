@@ -4,7 +4,9 @@ import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
 import React from 'react';
 import { useForm } from "react-hook-form";
-import Image from "next/image"
+import Image from "next/image";
+import { RxCross2 } from "react-icons/rx";
+import { FaCamera } from "react-icons/fa";
 import Createcontext from "@/hooks/context";
 import Button from '@mui/material/Button';
 import { FaRegIdCard } from "react-icons/fa";
@@ -55,15 +57,14 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
     return (
       
 
-            <div className={newclases.DeliveryOption_container}>
+            <div className="my-5">
               
               
                     <div className=" d-flex justify-content-between align-items-center">
-                        <h1 className="font_size_paragraph" >Your Information</h1>
+                        <h1 className={newclases.font_size_paragraph} >{`Your Information`}</h1>
                         {
-                            ShowRestDeliveryInformation ? null :
-                        
-                        <Button     variant="outlined" sx={{
+                            ShowRestDeliveryInformation ? null :  
+                            <Button     variant="outlined" sx={{
                                 color: '#31B665',
                                 borderColor:'#31B665',
                                 fontSize:'12px',
@@ -73,41 +74,34 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                     backgroundColor:'#31B665',
                                     borderColor:'#31B665',
                                 },
-                                }} onClick={ShowAgainDeliverInformation}>Edit</Button>
-                            }
+                            }} onClick={ShowAgainDeliverInformation}>{`Edit`}</Button>
+                        }
                     </div>
-                  
                     {    
                         ShowRestDeliveryInformation &&
                             <div>
                              
                                     <div className="col-12  ">
-                                        <h3 className={newclases.height_for_delivery_instruction_div}>Enter Your Information</h3>
-
+                                        <h3 className={newclases.height_for_delivery_instruction_div}>{`Enter Your Information`}</h3>
                                     </div>
-                         
-                               
-                                        <h3 className={newclases.height_for_delivery_instruction_div}>Photo Id</h3>
-                                  
+                                        <h3 className={newclases.height_for_delivery_instruction_div}>{`Photo Id`}</h3>
                                         <input accept="image/*" type='file'  id='idcardimage' className="d-none" onChange={SelectImage} />
                                      { image === undefined &&
-                                       <label htmlFor="idcardimage" className="iamgelabelbox">
+                                       <label htmlFor="idcardimage" className={newclases.iamgelabelbox}>
                                           <FaRegIdCard /> <span>{`Upload your ID card`}</span>
                                        </label>}
-
+                                    { !(image === undefined) &&
                              
-                                 { !(image === undefined) &&
-                             
-                                      <div>
-                                 
-                                        <Image  unoptimized={true} width={100} height={100} style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
-                                        <p className=""></p>
+                                        <div className={newclases.checkoutIdImage}>
+                                            <Image  unoptimized={true} width={100} height={100} style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
+                                            <label htmlFor="idcardimage" ><FaCamera /> {`change Image`}</label>
+                                            <span><RxCross2 size="22" color="#2d2d2d" onClick={()=>{setImage(undefined)}} />                                            </span>
                                         </div>
                                 }
 
                                 <form onSubmit={method.handleSubmit(HandleDeliveryInformation)} >
                                     <div className='row my-2'>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
+                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
                                                 value={Details.FirstName }
@@ -124,7 +118,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 error={Boolean(method.errors?.FirstName)}
                                             />
                                         </div>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
+                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
                                                 label="Last name on photo id"
@@ -143,7 +137,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         </div>
                                     </div>
                                     <div className='row my-4'>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
+                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <Box
                                                 sx={{
                                                     ".MuiFormControl-marginNormal": {
@@ -181,7 +175,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                             
                                             </Box>
                                         </div>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
+                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
                                                 label="Email"
@@ -204,10 +198,10 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         </div>
                                     </div>
                                     <div className='row my-4'>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 height_text_field">
+                                        <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
-                                                type='number'
+                                                type='tel'
                                                 onChange={((e)=>handleChange(e))}
                                                 value={Details.MobileNo}
                                                 label="Mobile phone"
@@ -234,20 +228,11 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                         </div>
 
                                     </div>
-                                  
-                                       
-                                            <h3 className={newclases.height_for_delivery_instruction_div}>{`Medical Marijuana`}</h3>
-
-
-                                    
-
+                                      <h3 className={`mb-0 ${newclases.height_for_delivery_instruction_div}`}>{`Medical Marijuana`}</h3>           
+                                      <p className={newclases.height_for_delivery_instruction }>{`Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.`}</p>
+                              
                                     <div className='row'>
-                                        <div className="  font_color   delivery_information_font_family">
-                                            <p>{`Please enter the ID number from your valid Medical Marijuana ID. Include all dashes and special characters.`}</p>
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className=" font_color delivery_information_font_family">
+                                     <div className="col-12">
                                             <TextField
                                                 className={classes.deliveryInformationTextFildColor}
                                                 onChange={handleChange}
@@ -261,19 +246,12 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 }
                                                 )}
                                                 helperText={method.errors?.MedicalMarijuanaNumber?.message}
-                                                error={Boolean(method.errors?.MedicalMarijuanaNumber)}
-                                            />
-
-
-                                        </div>
-
+                                                error={Boolean(method.errors?.MedicalMarijuanaNumber)}  /></div>
                                     </div>
                                     <div className='row my-4'>
-                                        <div className='col-12 col-lg-4 height_delivery_information_btn'>
-                                            <Box
-                                                className={`  ${classes.loadingBtnTextAndBack}`}
-                                            >
-                                                <LoadingButton type='submit' variant="outlined">continue</LoadingButton>
+                                        <div className='col-12 col-lg-4 '>
+                                            <Box  className={`  ${classes.loadingBtnTextAndBack}`} >
+                                                <LoadingButton type='submit' variant="outlined">{`continue`}</LoadingButton>
                                             </Box>
                                         </div>
 

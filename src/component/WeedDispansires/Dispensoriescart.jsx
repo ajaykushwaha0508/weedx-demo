@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Rating } from '@mui/material';
 import { modifystr , isShopOpen } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
-import clases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.scss'
 const Dispensoriescart = ({ ele }) => {
   const classes = useStyles()
   return (
@@ -50,21 +50,21 @@ const Dispensoriescart = ({ ele }) => {
                     </div>
                 }
                     </div>
-                    <div className={classes.homecardRating}>
-                    <Link  href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${"review"}/${ele.id}`}>
-                        <div className="col-12 d-flex dispensories_content_paragraphs">
-                            <span className='disOPenResRating'>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
-                            <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
-                        </div>
-                    </Link>
-                    </div>
-                <div className="col-12">
-                    <Box className={classes.loadingBtnTextAndBack}>
-                    <Link  href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
-                        <LoadingButton style={{ width: "100%", height: "30px" }}>Order Pickup</LoadingButton>
+                    <div className={newclases.homecardRating}>
+                        <Link  href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${"review"}/${ele.id}`}>
+                            <div className="col-12 d-flex dispensories_content_paragraphs">
+                                <span className='disOPenResRating'>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
+                                <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
+                            </div>
                         </Link>
-                    </Box>
-                </div>
+                    </div>
+                    <div className="col-12">
+                        <Box className={classes.loadingBtnTextAndBack}>
+                        <Link  href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
+                            <LoadingButton style={{ width: "100%", height: "30px" }}>Order Pickup</LoadingButton>
+                            </Link>
+                        </Box>
+                    </div>
 
             </div>
         </div>

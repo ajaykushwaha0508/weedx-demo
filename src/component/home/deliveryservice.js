@@ -107,14 +107,14 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                                                         </div>
                                                                   
                                                                 </Link>
-                                                                <div className={clases.homecardRating}>
+                                                                {/* <div className={clases.homecardRating}>
                                                                     <Link href={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${'review'}/${items?.id}`}>
                                                                         <div className=' w-100 d-flex align-items-center gap-2'>
                                                                             <span className={clases.DeliveryServicesRatingTitle}>{items?.rating !== null ? items?.rating.toFixed(1) : 0}</span>
                                                                             <Rating className={classes.homePageStarIcons} color='#fff' name="read-only" value={items?.rating === null ? 0 : items?.rating} readOnly />
                                                                         </div>
                                                                     </Link>
-                                                                </div>
+                                                                </div> */}
                                                                 <div className='col-12  mt-2'>
                                                                     <Box className={`${classes.loadingBtnTextAndBack}`} >
                                                                         <LoadingButton onClick={() => { navigate.push(`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`) }} style={{ width: "100%" }}>{`Order Pickup`}</LoadingButton>

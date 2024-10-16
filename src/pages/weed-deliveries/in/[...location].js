@@ -175,7 +175,7 @@ const Deliveries = (props) => {
 
             </div>
             <div className="container-fluid">
-                <div className="row  deliveries_centers">
+                <div className="row ">
                     <div className="headerBoxdescription">
                         <h1 className="m-0">
                             <span className="dispensories_name">Weed Delivery In </span>
@@ -185,7 +185,7 @@ const Deliveries = (props) => {
 
                     </div>
 
-                    <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
+                    <div className=" px-0 mt-4">
                         <Delivery location={Location.asPath} formatted_address={props?.formatted_address} ></Delivery>
                         {
                             (Boolean(props?.store.length) ?

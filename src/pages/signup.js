@@ -82,14 +82,14 @@ const Signup = () => {
                 {emailvalid && <p className='errorPara'>{`Email is already Registered`}</p>}
             </div>
         </div>
-        <div className='row  signup_margins_top'>
-            <div className='col-lg-12 '>
+        <div className='  signup_margins_top'>
+       
                 <Box
                     className={`  ${classes.loadingBtnTextAndBack}`}
                 >
                     <LoadingButton variant="outlined" loading={false} type={'submit'}>{`Signup`}</LoadingButton>
                 </Box>
-            </div>
+
 
         </div>
     </form>
@@ -105,7 +105,7 @@ const Signup = () => {
     </div>
 
     <div className='w-100 text-center my-2 '>
-        <h2 className='login_bottom'>New To weedx ?</h2> 
+        {/* <h2 className='login_bottom'>New To weedx ?</h2>  */}
        <span onClick={()=>{  router.push("/login", { state: { lastlocation:'signin' } })}}>Already a member? Login</span>
     </div>
     <div className='crosslogin'>

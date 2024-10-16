@@ -151,14 +151,11 @@ const Login = (props) => {
                         />
                     </div>
                 </div>
-
-                <div className='row  signup_margins_top'>
-                    <div className=' col-lg-12 '>
+                <div className='my-2 text-end'><Link className='signInfo' href={'/forgot-password'}><span>{`Forgot password`}</span></Link></div>
+                <div className=' signup_margins_top'>
                         <Box className={!loading ? `${classes.loginBtnTextAndBackground}` : `${classes.loginBtnTextAndBackgroundAfter}`} >
                             <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
                         </Box>
-                    </div>
-
                 </div>
             </form>
             <div className='w-100 d-flex mt-4 center align-items-center'>
@@ -169,9 +166,9 @@ const Login = (props) => {
                     <LoginWithGoogle></LoginWithGoogle>
                 </div>
             </div>
-            <div className='w-100 text-center my-2 '>
-                <h2 className='login_bottom'>New To weedx ?</h2>
-                <Link className='signInfo' href={pathname === '/menu-integration/login' ? '/menu-integration/signup' : '/signup'}><span>{`Create your Weedx Account`}</span></Link>
+            <div className='w-100 text-center my-3 '>
+                <h2 className='login_bottom'>{`New To weedx ?`} <Link className='signInfo' href={'/signup'}><span>{`Sign up`}</span></Link></h2>
+                {/* <Link className='signInfo' href={'/signup'}><span>{`Create your Weedx Account`}</span></Link> */}
             </div>
             <div className='crosslogin'>
                 <Tooltip title="Back">
