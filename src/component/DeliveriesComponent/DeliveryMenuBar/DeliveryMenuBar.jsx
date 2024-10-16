@@ -36,7 +36,7 @@ const DeliveryMenuBar = () => {
     };
     return (
         <React.Fragment>
-            <div className="col-lg-12 col-11 delivery_menuBar_container px-0 mt-4">
+            <div className="px-0 mt-4">
                 <Delivery location={location.pathname}></Delivery>
                 <Box className={``} sx={{ width: '100%', typography: 'body1', }}>
                     <TabContext value={value}>

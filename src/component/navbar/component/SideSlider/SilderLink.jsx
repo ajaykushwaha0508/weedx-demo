@@ -120,7 +120,7 @@ export default function DashBoardLink({ state }) {
         </Grid>
         <Grid xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="d-flex gap-1 justify-content-center">
-            <button class={newclases.btnaddss} onClick={link}>
+            <button className={newclases.btnaddss} onClick={link}>
               <span></span>
               <span></span>
               <span></span>
@@ -128,7 +128,7 @@ export default function DashBoardLink({ state }) {
             
                 {` Add Business`}
             </button>
-            <button class={newclases.btnaddss} onClick={link1}>
+            <button className={newclases.btnaddss} onClick={link1}>
               <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
               {`Advertise`}
             </button>

@@ -137,10 +137,13 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         HandlePickupAndDelivery('pickup_btn') 
       }
   } , [state.AllProduct[0]])
+  console.log((state.AllProduct[0]?.StoreCurbsidePickup +
+    state.AllProduct[0]?.StorePickup) + state.AllProduct[0]?.StoreDelivery)
+    
   return (
     <div className={newclases.Add_product_cart_right_container_summary}>
         <h5 className={newclases.AddProdCartFont_weight}>Order Summary</h5>
-
+       
       {(Boolean(navigate.pathname !== "/checkout") || Boolean(navigate.pathname !== "/checkout")) ? (
         <div className="w-100 d-flex align-items-center py-2 ">
           {state.AllProduct[0]?.StoreDelivery && (
@@ -185,10 +188,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
               )}
           </div>
         </div>
-      ) : (
-        <Box
-          className={`  ${classes.loadingBtnTextAndBack}`}
-        >
+      ) : ( Boolean(((state.AllProduct[0]?.StoreCurbsidePickup +
+        state.AllProduct[0]?.StorePickup) + state.AllProduct[0]?.StoreDelivery) !==1) &&
+        <Box  className={`py-2  ${classes.loadingBtnTextAndBack}`}  >
           <LoadingButton
             sx={{
               color: "#00b96a",

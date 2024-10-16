@@ -18,7 +18,6 @@ import LoginWithGoogle from './LoginWithGoogle';
 import Createcontext from "../../../Hooks/Context"
 import { LoginSeo } from '../../Component/ScoPage/CommenpageSeo';
 import  Swal from 'sweetalert2';
-
 const Login = () => {
     const cookies = new Cookies();
     const method = useForm()
@@ -187,8 +186,8 @@ const Login = () => {
 
                             </div>
                             <div className='w-100 text-center my-2 '>
-                                <h2 className='login_bottom'>New To weedx ?</h2> 
-                                <Link className='signInfo' href={location.pathname==='/menu-integration/login' ?   '/menu-integration/signup':  '/signup'}><span>Create your Weedx Account</span></Link>
+                                <h2 className='login_bottom'>{`New To weedx ?`} <span><link href={'/signup'} className='signInfo' >{`Sign Up`}</link></span></h2> 
+                                <Link className='signInfo' href={'/signup'}><span>{`Create your Weedx Account`}</span></Link>
                             </div>
                             <div className='crosslogin'>
                               <Tooltip title="Back">

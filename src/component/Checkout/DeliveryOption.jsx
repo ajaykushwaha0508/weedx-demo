@@ -19,11 +19,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
     const method = useForm()
     const classes = useStyles()
     const [ShowDeliveryRestData, SetShowDeliveryRestData] = React.useState(true)
-    // const [Checkbox, SetCheckbox] = React.useState({
-    //     deliveryinstructions: "",
-    //     DeliveryTime: "",
-    //     documented: ""
-    // })
+
 
     const handleChange = (event) => {
         SetTime(event.target.value);
@@ -50,8 +46,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
         }
     },[ Hours])
     return (
-        <div className={newclases.DeliveryOption_container}>
-            <div className="col-12 d-flex justify-content-between align-items-center">
+        <div>
+            <div className="col-12 d-flex justify-content-end align-items-center">
                
                 {
                     ShowDeliveryRestData ? null :  <Button     variant="outlined" sx={{

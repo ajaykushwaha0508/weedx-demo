@@ -7,9 +7,10 @@ import AddToCartSummary from "@/component/Addtocard/AddToCartSummary"
 import Cookies from 'universal-cookie';
 import Createcontext from "@/hooks/context"
 import { useRouter } from "next/router"
-
+import newcalses from '@/styles/customstyle.module.scss'
 import Axios from "axios"
 import ProtectRout from "@/hooks/utilis/ProtectRout"
+import newclases from '@/styles/customstyle.module.scss'
 const CheckOutMainPage = () => {
 
     const { state, dispatch } = React.useContext(Createcontext)
@@ -67,18 +68,18 @@ const CheckOutMainPage = () => {
             }
       
             const formdata = new FormData();
-            formdata.append('IdCard', Dataimage);
-            formdata.append('FirstName', Details.FirstName);
-            formdata.append('LastName', Details.LastName);
-            formdata.append('DateOfBirth', Details.DateOfBirth);
-            formdata.append('MobileNo', Details.MobileNo);
-            formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
+            // formdata.append('IdCard', Dataimage);
+            // formdata.append('FirstName', Details.FirstName);
+            // formdata.append('LastName', Details.LastName);
+            // formdata.append('DateOfBirth', Details.DateOfBirth);
+            // formdata.append('MobileNo', Details.MobileNo);
+            // formdata.append('MedicalMarijuanaNumber', Details.MedicalMarijuanaNumber);
             formdata.append('subtotal', state?.Cart_subTotal);
             formdata.append('Product', JSON.stringify(state.AllProduct));
             formdata.append('Store', state.AllProduct[0]?.Store_id);
             formdata.append('Address', state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : state.DeliveryAddress);
             formdata.append('DeliveryTime', Time);
-            formdata.append('Email', Details.Email)
+            // formdata.append('Email', Details.Email)
             formdata.append('Order_Type', asdsd)
             formdata.append('Country', asdsd === "Delivery" ? state.DeliveryCountry : state.AllProduct[0]?.Country);
             formdata.append('State', asdsd === "Delivery" ? state.DeliveryState : state.AllProduct[0]?.State)
@@ -137,41 +138,24 @@ const CheckOutMainPage = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 col-xl-8 col-lg-7 col-sm-12 col-12">
-                        <div className="row ">
-                            <div className="col-lg-12">
-                                <DeliveryOption Time={Time} SetTime={SetTime} Hours={state?.AllProduct[0]?.StoreHours} DeliveryOptionData={DeliveryOptionData} address={InputValues} SetShowData={SetShowData} />
-
-                            </div>
-
-                        </div>
-                        <div className="row ">
-                            <div className="col-lg-12">
-                                {ShowData === true && <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation}
-                                    image={image}
-                                    DefalutImage={DefalutImage}
-                                    SetDefalutimage={SetDefalutimage}
-                                    setImage={setImage}
-                                    Dataimage={Dataimage}
-                                    setDataImage={setDataImage}
-                                    Details={Details}
-                                    SetDetails={SetDetails}
-
-                                />}
-                            </div>
-
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                {ShowDeliveryInformation === true && <Payment SetShowPlaceOrder={SetShowDeliveryInformation} />}
-                            </div>
-
-                        </div>
+                              <div className={newclases.DeliveryOption_container}>
+                                    <DeliveryOption Time={Time} SetTime={SetTime} Hours={state?.AllProduct[0]?.StoreHours} DeliveryOptionData={DeliveryOptionData} address={InputValues} SetShowData={SetShowData} />
+                                 <DeliveryInformation SetShowDeliveryInformation={SetShowDeliveryInformation}
+                                        image={image}
+                                        DefalutImage={DefalutImage}
+                                        SetDefalutimage={SetDefalutimage}
+                                        setImage={setImage}
+                                        Dataimage={Dataimage}
+                                        setDataImage={setDataImage}
+                                        Details={Details}
+                                        SetDetails={SetDetails}  />
+                                   <Payment SetShowPlaceOrder={SetShowDeliveryInformation} />
+                              </div>
                         <div className="row m-2">
-                            <div className="col-lg-12 mx-auto checkout_main_page_addtocart_review font_size_paragraph">
-                                <p>Review</p>
+                            <div className="col-lg-12 mx-auto checkout_main_page_addtocart_review ">
+                                <p className={newcalses.font_size_paragraph}>{`Review`}</p>
                                 <AddToCartReview />
                             </div>
-
                         </div>
                     </div>
                     <div className="col-md-8 col-xl-4 col-lg-5 col-sm-12 col-12">
@@ -193,4 +177,3 @@ const CheckOutMainPage = () => {
     )
 }
 export default CheckOutMainPage
-

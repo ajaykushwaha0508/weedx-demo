@@ -7,7 +7,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "@/styles/style"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
+import newclases from "@/styles/customstyle.module.scss"
 const Payment = ({ SetShowPlaceOrder }) => {
     const classes = useStyles()
 
@@ -28,7 +28,7 @@ const Payment = ({ SetShowPlaceOrder }) => {
                     <div className="DeliveryOption_container">
                         <div className="row">
                             <div className="col-12 d-flex justify-content-between align-items-center">
-                                <p className='font_size_paragraph' onClick={ShowAgainPaymentRestData}>Payment Method</p>
+                                <h2 className={newclases.font_size_paragraph} onClick={ShowAgainPaymentRestData}>{`Payment Method`}</h2>
                                 {
                                     PaymentRestData ? null :
                                 
@@ -60,7 +60,7 @@ const Payment = ({ SetShowPlaceOrder }) => {
                                         </Box>
                                
                               
-                                    <div className='col-12 col-lg-4 height_delivery_information_btn'>
+                                    <div className='col-12 col-lg-4'>
                                         <Box className={`  ${classes.loadingBtnTextAndBack}`} >
                                             <LoadingButton onClick={HandlePaymentRestData} variant="outlined">continue</LoadingButton>
                                         </Box>
