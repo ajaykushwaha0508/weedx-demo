@@ -35,14 +35,5 @@ module.exports = {
       },
     ],
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/AboutUs',
-  //       destination: '/aboutus', 
-  //       permanent: true,
-  //     },
 
-  //   ];
-  // },
 };
