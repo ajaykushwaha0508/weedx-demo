@@ -198,17 +198,16 @@ const AddToCartReview = () => {
             setWindowWidth(window.innerWidth)
             SetAfterDiscount(state.AllProduct)
         }, [state.AllProduct])
-
     return (
-      
             <div className={newclasess.AddProductCartContainerinner}>
-                {   wondowWidth > 768 ?
-                    <>
+                {   
+                    wondowWidth > 768 ?
+                    <div>
                         <div className={`${newclasess.cartProductHeadings} row col-12`}>
-                            <div className='col-5 '><span className={newclasess.carttableheadings}>Your Item</span></div>
-                            <div className='col-2 text-center'><span className={newclasess.carttableheadings}>Price</span></div>
-                            <div className='col-2 text-center'><span className={newclasess.carttableheadings}>Quantity</span></div>
-                            <div className='col-2 text-center'><span className={newclasess.carttableheadings}>Subtotal</span></div>
+                            <div className='col-5 '><span className={newclasess.carttableheadings}>{`Your Item`}</span></div>
+                            <div className='col-2 text-center'><span className={newclasess.carttableheadings}>{`Price`}</span></div>
+                            <div className='col-2 text-center'><span className={newclasess.carttableheadings}>{`Quantity`}</span></div>
+                            <div className='col-2 text-center'><span className={newclasess.carttableheadings}>{`Subtotal`}</span></div>
                             <div className='col-1 text-end'><span className={newclasess.carttableheadings}></span></div>
                         </div>
                         <div className={newclasess.Add_product_cart_left_container_item }>
@@ -216,7 +215,7 @@ const AddToCartReview = () => {
                             {AfterDiscount?.map((ele, index) => {
                                 let wrigh = Boolean(ele.Price.Weight) ? ele.Price.Weight : `${ele.Price.Unit} Unit`;
                                 return (
-                                        <div className="row py-3 px-0 border-top border-bottom justify-content-center   align-items-center" key={index}>
+                                        <div className="row py-3 px-0 border-top border-bottom justify-content-center align-items-center" key={index}>
                                             <div className='row align-items-center col-5'>
                                                 <div className={newclasess.Add_prod_item_image_cont}>
                                                     <Link href={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
@@ -260,14 +259,12 @@ const AddToCartReview = () => {
                                             <div className="col-1 text-center">
                                                 <span><LoadingButton loading={LoadingDelete} className="center" style={{ width: "15px" }} onClick={(() => { DeleteItem(ele.Product_id, ele.id) })}> <RiDeleteBin6Line size={20} color='gray' /></LoadingButton></span>
                                             </div>
-                                        
-
                                         </div>
                                 )
                             })}
 
                         </div>
-                    </>
+                    </div>
                     :
                     <div >
                         {AfterDiscount?.map((ele, index) => {
@@ -322,7 +319,6 @@ const AddToCartReview = () => {
                     </div>
                 }
             </div>
-    //  function power()
     )
 }
 export default AddToCartReview

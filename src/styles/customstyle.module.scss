@@ -1733,6 +1733,7 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
     background: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
+    margin-top: 20px;
     h5.AddProdCartFont_weight {
         font-weight: 700;
         font-size: 23px;
@@ -1800,7 +1801,7 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             justify-content: space-between;
             .promoCode_textfield_col {
                 width: 75%;
-             
+                height: 100%;
               }
               .promoCodeBtn_Col {
               

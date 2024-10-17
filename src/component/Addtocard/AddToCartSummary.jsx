@@ -9,7 +9,7 @@ import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 import newclases from '@/styles/customstyle.module.scss';
 import PromoCode from "./Promocode";
 import { Menuintegration_login } from "@/component/Login/menu-integration_login";
-const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails, Details }) => {
+const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const { state, dispatch } = React.useContext(Createcontext);
@@ -199,7 +199,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
             id="pickup_btn"
             onClick={ChnageDeliveryAddress}
           >
-            Change Method
+           {` Change Method`}
           </LoadingButton>
         </Box>
       )}
@@ -292,8 +292,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
                 }}
                 className={classes.flotchceckoutbtn}
               >
-                {" "}
-                proceed to checkout{" "}
+              
+                {`proceed to checkout`}
               </LoadingButton>
             </Box>
           )
@@ -310,7 +310,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
 
               type="submit"
             >
-              checkout
+              {`checkout`}
             </LoadingButton>
           </Box>
         )}

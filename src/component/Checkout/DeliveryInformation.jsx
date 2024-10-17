@@ -83,27 +83,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                         ShowRestDeliveryInformation &&
                             <div>
                              
-                              
-                                            <h3 className={newclases.height_for_delivery_instruction_div}>{`Photo ID  (Optional)`} <Tooltip title="Upload your ID to verify your age. If not uploaded, please bring a valid ID for verification during pickup or upon delivery.">
-                                            <IconButton>
-                                        
-                                            <AiTwotoneQuestionCircle size={12} />
-                                            </IconButton>
-                                            </Tooltip></h3>
-                                        <input accept="image/*" type='file'  id='idcardimage' className="d-none" onChange={SelectImage} />
-                                     { image === undefined &&
-                                       <label htmlFor="idcardimage" className={newclases.iamgelabelbox}>
-                                          <FaRegIdCard /> <span>{`Upload your ID card`}</span>
-                                       </label>}
-                                    { !(image === undefined) &&
                              
-                                        <div className={newclases.checkoutIdImage}>
-                                            <Image  unoptimized={true} width={100} height={100} style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
-                                            <label htmlFor="idcardimage" ><FaCamera /> {`change Image`}</label>
-                                            <span><RxCross2 size="22" color="#2d2d2d" onClick={()=>{setImage(undefined)}} />                                            </span>
-                                        </div>
-                                }
-
                                 <form onSubmit={method.handleSubmit(HandleDeliveryInformation)} >
                                     <div className='row my-2'>
                                         <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
@@ -263,6 +243,29 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 />
                                                 </div>
                                     </div>
+                                    <div className="row mt-3">
+                                        <div className="col-12">
+                                            <h3 className={newclases.height_for_delivery_instruction_div}>{`Photo ID  (Optional)`} <Tooltip title="Upload your ID to verify your age. If not uploaded, please bring a valid ID for verification during pickup or upon delivery.">
+                                            <IconButton>
+                                        
+                                            <AiTwotoneQuestionCircle size={12} />
+                                            </IconButton>
+                                            </Tooltip></h3>
+                                           <input accept="image/*" type='file'  id='idcardimage' className="d-none" onChange={SelectImage} />
+                                            { image === undefined &&
+                                            <label htmlFor="idcardimage" className={newclases.iamgelabelbox}>
+                                                <FaRegIdCard /> <span>{`Upload your ID card`}</span>
+                                            </label>}
+                                            { !(image === undefined) &&
+                                    
+                                                <div className={newclases.checkoutIdImage}>
+                                                    <Image  unoptimized={true} width={100} height={100} style={{border:DefalutImage && "1px solid red" }} className='delivery_option_image' src={image} title={'Delivery info'} alt={'Delivery info'} />
+                                                    <label htmlFor="idcardimage" ><FaCamera /> {`change Image`}</label>
+                                                    <span><RxCross2 size="22" color="#2d2d2d" onClick={()=>{setImage(undefined)}} />                                            </span>
+                                                </div>
+                                            }
+                                            </div>
+                                  </div>
                                     <div className='row my-4'>
                                         <div className='col-12 col-lg-4 '>
                                             <Box  className={`  ${classes.loadingBtnTextAndBack}`} >

@@ -44,9 +44,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                 SetTime(`Monday 00:30-23:30`)
             }
         }
-
-        let b=new Date().getDay()
-        console.log(Hours[b-1].Open)
+      
+   
     },[ Hours])
     return (
         <div>
@@ -138,14 +137,10 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                     </div>
                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >                    
                         <div className='col-12 col-lg-4 height_delivery_option_buttton'>
-                            <Box
-                                className={`  ${classes.loadingBtnTextAndBack}`}
-                            >
-                                <LoadingButton type='submit' variant="outlined">continue</LoadingButton>
+                            <Box className={`  ${classes.loadingBtnTextAndBack}`}  >
+                                <LoadingButton type='submit' variant="outlined">Save</LoadingButton>
                             </Box>
-
                         </div>
-
                     </form>
                 </div>
             }

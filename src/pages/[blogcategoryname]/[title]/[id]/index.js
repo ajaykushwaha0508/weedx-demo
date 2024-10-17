@@ -164,10 +164,11 @@ const Blogs = (props) => {
                         </section>
                     </div>
                     <div className="p-0 blogEditorContainer">
+                        <h1 className="blog_Title py-3">{News?.Title}</h1>
                         <section className="blog_Image">
                             <Image src={News.Image} alt="image" width={1200} height={900} quality={100} />
                         </section>
-                        <h1 className="blog_Title ">{News?.Title}</h1>
+                       
                         <div className="blog_text_container"  >
                             <div className="blogEditorPaddings ">
 
