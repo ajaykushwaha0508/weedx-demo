@@ -109,7 +109,8 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
             return name
           })
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
-          Seterror(response.data)
+          console.log(response.data)
+          Seterror('Delivery Address Selected Successfully!')
           alldata.map((data) => {
             if (data.types.indexOf('country') !== -1) {
            
@@ -160,7 +161,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
         error={Boolean(error === 'Street Address Missings' || error === 'We’re sorry, but your delivery address is outside our service area.')}
       />
       {
-        error !== "" && <span className="help-block" style={{ color: error === "Success" && "green" }}>{error}</span>
+        error !== "" && <span className="help-block" style={{ color: error === "Delivery Address Selected Successfully!" && "green" }}>{error}</span>
       }
     </React.Fragment>
   )

@@ -206,7 +206,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading, SetLoading, SetDetails
         {OpenDelivery && (
           <div className="my-3">
             <div className=" w-xl-50 w-lg-75 w-100 mt-2">
-              <label htmlFor="name-field">{`MY STREET ADDRESS`}</label>
+              <label htmlFor="name-field">{`Enter Your Delivery Location`}</label>
               <DeliverAutoCompleteAddress
                 OpenDelivery={OpenDelivery}
                 className={classes.textFieldcartsummeryPage}

@@ -44,13 +44,16 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                 SetTime(`Monday 00:30-23:30`)
             }
         }
+
+        let b=new Date().getDay()
+        console.log(Hours[b-1].Open)
     },[ Hours])
     return (
         <div>
             <div className="col-12 d-flex justify-content-end align-items-center">
                
                 {
-                    ShowDeliveryRestData ? null :  <Button     variant="outlined" sx={{
+                    ShowDeliveryRestData ? null :  <Button  variant="outlined" sx={{
                     color: '#31B665',
                     borderColor:'#31B665',
                     fontSize:'12px',
@@ -60,10 +63,8 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                         backgroundColor:'#31B665',
                         borderColor:'#31B665',
                     },
-                    }} onClick={()=>{SetShowDeliveryRestData(true)}}>Edit</Button>
+                    }} onClick={()=>{SetShowDeliveryRestData(true)}}>{`Edit`}</Button>
                 }
-                
-
             </div>
             <div className="col-12" >
                 <h3 className={`mb-0 ${newclases.height_for_delivery_instruction_div}`}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }    {`Address`}</h3>
@@ -118,7 +119,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                         Hours?.map((data , index)=>{
                                             return(
                                                 <MenuItem key={index}  value={data?.day + " " + data?.Open?.map((time)=>time.Time1) +"-"+ data?.Open?.map((time)=>time.Time2)}>
-                                                    <div className='rwo'> <span className='col-5'><b> { data?.day[0].toUpperCase() + data?.day.slice(1)} : </b></span> <span className='col-5'>  {data?.Open?.map((time)=>time.Time1)} - {data?.Open?.map((time)=>time.Time2)}</span></div>
+                                                    <div className=''> <span className='col-5'><b> { data?.day[0].toUpperCase() + data?.day.slice(1)} : </b></span> <span className='col-5'>  {data?.Open?.map((time)=>time.Time1)} - {data?.Open?.map((time)=>time.Time2)}</span></div>
                                                 </MenuItem>
                                             )
                                         })
@@ -132,12 +133,10 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                     <h3 className={newclases.height_for_delivery_instruction_div}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" } {` Instruction`}</h3>
                     <div className="col-12 height_for_delivery_instruction_textarea_div ">
                         <div className='col-12 height_for_delivery_instruction_textarea_div'>
-                            <textarea className="textAreaDeliveryOptions" id="textAreaExample4"></textarea>
+                            <textarea className="textAreaDeliveryOptions"  id="textAreaExample4" placeholder={ ` Please specify any additional ${state.selectDeliveryoptions === "delivery_btn" ?"delivery" : "Pickup "} instructions here....`}></textarea>
                         </div>
                     </div>
-                    <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >
-
-                    
+                    <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >                    
                         <div className='col-12 col-lg-4 height_delivery_option_buttton'>
                             <Box
                                 className={`  ${classes.loadingBtnTextAndBack}`}
