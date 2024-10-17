@@ -411,9 +411,6 @@ export default function DispensoriesDetails(props) {
     )
 }
 
-
-
-
 export async function getStaticPaths() {
     // Fetch all possible paths here
     // Example: const paths = [{ params: { storeId: '1' } }, { params: { storeId: '2' } }];
