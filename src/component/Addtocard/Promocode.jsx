@@ -93,7 +93,7 @@ const PromoCode = () => {
     }
     return (
         <div className={newclasess.promocode_container}>
-            <label htmlFor="promocode" className={newclasess.promoCode_label}>Enter a promo code</label>    
+            <label htmlFor="promocode" className={newclasess.promoCode_label}>{`Enter a promo code`}</label>    
             <div className={newclasess.promoCode_textfield_btn_Col}>
                 <div className={newclasess.promoCode_textfield_col}>
                     <TextField className={classes.textFieldFocusBorderColor}

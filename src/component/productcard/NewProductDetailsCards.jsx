@@ -294,7 +294,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
         <React.Fragment>
             {
                 <div className=" w-100">
-                    <div className={location.pathname.includes('/menu-integration') ? "menuintregarteproductpage newProductDetailsContainer  position-relative  mt-4" : " newProductDetailsContainer  position-relative  mt-4"}>
+                    <div className={" newProductDetailsContainer  position-relative  mt-4"}>
                         <div className="newProductDetailsCardLeftCol">
                             <div className="">
                                 <div className="newProductDetailsUpperimage_container">

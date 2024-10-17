@@ -85,7 +85,11 @@ const useStyles = makeStyles({
     
   },
   textFieldFocusBorderColor: {
+      height:'40px',
     "& .MuiOutlinedInput-root": {
+      "&.MuiInputBase-root":{
+        height:'40px',
+       },
       " &.Mui-focused fieldset": {
         borderColor: "#31B665",
       },

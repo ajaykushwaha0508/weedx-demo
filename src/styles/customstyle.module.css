@@ -164,7 +164,6 @@
   margin: 0;
   text-transform: capitalize;
 }
-
 .homecardRating {
   position: absolute;
   top: 1px;
@@ -180,7 +179,7 @@
 .ad_page .adversticebanner_header h1 {
   position: absolute;
   font-size: 38px;
-  width: 60%;
+  width: 90%;
   font-weight: 700;
   line-height: 1.5;
   top: 50%;
