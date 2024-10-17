@@ -840,7 +840,13 @@ textarea:focus {
   border:2px solid #31B665;
 }
 .textAreaDeliveryOptions{
-  min-height: 120px;
+  min-height: 90px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #353535;
+  line-height: 1.5;
+  resize: none;
 }
 a{
   text-decoration: none;
@@ -7696,7 +7702,9 @@ margin-top: 100px;
   .AddProductCartContainer {
     flex-direction: column;
   }
-
+  .loginwithgoogle {
+    display: none;
+  }
   
   .Add_product_cart_right_container_summary {
     position: relative;
@@ -7796,9 +7804,7 @@ margin-top: 100px;
   .Sapceing {
     gap: 48px;
   }
-  .loginwithgoogle {
-    display: none;
-  }
+
   .col_Search {
     margin-bottom: 10px;
   }
