@@ -5292,6 +5292,9 @@ line-height: normal;
   gap: 10px;
   margin-top: 10px;
 }
+.PopperLIst:hover{
+  background-color: rgb(238, 238, 238);
+}
 .prod_filter_icon .makeStyles-muiIcons-17{
   color: #31B655;
   margin-right: 10px;
@@ -9173,8 +9176,17 @@ font-size: 24px;
   }
 }
 
+.no-result{
+  width: 100%;
+  list-style: none;
+}
+.no-result p{
+  text-align: center;
+  margin: 0;
+  color: #31B655;
+}
 
 
-
-
-
+.Mui-focusVisible{
+  background-color: rgb(238, 238, 238);
+}

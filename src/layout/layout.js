@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <div className='fixed-top' style={{zIndex:1}}>
+      <div className='fixed-top' style={{zIndex:2}}>
         <Navbar/>
       </div>
       <div className='container' id='layout'>
