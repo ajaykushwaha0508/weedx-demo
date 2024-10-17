@@ -123,10 +123,12 @@ const SearchBar = ({ path }) => {
             setSelctionoption('')
         });
     };
+    
     function handleclose() {
         setOpen(false)
         setLoading(false)
     }
+
     function handleOnfocus() {
         if (Boolean(input)) {
             setOpen(true)
@@ -175,12 +177,6 @@ const SearchBar = ({ path }) => {
                     }}
                     sx={{
                         width: '100%',
-                        '& .MuiAutocomplete-listbox': {
-                            'scrollbar-width': 'none', // For Firefox
-                            '&::-webkit-scrollbar': {
-                                width: '8px', // Width of the scrollbar for WebKit browsers
-                            }
-                        }
                     }}
                     renderInput={(params) => (
                         <TextField

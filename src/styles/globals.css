@@ -5296,7 +5296,7 @@ line-height: normal;
   margin-top: 10px;
 }
 .PopperLIst:hover{
-  background-color: #adadad;
+  background-color: rgb(238, 238, 238);
 }
 .prod_filter_icon .makeStyles-muiIcons-17{
   color: #31B655;
@@ -9174,6 +9174,7 @@ font-size: 24px;
 }
 
 .no-result{
+  width: 100%;
   list-style: none;
 }
 .no-result p{
@@ -9184,5 +9185,5 @@ font-size: 24px;
 
 
 .Mui-focusVisible{
-  background-color: #adadad;
+  background-color: rgb(238, 238, 238);
 }
