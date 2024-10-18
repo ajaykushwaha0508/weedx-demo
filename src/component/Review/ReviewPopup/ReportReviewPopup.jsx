@@ -8,6 +8,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { LoadingButton } from "@mui/lab";
+import newclasess from '@/styles/customstyle.module.scss'
 import Box from "@mui/material/Box";
 const ReportReviewPopup = () => {
     const classes = useStyles()
@@ -27,19 +28,14 @@ const ReportReviewPopup = () => {
                 Report
             </Button>
             <Dialog open={open} onClose={handleClose} className={classes.WriteReviewDialog}>
-                <div className="container-fluid py-5">
-                    <div className="row">
-                        <div className="col-12 reportReviewContainer px-0">
-                            <div className="col-12 closeBtnAndHeading">
-                                <div className="col-8 ReportHeadAlignCenter">
-                                    <h2 className="reportPopupHeading">Report Review</h2>
-                                </div>
-                                <div className="col-4 reportReviewCloseIcons">
+              
+                        <div className={newclasess.reportReviewContainer}>
+                            <div className={newclasess.closeBtnAndHeading}>
+                                    <h2 className={newclasess.reportPopupHeading}>{`Report Review`}</h2>
                                     <IconButton onClick={handleClose}><RiCloseCircleFill /></IconButton>
-                                </div>
                             </div>
                             <form>
-                                <div className="col-12 reportReviewContentContainer">
+                                <div className={`${newclasess.reportReviewContentContainer}`}>
 
                                     <div className="col-12">
                                         <FormGroup>
@@ -48,17 +44,17 @@ const ReportReviewPopup = () => {
                                                 control={<Checkbox
                                                     className={classes.reportCheckBox}
                                                 />}
-                                                label={<div className="reportReviewFirstLAbelDiv">
-                                                    <h5 className="reportReviewfirstLabel">Review is from a bot, a fake account or contains ads and promotions</h5>
+                                                label={<div className={newclasess.reportReviewFirstLAbelDiv}>
+                                                    <h5 className={newclasess.reportReviewfirstLabel}> {`Review is from a bot, a fake account or contains ads and promotions`}</h5>
                                                 </div>} />
                                             <FormControlLabel
                                                 control={<Checkbox
                                                     className={classes.reportCheckBox}
                                                 />}
                                                 label={
-                                                    <div className="headingTypeLabelContainer">
-                                                        <h5 className="HeadingTypeLabel">Bullying or harassment</h5>
-                                                        <h5 className="HeadingTypeReview_subLabel">Review personally attacks a specific individual</h5>
+                                                    <div className={newclasess.headingTypeLabelContainer}>
+                                                        <h5 className={newclasess.HeadingTypeLabel}>{`Bullying or harassment`}</h5>
+                                                        <h5 className={newclasess.HeadingTypeReview_subLabel}>{`Review personally attacks a specific individual`}</h5>
                                                     </div>
 
                                                 } />
@@ -66,32 +62,32 @@ const ReportReviewPopup = () => {
                                                 className={classes.reportCheckBox}
                                                 control={<Checkbox />}
                                                 label={
-                                                    <div className="headingTypeLabelContainerThirdFourth">
-                                                        <h5 className="HeadingTypeLabel">Discrimination or hate speech</h5>
-                                                        <h5 className="HeadingTypeReview_subLabel"> Review has harmful language about an individual or group based on identity</h5>
+                                                    <div className={newclasess.headingTypeLabelContainer}>
+                                                        <h5 className={newclasess.HeadingTypeLabel}>{`Discrimination or hate speech`}</h5>
+                                                        <h5 className={newclasess.HeadingTypeReview_subLabel}> {`Review has harmful language about an individual or group based on identity`}</h5>
                                                     </div>
                                                 } />
                                             <FormControlLabel
                                                 className={classes.reportCheckBox}
                                                 control={<Checkbox />}
                                                 label={
-                                                    <div className="headingTypeLabelContainerThirdFourth">
-                                                        <h5 className="HeadingTypeLabel">Personal information</h5>
-                                                        <h5 className="HeadingTypeReview_subLabel">Review contains personal information, such as an address or phone number</h5>
+                                                    <div className={newclasess.headingTypeLabelContainer}>
+                                                        <h5 className={newclasess.HeadingTypeLabel}>{`Personal information`}</h5>
+                                                        <h5 className={newclasess.HeadingTypeReview_subLabel}>{`Review contains personal information, such as an address or phone number`}</h5>
                                                     </div>
                                                 } />
                                             <FormControlLabel
                                                 className={classes.reportCheckBox}
                                                 control={<Checkbox />}
                                                 label={
-                                                    <div className="headingTypeLabelContainer">
-                                                        <h5 className="HeadingTypeLabel">Not helpful</h5>
-                                                        <h5 className="HeadingTypeReview_subLabel">Review doesn’t help people decide whether to go to this place</h5>
+                                                    <div  className={newclasess.headingTypeLabelContainer}>
+                                                        <h5 className={newclasess.HeadingTypeLabel}>{`Not helpful`}</h5>
+                                                        <h5 className={newclasess.HeadingTypeReview_subLabel}>{`Review doesn’t help people decide whether to go to this place`}</h5>
                                                     </div>
                                                 } />
                                         </FormGroup>
                                     </div>
-                                    <div>
+                                    <div className="d-flex gap-3 justify-content-end">
                                         <Box
                                             className={`mt-4 ${classes.reportReviewPopupCancelBtn}`}
                                         >
@@ -106,10 +102,7 @@ const ReportReviewPopup = () => {
                                 </div>
                             </form>
                         </div>
-
-                    </div>
-
-                </div>
+                   
             </Dialog>
 
         </React.Fragment>

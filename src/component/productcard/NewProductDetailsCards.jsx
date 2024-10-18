@@ -27,9 +27,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import AddToCartPopUp from "../../component/Addtocard/AddToCartPopUp/AddToCartPopUp";
 import { WhisList } from '@/component/Whishlist/WhisList'
-import Loader from "../../component/Loader/Loader";
+import Loader from "@/component/Loader/Loader";
 import { modifystr } from "../../hooks/utilis/commonfunction";
-
+import newclases from '@/styles/customstyle.module.scss';
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight, link = "/products" }) => {
 
     const cookies = new Cookies();
@@ -188,19 +188,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
     }, [AddTOCard])
 
-
-    // React.useEffect(() => {
-    //     document.documentElement.scrollTo({
-    //         top: 0,
-    //         left: 0,
-    //         behavior: "instant", // Optional if you want to skip the scrolling animation
-    //     });
-    //     setTimeout(() => {
-    //         setstartload(false)
-    //     }, "1000");
-
-    // }, [])
-
     function k(id) {
 
         Product?.Prices?.map((item) => {
@@ -290,15 +277,16 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
             SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
         }
     }, [Product])
+    console.log( Product?.images)
     return (
         <React.Fragment>
             {
                 <div className=" w-100">
-                    <div className={" newProductDetailsContainer  position-relative  mt-4"}>
-                        <div className="newProductDetailsCardLeftCol">
+                    <div className={newclases.newProductDetailsContainer }>
+                        <div className={newclases.newProductDetailsCardLeftCol}>
                             <div className="">
-                                <div className="newProductDetailsUpperimage_container">
-                                    <Image className="newProductDetails_upper_image"
+                                <div className={newclases.newProductDetailsUpperimage_container}>
+                                    <Image className={newclases.newProductDetails_upper_image}
                                         width={100}
                                         unoptimized={true}
                                         height={100}
@@ -369,8 +357,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                         </Swiper>
                                     </div>
                                 }
-
-
                             </div>
                         </div>
                         <div className="newProductdetails_rightSideContent_container">

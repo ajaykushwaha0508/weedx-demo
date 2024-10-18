@@ -110,6 +110,12 @@
   }
 }
 
+.font_size_paragraph {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+
 .lawDisclaimer {
   font-size: 12px;
   font-weight: 400;
@@ -164,6 +170,7 @@
   margin: 0;
   text-transform: capitalize;
 }
+
 .homecardRating {
   position: absolute;
   top: 1px;
@@ -1502,9 +1509,6 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 .review_secton {
   position: relative;
 }
-.review_secton .filter_review {
-  margin: 20px 0;
-}
 .review_secton .reviews_description {
   position: sticky;
   top: 150px;
@@ -1514,6 +1518,25 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 .review_secton .reviews_description .overall_review_container {
   height: auto;
   border: 1px solid #DCD9D9;
+}
+.review_secton .reviews_description .overall_review_container .left_circularbar_container .left_circularbar {
+  height: 177px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.review_secton .reviews_description .overall_review_container .left_circularbar_container .left_circularbar p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+}
+.review_secton .reviews_description .overall_review_container .right_horizontal_bar .overall_flex {
+  gap: 10px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .review_secton .writeReviewContainer {
   padding: 20px 20px;
@@ -1636,7 +1659,175 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   line-height: 1.6;
   text-align: left;
   color: #858585;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+}
+.review_secton .related_review_container .reviwerName_rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 12px 0;
+}
+.review_secton .related_review_container .related_review_image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.review_secton .related_review_container .related_review_image img {
+  width: 100%;
+  height: 100%;
+}
+.review_secton .related_review_container .related_review_content {
+  position: relative;
+  display: contents;
+  width: -webkit-fill-available;
+  word-break: break-all;
+}
+.review_secton .related_review_container .related_review_content .reviews_writer {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  margin: 0;
+}
+.review_secton .related_review_container .reviews_title {
+  word-wrap: break-word;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  color: #858585;
+  margin-top: 15px;
+}
+.review_secton .related_review_container .review_description_container p {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  word-wrap: break-word;
+  color: #a5a5a5;
+  margin: 0;
+}
+.review_secton .related_review_container .related_review_footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+}
+.review_secton .related_review_container .related_review_footer .related_review_footer_paragraph {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.review_secton .related_review_container .related_review_footer .related_review_footer_paragraph:active {
+  filter: drop-shadow(0 0 0 #15111a);
+  transform: translate(0, 5px);
+}
+.review_secton .review_date {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+.review_secton .review_reply {
+  border-left: 1px solid gray;
+  margin-top: 20px;
+  position: relative;
+}
+.review_secton .review_reply .related_review_image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.review_secton .review_reply .related_review_image img {
+  width: 100%;
+  height: 100%;
+}
+.review_secton .review_reply .related_review_content {
+  position: relative;
+  display: block;
+  width: -webkit-fill-available;
+  word-break: break-all;
+}
+.review_secton .review_reply .related_review_content .reviews_title {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  color: #858585;
+  margin: 0;
+}
+.review_secton .review_reply .related_review_content .reviews_writer {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  margin: 0;
+}
+.review_secton .review_reply .related_review_content .review_date {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+.review_secton .review_reply .related_review_content .review_date p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.reportReviewContainer .closeBtnAndHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid black;
+}
+.reportReviewContainer .closeBtnAndHeading .reportPopupHeading {
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-bottom: 0px;
+}
+.reportReviewContainer .reportReviewContentContainer {
+  padding: 30px;
+}
+.reportReviewContainer .reportReviewContentContainer .reportReviewFirstLAbelDiv {
+  padding-top: 8px;
+}
+.reportReviewContainer .reportReviewContentContainer .reportReviewFirstLAbelDiv .reportReviewfirstLabel {
+  font-size: 14px;
+  color: #9F9F9F;
+  font-weight: 400;
+}
+.reportReviewContainer .reportReviewContentContainer .headingTypeLabelContainer {
+  padding: 10px 0;
+}
+.reportReviewContainer .reportReviewContentContainer .headingTypeLabelContainer .HeadingTypeLabel {
+  color: #000000;
+  font-weight: 700;
+  font-size: 14px;
+}
+.reportReviewContainer .reportReviewContentContainer .headingTypeLabelContainer .HeadingTypeReview_subLabel {
+  font-weight: 400;
+  font-size: 14px;
+  color: #9F9F9F;
 }
 
 .addtoproduct_card {
@@ -1672,6 +1863,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
+  margin-top: 20px;
 }
 .Add_product_cart_right_container_summary h5.AddProdCartFont_weight {
   font-weight: 700;
@@ -1735,6 +1927,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 }
 .promocode_container .promoCode_textfield_btn_Col .promoCode_textfield_col {
   width: 75%;
+  height: 100%;
 }
 .promocode_container .promoCode_textfield_btn_Col .promoCodeBtn_Col {
   width: 20%;
@@ -1755,6 +1948,67 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
+}
+.DeliveryOption_container .height_for_delivery_instruction {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  font-family: "Inter", sans-serif;
+}
+.DeliveryOption_container .iamgelabelbox {
+  width: 100%;
+  height: 150px;
+  border: 2px dashed #7c7c7c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+}
+.DeliveryOption_container .checkoutIdImage {
+  width: 220px;
+  position: relative;
+  border: 1px solid gray;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.DeliveryOption_container .checkoutIdImage label {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2b;
+  cursor: pointer;
+  text-align: center;
+}
+.DeliveryOption_container .checkoutIdImage span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.newProductDetailsContainer {
+  height: auto;
+  background: #FFFFFF;
+  border: 1px solid #DEDCDC;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 40px;
+}
+.newProductDetailsContainer .newProductDetailsCardLeftCol {
+  width: 40%;
+  padding: 30px;
+}
+.newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
+  height: auto;
+  width: 350px;
 }
 
 @media (max-width: 1440px) {
@@ -1857,12 +2111,11 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .StoreDetailMenuItem_container ul.store_detail_order_list li.store_detail_list span.storeDetalMenuItemCursor {
     font-size: 14px;
   }
-  .adversticebanner_header {
+  .ad_page .adversticebanner_header {
     position: relative;
   }
-  .adversticebanner_header h1 {
+  .ad_page .adversticebanner_header h1 {
     font-size: 22px;
-    width: 80%;
   }
   .ad_page .ad_imageTextSection {
     margin-bottom: 40px;
@@ -1933,6 +2186,11 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .StoreDetailspage .store_detail_SideMenuBar_order_list .StoreDetailSidemenuBarList {
     min-width: 30%;
+  }
+  .review_secton .reviews_description .overall_review_container .left_circularbar_container .left_circularbar {
+    height: auto;
+    margin: 0 auto;
+    width: 60%;
   }
 }
 @media (max-width: 768px) {
@@ -2088,7 +2346,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     position: relative;
   }
   .ad_page .adversticebanner_header h1 {
-    font-size: 18px;
+    font-size: 16px;
     width: 90%;
   }
   .ad_page .ad_imageTextSection {
@@ -2124,13 +2382,21 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .notificationList {
     min-width: 300px;
     z-index: 10;
-    right: -50px;
+    padding: 10px;
   }
   .canabisLawMainHeadings {
     font-size: 16px;
   }
   footer .footer_main_list p.footer_menu_heading {
     font-size: 14px;
+  }
+  .review_secton .reviews_description .overall_review_container .left_circularbar_container .left_circularbar {
+    height: auto;
+    margin: 0 auto;
+    width: 40%;
+  }
+  .review_secton .related_review_container {
+    padding: 20px;
   }
 }
 @media (max-width: 480px) {

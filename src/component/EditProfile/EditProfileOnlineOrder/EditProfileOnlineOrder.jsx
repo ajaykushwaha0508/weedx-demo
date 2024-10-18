@@ -11,7 +11,7 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
           
             <h2 className="email_notification_headings">{`Online Order`}</h2>
             <div className="row mx-0">
-                <div className="col-12 col-lg-8 EditProfileOnlineOrder_container">
+                <div className="col-12 col-xl-8 EditProfileOnlineOrder_container">
                     <div className="row mt-4 mx-0">
                         <div className="col-6 EditProfilOnlineOrder_name_flelds">
                             <div className='EditProfileOnline_name'>
@@ -119,7 +119,6 @@ const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
                     </div>
 
                 </div>
-
             </div>
         </div>
     )

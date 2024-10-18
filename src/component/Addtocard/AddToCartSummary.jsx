@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useStyles from "@/styles/style";
 import Createcontext from "@/hooks/context";
+import { CircularProgress } from '@mui/material';
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 import newclases from '@/styles/customstyle.module.scss';
 import PromoCode from "./Promocode";
@@ -303,14 +304,22 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
           >
             <LoadingButton
               loading={CheckOut_Loading}
+               variant="contained"
               onClick={(e) => {
                 CheckoutProcess(e);
               }}
+              loadingPosition={'center'}
               className={classes.flotchceckoutbtn}
-
+              loadingIndicator={
+                <CircularProgress
+                  size={24}  // change size
+                  thickness={6}  // change thickness
+                  sx={{ color: '#fff' }}  // change color
+                />
+              }
               type="submit"
             >
-              {`checkout`}
+              {!CheckOut_Loading &&`checkout`}
             </LoadingButton>
           </Box>
         )}

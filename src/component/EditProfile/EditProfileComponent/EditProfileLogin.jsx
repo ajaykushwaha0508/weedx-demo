@@ -13,7 +13,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                 <h2 className=" email_notification_headings">{`Login`}</h2>
             </div>
             <div className="row mx-0">
-                <div className="col-12 col-lg-8 EditProfileOnlineOrder_container py-4">
+                <div className="col-12 col-xl-8 EditProfileOnlineOrder_container py-4">
                     <form>
                         <div className="row">
                             <div className="col-6 editProfileLogin_emailField_container">
@@ -70,7 +70,6 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
 
                 </div>
             </div>
-
         </div>
     )
 }
