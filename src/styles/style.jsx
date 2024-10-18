@@ -1591,7 +1591,7 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        paddingBottom:"40px",
+        // paddingBottom:"40px",
         height: "auto",  // Set your width here
         borderRadius: "20px",
         background: "#FFFFFF",
@@ -1860,9 +1860,13 @@ const useStyles = makeStyles({
     },
   },
   reportCheckBox:{
+    "&.MuiFormControlLabel-root":{
+ display:"flex",
+      alignItems:"flex-start"
+    },
     "& .MuiSvgIcon-root": {
       fill: "#31B665",
-      display:"flex",
+     
     },
    },
    reportReviewLabelBaseline:{

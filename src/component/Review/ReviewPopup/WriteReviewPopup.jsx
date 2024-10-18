@@ -1,6 +1,7 @@
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";
-import useStyles from "../../../styles/style";
+import useStyles from "@/styles/style";
+import newcalses from '@/styles/customstyle.module.scss'
 import { RiCloseCircleFill } from "react-icons/ri";
 import Resizer from 'react-image-file-resizer';
 import { IconButton } from "@mui/material";
@@ -113,8 +114,8 @@ import Image from "next/image";
    },[images])
   return (
     <>
-     <Box  className={`${classes.loadingBtnTextAndBack}`} >
-       <LoadingButton variant="outlined" onClick={handleClickOpen}> Write a review </LoadingButton>
+      <Box  className={`${classes.loadingBtnTextAndBack}`} >
+       <LoadingButton variant="outlined" onClick={handleClickOpen}> {`Write a review`} </LoadingButton>
       </Box>
       <Dialog
         open={GetProductReview.popup}
@@ -123,16 +124,16 @@ import Image from "next/image";
       >
         <div className="container-fluid">
           <div className="row">
-            <div className="col-12 writeReviewContainer px-0">
-              <div className="col-12 writeReviewCloseIconContainer">
+            <div className={`col-12 ${newcalses.writeReviewContainer}`} >
+              <div className={newcalses.writeReviewCloseIconContainer}>
                 <IconButton onClick={handleClose} aria-label="closebutton">
                   <RiCloseCircleFill color="#949494" size={24} />
                 </IconButton>
               </div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-12 text-center">
-                  <h2 className="writeReviewHeadings">Leave your Review</h2>
-                  <h3 className="secRatingHeadings">How would you rate working at weedx.io?</h3>
+                  <h2 className={newcalses.writeReviewHeadings}>{`Leave your Review`}</h2>
+                  <h3 className={newcalses.secRatingHeadings}>{`How would you rate working at weedx.io?`}</h3>
                   <FormControl size={"small"}>
                     <Controller
                       render={() => (
@@ -153,8 +154,8 @@ import Image from "next/image";
                 <div className="col-12 px-4 py-4">
                  
                   <div className="col-12">
-                    <label className="writeReviewLabel" htmlFor="title">
-                    Your Title at Work
+                    <label className={newcalses.writeReviewLabel} htmlFor="title">
+                     {` Your Title at Work`}
                     </label>
                       <TextField
                         className={`${classes.reviewTextFieldStyle}`}
@@ -216,21 +217,18 @@ import Image from "next/image";
                       })}
                     />
                   </div>
-                  <div className="col-12 d-xl-block d-none">
-                     <div className="reviewImage">
+                  {/* <div className="col-12 d-xl-block d-none">
+                     <div className={newcalses.reviewImage}>
                       <input  type='file' id="Reviewimage" accept="image/*,video/*" className="d-none" onChange={onImageChange}  />
-                        <label htmlFor="Reviewimage" className="Reviewimagebox">
+                        <label htmlFor="Reviewimage" className={newcalses.Reviewimagebox}>
                            <div className="text-center">
-                               <p className="text-center"><IoCloudUploadOutline size={22} /> <span>Drop Image And Video here or click to upload</span>
-                              </p>
-                              <span className="reviewnote"><b>Note:-</b> Video Size should be less than 10 MB and Only One Video is allow</span>
+                               <p className="text-center"><IoCloudUploadOutline size={22} /> <span>{`Drop Image And Video here or click to upload`}</span> </p>
+                              <span className={newcalses.reviewnote}><b>{`Note:-`}</b> {`Video Size should be less than 10 MB and Only One Video is allow`}</span>
                             </div>
-                           
                         </label>
                      </div> 
-                   
                       {
-                          mediaurls.length !==0 && <div className="media_list">{
+                        mediaurls.length !==0 && <div className="media_list">{
                             mediaurls.map((item, index)=>{
                               if(Boolean(images[index]?.type?.includes('image'))){
                                 return <span key={index} className="uploadedImage"> <span onClick={()=>{removemedia(index)}} className="crossbtn"><RxCross2 />
@@ -240,11 +238,11 @@ import Image from "next/image";
                                 </span> <video src={item} width="320" height="240" muted controls autoplay />   </span>
                               }
                             })}
-                         </div>
+                        </div>
                       }
                   
                     
-                  </div>
+                  </div> */}
                   <div className="col-12">
                       <LoadingButton loading={reviewloading} className={classes.submitreviewbtn}   type="submit" variant="outlined">Submit</LoadingButton>
                   </div>

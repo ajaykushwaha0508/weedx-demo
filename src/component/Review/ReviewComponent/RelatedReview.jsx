@@ -24,6 +24,7 @@ import { useRouter } from "next/router";
 import React from 'react';
 import Badge from '@mui/material/Badge';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
+import newclases from '@/styles/customstyle.module.scss'
 import Cookies from 'universal-cookie';
 import { useState } from 'react';
 import Createcontext from "../../../hooks/context"
@@ -128,15 +129,15 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
 
     return (
         <React.Fragment>
-            <div className='container-fluid'>
-                <div className="row center">
+                <div>
                     {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
                         return (
-                            <div className="w-100 related_review_container" key={index}>
-                                        <p className='reviewdateTexyt'>{calculateTImefromDate(ele.created_at)}</p>
-                                        <div className='review_date'>
-                                           
+                            <div className={newclases.related_review_container} key={index}>
+                                          <div className="d-flex justify-content-between align-items-center">
+                                          
+                                            <p className={newclases.reviewdateTexyt}>{calculateTImefromDate(ele.created_at)}</p>
+                                      
                                             <span className='userreviewaction'> {
                                                 state.login &&
                                                 state.Profile.id === ele.user && 
@@ -182,58 +183,54 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                                 </>
                                             }</span>
                                         </div>
-                                        <div className="reviwerName_rating">
+                                        <div className={newclases.reviwerName_rating}>
 
-                                            <div className='reviewSectionRating'>
+                                       
                                                 {ele.rating && new Array(ele.rating).fill(null).map(( data , index) => (
-                                                    <BsStarFill key={index} size={16} color="#31B665" className="" />
+                                                    <BsStarFill key={index} size={16} color="#31B665"  />
                                                 ))}
 
                                                 {new Array(5 - ele.rating).fill(null).map(( data , index) => (
-                                                    <BsStar  key={index} size={16} color="#31B665" className="" />
+                                                    <BsStar  key={index} size={16} color="#31B665"  />
                                                 ))}
-                                            </div>
+                                          
                                         </div>
-                                        <div className="d-flex align-items-center gap-2 py-sm-0 py-4 ">
-                                            <div className="related_img_container">
-
-                                                <div className="related_review_image">
-
+                                        <div className="d-flex align-items-center gap-2 py-md-0 py-1 ">
+                                          
+                                                <div className={newclases.related_review_image}>
                                                     <Image
-                                                      onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                    unoptimized={true}
-                                                       width={100}
-                                                       height={100}
-                                                        className='realted_review_images'
+                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                        unoptimized={true}
+                                                        width={100}
+                                                        height={100}
                                                         src={`${ele?.userImage}`}
                                                         alt="userImage"
                                                         title='userImages'
                                                     />
                                                 </div>
-
-                                            </div>
-                                            <div className="related_review_content">
-                                                <p className='reviews_writer'>{ele.username}</p>
-                                            </div>
-                                            <span>
-                                                <Tooltip title="Verified">
-                                                <IconButton>
-                                                    <MdVerified color={'#31B655'} size={22}/>
-                                                    </IconButton>
-                                                </Tooltip>
-                                            </span>
+                                                <div className={newclases.related_review_content}>
+                                                    <p className={newclases.reviews_writer}>{ele.username}</p>
+                                                </div>
+                                                <span>
+                                                    <Tooltip title="Verified">
+                                                    <IconButton>
+                                                        <MdVerified color={'#31B655'} size={22}/>
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </span>
                                         </div>
-                                        <h3 className='reviews_title'>{ele.Title}</h3>
-                                        {textgive(text) &&
-                                            <div className='review_description_container'>
+                                        <h3 className={newclases.reviews_title}>{ele.Title}</h3>
+                                        {    
+                                            textgive(text) &&
+                                            <div className={newclases.review_description_container}>
                                               <p>{textgive(text ,ele.id )}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id !==readopen ? "More" : "Less"}</span>}</p>
                                             </div>
                                         }
                                         {
-                                            ele.images.length !== 0 &&  <div className='reviewImagewrapper'>
+                                            ele.images.length !== 0 &&  <div className={newclases.reviewImagewrapper}>
                                                 {
                                                     ele.images.map((item , index)=>{
-                                                         return     <div key={index} className='reviewimagebox' onClick={()=>openimageslider(ele , 'image' ,index)}>
+                                                         return     <div key={index} className={newclases.reviewimagebox} onClick={()=>openimageslider(ele , 'image' ,index)}>
                                                                         <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={item.image} className='reviewImage' alt='review image' title='review image'/>
                                                                     </div>
                                                     })
@@ -248,63 +245,54 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                              
                                             </div>
                                         }
-                                     
                                         {   
                                             ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
-                                            <div className='container-fluid mx-2 review_reply'>
+                                            <div className={newclases.review_reply}>
                                                 <div className="d-flex gap-2">
-                                                    <div className="related_img_container">
-                                                        <div className="related_review_image">
+                                                   
+                                                        <div className={newclases.related_review_image}>
                                                             <Image
                                                               onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                                unoptimized={true}
                                                                 width={100} 
                                                                 height={100}
-                                                                className='realted_review_images'
+                                                               
                                                                 src={`${storeDetails?.Store_Image}`}
                                                                 alt={storeDetails?.Store_Image}
                                                                 title={storeDetails?.Store_Image}
                                                             />
                                                         </div>
-                                                    </div>
-                                                    <div className="related_review_content">
-
-                                                        <h3 className='reviews_title'>Response from the Owner</h3>
-                                                        <p className='reviews_writer'>{storeDetails?.Store_Name}</p>
-                                                        <div className='review_date'>
-
+                                                
+                                                    <div className={newclases.related_review_content}>
+                                                        <h3 className={newclases.reviews_title}>{`Response from the Owner`}</h3>
+                                                        <p className={newclases.reviews_writer}>{storeDetails?.Store_Name}</p>
+                                                        <div className={newclases.review_date}>
                                                             <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
                                                         </div>
                                                     </div>
 
                                                 </div>
                                                 <div className='review_description_container'>
-                                                
                                                     <p>{textgive(ele.Reply , `${ele.id}reply`)}   {ele.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => {readmoreopen(`${ele.id}reply`)}}>...Read {`${ele.id}reply` !== readopen ? "More" : "Less"}</span>}</p>
                                                 </div>
 
                                             </div>
                                         }
 
-                                <div className='related_review_footer '>
-
-                                    <div className='related_review_footer_paragraph ellipsis'  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
+                                <div className={newclases.related_review_footer}>
+                                    <div className={`${newclases.related_review_footer_paragraph} ellipsis`}  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
                                                {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
                                             </Badge>
-                                            
                                     </div>
                                     <div className=' ellipsis'>  <ReportReviewPopup />  </div>
-
-
                                 </div>
                                
                             </div>
                         )
                     })}
                 </div>
-            </div>
-            <Dialog
+           {/* <Dialog
                     open={imageopup}
                     onClose={()=>{setImagepopup(false)}}
                     className={classes.WriteReviewDialog}
@@ -337,14 +325,14 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                         return  <SwiperSlide  key={index} > <div className='Reviewimageslidebox'>  <video  autoPlay={true} muted controls src={item.video} className='reviewVideo' alt='video'/></div></SwiperSlide>
                                     })
                                 }
-                                    {/* <SwiperSlide> <div className='Reviewimageslidebox'></div></SwiperSlide> */}
+                                   
                                     
                             </Swiper>
                         </div>
                         </div>
                     </div>
                     </div>
-           </Dialog >
+           </Dialog > */}
             {
                 open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
             }
