@@ -115,6 +115,9 @@ export async function getServerSideProps(context) {
   };
 
   try {
+    // Start timer
+    const startTime = Date.now();
+
     const [banner, callcategory, bannner2, brand, GetDelivery, Dispensaries, news] = await Promise.all([
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/').catch(() => null),
       fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-Categories/').catch(() => null),
@@ -155,6 +158,12 @@ export async function getServerSideProps(context) {
       Dispensaries ? Dispensaries.data : [],
       news ? news.data : [],
     ]);
+
+    // End timer and calculate total time
+    const endTime = Date.now();
+    const totalTime = endTime - startTime;
+    console.log(`API calls completed in ${totalTime} ms`);
+
     const responseData = {
       topbanner: topbanner || [],
       category: category || [],
@@ -178,3 +187,4 @@ export async function getServerSideProps(context) {
     return handleError(error);
   }
 }
+
