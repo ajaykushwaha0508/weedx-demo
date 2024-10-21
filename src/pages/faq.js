@@ -9,7 +9,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Faqseo} from '@/component/ScoPage/Faq';
 const Faq = () => {
     const classes=useStyles()
-    const [data , setData]= React.useState([
+    const data  =  
+        [
         {
             title:"What is Weedx.io, and What Does It Offer?",
             paara: `Weedx.io is a platform committed to cannabis exploration and acquisition, connecting users with many 
@@ -134,15 +135,7 @@ const Faq = () => {
             paara: `Yes, you can create a list of your preferred products and dispensaries in your account for easy access in 
             the future. `
         }
-    ])
-    React.useEffect(() => {
-        document.documentElement.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant", 
-        });
-       
-    }, [])
+    ]
   return (
     <div className='FAQsection'>
         <Faqseo></Faqseo>
