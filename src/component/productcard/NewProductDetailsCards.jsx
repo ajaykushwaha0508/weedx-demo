@@ -297,7 +297,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
                                 </div>
                                 {
-                                    Product?.images?.length > 1 && <div className=" newProductDetailsLowerImage_container">
+                                    Product?.images?.length > 1 && <div>
                                         <Swiper
                                             breakpoints={{
                                                 540: {
@@ -359,7 +359,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                 }
                             </div>
                         </div>
-                        <div className="newProductdetails_rightSideContent_container">
+                        <div className={newclases.newProductdetails_rightSideContent_container}>
                             <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
                             <div className=" ">
                                 <Link href={`/${link}/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
@@ -375,10 +375,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                             </div>
                             <div className="col-12 mt-2">
                                 <p>
-                                    <Rating name="read-only" className={`mx-2 ${classes.homePageStarIconscolor}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
+                                    <Rating name="read-only" className={`${classes.homePageStarIconscolor}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
                                     <span>
                                        
-                                    </span><span className="mx-2">{Product.rating === null ? 0 : Product.rating + ".0"} {Product?.TotalRating !== 0 ? `(${Product?.TotalRating})` : `(0)`} </span>
+                                    </span><span>{Product.rating === null ? 0 : Product.rating + ".0"} {Product?.TotalRating !== 0 ? `(${Product?.TotalRating})` : `(0)`} </span>
                                 </p>
                             </div>
                             <div className="col-12 productDetailsCardWeigth">
@@ -537,7 +537,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                     CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                                 }
                             </div>
-                            <div className="productdetailsaccordion">
+                            <div className="py-4">
 
 
                                 <Accordion className={classes.productdescription}>
@@ -546,7 +546,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                         aria-controls="panel1-content"
                                         id="panel1-header"
                                     >
-                                        Product Details
+                                      {`  Product Details`}
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <div className='newProductAboutUs_description' dangerouslySetInnerHTML={{ __html: Product?.Product_Description }} />

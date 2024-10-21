@@ -2074,9 +2074,11 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
     border: 1px solid #DEDCDC;
     padding: 30px;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    gap: 30px;
     position: relative;
     margin-top: 40px;
+
     .newProductDetailsCardLeftCol {
         width:40% ;
         padding: 30px;
@@ -2085,7 +2087,38 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             width: 350px;
         }
     }
-  }
+}
+.noReview{
+    width: 100%;
+    background-color: #EEFFF5;
+    color: #282625;
+    padding: 20px;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px 0;
+    .nodealsicon{
+        width: 100%;
+        height: 100px;
+      }
+    .noreview_title{
+        font-size: 28px;
+      }
+    .noreview_description {
+		font-size: 14px;
+		text-align: center;
+		width: 50%;
+		a {
+			color: black;
+			transition: all .3s ease;
+			&:hover {
+				color: #31B655;
+			}
+		}
+	}
+}
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
@@ -2528,6 +2561,19 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         .filter_manu_items{
             width: 20%;
             line-height: 30px;
+        }
+    }
+    .noReview{
+        .nodealsicon{
+            width: 100%;
+            height: 100px;
+        }
+        .noreview_title{
+            font-size: 22px;
+          }
+        .noreview_description {
+         
+            width: 90%;
         }
     }
 }
