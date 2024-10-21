@@ -284,7 +284,26 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                 <div className=" w-100">
                     <div className={newclases.newProductDetailsContainer }>
                         <div className={newclases.newProductDetailsCardLeftCol}>
-                            <div className="">
+                               {     Product?.images?.length > 1 &&  <div className={newclases.newProductDetailsCardimagelist}>
+                              
+                                            {Product?.images?.map((items, index) => {
+                                                return (
+                                                        <div key={index} className={`${newclases.NewProductDetails_image_container} ${displaypic ===items.image && newclases.active  }`}>
+                                                            <Image   unoptimized={true}
+                                                                width={150}
+                                                                height={150}
+                                                                className={newclases.NewProductDetails_image}
+                                                                src={items.image}
+                                                                alt={Product?.Product_Name}
+                                                                title={Product?.Product_Name}
+                                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                                onClick={() => { Setdisplaypic(items?.image) }}
+                                                            />
+                                                        </div>
+                                                )
+                                            })}
+                                        </div>
+                                }
                                 <div className={newclases.newProductDetailsUpperimage_container}>
                                     <Image className={newclases.newProductDetails_upper_image}
                                         width={100}
@@ -296,92 +315,23 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                         title={Product?.Product_Name} />
 
                                 </div>
-                                {
-                                    Product?.images?.length > 1 && <div>
-                                        <Swiper
-                                            breakpoints={{
-                                                540: {
-                                                    slidesPerView: 3,
-                                                    spaceBetween: 20,
-                                                },
-                                                768: {
-                                                    slidesPerView: 4,
-                                                    spaceBetween: 40,
-                                                },
-                                                991: {
-                                                    slidesPerView: 3,
-                                                    spaceBetween: 20,
-                                                },
-                                                1124: {
-                                                    slidesPerView: 4,
-                                                    spaceBetween: 10,
-                                                },
-                                                1490: {
-                                                    slidesPerView: 4,
-                                                    spaceBetween: 20,
-                                                },
-                                            }}
-                                            slidesPerView={4}
-                                            spaceBetween={10}
-                                            pagination={{
-                                                clickable: false,
-                                            }}
-
-
-                                            modules={[Pagination]}
-                                            className="mySwiper"
-                                        >
-                                            {Product?.images?.map((items, index) => {
-                                                return (
-                                                    <SwiperSlide key={index}>
-
-                                                        <div className="col-12 NewProductDetails_image_container">
-                                                            <Image
-                                                                unoptimized={true}
-                                                                width={100}
-                                                                height={100}
-                                                                className="NewProductDetails_image"
-                                                                src={items.image}
-                                                                alt={Product?.Product_Name}
-                                                                title={Product?.Product_Name}
-                                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                                onClick={() => { Setdisplaypic(items?.image) }} />
-
-                                                        </div>
-
-                                                    </SwiperSlide>
-
-                                                )
-                                            })}
-
-                                        </Swiper>
-                                    </div>
-                                }
                             </div>
-                        </div>
                         <div className={newclases.newProductdetails_rightSideContent_container}>
-                            <h1 className="newProductDetails_heading">{Product?.Product_Name}</h1>
-                            <div className=" ">
-                                <Link href={`/${link}/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
-                                    <h3 className="newProductDetails_subHeadingss">By {Product.StoreName}</h3>
-                                </Link>
+                            <h1 className={newclases.newProductDetails_heading}>{Product?.Product_Name}</h1>
+                            <Link href={`/${link}/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
+                                <h3 className={newclases.newProductDetails_subHeadingss}>{`By`} {Product.StoreName}</h3>
+                            </Link>
+                            <div className={newclases.newProductDetailsButon}>
+                                {Product.THC !== 0 && <button className={newclases.newProductdetailsButtonss}>{Product.THC}% THC</button>}
+                                {Product.CBD !== 0 && <button className={newclases.newProductdetailsButtonss}>{Product.CBD}% CBD</button>}
+                                {Product.strain !== "None" && <button className={newclases.newProductdetailsButtonss}>{Product.strain}</button>}
                             </div>
-                            <div className="newProductDetailsButon">
-                                {Product.THC !== 0 && <button className="newProductdetailsButtonss">{Product.THC}% THC</button>}
-                                {Product.CBD !== 0 && <button className="newProductdetailsButtonss">{Product.CBD}% CBD</button>}
-                                {Product.strain !== "None" && <button className="newProductdetailsButtonss">{Product.strain}</button>}
-
-
-                            </div>
-                            <div className="col-12 mt-2">
-                                <p>
-                                    <Rating name="read-only" className={`${classes.homePageStarIconscolor}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
-                                    <span>
-                                       
-                                    </span><span>{Product.rating === null ? 0 : Product.rating + ".0"} {Product?.TotalRating !== 0 ? `(${Product?.TotalRating})` : `(0)`} </span>
-                                </p>
-                            </div>
-                            <div className="col-12 productDetailsCardWeigth">
+                            <p className="py-2 d-flex align-items-center gap-1">
+                                
+                                <Rating name="read-only" className={`${classes.homePageStarIconscolor}`} value={Product.rating === null ? 0 : parseInt(Product?.rating)} size="small" readOnly />
+                                <span>{Product.rating === null ? 0 : Product.rating + ".0"} {Product?.TotalRating !== 0 ? `(${Product?.TotalRating})` : `(0)`} </span>
+                            </p>
+                            <div className="productDetailsCardWeigth">
                                 <span className="newProduct_Weight">
                                     {Product?.Prices?.map((item) => {
                                         let vl = item.Price.map((item) => {
@@ -395,71 +345,72 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                         return vl[0]
                                     })
                                     }
-                                </span><span className="mx-3 newProd_grms productDetailsCardWeigthOptions">
+                                </span>
+                                <span className={newclases.productDetailsCardWeigthOptions}>
                                     {
 
                                         Product?.Prices?.map((data) => data.Price.length)[0] > 1 ?
-                                            <Select
+                                        <Select
 
-                                                className={classes.weightSelectbox}
-                                                // onChange={(e) => {
-                                                //     setquentity(1)
-                                                //     k(e.target.value)
-                                                // }}
-                                                value={SelectVariant}
-                                                onChange={(e) => {
+                                            className={classes.weightSelectbox}
+                                            // onChange={(e) => {
+                                            //     setquentity(1)
+                                            //     k(e.target.value)
+                                            // }}
+                                            value={SelectVariant}
+                                            onChange={(e) => {
 
-                                                    PriceSelect(Product.id, e.target.value)
-                                                    // setquentity(1),
-                                                    // k(e.target.value)
-                                                }
-                                                }
-                                            >
-                                                {
-                                                    Product?.Prices[0]?.Price?.map((item, index) => {
+                                                PriceSelect(Product.id, e.target.value)
+                                                // setquentity(1),
+                                                // k(e.target.value)
+                                            }
+                                            }
+                                        >
+                                            {
+                                                Product?.Prices[0]?.Price?.map((item, index) => {
 
-                                                        if (Boolean(item.Weight)) {
-                                                            // return <option value={item.id} key={index}>{item.Weight}</option>
-                                                            return <MenuItem value={item.id} key={index}>{item.Weight}</MenuItem>
-                                                        } else {
-                                                            // return <option n value={item.id} key={index} >{item.Unit} Unit</option>
-                                                            return <MenuItem value={item.id} key={index}>{item.Unit} unit</MenuItem>
-                                                        }
-
-                                                    })
-                                                }
-                                            </Select> :
-                                            Product?.Prices?.map((item) => {
-                                                let vl = item.Price.map((item) => {
                                                     if (Boolean(item.Weight)) {
-                                                        return item.Weight
+                                                        // return <option value={item.id} key={index}>{item.Weight}</option>
+                                                        return <MenuItem value={item.id} key={index}>{item.Weight}</MenuItem>
                                                     } else {
-                                                        return `${item.Unit} Unit`
+                                                        // return <option n value={item.id} key={index} >{item.Unit} Unit</option>
+                                                        return <MenuItem value={item.id} key={index}>{item.Unit} unit</MenuItem>
                                                     }
+
                                                 })
-                                                return vl[0]
+                                            }
+                                        </Select> :
+                                        Product?.Prices?.map((item) => {
+                                            let vl = item.Price.map((item) => {
+                                                if (Boolean(item.Weight)) {
+                                                    return item.Weight
+                                                } else {
+                                                    return `${item.Unit} Unit`
+                                                }
                                             })
+                                            return vl[0]
+                                        })
                                     }
                                 </span>
                             </div>
-                            <div className="col-12 productDetailsCardQuestity">
-                                <span className="newProduct_Weight">Quantity : </span>
-                                <span className="mx-3 newProd_grms">
-                                    <div className="qty_selector">
-                                        <span className="qty_btn" onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
-                                        <span className="qty_input">{quentity}</span>
-                                        <span className="qty_btn" onClick={() => { incressQuanity() }}>+</span>
-                                    </div>
-                                </span>
+                            <div className={newclases.productDetailsCardQuestity}>
+                                <span className={newclases.newProduct_Weight}>{`Quantity :`} </span>
+                              
+                                <div className={newclases.qty_selector}>
+                                    <span className={newclases.qty_btn} onClick={() => { if (quentity > 1) { setquentity(quentity - 1) } }}>-</span>
+                                    <span className={newclases.qty_input}>{quentity}</span>
+                                    <span className={newclases.qty_btn} onClick={() => { incressQuanity() }}>{`+`}</span>
+                                </div>
+                              
                             </div>
-                            <div className="col-12">
-                                <p className="d-flex">
-                                    <span className="newProduct_doller_price d-flex">
+                           
+                                <p className="d-flex align-items-center">
+                                    <span className={newclases.newProduct_doller_price}>
 
                                         $ {
                                             DiscountedValue?.Reflect
                                                 ?
-                                                < div className="DisplayDiscount" >
+                                                < div className={newclases.DisplayDiscount}>
                                                     <span>
                                                         {
                                                             parseInt(dynamicWeight) !== 0
@@ -476,13 +427,13 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
                                         }
                                     </span>
-                                    <span className="mx-3 newProduct_Gms">/ {quentity} piece</span>
+                                    <span className={newclases.newProduct_Gms}>/ {quentity} {`piece`}</span>
                                     {
                                         DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
                                     }
                                 </p>
-                            </div>
-                            <div className="col-12">
+                           
+                            <div className={newclases.productDetailsCardAddtocart}>
                                 {
                                     Product?.Prices?.map((data, index) => {
                                         if (dynamicWeight === 0) {
@@ -573,7 +524,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
                         </div>
                     </div>
-
                     {location?.pathname?.includes('/menu-integration') && <Loader/>
                     }
                     {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>}

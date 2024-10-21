@@ -71,10 +71,7 @@ line-height: normal;
   display: grid;
   justify-items: center;
 }
-.DisplayDiscount{
-  display: flex;
-  gap:10px
-}
+
 a:hover {
   opacity: 1;
   color: #00b96a;
@@ -2679,78 +2676,9 @@ border-radius: 3px;
 /* end */
 /* NewProductDetailsContainer */
 
-.newProductDetailsUpperimage_container{
-  text-align: center;
-}
-.newProductdetails_rightSideContent_container {
-  width: 60%;
-}
-.newProductDetails_heading {
-  color: #414141;
-  word-break: break-word;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 0;
-}
-.newProductDetails_subHeadingss {
-  color: #949494;
-  font-size: 21px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 4%;
-}
-
-.newProductDetailsButon {
-  display: flex;
-  gap: 10px;
-}
-
-.newProductDetailsButon .newProductdetailsButtonss {
-  border-style: none;
-  color: #949494;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-padding: 3px 10px;
-}
-
-.newProduct_Weight {
-  color: #757575;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.newProduct_doller_price {
-  font-weight: 700;
-  font-size: 24px;
-  color: #282625;
-}
-
-.newProduct_Gms {
-
-  color: #707070;
-  font-family: "Poppins";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
 
 
 
-.newProd_grms {
-  color: #A1A1A1;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
 .newProductpage_addToCardBtn{
   width: 266px;
 height: 57px;
@@ -2774,19 +2702,8 @@ background: #31B665;
 /* end */
 
 
-.NewProductDetails_image {
-  height: 60px;
-  width: 60px;
-}
 
-.NewProductDetails_image_container {
-  height: 70px;
-  border: 1px solid #DEDCDC;
-  display: grid;
-  place-items: center;
-  background: #F5F5F5;
-  cursor: pointer;
-}
+
 
 .swiper-pagination-bullets {
   display: none;
@@ -5541,40 +5458,6 @@ width: max-content;
   width: 100%;
 }
 
-
-.productDetailsCardWeigth , .productDetailsCardQuestity{
-   display: flex;
-   align-items: center;
-   margin: 15px 0;
-}
-
-.productDetailsCardWeigthOptions .form-select:focus{
-    border-color: #228b22;
-    outline: 0;
-    box-shadow: 0 0 0 2px #228b2255;
-}
-.productDetailsCardWeigthOptions .form-select option:hover{
-   background-color: #31B655;
-   color: white;
-}
-.productDetailsCardWeigthOptions select:checked option:hover {
-  box-shadow: 0 0 10px 100px #31B655 inset;
-}
-
-.qty_selector{
-  width: 180px;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 5px 0;
-  border: 1px solid #c7c7c7;
-  border-radius: 5px;
-}
-.qty_selector .qty_btn{
-  cursor: pointer;
-  width: 20%;
-  text-align: center;
- 
-}
 .mydropdown {
   position: relative;
 
@@ -6796,8 +6679,6 @@ height: auto;
   height: auto;
   width: 100%;
   max-height: 220px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 .blogListWrapper .blogListCard .blogcardText .blogDate {
   text-align: end;
@@ -7341,9 +7222,7 @@ margin-top: 100px;
     .col_xl_width {
       width: 22% !important;
     }
-    .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
-      width: 100%;
-    }
+ 
     .allOrder_Card_Image_section {
       width: 30%;
     }
@@ -7611,9 +7490,6 @@ margin-top: 100px;
   .allOrderCard_container {
      height: auto;
   }
-  .noReview .noreview_description{
-    width: 100%;
-  }
   .newProductAboutUs_headings {
     font-size: 18px;
   }
@@ -7645,13 +7521,8 @@ margin-top: 100px;
     flex-wrap: wrap;
     padding: 20px;
   }
-  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
-    width: 80%;
-  }
-  .newProductdetails_rightSideContent_container {
-    width: 100%;
-    padding: 20px;
-  }
+
+
 
   .newProductDetailsContainer .newProductDetailsCardLeftCol {
     width:100% ;
@@ -7894,15 +7765,8 @@ font-size: 24px;
     width: 122px;
     height: 113px;
   }
-  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image {
-    width: 100%;
-  }
   .newProductDetailsContainer .newProductDetailsCardLeftCol {
     padding: 0px;
-  }
-  .newProductdetails_rightSideContent_container {
-    width: 100%;
-    padding:20px 0px;
   }
   .verify_brand_image {
     width: 196px;
@@ -7920,9 +7784,6 @@ font-size: 24px;
   .homePageSignupBtnMargin {
     margin-top: 20px;
   }
-   .noreview_title {
-     font-size: 18px;
-   }
      .productSearch_result_container{
          width: 45%;
          padding: 10px;
@@ -8169,9 +8030,6 @@ font-size: 24px;
   }
   .loginCkBtn:hover{
     font-size: 12px;
-  }
-  .newProductDetailsContainer .newProductDetailsCardLeftCol .newProductDetails_upper_image{
-    height: auto;
   }
 
   .product_card_wrapper{
@@ -8592,24 +8450,10 @@ font-size: 24px;
   }
 
  
-  .orderId_span {
-    font-size: 14px;
-  }
-      .newProductDetails_heading {
-        font-size: 16px;
-      }
-      .newProductDetails_subHeadingss {
+      .orderId_span {
         font-size: 14px;
       }
-      .newProduct_doller_price {
-        font-size: 16px;
-      }
-      .newProduct_Weight {
-        font-size: 16px;
-      }
-      .newProduct_Gms {
-        font-size: 16px;
-      }
+
       .store_detail_order_list{
         padding: 0;
       }
@@ -8827,9 +8671,6 @@ font-size: 24px;
   .qty_selector{
     width: 120px;
     font-size: 14px;
-  }
-  .newProd_grms {
-    font-size: 16px;
   }
 }
 @media(max-width:350px) {
