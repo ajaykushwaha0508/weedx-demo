@@ -28,7 +28,7 @@ const Allblogs = (props) => {
   if (typeof window !== 'undefined') {
     accessToken = localStorage.getItem('User_Token_access');
   }
-  if(Boolean(accessToken)){ token_data = accessToken }
+  if (Boolean(accessToken)) { token_data = accessToken }
 
   function PostLike(item) {
 
@@ -63,7 +63,7 @@ const Allblogs = (props) => {
       {state.permission && <Currentlocation />}
       <div>
         <Blogheaders title="Blogs" />
-         <div className="blogListWrapper">
+        <div className="blogListWrapper">
           {props?.initialData?.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
@@ -75,12 +75,13 @@ const Allblogs = (props) => {
                       <Image
                         className='imageBlogSection'
                         width={100}
-                        height={80}
-                        unoptimized={true}
-                        src={items.Image}
-                        alt={items.Alt_Text}
-                        title={items.Alt_Text}
-                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                        unoptimized
+                        height={100}
+                        quality={100}
+                        src={items.Image} // Ensure this is a valid image URL
+                        alt={items.Alt_Text} // Provide alternative text for accessibility
+                        title={items.Alt_Text} // Image title
+                        onError={(e) => (e.target.src = '/image/blankImage.jpg')} // Fallback to a placeholder image on error
                       />
                     </Link>
 
@@ -155,8 +156,8 @@ const Allblogs = (props) => {
                         ) : (
                           <FaRegHeart color="#31B655" />
                         )}</span>
-                        <span>{items.likeCount}</span>
-                      
+                      <span>{items.likeCount}</span>
+
                     </div>
                     <div className="col-3">
                       {/* Additional actions can be added here */}
@@ -195,15 +196,15 @@ export async function getStaticProps(context) {
       body: JSON.stringify({
         "category": 2,
         "limit": 10
-    })
+      })
     }).catch(() => null);
-    const json =  await  res.json()
+    const json = await res.json()
     const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field  
     return {
       props: {
         initialData: data,
       },
-       revalidate: 60,
+      revalidate: 60,
     };
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -211,7 +212,7 @@ export async function getStaticProps(context) {
       props: {
         initialData: [],
       },
-       revalidate: 60,
+      revalidate: 60,
     };
   }
 }
