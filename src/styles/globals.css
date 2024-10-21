@@ -18,12 +18,10 @@ a {
   margin: 50px;
   color: rgb(245, 187, 80);
 }
-
 p {
   color: rgb(78, 53, 58);
 }
 /* navbar */ 
-
 /* Slider Navbar */
 .sidebar {
   height: 100%;
@@ -49,11 +47,6 @@ p {
 }
 .Slider_content_center  a  span{
    margin-right: 10px;
-}
-
-
-.noreview_title{
-  font-size: 28px;
 }
 .NODataInOrderPage{
   height: 453px;
@@ -2296,7 +2289,7 @@ border-radius: 3px;
 
 
 .marginProductSearchResult {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .newProductCategorySliderName {
@@ -2686,21 +2679,15 @@ border-radius: 3px;
 /* end */
 /* NewProductDetailsContainer */
 
-
-.newProductDetailsLowerImage_container {
-  height: 150px;
-}
 .newProductDetailsUpperimage_container{
   text-align: center;
 }
 .newProductdetails_rightSideContent_container {
   width: 60%;
-  padding: 20px;
-  padding-left: 80px;
 }
 .newProductDetails_heading {
-  word-break: break-all;
   color: #414141;
+  word-break: break-word;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -2754,10 +2741,7 @@ padding: 3px 10px;
   font-weight: 500;
   line-height: normal;
 }
-.productdetailsaccordion {
-  padding: 40px 0;
-  
-}
+
 
 
 .newProd_grms {
@@ -2809,10 +2793,7 @@ background: #31B665;
 }
 
 /* .NewProductDescription */
-.NewProductDescription_container {
-  height: 100%;
-  background: #F8F8F8;
-}
+
 
 .NewProductDescription_headingss {
   font-weight: 400;
@@ -5325,17 +5306,6 @@ line-height: normal;
 /* reportReviewF */
 
 
-
-
-
-.headingTypeLabelContainerThirdFourth {
-  padding-top: 47px;
-}
-
-
-
-
-
 /* end */
 /* lawStateDescriptionHeadings */
 .lawStateDescriptionHeadings {
@@ -5430,20 +5400,15 @@ line-height: normal;
   align-items: center;
   padding-right: 10px;
 }
-
 .lawStateDescBannerCol {
   margin-bottom: 30px;
 }
-
 .LawStateContentsContainer {
   margin-left: 20px;
   border: 1px solid #BEBEBE;
   position: sticky;
   top: 200px
 }
-
-
-
 /* end */
 /* blogsComment */
 .blogsCommentCountCol {
@@ -5468,15 +5433,9 @@ line-height: normal;
   width: 100%;
   border-radius: 50%;
 }
-
 .blogCommentFlex {
   display: flex;
   align-items: center;
-
-}
-.nodealsicon{
-  width: 100%;
-  height: 100px;
 }
 .blogCommentName {
   color: #000000;
@@ -5485,7 +5444,6 @@ line-height: normal;
   margin-bottom: 0px;
   word-break: break-all;
 }
-
 .blogUserComments {
   color: #252525;
   font-weight: 400;
@@ -5493,9 +5451,7 @@ line-height: normal;
   margin-top: 8px;
   word-break: break-word;
 }
-
 .commentCardImages {
-
   width: 20%;
   display: flex;
   justify-content: center;
@@ -5761,30 +5717,8 @@ scrollbar-width: none;
 font-size: 20px;
 line-height: 2;
 }
-.noReview{
-  width: 100%;
-  background-color: #EEFFF5;
-  color: #282625;
-  padding: 20px;
-  min-height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 20px 0;
-}
-.noReview .noreview_description{
-   font-size: 14px;
-   text-align: center;
-   width: 50%;
-}
-.noReview .noreview_description a{
-  color: black;
-  transition: all .3s ease;
-}
-.noReview .noreview_description a:hover{
-  color: #31B655;
-}
+
+
 /* recent order page start */
 
 .order_conform_card{
@@ -8556,10 +8490,6 @@ font-size: 24px;
     font-size: 12px;
   }
 
-
-  .headingTypeLabelContainerThirdFourth {
-    padding-top: 42px;
-  }
   .LawStateDescriptionHeading {
     font-size: 24px;
   }
@@ -8894,10 +8824,6 @@ font-size: 24px;
   .related_verify_banner_img {
     width: 100%;
   }
-  .headingTypeLabelContainerThirdFourth {
-    padding-top: 54px;
-  }
-
   .qty_selector{
     width: 120px;
     font-size: 14px;

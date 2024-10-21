@@ -409,7 +409,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                                                                                         return (
                                                                                             SubCategory.CatgoryId === data.id
                                                                                             &&
-                                                                                            <div key={index} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className={`col-10 ${product_sub_category_dropDown_cursor}`}>
+                                                                                            <div key={index} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className={`col-10 ${newclases.product_sub_category_dropDown_cursor}`}>
                                                                                                 <input type="radio" id={SubCategory.SubCategory_name} name={data.name} value={SubCategory.SubCategory_name} />  <label htmlFor={SubCategory.SubCategory_name}>{SubCategory.SubCategory_name}</label>
                                                                                             </div>
                                                                                         )

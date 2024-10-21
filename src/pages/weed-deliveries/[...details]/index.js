@@ -13,6 +13,7 @@ import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import _ from "lodash"
+import newclases from '@/styles/customstyle.module.scss'
 const NewFlavourBanner = dynamic(() => import('../../../component/StoreDetails/NewFlavourBanner'), { ssr: true });
 const StoreDetailMenuItem = dynamic(() => import('../../../component/StoreDetails/StoreDetailComponent/StoreDetailMenuItem'), { ssr: true });
 import CategoryProduct from "../../../component/category/category";
@@ -411,13 +412,13 @@ export default function DispensoriesDetails(props) {
                             SetReview={SetReview}></Review>
                     }
                     {
-                        tab === 'deals' && <div className="noReview">
-                            <div className="noreviewicon">
-                                <div className="iconcircl"> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
+                        tab === 'deals' && <div className={newclases.noReview}>
+                            <div className={newclases.noreviewicon}>
+                                <div className={newclases.iconcircl}> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
                             </div>
-                            <h3 className="noreview_title">{`Discover More Savings Soon!`}</h3>
-                            <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<b>{Despen[0]?.Store_Name}</b>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
-                            <p className="noreview_description w-lg-50">{`In the meantime, explore the diverse range of products available at `}<b>{Despen[0]?.Store_Name}</b>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
+                            <h3 className={newclases.noreview_title}>{`Discover More Savings Soon!`}</h3>
+                            <p className={`${newclases.noreview_description} w-lg-50`} >{`It looks like there are no active deals at the moment at `}<b>{Despen[0]?.Store_Name}</b>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
+                            <p className={`${newclases.noreview_description} w-lg-50`}>{`In the meantime, explore the diverse range of products available at `}<b>{Despen[0]?.Store_Name}</b>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
                         </div>
                     }
                 </div>

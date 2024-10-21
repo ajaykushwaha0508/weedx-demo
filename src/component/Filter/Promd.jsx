@@ -2,17 +2,17 @@ import React, { useState } from "react"
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import { IoIosArrowDown } from "react-icons/io"
 import useStyles from "../../../Style"
-
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 import Axios from "axios"
 import _ from "lodash"
 import { FormControl, Grid, MenuItem, Select } from "@mui/material"
 import SearchBar from 'material-ui-search-bar';
-import { useParams, useNavigate, useLocation } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { PriceFilter } from "../../../Api/Api"
 import Createcontext from "../../../Hooks/Context"
+import newclases from '@/styles/customstyle.module.scss';
 import Loader from "../Loader/Loader";
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()
@@ -399,7 +399,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
                                                                                 return (
                                                                                     SubCategory.CatgoryId === data.id
                                                                                     &&
-                                                                                    <div className="col-10 px-2 py-0 product_sub_category_dropDown_cursor"  >
+                                                                                    <div className={`col-10 px-2 py-0 ${newclases.product_sub_category_dropDown_cursor}`} >
                                                                                         <input type="checkbox" id={data.name} name={data.name} value={data.name} />  <label htmlFor={data.name} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }}>{SubCategory.SubCategory_name}</label>
 
                                                                                     </div>

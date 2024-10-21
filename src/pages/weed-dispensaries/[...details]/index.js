@@ -23,7 +23,6 @@ const StoreDetails = dynamic(() => import('../../../component/ScoPage/StoreDetai
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../hooks/apicall/api";
 import Createcontext from "../../../hooks/context"
 import Loader from "../../../component/Loader/Loader";
-
 import DispensoriesAddressSkeleton from "../../../component/skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Swal from 'sweetalert2';
@@ -32,6 +31,7 @@ import Link from "next/link";
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.scss'
 import Oops from "@/component/Oops/Oops";
+import newclasess from '@/styles/customstyle.module.scss'
 export default function DispensoriesDetails(props) {
     const navigate = useRouter()
     const { id, storeData, product } = props.params
@@ -395,13 +395,13 @@ export default function DispensoriesDetails(props) {
                             SetReview={SetReview}></Review>
                     }
                     {
-                        tab === 'deals' && <div className="noReview">
-                            <div className="noreviewicon">
-                                <div className="iconcircl"> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
+                        tab === 'deals' && <div className={newclasess.noReview}>
+                            <div className={newclasess.noreviewicon}>
+                                <div className={newclasess.iconcircl}> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className={newclasess.nodealsicon} alt="no Deals" title="no Deals" /></div>
                             </div>
-                            <h3 className="noreview_title">{`Discover More Savings Soon!`}</h3>
-                            <p className="noreview_description w-lg-50 ">{`It looks like there are no active deals at the moment at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
-                            <p className="noreview_description w-lg-50">{`In the meantime, explore the diverse range of products available at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
+                            <h3 className={newclasess.noreview_title}>{`Discover More Savings Soon!`}</h3>
+                            <p className={`${newclasess.noreview_description} w-lg-50`} >{`It looks like there are no active deals at the moment at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
+                            <p className={`${newclasess.noreview_description} w-lg-50`}>{`In the meantime, explore the diverse range of products available at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
                         </div>
                     }
                 </div>
