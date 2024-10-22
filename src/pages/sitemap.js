@@ -4,7 +4,6 @@ import React from "react";
 import {SitemapSeo} from "@/component/ScoPage/DealsSeo"
 const Sitemap = () => {
     const { state } = React.useContext(Createcontext)
-
     const pages = [
         { page: "Home", link: "/" },
         { page: "Dispensaries", link: `/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}` },

@@ -75,7 +75,6 @@ const Footer = () => {
                                     })}
                                     <span className={`${newclases.footer_li} ellipsis`} onClick={() => { setmorelist(!morelist) }}>{morelist ? "Less" : "More"}</span>
                                 </div>
-
                             </div>
                             <div className={newclases.footer_list}>
                                 <div className={newclases.footer_main_list}>
@@ -99,7 +98,6 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className={newclases.bottom_white_line}>
-
                         </div>
                         <div className=" row  mt-2">
                             <div className="col-lg-3 col-12"></div>
@@ -127,17 +125,17 @@ const Footer = () => {
                                 <p className="px-0">
                                     <span>
                                         <Link target="_blank" href={"https://www.linkedin.com/company/weedx-io/"}>
-                                            <BsLinkedin className={`footer_icons ${classes.footer_icons_color}`} />
+                                            <BsLinkedin color="#31B655" size={22}/>
                                         </Link>
                                     </span>
                                     <span>
                                         <Link target="_blank" href={"https://www.facebook.com/profile.php?id=61550742531174"}>
-                                            <FaFacebook className={` ${classes.footer_icons_color}`} />
+                                            <FaFacebook color="#31B655" size={22}/>
                                         </Link>
                                     </span>
                                     <span>
                                         <Link target="_blank" href={"https://www.instagram.com/weedx_io"}>
-                                            <FaInstagram className={`  ${classes.footer_icons_color}`} />
+                                            <FaInstagram color="#31B655" size={22}/>
                                         </Link>
                                     </span>
                                     <span>
@@ -147,10 +145,8 @@ const Footer = () => {
                                             </span>
                                         </Link>
                                     </span>
-
                                 </p>
                             </div>
-
                         </div>
                     </div>
                     <div className={newclases.footer_bootom_headings_container}>
