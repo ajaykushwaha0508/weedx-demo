@@ -22,6 +22,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { WishListPost } from "@/component/Whishlist/WishListApi_"
 import { WhisList } from "@/component/Whishlist/WhisList"
+import newclases from '@/styles/customstyle.module.scss'
 import { Navigation } from 'swiper/modules';
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import Image from "next/image";
@@ -43,8 +44,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
     const [showdata, Setshowdata] = useState([])
     const [Whishlist, SetWishList] = useState(false)
     const [AddTOCard, SetAddToCard] = useState([]);
-
-
     React.useEffect(() => {
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem("items");
@@ -53,7 +52,6 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             }
         }
     }, []);
-
     async function AddToCart(Event, counter, SelectWeight, handleClose) {
         setadding(Event.id)
         const AddData = _.filter(Event.Prices, Price => Price);
@@ -194,14 +192,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
         }
 
     }
-
     React.useEffect(() => {
         if (typeof window !== 'undefined') {
 
             localStorage.setItem('items', JSON.stringify(AddTOCard))
         }
     }, [AddTOCard])
-
     const handleWhishList = (id) => {
         if (state.login === false) {
             SetWishList(!Whishlist)
@@ -234,31 +230,31 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             return "Free Shipping"
         }
     }
-
     return (
-        <React.Fragment>
-            <div className="row mx-0 marginProductSearchResult">
+        <div>
+            <div className="">
                 {Boolean(RelatedProductResult?.length) &&
-                    <div className="col-12 mt-sm-4 mt-2 p-0">
+                    <div className="my-sm-4 my-2">
                         {title === "You may also like" ?
                             <h2 className="section_main_title ">{title}</h2>
                             :
                             <h1 className="section_main_title ">{title}</h1>
                         }
                     </div>}
-                {Boolean(location.pathname.includes('/menu-integration') || (title === 'You may also like')) ?
-                    <div className="product_card_wrapper p-0">
-                        <Swiper className="mySwiper similerproduxt"
+                { (title === 'You may also like') ?
+                    <div className={newclases.product_card_wrapper}>
+                        <Swiper className={`mySwiper similerproduxt`}
                             spaceBetween={50}
                             slidesPerView={6}
                             navigation={true} modules={[Navigation]}
                             breakpoints={{
-                                0: {
-                                    slidesPerView: 1,
+                                0:{
+                                    slidesPerView: 2,
+                                    spaceBetween: 20,
                                 },
                                 480: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 20,
+                                    slidesPerView: 2,
+                                    spaceBetween: 10,
                                 },
                                 768: {
                                     slidesPerView: 3,
@@ -270,17 +266,15 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                 1296: {
                                     slidesPerView: 5
                                 },
-
                             }}>
                             {
                                 RelatedProductResult?.map((items, index) => {
-                                    // items.rating =0
                                     if (items.id !== currentProductID) {
                                         return (
                                             <SwiperSlide key={index}>
-                                                <div className="productSearch_result_container" >
-                                                    {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className="discountTag">{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
-                                                    <div className="productSearchResultImage_container">
+                                                <div className={newclases.productSearch_result_container} >
+                                                    {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className={newclases.discountTag}>{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
+                                                    <div className={newclases.productSearchResultImage_container}>
                                                         <div className="product_whish_list">
 
                                                             <Box className={classes.productSearchIcons2}>
@@ -292,15 +286,15 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                             </Box>
                                                         </div>
                                                         <Link href={`/${link}/${modifystr(items.category_name)}/${modifystr(items.SubcategoryName)}/${modifystr(items.Product_Name)}/${items.id}`}
-
-                                                            state={{
+                                                          state={{
                                                                 prevuisurl: location.pathname,
                                                                 id: items.id
-                                                            }}  >
+                                                            }} 
+                                                        >
                                                             <Image
                                                                 onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                                 unoptimized={true}
-                                                                className="product_search_result_image"
+                                                                className={newclases.product_search_result_image}
                                                                 width={100}
                                                                 height={100}
                                                                 src={`${items?.images[0]?.image}`}
@@ -310,37 +304,33 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                             />
                                                         </Link>
                                                     </div>
-                                                    <div className=" product_search_result_content_div ">
+                                                    <div className={newclases.product_search_result_content_div}>
                                                         <Link href={`/${link}/${modifystr(items.category_name)}/${modifystr(items.SubcategoryName)}/${modifystr(items.Product_Name)}/${items.id}`} state={{
                                                             prevuisurl: location.pathname,
                                                             id: items.id
-                                                        }} >
-                                                            <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
-
-                                                            <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
-                                                            <div className="product_category_list">
-                                                                <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
-                                                                <div className="product_cart_review">
+                                                           }} >
+                                                            <p className={`${newclases.productSearchResultParagraph} text-truncate`}>{items.Product_Name}</p>
+                                                            <p className={`${newclases.product_search_result_sub_heading} text-truncate`}>by {items.StoreName}</p>
+                                                            <div className={newclases.product_category_list}>
+                                                                <span className={newclases.product_search_result_span1}>15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`THC | 0.2`}{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`CBD`}</span>
+                                                                <div className={newclases.product_cart_review}>
                                                                     {new Array(items.rating).fill(null).map((itwm, index) => (
-                                                                        <BsStarFill key={index + 1} size={16} color="#31B665" className="" />
+                                                                        <BsStarFill key={index + 1} size={16} color="#31B665" />
                                                                     ))}
 
                                                                     {new Array(5 - items.rating).fill(null).map((item, index) => (
-                                                                        <BsStar key={index + 1} size={16} color="#31B665" className="" />
+                                                                        <BsStar key={index + 1} size={16} color="#31B665"/>
                                                                     ))}
                                                                 </div>
                                                             </div>
-                                                            <div className="text-dark">
-                                                                <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
-                                                            </div>
-                                                            <div className="discount_boc">{
-                                                                items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
-                                                                    <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>  and more Offers
+                                                                <p className={`${newclases.productSearch} text-truncate text-dark`}>
+                                                                    <span className={newclases.productSearchPrice}>${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span>
+                                                                    {`per`} {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                                <div> { items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
+                                                                        <span className={newclases.carddiscountoffer}>{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>{`  and more Offers`} </div> }
                                                                 </div>
-                                                            }</div>
-
                                                         </Link>
-                                                        <div className="my-2">
+                                                      
                                                             <Box className={`center ${classes.loadingBtnTextAndBack}`}>
                                                                 {
                                                                     items?.Prices[0].Price.length > 1
@@ -363,7 +353,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                     CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} set={true} />
                                                                 }
                                                             </Box>
-                                                        </div>
+                                                       
                                                     </div>
                                                 </div>
                                             </SwiperSlide>
@@ -374,15 +364,14 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                         </Swiper>
                     </div>
                     :
-                    <div className="product_card_wrapper p-0">
+                    <div className={newclases.product_card_wrapper}>
                         {
-                            // Boolean( showdata.length !== 0) ?
                             RelatedProductResult?.map((items, index) => {
                                 if (items.id !== currentProductID) {
                                     return (
-                                        <div className="productSearch_result_container akak" key={index}>
+                                        <div className={`${newclases.productSearch_result_container} ${newclases.productSearch_result_containermainapge}`} key={index}>
                                             {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <span className="discountTag">{((parseInt(items.Prices[0].Price[0].Price) - parseInt(items.Prices[0].Price[0].SalePrice)) / parseInt(items.Prices[0].Price[0].Price) * 100).toFixed(1)}% OFF</span>}
-                                            <div className="productSearchResultImage_container">
+                                            <div className={newclases.productSearchResultImage_container}>
                                                 <div className="product_whish_list">
 
                                                     <Box className={classes.productSearchIcons2}>
@@ -402,7 +391,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     <Image
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         unoptimized={true}
-                                                        className="product_search_result_image"
+                                                        className={newclases.product_search_result_image}
                                                         width={100}
                                                         height={100}
                                                         src={`${items?.images[0]?.image}`}
@@ -412,19 +401,19 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                     />
                                                 </Link>
                                             </div>
-                                            <div className=" product_search_result_content_div ">
+                                            <div className={newclases.product_search_result_content_div}>
                                                 <Link href={`/${link}/${modifystr(items.category_name)}/${modifystr(items.SubcategoryName)}/${modifystr(items.Product_Name)}/${items.id}`} state={{
                                                     prevuisurl: location.pathname,
                                                     id: items.id
                                                 }} >
-                                                    <p className="productSearchResultParagraph text-truncate">{items.Product_Name}</p>
+                                                    <p className={`${newclases.productSearchResultParagraph} text-truncate`}>{items.Product_Name}</p>
                                                 </Link>
                                                 <Link href={`/${items.Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries"}/${modifystr(items.StoreName)}/${items.Store_id}`}  >
-                                                    <p className="product_search_result_sub_heading text-truncate">by {items.StoreName}</p>
+                                                    <p className={`${newclases.product_search_result_sub_heading} text-truncate`}>by {items.StoreName}</p>
                                                 </Link>
-                                                <div className="product_category_list">
-                                                    <span className="product_search_result_span1">15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} CBD</span>
-                                                    <div className="product_cart_review">
+                                                <div className={newclases.product_category_list}>
+                                                    <span className={newclases.product_search_result_span1}>15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`CBD`}</span>
+                                                    <div className={newclases.product_cart_review}>
                                                         {new Array(items.rating).fill(null).map((itwm, index) => (
                                                             <BsStarFill key={index + 1} size={16} color="#31B665" className="" />
                                                         ))}
@@ -432,20 +421,19 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                         {new Array(5 - items.rating).fill(null).map((item, index) => (
                                                             <BsStar key={index + 1} size={16} color="#31B665" className="" />
                                                         ))}
-                                                        <span className="product_search_result_sub_heading ">({items.TotalRating})</span>
+                                                        <span className={newclases.product_search_result_sub_heading}>({items.TotalRating})</span>
                                                     </div>
                                                 </div>
-                                                <div className=" text-dark">
-                                                    <p className="productSearch text-truncate"><span className="productSearchPrice">${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
-                                                </div>
+                                                <p className={`${newclases.productSearch} text-truncate  text-dark`}><span className={newclases.productSearchPrice}>${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span> per {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                            
                                                 <div className="discount_boc">{
-                                                    items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
-                                                        <span className="carddiscountoffer">{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>  and more Offers
+                                                    items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className={newclases.discountinfo}>
+                                                        <span className={newclases.carddiscountoffer}>{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span> {` and more Offers`}
                                                     </div>
                                                 }</div> 
 
 
-                                                <div className="my-2">
+                                                <div>
                                                     <Box className={`center ${classes.loadingBtnTextAndBack}`}>
                                                         {
                                                             items?.Prices[0].Price.length > 1
@@ -466,14 +454,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                         }
                                                         
                                                     </Box>
-
                                                 </div>
                                             </div>
                                         </div>
                                     )
                                 }
                             })
-
                         }
                     </div>
                 }
@@ -482,9 +468,8 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
               CartClean && 
               <AddToCartPopUp CartClean={CartClean} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard}   />
              }
-            {/* {Whishlist && <WhisList open1={Whishlist} SetWishList={SetWishList}></WhisList>} */}
             <PreCheckout />
-        </React.Fragment>
+        </div>
     )
 }
 export default ProductSearchResult

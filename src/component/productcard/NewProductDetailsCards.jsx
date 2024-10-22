@@ -403,36 +403,34 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                 </div>
                               
                             </div>
-                           
-                                <p className="d-flex align-items-center">
-                                    <span className={newclases.newProduct_doller_price}>
+                            <p className="d-flex align-items-center">
+                                <span className={newclases.newProduct_doller_price}>
 
-                                        $ {
-                                            DiscountedValue?.Reflect
-                                                ?
-                                                < div className={newclases.DisplayDiscount}>
-                                                    <span>
-                                                        {
-                                                            parseInt(dynamicWeight) !== 0
-                                                                ? parseInt(dynamicWeight * quentity) - ((Boolean(DiscountedValue?.Percentage) ? (dynamicWeight * quentity) * parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))
-                                                                :
-                                                                Product?.Prices?.map((data) => { return ((data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount)))) })
-                                                        }
-                                                    </span>
-                                                    <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
-                                                </div>
-                                                :
-                                                parseInt(dynamicWeight) !== 0 ? (dynamicWeight * quentity).toFixed(1) : Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity).toFixed(1))
+                                    $ {
+                                        DiscountedValue?.Reflect
+                                            ?
+                                            < div className={newclases.DisplayDiscount}>
+                                                <span>
+                                                    {
+                                                        parseInt(dynamicWeight) !== 0
+                                                            ? parseInt(dynamicWeight * quentity) - ((Boolean(DiscountedValue?.Percentage) ? (dynamicWeight * quentity) * parseInt(DiscountedValue?.Percentage) / 100 : parseInt(DiscountedValue.Amount)))
+                                                            :
+                                                            Product?.Prices?.map((data) => { return ((data.Price[0].SalePrice * quentity - (Boolean(DiscountedValue?.Percentage) ? parseInt((data.Price[0].SalePrice * quentity) * parseInt(DiscountedValue?.Percentage) / 100) : parseInt(DiscountedValue.Amount)))) })
+                                                    }
+                                                </span>
+                                                <strike >{parseInt(dynamicWeight) !== 0 ? dynamicWeight : Product?.Prices?.map((data) => data.Price[0].SalePrice * quentity)}</strike>
+                                            </div>
+                                            :
+                                            parseInt(dynamicWeight) !== 0 ? (dynamicWeight * quentity).toFixed(1) : Product?.Prices?.map((data) => (data.Price[0].SalePrice * quentity).toFixed(1))
 
 
-                                        }
-                                    </span>
-                                    <span className={newclases.newProduct_Gms}>/ {quentity} {`piece`}</span>
-                                    {
-                                        DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
                                     }
-                                </p>
-                           
+                                </span>
+                                <span className={newclases.newProduct_Gms}>/ {quentity} {`piece`}</span>
+                                {
+                                    DiscountedValue?.Reflect && <span className="mx-3 newProduct_Gms" style={{ color: "#31B665" }}>Offer Applied</span>
+                                }
+                            </p>
                             <div className={newclases.productDetailsCardAddtocart}>
                                 {
                                     Product?.Prices?.map((data, index) => {
@@ -488,7 +486,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                     CartClean && <AddToCartPopUp CartClean={"center"} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard} />
                                 }
                             </div>
-                            <div className="py-4">
+                            <div className="pt-4">
 
 
                                 <Accordion className={classes.productdescription}>

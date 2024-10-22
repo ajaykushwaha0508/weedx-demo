@@ -1,22 +1,20 @@
 import React, { useEffect } from "react"
-import NewProductDetailsCards from "../../../../../../component/productcard/NewProductDetailsCards"
-import Tooltip from '@mui/material/Tooltip';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import ProductSearchResult from "../../../../../../component/productcard/ProductSearchResult"
+import NewProductDetailsCards from "@/component/productcard/NewProductDetailsCards"
+import ProductSearchResult from "@/component/productcard/ProductSearchResult"
 import Axios from "axios";
 import dynamic from 'next/dynamic'
 // import { useParams, usenavigate.push, useLocation } from 'react-router-dom';
 import { useRouter } from "next/router";
-import Review from "../../../../../../component/Review/Review"
+import Review from "@/component/Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
-const ProductDetailsSeo = dynamic(() => import('../../../../../../component/ScoPage/ProductDetailsSeo'));
-import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment, Product_Get_Review, Delete_Review, ProductHelpFull } from "../../../../../../hooks/utilis/ProductApi"
-import Createcontext from "../../../../../../hooks/context"
+const ProductDetailsSeo = dynamic(() => import('@/component/ScoPage/ProductDetailsSeo'));
+import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment, Product_Get_Review, Delete_Review, ProductHelpFull } from "@/hooks/utilis/ProductApi"
+import Createcontext from "@/hooks/context"
 import _ from 'lodash'
 import Link from "next/link";
 import { makeStyles } from "@material-ui/core/styles";
-import Loader from "../../../../../../component/Loader/Loader";
-import { modifystr } from "../../../../../../hooks/utilis/commonfunction";
+import Loader from "@/component/Loader/Loader";
+import { modifystr } from "@/hooks/utilis/commonfunction";
 const usePlaceholderStyles = makeStyles(theme => ({
   placeholder: {
     color: "#aaa",
