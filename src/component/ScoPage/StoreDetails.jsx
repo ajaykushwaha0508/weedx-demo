@@ -8,8 +8,8 @@ function StoreDetails({ Despen  }) {
     const isWeedDelivery = pathname.slice(0, 16) === "/weed-deliveries";
 
     const defaultMeta = {
-        title: ` ${Despen[0]?.Store_Name} - Cannabis Dispensary in ${Despen[0]?.City} , ${Despen[0]?.City} | Weedx.io`,
-        description: ` Visit ${Despen[0]?.Store_Name} in ${Despen[0]?.City} , ${Despen[0]?.City} for premium cannabis. Explore the menu on Weedx.io and find top strains, edibles, and more at your local dispensary`,
+        title: ` ${Despen[0]?.Store_Name} - Cannabis Dispensary in ${Despen[0]?.City} , ${Despen[0]?.State} | Weedx.io`,
+        description: ` Visit ${Despen[0]?.Store_Name} in ${Despen[0]?.City} , ${Despen[0]?.State} for premium cannabis. Explore the menu on Weedx.io and find top strains, edibles, and more at your local dispensary`,
         robot: "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
     };
 
