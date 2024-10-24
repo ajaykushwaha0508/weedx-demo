@@ -3,7 +3,14 @@ import Image from 'next/image'
 import gifimage from '../../../public/image/gif.svg';
 import clases from '../../styles/customstyle.module.scss'
 import { BsStarFill } from "react-icons/bs";
+import newclases from '@/styles/customstyle.module.scss'
+import 'swiper/css/navigation';
+import "swiper/css";
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { maxHeight, maxWidth } from '@mui/system';
 const Oops = (props) => {
+  // console.log(props.delBtn[0].Store_Name)
   return (
     <>
       <div className={clases.oopss}>
@@ -14,46 +21,81 @@ const Oops = (props) => {
           <span className={clases.back}>{`VIEW OTHER BUSINESSES`}</span>
         </div>
       </div>
-      {
-        props.AllReview.map((data, index) => {
-          return (
-            <div key={index} style={styles.card}>
-              <div style={styles.header}>
-                <div style={styles.profile}>
-                  <Image
-                    width={100}
-                    height={100}
-                    unoptimized
-                    src={data.userImage} // Replace with the actual image source
-                    alt="Profile"
-                    style={styles.image}
-                  />
-                  <div>
-                    <p style={styles.author}>{data.username}</p>
-                  </div>
-                  <div style={styles.rating}>
-                    <span style={styles.star}>
-                      {new Array(data.rating).fill(null).map((data, index) => (
-                        <BsStarFill key={index} size={16} color="#31B665" />
-                      ))}
-                    </span>
-                  </div>
-                </div>
-                <div style={styles.dateAndMenu}>
-                  <span style={styles.date}>{data.created_at.slice(0,10)}</span>
-                </div>
-              </div>
+      <div>
+        <h4 className='oopsreviewheading'>{`What Customers Say about ${props.delBtn[0].Store_Name}`}</h4>
+      </div>
+        <Swiper className={`mySwiper similerproduxt`}
+          spaceBetween={50}
+          slidesPerView={2}
+          navigation={true} modules={[Navigation]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            480: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            992: {
+              slidesPerView: 2
+            },
+            1296: {
+              slidesPerView: 2
+            },
+          }}>
+          {
+            props?.AllReview?.map((data, index) => {
 
-              <div >
-                <h4 style={styles.contenth4}>{data.Title}</h4>
-                <p style={styles.content}>
-                  {data.comment}
-                </p>
-              </div>
-            </div>
-          )
-        })
-      }
+              return (
+                <SwiperSlide key={index}>
+                  <div key={index} style={styles.card}  >
+                    <div style={styles.header}>
+                      <div style={styles.profile}>
+                        <Image
+                          width={100}
+                          height={100}
+                          unoptimized
+                          src={data.userImage} // Replace with the actual image source
+                          alt="Profile"
+                          style={styles.image}
+                        />
+                        <div>
+                          <p style={styles.author}>{data.username}</p>
+                        </div>
+                        <div style={styles.rating}>
+                          <span style={styles.star} >
+                            {new Array(data.rating).fill(null).map((data, index) => (
+                              <BsStarFill key={index} size={12} color="#31B665" />
+                            ))}
+                          </span>
+                        </div>
+                      </div>
+                      <div style={styles.dateAndMenu}>
+                        <span style={styles.date}>{data.created_at.slice(0, 10)}</span>
+                      </div>
+                    </div>
+
+                    <div >
+                      <h4 style={styles.contenth4}>{data.Title}</h4>
+                      <div className='description-text' >
+
+                      <p style={styles.content}>
+                        {data.comment}
+                      </p>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              )
+
+            })
+          }
+        </Swiper>
     </>
   )
 }
@@ -67,6 +109,8 @@ const styles = {
     borderRadius: "8px",
     width: "100%",
     margin: "auto",
+    height:"206px",
+
   },
   header: {
     display: "flex",
@@ -115,13 +159,15 @@ const styles = {
     marginTop: '10px',
     fontSize: '14px',
     fontWeight: '400px',
-    color: "#a5a5a5"
+    color: "#a5a5a5",
+    // maxHeight:"150px"
 
   },
   contenth4: {
     fontSize: '14px',
     fontWeight: '500px',
     color: "#858585"
+
   }
 
 };

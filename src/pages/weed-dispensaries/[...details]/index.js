@@ -48,6 +48,7 @@ export default function DispensoriesDetails(props) {
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
     const [AllReview, SetReview] = React.useState([])
+
     const [GetProductReview, SetGetProductReview] = React.useState({
         value: 0,
         comment: '',
@@ -90,7 +91,6 @@ export default function DispensoriesDetails(props) {
     }, [id])
 
     useEffect(() => {
-
         if (reviewtype === "All") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
@@ -293,6 +293,7 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
+
     return (
         <div>
             <div>
@@ -344,7 +345,6 @@ export default function DispensoriesDetails(props) {
                                     </>
                                     : 
                                     <Oops
-                                    
                                     HellFull={HellFull}
                                     type={`store`}
                                     reviewtype={reviewtype}
@@ -374,7 +374,7 @@ export default function DispensoriesDetails(props) {
                                         </div>
                                     </div>
                                         :
-                                        <Oops /> 
+                                        <Oops/> 
                                     )
                                     :
                                     <DispensoriesAddressSkeleton />
@@ -384,11 +384,9 @@ export default function DispensoriesDetails(props) {
                                 <DispensoriesAddressSkeleton />}
                         </React.Fragment>
                     }
-
                     {
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
                     }
-
                     {
                         tab === 'review' && <Review
                             HellFull={HellFull}
@@ -407,7 +405,6 @@ export default function DispensoriesDetails(props) {
                             SetReview={SetReview}
                             ></Review>
                     }
-
                     {
                         tab === 'deals' && <div className={newclasess.noReview}>
                             <div className={newclasess.noreviewicon}>

@@ -8667,3 +8667,29 @@ font-size: 24px;
 .Mui-focusVisible{
   background-color: rgb(238, 238, 238);
 }
+
+
+
+.oopsreviewheading{
+ font-weight: 700;
+ size: 36px;
+ line-height: 54px;
+
+}
+
+.description-text p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+@media (max-width:390px) {
+  .description-text p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
