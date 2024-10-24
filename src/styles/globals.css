@@ -1744,7 +1744,7 @@ scrollbar-width: none;  /* Firefox */
   transition: all .4s ease-in;
   border-radius: 5px;
   position: relative;
-  width: 30%;
+  /* width: 30%;/ */
 }
 .despensories_card_container:hover{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -8692,4 +8692,36 @@ font-size: 24px;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
+}
+.nearbyStore{
+  font-weight: 700;
+  size: 36px;
+  line-height: 30px;
+}
+.nearbystoreheading{
+  color: #6A6A6A;
+font-size: 16px;
+font-weight: 600;
+line-height: 25px;
+text-align: left;
+
+}
+@media (max-width:1036px) {
+  .nearbystoreheading{
+  font-size: 14px;
+  }
+}
+
+@media (max-width:400px) {
+  .nearbystoreheading{
+  display: none;
+  }
+  .nearbyStore{
+    font-size: 16px;
+  }
+  .oopsreviewheading{
+   font-size: 16px;
+   
+   }
+   
 }

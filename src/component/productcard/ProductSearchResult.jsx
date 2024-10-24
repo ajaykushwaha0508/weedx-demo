@@ -235,13 +235,13 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
             <div className="">
                 {Boolean(RelatedProductResult?.length) &&
                     <div className="my-sm-4 my-2">
-                        {title === "You may also like" ?
+                        {title === "You may also like" || title === "Explore Nearby Products" ?
                             <h2 className="section_main_title ">{title}</h2>
                             :
                             <h1 className="section_main_title ">{title}</h1>
                         }
                     </div>}
-                { (title === 'You may also like') ?
+                { (title === 'You may also like') || title === "Explore Nearby Products" ?
                     <div className={newclases.product_card_wrapper}>
                         <Swiper className={`mySwiper similerproduxt`}
                             spaceBetween={50}

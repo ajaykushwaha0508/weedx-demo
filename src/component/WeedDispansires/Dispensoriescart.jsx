@@ -9,10 +9,10 @@ import { Rating } from '@mui/material';
 import { modifystr , isShopOpen } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
 import newclases from '@/styles/customstyle.module.scss'
-const Dispensoriescart = ({ ele }) => {
+const Dispensoriescart = ({ ele , width="30%" }) => {
   const classes = useStyles()
   return (
-    <div className="despensories_card_container">
+    <div className="despensories_card_container" style={{width:width}}>
     
         <div className="row">
             <div className="col-4 disensories_card_image_div">

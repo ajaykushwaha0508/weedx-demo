@@ -48,7 +48,8 @@ export default function DispensoriesDetails(props) {
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
     const [AllReview, SetReview] = React.useState([])
-
+    const [allstore, Setallstore] = React.useState([])
+    const [allproduct, Setallallproduct] = React.useState([])
     const [GetProductReview, SetGetProductReview] = React.useState({
         value: 0,
         comment: '',
@@ -293,6 +294,44 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
+    function capitalizeFirstLetter(string) {
+        return string
+            .split(/[\s-]/)  // Split by both space and hyphen
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter, lowercase the rest
+            .join(' ');  // Join the words back with spaces
+    }
+
+    React.useEffect(() => {
+        const object2 = {
+            City: capitalizeFirstLetter(state.City.replace(/-/g, ' ')),
+            State: capitalizeFirstLetter(state.State.replace(/-/g, ' ')),
+            Country: capitalizeFirstLetter(state.Country.replace(/-/g, ' ')),
+        };
+
+        const fetchDispensariesAndProducts = async () => {
+            try {
+                // Fetch dispensaries and products concurrently
+                const [dispensariesResponse, productsResponse] = await Promise.all([
+                    axios.post('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', object2, {
+                        headers: { 'Content-Type': 'application/json' },
+                    }),
+                    fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(object2),
+                    }),
+                ]);
+                Setallstore(dispensariesResponse.data);
+                const productsData = await productsResponse.json();
+                Setallallproduct(productsData)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchDispensariesAndProducts();
+    }, [state]);
+
 
     return (
         <div>
@@ -313,11 +352,11 @@ export default function DispensoriesDetails(props) {
 
             </div>
             {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
-                ? <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails> 
+                ? <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>
                 :
-                 ""
+                ""
             }
-            <div className=" product_container" >
+            <div className="product_container" >
                 {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
                 <div >
 
@@ -343,22 +382,26 @@ export default function DispensoriesDetails(props) {
                                         </div>
 
                                     </>
-                                    : 
-                                    <Oops
-                                    HellFull={HellFull}
-                                    type={`store`}
-                                    reviewtype={reviewtype}
-                                    setReviewtype={setReviewtype}
-                                    delBtn={Despen}
-                                    handleEdit={handleEdit}
-                                    reviewloading={reviewloading}
-                                    handleDelete={handleDelete}
-                                    Rating={Rating}
-                                    onSubmit={onSubmit}
-                                    GetProductReview={GetProductReview}
-                                    SetGetProductReview={SetGetProductReview}
-                                    AllReview={AllReview}
-                                    SetReview={SetReview}
+                                    :
+
+                                     <Oops
+                                    allproduct={allproduct || []}
+                                        location={{ country: state.Country, state: state.State, city: state.City }}
+                                        store={allstore || []}
+                                        HellFull={HellFull}
+                                        type={`store`}
+                                        reviewtype={reviewtype}
+                                        setReviewtype={setReviewtype}
+                                        delBtn={Despen}
+                                        handleEdit={handleEdit}
+                                        reviewloading={reviewloading}
+                                        handleDelete={handleDelete}
+                                        Rating={Rating}
+                                        onSubmit={onSubmit}
+                                        GetProductReview={GetProductReview}
+                                        SetGetProductReview={SetGetProductReview}
+                                        AllReview={AllReview}
+                                        SetReview={SetReview}
                                     />
                                 ) :
                                 (!productload ?
@@ -374,7 +417,7 @@ export default function DispensoriesDetails(props) {
                                         </div>
                                     </div>
                                         :
-                                        <Oops/> 
+                                        <Oops />
                                     )
                                     :
                                     <DispensoriesAddressSkeleton />
@@ -403,7 +446,7 @@ export default function DispensoriesDetails(props) {
                             SetGetProductReview={SetGetProductReview}
                             AllReview={AllReview}
                             SetReview={SetReview}
-                            ></Review>
+                        ></Review>
                     }
                     {
                         tab === 'deals' && <div className={newclasess.noReview}>

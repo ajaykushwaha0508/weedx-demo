@@ -458,8 +458,6 @@ export const getServerSideProps= async (context) => {
                 }
             };
         }
-
-        // Return props if data is available
         return {
             props: {
                 store: data,
@@ -471,7 +469,6 @@ export const getServerSideProps= async (context) => {
                 setCookies,
                 isFromGoogle,
                 content,
-                
             }
         };
     } catch (error) {
