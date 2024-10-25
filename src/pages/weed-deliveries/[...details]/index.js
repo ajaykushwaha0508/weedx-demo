@@ -302,10 +302,9 @@ export default function DispensoriesDetails(props) {
         }
     }
 
-    return (
 
-        // !Despen.length ? <Loader /> 
-        // : 
+    console.log(Despen)
+    return (
         <div>
             {/* <div> 
                     {(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") &&
@@ -363,7 +362,10 @@ export default function DispensoriesDetails(props) {
                                     </>
                                     :
                                  
-                                    <Oops/>
+                                    <Oops
+                                    
+                                    delBtn={Despen || []}
+                                    />
 
                                 ) :
                                 (!productload ?

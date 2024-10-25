@@ -303,9 +303,9 @@ export default function DispensoriesDetails(props) {
 
     React.useEffect(() => {
         const object2 = {
-            City: capitalizeFirstLetter(state.City.replace(/-/g, ' ')),
-            State: capitalizeFirstLetter(state.State.replace(/-/g, ' ')),
-            Country: capitalizeFirstLetter(state.Country.replace(/-/g, ' ')),
+            City: storeData.City ,
+            State: storeData.State,
+            Country: storeData.Country,
             limit:10
         };
 
@@ -332,8 +332,7 @@ export default function DispensoriesDetails(props) {
 
         fetchDispensariesAndProducts();
     }, [state]);
-
-
+    
     return (
         <div>
             <div>

@@ -17,18 +17,17 @@ const Oops = (props) => {
   var date = new Date();
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
-
   const faq = [
     {
-      title: `Where is ${props.delBtn[0].Store_Name} located?`,
-      answer: `${props.delBtn[0].Store_Name} is located at ${props.delBtn[0].Store_Address}.`
+      title: `Where is ${props?.delBtn[0]?.Store_Name} located?`,
+      answer: `${props?.delBtn[0]?.Store_Name} is located at ${props?.delBtn[0]?.Store_Address}.`
     },
     {
-      title: `What are the operating hours of ${props.delBtn[0].Store_Name}?`,
+      title: `What are the operating hours of ${props?.delBtn[0]?.Store_Name}?`,
       answer: (
         <div>
-          {props.delBtn[0].Hours?.map((items, idxe) => {
-            const isToday = day.getDay() - 1 === idxe; // Check if the day is today
+          {props?.delBtn[0]?.Hours?.map((items, idxe) => {
+            const isToday = day.getDay() - 1 === idxe; 
             if (items.close) {
               return (
                 <p
@@ -81,17 +80,13 @@ const Oops = (props) => {
       )
     },
     {
-      title: `How can I contact ${props.delBtn[0].Store_Name}?`,
-      answer: `You can contact ${props.delBtn[0].Store_Name} by phone at ${props.delBtn[0].Stores_MobileNo}`
+      title: `How can I contact ${props?.delBtn[0]?.Store_Name}?`,
+      answer: `You can contact ${props?.delBtn[0]?.Store_Name} by phone at ${props.delBtn[0].Stores_MobileNo}`
     }
   ];
 
 
-  {/* <span
-dangerouslySetInnerHTML={{
-  __html: `You can contact ${props.delBtn[0].Store_Name} by phone at <a href="tel:${props.delBtn[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Stores_MobileNo}</a>`
-}}
-/> */}
+  
 
 
 
@@ -189,12 +184,15 @@ dangerouslySetInnerHTML={{
       }
       <>
         {
-          Boolean(props?.store?.length) &&
+          Boolean(props?.store?.length)  &&
           <>
-            <div className='mt-5' >
+            {
+              Boolean(props?.store?.length !==1) && 
+              <div className='mt-5' >
               <h4 className='center nearbyStore'>{`Explore Other Nearby Dispensaries`}</h4>
               <h4 className='nearbystoreheading center'>{`Can’t find what you’re looking for? Check out these nearby dispensaries that have products available now.`}</h4>
             </div>
+            }
             <Swiper className={`mySwiper similerproduxt mt-5 `}
               spaceBetween={40}
               slidesPerView={2}
@@ -341,3 +339,13 @@ const styles = {
   }
 
 };
+
+
+
+
+
+{/* <span
+dangerouslySetInnerHTML={{
+  __html: `You can contact ${props.delBtn[0].Store_Name} by phone at <a href="tel:${props.delBtn[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Stores_MobileNo}</a>`
+}}
+/> */}
