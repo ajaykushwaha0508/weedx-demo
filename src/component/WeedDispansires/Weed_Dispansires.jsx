@@ -14,7 +14,6 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
     const { state } = useContext(Createcontext)
     return (
         <React.Fragment>
-
             <div className="container">
                 <div className="row">
                     <div className="col-12 dispensories_main_container">
@@ -35,9 +34,7 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                         </div>
 
                         <div className="d-flex flex-wrap gap-4 py-3">
-                            {Store?.map((ele, index) => {
-                                return (<Dispensoriescart ele={ele} key={index} classdefalut={'despensories_card_container'}/>)
-                            })}
+                            {Store?.map((ele, index) => {return(<Dispensoriescart ele={ele} key={index} classdefalut={'despensories_card_container'}/>)})}
                         </div>
                     </div>
                     <div className="col-12 webContent">
@@ -46,7 +43,8 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                     </div>
                     {contentdata.length !== 0 &&
                         contentdata?.Faq[0]?.title !== '' &&
-                        <>  <h3 className="section_main_title">FAQs</h3>
+                        <>  
+                        <h3 className="section_main_title">FAQs</h3>
 
                             <div className="row">
                                 {
