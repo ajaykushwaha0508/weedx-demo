@@ -306,6 +306,7 @@ export default function DispensoriesDetails(props) {
             City: capitalizeFirstLetter(state.City.replace(/-/g, ' ')),
             State: capitalizeFirstLetter(state.State.replace(/-/g, ' ')),
             Country: capitalizeFirstLetter(state.Country.replace(/-/g, ' ')),
+            limit:10
         };
 
         const fetchDispensariesAndProducts = async () => {
@@ -383,7 +384,6 @@ export default function DispensoriesDetails(props) {
 
                                     </>
                                     :
-
                                      <Oops
                                     allproduct={allproduct || []}
                                         location={{ country: state.Country, state: state.State, city: state.City }}
