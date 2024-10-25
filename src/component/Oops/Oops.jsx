@@ -10,7 +10,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Dispensoriescart from '../../component/WeedDispansires/Dispensoriescart'
 import ProductSearchResult from '../productcard/ProductSearchResult';
 const Oops = (props) => {
-  console.log(props.delBtn[0].id)
   return (
     <>
       <div className={clases.oopss}>
