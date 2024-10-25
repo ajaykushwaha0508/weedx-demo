@@ -264,7 +264,7 @@ const Dispensaries = (props) => {
                             </Box>
                             <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
                                 <TabPanel value={value} index={0}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    <WeedDispansires  Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={1}>
                                     <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />

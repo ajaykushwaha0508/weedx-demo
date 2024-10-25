@@ -36,7 +36,7 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
 
                         <div className="d-flex flex-wrap gap-4 py-3">
                             {Store?.map((ele, index) => {
-                                return (<Dispensoriescart ele={ele} key={index} />)
+                                return (<Dispensoriescart ele={ele} key={index} classdefalut={'despensories_card_container'}/>)
                             })}
                         </div>
                     </div>

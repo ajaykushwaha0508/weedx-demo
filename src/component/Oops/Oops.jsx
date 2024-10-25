@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Dispensoriescart from '../../component/WeedDispansires/Dispensoriescart'
 import ProductSearchResult from '../productcard/ProductSearchResult';
 const Oops = (props) => {
+  console.log(props.delBtn[0].id)
   return (
     <>
       <div className={clases.oopss}>
@@ -65,9 +66,10 @@ const Oops = (props) => {
                             alt="Profile"
                             style={styles.image}
                           />
-                          <div>
+                         <div className='cardnamerating'>
+               
                             <p style={styles.author}>{data.username}</p>
-                          </div>
+                    
                           <div style={styles.rating}>
                             <span style={styles.star} >
                               {new Array(data.rating).fill(null).map((data, index) => (
@@ -75,13 +77,14 @@ const Oops = (props) => {
                               ))}
                             </span>
                           </div>
+                         </div>
                         </div>
                         <div style={styles.dateAndMenu}>
                           <span style={styles.date}>{data.created_at.slice(0, 10)}</span>
                         </div>
                       </div>
 
-                      <div >
+                      <div className='mt-2' >
                         <h4 style={styles.contenth4}>{data.Title}</h4>
                         <div className='description-text' >
 
@@ -127,11 +130,13 @@ const Oops = (props) => {
             }}>
             {
               props.store?.map((data, index) => {
-                return (
+                if(data.id !==props.delBtn[0].id) {
+                 return (
                   <SwiperSlide key={index}>
-                    <Dispensoriescart ele={data} key={index} width={"100%"} />
+                    <Dispensoriescart ele={data} key={index} classdefalut={'despensories_card_container1'}  />
                   </SwiperSlide>
                 )
+              }
               })
             }
           </Swiper>
@@ -165,8 +170,8 @@ const styles = {
     alignItems: "center",
   },
   image: {
-    width: "40px",
-    height: "40px",
+    width: "30px",
+    height: "30px",
     borderRadius: "50%",
     marginRight: "12px",
   },
@@ -189,7 +194,7 @@ const styles = {
   rating: {
     display: "flex",
     alignItems: "center",
-    margin: "12px 5px",
+    // margin: "12px 5px",
   },
   ratingValue: {
     fontWeight: "bold",
