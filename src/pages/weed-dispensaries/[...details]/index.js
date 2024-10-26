@@ -345,7 +345,7 @@ export default function DispensoriesDetails(props) {
                                     </>
                                     :
                                     <Oops
-                                        // allproduct={props?.params?.extradata?.products || []}
+                                        allproduct={props?.params?.extradata?.products || []}
                                         location={{ country: state.Country, state: state.State, city: state.City }}
                                         store={props?.params?.extradata?.dispensaries || []}
                                         HellFull={HellFull}
