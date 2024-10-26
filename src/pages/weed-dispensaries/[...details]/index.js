@@ -294,12 +294,7 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-    function capitalizeFirstLetter(string) {
-        return string
-            .split(/[\s-]/)  // Split by both space and hyphen
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter, lowercase the rest
-            .join(' ');  // Join the words back with spaces
-    }
+
 
     React.useEffect(() => {
         const object2 = {
@@ -331,7 +326,7 @@ export default function DispensoriesDetails(props) {
         };
 
         fetchDispensariesAndProducts();
-    }, [state]);
+    }, []);
     
     return (
         <div>

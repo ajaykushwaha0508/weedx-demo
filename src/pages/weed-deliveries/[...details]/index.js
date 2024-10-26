@@ -50,6 +50,8 @@ export default function DispensoriesDetails(props) {
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
     const [AllReview, SetReview] = React.useState([])
+    const [allstore, Setallstore] = React.useState([])
+    const [allproduct, Setallallproduct] = React.useState([])
     const [GetProductReview, SetGetProductReview] = React.useState({
         value: 0,
         comment: '',
@@ -303,7 +305,44 @@ export default function DispensoriesDetails(props) {
     }
 
 
-    console.log(Despen)
+    React.useEffect(() => {
+        const object2 = {
+            City: storeData.City ,
+            State: storeData.State,
+            Country: storeData.Country,
+            limit:10
+        };
+
+        const fetchDispensariesAndProducts = async () => {
+            try {
+                // Fetch dispensaries and products concurrently
+                const [dispensariesResponse, productsResponse] = await Promise.all([
+                    axios.post('https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/', object2, {
+                        headers: { 'Content-Type': 'application/json' },
+                    }),
+                    fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(object2),
+                    }),
+                ]);
+                Setallstore(dispensariesResponse.data);
+                const productsData = await productsResponse.json();
+                Setallallproduct(productsData)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchDispensariesAndProducts();
+    }, []);
+
+    function func(a, b) {  
+        return 0.5 - Math.random();
+      }  
+      
+
+    console.log(allstore , allproduct.sort(func))
     return (
         <div>
             {/* <div> 
@@ -363,8 +402,23 @@ export default function DispensoriesDetails(props) {
                                     :
                                  
                                     <Oops
-                                    
-                                    delBtn={Despen || []}
+                                    allproduct={allproduct || []}
+                                    store={allstore || []}
+                                    HellFull={HellFull}
+                                    type={`store`}
+                                    reviewtype={reviewtype}
+                                    setReviewtype={setReviewtype}
+                                    delBtn={Despen}
+                                    handleEdit={handleEdit}
+                                    reviewloading={reviewloading}
+                                    handleDelete={handleDelete}
+                                    Rating={Rating}
+                                    onSubmit={onSubmit}
+                                    GetProductReview={GetProductReview}
+                                    SetGetProductReview={SetGetProductReview}
+                                    AllReview={AllReview.reverse()}
+                                    SetReview={SetReview}
+                                    faq={"delivery"}
                                     />
 
                                 ) :
@@ -411,7 +465,8 @@ export default function DispensoriesDetails(props) {
                             GetProductReview={GetProductReview}
                             SetGetProductReview={SetGetProductReview}
                             AllReview={AllReview}
-                            SetReview={SetReview}></Review>
+                            SetReview={SetReview}
+                            ></Review>
                     }
                     {
                         tab === 'deals' && <div className={newclases.noReview}>

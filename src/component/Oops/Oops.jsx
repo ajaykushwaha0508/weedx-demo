@@ -17,7 +17,8 @@ const Oops = (props) => {
   var date = new Date();
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
-  const faq = [
+
+  const faq1 = [
     {
       title: `Where is ${props?.delBtn[0]?.Store_Name} located?`,
       answer: `${props?.delBtn[0]?.Store_Name} is located at ${props?.delBtn[0]?.Store_Address}.`
@@ -85,6 +86,77 @@ const Oops = (props) => {
     }
   ];
 
+const faq = [
+    {
+      title: `What is the service area for ${props?.delBtn[0]?.Store_Name} ?`,
+      answer: `${props?.delBtn[0]?.Store_Name} delivers to ${props?.delBtn[0]?.Store_Address}.`
+    },
+    {
+      title: `What are the delivery hours for  ${props?.delBtn[0]?.Store_Name}?`,
+      answer: (
+        <div>
+          <span>${props?.delBtn[0]?.Store_Name}</span>
+          <span>{` offers delivery from`}</span>
+      
+          {props?.delBtn[0]?.Hours?.map((items, idxe) => {
+            const isToday = day.getDay() - 1 === idxe; 
+            if (items.close) {
+              return (
+                <p
+                  key={idxe}
+                  className={`${isToday ? "highlightToday" : ""} d-flex`}>
+                  <span className="w-50">{`${items.day} `}</span>
+                  <span className="w-50">Close</span>
+                </p>
+              );
+            } else {
+              return items.Open?.map((ite, index) => {
+                if (index === 0) {
+                if (ite.Time1 === "24 Hours" || ite.Time2 === "24 Hours") {
+                  return (
+                    <p
+                      key={index}
+                      className={`${isToday ? "highlightToday" : ""} d-flex`}
+                    >
+                      <span className="w-50">{`${items.day} `}</span>
+                      <span className="w-50">24 Hours</span>
+                    </p>
+                  );
+                } else if (ite.Time1 === "00:00" || ite.Time2 === "00:00") {
+                  return (
+                    <p
+                      key={index}
+                      className={`${isToday ? "highlightToday" : ""} d-flex`}
+                    >
+                      <span className="w-50">{`${items.day} `}</span>
+                      <span className="w-50">Closed</span>
+                    </p>
+                  );
+                } else {
+                  return (
+                    <p
+                      key={index}
+                      className={`${isToday ? "highlightToday" : ""} d-flex`}
+                    >
+                      <span className="w-50">{`${items.day} `}</span>
+                      <span className="w-50">{`${ite.Time1} - ${ite.Time2}`}</span>
+                    </p>
+                  );
+                }
+              }
+              return null;
+            });
+            }
+          })}
+
+        </div>
+      )
+    },
+    {
+      title: `How can I contact ${props?.delBtn[0]?.Store_Name}?`,
+      answer: `You can contact ${props?.delBtn[0]?.Store_Name} by phone at ${props.delBtn[0].Stores_MobileNo}`
+    }
+  ];
 
   
 
@@ -143,6 +215,7 @@ const Oops = (props) => {
                             unoptimized
                             src={data.userImage} // Replace with the actual image source
                             alt="Profile"
+                            onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                             style={styles.image}
                           />
                           <div className='cardnamerating'>
@@ -196,7 +269,8 @@ const Oops = (props) => {
             <Swiper className={`mySwiper similerproduxt mt-5 `}
               spaceBetween={40}
               slidesPerView={2}
-              navigation={true} modules={[Navigation]}
+              navigation={true}
+              modules={[Navigation]}
               breakpoints={{
                 0: {
                   slidesPerView: 1,
@@ -238,7 +312,7 @@ const Oops = (props) => {
 
         <div className="row">
           {
-            faq?.map((item, index) => {
+          (props.faq === "delivery" ?  faq :   faq1) ?.map((item, index) => {
               return <div key={index} className="col-lg-12 my-1"> <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -254,7 +328,7 @@ const Oops = (props) => {
                   >{item.title}</h3>
                 </AccordionSummary>
                 <AccordionDetails >
-                  <p style={{ margin: "0" }}>{item.answer}</p>
+                  <span style={{ margin: "0" }}>{item.answer}</span>
                 </AccordionDetails>
               </Accordion></div>
             })
@@ -339,10 +413,6 @@ const styles = {
   }
 
 };
-
-
-
-
 
 {/* <span
 dangerouslySetInnerHTML={{
