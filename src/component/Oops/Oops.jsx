@@ -292,7 +292,7 @@ const faq = [
                 },
               }}>
               {
-                props.store?.map((data, index) => {
+                props?.store?.map((data, index) => {
                   if (data.id !== props.delBtn[0].id) {
                     return (
                       <SwiperSlide key={index}>

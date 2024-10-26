@@ -26,29 +26,6 @@ const WebContent = ({ state, Store = [], modifystr, from, url, product, location
             })
         })
     }, [Store])
-    // useEffect(()=>{
-    //     const object = {
-    //         City: state.City.replace(/-/g, " "),
-    //         Country: state.Country.replace(/-/g, " "),
-    //         State: state.State.replace(/-/g, " "),
-    //         limit:10
-    //     }
-
-    //     state.Country !== "" && GetProduct(object).then((response) => {
-
-    //         if(url === 'dispensaries'){
-    //             let desinesery =response.data.filter((item)=>{
-    //                 return item.Store_Type==="dispensary"
-    //             })
-    //             SetProduct(desinesery)
-    //         }else{
-    //             let desinesery =response.data.filter((item)=>{
-    //                 return item.Store_Type==="delivery"
-    //             })
-    //             SetProduct(desinesery)
-    //         }
-    //     })
-    // },[state])
 
     return (
         <div >

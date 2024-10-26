@@ -1,6 +1,5 @@
 
 import React, { useEffect } from "react";
-// import { useParams, usenavigate.push, useLocation, Link } from "react-router-dom";
 import { useRouter } from "next/router";
 import axios from "axios";
 import dynamic from 'next/dynamic'
@@ -26,8 +25,6 @@ import Createcontext from "../../../hooks/context"
 import DispensoriesAddressSkeleton from "../../../component/skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Swal from 'sweetalert2';
-import gifimage from '../../../../public/image/gif.svg'
-import Link from "next/link";
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.scss'
 import Oops from "@/component/Oops/Oops";
@@ -337,12 +334,6 @@ export default function DispensoriesDetails(props) {
         fetchDispensariesAndProducts();
     }, []);
 
-    function func(a, b) {  
-        return 0.5 - Math.random();
-      }  
-      
-
-    console.log(allstore , allproduct.sort(func))
     return (
         <div>
             {/* <div> 

@@ -31,7 +31,7 @@ import Oops from "@/component/Oops/Oops";
 import newclasess from '@/styles/customstyle.module.scss'
 export default function DispensoriesDetails(props) {
     const navigate = useRouter()
-    const { id, storeData, product } = props.params
+    const { id, storeData, product, review } = props.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
     const DespensariesData = product
@@ -48,8 +48,6 @@ export default function DispensoriesDetails(props) {
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
     const [AllReview, SetReview] = React.useState([])
-    const [allstore, Setallstore] = React.useState([])
-    const [allproduct, Setallallproduct] = React.useState([])
     const [GetProductReview, SetGetProductReview] = React.useState({
         value: 0,
         comment: '',
@@ -138,6 +136,7 @@ export default function DispensoriesDetails(props) {
 
             })
     }
+
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -295,39 +294,6 @@ export default function DispensoriesDetails(props) {
         }
     }
 
-
-    React.useEffect(() => {
-        const object2 = {
-            City: storeData.City ,
-            State: storeData.State,
-            Country: storeData.Country,
-            limit:10
-        };
-
-        const fetchDispensariesAndProducts = async () => {
-            try {
-                // Fetch dispensaries and products concurrently
-                const [dispensariesResponse, productsResponse] = await Promise.all([
-                    axios.post('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', object2, {
-                        headers: { 'Content-Type': 'application/json' },
-                    }),
-                    fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(object2),
-                    }),
-                ]);
-                Setallstore(dispensariesResponse.data);
-                const productsData = await productsResponse.json();
-                Setallallproduct(productsData)
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchDispensariesAndProducts();
-    }, []);
-    
     return (
         <div>
             <div>
@@ -378,10 +344,10 @@ export default function DispensoriesDetails(props) {
 
                                     </>
                                     :
-                                     <Oops
-                                    allproduct={allproduct || []}
+                                    <Oops
+                                        // allproduct={props?.params?.extradata?.products || []}
                                         location={{ country: state.Country, state: state.State, city: state.City }}
-                                        store={allstore || []}
+                                        store={props?.params?.extradata?.dispensaries || []}
                                         HellFull={HellFull}
                                         type={`store`}
                                         reviewtype={reviewtype}
@@ -394,8 +360,7 @@ export default function DispensoriesDetails(props) {
                                         onSubmit={onSubmit}
                                         GetProductReview={GetProductReview}
                                         SetGetProductReview={SetGetProductReview}
-                                        AllReview={AllReview}
-                                        SetReview={SetReview}
+                                        AllReview={review}
                                     />
                                 ) :
                                 (!productload ?
@@ -407,7 +372,7 @@ export default function DispensoriesDetails(props) {
                                             id={id}
                                         />
                                         <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                            <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"}/>
+                                            <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                         </div>
                                     </div>
                                         :
@@ -459,80 +424,95 @@ export default function DispensoriesDetails(props) {
 
     )
 }
+const fetchDispensariesAndProducts = async (country, state, city) => {
+    const object2 = {
+        City: city,
+        State: state,
+        Country: country,
+        limit: 10
+    };
+    try {
+        const [dispensariesResponse, productsResponse] = await Promise.all([
+            axios.post('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', object2, {
+                headers: { 'Content-Type': 'application/json' },
+            }),
+            fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object2),
+            }),
+        ]);
 
+        const dispensariesData = dispensariesResponse.data;
+        const productsData = await productsResponse.json();
 
+        return { dispensaries: dispensariesData, products: productsData };
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return { dispensaries: null, products: null, error };
+    }
+};
 
-
-
-
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function getStaticPaths() {
-    // Fetch all possible paths here
-    // Example: const paths = [{ params: { storeId: '1' } }, { params: { storeId: '2' } }];
-    const paths = []; // Return an empty array to generate no pages at build time
-
+    const paths = [];
     return {
         paths,
-        fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
+        fallback: 'blocking',
     };
 }
+
 export async function getStaticProps(context) {
     const storeId = _.findIndex(context.params.details, item => !isNaN(item) && !isNaN(parseFloat(item)));
     let data = [];
-    let productdata = []
+    let productdata = [];
+    let review = []
+    let extradata
+    await delay(100);
+
     try {
-        const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${context.params.details[storeId]}`);
-        const product = await axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`);
-        productdata = product.data
-        data = response.data;
+        // Fetch store details
+        const storeResponse = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${context.params.details[storeId]}`);
+        const reviewResponse = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReview/${context.params.details[storeId]}`);
+        const productResponse = await axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`);
+        review = reviewResponse.data
+        data = storeResponse.data;
+        productdata = productResponse.data;
+        extradata = await fetchDispensariesAndProducts(storeResponse.data[0].Country, storeResponse.data[0].State, storeResponse.data[0].City)
     } catch (error) {
         console.error('Error fetching data:', error);
+        return {
+            notFound: true,
+        };
     }
 
     if (data.length === 0) {
         return {
-            notFound: true, // Redirect to 404 if no data found
+            notFound: true,
         };
     }
 
-    else {
-        if (storeId === 1 && modifystr(data[0].Store_Name) === context.params.details[0] && parseInt(context.params.details[storeId]) === data[0]?.id) {
-            return {
-                props: {
-                    params: {
-                        id: context.params.details[storeId],
-                        tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
-                        storeData: data[0],
-                        product: productdata,
-                    },
-                },
-                revalidate: 60,
-            };
-        } else if (
-            storeId !== 1 &&
-            modifystr(data[0].Store_Name) === context.params.details[0] &&
-            ["menu", "store-details", "review", "deals"].includes(context.params.details[1]) &&
-            parseInt(context.params.details[storeId]) === data[0].id
-        ) {
-            return {
-                props: {
-                    params: {
-                        id: context.params.details[storeId],
-                        tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
-                        storeData: data[0],
-                        product: productdata,
-                    },
-                },
-                revalidate: 60,
-            };
-        } else {
-            // Redirect to 404 if conditions are not met
-            return {
-                notFound: true,
-            };
-        }
+    const isValidStore = (storeId === 1 && modifystr(data[0].Store_Name) === context.params.details[0] && parseInt(context.params.details[storeId]) === data[0]?.id)
+        || (storeId !== 1 && modifystr(data[0].Store_Name) === context.params.details[0] && ["menu", "store-details", "review", "deals"].includes(context.params.details[1]) && parseInt(context.params.details[storeId]) === data[0].id);
 
+    if (isValidStore) {
+        return {
+            props: {
+                params: {
+                    id: context.params.details[storeId],
+                    tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
+                    storeData: data[0],
+                    product: productdata,
+                    review: review,
+                    extradata: extradata
+                },
+            },
+            revalidate: 60,
+        };
+    } else {
+        return {
+            notFound: true,
+        };
     }
 }
-
-
