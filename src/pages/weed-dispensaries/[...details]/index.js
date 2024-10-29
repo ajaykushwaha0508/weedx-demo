@@ -422,6 +422,8 @@ export default function DispensoriesDetails(props) {
                                             <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
                                                 <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                             </div>
+                                            <Reviewextrs AllReview={AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
+                                            <Fqa faq={faq1} ></Fqa>
                                         </div>
 
                                     </>
@@ -456,8 +458,7 @@ export default function DispensoriesDetails(props) {
                                         <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
                                             <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                         </div>
-                                        <Reviewextrs AllReview={AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
-                                        <Fqa faq={faq1} ></Fqa>
+                             
                                     </div>
                                         :
                                         <Oops />
