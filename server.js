@@ -582,7 +582,6 @@ app.prepare().
       res.type('text/plain');
       res.send(`User-agent: *
 Disallow:  
-
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
     server.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
@@ -696,10 +695,9 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
 
       return handle(req, res);
     });
-
-
     server.listen(3000, (err) => {
       if (err) throw err;
       console.log('> woking on http://localhost:3000');
     });
+
   });

@@ -28,12 +28,14 @@ import Swal from 'sweetalert2';
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.scss'
 import Oops from "@/component/Oops/Oops";
+import Reviewextrs from '@/component/storedetailsfootecomponent/review';
+import Fqa from '@/component/storedetailsfootecomponent/faq'
 export default function DispensoriesDetails(props) {
     const navigate = useRouter()
-    var { id, storeData, product } = props.params
+    var { id, storeData, product , allProduct  , storeDelivery , review} = props.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
-    var  DespensariesData =  product
+    var DespensariesData = product
     const [categoryProduct, SetCategoryProduct] = React.useState([])
     const data = false
     const { state, dispatch } = React.useContext(Createcontext)
@@ -47,8 +49,9 @@ export default function DispensoriesDetails(props) {
     const [Rating, SetRating] = React.useState()
     const [api, SetApi] = React.useState(false)
     const [AllReview, SetReview] = React.useState([])
-    const [allstore, Setallstore] = React.useState([])
-    const [allproduct, Setallallproduct] = React.useState([])
+    var date = new Date();
+    const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
+    let day = new Date(easternTime)
     const [GetProductReview, SetGetProductReview] = React.useState({
         value: 0,
         comment: '',
@@ -65,29 +68,29 @@ export default function DispensoriesDetails(props) {
         axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
             "Store_Id": parseInt(id)
         })
-        .then(async (response) => {
-            // Extract the first element of each data item
-            const d = response.data.map(data => data[0]);
-            
-            // Remove duplicates by 'id'
-            const uniqueUsersByID = _.uniqBy(d, 'id');
-            
-            // Set unique categories
-            SetCategory(uniqueUsersByID);
-            
-            // If Category is defined, check for matching categories
-            if (category) {
-                uniqueUsersByID.forEach((data) => {
-                    if (category === data.name.toLowerCase()) {
-                        ShowCategoryProduct(data.id, category);
-                    }
-                });
-            }
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-        
+            .then(async (response) => {
+                // Extract the first element of each data item
+                const d = response.data.map(data => data[0]);
+
+                // Remove duplicates by 'id'
+                const uniqueUsersByID = _.uniqBy(d, 'id');
+
+                // Set unique categories
+                SetCategory(uniqueUsersByID);
+
+                // If Category is defined, check for matching categories
+                if (category) {
+                    uniqueUsersByID.forEach((data) => {
+                        if (category === data.name.toLowerCase()) {
+                            ShowCategoryProduct(data.id, category);
+                        }
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
     }, [id])
 
     useEffect(() => {
@@ -95,20 +98,20 @@ export default function DispensoriesDetails(props) {
         if (reviewtype === "All") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`).then((res) => {
                 SetRating(res.data)
-   
+
 
 
             }).catch(() => { })
         } else if (reviewtype === "product") {
             axios.get(`https://api.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`).then((res) => {
                 SetRating(res.data)
-         
+
 
             }).catch(() => { })
         } else {
             Store_OverAllGet_Review(id).then((res) => {
                 SetRating(res)
-        
+
 
             }).catch(() => { })
         }
@@ -135,7 +138,7 @@ export default function DispensoriesDetails(props) {
             }
         ).then(response => {
             dispatch({ type: 'Loading', Loading: false })
-            SetCategoryProduct( response.data)
+            SetCategoryProduct(response.data)
             setProductload(false)
         }).catch(
             function (error) {
@@ -302,51 +305,97 @@ export default function DispensoriesDetails(props) {
     }
 
 
-    React.useEffect(() => {
-        const object2 = {
-            City: storeData.City ,
-            State: storeData.State,
-            Country: storeData.Country,
-            limit:10
-        };
 
-        const fetchDispensariesAndProducts = async () => {
-            try {
-                // Fetch dispensaries and products concurrently
-                const [dispensariesResponse, productsResponse] = await Promise.all([
-                    axios.post('https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/', object2, {
-                        headers: { 'Content-Type': 'application/json' },
-                    }),
-                    fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(object2),
-                    }),
-                ]);
-                Setallstore(dispensariesResponse.data);
-                const productsData = await productsResponse.json();
-                Setallallproduct(productsData)
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchDispensariesAndProducts();
-    }, []);
+    const faq = [
+        {
+          title: `What is the service area for ${Despen[0]?.Store_Name} ?`,
+          answer:
+            <span
+              dangerouslySetInnerHTML={{
+                __html: ` ${Despen[0].Store_Name} delivers to <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Despen[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Store_Address}</a>`
+              }}
+            />
+    
+    
+        },
+        {
+          title: `What are the delivery hours for  ${Despen[0]?.Store_Name}?`,
+          answer: (
+            <div>
+              <span>${Despen[0]?.Store_Name}</span>
+              <span>{` offers delivery from`}</span>
+    
+              {Despen[0]?.Hours?.map((items, idxe) => {
+                const isToday = day.getDay() - 1 === idxe;
+                if (items.close) {
+                  return (
+                    <p
+                      key={idxe}
+                      className={`${isToday ? "highlightToday" : ""} d-flex`}>
+                      <span className="w-50">{`${items.day} `}</span>
+                      <span className="w-50">Close</span>
+                    </p>
+                  );
+                } else {
+                  return items.Open?.map((ite, index) => {
+                    if (index === 0) {
+                      if (ite.Time1 === "24 Hours" || ite.Time2 === "24 Hours") {
+                        return (
+                          <p
+                            key={index}
+                            className={`${isToday ? "highlightToday" : ""} d-flex`}
+                          >
+                            <span className="w-50">{`${items.day} `}</span>
+                            <span className="w-50">24 Hours</span>
+                          </p>
+                        );
+                      } else if (ite.Time1 === "00:00" || ite.Time2 === "00:00") {
+                        return (
+                          <p
+                            key={index}
+                            className={`${isToday ? "highlightToday" : ""} d-flex`}
+                          >
+                            <span className="w-50">{`${items.day} `}</span>
+                            <span className="w-50">Closed</span>
+                          </p>
+                        );
+                      } else {
+                        return (
+                          <p
+                            key={index}
+                            className={`${isToday ? "highlightToday" : ""} d-flex`}
+                          >
+                            <span className="w-50">{`${items.day} `}</span>
+                            <span className="w-50">{`${ite.Time1} - ${ite.Time2}`}</span>
+                          </p>
+                        );
+                      }
+                    }
+                    return null;
+                  });
+                }
+              })}
+    
+            </div>
+          )
+        },
+        {
+          title: `How can I contact ${Despen[0]?.Store_Name}?`,
+          answer: <span
+            dangerouslySetInnerHTML={{
+              __html: `You can contact ${Despen[0].Store_Name} by phone at <a  href="tel:${Despen[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Stores_MobileNo}</a>`
+            }}
+          />
+        }
+      ];
+    
 
     return (
         <div>
-            {/* <div> 
-                    {(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") &&
-                    <div style={{ fontSize: '12px' }} > <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}</span>
-                        {" >"} <span style={{ fontSize: '12px', cursor: 'pointer' }} onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", params.StoreName, id)}> {params.StoreName}</span>
-                        {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
-                    </div>
-                }
-                </div> */}
             <div>
                 {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
                     ?
+
                     <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>
                     :
                     // <Embedded Despen={Despen} locationStore={location.asPath}></Embedded>
@@ -354,21 +403,21 @@ export default function DispensoriesDetails(props) {
                 }
                 <div className={clases.page_breadcrum}>
 
-                    <span  onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"} {" > "}</span>
-                    <span  onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", modifystr(Despen[0]?.Store_Name), id)}>{Despen[0]?.Store_Name}</span>
+                    <span onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"} {" > "}</span>
+                    <span onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries", modifystr(Despen[0]?.Store_Name), id)}>{Despen[0]?.Store_Name}</span>
                     {Boolean(params?.tab) && <span> {" > "}{params?.tab}</span>}
                 </div>
 
             </div>
             {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
-                ? <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails> : ""
+                ? "" : ""
             }
             <div className=" product_container" >
                 {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
                 <div className="">
-                 
-                        {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
-                   
+
+                    {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
+
                     {
                         (tab === 'menu' || tab === undefined) &&
                         <React.Fragment>
@@ -377,59 +426,60 @@ export default function DispensoriesDetails(props) {
                                     <>
                                         <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
                                         <div className="row">
-                                           <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                            <ProductFilter Store_id={Despen[0]?.id}
-                                                id={id}
-                                                ProductFilterData={ProductFilterData}
-                                                Setarr1={DespensariesData}
-                                                arr={DespensariesData}
-                                            />
-                                            <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                <ProductList  arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                            <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                                <ProductFilter Store_id={Despen[0]?.id}
+                                                    id={id}
+                                                    ProductFilterData={ProductFilterData}
+                                                    Setarr1={DespensariesData}
+                                                    arr={DespensariesData}
+                                                />
+                                                <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                                    <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
                                     </>
                                     :
-                                 
-                                    <Oops
-                                    allproduct={allproduct || []}
-                                    store={allstore || []}
-                                    HellFull={HellFull}
-                                    type={`store`}
-                                    reviewtype={reviewtype}
-                                    setReviewtype={setReviewtype}
-                                    delBtn={Despen}
-                                    handleEdit={handleEdit}
-                                    reviewloading={reviewloading}
-                                    handleDelete={handleDelete}
-                                    Rating={Rating}
-                                    onSubmit={onSubmit}
-                                    GetProductReview={GetProductReview}
-                                    SetGetProductReview={SetGetProductReview}
-                                    AllReview={AllReview.reverse()}
-                                    SetReview={SetReview}
-                                    faq={"delivery"}
-                                    />
 
+                                    <Oops
+                                        allproduct={allProduct || []}
+                                        store={storeDelivery || []}
+                                        HellFull={HellFull}
+                                        type={`store`}
+                                        reviewtype={reviewtype}
+                                        setReviewtype={setReviewtype}
+                                        delBtn={Despen}
+                                        handleEdit={handleEdit}
+                                        reviewloading={reviewloading}
+                                        handleDelete={handleDelete}
+                                        Rating={Rating}
+                                        onSubmit={onSubmit}
+                                        GetProductReview={GetProductReview}
+                                        SetGetProductReview={SetGetProductReview}
+                                        AllReview={review.reverse()}
+                                        SetReview={SetReview}
+                                        faq={"delivery"}
+                                    />
                                 ) :
                                 (!productload ?
-                                    (Boolean(DespensariesData.length) ? 
-                                                <div className="col-12 productCat_cont" >
-                                                    <ProductFilter Store_id={Despen[0]?.id}
-                                                        ProductFilterData={ProductFilterData}
-                                                        Setarr1={SetDespensariesProductData}
-                                                        arr={DespensariesData}
-                                                        id={id}
-                                                    />
-                                                    <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                        <ProductList arr={ Boolean(categoryProduct.length) ? categoryProduct :  DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
-                                                    </div>
-                                                </div>
+                                    (Boolean(DespensariesData.length) ?
+                                        <div className="col-12 productCat_cont" >
+                                            <ProductFilter Store_id={Despen[0]?.id}
+                                                ProductFilterData={ProductFilterData}
+                                                Setarr1={SetDespensariesProductData}
+                                                arr={DespensariesData}
+                                                id={id}
+                                            />
+                                            <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                                <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                            </div>
+                                            <Reviewextrs AllReview = {AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
+                                            <Fqa faq={faq} ></Fqa>
+                                        </div>
                                         :
-                                     
-                                        <Oops/>
-                                        )
+
+                                        <Oops />
+                                    )
                                     :
                                     <DispensoriesAddressSkeleton />
                                 )
@@ -457,18 +507,21 @@ export default function DispensoriesDetails(props) {
                             SetGetProductReview={SetGetProductReview}
                             AllReview={AllReview}
                             SetReview={SetReview}
-                            ></Review>
+                        ></Review>
                     }
                     {
                         tab === 'deals' && <div className={newclases.noReview}>
                             <div className={newclases.noreviewicon}>
-                                <div className={newclases.iconcircl}> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
+                                <div className={newclases.iconcircl}> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
                             </div>
                             <h3 className={newclases.noreview_title}>{`Discover More Savings Soon!`}</h3>
                             <p className={`${newclases.noreview_description} w-lg-50`} >{`It looks like there are no active deals at the moment at `}<b>{Despen[0]?.Store_Name}</b>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>
                             <p className={`${newclases.noreview_description} w-lg-50`}>{`In the meantime, explore the diverse range of products available at `}<b>{Despen[0]?.Store_Name}</b>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
                         </div>
                     }
+                </div>
+                <div>
+         
                 </div>
             </div>
         </div>
@@ -477,10 +530,40 @@ export default function DispensoriesDetails(props) {
 }
 
 
+const fetchDispensariesAndProducts = async (id, country, state, city) => {
+    const object2 = {
+        City: city,
+        State: state,
+        Country: country,
+        limit: 10
+    };
 
+    try {
+        // Fetch dispensaries and products concurrently
+        const [dispensariesResponse, productsResponse ,  review] = await Promise.all([
+            axios.post('https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/', object2, {
+                headers: { 'Content-Type': 'application/json' },
+            }),
+            fetch('https://api.cannabaze.com/UserPanel/Get-AllProduct/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(object2),
+            }),
+            
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReview/${id}`),
+        ]);
+        // Setallstore(dispensariesResponse.data);
+        const productsData = await productsResponse.json();
+        // Setallallproduct(productsData)
+        console.log(review)
+        return ([{ product: productsData, delivery: dispensariesResponse.data, review:review.data }])
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
 
 export async function getStaticPaths() {
-    const paths = []; 
+    const paths = [];
 
     return {
         paths,
@@ -492,10 +575,11 @@ export async function getStaticProps(context) {
     const storeId = _.findIndex(context.params.details, item => !isNaN(item) && !isNaN(parseFloat(item)));
     let data = [];
     let productdata = [];
-
+    let extradata = []
     try {
         const response = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${context.params.details[storeId]}`);
         const product = await axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`);
+        extradata = await fetchDispensariesAndProducts(context.params.details[storeId], response.data[0].Country, response.data[0].State, response.data[0].City)
         productdata = product.data;
         data = response.data;
     } catch (error) {
@@ -519,6 +603,9 @@ export async function getStaticProps(context) {
                         tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
                         storeData: data[0],
                         product: productdata,
+                        allProduct: extradata[0]?.product,
+                        storeDelivery: extradata[0]?.delivery,
+                        review: extradata[0]?.review
                     },
                 },
                 revalidate: 60, // Revalidate the page every 60 seconds
@@ -536,6 +623,9 @@ export async function getStaticProps(context) {
                         tab: !isNaN(parseInt(context.params.details[1])) ? "menu" : context.params.details[1],
                         storeData: data[0],
                         product: productdata,
+                        allProduct: extradata[0]?.product,
+                        storeDelivery: extradata[0]?.delivery,
+                        review: extradata[0]?.review
                     },
                 },
                 revalidate: 60,
