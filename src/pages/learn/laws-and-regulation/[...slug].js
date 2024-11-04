@@ -11,7 +11,7 @@ const Index = (props) => {
   const router = useRouter()
   return (
     <React.Fragment>
-      <LawState Title={`Cannabis Law in ${props?.initialData?.name}`} State={props?.initialData?.Country} location={router.asPath}></LawState>
+      <LawState Title={`Cannabis Law in ${props?.initialData?.name}` === "Yukon" ? "Cannabis Laws in Yukon, Canada | Legal Age, Possession & Rules" : `Cannabis Law in ${props?.initialData?.name}`} State={props?.initialData?.Country} location={router.asPath}></LawState>
       <div className="container-fluid">
         <div className="row">
           <div className='bgHedaer'>

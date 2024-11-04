@@ -25,6 +25,7 @@ const Index = (props) => {
     setValue(newValue);
     router.push(newValue);
   };
+
   return (
     <div className="container-fluid">
       <Law location={router.asPath}></Law>

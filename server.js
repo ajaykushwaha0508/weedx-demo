@@ -568,6 +568,11 @@ app.prepare().
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
+  <url>
+		<loc>http://localhost:3000/learn/laws-and-regulation/cannabis-law-in-yukon/40</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
 </urlset>`);
           res.end();
 
@@ -701,3 +706,11 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
     });
 
   });
+
+
+//   <loc>https://www.weedx.io/weed-dispensaries/in/romania/bucure-ti/bucure-ti-sectorul-1/calea-floreasca</loc>
+// <changefreq>daily</changefreq>
+// <priority>0.8</priority>
+// </url>
+// <url>
+// <loc>https://www.weedx.io/weed-dispensaries/in/romania/bucure-ti/bucure-ti-sectorul-1/bulevardul-dinicu-golescu</loc>

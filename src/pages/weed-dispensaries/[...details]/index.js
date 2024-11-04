@@ -116,7 +116,7 @@ export default function DispensoriesDetails(props) {
     function SelectionTab(item) {
         if (Boolean(location.asPath.slice(0, 16) === "/weed-deliveries") || Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries")) {
 
-            navigate.replace(`${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${modifystr(item)}/${id}`, 0, { shallow: true })
+            navigate.replace( item === "Menu" ? `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${id}` : `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${modifystr(item)}/${id}`, 0, { shallow: true })
         }
         else {
             navigate.replace(`/menu-integration/${modifystr(Despen[0]?.Store_Name)}/${modifystr(item)}/${id}`, 0, { shallow: true })
