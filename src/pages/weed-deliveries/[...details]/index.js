@@ -35,7 +35,7 @@ export default function DispensoriesDetails(props) {
     var { id, storeData, product , allProduct  , storeDelivery , review} = props.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
-    var DespensariesData = product
+    const [DespensariesData, setproduct] = React.useState(product || [])
     const [categoryProduct, SetCategoryProduct] = React.useState([])
     const data = false
     const { state, dispatch } = React.useContext(Createcontext)
@@ -322,7 +322,7 @@ export default function DispensoriesDetails(props) {
           title: `What are the delivery hours for  ${Despen[0]?.Store_Name}?`,
           answer: (
             <div>
-              <span>${Despen[0]?.Store_Name}</span>
+              <span>{Despen[0]?.Store_Name}</span>
               <span>{` offers delivery from`}</span>
     
               {Despen[0]?.Hours?.map((items, idxe) => {
@@ -430,7 +430,7 @@ export default function DispensoriesDetails(props) {
                                                 <ProductFilter Store_id={Despen[0]?.id}
                                                     id={id}
                                                     ProductFilterData={ProductFilterData}
-                                                    Setarr1={DespensariesData}
+                                                    Setarr1={setproduct}
                                                     arr={DespensariesData}
                                                 />
                                                 <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>

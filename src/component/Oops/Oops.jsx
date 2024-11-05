@@ -113,7 +113,7 @@ const Oops = (props) => {
       title: `What are the delivery hours for  ${props?.delBtn[0]?.Store_Name}?`,
       answer: (
         <div>
-          <span>${props?.delBtn[0]?.Store_Name}</span>
+          <span>{props?.delBtn[0]?.Store_Name}</span>
           <span>{` offers delivery from`}</span>
 
           {props?.delBtn[0]?.Hours?.map((items, idxe) => {

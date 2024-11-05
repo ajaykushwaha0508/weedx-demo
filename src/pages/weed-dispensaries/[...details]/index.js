@@ -36,7 +36,7 @@ export default function DispensoriesDetails(props) {
     const { id, storeData, product, review } = props.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
-    const DespensariesData = product
+    const [DespensariesData, setproduct] = React.useState(product || [])
     const [categoryProduct, SetCategoryProduct] = React.useState([])
     const data = false
     const { state, dispatch } = React.useContext(Createcontext)
@@ -116,7 +116,7 @@ export default function DispensoriesDetails(props) {
     function SelectionTab(item) {
         if (Boolean(location.asPath.slice(0, 16) === "/weed-deliveries") || Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries")) {
 
-            navigate.replace( item === "Menu" ? `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${id}` : `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${modifystr(item)}/${id}`, 0, { shallow: true })
+            navigate.replace(item === "Menu" ? `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${id}` : `${location.asPath.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${modifystr(Despen[0]?.Store_Name)}/${modifystr(item)}/${id}`, 0, { shallow: true })
         }
         else {
             navigate.replace(`/menu-integration/${modifystr(Despen[0]?.Store_Name)}/${modifystr(item)}/${id}`, 0, { shallow: true })
@@ -300,80 +300,80 @@ export default function DispensoriesDetails(props) {
     }
     const faq1 = [
         {
-          title: `Where is ${Despen[0]?.Store_Name} located?`,
-          answer:
-            <span
-              dangerouslySetInnerHTML={{
-                __html: ` ${Despen[0].Store_Name} is located at  <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Despen[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Store_Address}</a>`
-              }}
+            title: `Where is ${Despen[0]?.Store_Name} located?`,
+            answer:
+                <span
+                    dangerouslySetInnerHTML={{
+                        __html: ` ${Despen[0].Store_Name} is located at  <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Despen[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Store_Address}</a>`
+                    }}
+                />
+        },
+        {
+            title: `What are the operating hours of ${Despen[0]?.Store_Name}?`,
+            answer: (
+                <div>
+                    {Despen[0]?.Hours?.map((items, idxe) => {
+                        const isToday = day.getDay() - 1 === idxe;
+                        if (items.close) {
+                            return (
+                                <p
+                                    key={idxe}
+                                    className={`${isToday ? "highlightToday" : ""} d-flex`}>
+                                    <span className="w-50">{`${items.day} `}</span>
+                                    <span className="w-50">Close</span>
+                                </p>
+                            );
+                        } else {
+                            return items.Open?.map((ite, index) => {
+                                if (index === 0) {
+                                    if (ite.Time1 === "24 Hours" || ite.Time2 === "24 Hours") {
+                                        return (
+                                            <p
+                                                key={index}
+                                                className={`${isToday ? "highlightToday" : ""} d-flex`}
+                                            >
+                                                <span className="w-50">{`${items.day} `}</span>
+                                                <span className="w-50">24 Hours</span>
+                                            </p>
+                                        );
+                                    } else if (ite.Time1 === "00:00" || ite.Time2 === "00:00") {
+                                        return (
+                                            <p
+                                                key={index}
+                                                className={`${isToday ? "highlightToday" : ""} d-flex`}
+                                            >
+                                                <span className="w-50">{`${items.day} `}</span>
+                                                <span className="w-50">Closed</span>
+                                            </p>
+                                        );
+                                    } else {
+                                        return (
+                                            <p
+                                                key={index}
+                                                className={`${isToday ? "highlightToday" : ""} d-flex`}
+                                            >
+                                                <span className="w-50">{`${items.day} `}</span>
+                                                <span className="w-50">{`${ite.Time1} - ${ite.Time2}`}</span>
+                                            </p>
+                                        );
+                                    }
+                                }
+                                return null;
+                            });
+                        }
+                    })}
+                </div>
+            )
+        },
+        {
+            title: `How can I contact ${Despen[0]?.Store_Name}?`,
+            answer: <span
+                dangerouslySetInnerHTML={{
+                    __html: `You can contact ${Despen[0].Store_Name} by phone at <a  href="tel:${Despen[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Stores_MobileNo}</a>`
+                }}
             />
-        },
-        {
-          title: `What are the operating hours of ${Despen[0]?.Store_Name}?`,
-          answer: (
-            <div>
-              {Despen[0]?.Hours?.map((items, idxe) => {
-                const isToday = day.getDay() - 1 === idxe;
-                if (items.close) {
-                  return (
-                    <p
-                      key={idxe}
-                      className={`${isToday ? "highlightToday" : ""} d-flex`}>
-                      <span className="w-50">{`${items.day} `}</span>
-                      <span className="w-50">Close</span>
-                    </p>
-                  );
-                } else {
-                  return items.Open?.map((ite, index) => {
-                    if (index === 0) {
-                      if (ite.Time1 === "24 Hours" || ite.Time2 === "24 Hours") {
-                        return (
-                          <p
-                            key={index}
-                            className={`${isToday ? "highlightToday" : ""} d-flex`}
-                          >
-                            <span className="w-50">{`${items.day} `}</span>
-                            <span className="w-50">24 Hours</span>
-                          </p>
-                        );
-                      } else if (ite.Time1 === "00:00" || ite.Time2 === "00:00") {
-                        return (
-                          <p
-                            key={index}
-                            className={`${isToday ? "highlightToday" : ""} d-flex`}
-                          >
-                            <span className="w-50">{`${items.day} `}</span>
-                            <span className="w-50">Closed</span>
-                          </p>
-                        );
-                      } else {
-                        return (
-                          <p
-                            key={index}
-                            className={`${isToday ? "highlightToday" : ""} d-flex`}
-                          >
-                            <span className="w-50">{`${items.day} `}</span>
-                            <span className="w-50">{`${ite.Time1} - ${ite.Time2}`}</span>
-                          </p>
-                        );
-                      }
-                    }
-                    return null;
-                  });
-                }
-              })}
-            </div>
-          )
-        },
-        {
-          title: `How can I contact ${Despen[0]?.Store_Name}?`,
-          answer: <span
-            dangerouslySetInnerHTML={{
-              __html: `You can contact ${Despen[0].Store_Name} by phone at <a  href="tel:${Despen[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Stores_MobileNo}</a>`
-            }}
-          />
         }
-      ];
+    ];
     return (
         <div>
             <div>
@@ -416,11 +416,14 @@ export default function DispensoriesDetails(props) {
                                             <ProductFilter Store_id={Despen[0]?.id}
                                                 id={id}
                                                 ProductFilterData={ProductFilterData}
-                                                Setarr1={DespensariesData}
+                                                Setarr1={setproduct}
                                                 arr={DespensariesData}
                                             />
                                             <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData.slice(0, 4)} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                {/* <div className="col-12 d-flex justify-content-sm-center ">
+                                                    <button>{"View more product"}</button>
+                                                </div> */}
                                             </div>
                                             <Reviewextrs AllReview={AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
                                             <Fqa faq={faq1} ></Fqa>
@@ -458,7 +461,7 @@ export default function DispensoriesDetails(props) {
                                         <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
                                             <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                         </div>
-                             
+
                                     </div>
                                         :
                                         <Oops />
@@ -502,7 +505,7 @@ export default function DispensoriesDetails(props) {
                             <p className={`${newclasess.noreview_description} w-lg-50`}>{`In the meantime, explore the diverse range of products available at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. We're constantly working to bring you the best deals, so stay tuned for upcoming promotions.`}</p>
                         </div>
                     }
-                  
+
                 </div>
             </div>
         </div>
