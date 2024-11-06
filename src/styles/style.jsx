@@ -306,13 +306,12 @@ const useStyles = makeStyles({
       border: "1px solid #31B665",
       borderRadius: "0 25px 25px 0 ",
       minWidth: "100%",
+      height:'100%',
       textTransform: "none",
     },
-    "&.MuiButtonBase-root:hover": {
-
+    "&.MuiButtonBase-root:hover":{
       color: "white",
       background: "#31B665",
-      
     },
     '@media (max-width: 350px)': {
      "&.MuiButtonBase-root":{
@@ -1449,8 +1448,10 @@ const useStyles = makeStyles({
       border: "1px solid #31B665"
     },
     "& .MuiButtonBase-root:hover": {
-      backgroundColor: "#31B665",
-      border: "1px solid #31B665"
+      backgroundColor: "#fff",
+      border: "1px solid #31B665",
+      color:'#31B655',
+      transition:'all .3s ease'
     },
     deliveryServiceBox: {
       "& .css-y061pl": {

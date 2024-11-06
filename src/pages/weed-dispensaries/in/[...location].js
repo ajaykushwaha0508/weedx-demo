@@ -8,11 +8,10 @@ import useStyles from "@/styles/style";
 import dynamic from 'next/dynamic'
 const WeedDispansires = dynamic(() => import('../../../component/WeedDispansires/Weed_Dispansires'));
 const DispensariesSco = dynamic(() => import('../../../component/ScoPage/dispensariessco'), { ssr: true });
-// import { DispensariesSco } from "../ScoPage/dispensariessco"
 import Createcontext from "@/hooks/context"
 // import { useRouter } from 'next/router';
 import Wronglocation from "../../../component/skeleton/Wronglocation";
-import { modifystr } from "../../../hooks/utilis/commonfunction";
+import { modifystr,isShopOpen } from "../../../hooks/utilis/commonfunction";
 import Location from '../../../hooks/utilis/getlocation';
 import Cookies from 'universal-cookie';
 import cookie from 'cookie';
@@ -228,6 +227,7 @@ const Dispensaries = (props) => {
         // }
 
     }
+    console.log(props.store)
     return (
         <div className="w-100 mx-auto  dispensaries_centers">
             <DispensariesSco location={navigate?.asPath} format_Address={props?.formatted_address} ></DispensariesSco>
@@ -264,16 +264,24 @@ const Dispensaries = (props) => {
                             </Box>
                             <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
                                 <TabPanel value={value} index={0}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    <WeedDispansires Store={props.store.filter((item)=>{
+                                      return isShopOpen([item])
+                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={1}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    <WeedDispansires Store={props.store.filter((item)=>{ 
+                                        return item.StoreFront === true
+                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    <WeedDispansires Store={props.store.filter((item)=>{
+                                        return item?.Order_Type === "Delivery"
+                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
-                                    <WeedDispansires Store={props.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    <WeedDispansires Store={props.store?.filter((item)=>{
+                                        return item?.Delivery
+                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                             </Box>
                         </Box>

@@ -15,12 +15,12 @@ import Link from "next/link";
 import { makeStyles } from "@material-ui/core/styles";
 import Loader from "@/component/Loader/Loader";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-const usePlaceholderStyles = makeStyles(theme => ({
-  placeholder: {
-    color: "#aaa",
-    fontWeight: '400'
-  }
-}));
+// const usePlaceholderStyles = makeStyles(theme => ({
+//   placeholder: {
+//     color: "#aaa",
+//     fontWeight: '400'
+//   }
+// }));
 const NewProductDetails = (props) => {
   const { id } = props.id;
   const StoreProduct =  props.likeproduct
@@ -236,7 +236,7 @@ const NewProductDetails = (props) => {
   //  },[Product])
   // console.log(`${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}` )
 
-
+console.log(props , 'props props propsprops ')
   return (
     <div className="container-fluid">
 
@@ -327,20 +327,15 @@ const NewProductDetails = (props) => {
   )
 }
 export default NewProductDetails
-
 export async function getServerSideProps(context) {
   const { category, subcategory, name, id } = context.params;
-
-  // Fetch the product data by id
   const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`);
   const data = await res.json();
-
   if (!data || data.length === 0) {
     return {
       notFound: true,
     };
   }
-
   const actualCategory = modifystr(data[0].category_name); 
   const actualSubcategory = modifystr(data[0].SubcategoryName); 
   const actualName = modifystr(data[0].Product_Name); 
@@ -350,7 +345,6 @@ export async function getServerSideProps(context) {
         notFound: true, // Redirect to 404 if no data found
     };
   }
-
   const response = await fetch('https://api.cannabaze.com/UserPanel/YouMayAlsoLike/', {
     method: 'POST',
     headers: {
@@ -361,11 +355,9 @@ export async function getServerSideProps(context) {
       store_id: data[0].Store_id,
     }),
   });
-
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
-
   const responseData = await response.json();
 
   return {

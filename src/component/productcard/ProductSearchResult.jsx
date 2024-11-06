@@ -27,6 +27,7 @@ import { Navigation } from 'swiper/modules';
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import Image from "next/image";
 const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProductID, title, link = "products" }) => {
+    console.log(RelatedProductResult ,'cfgnsdfjg fuisn ')
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();

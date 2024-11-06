@@ -13,7 +13,6 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
     const [CommentCardArrays, SetCommentCardArray] = React.useState()
     React.useEffect(() => {
         SetCommentCardArray(Getcommnet.UserComment)
-
     }, [Getcommnet.UserComment])
     const [currentPage, setCurrentPage] = React.useState(1);
     const [postsPerPage] = React.useState(5);
@@ -33,12 +32,11 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
             setCurrentPage(currentPage + 1);
         }
     };
-   
     return (
         <section className="px-0" >
             <div className="col-12 blogsCommentCountCol">
                 <div className="col-6">
-                    <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>
+                    <h2 className="blogsCommentheadings">{'Comments'} {CommentCardArrays?.length && CommentCardArrays?.length}</h2>
                 </div>
                 <div className="col-6 blogCommentCardArrowBtn">
                     {ShowCards ? (
@@ -47,7 +45,6 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                         <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowDown /></IconButton>
 
                     )}
-
                 </div>
             </div>
             {
@@ -94,7 +91,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                             })}
                             <BlogPaginate
                                 postsPerPage={postsPerPage}
-                                totalPosts={CommentCardArrays.length}
+                                totalPosts={CommentCardArrays?.length}
                                 paginate={paginate}
                                 previousPage={previousPage}
                                 nextPage={nextPage}

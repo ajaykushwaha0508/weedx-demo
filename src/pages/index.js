@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { HomePageSco } from "../component/ScoPage/HomePageSco"
 import dynamic from 'next/dynamic'
 const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'));
+const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const CategoryProduct = dynamic(() => import('../component/category/category'));
 const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
 const HomePageWeedBanner = dynamic(() => import('../component/home/HomePageWeedBanner'));
@@ -50,6 +51,7 @@ export default function Home({ initialData }) {
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <NewsBlog data={initialData.news}></NewsBlog>
+      <HomePageDealsSignup/>
     </>
   );
 }

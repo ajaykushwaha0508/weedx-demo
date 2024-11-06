@@ -362,9 +362,9 @@ export default function DispensoriesDetails(props) {
                                         </div>
                                     </>
                                     :
-                                 
-                                    <Oops/>
-
+                                    <div>
+                                      <Oops/>
+                                    </div>
                                 ) :
                                 (!productload ?
                                     (Boolean(DespensariesData.length) ? 
@@ -499,4 +499,3 @@ export async function getStaticProps(context) {
         }
     }
 }
-

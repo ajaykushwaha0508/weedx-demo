@@ -374,7 +374,7 @@ const Blogs = (props) => {
 
                                         <BlogPaginate
                                             postsPerPage={postsPerPage}
-                                            totalPosts={CommentCardArrays.length}
+                                            totalPosts={CommentCardArrays?.length}
                                             paginate={paginate}
                                             previousPage={previousPage}
                                             nextPage={nextPage}

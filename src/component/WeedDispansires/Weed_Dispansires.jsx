@@ -34,7 +34,7 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                             </div>
                         </div>
 
-                        <div className="d-flex flex-wrap gap-4 py-3">
+                        <div className="d-flex flex-wrap gap-xl-4 gap-lg-3 gap-md-4 gap-2  py-3">
                             {Store?.map((ele, index) => {
                                 return (<Dispensoriescart ele={ele} key={index} />)
                             })}
@@ -65,7 +65,6 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                                         </Accordion></div>
                                     })
                                 }
-
                             </div>
                         </>
                     }

@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import Link from 'next/link';
-import SearchBar from '@mkyy/mui-search-bar';
-import useStyles from "@/styles/style.jsx";
 import axios from "axios";
 import { useRouter } from 'next/router';
-import { BlogLike, Post_BlogLike } from "@/hooks/apicall/api.js"
+import { Post_BlogLike } from "@/hooks/apicall/api.js"
 import { FaRegHeart } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "@/component/ScoPage/NewsSeo";
-import DeliveryItemsCardSkeleton from '@/component/skeleton/DeliveryItemsCardSkeleton.jsx';
 import _ from "lodash";
 import Image from 'next/image';
 import Createcontext from '@/hooks/context.js';

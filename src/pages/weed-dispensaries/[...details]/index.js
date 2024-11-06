@@ -91,7 +91,6 @@ export default function DispensoriesDetails(props) {
         });
         
     }, [id])
-
     useEffect(() => {
 
         if (reviewtype === "All") {
@@ -111,7 +110,6 @@ export default function DispensoriesDetails(props) {
             }).catch(() => { })
         }
     }, [reviewtype, id, api])
-
     function SelectionTab(item) {
         if (Boolean(location.asPath.slice(0, 16) === "/weed-deliveries") || Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries")) {
 
@@ -123,7 +121,6 @@ export default function DispensoriesDetails(props) {
         }
 
     }
-    
     function ShowCategoryProduct(Id, name) {
         dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
@@ -147,7 +144,6 @@ export default function DispensoriesDetails(props) {
     { Id: 5, Name: "Weight", Type1: "Any", Type2: "$25", Price: "$100", Icons: <GiWeightScale className={classes.muiIcons} /> },
     { Id: 6, Name: "Unit", Type1: "Any", Type2: "$25", Price: "$100", Icons: <AiOutlineDeploymentUnit className={classes.muiIcons} /> },
     ]
-
     useEffect(() => {
         if (reviewtype === "product") {
             axios.post('https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/', {
@@ -236,7 +232,6 @@ export default function DispensoriesDetails(props) {
 
         })
     };
-
     function handleDelete(id) {
         Swal.fire({
             title: "Are you sure?",
@@ -295,7 +290,7 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-        return (
+    return (
 
       
         <div>

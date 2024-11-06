@@ -1731,127 +1731,18 @@ scrollbar-width: none;  /* Firefox */
   display: none;
 }
 .dispensories_search_result {
-  position: sticky;
-  top: 0px;
+
   z-index: 1;
 }
 
-.despensories_card_container {
-  height: auto;
-  background: #FFFFFF;
-  padding: 15px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  transition: all .4s ease-in;
-  border-radius: 5px;
-  position: relative;
-  width: 30%;
-}
-.despensories_card_container:hover{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
+
 .disOPenResRating {
   color: #fff;
   font-size: 12px;
   font-weight: 500;
 }
 
-.disensories_card_image_div {
-  height: auto;
 
-  display: grid;
-  place-items: center;
-}
-
-.dispenosries_card_content_div {
-  height: auto;
-  padding: 5px;
-}
-
-.dispensories_card_image {
-  width: 100%;
-  height: 50%;
-}
-/* 
-.dispensories_content_Header_paragraphs {
-  height: 30px;
-} */
-
-.dispensoriesHeadingName {
-  color: #282625;
-  font-size: 16px;
-  font-weight:bold;
-}
-
-.dispensories_content_paragraphs {
-  height: auto;
-  display: flex;
-  align-items: center;
-}
-
-.dispensorieAddressNames {
-  color: #949494;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.dispensories_open_res_btns {
-  border-style: none;
-  font-size: 12px;
-  color: #828282;
-  font-weight: 400;
-  padding: 0px 10px;
-}
-
-.dispensories_open_res_btns2 {
-  border-style: none;
-  margin-left: 10px;
-  font-size: 12px;
-  color: #828282;
-  padding: 0px 10px;
-
-}
-
-.dispensories_buttonsContainer {
-  gap: 0px;
-}
-
-.dispensories_pickup_btn {
-  border-style: none;
-  font-size: 12px;
-  color: #828282;
-  padding: 0px 10px;
-}
-
-.dis_open_result_star {
-  margin-inline: 10px;
-}
-
-.dispensoriesOpenResultHeadingss {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dispensories_result_head {
-  color: #282625;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-
-.dispensories_open_result_heading {
-  position: sticky;
-  top: 0px;
-}
-
-.dispensories_open_result_heading {
-  background-color: rgb(242, 243, 244);
-  border-bottom: 0.0625rem solid rgb(228, 229, 231);
-  z-index: 1;
-}
-
-
-/* ends */
 /* amenities */
 
 .mobile_view{
@@ -5914,6 +5805,7 @@ line-height: 2;
   }
   .newsletterFormFeild .newsletter_btn{
     width: 25%;
+    height: 40px;
   }
   .newsletterImage{
     max-width: 200px;
@@ -8544,9 +8436,6 @@ font-size: 24px;
     width: 50px;
     height: 50px;
   }
-  .despensories_card_container{
-    width: 100%;
-  }
   .myreviewBox{
     padding: 15px;
     width: 100%;
@@ -8601,27 +8490,6 @@ font-size: 24px;
     font-size: 12px;
   }
 
-  .dispensorieAddressNames {
-    font-size: 12px;
-  }
-
-  .dispensoriesHeadingName {
-    font-size: 12px;
-  }
-
-  .dispensories_open_res_btns {
-    font-size: 10px;
-  }
-
-  .dispensories_open_res_btns2 {
-    font-size: 10px;
-  }
-
-  .dispensories_pickup_btn {
-    font-size: 10px
-  }
-
-  
 }
 @media(max-width:380px) {
   .realtedVerifyBanner_image_inner_container {

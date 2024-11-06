@@ -39,8 +39,7 @@ const HomePageDealsSignup = () => {
     
 
     return (
-        <div className="mt-4">
-                <div className="col-12 HomePageDealsSignupContainer">
+                <div className="col-12 mt-4 HomePageDealsSignupContainer">
                     <div className='row'>
                         <div className='col-md-6 col-12 d-md-inline d-none'>
                             <div className='newsletterImage text-center'>
@@ -102,7 +101,6 @@ const HomePageDealsSignup = () => {
                     </div>
                  
                 </div>
-        </div >
     )
 }
 export default HomePageDealsSignup

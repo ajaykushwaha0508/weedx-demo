@@ -8,7 +8,7 @@ import useStyles from '../../../../../Style';
 import DeliveryItemsCard from "./DeliveryItemsCards";
 import Createcontext from "../../../../../Hooks/Context"
 import { Delivery } from '../../../../Component/ScoPage/Deliveries';
-import { GetAllDelivery } from "../../../../../Api/Api"
+import { GetAllDelivery } from "@/hooks/apicall/api"
 import { useLocation } from 'react-router-dom';
 const DeliveryMenuBar = () => {
     const location =  useLocation()
@@ -43,9 +43,7 @@ const DeliveryMenuBar = () => {
                         <Box className={`${classes.open_dispensory_tab_background} ${classes.open_dispensory_tab}`} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="lab API tabs example">
                                 <Tab label="Order Online" value="1" />
-                                {/* <Tab label="Order now" value="2" />
-                                <Tab label="Best of WeedX" value="3" /> */}
-                                {/* <Tab label="Recreational" value="4" /> */}
+                              
 
                             </TabList>
                         </Box>

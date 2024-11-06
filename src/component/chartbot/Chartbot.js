@@ -6,7 +6,8 @@ const Chartbot = () => {
             <div className='col-10 ' style={{
             textAlign: "end",
             position: "sticky",
-            bottom: 0
+            bottom: 0,
+            zIndex:3,
           }}>
             <div >   <FloatingWhatsApp
               phoneNumber="15303858664"
