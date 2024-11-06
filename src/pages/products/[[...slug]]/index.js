@@ -17,11 +17,12 @@ import { modifystr } from "@/hooks/utilis/commonfunction";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 const CategoryProduct = dynamic(() => import('@/component/category/category'), { ssr: true });
 const ProductSearchResult = dynamic(() => import('@/component/productcard/ProductSearchResult'), { ssr: true });
+import CircularProgress from '@mui/material/CircularProgress';
 import Image from "next/image";
 import cookies from 'next-cookies';
 import { setCookie } from 'nookies';
-
 const Product = (props) => {
+
     const navigate = useRouter();
     const { slug } = navigate.query;
     const Category = props.category
@@ -33,10 +34,10 @@ const Product = (props) => {
     const [Product, SetProduct] = React.useState([])
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-
-  React.useEffect(()=>{
-    SetProduct(props.product)
-  },[props])
+    const [nomareproduct, Setnomareproduct] = React.useState(false)
+    React.useEffect(() => {
+        SetProduct(props.product)
+    }, [props])
 
 
     async function ShowCategoryProduct(id, name) {
@@ -98,13 +99,14 @@ const Product = (props) => {
     }
 
 
-  const transformString = (str) => {
-    return str
-        ? str.replace(/-/g, " ").split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-        : '';
-};
+    const transformString = (str) => {
+        return str
+            ? str.replace(/-/g, " ").split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+            : '';
+    };
     async function moreProduct() {
-
+        // const [nomareproduct, Setnomareproduct] = React.useState(false)
+        SetLoading(true)
         const object = {
             City: transformString(props.location.city),
             Country: transformString(props.location.country),
@@ -120,9 +122,17 @@ const Product = (props) => {
         });
         const data = await response.json();
         if (data !== "No Product Found" && data.length !== 0) {
-            console.log(Product.length , data.length)
-            SetProduct(()=>data);
+            // console.log(Product.length , data.length)
+            if (Product.length === data.length) {
+
+                Setnomareproduct(true)
+            }
+            else {
+                SetLoading(false)
+                SetProduct(() => data);
+            }
         }
+
     }
     // categorya
 
@@ -174,41 +184,60 @@ const Product = (props) => {
                 }
                 <div className="col-12 center">
                     {
+                        props.product?.length !== 0 && props.product !== undefined ?
 
-                            
-                            props.product?.length !== 0 && props.product !== undefined ?
+                            <div className="col-12 mt-sm-4 mt-0">
+                                <ProductSearchResult RelatedProductResult={Product} title={navigate.query?.slug ? slug[0] : "All Product"} />
+                                <div className="d-flex justify-content-center">
+                                    {!slug &&
 
-                                <div className="col-12 mt-sm-4 mt-0">
-                                    <ProductSearchResult RelatedProductResult={Product} title={navigate.query?.slug ? slug[0] : "All Product"} />
-                                <div className="d-flex justify-content-center"><button onClick={moreProduct}>more Product</button></div>
+                                        <>
+                                            {!nomareproduct ?
+                                                <LoadingButton
+                                                sx={{
+                                                    color: "white",
+                                                    background: loading ? "white" : "#31b655",
+                                                    '&:hover': {
+                                                        background: loading ? "#ec971f" : "#279144" 
+                                                    }
+                                                }}
+                                                loadingIndicator={
+                                                    <CircularProgress  size={20} />                                                }
+                                                className="mt-2" loading={loading} onClick={moreProduct}>more Product</LoadingButton>
+                                                :
+                                                <p>No More Product</p>
+                                            }
+                                        </>
+                                    }
                                 </div>
-                                :
-                                <div className="container-fluid Product_Empty_container">
-                                    <div className="row">
-                                        <div className="col-12 EmtyCard_container">
-                                            <div className="row">
-                                                <div className="col-12 image_container">
-                                                    <div className="Empty_card_image">
-                                                        <Box className={classes.muiIcons}>
-                                                            <MdOutlineProductionQuantityLimits size={45} />
-                                                        </Box>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 center height_empty_div_heading">
-                                                    <h2>{`No Product Found`}</h2>
-                                                </div>
-                                                <div className="col-md-6 col-12 center height_empty_div_paragraph mx-auto text-center my-3 ">
-                                                    <p>{`Apologies, this page is currently empty, but stay tuned as we're working to bring you exciting products soon!`}</p>
-                                                </div>
-                                                <div className="col-12 center height_Empty_btnDiv mt-2">
-                                                    <Box className={`${classes.loadingBtnTextAndBack}`}  >
-                                                        <LoadingButton style={{ width: "100%", height: "100%" }} variant="outlined"  type={'submit'}>{`Shop now`}</LoadingButton>
+                            </div>
+                            :
+                            <div className="container-fluid Product_Empty_container">
+                                <div className="row">
+                                    <div className="col-12 EmtyCard_container">
+                                        <div className="row">
+                                            <div className="col-12 image_container">
+                                                <div className="Empty_card_image">
+                                                    <Box className={classes.muiIcons}>
+                                                        <MdOutlineProductionQuantityLimits size={45} />
                                                     </Box>
                                                 </div>
                                             </div>
+                                            <div className="col-12 center height_empty_div_heading">
+                                                <h2>{`No Product Found`}</h2>
+                                            </div>
+                                            <div className="col-md-6 col-12 center height_empty_div_paragraph mx-auto text-center my-3 ">
+                                                <p>{`Apologies, this page is currently empty, but stay tuned as we're working to bring you exciting products soon!`}</p>
+                                            </div>
+                                            <div className="col-12 center height_Empty_btnDiv mt-2">
+                                                <Box className={`${classes.loadingBtnTextAndBack}`}  >
+                                                    <LoadingButton style={{ width: "100%", height: "100%" }} variant="outlined" type={'submit'}>{`Shop now`}</LoadingButton>
+                                                </Box>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>}
+                                </div>
+                            </div>}
                 </div>
             </div>
         </React.Fragment>)
