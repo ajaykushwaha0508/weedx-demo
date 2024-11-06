@@ -115,6 +115,7 @@ const Navbar = () => {
                                     </div>
                             }
                         </Grid>
+                        
                         <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                             <div className={clases.Heder_icon} >
                                 <Link href="/whislists">

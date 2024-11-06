@@ -510,7 +510,7 @@ scrollbar-width: none;  /* Firefox */
 
 .PopperLIst {
   list-style: none;
-  display: flex;
+  display: grid;
   gap: 10px;
   padding-left: 20px;
 }
@@ -1735,7 +1735,19 @@ scrollbar-width: none;  /* Firefox */
   z-index: 1;
 }
 
-
+.despensories_card_container {
+  height: auto;
+  background: #FFFFFF;
+  padding: 15px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all .4s ease-in;
+  border-radius: 5px;
+  position: relative;
+  width: 30%;
+}
+.despensories_card_container:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 .disOPenResRating {
   color: #fff;
   font-size: 12px;
@@ -7298,7 +7310,9 @@ margin-top: 100px;
   .despensories_card_container {
     width: 48%;
   }
-
+  .despensories_card_container1 {
+    width: 48%;
+  }
   .Display_blog {
     display: block;
   }
@@ -7462,6 +7476,9 @@ margin-top: 100px;
     }
 
     .despensories_card_container {
+      width: 100%;
+    }
+    .despensories_card_container1 {
       width: 100%;
     }
   .homePageSignup_paragraph p {
@@ -8520,10 +8537,12 @@ font-size: 24px;
 }
 
 .no-result{
-  width: 100%;
+  /* width: 100%; */
   list-style: none;
 }
 .no-result p{
+  position: sticky;
+  top: 38%;
   text-align: center;
   margin: 0;
   color: #31B655;
@@ -8532,4 +8551,74 @@ font-size: 24px;
 
 .Mui-focusVisible{
   background-color: rgb(238, 238, 238);
+}
+
+
+
+.oopsreviewheading{
+ font-weight: 700;
+ size: 36px;
+ line-height: 24px;
+
+}
+
+.description-text p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+@media (max-width:390px) {
+  .description-text p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+.nearbyStore{
+  font-weight: 700;
+  size: 36px;
+  line-height: 30px;
+}
+.nearbystoreheading{
+  color: #6A6A6A;
+font-size: 16px;
+font-weight: 600;
+line-height: 25px;
+text-align: left;
+
+}
+@media (max-width:1036px) {
+  .nearbystoreheading{
+  font-size: 14px;
+  }
+}
+
+@media (max-width:400px) {
+  .nearbystoreheading{
+  display: none;
+  }
+  .nearbyStore{
+    font-size: 16px;
+  }
+  .oopsreviewheading{
+   font-size: 14px;
+   }
+}
+
+
+.cardnamerating{
+display: contents;
+} 
+@media (max-width:400px) {
+  .cardnamerating{
+    display: block;
+    } 
+   
+}
+.highlightToday{
+  color: #31B655;
 }

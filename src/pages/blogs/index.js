@@ -2,8 +2,6 @@ import React from 'react'
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import Link from 'next/link';
-// import SearchBar from '@mkyy/mui-search-bar';
-// import useStyles from "@/styles/style.jsx";
 import axios from "axios";
 import { useRouter } from 'next/router';
 import { BlogLike, Post_BlogLike } from "@/hooks/apicall/api.js"

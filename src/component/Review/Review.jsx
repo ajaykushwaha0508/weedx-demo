@@ -58,7 +58,6 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
             {
                 noofreview !== 0 ?
                     <div className="row">
-                        
                         <div className={`col-md-5 col-12 ${newclases.reviews_description}`}>
                             <OverAllReview
                                 Rating={Rating}

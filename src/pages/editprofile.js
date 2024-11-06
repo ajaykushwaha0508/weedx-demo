@@ -27,9 +27,9 @@ const EditProfile = () => {
         accessToken = localStorage.getItem('User_Token_access');
 
     }
-    if(  Boolean(accessToken) ){ token_data  =  accessToken};
+    if(Boolean(accessToken)){token_data=accessToken};
    React.useEffect(()=>{
-    SetProfile((prevProfile) => { return  state.Profile  });
+    SetProfile((prevProfile) => {return  state.Profile});
    },[])
     const [Api, SetApi] = React.useState(false)
     const [selectedImage, setSelectedImage] = React.useState(null);
@@ -37,7 +37,7 @@ const EditProfile = () => {
     React.useEffect(() => {
         if (Boolean(token_data)) {
             const config = {
-                headers: { Authorization: `Bearer ${token_data}` }
+                headers: {Authorization: `Bearer ${token_data}` }
             };
 
             Axios.get(`https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
@@ -58,20 +58,11 @@ const EditProfile = () => {
         compressImage(file)
     }
     const compressImage = (file) => {
-        Resizer.imageFileResizer(
-            file,
-            300, // max width
-            300, // max height
-            'webp', // compress format
-            70, // quality
-            0, // rotation
-            (uri) => {
-                setSelectedImage(URL.createObjectURL(uri))
+    
+                setSelectedImage(URL.createObjectURL(file))
                 SetError('')
-                Submit(uri)
-            },
-            'file' // output type
-        );
+                Submit(file)
+        
     };
     const Submit = (w) => {
         const formdata = new FormData();
@@ -154,13 +145,13 @@ const EditProfile = () => {
                                         />
                                 }
                             </div>
-                            {/* <div className="w-100 profileInput_container">
+                            <div className="w-100 profileInput_container">
                                 <label for="profile image" className="change_profile_container_padding loginwithgoogle">
                                     <input onChange={(event) => { handleImage(event) }}  type="file"  accept="image/*" multiple={false} hidden id="profile image" />
                                     <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">{`Change profile`}</span>
                                     {Error !== '' && <p style={{ color: "red", fontSize: 'x-small' }}>{Error}</p>}
                                 </label>
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>

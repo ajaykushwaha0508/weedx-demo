@@ -9,7 +9,9 @@ import { Rating } from '@mui/material';
 import { modifystr , isShopOpen } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
 import newclases from '@/styles/customstyle.module.scss'
-const Dispensoriescart = ({ ele }) => {
+const Dispensoriescart = (props) => {
+    const {ele ,classdefalut} = props 
+
   const classes = useStyles()
   return (
     <div className={newclases.despensories_card_container}>

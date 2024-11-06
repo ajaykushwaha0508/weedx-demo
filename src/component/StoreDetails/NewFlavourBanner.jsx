@@ -47,7 +47,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                             </div>
                         </div>
                         <div className="d-inline">
-                                    <h2 className={clases.StoreHeader_Heading}>{data.Store_Name}</h2>
+                                    <h1 className={clases.StoreHeader_Heading}>{data.Store_Name}</h1>
                                     <div className='d-flex gap-2 align-items-center'>
                                         <IoLocationSharp /><h4 id='' className={clases.newFlavourBannerSubHead}>{data.Store_Address}</h4>
                                     </div>

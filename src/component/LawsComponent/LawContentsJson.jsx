@@ -17,7 +17,7 @@ const Content = [
                     },
                     {
                         title: "Introduction",
-                            content: `<div>
+                        content: `<div>
                                 <p>In the southeastern corner of the United States, Alabama stands as a state known for its rich history and cultural tapestry. However, when it comes to marijuana, the state's legal landscape is not as diverse. It sheds light on Alabama's marijuana laws, exploring its legality, legislative journey, possession limits, purchasing options, consumption restrictions, lab testing protocols.</p>
                             </div>`
                     },
@@ -29,7 +29,7 @@ const Content = [
                     },
                     {
                         title: "Legislation History",
-                        content:` <div>
+                        content: ` <div>
                             <p>In 2014, Governor Robert Bentley introduced a modification to Alabama's criminal code, referred to as Carly's Law. This amendment allowed the University of Alabama at Birmingham (UAB) to administer non-psychoactive CBD oil to children suffering from seizures for a clinical study.</p>
                             <p>In the subsequent year, Senator Bobby Singleton proposed the Medical Marijuana Patient Safe Access Act, which aimed to grant patients with 25 severe medical conditions access to medical cannabis. Unfortunately, this bill did not progress to a Senate floor vote.</p>
                             <p>Fast forward to July 1, 2016, when Leni's Law was enacted as an amendment to Carly's Law. This revision granted the permanent use and possession of CBD oil to individuals diagnosed with debilitating medical conditions, as determined by their physicians.</p>
@@ -56,7 +56,7 @@ const Content = [
                     },
                     {
                         title: "Where is it Safe to Consume cannabis in Alabama?",
-                            content: `<div>
+                        content: `<div>
                                 <p>
                                     For both recreational and medical users, public consumption of marijuana is strictly prohibited in Alabama. This includes public places, vehicles, and areas where tobacco smoking is restricted.
                                 </p>
@@ -75,7 +75,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                             <ol>
                                 <li>Can I use medical marijuana for any medical condition?</li>
                                 <p>No, the Compassion Act specifies a list of qualifying conditions, including chronic pain, cancer, epilepsy, and more. Consultation with a qualified medical professional is essential to determine eligibility.</p>
@@ -107,7 +107,7 @@ const Content = [
                 },
                 {
                     title: "Legislation history",
-                    content:` <div>
+                    content: ` <div>
                         <p>Alaska was the second state in the U.S. to decriminalize cannabis after President Richard Nixon passed the Comprehensive Drug Abuse Prevention and Control Act in 1971. In 1975,
                             the state legislature imposed a $100 fine for possession, effectively decriminalizing the plant while stopping short of legalizing it.</p>
                         <p>Also that year the Alaska Supreme Court ruled in Ravin v. State that Alaskan adults had the right to use and possess a small amount of cannabis for personal use, according to Alaska's constitutional rights to personal privacy. In 1982, the $100 fine was removed. In 1986,
@@ -130,7 +130,7 @@ const Content = [
                 },
                 {
                     title: "Where is it safe to purchase weed in Alaska?",
-                    content:` <div>
+                    content: ` <div>
                         <p>Under Measure 2, adults 21 and older are able to purchase and consume cannabis from state-licensed retailers and establishments with a valid onsite consumption endorsement.
                             They are able to purchase up to 1 ounce (28.35 grams) of marijuana,
                             7 grams of cannabis concentrate, or total cannabis with fewer than 5.6 grams of THC.
@@ -145,14 +145,14 @@ const Content = [
                 },
                 {
                     title: "Where is it safe to consume cannabis?",
-                    content:` <div>
+                    content: ` <div>
                         <p>Public cannabis consumption is prohibited by state law. Legal consumption may occur on private property or in an establishment with a valid onsite consumption endorsement.
                             Adults can consume flower, edibles, concentrates, oils, tinctures, salves, drinks, patches, and topical cannabis products.</p>
                     </div>`
                 },
                 {
                     title: "Possessing cannabis",
-                    content:` <div>
+                    content: ` <div>
                         <p>Legal consumers may possess 1 ounce (28.35 grams) of any form of marijuana.
                             They may also give, but not sell, up to 1 ounce of marijuana and six immature plants to a person who is 21 or older.</p>
                         <p>Consumers may carry cannabis in their vehicles while within, but it must be in a sealed container or in the trunk.
@@ -173,7 +173,7 @@ const Content = [
                 },
                 {
                     title: "Medical marijuana registry",
-                    content:` <div>
+                    content: ` <div>
                         <p>Alaska's Department of Health and Social Services runs the Medical Marijuana Registry.
                             Patient and caregiver application forms are available on the agency's website.</p>
                        <h2>Qualifying conditions</h2>
@@ -185,7 +185,7 @@ const Content = [
                 },
                 {
                     title: "Patient qualifications",
-                    content:` <div>
+                    content: ` <div>
                         <p>Patients must be diagnosed with one of the above debilitating conditions to qualify for medical marijuana use.
                             To apply, patients must obtain a signed physician's statement and have received an examination in the 16 months prior to application</p>
                         <p>If a patient is a minor, a parent or guardian must submit a signed statement that the physician has explained the risks and benefits of medical marijuana.
@@ -237,7 +237,7 @@ const Content = [
                 },
                 {
                     title: "Frequently asked questions",
-                    content:` <div>
+                    content: ` <div>
                        <h2>When did Alaska legalize recreational weed?</h2>
                         <p>With the passage of Measure 2 in 2014, Alaska became the third state to legalize recreational cannabis. </p>
                        <h2>What policy made it recreational to smoke weed in Alaska?</h2>
@@ -279,7 +279,7 @@ const Content = [
                 },
                 {
                     title: "Purchasing cannabis",
-                    content:` <div>
+                    content: ` <div>
                         <p>Adults 21 and older and patients and caregivers in the ADHS registry can purchase marijuana from a nonprofit state-licensed dispensary.
                             Both groups may purchase cannabis flower, extracts, edibles, topicals, salves, and capsules.</p>
                         <p>Adults can buy up to 1 ounce (28 grams) of cannabis with no more than 5 grams in the form of concentrates from a “marijuana establishment.”
@@ -294,7 +294,7 @@ const Content = [
                 },
                 {
                     title: "Finding licensed dispensaries in Arizona",
-                    content:` <div>
+                    content: ` <div>
                          <p>
                             Adult-use and medical marijuana card holders can find licensed dispensaries in Arizona and search by major metro areas including Phoenix, Tempe, and Tucson. Some dispensaries in Arizona offer delivery and curbside pickup services in addition to storefront sales.
                         </p>
@@ -302,7 +302,7 @@ const Content = [
                 },
                 {
                     title: "Where is it safe to consume cannabis?",
-                    content:` <div>
+                    content: ` <div>
                         <p>It is legal for medical patients or adults to consume cannabis in private. Patients may consume edibles in public. </p>
                         <p>It is illegal for drivers and passengers to consume cannabis in any type of vehicle. Driving under the influence is also prohibited</p>
                         <p>Any nursing care institution may adopt reasonable rules to regulate the use of medical cannabis by their residents. However, they may not unreasonably limit a registered patient's medical cannabis use unless doing so would cause the facility to lose monetary or licensing-related benefits under federal regulations.</p>
@@ -310,7 +310,7 @@ const Content = [
                 },
                 {
                     title: "Possessing cannabis",
-                    content:` <div>
+                    content: ` <div>
                         <p>While adult-use and medical marijuana is legal in Arizona, there are still legal limits to how much one may possess. </p>
                         <p>Adults 21 and older may possess up to 1 ounce (28 grams) of marijuana or cannabis-infused products with no more than 5 grams of it in concentrate form. </p>
                         <p>Adults may also give away up to 1 ounce (28 grams) of cannabis to another adult 21. </p>
@@ -328,7 +328,7 @@ const Content = [
                 },
                 {
                     title: "Medical marijuana registry",
-                    content:` <div>
+                    content: ` <div>
                         <p>Adults and patients younger than 18 must meet certain requirements for ADHS approval before being placed on the medical marijuana registry. For minors, the parent or legal guardian must be designated as their caregiver.</p>
                         <p>Adults are not required to designate a caregiver, but can choose to designate one as needed. A registered patient may designate a caregiver to assist with medical marijuana purchases and deliveries, as well as administration and cultivation of medical marijuana. Arizona law specifies that only a qualified patient can apply for a designated caregiver.</p>
                        
@@ -346,7 +346,7 @@ const Content = [
                 },
                 {
                     title: "Qualifying conditions",
-                    content:` <div>
+                    content: ` <div>
                          <ul>
                             <li>Alzheimer's disease</li><li>Cancer</li><li>Crohn's Disease</li><li>Glaucoma</li>
                             <li>Hepatitis C</li><li>HIV/AIDS</li><li>Post-traumatic stress disorder (PTSD)</li>
@@ -364,7 +364,7 @@ const Content = [
                 },
                 {
                     title: "Patient qualifications",
-                        content: `<div>
+                    content: `<div>
                             <p>ADHS recognizes out-of-state medical marijuana registration, offering the same legal protections for visiting patients as those offered to state residents. Out-of-state patients may not purchase from Arizona state-licensed dispensaries, but are allowed to possess up to 2.5 ounces (70 grams) of usable cannabis. </p>
                             <h3 className='text-black'>Registry process</h3>
                             <ol>
@@ -379,10 +379,10 @@ const Content = [
                         
                         </div>`
                 },
-               
+
                 {
                     title: "Caregiver qualifications",
-                    content:` <div>
+                    content: ` <div>
                         <p>Arizona law specifies that only a qualifying patient can apply for a designated caregiver. Registered caregivers must be age 21 or older, a resident of Arizona, and meet all eligibility requirements prior to ADHS approval. A designated caregiver may provide care for up to five patients and hold a registry identification card for each patient.</p>
                         <p>Caregivers are eligible to be reimbursed for costs incurred while assisting patients with access and use of medical marijuana.</p>
                        <h3 className="text-black">Registry process</h3>
@@ -396,17 +396,17 @@ const Content = [
                     
                     </div>`
                 },
-             
+
                 {
                     title: "Reciprocity",
-                    content:` <div>
+                    content: ` <div>
                         <p>ADHS recognizes out-of-state medical marijuana registration, offering the same legal protections for visiting patients as those offered to state residents. Out-of-state patients may not purchase from Arizona state-licensed dispensaries, but are allowed to possess up to 2.5 ounces (70 grams) of usable cannabis. </p>
 
                     </div>`
                 },
                 {
                     title: "Lab testing",
-                    content:` <div>
+                    content: ` <div>
                         <p>Cannabis grown and processed in Arizona must be tested for the following:</p>
                         <ul>
                             <li>Cannabinoids and potency</li>
@@ -469,7 +469,7 @@ const Content = [
                     },
                     {
                         title: "Legislation History",
-                        content:` <div>
+                        content: ` <div>
                             <p>Before medical cannabis was legalized in Arkansas, there were significant developments:</p>
                             <p>In 2006, Eureka Springs took the lead by enacting a voter initiative that downplayed the enforcement of marijuana-related offenses, indicating a shift in the city's stance.</p>
                             <p>Following Eureka Springs' example, Fayetteville followed suit in 2007 by passing a similar voter initiative, signaling a growing trend in prioritizing different approaches to marijuana-related issues.</p>
@@ -575,7 +575,7 @@ const Content = [
                     },
                     {
                         title: "Is Weed Legal in California?",
-                        content:` <div>
+                        content: ` <div>
                             <p>Yes, marijuana is legal in California, both for medical and recreational use. The state has been a trailblazer in the realm of cannabis, with a long history of progressive policies that have contributed to shaping the national conversation around marijuana legalization.</p>
                         </div>`
                     },
@@ -600,7 +600,7 @@ const Content = [
                     },
                     {
                         title: "Where to Purchase Cannabis in California?",
-                        content:` <div>
+                        content: ` <div>
                             <p>Dispensaries are the primary locations for purchasing marijuana products in California. These establishments offer a wide variety of options, including flowers, edibles, tinctures, concentrates, and more. It's crucial to buy from legal dispensaries to ensure product safety and quality.</p>
 
                         </div>`
@@ -608,7 +608,7 @@ const Content = [
                     },
                     {
                         title: "Finding Dispensaries in California?",
-                        content:` <div>
+                        content: ` <div>
                             <p>California boasts a plethora of licensed dispensaries, making it relatively easy to find one in your vicinity. Numerous online platforms and apps provide up-to-date information on dispensary locations, product availability, and customer reviews.</p>
 
                         </div>`
@@ -633,7 +633,7 @@ const Content = [
                     },
                     {
                         title: "Caregiving",
-                        content:` <div>
+                        content: ` <div>
                             <p>Patients listed in the registry who need support in acquiring or utilizing medical cannabis have the option to assign a primary caregiver. The primary caregiver, aged 18 or older, is responsible for consistently overseeing the patient's housing, health, or safety. This role can be fulfilled by an individual or by someone connected to an appropriately licensed clinic, facility, hospice, or home health agency.</p>
                             <p>It's important to note that the primary caregiver is not eligible to apply for a Medical Marijuana Identification Card. Instead, it's the responsibility of the patient to initiate the application process for the designated caregiver. The registration of the caregiver remains valid for the same duration as the patient's Medical Marijuana Identification Card. The associated fee for this caregiver registration varies depending on the county.</p>
                         </div>`
@@ -646,7 +646,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                            <h2>Can I travel with cannabis in my vehicle?</h2>
                             <p> Yes, but it must be in a sealed container or kept in the trunk.</p>
                            <h2>Can I give away or transfer my medical marijuana?</h2>
@@ -670,7 +670,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Colorado?",
-                        content:` <div>
+                        content: ` <div>
                             <p>When it comes to marijuana, Colorado stands out as a pioneer in the United States. The Centennial State took a bold step in 2012 by legalizing the recreational use of cannabis for adults. Since then, it has become a model for other states exploring similar legislation.</p>
                         </div>`
                     },
@@ -705,7 +705,7 @@ const Content = [
                     },
                     {
                         title: "Is Home Cultivation Allowed in Colorado?",
-                        content:` <div>
+                        content: ` <div>
                             <h3 className="text-black">Caregivers</h3>
                             <p>Colorado's medical marijuana program includes provisions for caregivers who can assist patients in obtaining and using their medication. Caregivers play a vital role in supporting patients who may have difficulty accessing or using cannabis on their own due to medical conditions. However, caregivers must follow state regulations and be registered with the Colorado Department of Public Health & Environment.</p>
                             <p>Yes, Colorado allows adults to cultivate their own marijuana plants. However, there are restrictions on the number of plants one can grow at home. Individuals are permitted to cultivate up to 6 plants per person, with a maximum of 12 plants per household if more than one adult resides there. This provision has empowered individuals to cultivate their own cannabis for personal use, but it's essential to adhere to these limits to avoid legal complications.</p>
@@ -714,13 +714,13 @@ const Content = [
                     },
                     {
                         title: "Lab Testing",
-                        content:` <div>
+                        content: ` <div>
                             <p>To ensure consumer safety, Colorado mandates rigorous testing of cannabis products sold by licensed dispensaries. These tests assess factors such as potency, contaminants, and quality. This regulatory measure guarantees that consumers know what they're purchasing and consuming, contributing to a safer and more transparent cannabis market.</p>
                         </div>`
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                             <ol>
                                 <li>Can tourists purchase cannabis?</li>
                                 <p>Yes, adults 21 and older, including tourists, can purchase cannabis from licensed dispensaries.</p>
@@ -756,7 +756,7 @@ const Content = [
                     },
                     {
                         title: "Legislation History",
-                        content:` <div>
+                        content: ` <div>
                             <p>In 2011, under the leadership of Governor Dannel Malloy, the state took a significant step by approving Senate Bill 1014, which aimed to decriminalize the possession of small amounts of cannabis, specifically up to 0.5 ounces (approximately 14 grams). This progressive move shifted the focus away from incarceration and toward imposing fines for individuals found with such quantities. Subsequent violations led to increasing fines rather than jail time.</p>
                             <p>A year later, in 2012, the state continued to chart a forward-looking course by passing House Bill 5389, effectively legalizing the use of medical marijuana. This milestone legislation opened doors for patients who could benefit from the therapeutic properties of cannabis, marking a compassionate shift in the state's approach to healthcare.</p>
                             <p>Fast forward to 2021, a pivotal year for cannabis legalization in Connecticut. Under the guidance of Governor Ned Lamont, Senate Bill 1201, also known as the Responsible and Equitable Regulations of Adult-Use Cannabis Act (RERACA), was signed into law. This transformative legislation granted legal permission for adults aged 21 and above to engage in various aspects of cannabis consumption.</p>
@@ -766,18 +766,18 @@ const Content = [
                     },
                     {
                         title: "Where to Purchase Cannabis in Connecticut?",
-                        content:` <p>Licensed retail dispensaries are the designated locations for purchasing both medical and recreational marijuana in Connecticut. These dispensaries are authorized by the state and provide a variety of cannabis products. For adults and patients alike, a range of consumption options are available. This includes the consumption of cannabis flower, edibles, concentrates, topicals, and tinctures. Furthermore, individuals are well within their rights to possess and use paraphernalia relevant to their chosen mode of consumption. This comprehensive approach seeks to strike a balance between personal freedom and societal responsibility within the framework of the law.</p>`
+                        content: ` <p>Licensed retail dispensaries are the designated locations for purchasing both medical and recreational marijuana in Connecticut. These dispensaries are authorized by the state and provide a variety of cannabis products. For adults and patients alike, a range of consumption options are available. This includes the consumption of cannabis flower, edibles, concentrates, topicals, and tinctures. Furthermore, individuals are well within their rights to possess and use paraphernalia relevant to their chosen mode of consumption. This comprehensive approach seeks to strike a balance between personal freedom and societal responsibility within the framework of the law.</p>`
                     },
                     {
                         title: "Where is it Safe to Consume in Connecticut?",
-                        content:` <div>
+                        content: ` <div>
                             <p>Partaking in marijuana consumption within the confines of private residences is sanctioned by the law. However, it's of paramount importance to recognize that consuming cannabis in public spaces, particularly in areas where tobacco use is disallowed, remains against the law. Demonstrating responsible consumption within the privacy of one's property holds significant weight in terms of legal adherence.</p>
                             <p>Whether intended for recreational or medicinal purposes, the consumption of cannabis is exclusively permissible in private settings. It's vital to note that the regulations extend to the prohibition of cannabis consumption on modes of public transportation, in workplaces, on educational campuses, in public venues, and when in the presence of individuals under the age of 18. This prohibition remains applicable even within private spaces. Additionally, the law strictly disallows the use of medical marijuana if it poses a risk to another person's health or well-being.</p>
 
                         </div>`
                     }, {
                         title: "Is Home Cultivation Allowed in Connecticut?",
-                        content:` <div>
+                        content: ` <div>
                             <p>Yes, adults in Connecticut are allowed to cultivate marijuana plants at home for personal use. Each household can grow up to 12 plants, provided they are kept in a secure and discreet location not visible to the public.</p>
                             <h3 className="text-black">Caregiving</h3>
                             <p>Qualified patients who require assistance with obtaining and using medical marijuana are allowed to designate a caregiver. Caregivers play a vital role in helping patients navigate the complexities of using medical marijuana effectively and responsibly.</p>
@@ -785,7 +785,7 @@ const Content = [
                     },
                     {
                         title: "Lab Testing",
-                        content:` <p>To ensure the safety and quality of cannabis products, Connecticut law mandates that all marijuana sold through licensed dispensaries undergo rigorous testing. This testing process helps to identify any contaminants, pesticides, or irregularities that could pose a risk to consumer health.</p>`
+                        content: ` <p>To ensure the safety and quality of cannabis products, Connecticut law mandates that all marijuana sold through licensed dispensaries undergo rigorous testing. This testing process helps to identify any contaminants, pesticides, or irregularities that could pose a risk to consumer health.</p>`
                     },
                     {
                         title: "Frequently Asked Questions",
@@ -825,7 +825,7 @@ const Content = [
                     },
                     {
                         title: "Legislative History",
-                        content:` <div>
+                        content: ` <div>
                             <p>In 2011, Delaware took a significant step forward in marijuana legislation when Gov. Jack Markell signed the Delaware Medical Marijuana Act (DMMA), permitting eligible patients to purchase and utilize cannabis for medical purposes. The momentum continued in 2015 with the passage of Delaware House Bill 39 (HB 39), effectively decriminalizing cannabis possession across the state. This meant that possessing less than 6.2 ounces (175 grams) of marijuana became a misdemeanor, while having less than 1 ounce (28 grams) of the substance was reclassified as a civil infraction. Building on this progress, Gov. John Carney's approval of Senate Bill 37 in 2019 resulted in an amendment to the state's criminal code. This change enabled individuals with a single cannabis-related misdemeanor or felony to have their record expunged after five or seven years, respectively. </p>
                             <p>Although efforts to legalize adult-use cannabis through Delaware House Bill 110 were unsuccessful in 2018 and subsequent attempts in 2019 did not advance past the House, the state continues to push forward. The Delaware Department of Health and Social Services (DHSS) plays a pivotal role, housing the Office of Medical Marijuana (OMM), which diligently oversees the Medical Marijuana Program (MMP). Through the OMM, a comprehensive framework has been established, encompassing patient and caregiver registries, qualification protocols, and stringent regulations. This infrastructure ensures the responsible availability of medical cannabis, prioritizing both safety and efficacy.</p>
                             <p></p>
@@ -859,11 +859,11 @@ const Content = [
                     },
                     {
                         title: "Lab Testing",
-                        content:` <p>To ensure the safety and quality of medical marijuana products, Delaware mandates lab testing. Cannabis products undergo rigorous testing for potency, contaminants, pesticides, and other substances that might pose risks to consumers. This quality control measure is in line with the state's commitment to providing safe medication to patients.</p>`
+                        content: ` <p>To ensure the safety and quality of medical marijuana products, Delaware mandates lab testing. Cannabis products undergo rigorous testing for potency, contaminants, pesticides, and other substances that might pose risks to consumers. This quality control measure is in line with the state's commitment to providing safe medication to patients.</p>`
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                             <ol>
                             <li>Can I grow my own marijuana in Delaware?</li>
                             <p>No, home cultivation is not permitted for either medical or recreational use.</p>
@@ -890,7 +890,7 @@ const Content = [
                         </div>`
                     }, {
                         title: "Is Weed Legal in Florida?",
-                        content:` <div>
+                        content: ` <div>
                             <p>Yes, but with limitations. Florida has legalized medical marijuana for qualified patients, allowing access to cannabis for specific medical conditions. However, recreational use of marijuana remains illegal in the state.</p>
                         </div>`
                     },
@@ -904,7 +904,7 @@ const Content = [
                     },
                     {
                         title: "Cannabis Possession in Florida",
-                        content:` <div>
+                        content: ` <div>
                             <p>Florida's categorization of cannabis encompasses two distinctions: low-THC cannabis and medical marijuana. For cannabis to fall within the low-THC category, components like flowers, seeds, resin, and other derivatives must contain no more than 0.8% THC and over 10% CBD by weight. Patients and caregivers are subject to possession limits, with a cap on possessing more than a 70-day supply of cannabis, all of which must be retained in its original packaging. Patient purchases are confined to a maximum 35-day supply (2.5 ounces) or ownership of more than 4 ounces of smokable cannabis at any single instance. The transfer of marijuana is restricted solely to caregivers purchasing and transporting for designated patients, serving no other purposes.</p>
                         </div>`
                     }, {
@@ -920,20 +920,20 @@ const Content = [
                         content: `<div>
                              <p>Florida residents can locate licensed MMTCs through the Florida Department of Health's Office of Medical Marijuana Use (OMMU) website. This ensures safe and legal access to medical cannabis products.</p>
                              </div>`
-                    }, 
+                    },
                     {
                         title: "Where is it Safe to Consume in Florida?",
-                        content:` <div>
+                        content: ` <div>
                             <p>Florida law prohibits the public consumption of marijuana, whether for medical or recreational purposes. Consumption is generally confined to private residences, ensuring discretion and compliance with the law.</p>
                            </div>`
-                    }, 
+                    },
                     {
                         title: "Is Home Cultivation Allowed in Florida?",
                         content: `<div>
                                 <p>No, home cultivation of marijuana for personal use is not permitted in Florida. All cannabis products must be obtained through licensed MMTCs.</p>
                             </div>`
-                    }, 
-                  
+                    },
+
                     {
                         title: "Medical Marijuana in Florida",
                         content: `<div>
@@ -944,7 +944,7 @@ const Content = [
                     {
                         title: "Caregiver Requirements",
                         content: `<p>Patients in Florida have the option to assign a caregiver during their registry application process. Designated caregivers holding valid registry ID cards are authorized to procure cannabis for their patients and aid in administering their medication. Caregivers must be at least 21 years old, not be qualifying physicians, and refrain from having financial stakes in an MMTC. Patients are limited to designating a single caregiver, while those under 18 must appoint an adult caregiver or legal representative to assist them in their medical cannabis use.</p>`
-                        
+
                     },
                     {
                         title: "Lab Testing",
@@ -982,7 +982,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Georgia?",
-                        content:` <p>Marijuana legalisation has been a topic of ongoing debate across the United States, and Georgia is no exception.  recreational marijuana remains illegal in the state of Georgia. However, the landscape for medical marijuana has seen significant changes in recent years.</p>`
+                        content: ` <p>Marijuana legalisation has been a topic of ongoing debate across the United States, and Georgia is no exception.  recreational marijuana remains illegal in the state of Georgia. However, the landscape for medical marijuana has seen significant changes in recent years.</p>`
                     },
                     {
                         title: "Legislation History",
@@ -994,7 +994,7 @@ const Content = [
                     },
                     {
                         title: "Cannabis Possession in Georgia",
-                            content: `<div>
+                        content: `<div>
                                 <p>Possession of marijuana for recreational use remains illegal in Georgia. The possession of even small amounts can lead to legal consequences, including fines and potential jail time. The severity of penalties can vary depending on the amount of marijuana and the individual's previous criminal history.</p>
                             </div>`
                     },
@@ -1037,12 +1037,12 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Guam?",
-                        content:` <p>The landscape of marijuana laws is continually evolving across the globe, and Guam is no exception. Marijuana is legal for both medical and adult-use (recreational) purposes in Guam, marking a significant departure from its historical stance on cannabis.
+                        content: ` <p>The landscape of marijuana laws is continually evolving across the globe, and Guam is no exception. Marijuana is legal for both medical and adult-use (recreational) purposes in Guam, marking a significant departure from its historical stance on cannabis.
                         </p>`
                     },
                     {
                         title: "Legislation History",
-                        content:` <div>
+                        content: ` <div>
                             <p>The history of marijuana legislation in Guam is nothing short of a transformative tale. It began with the decriminalisation of minor cannabis quantities in 2014, laying the foundation for what would follow. Momentum surged with the enactment of the "Nurse Joaquin" Compassionate Cannabis Use Act in 2018, a defining moment in Guam's commitment to facilitating medical access to cannabis. The territory, however, etched its name in history in 2019 with the Guam Cannabis Industry Act, marking a giant stride toward adult-use cannabis legality.</p>
                             <p>The 2014 milestone arrived with the Joaquin (KC) Concepcion II Compassionate Cannabis Use Act, empowering patients with qualifying medical conditions to possess and consume cannabis. This pivotal law directed the Department of Health and Human Services (DHHS) to establish a patient registry issuing ID cards and a framework for producing and distributing medical marijuana within the territory. Born from a 2013 proposal, validated by voter approval in 2014, and inked by the governor in 2015, this law set the precedent.</p>
                             <p>In 2016, Bill No. 343-33 emerged, broadening the scope of qualifying conditions, enabling physicians to recommend marijuana to patients they believed would benefit. It delineated possession limits, established the Medical Cannabis Regulation Commission, mandated comprehensive marijuana testing, and introduced optional patient registry cards while requiring them for caregivers.</p>
@@ -1079,7 +1079,7 @@ const Content = [
                     },
                     {
                         title: "Caregiving",
-                        content:`<div>
+                        content: `<div>
                         <p>In Guam's medical marijuana program, caregivers play an indispensable role, standing as pillars of support for qualifying patients seeking relief through cannabis. Endowed with the authority to aid patients in accessing and utilizing medical cannabis, caregivers are integral to the program's success. They embark on a carefully orchestrated registration journey, a process meticulously designed to ensure the security and wellness of patients. These caregivers must be Guam residents aged 21 or above and are permitted to assist up to five patients, acting as dedicated guides in the realm of medical cannabis.</p>
                         <p>As a testament to Guam's commitment to responsible caregiving, while patient registration remains voluntary, caregivers are mandated to register and carry their registration card at all times—whether they're procuring, cultivating, or transporting cannabis on behalf of their patients. The meticulous approach safeguards the integrity of the program and fortifies the bond between caregivers and patients.</p>
                         <p>In scenarios where caregivers cultivate plants for multiple patients, stringent guidelines are enforced. The plants must either flourish within the homes of patients or caregivers or be centralized at a single cultivation site. This stipulation ensures accountable cultivation practices and adheres to the essence of patient-focused caregiving.</p>
@@ -1090,7 +1090,7 @@ const Content = [
                     {
                         title: "Lab Testing",
                         content:
-                          `  <p>Quality and safety are paramount in Guam's cannabis market. Rigorous lab testing is conducted on cannabis products to ensure they meet safety standards and are accurately labeled. This practice safeguards consumers and promotes transparency within the industry.</p>`
+                            `  <p>Quality and safety are paramount in Guam's cannabis market. Rigorous lab testing is conducted on cannabis products to ensure they meet safety standards and are accurately labeled. This practice safeguards consumers and promotes transparency within the industry.</p>`
                     },
                     {
                         title: "Frequently Asked Questions",
@@ -1130,7 +1130,7 @@ const Content = [
                 },
                 {
                     title: "Cannabis Possession in Hawaii",
-                    content:` <div>
+                    content: ` <div>
                         <p>As of the decriminalization law in 2015, possessing a small amount of marijuana in Hawaii is no longer a criminal offense. Possession of 3 grams or less is treated as a civil violation, punishable by a fine. However, it's important to note that possessing larger amounts of marijuana can still lead to criminal charges, so it's essential to understand the limits and regulations.</p>
                     </div>`
                 },
@@ -1152,7 +1152,7 @@ const Content = [
                 },
                 {
                     title: "Medical Marijuana in Hawaii",
-                    content:` <p>Hawaii's medical marijuana program allows patients with qualifying conditions to access and use medical cannabis. Patients must obtain a recommendation from a licensed physician and register with the state to receive a medical marijuana card. This card grants them legal access to medical cannabis products from licensed dispensaries.
+                    content: ` <p>Hawaii's medical marijuana program allows patients with qualifying conditions to access and use medical cannabis. Patients must obtain a recommendation from a licensed physician and register with the state to receive a medical marijuana card. This card grants them legal access to medical cannabis products from licensed dispensaries.
                     </p>`
                 },
                 {
@@ -1165,7 +1165,7 @@ const Content = [
                 },
                 {
                     title: "Frequently Asked Questions",
-                    content:` <div>
+                    content: ` <div>
                         <ol>
                             <li>Can tourists purchase cannabis in Hawaii?</li>
                             <p>Yes, as long as they are 21 or older and purchase from licensed dispensaries.</p>
@@ -1196,7 +1196,7 @@ const Content = [
                     },
                     {
                         title: "Cannabis Possession in Idaho",
-                        content:` <p>Possession of even small amounts of marijuana can lead to serious legal consequences in Idaho. The state does not differentiate between personal use and distribution when it comes to penalties. Any possession of cannabis, whether for recreational or medical purposes, is considered a criminal offence, subjecting individuals to fines and potential incarceration.</p>`
+                        content: ` <p>Possession of even small amounts of marijuana can lead to serious legal consequences in Idaho. The state does not differentiate between personal use and distribution when it comes to penalties. Any possession of cannabis, whether for recreational or medical purposes, is considered a criminal offence, subjecting individuals to fines and potential incarceration.</p>`
                     },
                     {
                         title: "Finding Licensed Dispensaries in Idaho",
@@ -1204,7 +1204,7 @@ const Content = [
                     },
                     {
                         title: "Medical Marijuana in Idaho",
-                        content:` <p>As of the current state of affairs, medical marijuana is not legal in Idaho. The state has yet to establish a medical marijuana program, and patients with qualifying conditions do not have legal access to cannabis treatments. It's crucial for those seeking alternative medical options to explore options available in states with legalized medical marijuana.</p>`
+                        content: ` <p>As of the current state of affairs, medical marijuana is not legal in Idaho. The state has yet to establish a medical marijuana program, and patients with qualifying conditions do not have legal access to cannabis treatments. It's crucial for those seeking alternative medical options to explore options available in states with legalized medical marijuana.</p>`
                     },
                     {
                         title: "Lab Testing",
@@ -1237,17 +1237,17 @@ const Content = [
                 content: [
                     {
                         title: "Illinois",
-                        content:` <p>Welcome to our comprehensive guide on Cannabis Laws & Regulations in Illinois for 2024. Whether you're a resident, a visitor, or just curious about the legal landscape of cannabis in Illinois, we've got you covered with the latest and most accurate information.</p>
+                        content: ` <p>Welcome to our comprehensive guide on Cannabis Laws & Regulations in Illinois for 2024. Whether you're a resident, a visitor, or just curious about the legal landscape of cannabis in Illinois, we've got you covered with the latest and most accurate information.</p>
                         <p>In recent years, the legal landscape surrounding marijuana has undergone significant changes across the United States. One state that has been at the forefront of this movement is Illinois. With evolving legislation, regulations, and guidelines, it's important to have a clear understanding of the marijuana laws in the Land of Lincoln. Whether you're a resident, a traveler, or just curious about the topic, this comprehensive guide will help you navigate through the complexities of marijuana laws in Illinois.</p>
                         `
                     },
                     {
                         title: "Is Weed Legal in Illinois?",
-                        content:`<p>Yes, marijuana is legal for both medical and adult-use (recreational) purposes in Illinois. The state passed the Illinois Cannabis Regulation and Tax Act (CRTA) in 2019, which legalized the possession, consumption, and sale of marijuana for adults aged 21 and older. However, like any legal matter, there are specific rules and regulations in place to ensure responsible use and distribution.</p>`
+                        content: `<p>Yes, marijuana is legal for both medical and adult-use (recreational) purposes in Illinois. The state passed the Illinois Cannabis Regulation and Tax Act (CRTA) in 2019, which legalized the possession, consumption, and sale of marijuana for adults aged 21 and older. However, like any legal matter, there are specific rules and regulations in place to ensure responsible use and distribution.</p>`
                     },
                     {
                         title: "Legislation History in Illinois",
-                        content:` <div>
+                        content: ` <div>
                                         <ul>
                                             <li><b>1931:</b> Illinois criminalized recreational marijuana.</li>
                                             <li><b>1978:</b> The Cannabis Control Act marked the inception of legalized medical cannabis.
@@ -1269,7 +1269,7 @@ const Content = [
                     },
                     {
                         title: "Regulation Authority",
-                        content:` <p><b>Illinois Department of Financial and Professional Regulation (IDFPR):</b> Oversees the cannabis industry, issues licenses, regulates distribution, and ensures compliance with the law.</p>`
+                        content: ` <p><b>Illinois Department of Financial and Professional Regulation (IDFPR):</b> Oversees the cannabis industry, issues licenses, regulates distribution, and ensures compliance with the law.</p>`
                     },
                     {
                         title: "Cannabis Possession in Illinois",
@@ -1298,7 +1298,7 @@ const Content = [
                     {
                         title: "Where is it Safe to Consume Cannabis?",
                         content:
-                           ` <div>
+                            ` <div>
                                <p>Medical Use:</p>
                                <ul>
                                  <li>Purchases subject to a 1% pharmaceutical tax.</li>
@@ -1315,7 +1315,7 @@ const Content = [
                     },
                     {
                         title: "Is Home Cultivation Allowed in Illinois?",
-                        content:` <div>
+                        content: ` <div>
                         <P>Registered Patients and Caregivers:</P>
                            <ul>
                             <li>Can cultivate cannabis under strict guidelines.</li>
@@ -1328,7 +1328,7 @@ const Content = [
                     },
                     {
                         title: "Medical Marijuana in Illinois",
-                        content:` <div>
+                        content: ` <div>
                                <p>Eligibility</p>
                                 <ul>
                                     <li>Patients must be at least 18 years old and cannot hold certain professional licenses.
@@ -1345,7 +1345,7 @@ const Content = [
                     },
                     {
                         title: "Caregiver Qualifications",
-                        content:` <div>
+                        content: ` <div>
                             <p>Requirements</p>
                              <ul>
                                <li>Must be Illinois residents aged 21 or older.</li>
@@ -1414,7 +1414,7 @@ const Content = [
                     },
                     {
                         title: "Cannabis Possession in Indiana",
-                        content:` <p>Possession of even small amounts of marijuana is considered a crime in Indiana. Any possession of marijuana, including paraphernalia, is classified as a misdemeanor or even a felony depending on the amount. The penalties can include fines, probation, and incarceration.</p>`
+                        content: ` <p>Possession of even small amounts of marijuana is considered a crime in Indiana. Any possession of marijuana, including paraphernalia, is classified as a misdemeanor or even a felony depending on the amount. The penalties can include fines, probation, and incarceration.</p>`
                     },
                     {
                         title: "Where is it Safe to Purchase Weed in Indiana?",
@@ -1426,7 +1426,7 @@ const Content = [
                     },
                     {
                         title: "Finding Licensed Dispensaries in Indiana",
-                        content:`<p> As marijuana is not legal for either medical or recreational use in Indiana, there are no licensed dispensaries operating in the state. It's important to stay informed about the laws and regulations surrounding marijuana to avoid any legal complications.</p>`
+                        content: `<p> As marijuana is not legal for either medical or recreational use in Indiana, there are no licensed dispensaries operating in the state. It's important to stay informed about the laws and regulations surrounding marijuana to avoid any legal complications.</p>`
                     },
                     {
                         title: "Medical Marijuana in Indiana?",
@@ -1471,12 +1471,12 @@ const Content = [
                     {
                         title: "Medical Marijuana in Kansas?",
                         content:
-                           ` <p>Kansas had not legalised medical marijuana. However, it's important to stay updated on legislative changes, as attitudes and laws regarding cannabis are shifting across the country. At that time, patients seeking medical cannabis had to explore options in neighbouring states where medical marijuana programs were established.</p>`
+                            ` <p>Kansas had not legalised medical marijuana. However, it's important to stay updated on legislative changes, as attitudes and laws regarding cannabis are shifting across the country. At that time, patients seeking medical cannabis had to explore options in neighbouring states where medical marijuana programs were established.</p>`
                     },
                     {
                         title: "Where is it safe to consume cannabis in Kansas?",
                         content:
-                           ` <p>Kansas' strict marijuana laws extend to consumption as well. The state's "zero tolerance" policy prohibits the consumption of marijuana in any form. Public consumption, even of a small amount, can lead to criminal charges. It's essential to understand that while attitudes toward cannabis may be shifting in some parts of the U.S., Kansas remains firm in its stance against recreational use.</p>`
+                            ` <p>Kansas' strict marijuana laws extend to consumption as well. The state's "zero tolerance" policy prohibits the consumption of marijuana in any form. Public consumption, even of a small amount, can lead to criminal charges. It's essential to understand that while attitudes toward cannabis may be shifting in some parts of the U.S., Kansas remains firm in its stance against recreational use.</p>`
                     },
                     {
                         title: "Lab Testing",
@@ -1484,7 +1484,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                             <ol>
                                 <li>Can I possess a small amount of marijuana for personal use in Kansas?</li>
                                 <p>No, possession of marijuana, regardless of quantity, is illegal in Kansas.</p>
@@ -1508,7 +1508,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Kentucky?",
-                        content:` <p>The status of marijuana legality in the United States has undergone significant changes over the past decade, but as of now, marijuana remains illegal for both recreational and most medical uses in Kentucky. The Bluegrass State has upheld strict regulations on cannabis, making it essential for residents and visitors to grasp the complexities of Kentucky's marijuana laws.</p>`
+                        content: ` <p>The status of marijuana legality in the United States has undergone significant changes over the past decade, but as of now, marijuana remains illegal for both recreational and most medical uses in Kentucky. The Bluegrass State has upheld strict regulations on cannabis, making it essential for residents and visitors to grasp the complexities of Kentucky's marijuana laws.</p>`
                     },
                     {
                         title: "Legislation History in Kentucky",
@@ -1521,7 +1521,7 @@ const Content = [
                     {
                         title: "Medical Marijuana in Kentucky?",
                         content:
-                           ` <p> Kentucky had introduced limited provisions for medical marijuana use. In 2014, the state passed a law allowing the use of low-THC cannabidiol (CBD) oil for specific medical conditions. However, the law was restrictive in its scope, and broader medical marijuana programs had not been implemented at that time. It's important to stay informed about any developments in Kentucky's medical marijuana legislation, as attitudes and laws are evolving across the nation.</p>`
+                            ` <p> Kentucky had introduced limited provisions for medical marijuana use. In 2014, the state passed a law allowing the use of low-THC cannabidiol (CBD) oil for specific medical conditions. However, the law was restrictive in its scope, and broader medical marijuana programs had not been implemented at that time. It's important to stay informed about any developments in Kentucky's medical marijuana legislation, as attitudes and laws are evolving across the nation.</p>`
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis in Kentucky?",
@@ -1531,7 +1531,7 @@ const Content = [
                     {
                         title: "Lab Testing",
                         content:
-                          `  <p>In states with legal marijuana markets, lab testing plays a pivotal role in ensuring the safety and quality of cannabis products. However, due to Kentucky's current laws, there is no legal framework for cannabis sales, which renders the issue of lab testing largely irrelevant within the state's context.</p>`
+                            `  <p>In states with legal marijuana markets, lab testing plays a pivotal role in ensuring the safety and quality of cannabis products. However, due to Kentucky's current laws, there is no legal framework for cannabis sales, which renders the issue of lab testing largely irrelevant within the state's context.</p>`
                     },
 
                     {
@@ -1561,7 +1561,7 @@ const Content = [
                     {
                         title: "Is Weed Legal in Louisiana?",
                         content:
-                           ` <p>Navigating the intricate web of marijuana laws across the United States can be challenging.  Louisiana maintains a nuanced stance on marijuana. While the state has taken steps toward medical cannabis legalization, recreational use remains illegal. Understanding the nuances of Louisiana's marijuana laws is essential to avoid legal complications.</p>`
+                            ` <p>Navigating the intricate web of marijuana laws across the United States can be challenging.  Louisiana maintains a nuanced stance on marijuana. While the state has taken steps toward medical cannabis legalization, recreational use remains illegal. Understanding the nuances of Louisiana's marijuana laws is essential to avoid legal complications.</p>`
                     },
                     {
                         title: "Legislation History in Louisiana",
@@ -1584,7 +1584,7 @@ const Content = [
                     {
                         title: "Where is it Safe to Purchase Weed in Louisiana?",
                         content:
-                           ` <p>As of my last update, Louisiana had established a framework for medical marijuana dispensaries, but there were no legal avenues for purchasing marijuana for recreational use. Only registered medical marijuana patients can access state-licensed dispensaries.</p>`
+                            ` <p>As of my last update, Louisiana had established a framework for medical marijuana dispensaries, but there were no legal avenues for purchasing marijuana for recreational use. Only registered medical marijuana patients can access state-licensed dispensaries.</p>`
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis in Louisiana?",
@@ -1594,27 +1594,27 @@ const Content = [
                     {
                         title: "Is Home Cultivation Allowed in Louisiana?",
                         content:
-                           ` <p>Louisiana does not permit home cultivation of marijuana plants, even for medical purposes. Medical marijuana is only available through state-licensed dispensaries.</p>`
+                            ` <p>Louisiana does not permit home cultivation of marijuana plants, even for medical purposes. Medical marijuana is only available through state-licensed dispensaries.</p>`
                     },
                     {
                         title: "Finding Licensed Dispensaries in Louisiana",
                         content:
-                           ` <p>Registered medical marijuana patients in Louisiana have access to a limited number of licensed dispensaries. These dispensaries provide a range of medical cannabis products, subject to strict regulations and oversight.</p>`
+                            ` <p>Registered medical marijuana patients in Louisiana have access to a limited number of licensed dispensaries. These dispensaries provide a range of medical cannabis products, subject to strict regulations and oversight.</p>`
                     },
                     {
                         title: "Medical Marijuana in Louisiana?",
                         content:
-                           ` <p>Louisiana established a medical marijuana program in 2015, allowing patients with specific medical conditions to access medical cannabis. The program is tightly regulated, and patients must be approved by a qualified physician and registered with the state.</p>`
+                            ` <p>Louisiana established a medical marijuana program in 2015, allowing patients with specific medical conditions to access medical cannabis. The program is tightly regulated, and patients must be approved by a qualified physician and registered with the state.</p>`
                     },
                     {
                         title: "Caregivers in Louisiana",
                         content:
-                           ` <p>Qualified patients in Louisiana can designate a caregiver to assist with obtaining and administering medical marijuana. Caregivers undergo a registration process and play a crucial role in supporting patients' medical needs.</p>`
+                            ` <p>Qualified patients in Louisiana can designate a caregiver to assist with obtaining and administering medical marijuana. Caregivers undergo a registration process and play a crucial role in supporting patients' medical needs.</p>`
                     },
 
                     {
                         title: "Lab Testing",
-                        content:` <p>In states with legal marijuana programs, lab testing is a vital aspect of ensuring the safety and quality of cannabis products. Similar protocols are in place for medical cannabis in Louisiana, with products undergoing rigorous lab testing to meet regulatory standards.</p>`
+                        content: ` <p>In states with legal marijuana programs, lab testing is a vital aspect of ensuring the safety and quality of cannabis products. Similar protocols are in place for medical cannabis in Louisiana, with products undergoing rigorous lab testing to meet regulatory standards.</p>`
                     },
                     {
                         title: "Frequently Asked Questions",
@@ -1663,12 +1663,12 @@ const Content = [
                     {
                         title: "Cannabis Possession in Iowa",
                         content:
-                           ` <p>Iowa has some of the nation's strictest possession laws. Any form of marijuana possession for recreational use is considered a serious criminal offense. Possession of any amount can result in severe penalties, including fines and potential incarceration. Medical marijuana patients, however, are afforded certain possession allowances under the state's medical cannabis program.</p>`
+                            ` <p>Iowa has some of the nation's strictest possession laws. Any form of marijuana possession for recreational use is considered a serious criminal offense. Possession of any amount can result in severe penalties, including fines and potential incarceration. Medical marijuana patients, however, are afforded certain possession allowances under the state's medical cannabis program.</p>`
                     },
                     {
                         title: "Where is it Safe to Purchase Weed in Iowa?",
                         content:
-                           ` <div>
+                            ` <div>
                                 <p>In Iowa's regulated medical CBD landscape, registered patients and caregivers gain access to therapeutic options through licensed dispensaries. A noteworthy aspect of this system is the provision that permits the purchase of medical CBD products containing up to 4.5 grams of total THC within a 90-day interval. This quantity can be augmented based on recommendations from treating physicians, particularly for patients facing terminal illnesses or those who require additional relief beyond the standard limit.</p>
                                 <p>Iowa's approach to approved products showcases a methodical and comprehensive framework. Sourced from a single manufacturer, these products are available in varying CBD to THC ratios, including 20:1, 2:1, 1:1, and 1:20. The administration methods approved for medical CBD encompass a range of options, from nebulizable forms suitable for nebulizers, to oral methods such as capsules, liquids, and tablets. Patients can also choose from sublingual, suppository, rectal, vaginal, and topical forms such as creams, gels, lotions, ointments, and transdermal patches. Vaporizable options, including vapes, are also part of the array. However, it's important to note that CBD flower is not legally permissible, and cultivation is strictly prohibited under Iowa's regulations. This intricately structured approach ensures that registered individuals have access to a diverse range of medical CBD options while upholding responsible and safe consumption practices.</p>
                             </div>`
@@ -1676,17 +1676,17 @@ const Content = [
                     {
                         title: "Is Home Cultivation Allowed in Iowa?",
                         content:
-                           ` <p>Home cultivation of marijuana for both medical and recreational use is not permitted in Iowa. The state does not allow individuals to grow their own cannabis plants.</p>`
+                            ` <p>Home cultivation of marijuana for both medical and recreational use is not permitted in Iowa. The state does not allow individuals to grow their own cannabis plants.</p>`
                     },
                     {
                         title: "inding Licensed Dispensaries in Iowa",
                         content:
-                           ` <p>For medical marijuana patients, finding licensed dispensaries is essential. The Iowa Department of Public Health oversees the registration of dispensaries, ensuring that patients have access to regulated and safe cannabis products.</p>`
+                            ` <p>For medical marijuana patients, finding licensed dispensaries is essential. The Iowa Department of Public Health oversees the registration of dispensaries, ensuring that patients have access to regulated and safe cannabis products.</p>`
                     },
                     {
                         title: "Medical Marijuana in Iowa?",
                         content:
-                         `   <p>Iowa operates a limited medical cannabis program. Qualifying patients with certain medical conditions can apply for a medical marijuana card, allowing them to obtain cannabis products from licensed dispensaries.</p>`
+                            `   <p>Iowa operates a limited medical cannabis program. Qualifying patients with certain medical conditions can apply for a medical marijuana card, allowing them to obtain cannabis products from licensed dispensaries.</p>`
                     },
                     {
                         title: "Caregivers in Iowa",
@@ -1729,11 +1729,11 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Maine?",
-                        content:` <p>The landscape of marijuana laws in the United States is a complex tapestry, and Maine has woven its unique pattern within this fabric.  Maine has legalized both recreational and medical use of marijuana for adults. However, understanding the intricacies of Maine's marijuana laws is essential to navigate this evolving terrain. </p>`
+                        content: ` <p>The landscape of marijuana laws in the United States is a complex tapestry, and Maine has woven its unique pattern within this fabric.  Maine has legalized both recreational and medical use of marijuana for adults. However, understanding the intricacies of Maine's marijuana laws is essential to navigate this evolving terrain. </p>`
                     },
                     {
                         title: "Legislation History in Maine",
-                        content:` <div>
+                        content: ` <div>
                             <p>On November 2, 1999, Ballot Question 2, also known as the Maine Medical Marijuana for Specific Illnesses, was approved by 61% of the voters, heralding a significant step in the state's approach to medical cannabis. This marked the legalization of medical marijuana for individuals grappling with severe health conditions. A decade later, in 2009, Maine took further strides with the passage of the Maine Medical Marijuana Act, broadening the existing program and decriminalizing possession of up to 2.5 ounces (71 grams) of cannabis. This legislation established the Maine Medical Use of Marijuana Program (MMMP) and introduced a framework for nonprofit dispensaries and cultivators to operate within.</p>
                             <p>Subsequently, on November 8, 2016, a pivotal moment arrived when Maine voters approved An Act to Legalize Marijuana, permitting adults aged 21 and above to possess, consume, and cultivate marijuana for personal use. However, the path to this approval was not without challenges. After the initial legislation's passage, a series of amendments and negotiations, including overcoming vetoes, led to the eventual enactment of an amended law, LD 1719. This revised law introduced regulations for recreational cannabis sales, outlined the parameters for home cultivation, and deferred the consideration of cannabis social clubs until 2023, making private property the sole venue for recreational cannabis consumption. Notably, the revised law aimed to prioritize Mainers in obtaining commercial licenses for cannabis businesses, a provision that was eventually challenged and struck down in 2020 due to legal disputes. The complexities and adjustments in Maine's journey culminated in the issuance of recreational retail licenses in September 2020, reflecting the evolving and often intricate nature of marijuana legislation in the state.</p>
                         </div>`
@@ -1746,12 +1746,12 @@ const Content = [
                     {
                         title: "Where is it Safe to Purchase Weed in Maine?",
                         content:
-                           ` <p>Maine has established a system for licensed marijuana dispensaries where adults can legally purchase recreational cannabis. These dispensaries adhere to strict regulations and guidelines to ensure safety and quality.</p>`
+                            ` <p>Maine has established a system for licensed marijuana dispensaries where adults can legally purchase recreational cannabis. These dispensaries adhere to strict regulations and guidelines to ensure safety and quality.</p>`
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis in Maine?",
                         content:
-                          `  <div>
+                            `  <div>
                                 <p>While the consumption of recreational marijuana is legal in Maine, it's important to follow consumption guidelines. Public consumption is prohibited, and marijuana use is limited to private spaces such as one's home. It's essential to be respectful of local regulations and the comfort of those around you.</p>
                             </div>`
                     },
@@ -1761,7 +1761,7 @@ const Content = [
                     },
                     {
                         title: "Finding Licensed Dispensaries in Maine",
-                        content:` <p>Licensed dispensaries are scattered across Maine, providing safe access to quality cannabis products for recreational users. These dispensaries are regulated by the state and adhere to strict quality control measures.</p>`
+                        content: ` <p>Licensed dispensaries are scattered across Maine, providing safe access to quality cannabis products for recreational users. These dispensaries are regulated by the state and adhere to strict quality control measures.</p>`
                     },
                     {
                         title: "Medical Marijuana in Maine?",
@@ -1811,7 +1811,7 @@ const Content = [
                     },
                     {
                         title: "Legislation History in Maryland",
-                        content:` <div>
+                        content: ` <div>
                             <p>Maryland's journey towards a comprehensive medical marijuana program took a significant stride with the enactment of HB 881, known as the Natalie M. LaPrade Medical Marijuana Commission legislation, in 2014 under the leadership of Gov. Martin O'Malley. This legislation marked the creation of the Natalie M. LaPrade Maryland Medical Cannabis Commission (MMCC), entrusted with the pivotal responsibility of formulating regulations governing the legal consumption, cultivation, possession, and distribution of cannabis products to patients aged 18 and older</p>
                             <p>In a crucial step forward, the MMCC unveiled regulatory amendments in August 2019 that expanded the list of eligible providers to include dentists, certified nurse midwives, nurse practitioners, and podiatrists. These changes, accompanied by administrative adjustments, reflected the commission's commitment to ensuring a comprehensive and inclusive medical cannabis program for Maryland's residents.</p>
                             <p>Playing a pivotal role in Maryland's medical marijuana landscape, the MMCC's oversight encompasses licensing, registration, inspection, and testing associated with the state's medical marijuana program. This includes the management of patient and caregiver registries, along with a vigilant focus on ensuring the safe and effective availability of medical marijuana to qualified individuals. As the state continues to refine its approach to medical cannabis, the MMCC stands as a crucial pillar in safeguarding the well-being of patients and the integrity of Maryland's medical marijuana program.</p>
@@ -1882,7 +1882,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in Massachusetts?",
-                        content:` <p>Yes, marijuana is legal in Massachusetts, both for recreational and medical use. The state has seen significant changes in its cannabis laws in recent years, making it important to understand the current regulations to stay compliant.</p>`
+                        content: ` <p>Yes, marijuana is legal in Massachusetts, both for recreational and medical use. The state has seen significant changes in its cannabis laws in recent years, making it important to understand the current regulations to stay compliant.</p>`
                     },
                     {
                         title: "Legislation History in Massachusetts",
@@ -1922,7 +1922,7 @@ const Content = [
                     },
                     {
                         title: "Finding licensed dispensaries in Massachusetts",
-                        content:` <p>The Cannabis Control Commission maintains a list of licensed recreational and medical marijuana dispensaries on their website. You can use this resource to find dispensaries near you and learn about their hours of operation, products, and other details.</p>`
+                        content: ` <p>The Cannabis Control Commission maintains a list of licensed recreational and medical marijuana dispensaries on their website. You can use this resource to find dispensaries near you and learn about their hours of operation, products, and other details.</p>`
                     },
                     {
                         title: "Medical marijuana in Massachusetts?",
@@ -1934,7 +1934,7 @@ const Content = [
                     },
                     {
                         title: "Caregivers in Massachusetts",
-                        content:` <p>Registered patients may designate a caregiver to help manage their medical cannabis use, especially if they have difficulty accessing dispensaries or cultivating their own marijuana. Caregivers must also register with the state and undergo a background check.</p>`
+                        content: ` <p>Registered patients may designate a caregiver to help manage their medical cannabis use, especially if they have difficulty accessing dispensaries or cultivating their own marijuana. Caregivers must also register with the state and undergo a background check.</p>`
                     },
 
                     {
@@ -2042,29 +2042,29 @@ const Content = [
                 //     },
 
                 // ]
-                content:[
-                            {
-                                title: "Michigan's Cannabis Law: A Clear Guide to Legal Use and Business",
-                                content:` <p>Michigan has emerged as a significant player in the cannabis industry, becoming a beacon of progressive legislation in the Midwest. The state’s cannabis laws are designed to cater to both medical patients and recreational users, with a strong focus on safety, regulation, and accessibility. However, understanding these laws can be challenging, given their complexity and constant evolution. This guide aims to demystify the legal landscape of cannabis in Michigan, covering everything from possession limits and licensing requirements to social equity programs and environmental impacts.</p>`
-                            },
-                            {
-                                title: "The Evolution of Cannabis Legislation in Michigan",
-                                content: `<div>
+                content: [
+                    {
+                        title: "Michigan's Cannabis Law: A Clear Guide to Legal Use and Business",
+                        content: ` <p>Michigan has emerged as a significant player in the cannabis industry, becoming a beacon of progressive legislation in the Midwest. The state’s cannabis laws are designed to cater to both medical patients and recreational users, with a strong focus on safety, regulation, and accessibility. However, understanding these laws can be challenging, given their complexity and constant evolution. This guide aims to demystify the legal landscape of cannabis in Michigan, covering everything from possession limits and licensing requirements to social equity programs and environmental impacts.</p>`
+                    },
+                    {
+                        title: "The Evolution of Cannabis Legislation in Michigan",
+                        content: `<div>
                                     <p>Michigan's journey began in 2008 with the legalization of medical marijuana through the <b>Michigan Medical Marihuana Act (MMMA).</b>
                                      A decade later, in 2018, Michigan became the first Midwestern state to legalize adult recreational use with the <a href={'https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Initiated-Law-1-of-2018.pdf'}> Michigan Regulation and Taxation of Marihuana Act (MRTMA). </a>Together, these laws created a robust framework for medical and recreational cannabis, establishing Michigan as a progressive leader in cannabis regulation.</p>
                                   
                                 </div>`
-                            },
-                            {
-                                title: "Medical vs. Recreational Cannabis in Michigan",
-                                content: `<div>
+                    },
+                    {
+                        title: "Medical vs. Recreational Cannabis in Michigan",
+                        content: `<div>
                                     <p>Michigan distinguishes between medical and recreational cannabis with varying regulations for purchase, possession, and cultivation.</p>
                                   
                                 </div>`
-                            },
-                            {
-                                title: "Medical Cannabis (MMMA)",
-                                content: `<div>
+                    },
+                    {
+                        title: "Medical Cannabis (MMMA)",
+                        content: `<div>
                                    <ul>   
                                         <li> <b>Eligibility:</b> Residents with qualifying conditions can apply for a medical marijuana card through the Michigan Marijuana Regulatory Agency (MRA).</li>
                                         <li><b>Possession Limits:</b> Patients can possess up to 2.5 ounces of usable cannabis or equivalent products.</li>
@@ -2074,10 +2074,10 @@ const Content = [
                                          
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Recreational Cannabis (MRTMA)",
-                                content: `<div>
+                    },
+                    {
+                        title: "Recreational Cannabis (MRTMA)",
+                        content: `<div>
                                    <ul>   
                                         <li> <b>Eligibility:</b> Adults aged 21 and older can purchase and possess cannabis.</li>
                                         <li><b>Possession Limits:</b> Adults may possess up to 2.5 ounces of cannabis in public or 15 grams of concentrates and store up to 10 ounces at home.</li>
@@ -2085,16 +2085,16 @@ const Content = [
                                         <li><b>Public Use:</b>  Public consumption is illegal except in licensed consumption lounges</li>  
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Licensing and Business Regulations",
-                                content: `<div>
+                    },
+                    {
+                        title: "Licensing and Business Regulations",
+                        content: `<div>
                                     <p>The <b> Michigan Marijuana Regulatory Agency (MRA)</b> oversees licensing for dispensaries, growers, processors, transporters, and more. The licensing process ensures businesses comply with safety, security, and regulatory measures.</p>
                                 </div>`
-                            },
-                            {
-                                title: "Types of Licenses:",
-                                content: `<div>
+                    },
+                    {
+                        title: "Types of Licenses:",
+                        content: `<div>
                                    <ul>   
                                         <li> <b>Grower License:</b> Different tiers for cultivating cannabis.</li>
                                         <li><b>Processor License: </b> For creating cannabis products like edibles, concentrates, and tinctures.</li>
@@ -2103,21 +2103,21 @@ const Content = [
                                         <li><b>Microbusiness License: </b>Small businesses can grow, process, and sell directly to consumers, with a limit of 150 plants.</li>  
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Application Process:",
-                                content: `<p>The process includes prequalification, background checks, and a review of financials. Local ordinances may also apply.</p>`
-                            },
-                            {
-                                title: "Taxes and Fees:",
-                                content: `<ul>
+                    },
+                    {
+                        title: "Application Process:",
+                        content: `<p>The process includes prequalification, background checks, and a review of financials. Local ordinances may also apply.</p>`
+                    },
+                    {
+                        title: "Taxes and Fees:",
+                        content: `<ul>
                                     <li>Recreational cannabis is subject to a 10% excise tax and a 6% sales tax, while medical sales incur only the 6% sales tax</li>
                                     <li>Tax revenue is allocated to local governments, schools, roads, and public safety programs.</li>
                                 </ul>`
-                            },
-                            {
-                                title: "Possession, Consumption, and Cultivation Laws",
-                                content: `
+                    },
+                    {
+                        title: "Possession, Consumption, and Cultivation Laws",
+                        content: `
                                 <div>
                                   <p>Possession:</p>
                                    <ul>
@@ -2134,51 +2134,51 @@ const Content = [
                                
                                 
                                 `
-                            },
-                            {
-                                title: "Public Consumption:",
-                                content: `<p>Public cannabis use is prohibited, except in licensed lounges. Driving under the influence of cannabis is illegal and carries penalties similar to alcohol DUIs.</p>`
-                            },
-                            {
-                                title: "Federal vs. State Law: Cannabis and Employment",
-                                content: `<p>While cannabis is legal in Michigan, it remains illegal under federal law, which can affect federal employees and those in federally regulated industries. Employers in Michigan are allowed to enforce drug-free workplace policies, meaning employees could face termination or refusal of employment due to cannabis use, even if it’s legal under state law.</p>`
-                            },
-                            {
-                                title: "Cannabis and Housing:",
-                                content: `<p>Landlords can prohibit cannabis use on their properties. However, medical marijuana patients may seek accommodation under the Americans with Disabilities Act (ADA). This is a grey legal area and varies on a case-by-case basis.</p>`
-                            },
-                            {
-                                title: "Expungement of Cannabis-Related Crimes",
-                                content: `<p>In 2020, Michigan introduced laws allowing expungement of certain cannabis-related offenses. Those eligible can seek to have records cleared for low-level offenses like possession or cultivation of small amounts of cannabis.</p>`
-                            },
-                            {
-                                title: "Government Resources for Cannabis Compliance",
-                                content: `<ul>
+                    },
+                    {
+                        title: "Public Consumption:",
+                        content: `<p>Public cannabis use is prohibited, except in licensed lounges. Driving under the influence of cannabis is illegal and carries penalties similar to alcohol DUIs.</p>`
+                    },
+                    {
+                        title: "Federal vs. State Law: Cannabis and Employment",
+                        content: `<p>While cannabis is legal in Michigan, it remains illegal under federal law, which can affect federal employees and those in federally regulated industries. Employers in Michigan are allowed to enforce drug-free workplace policies, meaning employees could face termination or refusal of employment due to cannabis use, even if it’s legal under state law.</p>`
+                    },
+                    {
+                        title: "Cannabis and Housing:",
+                        content: `<p>Landlords can prohibit cannabis use on their properties. However, medical marijuana patients may seek accommodation under the Americans with Disabilities Act (ADA). This is a grey legal area and varies on a case-by-case basis.</p>`
+                    },
+                    {
+                        title: "Expungement of Cannabis-Related Crimes",
+                        content: `<p>In 2020, Michigan introduced laws allowing expungement of certain cannabis-related offenses. Those eligible can seek to have records cleared for low-level offenses like possession or cultivation of small amounts of cannabis.</p>`
+                    },
+                    {
+                        title: "Government Resources for Cannabis Compliance",
+                        content: `<ul>
                                     <li><b>Michigan Marijuana Regulatory Agency (MRA):</b>  Regulates cannabis businesses and provides resources on licensing and compliance. Visit here.</li>
                                     <li><b>Michigan Department of Licensing and Regulatory Affairs (LARA)</b>Oversees the regulation of the cannabis industry. Visit here.</li>
                                     <li><b>Michigan State Police (MSP)</b> Offers information on cannabis laws and penalties for violations. Visit here.</li>
                                 </ul>`
-                            },
-                            {
-                                title: "Common Legal Violations and Penalties",
-                                content: `<ul>
+                    },
+                    {
+                        title: "Common Legal Violations and Penalties",
+                        content: `<ul>
                                     <li><b>Over-possession :</b>Carrying more than 2.5 ounces can result in fines or jail time.</li>
                                     <li><b>Public Consumption:</b>Fines start at $100 for consuming in public.</li>
                                     <li><b>Unlicensed Sales</b> Selling cannabis without a license can lead to severe legal penalties</li> 
                                     <li><b>Driving Under the Influence</b>  Similar penalties as alcohol-related DUIs apply to cannabis.</li>
                                 </ul>`
-                            },
-                            {
-                                title: "Local Restrictions: Cities and Counties with Cannabis Bans",
-                                content:`<p>Some local governments in Michigan have opted to ban or limit cannabis businesses. However, personal possession and use remain legal under state law.</p>`
-                            },
-                            {
-                                title: "Cities and Counties Opting Out:",
-                                content:`<p>Cities like Birmingham, Livonia, Plymouth, and Wyoming have either banned or heavily restricted cannabis businesses. Despite this, personal possession and consumption are protected by state law.</p>`
-                            },
-                            {
-                                title: "Unique Features of Cannabis Laws in Michigan",
-                                content: `<div>
+                    },
+                    {
+                        title: "Local Restrictions: Cities and Counties with Cannabis Bans",
+                        content: `<p>Some local governments in Michigan have opted to ban or limit cannabis businesses. However, personal possession and use remain legal under state law.</p>`
+                    },
+                    {
+                        title: "Cities and Counties Opting Out:",
+                        content: `<p>Cities like Birmingham, Livonia, Plymouth, and Wyoming have either banned or heavily restricted cannabis businesses. Despite this, personal possession and consumption are protected by state law.</p>`
+                    },
+                    {
+                        title: "Unique Features of Cannabis Laws in Michigan",
+                        content: `<div>
                                    <ul>   
                                         <li> <b>Low Excise Tax :</b>  Michigan’s 10% excise tax on recreational cannabis is among the lowest in the country, helping combat the black market.</li>
                                         <li><b>Generous Possession Limits: </b> Michigan’s allowance of 2.5 ounces in public and 10 ounces at home is among the highest in the U.S.</li>
@@ -2186,10 +2186,10 @@ const Content = [
                                         <li><b>Second-Largest Market: </b> Michigan has become the second-largest cannabis market in the U.S., with over $1.1 billion in sales in early 2024.</li>
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Social Equity Program in Michigan",
-                                content: `<div>
+                    },
+                    {
+                        title: "Social Equity Program in Michigan",
+                        content: `<div>
                                 <p>Michigan’s Social Equity Program is a key initiative to create fairness in the cannabis industry by helping those disproportionately impacted by past cannabis laws.</p>
                                    <ul>   
                                         <li> <b>Eligibility :</b> The program targets individuals from areas hit hardest by cannabis prohibition or those with prior cannabis convictions, offering them a fair shot in the industry.</li>
@@ -2200,10 +2200,10 @@ const Content = [
                                        
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Environmental Impact of Cannabis Cultivation in Michigan",
-                                content: `<div>
+                    },
+                    {
+                        title: "Environmental Impact of Cannabis Cultivation in Michigan",
+                        content: `<div>
                                 <p>As Michigan’s cannabis industry expands, so do concerns about its environmental impact.</p>
                                    <ul>   
                                         <li> <b>Energy Use :</b> Indoor cultivation demands high energy for lighting, heating, and cooling, raising concerns about the carbon footprint, especially in regions dependent on non-renewable energy sources.</li>
@@ -2214,10 +2214,10 @@ const Content = [
                                        
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Michigan vs. Other Legal States",
-                                content: `<div>
+                    },
+                    {
+                        title: "Michigan vs. Other Legal States",
+                        content: `<div>
                                 <p> Michigan’s cannabis laws stand out in several areas when compared to other states.</p>
                                    <ul>   
                                         <li> <b>Tax Rates</b> With a 10% excise tax on recreational cannabis, Michigan’s rate is lower than states like California (15%) and Illinois (varied by THC content). This lower tax rate helps combat the black market and makes legal cannabis more accessible.</li>
@@ -2228,10 +2228,10 @@ const Content = [
                                        
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Cannabis Tourism in Michigan",
-                                content: `<div>
+                    },
+                    {
+                        title: "Cannabis Tourism in Michigan",
+                        content: `<div>
                                 <p>Cannabis tourism is becoming a significant part of Michigan’s economy, offering new opportunities for businesses.</p>
                                    <ul>   
                                         <li> <b>Cannabis Lounges</b>Michigan’s cannabis lounges provide a legal, social setting for cannabis consumption, attracting both locals and tourists.</li>
@@ -2240,20 +2240,20 @@ const Content = [
                                        
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Health and Safety Regulations for Cannabis Products",
-                                content: `<div>
+                    },
+                    {
+                        title: "Health and Safety Regulations for Cannabis Products",
+                        content: `<div>
                                 <p>Michigan’s strict health and safety regulations ensure that cannabis products are safe and high-quality.</p>
                                    <ul>   
                                         <li> <b>Testing Requirements :</b>All products undergo rigorous testing for contaminants like mold and pesticides, ensuring consumer safety and product quality.</li>
                                         <li><b>Edibles and Infused Products : </b> Regulations on edibles include dosage limits and strict labeling to prevent accidental consumption, particularly by children. Child-resistant packaging is mandatory to enhance safety.</li>
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: " Federal Law vs. Michigan State Law: Navigating the Conflict ",
-                                content: `<div>
+                    },
+                    {
+                        title: " Federal Law vs. Michigan State Law: Navigating the Conflict ",
+                        content: `<div>
                                 <p> Despite cannabis being legal in Michigan, it remains illegal at the federal level, creating challenges for businesses and consumers.</p>
                                    <ul>   
                                         <li><b> Banking Challenges : </b> Federal restrictions make it difficult for cannabis businesses to access banking services, forcing many to operate on a cash-only basis, which increases the risk of theft and financial mismanagement. </li>
@@ -2262,10 +2262,10 @@ const Content = [
                                        
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: " The Future of Cannabis in Michigan",
-                                content: `<div>
+                    },
+                    {
+                        title: " The Future of Cannabis in Michigan",
+                        content: `<div>
                                 <p>Michigan’s cannabis industry is poised for continued growth, with several trends and potential legal changes on the horizon </p>
                                    <ul>   
                                         <li><b>Cannabis Delivery Services : </b>  The rapid expansion of delivery services offers convenience to consumers and new opportunities for businesses, with technological advancements expected to drive further growth.</li>
@@ -2274,10 +2274,10 @@ const Content = [
                                       
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: " Community Impact and Economic Benefits of Cannabis Legalization ",
-                                content: `<div>
+                    },
+                    {
+                        title: " Community Impact and Economic Benefits of Cannabis Legalization ",
+                        content: `<div>
                                 <p>Cannabis legalization has had a profound impact on Michigan’s communities and economy. </p>
                                    <ul>   
                                         <li><b>Job Creation
@@ -2292,20 +2292,20 @@ const Content = [
                                        
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: " The Role of CBD and Hemp in Michigan ",
-                                content: `<div>
+                    },
+                    {
+                        title: " The Role of CBD and Hemp in Michigan ",
+                        content: `<div>
                                 <p> CBD and hemp are also key players in Michigan’s cannabis landscape.</p>
                                    <ul>   
                                         <li><b>Hemp Legislation : </b> Under the 2018 Farm Bill, hemp-derived products are legal in Michigan, fueling a thriving industry focused on products like textiles, food, and CBD extracts. </li>
                                         <li><b>CBD Market : </b>  The CBD market is booming in Michigan, with widespread availability and increasing consumer interest, though regulatory challenges and the need for consumer education remain.</li>
                                     </ul>
                                 </div>`
-                            },
-                            {
-                                title: "Frequently Asked Questions",
-                                content: `<div>
+                    },
+                    {
+                        title: "Frequently Asked Questions",
+                        content: `<div>
                                     <ol>
                                         <li>Is it legal to drive with cannabis in Michigan?</li>
                                         <p>Yes, but it must be in a sealed container, and driving under the influence is illegal.</p>
@@ -2323,7 +2323,7 @@ const Content = [
                                         <p>Yes, cities like Birmingham, Livonia, and Plymouth prohibit cannabis businesses, but personal use remains legal. </p>
                                     </ol>
                                 </div>`
-                            },
+                    },
                 ]
             },
             {
@@ -2385,7 +2385,7 @@ const Content = [
                     },
                     {
                         title: "Caregivers in Minnesota",
-                        content:` <p>Registered patients in Minnesota can designate a caregiver to assist with their medical marijuana needs. Caregivers must also register with the state and undergo background checks.</p>`
+                        content: ` <p>Registered patients in Minnesota can designate a caregiver to assist with their medical marijuana needs. Caregivers must also register with the state and undergo background checks.</p>`
                     },
 
                     {
@@ -2415,7 +2415,7 @@ const Content = [
                 content: [
                     {
                         title: "New York Has Legalized Cannabis",
-                        content:`<div> 
+                        content: `<div> 
                             <p>After years of fruitless and delayed efforts, New York has legalised recreational marijuana. According to Cannabis Law New York, residents can lawfully possess up to three ounces of cannabis for recreational use or 24 grams of cannabis, such as oils produced from the cannabis plant.
                          </p>
                         <p>According to New York Times people over the age of 21 can use, smoke, eat, or consume cannabis products, and they can also give them to others of the same age. People will be allowed to keep up to five pounds of cannabis at home, but they must take "reasonable steps" to keep it secure· Possessing more than the legal amount of cannabis and selling the substance without a licence carry penalties ranging from a simple violation to a crime·</p>
@@ -2423,14 +2423,14 @@ const Content = [
                     },
                     {
                         title: "Legal Adult Use and Purchase in New York City",
-                        content:` <div>
+                        content: ` <div>
                             <p>Any person cannot sell cannabis without a retail license, which can be obtained by anyone interested· Cannabis Law New York, on the other hand, has proclaimed cannabis lawful for individuals 21 and older, and it is permitted in private homes, smoking areas, and hookah clubs·</p>
                             <p>It is prohibited to smoke or vape cannabis in a car at any time, including when parked· It is not permitted in restaurants, parks, or event venues, as well as cannabis-related businesses· If caught smoking or vaping cannabis in an illegal environment, you may face civil penalties and summons·</p>
                         </div>`
                     },
                     {
                         title: "Medical Cannabis Program:",
-                        content:` <div>
+                        content: ` <div>
                             <p>Some of the existing medical New York marijuana laws initiatives in New York have been improved to accommodate anyone who may require the medication for therapy· The program's purpose is to increase the number of individuals who can use MMJ as a treatment and increase the number of cannabis suppliers, which helps patients to pay acceptable costs· As a result of the developments more and more patients may require cannabis treatments that are safe, efficient, and cost-effective in terms of getting quality lives·</p>
                             <ol>
                                 <li>Improving the Accessibility of Medical Marijuana Products</li>
@@ -2469,7 +2469,7 @@ const Content = [
                     },
                     {
                         title: "Benefits Associated with Using Cannabis:",
-                        content:` <div>
+                        content: ` <div>
                             <p>Cannabis use has been thoroughly researched, and some possible benefits have been identified, particularly in the medical area· Here are some of the primary benefits:</p>
                                 <ul>
                                   <h2>Help Reduce Chronic Pain</h2>
@@ -2535,11 +2535,11 @@ const Content = [
                 content: [
                     {
                         title: "Is weed legal in Washington?",
-                        content:` <p>Yes, recreational marijuana has been legal in Washington since November 2012, following a historic vote. Adults aged 21 and older can legally purchase and possess marijuana in the state. Washington, along with Colorado, played a pioneering role in the legalisation of recreational cannabis in the United States. This move represented a significant departure from the era of cannabis prohibition and marked a progressive shift in drug policy. </p>`
+                        content: ` <p>Yes, recreational marijuana has been legal in Washington since November 2012, following a historic vote. Adults aged 21 and older can legally purchase and possess marijuana in the state. Washington, along with Colorado, played a pioneering role in the legalisation of recreational cannabis in the United States. This move represented a significant departure from the era of cannabis prohibition and marked a progressive shift in drug policy. </p>`
                     },
                     {
                         title: "Legislation History in Washington",
-                        content:` <div>
+                        content: ` <div>
                             <p>Washington, D.C., has undergone a significant evolution in its cannabis laws, reflecting a progressive shift in the nation's capital. The legislative history showcases the city's changing approach to marijuana, encompassing both medical and recreational use.</p>
                             <p>The journey towards cannabis reform commenced in 1998 with the approval of Initiative 59, permitting the medical use of marijuana. However, due to congressional interference, the program was delayed until 2010, marking the initial step in cannabis reform.</p>
                             <p>A pivotal moment occurred in 2014 with the passage of Initiative 71, legalising the possession, use, and cultivation of limited amounts of marijuana for adults aged 21 and above. This historic move, while permitting personal use and cultivation, did not establish a regulated retail market for recreational sales, setting D.C. apart from other jurisdictions.</p>
@@ -2549,7 +2549,7 @@ const Content = [
                     },
                     {
                         title: "Medical Marijuana Legalisation:",
-                        content:` <div>
+                        content: ` <div>
                             <p>In 2010, the Medical Marijuana Program finally became operational, allowing patients with qualifying conditions to access medical cannabis with a physician's recommendation. The program aimed to provide relief to patients suffering from various medical conditions, including HIV/AIDS, cancer, and chronic pain.</p>
                         </div>`
 
@@ -2637,28 +2637,28 @@ const Content = [
                     },
                     {
                         title: "Medical Marijuana Legalisation:",
-                        content:` <div>
+                        content: ` <div>
                             <p>West Virginia legalised medical marijuana with a focus on ensuring patient access to safe and regulated cannabis products. Under this program, patients with qualifying conditions, such as chronic pain, cancer, and epilepsy, could apply for a medical marijuana card. This card allowed them to purchase medical cannabis from licensed dispensaries.</p>
                            
                         </div>`
 
                     },
 
-                    
+
                     {
                         title: "Possession Limits:",
                         content: `<div>
                              <p>These limits typically included a specific quantity of usable marijuana over a defined period. It's essential to consult the most up-to-date information to understand the current possession limits for medical cannabis patients in the state.</p>
                         </div>`
                     },
-                    
+
                     {
                         title: "Purchasing Options:",
                         content: `<div>
                             <p>Registered medical marijuana patients in West Virginia could purchase cannabis products from licensed dispensaries. The state implemented a strict regulatory framework to ensure the quality and safety of these products, including detailed labeling requirements.</p>
                         </div>`
                     },
-                    
+
                     {
                         title: "Consumption Restrictions:",
                         content: `<div>
@@ -2666,7 +2666,7 @@ const Content = [
 
                         </div>`
                     },
-                    
+
                     {
                         title: "Lab Testing Protocols:",
                         content: `<div>
@@ -2717,7 +2717,7 @@ const Content = [
                     },
                     {
                         title: "Recreational Marijuana Legality:",
-                        content:` <div>
+                        content: ` <div>
                             <p>Wisconsin has not legalized recreational marijuana. Possession, sale, and use of marijuana for non-medical purposes were considered illegal. However, public opinion and neighboring states' actions put pressure on the state to reconsider its stance.</p>
 
                         </div>`
@@ -2736,12 +2736,12 @@ const Content = [
                         content: `<div>
                              <p>Under Wisconsin law, possession of any amount of marijuana for recreational use was illegal. Those found in possession could face criminal charges and potential penalties. Medical marijuana patients are allowed to possess CBD oil with a limited THC content as prescribed by a physician.</p>
                         </div>`
-                    },  {
+                    }, {
                         title: "Purchasing Options:",
-                        content:` <div>
+                        content: ` <div>
                             <p>With recreational use still illegal, there are no legal avenues for purchasing marijuana for non-medical purposes in Wisconsin. Medical marijuana patients could obtain CBD oil through licensed dispensaries or pharmacies, but the options is limited due to the strict qualifying conditions.</p>
                         </div>`
-                    },  {
+                    }, {
                         title: "Consumption Restrictions:",
                         content: `<div>
                              <p>For both recreational and medical users, consuming marijuana in public spaces is prohibited. Additionally, impaired driving laws applied to marijuana use, and driving under the influence of cannabis could result in legal consequences similar to those of alcohol-impaired driving.</p>
@@ -2755,7 +2755,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                             <ol>
                                 <li>Is recreational marijuana legal in Wisconsin?</li>
                                 <p>No, recreational marijuana is not legal in Wisconsin. Possession, sale, and use for non-medical purposes are illegal.</p>
@@ -2789,7 +2789,7 @@ const Content = [
                     },
                     {
                         title: "Cannabis Laws in Wyoming:",
-                        content:` <div>
+                        content: ` <div>
                             <p>Nestled in the heart of the Rocky Mountains, Wyoming is a state known for its natural beauty and rugged landscapes. When it comes to cannabis, Wyoming's legal landscape reflects a cautious and restrictive approach. This overview delves into the complexities of Wyoming's cannabis laws, shedding light on its stance on both recreational and medical marijuana, legislative journey, possession limits, purchasing avenues, consumption regulations, lab testing protocols, and answers to common queries.</p>
                         </div>`
                     },
@@ -2803,7 +2803,7 @@ const Content = [
 
                     {
                         title: "Legislative History",
-                        content:` <div>
+                        content: ` <div>
                             <p>Wyoming enacted its first anti-marijuana laws in the early 20th century. By 1929, the state classified cannabis as a narcotic substance, criminalizing its possession and sale. These early laws set the foundation for Wyoming's strict approach to cannabis.</p>
                             <p>The mid-20th century saw the continuation of Wyoming's prohibitionist stance on cannabis. The federal Marihuana Tax Act of 1937, which effectively criminalized cannabis at the national level, further solidified the state's existing laws. Wyoming's criminal penalties for cannabis-related offenses remained in place, with possession and distribution carrying severe legal consequences.</p>
                             <p>While some states were beginning to explore more lenient cannabis policies in the latter half of the 20th century, Wyoming remained steadfast in its opposition. The state's legislators showed little interest in revisiting or reforming the existing cannabis laws. As the counterculture movement and drug policy discussions gained momentum nationally, Wyoming continued to enforce its stringent cannabis regulations.</p>
@@ -2883,7 +2883,7 @@ const Content = [
                 },
                 {
                     title: "Where is it safe to purchase weed in Alberta?",
-                    content:` <div>
+                    content: ` <div>
                         <p>Cannabis will be sold in privately owned, government-monitored stores that must acquire their cannabis from a federally-approved supplier. The businesses must be cannabis and accessory specialty stores and separate from alcohol, tobacco, and pharmaceuticals.
                             Adult use consumers can also purchase their cannabis online.</p>
                         <p>No cap has yet been set on the number of stores. However, they must be outside a 100-meter buffer zone from other dispensaries, hospitals and schools. To avoid monopolization,
@@ -2909,7 +2909,7 @@ const Content = [
                 },
                 {
                     title: "Possessing cannabis",
-                    content:` <div>
+                    content: ` <div>
                        <h2>Adult-use</h2>
                         <p>Consumers will be limited to 30 grams, or 1.06 ounces, of cannabis per transaction. Consumer education will be embedded in the retail of cannabis, and retail outlets will display point-of-purchase signs and other materials to educate customers about making responsible choices about cannabis.</p>
                         <p>The province allows possession by adults of up to 30 grams of cannabis in a public place. In a vehicle, cannabis must be stored in a sealed container that is not accessible during transport to the driver or passengers.
@@ -2984,7 +2984,7 @@ const Content = [
                     },
                     {
                         title: "Where is it Safe to Purchase Cannabis in British Columbia?",
-                        content:` <div>
+                        content: ` <div>
                            <p>In British Columbia, the landscape for purchasing cannabis is governed by a combination of private businesses and government entities. Private businesses, operating under the regulatory umbrella of the Liquor and Cannabis Regulation Branch, have the opportunity to open cannabis stores following the requisite licensing procedures, which include federal background checks for operators to ensure their suitability.
                            </p>
                            <p>
@@ -3148,7 +3148,7 @@ const Content = [
                     },
                     {
                         title: "Caregiving",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                             In some cases, individuals who require assistance with the administration of medical cannabis may have caregivers. Caregivers must meet specific criteria and adhere to regulations to provide support to medical cannabis patients.
                            </p>
@@ -3185,7 +3185,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                            <ol>
                             <li>Q1: Can I travel with cannabis within Canada?</li>
                             <p>Yes, adults can transport cannabis within Canada, but there are strict regulations regarding the amount you can carry. It's illegal to take cannabis across international borders.</p>
@@ -3200,7 +3200,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3245,7 +3245,7 @@ const Content = [
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis in Manitoba?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                               Cannabis consumption is subject to certain restrictions in Manitoba. It is illegal to consume cannabis in public spaces, near schools, or in vehicles. The province prohibits smoking or vaping cannabis in enclosed public places and indoor workplaces, as well as on restaurant and bar patios.
 
@@ -3267,7 +3267,7 @@ const Content = [
                     },
                     {
                         title: "Caregiving",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                               Manitoba's cannabis laws allow for designated caregivers to assist individuals who are unable to purchase or use cannabis on their own due to medical reasons. Caregivers must apply for a permit from the province to legally assist another person with cannabis-related needs.
                            </p>
@@ -3276,7 +3276,7 @@ const Content = [
                     },
                     {
                         title: "Medical Marijuana in Manitoba",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                                 In Manitoba, as in the rest of Canada, thousands of individuals hold federal licenses permitting them to possess and utilize medical marijuana as a therapeutic option. To qualify under the Access to Cannabis for Medical Purposes Regulations (ACMPR), which were enacted on August 24, 2016, applicants must provide verifiable medical documentation affirming their diagnosis by a recognized healthcare practitioner, such as an authorized physician or nurse practitioner. Additionally, individuals seeking medical cannabis must not have any prior convictions related to marijuana offenses and are permitted to register only once at any given time.
                            </p>
@@ -3312,7 +3312,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3322,7 +3322,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in New Brunswick?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                              Yes, cannabis is legal in New Brunswick, as it is throughout Canada. On October 17, 2018, the federal government legalized recreational cannabis use for adults, but provinces and territories were granted the authority to establish their own regulations and guidelines.
                            </p>
@@ -3353,7 +3353,7 @@ const Content = [
                     },
                     {
                         title: "Where Is It Safe to Consume Cannabis in New Brunswick?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                                 New Brunswick has implemented strict rules regarding cannabis consumption. Smoking or vaping cannabis is not permitted in public places, near schools, or inside vehicles. Cannabis consumption is restricted to private residences, ensuring that the public is not exposed to secondhand smoke.
                            </p>
@@ -3417,7 +3417,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3526,7 +3526,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                            <ol>
                             <li> Can I smoke cannabis in public places in Newfoundland and Labrador?</li>
                             <p>     Public consumption is generally prohibited in areas where children gather and in locations where smoking tobacco is banned.</p>
@@ -3540,7 +3540,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3550,7 +3550,7 @@ const Content = [
                 content: [
                     {
                         title: "Is Weed Legal in  Northwest Territories ?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                               Canada made a groundbreaking move in 2018 when it legalized recreational cannabis use across the nation, and Northwest Territories was no exception. This northern territory embraced the change, reshaping its cannabis laws to align with the federal legislation.
                            </p>
@@ -3598,7 +3598,7 @@ const Content = [
                     },
                     {
                         title: "Is Home Cultivation Allowed in Northwest Territories?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                            Federal law in Canada allows adults to cultivate up to four cannabis plants per household for personal use. However, it's important to verify any additional regulations or restrictions imposed by provincial or territorial governments. In Northwest Territories, residents should check local bylaws to ensure compliance with home cultivation rules.
                             </p>
@@ -3631,7 +3631,7 @@ const Content = [
                     },
                     {
                         title: "Lab Testing",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                              Ensuring the safety and quality of cannabis products is a top priority in Northwest Territories. Licensed producers are subject to rigorous lab testing and quality control measures to ensure that cannabis sold in the territory meets high standards for purity and potency.
                            </p>
@@ -3654,7 +3654,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3725,7 +3725,7 @@ const Content = [
                     },
                     {
                         title: "Caregiving",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                                Nova Scotia has established regulations for caregiving, allowing individuals to assist those who may need help with obtaining or using cannabis. Caregivers should familiarize themselves with the specific rules and responsibilities outlined by Nova Scotia's cannabis laws.
                            </p>
@@ -3755,7 +3755,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                            <ol>
                             <li> Can I possess and use cannabis if I'm under 19 in Nova Scotia?  </li>
                             <p>  No, the legal age for possessing and using cannabis in Nova Scotia is 19 and older.  </p>
@@ -3770,7 +3770,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3806,10 +3806,10 @@ const Content = [
 
                         </div>`
                     },
-                    
+
                     {
                         title: "Where Is It Safe to Purchase Cannabis in Nunavut?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                            In Nunavut, the sale of recreational cannabis is strictly regulated by the newly established Nunavut Liquor and Cannabis Commission. Initially, the commission is expected to engage an online vendor from another province to facilitate online cannabis sales for a period of two years, with further details on the purchasing process yet to be disclosed. 
                            </p>   
@@ -3838,7 +3838,7 @@ const Content = [
                     },
                     {
                         title: "Is Home Cultivation Allowed in Nunavut?",
-                        content:` <div>
+                        content: ` <div>
                            <p> Yes, residents of Nunavut are allowed to cultivate their own cannabis plants at home. Adults aged 19 and older can grow up to four cannabis plants per household for personal use. However, it is important to familiarize yourself with local bylaws and regulations governing home cultivation to ensure compliance. </p>
                            
                         </div>`
@@ -3854,7 +3854,7 @@ const Content = [
                     },
                     {
                         title: "Medical Marijuana in Nunavut",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                                Medical marijuana in Nunavut is governed by federal regulations that thousands of Canadians are authorized  to adhere to. To qualify for medical cannabis usage, individuals must meet the criteria established under the Access to Cannabis for Medical Purposes Regulations (ACMPR), which took effect on August 24, 2016. Essential prerequisites include providing medical documentation confirming a diagnosis made by a qualified healthcare practitioner, maintaining a clean record without convictions related to cannabis offenses, and ensuring they are registered only once at any given time.
                            </p>
@@ -3875,7 +3875,7 @@ const Content = [
                     },
                     {
                         title: "Frequently Asked Questions",
-                        content:` <div>
+                        content: ` <div>
                            <ol>
                             <li> Can I possess and use cannabis if I'm under 19 in Nunavut?  </li>
                              <p> No, the legal age for possessing and using cannabis in Nunavut is 19 and older.</p>
@@ -3891,7 +3891,7 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
                 ]
             },
             {
@@ -3948,7 +3948,7 @@ const Content = [
                     },
                     {
                         title: "Is Home Cultivation Allowed in Ontario?",
-                        content:` <div>
+                        content: ` <div>
                            <p>
                            Yes, home cultivation of cannabis is permitted in Ontario, as long as it adheres to the regulations set out by the federal government. Under federal law, adults can grow up to four cannabis plants per household for personal use. However, it's essential to check local bylaws and regulations to ensure compliance with any additional restrictions imposed by municipalities.
                             </p>
@@ -4003,7 +4003,159 @@ const Content = [
                            </ol>
                         </div>`
                     }
-                    
+
+                ]
+            },
+            {
+                Country: 'Canada',
+                id: 40,
+                name: "Yukon",
+                content: [
+                    {
+                        title: "Cannabis Laws in Yukon, Canada: All You Need to Know",
+                        content: `<div>
+                           <p>
+                           Canada legalized recreational cannabis on October 17, 2018, under the Cannabis Act. While cannabis is legal across the country, each province and territory has the freedom to enforce its own specific regulations. In Yukon, the rules around purchasing, possessing, and consuming cannabis are clear but unique to this northern territory. Whether you're a resident or visiting, understanding Yukon’s cannabis laws is essential for safe and legal use.
+                           </p>
+                        </div>`
+                    },
+                    {
+                        title: "Is Cannabis Legal in Yukon?",
+                        content: `<div>
+                           <p>
+                             Yes, cannabis is legal in Yukon for both recreational and medical purposes. The Cannabis Act sets federal regulations, but Yukon enforces its own rules for local sale, distribution, and use. To stay within the law, you need to follow these specific guidelines that apply within Yukon.
+                           </p>
+                        </div>`
+                    },
+                    {
+                        title: "Legal Age to Buy and Consume Cannabis",
+                        content: `<div>
+                           <p>
+                             The legal age to buy, possess, and consume cannabis in Yukon is 19 years old. This aligns with the legal drinking age in the territory. Anyone under 19 caught possessing or consuming cannabis can face significant penalties, including fines and charges. It's also a serious offense for adults to provide cannabis to minors.
+                           </p>   
+                           <p>
+                             Reference: According to the Government of Yukon, the legal age and other important regulations ensure that cannabis is used responsibly and kept out of the hands of young people (source).
+                           </p>
+                          
+                        </div>`
+                    },
+                    {
+                        title: "Where to Buy Cannabis in Yukon",
+                        content: `<div>
+                           <p>
+                              Adults can purchase cannabis legally from licensed retailers or through the territory’s official online store, Cannabis Yukon. The Yukon Liquor Corporation (YLC) manages all cannabis sales, ensuring that products are safe, regulated, and available only to adults.
+                           </p>
+                           <p>
+                              Yukon has both government-run and privately-owned cannabis stores. These retailers must strictly follow local laws to ensure products are sold responsibly. If you prefer online shopping, Cannabis Yukon’s official website provides a convenient option with delivery services, but proof of age is required at the time of purchase and delivery.
+
+                           </p>
+                         <p>Reference: The Yukon Liquor Corporation is responsible for overseeing legal cannabis distribution, ensuring that all products sold in the territory are safe and meet federal standards (source).</p>
+                        </div>`
+                    },
+                    {
+                        title: "Where Can You Smoke or Consume Cannabis in Yukon?",
+                        content: ` <div>
+                           <p>
+                           While cannabis is legal, there are restrictions on where it can be consumed:
+                            </p>
+                           <ol>
+                           <li>Private Residences: You can smoke or consume cannabis on private property, including your home, provided the property owner allows it.</li>
+                            <li>Public Spaces: Yukon law prohibits cannabis use in most public places, including parks, playgrounds, and anywhere children may gather. Always check local rules before consuming cannabis in public.
+</li>
+                             <li>Vehicles: It is illegal to consume cannabis inside a vehicle, whether as a driver or a passenger. Cannabis must be stored in closed packaging, out of reach of the driver.
+</li>
+                              <li>Designated Areas: Some municipalities in Yukon may have designated areas for cannabis consumption. Be sure to check local bylaws if you plan to use cannabis outside of private residences.</li>
+                            
+                           </ol>
+                        </div>`
+                    },
+                    {
+                        title: "Cannabis Possession Limits in Yukon",
+                        content: `<div>
+                           <p>
+                           The possession limit in Yukon is the same as federal guidelines. Adults are allowed to carry up to 30 grams of dried cannabis or an equivalent in other forms in public. The equivalents are:
+                           </p>
+                           <ul>
+                           <li>150 grams of fresh cannabis
+</li>
+                            <li>450 grams of edibles
+</li>
+                             <li>2.1 kilograms of liquid product
+</li>
+                              <li>7.5 grams of cannabis concentrate
+</li>
+                           </ul>
+                           <p>If you’re at home, there is no limit on how much cannabis you can store, but it must be kept in a secure place to prevent access by minors</p>
+                        </div>`
+                    },
+                    {
+                        title: "Growing Cannabis at Home",
+                        content: `<div>
+                           <p>
+                           In Yukon, adults are allowed to grow up to four cannabis plants per household. There are, however, some important guidelines:
+                           </p>
+                       <ul>
+                       <li>Plants grown outdoors must not be visible from public areas.</li>
+                       <li>Indoor growing must follow proper safety and ventilation standards to avoid health risks like mold or fire hazards.
+</li>
+                       <li>Rental properties or condominiums may have specific rules against growing cannabis, so be sure to check with your landlord or building management.</li>
+                
+                       </ul>
+                        </div>`
+                    },
+                    {
+                        title: "Driving Under the Influence of Cannabis",
+                        content: `<div>
+                           <p>
+                              Driving under the influence of cannabis is strictly illegal in Yukon. Cannabis affects your ability to drive, increasing the risk of accidents. The territory has a zero-tolerance policy for drug-impaired driving. Offenders caught driving high face severe consequences, including:
+                           </p>
+                                                 <ul>
+                       <li>Immediate license suspension</li>
+                       <li>Vehicle impoundment
+</li>
+                       <li>Criminal charges
+</li>
+ <li>Heavy fines and possible jail time
+</li>
+                
+                       </ul>
+                       <p>Police are authorized to conduct roadside tests for cannabis impairment, so always ensure you're not driving under the influence.</p>
+                        </div>`
+                    },
+                    {
+                        title: "Penalties for Violating Cannabis Laws in Yukon",
+                        content: `<div>
+                        <p>Yukon’s cannabis laws are enforced to keep residents safe. Here are some key offenses and their penalties:
+</p>
+                           <ol>
+                            <li>Possessing more than 30 grams in public: Can lead to fines or criminal charges.</li>
+                            <li>Supplying cannabis to minors: A serious offense that could result in hefty fines or jail time.</li>
+                            
+                            <li> Driving under the influence: Immediate penalties include license suspension and vehicle impoundment, followed by criminal charges.
+</li>
+                           </ol>
+                        </div>`
+                    },
+                    {
+                        title: "Responsible Cannabis Use",
+                        content: `<div>
+                        <p>Yukon encourages the responsible consumption of cannabis. If you're trying cannabis for the first time or experimenting with new products like edibles, always start with a small amount. Edibles take longer to kick in and their effects last longer than inhaled cannabis. Consuming too much can result in unpleasant or dangerous side effects.
+</p>
+                          <p>For the most current regulations and information, it’s always best to refer to official government resources like the Government of Yukon’s cannabis page.
+</p>
+                        </div>`
+                    }
+                    ,
+                    {
+                        title: "Final Thoughts",
+                        content: `<div>
+                        <p>Understanding the cannabis laws in Yukon will ensure that you stay compliant while enjoying cannabis responsibly. Make sure you're aware of where you can purchase, possess, and consume cannabis, and always respect the local rules. By doing so, you’ll help maintain Yukon as a safe and welcoming community for both residents and visitors.
+</p>
+                          <p>Whether you're in the heart of Whitehorse or exploring the stunning wilderness, be mindful of your cannabis use. Yukon’s laws are there to protect both individuals and the broader community, ensuring that cannabis remains a regulated and responsible industry.
+</p>
+                        </div>`
+                    }
+
                 ]
             }
         ]

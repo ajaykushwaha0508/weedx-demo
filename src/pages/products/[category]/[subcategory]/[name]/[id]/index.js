@@ -303,7 +303,6 @@ console.log(props , 'props props propsprops ')
       {Boolean(StoreProduct?.length !== 0) &&
         <ProductSearchResult link={location.pathname.slice(0, 9) === "/products" ? "products" : "menu-integration"} RelatedProductResult={props.likeproduct} currentProductID={props.data[0].id} title={'You may also like'} CategoryName={props.data[0]} />
       }
-
       <Review
         delBtn={Despen}
         reviewloading={reviewloading}

@@ -11,6 +11,9 @@ const axios = require('axios');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+
+
+
 function modifystr(str) {
   if (typeof str !== 'string') {
     return ''
@@ -63,9 +66,11 @@ app.prepare().
   });
 
     server.get("/sitemap/:category", async (req, res) => {
+      const userAgent = req.headers['user-agent'];
+      userAgent && userAgent.includes('Googlebot')
       switch (req.url) {
         case "/sitemap/dispensaries-location-sitemap.xml":
-
+          if(!userAgent.includes('Googlebot')) {
           const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
           if (response1.data[0].Xml) {
             // split(':')[0].trim()
@@ -85,6 +90,9 @@ app.prepare().
             res.end();
             //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
           }
+        }else {
+          res.status(502).send('Bad Gateway');
+        }
           break;
         case "/sitemap/products-sitemap.xml":
           const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
@@ -560,6 +568,11 @@ app.prepare().
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
+  <url>
+		<loc>http://localhost:3000/learn/laws-and-regulation/cannabis-law-in-yukon/40</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.7</priority>
+	</url>
 </urlset>`);
           res.end();
 
@@ -568,12 +581,12 @@ app.prepare().
         default:
         // code block executed if expression doesn't match any case
       }
+    // }
     })
     server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
       res.send(`User-agent: *
 Disallow:  
-
 Sitemap: https://www.weedx.io/sitemap.xml`);
     });
     server.post('/weed-dispensaries/upload-csv', upload.single('csvFile'), async (req, res) => {
@@ -687,10 +700,17 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
 
       return handle(req, res);
     });
-
-
     server.listen(3000, (err) => {
       if (err) throw err;
       console.log('> woking on http://localhost:3000');
     });
+
   });
+
+
+//   <loc>https://www.weedx.io/weed-dispensaries/in/romania/bucure-ti/bucure-ti-sectorul-1/calea-floreasca</loc>
+// <changefreq>daily</changefreq>
+// <priority>0.8</priority>
+// </url>
+// <url>
+// <loc>https://www.weedx.io/weed-dispensaries/in/romania/bucure-ti/bucure-ti-sectorul-1/bulevardul-dinicu-golescu</loc>

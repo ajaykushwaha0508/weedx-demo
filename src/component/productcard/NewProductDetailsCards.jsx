@@ -277,7 +277,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
             SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
         }
     }, [Product])
-    console.log( Product?.images)
     return (
         <React.Fragment>
             {

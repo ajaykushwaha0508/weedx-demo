@@ -8,14 +8,14 @@ function StoreDetails({ Despen  }) {
     const isWeedDelivery = pathname.slice(0, 16) === "/weed-deliveries";
 
     const defaultMeta = {
-        title: `Weed dispensary in ${Despen[0]?.City}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Weedx.io`,
-        description: `Shop your favorite cannabis products from ${Despen[0]?.Store_Name} Weed dispensary ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality marijuana products near you. Get the best deals and offers now.`,
+        title: ` ${Despen[0]?.Store_Name} - Cannabis Dispensary in ${Despen[0]?.City} , ${Despen[0]?.State} | Weedx.io`,
+        description: ` Visit ${Despen[0]?.Store_Name} in ${Despen[0]?.City} , ${Despen[0]?.State} for premium cannabis. Explore the menu on Weedx.io and find top strains, edibles, and more at your local dispensary`,
         robot: "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
     };
 
     const deliveryMeta = {
-        title: `Weed Delivery in ${Despen[0]?.City || ''}, ${Despen[0]?.State} | ${Despen[0]?.Store_Name} | Weedx.io`,
-        description: `Shop your favorite cannabis products from ${Despen[0]?.Store_Name} Weed delivery ${Despen[0]?.City}, ${Despen[0]?.State}. High Quality marijuana products near you. Get the best deals and offers now.`,
+        title: ` ${Despen[0]?.Store_Name} - Weed Delivery in ${Despen[0]?.City || ''} , ${Despen[0]?.State} | Weedx.io`,
+        description: ` Get fast weed delivery with ${Despen[0]?.Store_Name} in ${Despen[0]?.City || ''} , ${Despen[0]?.State}. Browse the full menu on Weedx.io and enjoy quick, reliable cannabis delivered to your door.`,
         robot: "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
     };
 
