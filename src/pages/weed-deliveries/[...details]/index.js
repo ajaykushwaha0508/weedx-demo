@@ -443,7 +443,22 @@ export default function DispensoriesDetails(props) {
                                     </>
                                     :
                                     <div>
-                                      <Oops/>
+                                      <Oops  allproduct={props?.params?.extradata?.products || []}
+                                        location={{ country: state.Country, state: state.State, city: state.City }}
+                                        store={props?.params?.extradata?.dispensaries || []}
+                                        HellFull={HellFull}
+                                        type={`store`}
+                                        reviewtype={reviewtype}
+                                        setReviewtype={setReviewtype}
+                                        delBtn={Despen}
+                                        handleEdit={handleEdit}
+                                        reviewloading={reviewloading}
+                                        handleDelete={handleDelete}
+                                        Rating={Rating}
+                                        onSubmit={onSubmit}
+                                        GetProductReview={GetProductReview}
+                                        SetGetProductReview={SetGetProductReview}
+                                        AllReview={review}/>
                                     </div>
                                 ) :
                                 (!productload ?
@@ -462,7 +477,23 @@ export default function DispensoriesDetails(props) {
                                         </div>
                                         :
 
-                                        <Oops />
+                                        <Oops 
+                                        allproduct={props?.params?.extradata?.products || []}
+                                        location={{ country: state.Country, state: state.State, city: state.City }}
+                                        store={props?.params?.extradata?.dispensaries || []}
+                                        HellFull={HellFull}
+                                        type={`store`}
+                                        reviewtype={reviewtype}
+                                        setReviewtype={setReviewtype}
+                                        delBtn={Despen}
+                                        handleEdit={handleEdit}
+                                        reviewloading={reviewloading}
+                                        handleDelete={handleDelete}
+                                        Rating={Rating}
+                                        onSubmit={onSubmit}
+                                        GetProductReview={GetProductReview}
+                                        SetGetProductReview={SetGetProductReview}
+                                        AllReview={review}/>
                                     )
                                     :
                                     <DispensoriesAddressSkeleton />

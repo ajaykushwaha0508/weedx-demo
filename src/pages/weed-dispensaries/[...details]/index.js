@@ -32,8 +32,9 @@ import newclasess from '@/styles/customstyle.module.scss'
 import Reviewextrs from "@/component/storedetailsfootecomponent/review"
 import Fqa from "@/component/storedetailsfootecomponent/faq"
 export default function DispensoriesDetails(props) {
+    console.log(props)
     const navigate = useRouter()
-    const { id, storeData, product, review } = props.params
+    const { id, storeData, product, review } = props?.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
     const Despen = [storeData] || []
     const [DespensariesData, setproduct] = React.useState(product || [])
@@ -122,7 +123,6 @@ export default function DispensoriesDetails(props) {
         }
 
     }
-    
     function ShowCategoryProduct(Id, name) {
         dispatch({ type: 'Loading', Loading: true })
         axios.post(`https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
@@ -139,7 +139,6 @@ export default function DispensoriesDetails(props) {
 
             })
     }
-
     const ProductFilterData = [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
     { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
     { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -180,7 +179,6 @@ export default function DispensoriesDetails(props) {
 
         }
     }, [reviewtype, id, api])
-
     React.useEffect(() => {
         if (state.login && state.Profile.id !== undefined && id !== undefined) {
             Store_Get_UserComment(state.Profile.id, id).then((res) => {
@@ -294,6 +292,82 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
+    const faq1 = [
+        {
+          title: `Where is ${Despen[0]?.Store_Name} located?`,
+          answer:
+            <span
+              dangerouslySetInnerHTML={{
+                __html: ` ${Despen[0].Store_Name} is located at  <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Despen[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Store_Address}</a>`
+              }}
+            />
+        },
+        {
+          title: `What are the operating hours of ${Despen[0]?.Store_Name}?`,
+          answer: (
+            <div>
+              {Despen[0]?.Hours?.map((items, idxe) => {
+                const isToday = day.getDay() - 1 === idxe;
+                if (items.close) {
+                  return (
+                    <p
+                      key={idxe}
+                      className={`${isToday ? "highlightToday" : ""} d-flex`}>
+                      <span className="w-50">{`${items.day} `}</span>
+                      <span className="w-50">Close</span>
+                    </p>
+                  );
+                } else {
+                  return items.Open?.map((ite, index) => {
+                    if (index === 0) {
+                      if (ite.Time1 === "24 Hours" || ite.Time2 === "24 Hours") {
+                        return (
+                          <p
+                            key={index}
+                            className={`${isToday ? "highlightToday" : ""} d-flex`}
+                          >
+                            <span className="w-50">{`${items.day} `}</span>
+                            <span className="w-50">24 Hours</span>
+                          </p>
+                        );
+                      } else if (ite.Time1 === "00:00" || ite.Time2 === "00:00") {
+                        return (
+                          <p
+                            key={index}
+                            className={`${isToday ? "highlightToday" : ""} d-flex`}
+                          >
+                            <span className="w-50">{`${items.day} `}</span>
+                            <span className="w-50">Closed</span>
+                          </p>
+                        );
+                      } else {
+                        return (
+                          <p
+                            key={index}
+                            className={`${isToday ? "highlightToday" : ""} d-flex`}
+                          >
+                            <span className="w-50">{`${items.day} `}</span>
+                            <span className="w-50">{`${ite.Time1} - ${ite.Time2}`}</span>
+                          </p>
+                        );
+                      }
+                    }
+                    return null;
+                  });
+                }
+              })}
+            </div>
+          )
+        },
+        {
+          title: `How can I contact ${Despen[0]?.Store_Name}?`,
+          answer: <span
+            dangerouslySetInnerHTML={{
+              __html: `You can contact ${Despen[0].Store_Name} by phone at <a  href="tel:${Despen[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Stores_MobileNo}</a>`
+            }}
+          />
+        }
+      ];
         return (
 
       
@@ -386,7 +460,22 @@ export default function DispensoriesDetails(props) {
 
                                     </div>
                                         :
-                                        <Oops />
+                                        <Oops   allproduct={props?.params?.extradata?.products || []}
+                                        location={{ country: state.Country, state: state.State, city: state.City }}
+                                        store={props?.params?.extradata?.dispensaries || []}
+                                        HellFull={HellFull}
+                                        type={`store`}
+                                        reviewtype={reviewtype}
+                                        setReviewtype={setReviewtype}
+                                        delBtn={Despen}
+                                        handleEdit={handleEdit}
+                                        reviewloading={reviewloading}
+                                        handleDelete={handleDelete}
+                                        Rating={Rating}
+                                        onSubmit={onSubmit}
+                                        GetProductReview={GetProductReview}
+                                        SetGetProductReview={SetGetProductReview}
+                                        AllReview={review}/>
                                     )
                                     :
                                     <DispensoriesAddressSkeleton />

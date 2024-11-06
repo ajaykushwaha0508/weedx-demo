@@ -10,7 +10,7 @@ import { modifystr , isShopOpen } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
 import newclases from '@/styles/customstyle.module.scss'
 const Dispensoriescart = (props) => {
-    const {ele ,classdefalut} = props 
+    const {ele} = props 
 
   const classes = useStyles()
   return (
@@ -40,8 +40,8 @@ const Dispensoriescart = (props) => {
                 </div>
                 <div className={newclases.homecardRating}>
                     <Link  href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${"review"}/${ele.id}`}>
-                        <div className="col-12 d-flex dispensories_content_paragraphs">
-                            <span className='disOPenResRating'>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
+                        <div className="d-flex">
+                            <span className={newclases.disOPenResRating}>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
                             <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                         </div>
                     </Link>

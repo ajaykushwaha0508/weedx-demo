@@ -17,9 +17,10 @@ import  Faq from '@/component/storedetailsfootecomponent/faq';
 import Review from '@/component/storedetailsfootecomponent/review';
 const Oops = (props) => {
   var date = new Date();
+  console.log(props)
+
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
-
   const faq1 = [
     {
       title: `Where is ${props?.delBtn[0]?.Store_Name} located?`,
@@ -106,8 +107,6 @@ const Oops = (props) => {
             __html: ` ${props.delBtn[0].Store_Name} delivers to <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(props?.delBtn[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Store_Address}</a>`
           }}
         />
-
-
     },
     {
       title: `What are the delivery hours for  ${props?.delBtn[0]?.Store_Name}?`,
@@ -190,7 +189,7 @@ const Oops = (props) => {
           <span className={clases.back}>{`VIEW OTHER BUSINESSES`}</span>
         </div>
       </div>
-   <Review AllReview = {props?.AllReview || []} storename={props.delBtn[0].Store_Name} ></Review>
+   <Review AllReview = {props?.AllReview || []} storename={props?.delBtn[0].Store_Name} ></Review>
       <>
         {
           Boolean(props?.store?.length) &&
@@ -232,7 +231,7 @@ const Oops = (props) => {
                   if (data.id !== props.delBtn[0].id) {
                     return (
                       <SwiperSlide key={index}>
-                        <Dispensoriescart ele={data} key={index} classdefalut={'despensories_card_container1'} />
+                        <Dispensoriescart ele={data} key={index} />
                       </SwiperSlide>
                     )
                   }

@@ -1748,11 +1748,7 @@ scrollbar-width: none;  /* Firefox */
 .despensories_card_container:hover{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
-.disOPenResRating {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-}
+
 
 
 /* amenities */
@@ -1950,7 +1946,7 @@ scrollbar-width: none;  /* Firefox */
   text-align: center;
   height: 50px;
   border: 1px solid gray;
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   bottom: 30px;
   left: 50%;
@@ -2033,90 +2029,9 @@ scrollbar-width: none;  /* Firefox */
 /* DeliveryItemsCards */
 .delivery_items_icons {
   color: rgb(96, 100, 111);
-
-}
-
-.delivery_items_cards_container {
-  height: auto;
-  background: #FFFFFF;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding-top: 10px;
-  position: relative;
-  width: 480px;
-  padding: 25px 15px 15px;
- 
-}
-.delivery_items_card_info_container{
-  width: calc(100% - 160px);
-}
-
-.delivery_items_card_img_container {
-  min-width: 140px;
-  width: 140px;
-  border: 1px solid rgb(157, 158, 160);
-  padding: 10px;
 }
 
 
-.DeliveryItem_heading {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.delivery_item_paragraph {
-  font-size: 1rem;
-  color: rgb(96, 100, 111);
-  margin-bottom: 0px;
-}
-.categoryinfowrapper{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.categoryinfo{
-background-color: #f7f7f7;
-display: inline;
-padding: 5px;
-border-radius: 3px;
-
-}
-.categoryinfo .delivery_item_paragraph{
-  color: #000;
-  font-weight: 500;
-  font-size: 10px;
-
-}
-.delivery_item_paragraphBtn {
-  font-size: .8rem;
-  color: rgb(96, 100, 111);
-
-}
-
-.delivery_items_card_flex {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-
-
-.delivery_items_button_div {
-  height: auto;
-  line-height: 45px;
-  border-radius: 10px;
-}
-
-
-
-.deliverItemCard_icons {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  gap: 8px;
-
-}
 /* end */
 /* DeliverymenuBar */
 
@@ -7310,9 +7225,7 @@ margin-top: 100px;
   .despensories_card_container {
     width: 48%;
   }
-  .despensories_card_container1 {
-    width: 48%;
-  }
+
   .Display_blog {
     display: block;
   }
@@ -7476,9 +7389,6 @@ margin-top: 100px;
     }
 
     .despensories_card_container {
-      width: 100%;
-    }
-    .despensories_card_container1 {
       width: 100%;
     }
   .homePageSignup_paragraph p {
@@ -7709,9 +7619,7 @@ font-size: 24px;
     height: unset;
   }
  
-  .delivery_item_paragraph {
-    font-size: .8rem;
-  }
+
 
   .brandHeading h1 {
     font-size: 16px;
@@ -7767,10 +7675,6 @@ font-size: 24px;
   }
   .destop_view{
     display: none;
-  }
-  .delivery_item_paragraph {
-    font-size: .8rem;
-    white-space: none !important;
   }
 
   .featuredBrandPadding {
@@ -8187,9 +8091,7 @@ font-size: 24px;
   .delivery_items_card_info_container{
     width: calc(100% - 90px);
   }
-  .DeliveryItem_heading {
-    font-size: .8rem;
-  }
+
   .height_empty_div_paragraph p {
     font-size: 11px;
   }
@@ -8522,9 +8424,7 @@ font-size: 24px;
   }
 }
 @media(max-width:350px) {
-  .delivery_items_card_flex .deliverItemCard_icons{
-    flex-wrap: wrap;
-  }
+
 }
 @media(max-width:320px) {
   .prod_cat_right_sec .row>*{
