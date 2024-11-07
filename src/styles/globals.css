@@ -4883,56 +4883,6 @@ line-height: normal;
 }
 
 /* end */
-/* laws */
-
-.lawsContainer {
-  margin: 40px 0;
-  padding: 0;
-}
-.listCountryName {
-  color: #000000;
-  font-weight: 700;
-  font-size: 22px;
-}
-.lawsDropDownList {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.law_Inner_OPtionList_Ol {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  list-style: none;
-  list-style: none;
-  padding-left: 0;
-  padding-left: 0px;
-}
-.law_Inner_OPtionList_Ol a{
-  display: contents;
-}
-.law_Inner_OPtionList_Ol li {
-
-  width: 30%;
-  display: flex;
-  gap: 10px;
-  padding: 17px 0px;
-  align-items: center;
-}
-
-.law_Inner_OPtionList_Ol li span {
-  color: #000000;
-  font-weight: 700;
-  font-size: 16px;
-}
-.lawOPtionListImage {
-  width: 30px;
-  height: 30px;
-}
-
-
-
-/* end */
 /* blog */
 .blogEditorPaddings {
   line-height: 1.4;
@@ -7477,9 +7427,6 @@ font-size: 24px;
   }
   .tc_topic_list{
       display: none;
-  }
-  .delete_icons_add{
-    font-size: 14px;
   }
   .destop_view{
       display: none;

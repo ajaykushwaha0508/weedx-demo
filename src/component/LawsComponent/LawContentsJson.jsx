@@ -2989,7 +2989,7 @@ const Content = [
         state: [
             {
                 Country: 'Canada',
-                id: 30,
+                id: 31,
                 name: "Alberta",
                 content: [{
                     title: "Is weed legal in Alberta?",
@@ -3099,7 +3099,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 31,
+                id: 32,
                 name: "British Columbia",
                 content: [
                     {
@@ -3213,7 +3213,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 32,
+                id: 33,
                 name: "Canada",
                 content: [
                     {
@@ -3342,7 +3342,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 33,
+                id: 34,
                 name: "Manitoba",
                 content: [
                     {
@@ -3454,7 +3454,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 34,
+                id: 35,
                 name: "New Brunswickers",
                 content: [
                     {
@@ -3559,7 +3559,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 35,
+                id: 36,
                 name: " Newfoundland and Labrador",
                 content: [
                     {
@@ -3682,7 +3682,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 36,
+                id: 37,
                 name: "Northwest Territories",
                 content: [
                     {
@@ -3796,7 +3796,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 37,
+                id: 38,
                 name: "Nova Scotia",
                 content: [
                     {
@@ -3912,7 +3912,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 38,
+                id: 39,
                 name: "Nunavut",
                 content: [
                     {
@@ -4033,7 +4033,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 39,
+                id: 40,
                 name: "Ontario",
                 content: [
                     {
@@ -4145,7 +4145,7 @@ const Content = [
             },
             {
                 Country: 'Canada',
-                id: 40,
+                id: 41,
                 name: "Yukon",
                 content: [
                     {

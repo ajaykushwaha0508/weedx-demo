@@ -293,15 +293,12 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
                 }}
                 className={classes.flotchceckoutbtn}
               >
-              
                 {`proceed to checkout`}
               </LoadingButton>
             </Box>
           )
         ) : (
-          <Box
-            className={`  floatingbtn `}
-          >
+          <Box className={`floatingbtn `} >
             <LoadingButton
               loading={CheckOut_Loading}
                variant="contained"

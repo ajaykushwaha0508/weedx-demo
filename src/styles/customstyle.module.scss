@@ -2487,7 +2487,43 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         }
       }
 }
- 
+.lawsContainer {
+    margin: 40px 0;
+    padding: 0;
+    .listCountryName {
+        color: #000000;
+        font-weight: 700;
+        font-size: 22px;
+    }
+    .law_Inner_OPtionList_Ol {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        list-style: none;
+        list-style: none;
+        padding-left: 0;
+        padding-left: 0px;
+        a {
+            display: contents;
+        }
+        li {
+            width: 30%;
+            display: flex;
+            gap: 10px;
+            padding: 17px 0px;
+            align-items: center;
+            span {
+                color: #000000;
+                font-weight: 700;
+                font-size: 16px;
+            }
+            .lawOPtionListImage {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
@@ -3139,6 +3175,17 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         }
       
        
+    }
+    .lawsContainer {
+        margin: 30px 0;
+        .listCountryName {
+            font-size: 18px;
+        }
+        .law_Inner_OPtionList_Ol {
+            li {
+                width: 45%; 
+            }
+        }
     }
 }
 @media (max-width: 480px){
