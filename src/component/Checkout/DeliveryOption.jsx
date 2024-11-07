@@ -14,7 +14,7 @@ import { FiEdit } from "react-icons/fi";
 import Link from 'next/link';
 import newclases from '@/styles/customstyle.module.scss';
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Time, SetTime}) => {
-    let now = new Date();
+
     const { state, dispatch } = React.useContext(Createcontext)
     const method = useForm()
     const classes = useStyles()
@@ -53,9 +53,10 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
     function convertAmPm(time) {
         let [hours, minutes] = time[0].split(':').map(Number);
         let AmOrPm = hours >= 12 ? 'pm' : 'am';
-        hours = (hours % 12) || 12; 
+        hours = (hours % 12) || 12 ; 
         return [`${hours}:${minutes.toString().padStart(2, '0')} ${AmOrPm}`];
     }
+
     return (
         <div>
             <div className="col-12 d-flex justify-content-end align-items-center">
@@ -126,7 +127,6 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                        
                                     {
                                         Hours?.map((data , index)=>{
-                                            console.log(data)
                                             return(
                                                 <MenuItem key={index}  value={data?.day + " " + data?.Open?.map((time)=>time.Time1) +"-"+ data?.Open?.map((time)=>time.Time2)}>
                                                     <div className=''> <span className='col-5'><b> { data?.day[0].toUpperCase() + data?.day.slice(1)} : </b></span> <span className='col-5'>  {convertAmPm(data?.Open?.map((time)=>time.Time1))} - {convertAmPm(data?.Open?.map((time)=>time.Time2))}</span></div>
