@@ -47,6 +47,16 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
       
    
     },[ Hours])
+
+
+
+    function convertAmPm(time) {
+        let [hours, minutes] = time[0].split(':').map(Number);
+        let AmOrPm = hours >= 12 ? 'pm' : 'am';
+        hours = (hours % 12) || 12 ; 
+        return [`${hours}:${minutes.toString().padStart(2, '0')} ${AmOrPm}`];
+    }
+
     return (
         <div>
             <div className="col-12 d-flex justify-content-end align-items-center">
@@ -91,7 +101,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                         <div className="col-12 height_for_inner_div ">
                             <h3 className={newclases.height_for_delivery_instruction_div}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  {`time`}</h3>
                         </div>
-                    :
+                :
                         <React.Fragment>
                             <h3 className={newclases.height_for_delivery_instruction_div}> Pickup Time </h3>
                             <p className='m-0'> {Time}</p>
@@ -114,11 +124,12 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                     onChange={handleChange}
                                 >
                             
+                       
                                     {
                                         Hours?.map((data , index)=>{
                                             return(
                                                 <MenuItem key={index}  value={data?.day + " " + data?.Open?.map((time)=>time.Time1) +"-"+ data?.Open?.map((time)=>time.Time2)}>
-                                                    <div className=''> <span className='col-5'><b> { data?.day[0].toUpperCase() + data?.day.slice(1)} : </b></span> <span className='col-5'>  {data?.Open?.map((time)=>time.Time1)} - {data?.Open?.map((time)=>time.Time2)}</span></div>
+                                                    <div className=''> <span className='col-5'><b> { data?.day[0].toUpperCase() + data?.day.slice(1)} : </b></span> <span className='col-5'>  {convertAmPm(data?.Open?.map((time)=>time.Time1))} - {convertAmPm(data?.Open?.map((time)=>time.Time2))}</span></div>
                                                 </MenuItem>
                                             )
                                         })
