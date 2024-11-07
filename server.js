@@ -66,11 +66,8 @@ app.prepare().
   });
 
     server.get("/sitemap/:category", async (req, res) => {
-      const userAgent = req.headers['user-agent'];
-      userAgent && userAgent.includes('Googlebot')
       switch (req.url) {
         case "/sitemap/dispensaries-location-sitemap.xml":
-          if(!userAgent.includes('Googlebot')) {
           const response1 = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
           if (response1.data[0].Xml) {
             // split(':')[0].trim()
@@ -90,9 +87,6 @@ app.prepare().
             res.end();
             //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
           }
-        }else {
-          res.status(502).send('Bad Gateway');
-        }
           break;
         case "/sitemap/products-sitemap.xml":
           const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
