@@ -460,6 +460,14 @@ const useStyles = makeStyles({
       },   
     },
   },
+  LawAccordions:{
+    "&.Mui-expanded":{
+      "& .MuiAccordionSummary-root":{
+        borderBottom:'1px solid #eee'
+      }
+    }
+   
+  },
   storeheaderbtn:{
     "&.MuiButtonBase-root":{
       height:'30px',

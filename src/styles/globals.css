@@ -4884,43 +4884,33 @@ line-height: normal;
 
 /* end */
 /* laws */
-.laws_ol {
-  list-style: none;
-  padding-left: 0px;
-}
-
-.lawsListStyle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-  margin: 10px 0px;
-}
 
 .lawsContainer {
-  margin-top: 100px;
+  margin: 40px 0;
+  padding: 0;
 }
-
 .listCountryName {
   color: #000000;
   font-weight: 700;
   font-size: 22px;
 }
-
 .lawsDropDownList {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .law_Inner_OPtionList_Ol {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   list-style: none;
+  list-style: none;
+  padding-left: 0;
   padding-left: 0px;
 }
-
+.law_Inner_OPtionList_Ol a{
+  display: contents;
+}
 .law_Inner_OPtionList_Ol li {
 
   width: 30%;
@@ -4928,8 +4918,6 @@ line-height: normal;
   gap: 10px;
   padding: 17px 0px;
   align-items: center;
-
-
 }
 
 .law_Inner_OPtionList_Ol li span {
@@ -4937,25 +4925,13 @@ line-height: normal;
   font-weight: 700;
   font-size: 16px;
 }
-
-.lawoptionMainList {
-  border: 1px solid #E9E9E9;
-  margin-top: 10px;
-}
-
 .lawOPtionListImage {
   width: 30px;
   height: 30px;
 }
 
-.lawssoptionStyle {
-  list-style: none;
-  padding-left: 0px;
-}
 
-.lawssoptionStyle a{
-  display: contents;
-}
+
 /* end */
 /* blog */
 .blogEditorPaddings {
@@ -7655,9 +7631,6 @@ font-size: 24px;
   }
   .law_Inner_OPtionList_Ol li span{
     font-size: 14px;
-  }
-  .lawsListStyle {
-    height: 30px;
   }
   .dispensories_name {
     font-size: 20px;

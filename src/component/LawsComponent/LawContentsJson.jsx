@@ -2411,6 +2411,143 @@ const Content = [
             {
                 Country: 'USA',
                 id: 25,
+                name: "Nebraska",
+                content: [
+                    {
+                        title: "Overview of Nebraska’s Cannabis Laws",
+                        content: `<p>Nebraska has long been one of the more conservative states when it comes to cannabis legislation. However, in recent years, there has been growing momentum for reform, especially in the areas of medical marijuana legalization. As of 2024, Nebraska has passed significant steps toward medical cannabis access while recreational marijuana remains illegal.</p>
+                        <p>In this comprehensive guide, we’ll explore Nebraska cannabis laws, including recent updates, legal uses of cannabis, key legislative developments, and what changes are expected in the future.</p>
+                        `
+                    },
+                    {
+                        title: "Nebraska Cannabis Law History: A Timeline",
+                        content: `<div>
+                           <h5>Pre-2020: Prohibition of Cannabis:</h5>
+                            <ul>
+                                <li> Cannabis was <b> illegal in Nebraska </b> for both medical and recreational use for many years.</li>
+                                <li> <b> Possession </b> of even small amounts of marijuana was considered a criminal offense, with penalties including fines and potential jail time.</li>
+                            </ul>
+                             <h5>2020: The Beginning of Reform Efforts:</h5>
+                             <p>In 2020, Nebraska lawmakers made initial attempts to soften cannabis restrictions:</p>
+                            <ul>
+                                <li><b> Medical marijuana </b> initiatives were brought to the forefront, but despite significant public support, the state legislature did not pass a full medical marijuana program.</li>
+                                <li> The <b> Nebraska Medical Cannabis Act,</b> introduced in 2020, failed to pass due to opposition from lawmakers.</li>
+                            </ul>
+                             <h5>2022: Continued Push for Medical Marijuana:</h5>
+                             <p>In 2022, the push for medical cannabis legalization in Nebraska continued:</p>
+                            <ul>
+                                <li><b>Initiative 427,</b> which aimed to legalize medical marijuana for patients with qualifying conditions, was blocked by the state legislature again. However, supporters of the bill rallied to get it on the <a href="https://sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20Ballot%20Measures%20Pamphlet.pdf">2024 ballot measures.</a> </li>
+                            </ul>
+                        </div>`
+                    },
+                    {
+                        title: "2024: Landmark Changes with Medical Marijuana Legalization",
+                        content: `<div>
+                                    <h5>Initiative 437 & 438: Medical Marijuana Legalized</h5>
+                                    <p>In 2024, Nebraska passed two important medical marijuana measures, signaling a significant shift in cannabis pulicy:</p>
+                                    <ul>
+                                        <li><b>Initiative 437</b>: This measure was <b>approved by 70.7% of voters,</b> allowing for the <b>legal use and possession of up to 5 ounces of cannabis</b> for <b>medical purposes</b> with a written recommendation from a licensed healthcare provider. This change now permits patients with qualifying conditions such as chronic pain, cancer, PTSD, and others to access medical marijuana legally.</li>
+                                        <li>Initiative 438: This measure, which passed with 66.9% approval, establishes the Nebraska Medical Cannabis Commission. The commission will regulate the state's new medical marijuana program, ensuring proper distribution, cultivation, manufacturing, and dispensing of cannabis. It also outlines procedures for <b>certified dispensaries</b> and licensed producers.</li>
+                                    </ul>
+                                    <p>The <b>2024 reforms</b> have been hailed as a breakthrough in Nebraska’s cannabis pulicy, providing access to medicinal cannabis to thousands of patients in need.</p>
+                        </div>`
+
+                    },
+                    {
+                        title: "Current Legal Status of Cannabis in Nebraska",
+                        content: `<div>
+
+                            <h5>Medical Marijuana</h5>
+                            <p>As of <b>2024, medical marijuana is legal</b> in Nebraska for qualifying patients. However, there are several key regulations to be aware of:</p>
+                            <ul>
+                              <li><b>Eligibility:</b> Patients must have a <b>valid medical prescription</b> or recommendation from a licensed healthcare provider.</li>
+                              <li><b>Possession Limits:</b> Patients can possess up to <b> 5 ounces</b> of medical marijuana.</li>
+                              <li><b>Dispensaries:</b> Medical cannabis will be suld through licensed dispensaries under the oversight of the Nebraska Medical Cannabis Commission.</li>
+                              <li><b>Home Cultivation: Home cultivation</b> of marijuana is <b>not allowed</b> under the new law. All medical cannabis must be acquired from licensed dispensaries.</li>                        
+                            </ul>
+                            <h5>Recreational Marijuana</h5>
+                            <p><b>Recreational marijuana remains illegal </b> in Nebraska, and efforts to legalize recreational cannabis have not succeeded so far. Despite the growing trend across the U.S. toward recreational legalization, Nebraska voters have consistently rejected these proposals.</p>
+                            <ul>
+                              <li>The most recent attempt at recreational cannabis was <b> Measure 29 </b> in <b> South Dakota </b> and similar initiatives have faced significant resistance in Nebraska.</li>
+                              <li> <b>  Possession of small amounts of marijuana </b> for personal use is still classified as a criminal offense in Nebraska, although the state has decriminalized marijuana possession to some extent by reducing penalties.</li>
+                            </ul>
+                            <h5>Penalties for Marijuana Possession in Nebraska</h5>
+                            <p>Although marijuana laws have become more lenient for medical use, penalties for <b>illegal possession</b> of marijuana still apply:</p>
+                            <ul>
+                             <li><b>Possession of less than 1 ounce:</b> A <b>$300 fine</b> and up to <b>90 days in jail</b> for first-time offenders.</li>
+                             <li>Possession of 1 ounce or more: Charges escalate to a <b>felony,</b> with penalties including <b>1-5 years in prison</b> and fines up to <b>$10,000.</b></li>
+                            </ul>
+                        </div>`
+                    },
+                    {
+                        title: "Nebraska Cannabis Regulations",
+                        content: `<div>
+                        </div>`
+                    },
+                    {
+                        title: "Cannabis Cultivation & Distribution",
+                        content: `<div>
+                            <ul>
+                                 <li><b>Medical marijuana</b> will be cultivated, processed, and distributed by <b>licensed entities</b> in Nebraska. The state has implemented a <b>strict regulatory framework</b> for cannabis cultivation, ensuring that only authorized entities can legally produce and distribute marijuana.</li>
+                                <li><b>Home cultivation</b> remains prohibited, meaning patients must obtain their cannabis from licensed dispensaries.</li>
+                            </ul>
+                            <h5>Cannabis Taxes</h5>
+                            <ul>
+                                <li>In <b>Nebraska,</b> the cannabis industry will likely be subject to various taxes, including a <b>sales tax</b> on cannabis products suld in medical dispensaries. These taxes are expected to fund the state’s <b>medical cannabis program</b> and related healthcare services.</li>
+                                
+                            </ul>
+                            <h5>Driving Under the Influence (DUI)</h5>
+                            <p>Like many other states, Nebraska has laws in place regarding <b>driving under the influence</b> of cannabis. Driving with a<b> measurable amount </b>of cannabis in your system can result in penalties, including fines, license suspension, and imprisonment.</p>
+                        </div>`
+                    },
+                    {
+                        title: "Nebraska Cannabis Laws: Future Outlook",
+                        content: ` <div>
+                          <h5>Recreational Marijuana: Will Nebraska Legalize It?</h5>
+                          <ul>
+                            <li>The debate over <b>recreational cannabis</b> in Nebraska is ongoing. With neighboring states like <b>Culorado</b> and<b> Kansas</b> having legalized recreational marijuana, many advocates believe it is only a matter of time before Nebraska fullows suit. However, significant pulitical and public resistance remains.</li>
+                            <li><b>Pulls</b> have shown that while a majority of Nebraskans support <b>medical marijuana</b>, support for recreational cannabis remains more divided. Legislative changes may depend on future ballot measures or shifts in public opinion.</li>
+                          </ul>
+                          <h5>Ongoing Legal Challenges and Updates</h5>
+                          <ul>
+                            <li>As the <b>Nebraska Medical Cannabis Commission</b> begins to regulate the new medical marijuana industry, more changes and legal updates are likely to occur in the coming years.</li>
+                            <li>Patients and medical professionals will need to stay updated on any changes to the state’s regulations, including rules surrounding <b>dispensaries, doctor certifications, and product availability.</b></li>
+                          </ul>
+                        </div>`
+                    },
+                  
+                    {
+                        title: "FAQs: Cannabis Laws in Nebraska",
+                        content: `<div>
+                        <h5>Is medical marijuana legal in Nebraska?</h5>
+                        <p>Yes, medical marijuana is now legal in Nebraska fullowing the approval of <b>Initiative 437 and 438</b> in 2024. Medical marijuana can be prescribed for qualifying conditions, and patients can legally possess up to 5 ounces of cannabis.</p>
+                        <h5>Can I grow marijuana at home in Nebraska?</h5>
+                        <p>No, <b>home cultivation </b>of marijuana is not permitted in Nebraska. All medical cannabis must be purchased from  <b>licensed dispensaries.</b></p>
+                        <h5>What are the penalties for marijuana possession in Nebraska?</h5>
+                        <p>Penalties vary depending on the amount of marijuana:</p>
+                            <ul>
+                                <li> Possession of less than 1 ounce: <b>$300</b> fine and up to <b>90 days in jail.</b></li>
+                                <li>Possession of 1 ounce or more: Felony charge with possible<b> 1-5 years in prison</b> and a <b> $10,000 fine.</b></li>
+                            
+                            </ul>
+                            <h5>Is recreational marijuana legal in Nebraska?</h5>
+                            <p>No, recreational marijuana remains illegal in Nebraska. Efforts to legalize it have been unsuccessful, with no current initiatives on the table for legalization.</p>
+                        </div>`
+                    },
+                    {
+                        title: "Conclusion: Nebraska’s Evolving Cannabis Landscape",
+                        content: `<div>
+                             <p>Nebraska has made significant strides in the area of medical marijuana legalization in 2024, with Initiative 437 and Initiative 438 marking the most notable changes in state cannabis policy. While recreational marijuana remains illegal, the growing momentum for medical use in the state signals potential future reforms.</p>
+                             <p>As cannabis laws continue to evolve across the United States, Nebraska’s journey toward more cannabis-friendly policies is likely to continue, though recreational cannabis legalization may still face hurdles in the short term.</p>
+                             <p>Stay informed and updated on Nebraska cannabis laws as they change—whether you're a medical marijuana patient, a business owner, or an advocate for future cannabis reforms in the state.</p>
+                        </div`,
+                    }
+
+                ]
+            },
+            {
+                Country: 'USA',
+                id: 26,
                 name: "New York",
                 content: [
                     {
@@ -2450,17 +2587,17 @@ const Content = [
                         title: "Marijuana Regulation and Taxation Act:",
                         content: `<div>
                             <p>On March 31, 2021, New York State Governor Andrew Cuomo signed the Marijuana Regulations and Taxation Act (MRTA), making recreational marijuana use legal for adults over the age of 21. The key terms or impacts of the MRTA are as follows:</p>
-                          <h2>Regulation:</h2>
+                          <h4>Regulation:</h4>
                            <ul>
                             <li>The Office of Cannabis Management (OCM) oversees the state's marijuana industry, including medical, adult-use, or cannabis production.</li>
                             <li>The OCM is responsible for licencing, regulation, and enforcement·</li>
                            </ul>
-                          <h2>Taxation:</h2>
+                          <h4>Taxation:</h4>
                            <ul>
                             <li>Cannabis items are subject to a 13% sales tax, which comprises a 9% state and 4% local Cannabis tax revenue New York.</li>
                             <li>There is an additional tax dependent on the potency of the substance, with greater taxes applied to more potent products·</li>
                            </ul>
-                          <h2>Public Health and Safety:</h2>
+                          <h4>Public Health and Safety:</h4>
                            <ul>
                             <li>Strict standards for product safety, quality control, and child-resistant packaging</li>
                             <li>Limits on advertising to protect minors from being targeted·</li>
@@ -2530,7 +2667,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 26,
+                id: 27,
                 name: "Washington",
                 content: [
                     {
@@ -2605,7 +2742,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 27,
+                id: 28,
                 name: "West Virginia ",
                 content: [
                     {
@@ -2697,7 +2834,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 28,
+                id: 29,
                 name: "Wisconsin",
                 content: [
                     {
@@ -2775,7 +2912,7 @@ const Content = [
             },
             {
                 Country: 'USA',
-                id: 29,
+                id: 30,
                 name: "Wyoming",
                 content: [
                     {
