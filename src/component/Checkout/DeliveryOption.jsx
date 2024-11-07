@@ -51,10 +51,13 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
 
 
     function convertAmPm(time) {
+        console.log(time)
+        if(Boolean(time)){
         let [hours, minutes] = time[0].split(':').map(Number);
         let AmOrPm = hours >= 12 ? 'pm' : 'am';
         hours = (hours % 12) || 12 ; 
-        return [`${hours}:${minutes.toString().padStart(2, '0')} ${AmOrPm}`];
+        console.log(minutes)
+        return [`${hours}:${Boolean(minutes) ? minutes?.toString().padStart(2, '0') : "00"} ${AmOrPm}`];}
     }
 
     return (
