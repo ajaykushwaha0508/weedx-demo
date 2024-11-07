@@ -14,7 +14,7 @@ const Dispensoriescart = (props) => {
 
   const classes = useStyles()
   return (
-    <div className={newclases.despensories_card_container}>
+    <div className={`${props.type ==="swiper" && 'w-100'}   ${newclases.despensories_card_container}`} >
         <div className="row">
             <div className={`col-4 ${newclases.disensories_card_image_div}`}>
                 <Link  href={`/weed-dispensaries/${modifystr(ele?.Store_Name)}/${ele.id}`}>

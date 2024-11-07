@@ -80,19 +80,18 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
             </div>
             <div className="col-12" >
                 <h3 className={`mb-0 ${newclases.height_for_delivery_instruction_div}`}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }    {`Address`}</h3>
-                {DeliveryOptionData?.map((ele, index) => {
-                    return (
-                        <div key={index}>
-                            <p className='text-break'>Your {ele?.address}  </p>
-                        </div>
-
-                    )
-
-                })}
-
+                { 
+                    DeliveryOptionData?.map((ele, index) => {
+                        return (
+                            <div key={index}>
+                                <p className='text-break'>{`Your`} {ele?.address}  </p>
+                            </div>
+                        )
+                    })
+                }
             </div>
-            <div className="col-12   d-flex aling-item-center ">
-                    <p className='text-break'>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : <>{ state.DeliveryAddress} <Link href={'/cart'}><FiEdit  color='#31B665' /></Link> </>   }  </p>
+            <div className="col-12 d-flex aling-item-center ">
+                <p className='text-break'>{state.selectDeliveryoptions === "pickup_btn" ? state.AllProduct[0]?.StoreAddress : <>{ state.DeliveryAddress} <Link href={'/cart'}><FiEdit  color='#31B665' /></Link> </>   }  </p>
             </div>
             {
                 state.selectDeliveryoptions === "delivery_btn" ?
@@ -100,7 +99,7 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                         <p className='font-weight-bold'>{`Add delivery instructions`}</p>
                     </div>
                 : 
-                ShowDeliveryRestData ?
+                    ShowDeliveryRestData ?
                         <div className="col-12 height_for_inner_div ">
                             <h3 className={newclases.height_for_delivery_instruction_div}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" }  {`time`}</h3>
                         </div>
@@ -109,14 +108,11 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                             <h3 className={newclases.height_for_delivery_instruction_div}> Pickup Time </h3>
                             <p className='m-0'> {Time}</p>
                         </React.Fragment>
-                
             }
 
-            {ShowDeliveryRestData &&
-
-                <div>                    
-                    <div className="col-12 height_for_time_div">
-                        <div className="col-12 col-lg-12 height_for_time_div">
+            {       ShowDeliveryRestData && <div>                    
+                 
+                        <div className="col-12 mb-3">
                             <FormControl className={`${classes.muiSelectTime}`} >
                                 <InputLabel id="demo-select-small">{`Time`}</InputLabel>
                                 <Select
@@ -126,8 +122,6 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                     label="Time"
                                     onChange={handleChange}
                                 >
-                            
-                       
                                     {
                                         Hours?.map((data , index)=>{
                                             return(
@@ -140,15 +134,10 @@ const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Ti
                                 </Select>
                             </FormControl>
                         </div>
-
-
-                    </div>
-                    <h3 className={newclases.height_for_delivery_instruction_div}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" } {` Instruction`}</h3>
-                    <div className="col-12 height_for_delivery_instruction_textarea_div ">
-                        <div className='col-12 height_for_delivery_instruction_textarea_div'>
+                        <h3 className={newclases.height_for_delivery_instruction_div}>{state.selectDeliveryoptions === "delivery_btn" ? "Delivery" : "Pickup" } {` Instruction`}</h3>
+                        <div className='col-12 '>
                             <textarea className="textAreaDeliveryOptions"  id="textAreaExample4" placeholder={ ` Please specify any additional ${state.selectDeliveryoptions === "delivery_btn" ?"delivery" : "Pickup "} instructions here....`}></textarea>
                         </div>
-                    </div>
                     <form onSubmit={method.handleSubmit(ShowHideDeliveryOptions)} >                    
                         <div className='col-12 col-lg-4 height_delivery_option_buttton'>
                             <Box className={`  ${classes.loadingBtnTextAndBack}`}  >

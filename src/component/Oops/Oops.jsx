@@ -231,7 +231,9 @@ const Oops = (props) => {
                   if (data.id !== props.delBtn[0].id) {
                     return (
                       <SwiperSlide key={index}>
-                        <Dispensoriescart ele={data} key={index} />
+                      
+                        <Dispensoriescart ele={data} key={index} type={'swiper'} />
+                    
                       </SwiperSlide>
                     )
                   }
@@ -244,7 +246,6 @@ const Oops = (props) => {
       </>
       <>
         <h3 className="section_main_title mt-4">{`Frequently Asked Questions (FAQs)`}</h3>
-
         <div className="row">
           {
             (props.faq === "delivery" ? faq : faq1)?.map((item, index) => {
@@ -271,17 +272,7 @@ const Oops = (props) => {
 
         </div>
       </>
-
     </>
   )
 }
-
-
 export default Oops
-
-
-{/* <span
-dangerouslySetInnerHTML={{
-  __html: `You can contact ${props.delBtn[0].Store_Name} by phone at <a href="tel:${props.delBtn[0].Stores_MobileNo}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Stores_MobileNo}</a>`
-}}
-/> */}

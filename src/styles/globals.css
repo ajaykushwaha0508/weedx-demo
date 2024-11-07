@@ -1555,121 +1555,57 @@ scrollbar-width: none;  /* Firefox */
   cursor: pointer;
 }
 
-.height_for_time_div {
-  height: 80px;
-}
-
-
-.height_for_delivery_instruction_textarea_div {
-  height: auto;
-}
-
-
-.font_size_checkbox_paragraph p {
-  font-size: 15px;
-  margin-right: 10px;
-  text-align: justify;
-}
-
-.height_delivery_option_buttton {
-  height: 44px;
-}
-
 /* end */
-/* DeliveryInformation */
 
 
-.paymentChange{
-  color: #000000;
-  font-weight: 400;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* end */
 /* Payment */
 
 
 
 /* end */
-/* checkoutmainpage */
-.checkout_main_page_summary {
-
-  /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); */
+/* .checkout_main_page_summary {
   margin-top: 20px !important;
   height: auto;
   padding-bottom: 25px;
-
-}
-
-/* .checkout_main_page_addtocart_review {
-      border: 1px solid grey;
-      border-radius: 20px;
-      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 10px;
-      height: 980px; 
-      overflow-x: hidden;
-      overflow-y: auto;
 } */
-
-
-
 .checkout_main_page_addtocart_summary_margin {
   margin: 15px;
 }
-
-
-
 .HomePageBanner_height {
   height: 350px;
   width: 100%;
 }
-
 .homePage_header h1 {
   color: #FFFFFF;
   font-weight: bold;
 }
-
-/* navbar_logo_image */
 .navbar_logo_image {
   width: 50px;
   height: 50px;
 }
-
-/* OrderTable */
 .Email_table_container {
   height: 900px;
   border: 1px solid grey;
 }
-
 .Email_table_header_height {
   height: 100px;
   background-color: plum;
 }
-
 .Email_table_header_height p {
   margin-left: 20px;
 }
-
 .margin_paragraph p {
   margin-left: 20px;
-
 }
-
 /* end */
 /* ThanYouOrder */
-
-
 .top_container {
   background: #FAFAFA;
   border: 1px solid #FFFFFF;
   height: 150px;
-
 }
-
 .stepper_container {
   border: 1px solid grey;
-
 }
 
 .ThankYouOrder_paragraph {
@@ -2910,57 +2846,11 @@ background: #31B665;
   font-family: 'Inter', sans-serif;
   display: inline;
 }
-.place_order_product_cart{
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 15px;
-  gap: 20px;
-}
-.place_order_product_cart:nth-last-child(1){
-  margin-bottom: 0;
-}
-.place_order_product_cart_image{
-  width: 120px;
-  height: 120px;
-}
-.place_order_product_cart_image img{
-   width: 100%;
-   height: 100%;
-}
-.place_order_product_cart_Text{
-  flex: 1;
-}
-.place_order_product_cart_Text h4.productname{
-  font-size: 16px;
-  font-weight: 600;
-  color: #505050;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-  word-break: break-all;
-}
-.place_order_product_cart_Text p{
-  font-size: 14px;
-  margin-bottom: 5px;
-}
+
 .learnContent_container_height {
   height: auto;
 }
-.place-order_address p{
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400 ;
-  margin-bottom: 0;
-}
-.place-order_address h4{
-  font-size: 16px;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
 
-}
 .learn_content_section_one {
   margin-top: 20px;
   height: 100%;
@@ -3939,22 +3829,7 @@ line-height: normal;
 
 
 
-.trackorderbtn{
-  min-width: 120px;
-  background-color: #fff;
-  color: #31B655;
-  border: 1px solid #31B655;
-  text-align: center;
-  transition: all .3s ease;
-  cursor: pointer;
-  padding: 8px 0;
-  border-radius: 8px;
-}
-.trackorderbtn:hover{
-  background-color: #31B655;
-  color: #fff;
-  border: 1px solid #31B655;
-}
+
 
 .notifyDesctiptio{
   font-size: 12px;
@@ -5357,33 +5232,7 @@ line-height: 2;
 
 /* recent order page start */
 
-.order_conform_card{
-  border-radius: 12px;
-  background-color: white;
-  width:420px;
-  padding: 20px;
-  margin: 20px auto;
-  text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; 
-}
-.order_conform_card .order_conform_card_icons{
-  font-size: 42px;
-  color: #31B665;
-  margin-bottom: 10px;
-}
-.order_conform_card  .card_title{
-  font-family: 'Roboto Slab', serif;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.5;
-}
 
-.order_conform_card .card_message{
-  margin: 0;
-  font-size: 16px;
-  color: #333333a2;
-  margin-bottom: 10px;
-}
 .discountinfo{
   font-size: 14px;
   font-weight: 400;
@@ -7740,10 +7589,10 @@ font-size: 24px;
   .place_order_product_cart p{
     font-size: 14px;
   }
-  .place-order_address p{
+  .place_order_address p{
     font-size: 14px;
   }
-  .place-order_address h4{
+  .place_order_address h4{
     font-size: 15px;
     font-weight: 600;
   }
@@ -8405,11 +8254,10 @@ font-size: 24px;
 }
 .nearbystoreheading{
   color: #6A6A6A;
-font-size: 16px;
-font-weight: 600;
-line-height: 25px;
-text-align: left;
-
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: left;
 }
 @media (max-width:1036px) {
   .nearbystoreheading{

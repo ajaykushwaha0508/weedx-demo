@@ -135,26 +135,23 @@ const CheckOutMainPage = () => {
                                 </div>
                     
                             <div className={newclases.DeliveryOption_container}>
-                            <div className="row">
-                                <div className="col-lg-12 mx-auto checkout_main_page_addtocart_review ">
+                          
+                                <div>
                                     <p className={newcalses.font_size_paragraph}>{`Review`}</p>
                                     <AddToCartReview />
                                 </div>
-                            </div>
+                          
                         </div>
                     </div>
                     <div className="col-md-8 col-xl-4 col-lg-5 col-sm-12 col-12">
-                    
-                            <div className="checkout_main_page_summary">
-                                <AddToCartSummary 
-                                    SetDeliveryOptionData={SetDeliveryOptionData} 
-                                    Total={abc} SubmitData={SubmitData}
-                                    CheckOut_Loading={CheckOut_Loading}
-                                    SetLoading={SetLoading}
-                                    Details={Details}
-                                    SetDetails={SetDetails}
-                                />
-                            </div>
+                            <AddToCartSummary 
+                                SetDeliveryOptionData={SetDeliveryOptionData} 
+                                Total={abc} SubmitData={SubmitData}
+                                CheckOut_Loading={CheckOut_Loading}
+                                SetLoading={SetLoading}
+                                Details={Details}
+                                SetDetails={SetDetails}
+                            />
                     </div>
                 </div>
             </ProtectRout>

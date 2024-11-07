@@ -2524,6 +2524,106 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         }
     }
 }
+.OrderDonePage{
+    .card_message{
+        margin: 0;
+        font-size: 16px;
+        color: #333333a2;
+        margin-bottom: 10px;
+    }
+    .order_conform_card{
+        border-radius: 12px;
+        background-color: white;
+        width:420px;
+        padding: 20px;
+        margin: 20px auto;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; 
+    
+        .order_conform_card_icons{
+            font-size: 42px;
+            color: #31B665;
+            margin-bottom: 10px;
+        }
+        .card_title{
+            font-family: 'Roboto Slab', serif;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.5;
+        } 
+ 
+        .trackorderbtn{
+            min-width: 120px;
+            background-color: #fff;
+            color: #31B655;
+            border: 1px solid #31B655;
+            text-align: center;
+            transition: all .3s ease;
+            cursor: pointer;
+            padding: 8px 0;
+            border-radius: 8px;
+        }
+        .trackorderbtn:hover{
+            background-color: #31B655;
+            color: #fff;
+            border: 1px solid #31B655;
+        }
+    }
+    .place_order_address {
+        p{
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400 ;
+            margin-bottom: 0;
+        }
+        h4{
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+    }
+}
+.place_order_product_cart{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 20px;
+    &:nth-last-child(1){
+        margin-bottom: 0;
+    }
+    .place_order_product_cart_image{
+        width: 120px;
+        height: 120px;
+     
+       img{
+         width: 100%;
+         height: 100%;
+      }
+    }
+    .place_order_product_cart_Text{
+        flex: 1;
+    
+       h4.productname{
+        font-size: 16px;
+        font-weight: 600;
+        color: #505050;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.5;
+        word-break: break-all;
+      }
+       p{
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  
+ 
+
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
