@@ -43,6 +43,7 @@ const HomePageBanner = ({props}) => {
                                                         width={1500}
                                                         quality={1}
                                                         height={500}
+                                                        priority
                                                         loader={imageLoader}
                                                         className={clases.HomePageBanner_image}
                                                     />

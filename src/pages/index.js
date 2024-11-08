@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { HomePageSco } from "../component/ScoPage/HomePageSco"
+// import { HomePageSco } from "../component/ScoPage/HomePageSco"
+const   HomePageSco  = dynamic(() => import('../component/ScoPage/HomePageSco'));
 import dynamic from 'next/dynamic'
 const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'));
 const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
@@ -29,11 +30,11 @@ const transformString = (str) => {
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
   const [Skeleton, SetSkeleton] = React.useState(true)
-  const [data , setdata] =  React.useState([])
-  
-  React.useEffect(()=>{
+  const [data, setdata] = React.useState([])
+
+  React.useEffect(() => {
     setdata(initialData.Dispensaries)
-  },[initialData?.Dispensaries])
+  }, [initialData?.Dispensaries])
   const Navigate = useRouter()
   function ShowCategoryProduct(id, name) {
 
@@ -51,7 +52,7 @@ export default function Home({ initialData }) {
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <NewsBlog data={initialData.news}></NewsBlog>
-      <HomePageDealsSignup/>
+      <HomePageDealsSignup />
     </>
   );
 }
@@ -63,7 +64,7 @@ export default function Home({ initialData }) {
 
 export async function getServerSideProps(context) {
   const cookies = JSON.parse(context.req.headers['x-fetchlocation'] || '');
-  
+
   const object = {
     City: transformString(cookies.city) || '',
     State: transformString(cookies.state) || '',

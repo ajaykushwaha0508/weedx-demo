@@ -100,7 +100,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                                 :
                                                 <Image
                                                 onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                    src={`${image}`}
+                                                    src={image}
                                                     // src={image}
                                                     alt='User Image'
                                                     title={'User Image'}

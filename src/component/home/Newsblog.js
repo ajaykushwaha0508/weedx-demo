@@ -32,7 +32,7 @@ const Newsblog = (props) => {
                                                      width={100}
                                                      height={100}
                                                     src={`${ele.Image}`} 
-                                                    alt={ele.Title} 
+                                                    alt={'Weedx'}
                                                     title={ele.Title} 
                                                     unoptimized={true}
                                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}

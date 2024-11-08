@@ -68,7 +68,7 @@ app.prepare().
       // Return the origin as a response
       res.json({ origin: fullOrigin });
     });
-
+    //     // law-sitemap.xml.gz
     server.get("/sitemap/:category", async (req, res) => {
       switch (req.url) {
         case "/sitemap/dispensaries-location-sitemap.xml":
@@ -582,17 +582,16 @@ app.prepare().
 
           const gzip = createGzip({
             level: 9 // Maximum compression level
-        });
-    
+          });
+
 
           // Pipe the archive data to the response object
-        
+
 
           // Add the XML sitemap to the ZIP file
-          const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset
-	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
+          const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?> 
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+             	<url>
 		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alabama/1</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
@@ -713,77 +712,77 @@ app.prepare().
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-york/25</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-york/26</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
   <url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-washington/26</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-washington/27</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-west-virginia/27</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-west-virginia/28</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wisconsin/28</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wisconsin/29</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wyoming/29</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wyoming/30</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alberta/30</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alberta/31</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-british-columbia/31</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-british-columbia/32</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-canada/32</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-canada/33</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-manitoba/33</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-manitoba/34</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-brunswickers/34</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-brunswickers/35</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-newfoundland-and-labrador/35</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-newfoundland-and-labrador/36</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-northwest-territories/36</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-northwest-territories/37</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nova-scotia/37</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nova-scotia/38</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nunavut/38</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nunavut/39</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-ontario/39</loc>
+		<loc>https://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-ontario/40</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -792,7 +791,7 @@ app.prepare().
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
-</urlset>`;
+          </urlset>`;
 
           // Write the sitemap to a file inside the zip
           res.writeHead(200);
@@ -801,9 +800,8 @@ app.prepare().
           break;
         // additional cases as needed
         default:
-        // code block executed if expression doesn't match any case
       }
-      // }
+
     })
     server.get('/robots.txt', (req, res) => {
       res.type('text/plain');
