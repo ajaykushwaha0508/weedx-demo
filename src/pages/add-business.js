@@ -105,7 +105,7 @@ const ssss = useStyles()
                     
                     </div>
                     <div className={classes.ad_Img_Area}>
-                      <Image src={Add_business2.src} width={400} height={400}/>
+                      <Image src={Add_business2.src} alt="weedx" width={400} height={400}/>
                     </div>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const ssss = useStyles()
                 <div className={classes.section_boxBanner} >
                     <div className={classes.ad_imageTextSection}>
                         <div className={classes.ad_Img_Area}>
-                          <Image width={400} height={400} src={Add_business1.src}/>
+                          <Image alt="weedx" width={400} height={400} src={Add_business1.src}/>
                         </div>
                         <div className={classes.ad_textArea}>
                         
@@ -278,7 +278,7 @@ const ssss = useStyles()
                       </ul>
                     </div>
                     <div className={classes.ad_Img_Area}> 
-                      <Image src={businness1.src} width={300} height={240}/>
+                      <Image alt="weedx" src={businness1.src} width={300} height={240}/>
                     </div>
                   </div>
                 </div>

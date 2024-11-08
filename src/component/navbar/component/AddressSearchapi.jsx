@@ -357,7 +357,7 @@ export default function SearchingLocation({ openLocation, SearchBarWidth, open1,
               endAdornment: (
                 <IconButton onClick={current}>
                   <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
-                </IconButton>
+            </IconButton>
 
               ),
             }}

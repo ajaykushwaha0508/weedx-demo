@@ -71,6 +71,7 @@ export default function DashBoardLink({ state }) {
         <Grid xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="col nav_list1">
             <ul className="p-0">
+            <li>
               <Link
                 href={getDispensariesHref()}
                 id={`${
@@ -80,8 +81,9 @@ export default function DashBoardLink({ state }) {
                 }`}
               >
                 {" "}
-                <li>Dispensaries </li>
+              Dispensaries  
               </Link>
+              </li>
               <Link
                 href={getDeliveryHref()}
                 id={`${

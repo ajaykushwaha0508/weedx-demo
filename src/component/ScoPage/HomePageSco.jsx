@@ -26,4 +26,4 @@ function HomePageSco({location  }) {
         </Head>
     )
 }
-export { HomePageSco }
+export  default HomePageSco 
