@@ -3803,18 +3803,8 @@ line-height: normal;
 .Order_Text{
   background: #F0FFF6;
 }
-.OrderSearchFiter{
-  display: block;
-  justify-items: end;
-  align-self: center;
-  text-align: end;
-}
-.OrderSearchFiter .MuiFormControl-root {
-  margin: 0 ;
-}
-.OrderSearchFiter .MuiFormControl-root .Mui-focused .MuiOutlinedInput-notchedOutline{
-  border-color: #31B655;
-}
+
+
 .MyOrderSearchBar_container {
   width: 80%;
 }
@@ -3878,10 +3868,7 @@ line-height: normal;
 
 /* end */
 /* AllOrder */
-.AllOrderContainer {
-  height: auto;
-  border: 1px solid #DBDBDB;
-}
+
 
 .sellerName_date {
   font-size: 16px;
@@ -7589,13 +7576,7 @@ font-size: 24px;
   .place_order_product_cart p{
     font-size: 14px;
   }
-  .place_order_address p{
-    font-size: 14px;
-  }
-  .place_order_address h4{
-    font-size: 15px;
-    font-weight: 600;
-  }
+
 .order_conform_card .card_message{
   margin: 0;
   font-size: 14px;

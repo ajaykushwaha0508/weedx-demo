@@ -2620,7 +2620,7 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
         margin-bottom: 5px;
       }
     }
-  }
+}
   
  
 
@@ -3625,7 +3625,32 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
               
             }
         }
-}
+    }
+    .OrderDonePage{
+       
+        .order_conform_card{
+            width:100%;
+            padding: 10px;
+            .order_conform_card_icons{
+                font-size: 32px;
+                color: #31B665;
+                margin-bottom: 10px;
+            }
+            .card_title{
+                font-size: 18px;           
+            } 
+     
+            .trackorderbtn{
+                min-width: 120px;
+            }
+            .trackorderbtn:hover{
+                background-color: #31B655;
+                color: #fff;
+                border: 1px solid #31B655;
+            }
+        }
+       
+    }
 }
 @media (max-width:400px){
     footer {

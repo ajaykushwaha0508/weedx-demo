@@ -10,18 +10,20 @@ import axios from "axios"
 import Autocomplete from '@mui/material/Autocomplete';
 import Cookies from 'universal-cookie';
 import Swal  from'sweetalert2'
+import Select from '@mui/material/Select';
 const MyOrder = () => {
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access')
     if (typeof window !== 'undefined') {
         token_data = localStorage.getItem('User_Token_access');
-   }
+    }
     const [Getsearch, SetSearch] = React.useState("")
     const navigate = useRouter()
     const classes = useStyles()
     const [AllOrder_data, SetAllOrder_data] = React.useState([])
+    const [showabledata, setShowabledata] = React.useState([])
     const [ordertype, Setordertype] = React.useState('')
-    const [GetFilter, SetFilter] = React.useState('')
+    const [GetFilter, SetFilter] = React.useState(' ')
     const [loading, SetLoading] = React.useState(false)
     React.useEffect(() => {
         document.documentElement.scrollTo({
@@ -30,9 +32,9 @@ const MyOrder = () => {
             behavior: "instant",
         });
         SetLoading(true)
-        if (GetFilter === "") {
+        if (GetFilter === " "){
             order().then((res) => {
-                SetFilter("All Order")
+                SetFilter(" ")
                 SetAllOrder_data(res?.data?.reverse())
                 SetLoading(false)
             }).catch()
@@ -88,25 +90,48 @@ const MyOrder = () => {
 
     }
     React.useEffect(() => {
+
+        if(GetFilter === 'Cancelled Order'){
+            setShowabledata(  AllOrder_data.filter((item , index)=>{
+               return item.Order_Status === "Cancel"
+            } ))
+        }else if(GetFilter === 'Pending Order'){
+            setShowabledata(  AllOrder_data.filter((item , index)=>{
+                return item.Order_Status === "Pending"
+             } ))
+        }else if(GetFilter === 'Shipped Order'){
+            setShowabledata(  AllOrder_data.filter((item , index)=>{
+                return item.Order_Status === "Processing"
+             } ))
+        }else if(GetFilter === 'Delivered Order'){
+            setShowabledata(  AllOrder_data.filter((item , index)=>{
+                return item.Order_Status === "Delivered"
+             } ))
+        }else{
+            setShowabledata(AllOrder_data)
+        }
+
+    }, [GetFilter])
+    const top100Films = []
+    React.useEffect(()=>{
         const getData = setTimeout(() => {
-            Getsearch !== "" && axios.post(`https://api.cannabaze.com/UserPanel/OrderSearch/`,
+            if(Getsearch !==0 ){
+                axios.post(`https://api.cannabaze.com/UserPanel/OrderSearch/`,
                 {
                     search: Getsearch
                 },
                 {
                     headers: { Authorization: `Bearer ${token_data}` }
                 },
-            )
-                .then((response) => {
-                   
-                });
-        }, 2000)
+            ).then((response) => {
+                console.log(response.data)
+            });}
+        }, 1000)
         return () => clearTimeout(getData)
-    }, [Getsearch])
-    const top100Films = []
+    },[Getsearch])
     return (
         <React.Fragment>
-            {/* <MyOrderSeo></MyOrderSeo> */}
+          
             <div className="container-fluid">
                 <div className="row px-2 center">
                     <div className="col-10 myOrder_columns px-0">
@@ -116,7 +141,7 @@ const MyOrder = () => {
                             <span onClick={(() => navigate.push('/'))} className="My_order_span_name">Back</span>
                         </h1>
                     </div>
-                    <div className="col-lg-10   searchBar_container  px-0">
+                    <div className="col-lg-10 searchBar_container  px-0">
                         <section className="MyOrder_searchBar center">
                             <span className="yourOrder_search">{GetFilter}</span>
                         </section>
@@ -142,49 +167,32 @@ const MyOrder = () => {
                                     />
                                 )}
                             />
+                            {/* SetSearch */}
                         </div>
-                        <div className="col-4 col-lg-6 OrderSearchFiter">
-                            <TextField
-                                default={'All Order'}
+                        <div className="col-4 col-lg-6 text-end">
+                          
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
                                 value={GetFilter}
-                                size="small"
-                                // onChange={filter}
-                                name="cls"
-                                select
-                                sx={{
-                                    '.MuiSvgIcon-root-393': {
-                                        visibility: 'hidden'
-                                    }
-                                }}
-                                SelectProps={{
-                                    MenuProps: {
-                                        className: classes.texttoselect,
-                                    },
-                                    renderValue: (option) => option,
-                                }}
-                                margin="normal"
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start"><HiArrowsUpDown color="#31B665" /></InputAdornment>
-                                    )
-                                }}
                                 className={classes.texttoselect}
+                                onChange={(e)=>{
+                                    SetFilter(e.target.value);
+                                }}
                             >
-                                <MenuItem value={"All Order"}> {`All Order`}</MenuItem>
+                                <MenuItem value={" "}> {`All Order`}</MenuItem>
                                 <MenuItem value={"Pending Order"}>{`Pending Order`}</MenuItem>
                                 <MenuItem value={"Shipped Order"}>{`Shipped Order`}</MenuItem>
                                 <MenuItem value={"Delivered Order"}>{`Delivered Order`}</MenuItem>
                                 <MenuItem value={"Cancelled Order"} >{`Cancelled Order`}</MenuItem>
-                            </TextField>
+                             </Select>
                         </div>
 
                     </div>
-
-
                     <div className="Order_Text col-10 mt-4">
                         <div className=" center mt-2" >
                             <p style={{ color: "#707070" }}>
-                               {` Welcome to your personalized order hub! Easily track and manage yourpurchases with the convenience of organized sections. Explore the status of your orders under the following categories`}
+                               {` Welcome to your personalized order hub! Easily track and manage your purchases with the convenience of organized sections. Explore the status of your orders under the following categories`}
                             </p>
 
                         </div>
@@ -199,8 +207,7 @@ const MyOrder = () => {
                     </div>
 
                     { 
-                       
-                        Boolean(AllOrder_data[0]) ?  <AllOrder AllOrder_data={AllOrder_data} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} />:
+                        Boolean(AllOrder_data[0]) ?  <AllOrder AllOrder_data={showabledata} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} />:
                         <div className="col-10 NODataInOrderPage center mt-3">
                         <div className="col-8 nodataAlie">
                             <p className="nodatainOderText">{GetFilter}</p>

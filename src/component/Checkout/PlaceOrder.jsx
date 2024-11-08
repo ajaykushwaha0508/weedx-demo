@@ -75,8 +75,8 @@ const PlaceOrder = ({orderid}) => {
                                             pricess.Paid += 0
                                             pricess.discount += item.DiscountedAmount
                                             pricess.DueLater += pricess.Subtotal + item.Price.SalePrice
-                                            return (<div key={index} className="place_order_product_cart ">
-                                                <div className="place_order_product_cart_image">
+                                            return (<div key={index} className={newclass.place_order_product_cart}>
+                                                <div className={newclass.place_order_product_cart_image}>
                                                     <Image 
                                                     unoptimized={true}
                                                     width={100}
@@ -85,20 +85,18 @@ const PlaceOrder = ({orderid}) => {
                                                     className='w-100' src={`${item.Image}`} alt={item.ProductName} title={item.ProductName} />
 
                                                 </div>
-                                                <div className="place_order_product_cart_Text">
+                                                <div className={newclass.place_order_product_cart_Text}>
 
-                                                    <h4 className='productname'>{item.ProductName}</h4>
-                                                    <p className="price"><b>Price</b> : $ {item.TotalPrice}</p>
-                                                    <p><b>Qty</b> : {item.Cart_Quantity}</p>
+                                                    <h4 className={newclass.productname}>{item.ProductName}</h4>
+                                                    <p><b>{'Price'}</b> : $ {item.TotalPrice}</p>
+                                                    <p><b>{`Qty`}</b> : {item.Cart_Quantity}</p>
                                                 </div>
                                             </div>)
                                         })
-
                                     }
-                                   
                                 </div>
                                 <div className=' col-lg-4 mt-3 mt-lg-0 '>
-                                    <div className="order_price_details  ml-auto p-sm-3 p-2 border">
+                                    <div className="  ml-auto p-sm-3 p-2 border">
                                         <div className="d-flex justify-content-between align-items-center">
                                             <span>{`Subtotal`}</span>
                                             <span>${pricess.Subtotal}</span>
@@ -123,12 +121,10 @@ const PlaceOrder = ({orderid}) => {
                                                 {Boolean(pricess.discount) && <span>${(pricess.Subtotal - pricess.discount)}</span>}
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
-                            <div className="row border place_order_address">
+                            <div className={`row border ${newclass.place_order_address}`}>
 
                                 <div className="col-md-4 p-sm-4 p-2">
                                     <h4>{`Seller Info`}</h4>

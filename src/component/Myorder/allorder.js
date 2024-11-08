@@ -5,6 +5,7 @@ import { LoadingButton } from "@mui/lab";
 import Box from '@mui/material/Box';
 import Link from "next/link";
 import useStyles from '@/styles/style'
+import newclass from '@/styles/customstyle.module.scss'
 import { useRouter } from "next/router";
 const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
   const router = useRouter()
@@ -16,7 +17,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
             {AllOrder_data?.map((val, index) => {
               return (
                 <React.Fragment key={index}>
-                  <div className=" col-lg-10 rounded   AllOrderContainer px-0 mt-4">
+                  <div className=" col-lg-10 rounded border  px-0 mt-4">
                     <div className="orderdetailsheader">
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex gap-2">  <p className="sellerName_date">{`Order ID : `}{val.OrderId}  </p>   <div className="d-flex gap-1 align-items-center">
@@ -44,23 +45,18 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                      
                        {val.Product.map((items, index) => {
                         return (
-                      
-                          <div key={index} className="place_order_product_cart ">
-                          <div className="place_order_product_cart_image">
-                              <Image 
-                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                              unoptimized={true}
-                            width={100} 
-                            height={100}
-                               className='w-100' src={`${items.Image}`} alt={items.ProductName} title={items.ProductName} />
+                          <div key={index} className={newclass.place_order_product_cart}>
+                              <div className={newclass.place_order_product_cart_image}>
+                                  <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                    unoptimized={true} width={100}  height={100}
+                                    className='w-100' src={`${items.Image}`} alt={items.ProductName} title={items.ProductName} />
+                              </div>
+                              <div className={newclass.place_order_product_cart_Text}>
+                                  <h4 className={newclass.productname}>{items.ProductName}</h4> 
+                                  <p><b>{`Price`}</b>{` : $`} {items.TotalPrice}</p>  
+                                  <p><b>{`Qty`}</b> : {items.Cart_Quantity}</p>
+                              </div>
                           </div>
-                          <div className="place_order_product_cart_Text">
-                              <h4 className='productname'>{items.ProductName}</h4> 
-                              <p className="price"><b>{`Price`}</b>{` : $`} {items.TotalPrice}</p>  
-                              <p><b>{`Qty`}</b> : {items.Cart_Quantity}</p>
-                          </div>
-                          </div>
-                        
                         );
                       })}
                     </div>
@@ -76,13 +72,13 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                               <LoadingButton className={classes.cncelbtnorder}>{`view details`}</LoadingButton>
                             </Link>
                           </div>
-                          {
+                          { 
                             val.Order_Status !=="Cancel" &&
-                             <div><LoadingButton loading={false} className={classes.cncelbtnorder}  onClick={() => { CencelOrder(val.OrderId) }}>{`Cancel`} </LoadingButton></div>}
+                            <div><LoadingButton loading={false} className={classes.cncelbtnorder}  onClick={() => { CencelOrder(val.OrderId) }}>{`Cancel`} </LoadingButton></div>
+                          }
                          </>
                         )}
                       </div>
-                    
                     </div>
                   </div>
                   {
@@ -94,7 +90,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,loading}) => {
                         marginTop: "10px"
 
                     }}   >  <LoadingButton loading={false} onClick={() => { CencelOrder(val.OrderId) }}>{`Cancel`} </LoadingButton> </Box>
-                    </div>
+                     </div>
                   }
                 </React.Fragment>
               );
