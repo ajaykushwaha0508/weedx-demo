@@ -8,6 +8,7 @@ const handle = app.getRequestHandler();
 const ip = '192.168.1.20';
 const axios = require('axios');
 const archiver = require('archiver');
+const { createGzip } = require('zlib');
 const fs = require('fs');
 const path = require('path');
 
@@ -576,15 +577,16 @@ app.prepare().
           break
         case "/sitemap/law-sitemap.xml.gz":
           res.setHeader('Content-Type', 'application/zip');
-          res.setHeader('Content-Disposition', 'attachment; filename="law-sitemap.zip"');
+          res.setHeader('Content-Disposition', 'attachment; filename="law-sitemap.gz"');
           res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
 
-          const archive = archiver('zip', {
-            zlib: { level: 9 } // Max compression
-          });
+          const gzip = createGzip({
+            level: 9 // Maximum compression level
+        });
+    
 
           // Pipe the archive data to the response object
-          archive.pipe(res);
+        
 
           // Add the XML sitemap to the ZIP file
           const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
@@ -793,10 +795,9 @@ app.prepare().
 </urlset>`;
 
           // Write the sitemap to a file inside the zip
-          archive.append(sitemapContent, { name: 'law-sitemap.xml' });
-
-          // Finalize the ZIP file
-          archive.finalize();
+          res.writeHead(200);
+          gzip.pipe(res);
+          gzip.end(sitemapContent);
           break;
         // additional cases as needed
         default:
