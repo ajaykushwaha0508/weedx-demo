@@ -574,7 +574,7 @@ app.prepare().
           res.end();
 
           break
-        case "/sitemap/law-sitemap.xml.zip":
+        case "/sitemap/law-sitemap.xml.gz":
           res.setHeader('Content-Type', 'application/zip');
           res.setHeader('Content-Disposition', 'attachment; filename="law-sitemap.zip"');
           res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
