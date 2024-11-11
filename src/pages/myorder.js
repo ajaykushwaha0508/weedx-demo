@@ -1,3 +1,4 @@
+'use client'  
 import React from "react"
 import { AiOutlineLeft } from "react-icons/ai"
 import AllOrder from "@/component/Myorder/allorder";
@@ -11,20 +12,21 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Cookies from 'universal-cookie';
 import Swal  from'sweetalert2'
 import Select from '@mui/material/Select';
+import styled from "@/styles/customstyle.module.scss";
+import { RiH5 } from "react-icons/ri";
 const MyOrder = () => {
     const cookies = new Cookies();
-    let token_data = cookies.get('User_Token_access')
-    if (typeof window !== 'undefined') {
-        token_data = localStorage.getItem('User_Token_access');
-    }
-    const [Getsearch, SetSearch] = React.useState("")
-    const navigate = useRouter()
-    const classes = useStyles()
-    const [AllOrder_data, SetAllOrder_data] = React.useState([])
-    const [showabledata, setShowabledata] = React.useState([])
-    const [ordertype, Setordertype] = React.useState('')
-    const [GetFilter, SetFilter] = React.useState(' ')
-    const [loading, SetLoading] = React.useState(false)
+    let token_data = cookies.get('User_Token_access');
+    if (typeof window !== 'undefined') {  token_data = localStorage.getItem('User_Token_access'); }
+    const [Getsearch, SetSearch] = React.useState("");
+    const navigate = useRouter();
+    const classes = useStyles();
+    const [AllOrder_data, SetAllOrder_data] = React.useState([]);
+    const [showabledata, setShowabledata] = React.useState([]);
+    const [ordertype, Setordertype] = React.useState('');
+    const [searchitem, setsearchitem] = React.useState([]);
+    const [GetFilter, SetFilter] = React.useState(' ');
+    const [loading, SetLoading] = React.useState(false);
     React.useEffect(() => {
         document.documentElement.scrollTo({
             top: 0,
@@ -32,13 +34,16 @@ const MyOrder = () => {
             behavior: "instant",
         });
         SetLoading(true)
-        if (GetFilter === " "){
-            order().then((res) => {
-                SetFilter(" ")
-                SetAllOrder_data(res?.data?.reverse())
-                SetLoading(false)
-            }).catch()
-        }
+        axios.get(`https://api.cannabaze.com/UserPanel/Get-Order/` , {
+            headers: { Authorization: `Bearer ${token_data}` }
+        }).then((res) => {
+            SetFilter(" ")
+            SetAllOrder_data(res?.data?.reverse())
+            setShowabledata(res?.data?.reverse())
+            console.log(res.data , 'stgsdg')
+            SetLoading(false)
+        }).catch()
+    
     }, [])
     function CencelOrder(id) {
 
@@ -89,8 +94,8 @@ const MyOrder = () => {
         });
 
     }
+    const top100Films = []
     React.useEffect(() => {
-
         if(GetFilter === 'Cancelled Order'){
             setShowabledata(  AllOrder_data.filter((item , index)=>{
                return item.Order_Status === "Cancel"
@@ -110,12 +115,11 @@ const MyOrder = () => {
         }else{
             setShowabledata(AllOrder_data)
         }
-
     }, [GetFilter])
-    const top100Films = []
     React.useEffect(()=>{
+        SetLoading(true)
         const getData = setTimeout(() => {
-            if(Getsearch !==0 ){
+            if(Getsearch.length !== 0 ){
                 axios.post(`https://api.cannabaze.com/UserPanel/OrderSearch/`,
                 {
                     search: Getsearch
@@ -124,109 +128,93 @@ const MyOrder = () => {
                     headers: { Authorization: `Bearer ${token_data}` }
                 },
             ).then((response) => {
-                console.log(response.data)
-            });}
+                setsearchitem(response.data)
+        SetLoading(false)
+
+            });}else{
+                SetSearch('')
+                setsearchitem([])
+                SetLoading(false)
+
+            }
         }, 1000)
         return () => clearTimeout(getData)
     },[Getsearch])
+    
     return (
         <React.Fragment>
           
-            <div className="container-fluid">
+        
                 <div className="row px-2 center">
-                    <div className="col-10 myOrder_columns px-0">
-                        <h1 className="myorderHeadings">
-                            <IconButton >
-                                <AiOutlineLeft onClick={() => navigate.push(-1)} className="myOrderSpanIcons" size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton>
-                            <span onClick={(() => navigate.push('/'))} className="My_order_span_name">Back</span>
+                    <div className={`col-md-10 col-12 ${styled.myOrderPAge}`}>
+                     
+                        <h1 className="d-flex align-items-center gap-2">
+                            <IconButton > <AiOutlineLeft onClick={() => navigate.push(-1)} size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton>
+                            <span onClick={(() => navigate.push('/'))} className="My_order_span_name">{`Back`}</span>
                         </h1>
-                    </div>
-                    <div className="col-lg-10 searchBar_container  px-0">
-                        <section className="MyOrder_searchBar center">
-                            <span className="yourOrder_search">{GetFilter}</span>
-                        </section>
-                    </div>
-                    <div className="col-lg-10 d-flex mt-4 " style={{ padding: "0" }}>
-                        <div className="col-8 col-lg-6">
-                           
-
-                            <Autocomplete
-                                freeSolo
-                                id="free-solo-2-demo"
-                                disableClearable
-                                options={top100Films.map((option) => option.title)}
-                                onInputChange={(e)=>SetSearch(e.target.value)}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        label="Search Order..."
-                                        InputProps={{
-                                            ...params.InputProps,
-                                            type: 'search',
-                                        }}
-                                    />
-                                )}
-                            />
-                            {/* SetSearch */}
-                        </div>
-                        <div className="col-4 col-lg-6 text-end">
-                          
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={GetFilter}
-                                className={classes.texttoselect}
-                                onChange={(e)=>{
-                                    SetFilter(e.target.value);
-                                }}
-                            >
-                                <MenuItem value={" "}> {`All Order`}</MenuItem>
-                                <MenuItem value={"Pending Order"}>{`Pending Order`}</MenuItem>
-                                <MenuItem value={"Shipped Order"}>{`Shipped Order`}</MenuItem>
-                                <MenuItem value={"Delivered Order"}>{`Delivered Order`}</MenuItem>
-                                <MenuItem value={"Cancelled Order"} >{`Cancelled Order`}</MenuItem>
-                             </Select>
-                        </div>
-
-                    </div>
-                    <div className="Order_Text col-10 mt-4">
-                        <div className=" center mt-2" >
-                            <p style={{ color: "#707070" }}>
-                               {` Welcome to your personalized order hub! Easily track and manage your purchases with the convenience of organized sections. Explore the status of your orders under the following categories`}
-                            </p>
-
-                        </div>
-                        <div className="mt-3">
-                            <p style={{ color: "black" }}>
-
-                               {` Keep tabs on every purchase journey seamlessly.`}
-
-                            </p>
-
-                        </div>
-                    </div>
-
-                    { 
-                        Boolean(AllOrder_data[0]) ?  <AllOrder AllOrder_data={showabledata} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} />:
-                        <div className="col-10 NODataInOrderPage center mt-3">
-                        <div className="col-8 nodataAlie">
-                            <p className="nodatainOderText">{GetFilter}</p>
-                            <p className="nodatainOderTextp">
-                              {`  No orders to display at the moment. Start shopping to see your order history here!`}
-                            </p>
-                            <div className="col-4 nodataAlie mt-5">
-                                <button onClick={()=>navigate.push("/products")} className="noorderbtn"> {`Shop Now`} </button>
+                        <div className="d-flex mt-4 " style={{ padding: "0" }}>
+                            <div className="col-8 col-lg-6">
+                            
+                                <Autocomplete
+                                    freeSolo
+                                    id="free-solo-2-demo"
+                                    placeholder="Search order by ID"
+                                    disableClearable
+                                    options={top100Films.map((option) => option.title)}
+                                    className={classes.orderListSearch}
+                                    onInputChange={(e)=>SetSearch(e.target.value)}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            label="Search Order..."
+                                            InputProps={{
+                                                ...params.InputProps,
+                                                type: 'search',
+                                            }}
+                                        />
+                                    )}
+                                />
+                                {/* SetSearch */}
                             </div>
-                        </div>
+                            <div className="col-4 col-lg-6 text-end">
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={GetFilter}
+                                    className={classes.texttoselect}
+                                    onChange={(e)=>{
+                                        SetFilter(e.target.value);
+                                    }}
+                                >
+                                    <MenuItem value={" "}> {`All Order`}</MenuItem>
+                                    <MenuItem value={"Pending Order"}>{`Pending Order`}</MenuItem>
+                                    <MenuItem value={"Shipped Order"}>{`Shipped Order`}</MenuItem>
+                                    <MenuItem value={"Delivered Order"}>{`Delivered Order`}</MenuItem>
+                                    <MenuItem value={"Cancelled Order"} >{`Cancelled Order`}</MenuItem>
+                                </Select>
+                            </div>
 
                         </div>
-                    }
-
-
-
+                        <div className={`${styled.Order_Text} mt-4`}>
+                                <p >  {` Welcome to your personalized order hub! Easily track and manage your purchases with the convenience of organized sections. Explore the status of your orders under the following categories`}</p>
+                            
+                                <h5 style={{ color: "black" }}> {`Keep tabs on every purchase journey seamlessly.`} </h5>
+                           
+                        </div>
+                        { 
+                            Boolean(AllOrder_data[0]) ? 
+                             <AllOrder AllOrder_data={showabledata} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} searchitem={searchitem} />:
+                            <div className={styled.NODataInOrderPage}>
+                                <div className={styled.nodataAlie}>
+                                    <p className="nodatainOderText">{GetFilter}</p>
+                                    <p className="nodatainOderTextp"> {`  No orders to display at the moment. Start shopping to see your order history here!`}</p>
+                                    <button onClick={()=>navigate.push("/products")} className="noorderbtn"> {`Shop Now`} </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
-            </div>
-
+           
         </React.Fragment>
     )
 }

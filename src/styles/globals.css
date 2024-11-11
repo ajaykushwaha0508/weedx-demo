@@ -48,10 +48,7 @@ p {
 .Slider_content_center  a  span{
    margin-right: 10px;
 }
-.NODataInOrderPage{
-  height: 453px;
-  background: #F0FFF6;
-}
+
 .nodatainOderText
 {
   color: #000;
@@ -66,10 +63,6 @@ font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-}
-.nodataAlie{
-  display: grid;
-  justify-items: center;
 }
 
 a:hover {
@@ -3760,49 +3753,8 @@ margin: 0;
   cursor: pointer;
 }
 
-.myOrderSpanIcons {
-  cursor: pointer;
-}
 
-.myOrder_columns {
-  height: 30px;
-  display: flex;
-  align-items: center;
-}
 
-.myorderHeadings {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0px;
-}
-
-.searchBar_container {
-  height: 50px;
-}
-
-.MyOrder_searchBar {
-  background: #ECECEC;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  height: 60px;
-  gap: 30px;
-  padding-left: 30px;
-}
-
-.yourOrder_search {
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-  width: 20%;
-  font-size: 20px;
-  color: black;
-}
-.Order_Text{
-  background: #F0FFF6;
-}
 
 
 .MyOrderSearchBar_container {
@@ -3870,85 +3822,22 @@ line-height: normal;
 /* AllOrder */
 
 
-.sellerName_date {
-  font-size: 16px;
-  color: #474747;
-  font-weight: 600;
-  margin-bottom: 0px;
-}
-.orderdetailsheader{
-  background-color: #e7e7e778;
-  padding: 15px;
-}
 
 
-.allOrderCard_container {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin: 15px 0 ;
 
-}
-.Allorder_img_container {
-  width: 150px;
-  height: 130px;
-}
-.Allorder_img {
-  width: 150px;
-  height: 120px;
-}
-.imageSectionWrapper {
-  height: 90%;
-  width: 100%;
-  display: flex;
-}
 
-.allOrder_Card_Image_section {
-  height: 150px;
-  width: 25%;
-}
 
-.allOrder_Card_Content_section {
-  width: 75%;
-  height: 280px;
-  padding-top: 10px;
-  padding-left: 40px;
 
-}
 
-.allOrder_icons_container {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
 
-.allOrder_icons_div {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
 
-.AllOrder_heading {
-  word-break: break-word;
-  color: #000000;
-  font-weight: 700;
-  font-size: 20px;
-}
 
-.allOrder_span_quantity {
-  color: #000000;
-  font-size: 20px;
-}
 
-.allOrder_span_quantity_div {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  height: 28px;
-}
+
+
+
+
+
 
 .allOrder_spanName {
   font-size: 20px;
@@ -3991,19 +3880,8 @@ line-height: normal;
 
 /* end */
 /* MyOrderProductDetails */
-.productDetails_headings {
-  cursor: pointer;
-  font-size: 24px;
-  margin-left: 10px;
-  color: #000000;
-  font-weight: 700;
-}
 
-.productDetails_heading_container {
-  height: 40px;
-  display: grid;
-  align-items: center;
-}
+
 
 .myOrder_orderId {
   height: 30px;
@@ -4016,12 +3894,6 @@ line-height: normal;
   font-weight: 500;
 }
 
-.productDetails_headingss {
-  font-size: 20px;
-  margin-left: 20px;
-  color: #000000;
-  font-weight: 700;
-}
 /* end */
 /* MyOrderProductRating */
 .MyOrderProductRating {
@@ -4047,17 +3919,8 @@ line-height: normal;
 
 /* end */
 /* orderTracking */
-.orderTracking_heading {
-  font-size: 18px;
-  color: #000000;
-  font-weight: 700;
-  margin-top: 10px;
-}
 
-.orderTracking_container {
- padding: 20px;
-  border: 1px solid #DBDBDB;
-}
+
 
 .steperTextFont {
   color: #A5A5A5;
@@ -4070,26 +3933,12 @@ line-height: normal;
   border: 1px solid #DBDBDB;
 }
 
-.orderDetails_innerSection1 {
-  padding: 15px 0;
-  width: 100%;
-  border-bottom: 1px solid #EFEFEF;
-}
-
-.orderDetails_innerSection2 {
-  width: 100%;
- padding: 15px 0;
-}
-
 .orderDetail_heading_container {
   height: 80px;
   padding-top: 20px;
 }
 
-.ordetailAmount_container {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .orderDetails_headings {
   font-size: 20px;
@@ -4097,11 +3946,7 @@ line-height: normal;
   color: #000000;
 }
 
-.amount_spanss {
-  font-size: 18px;
-  font-weight: 700;
-  color: #000000;
-}
+
 .noorderbtn{
   padding: 6px 15px;
   color: #ffffff;
@@ -4124,28 +3969,13 @@ line-height: normal;
 .allOrderTotals{
   font-size: 20px;
 }
-.customerNameFontss{
-  font-size: 16px;
-}
+
 .Amount_price{
   font-size: 16px;
 }
 
-.totalAmounts {
-  font-size: 18px;
-  font-weight: 700;
-  color: #000000;
-}
-.cancelOrderIndicator{
-  font-size: 18px;
-  color: #d33;
-  line-height: 2;
-  font-weight: 600;
-}
-.orderdetailscontainer{
-  gap: 10px;
-  padding: 8px;
-}
+
+
 /* end */
 /* MyOrderDeliveryAddress */
 .MyOrderDeliveryAddress_Container {
@@ -4161,15 +3991,7 @@ line-height: normal;
   font-weight: 700;
   font-size: 20px;
 }
-
-.MyOrderDeliveryAddress_subHeading {
-  color: #000000;
-  font-weight: 400;
-  font-size: 16px;
-}
-
 .MyOrderDeliverSection {
- 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -4221,11 +4043,7 @@ line-height: normal;
   height: 40px;
 }
 
-.customerNameFontss {
-  font-size: 18px;
-  color: #000000;
-  font-weight: 600;
-}
+
 
 .customerName {
   font-size: 18;
@@ -6712,12 +6530,7 @@ margin-top: 100px;
   }
   .term_condition .tc_topic_list ul li{
     font-size: 14px;
-  }
-  .sellerName_date{
-    font-size: 16px;
-  }
-  .AllOrder_heading{
-    font-size: 16px;
+
   }
   .About_us_banner_image {
     height: 260px;
@@ -6745,7 +6558,8 @@ margin-top: 100px;
   .addyocardIcon {
     justify-content: end;
   }
-}
+   }
+
 @media(max-width:1400px) {
   .MyOrder_list {
     gap: 105px;
@@ -6892,9 +6706,7 @@ margin-top: 100px;
   }
 
 
-  .sellerName_date {
-    font-size: 16px;
-  }
+  
   .productCat_cont {
     display: block;
   }
@@ -7052,10 +6864,6 @@ margin-top: 100px;
   }
   .learn_banner_text {
     font-size: 26px;
-  }
-  
-  .allOrderCard_container {
-     height: auto;
   }
   .newProductAboutUs_headings {
     font-size: 18px;
@@ -7920,9 +7728,6 @@ font-size: 24px;
     font-size: 14px;
   }
 
-  .yourOrder_search {
-    font-size: 12px;
-  }
 
   .MyOrder_searchBar {
     padding-left: 10px;
@@ -7939,9 +7744,7 @@ font-size: 24px;
     padding-left: 0px;
   }
 
-  .allOrder_icons_container {
-    gap: 15px;
-  }
+
 
   .Amount_price {
     font-size: 12px;
@@ -7955,13 +7758,6 @@ font-size: 24px;
     font-size: 12px;
   }
 
-  .AllOrder_heading {
-    font-size: 14px;
-  }
-
-  .sellerName_date {
-    font-size: 12px;
-  }
 
   .Allorder_img_container {
     width: 80px;

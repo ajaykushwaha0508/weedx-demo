@@ -11,13 +11,13 @@ import useStyles from '@/styles/style';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {IoMdShare} from "react-icons/io"
 import { AiOutlineConsoleSql } from 'react-icons/ai';
-
+import styled from '@/styles/customstyle.module.scss'
 
 const OrderTracking = ({AllOrder_data}) => {
     const classes = useStyles()
     const [activeStep, setActiveStep] = React.useState(1);
     React.useEffect(()=>{
-        if( AllOrder_data.Order_Status === ".Order_Status"){
+        if( AllOrder_data.Order_Status === "Order_Status"){
             setActiveStep(3)
 
         }else if(AllOrder_data.Order_Status === "AllOrder_data.Order_Status"){
@@ -28,15 +28,15 @@ const OrderTracking = ({AllOrder_data}) => {
         }
     },[])
     return (
-        <div className=" col-xl-7 col-lg-8 col-12 ">
-           <div className='orderTracking_container'>
+      
+           <div className={styled.orderTracking_container}>
            
-            <h1 className="orderTracking_heading">Order Tracking</h1>
+            <h1 className={styled.orderTracking_heading}>{`Order Tracking`}</h1>
             { AllOrder_data[0]?.Order_Status=== "Cancel" ?
-             <h2 className='cancelOrderIndicator'>This Order has been Cancelled</h2>
+             <h2 className={styled.cancelOrderIndicator}>{`This Order has been Cancelled`}</h2>
                 : 
             <React.Fragment>
-            <Box sx={{ maxWidth: 400 }}>
+            <Box sx={{ maxWidth: 400,margin:'0 auto' }}>
                 <Stepper activeStep={activeStep} orientation="vertical" className={classes.OrderTrackingCircleColor}>
                 
                         <Step >
@@ -46,7 +46,7 @@ const OrderTracking = ({AllOrder_data}) => {
                         </Step>
                         <Step >
                             <StepLabel >
-                            Shipped
+                             Shipped
                             </StepLabel>
                         </Step>
                         <Step >
@@ -73,7 +73,7 @@ const OrderTracking = ({AllOrder_data}) => {
             </React.Fragment>
             }
             </div>
-        </div>
+    
     )
 }
 export default OrderTracking;

@@ -2606,24 +2606,180 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
     }
     .place_order_product_cart_Text{
         flex: 1;
-    
-       h4.productname{
-        font-size: 16px;
-        font-weight: 600;
-        color: #505050;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.5;
-        word-break: break-all;
-      }
-       p{
-        font-size: 14px;
-        margin-bottom: 5px;
-      }
+        h4.productname{
+            font-size: 16px;
+            font-weight: 600;
+            color: #505050;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            word-break: break-all;
+        }
+        p{
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
     }
 }
-  
- 
+  .myOrderPAge{
+    .Order_Text{
+        background: #F0FFF6;
+        padding: 20px;
+        border-radius: 5px;
+        p{
+            font-size: 16px;
+            font-weight: 500;
+            color: #707070;
+            line-height: 1.5;
+        }
+        h5{
+            font-size: 16px;
+            font-weight: 600;
+            color: #000000;
+            line-height: 1.5;
+        }
+    } 
+    .NODataInOrderPage{
+        background: #F0FFF6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        min-height: 300px;
+        .nodataAlie{
+            width: 70%;
+        text-align: center;
+        p{
+            font-size: 16px;
+            font-weight: 500;
+            color: #707070;
+            line-height: 1.5;
+        }
 
+        }
+    }
+    .orderCardBox{
+        .orderdetailsheader{
+            background-color: #e7e7e778;
+            padding: 15px;
+            .sellerName_date {
+                font-size: 16px;
+                color: #474747;
+                font-weight: 600;
+                margin-bottom: 0px;
+              }
+          }
+    }
+  }
+  .MyOrderProductDetail{
+    .productDetails_headings{
+       
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 5px;
+            color: #000000;
+            font-weight: 600;
+            margin-bottom: 0;
+           
+    }
+    .allOrderCard_container {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin-bottom: 15px;
+        .imageSectionWrapper {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            padding: 20px;
+            gap: 15px;
+            .allOrder_Card_Image_section {
+                height: 150px;
+                width: auto;
+                .Allorder_img_container {
+                    width: 150px;
+                    height: 150px;
+                    .Allorder_img {
+                        width:auto ;
+                        height: 100%;
+                    }
+                }
+            }
+            .allOrder_Card_Content_section {
+                flex: 1;
+                padding-top: 10px;
+                padding-left: 40px;
+                .AllOrder_heading {
+                    word-break: break-word;
+                    color: #000000;
+                    font-weight: 700;
+                    font-size: 20px;
+                }
+                .allOrder_span_quantity_div {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    line-height: 2;
+                .allOrder_icons_div {
+                   
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                  }
+                  
+                  .allOrder_span_quantity {
+                    color: #000000;
+                    font-size: 16px;
+                    font-weight: 500;
+                  }
+                  
+                }
+                
+            }
+          }
+    }
+    .orderTracking_container {
+        padding: 20px;
+        border: 1px solid #DBDBDB;
+        background-color: #f1f1f1;
+        .customerNameFontss {
+            font-size: 18px;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        .customerNumber{
+            font-size: 16px;
+            color: #1f1f1f;
+            font-weight: 500;
+        }
+        .orderTracking_heading {
+            font-size: 18px;
+            color: #000000;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        .cancelOrderIndicator{
+        font-size: 18px;
+        color: #d33;
+        line-height: 2;
+        font-weight: 600;
+        }
+        .ordetailAmount_container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            &:first-child{
+                border-bottom: 1px solid #383838;
+            }
+            .amount_spanss {
+                font-size: 18px;
+                font-weight: 700;
+                color: #000000;
+            }
+        }
+    }
+      
+  }
 @media (max-width: 1440px){
     .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
         font-size: 16px;
@@ -3287,6 +3443,100 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
             }
         }
     }
+    .myOrderPAge{
+        .Order_Text{
+         
+            p{
+                font-size: 14px;
+            }
+            h5{
+                font-size: 14px;
+            }
+        } 
+        .NODataInOrderPage{
+            .nodataAlie{
+                width: 100%;
+            
+            p{
+                font-size: 14px;
+            }
+    
+            }
+        }
+        .orderCardBox{
+            .orderdetailsheader{
+                padding: 15px;
+                .sellerName_date {
+                    font-size: 12px;
+                  }
+              }
+        }
+    }
+    .MyOrderProductDetail{
+     
+        .allOrderCard_container {
+     
+            gap: 10px;
+        
+            .imageSectionWrapper {
+             
+                padding: 10px;
+                gap: 10px;
+                .allOrder_Card_Image_section {
+                    height: 100px;
+                    width: auto;
+                    .Allorder_img_container {
+                        width: 100px;
+                        height: 100px;
+                        .Allorder_img {
+                            width:auto ;
+                            height: 100%;
+                        }
+                    }
+                }
+                .allOrder_Card_Content_section {
+                    padding-top: 0px;
+                    padding-left: 00px;
+                    .AllOrder_heading {
+                   
+                        font-size: 16px;
+                    }
+                    .allOrder_span_quantity_div {
+                        
+                        gap: 10px;
+                       
+                    .allOrder_icons_div {
+                        gap: 10px;
+                      }
+                      
+                      .allOrder_span_quantity {
+                       
+                        font-size: 14px;
+                      }
+                      
+                    }
+                    
+                }
+              }
+        }
+        .orderTracking_container {
+            padding: 12px;
+            .customerNameFontss {
+                font-size: 14px;
+                
+            }
+            .customerNumber{
+                font-size: 12px;
+            }
+            .orderTracking_heading {
+                font-size: 16px;
+            }
+            .cancelOrderIndicator{
+            font-size: 16px;
+            }
+        }
+          
+      }
 }
 @media (max-width: 480px){
     .delivery_items_cards_container{
@@ -3652,7 +3902,7 @@ footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .foot
        
     }
 }
-@media (max-width:400px){
+@media (max-width: 400px){
     footer {
         .footer_main_div_display{
             padding-top: 20px;

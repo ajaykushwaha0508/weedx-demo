@@ -56,6 +56,25 @@ const useStyles = makeStyles({
       },
     } 
   },
+  orderListSearch:{
+    "& .Mui-focused":{
+        "& fieldset":{
+          borderColor:'#31B655 !important',
+          "& legend":{
+             "& span":{
+              color:'#31B655',
+             }
+          }
+        }
+    },
+    // "& .MuiInputBase-root":{
+    //   padding:'0',
+     
+    // },
+    "& .MuiFormLabel-root":{
+      color:'#31B655',
+    }
+  },
   Reviewtextarea:{
     marginTop:'23px !important',
     backgroundColor:'#F6F6F6',
@@ -216,7 +235,7 @@ const useStyles = makeStyles({
       minWidth: "120px",
       margin: "1px",
    " & .MuiSelect-select" :{
- padding:'6px 20px'
+      padding:'6px 20px'
     }
     },
     "& .MuiInputLabel-root.Mui-focused ": {
@@ -1343,25 +1362,49 @@ const useStyles = makeStyles({
     },
   },
   OrderTrackingCircleColor: {
-    '& .MuiStepLabel-root .Mui-completed': {
-      color: "#31B665",
-      width:'35px',
-      height:'35px',
-
+    width:'100%',
+    flexDirection:'row ',
+    "&  .MuiStep-root":{
+      width:'25%',
+        "& .MuiStepLabel-root":{
+           display:'flex',
+           flexDirection:'column',
+           alignItems:'center'
+        }
     },
-
-    "& .MuiStepLabel-root .Mui-active": {
-      color: "#707070",
-      width:'35px',
-      height:'35px',
-      "& .MuiStepLabel-root .Mui-active svg": {
-         border:'1px solid #31B655'
+ 
+   "& .MuiStepConnector-root":{
+       margin:'0 -10px',
+       "& .MuiStepConnector-line":{
+        borderBottom:'2px solid gray',
+        borderLeft:'none'
+       }
+   },
+    "& .MuiStepLabel-root .MuiStepLabel-label": {
+        color: "#707070",
+        lineHeight:'2',
+        fontSize:'16px',
+        textAlign:'center',
+        fontWeight:'500',
+        "&.Mui-active":{
+          color:'gray',
+          "& .MuiStepLabel-root .Mui-active svg": {
+          border:'1px solid #31B655'
       }
+        },
+      
     },
     '& .MuiStepLabel-iconContainer .MuiSvgIcon-root':{
-      width:'35px',
-      height:'35px',
-    }
+      lineHeight:'2',
+      fontSize:'32px',
+      fontWeight:'500',
+      color:'gray'
+    },
+    '& .MuiStepLabel-root .Mui-completed': {
+      color: "#31B665",
+    
+    
+    },
   },
 
   OrderTrackingLoadingBtn: {
@@ -1769,6 +1812,21 @@ const useStyles = makeStyles({
     "& .MuiOutlinedInput-notchedOutline:focus": { 
       borderColor: "#31B655 !important",
     },
+  },
+  texttoselect:{
+    "& .MuiSelect-select":{
+      fontSize:'16px',
+      fontWeight:'700',
+   },
+   "& .MuiOutlinedInput-notchedOutline": {
+     borderColor: "#31B655 !important",
+   },
+   "& .MuiOutlinedInput-notchedOutline:hover": { 
+     borderColor: "#31B655 !important",
+   },
+   "& .MuiOutlinedInput-notchedOutline:focus": { 
+     borderColor: "#31B655 !important",
+   },
   },
   WritehelpfullBtn_Color: {
     "&.MuiButtonBase-root": {

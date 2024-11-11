@@ -4,18 +4,15 @@ import Cookies from 'universal-cookie';
 
 function order() {
     const cookies = new Cookies();
-        let token_data = cookies.get('User_Token_access')
+     let token_data = cookies.get('User_Token_access')
      let accessToken 
-         if (typeof window !== 'undefined') {
-     
+     if (typeof window !== 'undefined') {
               accessToken = localStorage.getItem('User_Token_access');
-     
          }
       if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const config = {
       headers: { Authorization: `Bearer ${token_data}` }
     };
-  
     let data = axios.get(`https://api.cannabaze.com/UserPanel/Get-Order/`,
       config,
     );
@@ -24,12 +21,10 @@ function order() {
   function PendingOrder() {
     const cookies = new Cookies();
         let token_data = cookies.get('User_Token_access')
-     let accessToken 
-         if (typeof window !== 'undefined') {
-     
-              accessToken = localStorage.getItem('User_Token_access');
-     
-         }
+        let accessToken 
+        if (typeof window !== 'undefined') {
+              accessToken = localStorage.getItem('User_Token_access'); 
+        }
       if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const config = {
       headers: { Authorization: `Bearer ${token_data}` }
@@ -115,6 +110,4 @@ function order() {
     );
     return data;
   }
-  
-
   export { order, PendingOrder, OrderBYID, Cancel,GetCancelOrder , GetDeliveredOrder }
