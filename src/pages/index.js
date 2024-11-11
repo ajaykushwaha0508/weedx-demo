@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useRouter } from "next/router";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
-const   HomePageSco  = dynamic(() => import('../component/ScoPage/HomePageSco'));
+const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'));
 import dynamic from 'next/dynamic'
-const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'));
+const HomePageBanner = React.lazy(() => import('../component/home/homepagebanner'));
 const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const CategoryProduct = dynamic(() => import('../component/category/category'));
 const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
@@ -30,25 +30,25 @@ const transformString = (str) => {
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
   const [Skeleton, SetSkeleton] = React.useState(true)
-  const [data, setdata] = React.useState([])
 
-  React.useEffect(() => {
-    setdata(initialData.Dispensaries)
-  }, [initialData?.Dispensaries])
   const Navigate = useRouter()
   function ShowCategoryProduct(id, name) {
 
     Navigate.push(`/products/${modifystr(name)}/${id}`);
   }
+
+  // console.log(initialData.Dispensaries)
   return (
     <>
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
-      <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
+      <Suspense fallback={<div>Loading...</div>}>
+        <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
+      </Suspense>
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
       <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>
-      <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={data} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <NewsBlog data={initialData.news}></NewsBlog>
