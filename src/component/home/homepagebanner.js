@@ -4,8 +4,8 @@ import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import HomePageBannerSkeleton from '../skeleton/DashBoardSkeleton/HomePageBannerSkeleton.jsx';
 import clases from '@/styles/customstyle.module.scss'
-const HomePageBanner = ({props}) => {
-    
+const HomePageBanner = ({ props }) => {
+
     const [Skeletoncom, SetSkeleton] = React.useState(false)
 
     const handleImageError = (event) => {
@@ -17,7 +17,7 @@ const HomePageBanner = ({props}) => {
     };
 
     const imageLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}&q=${quality || 100}`;
+        return `${src}?w=${width}&q=${quality || 100}`;
     }
     return (
         <React.Fragment>
@@ -29,13 +29,13 @@ const HomePageBanner = ({props}) => {
                                 delay: 25000,
                                 disableOnInteraction: false,
 
-                            }}   style={{zIndex:0}} modules={[Autoplay]}>
+                            }} style={{ zIndex: 0 }} modules={[Autoplay]}>
                                 {props?.reverse()?.map((items, index) => {
                                     return (
                                         <SwiperSlide key={index}>
                                             <div className={`col-12 ${clases.homePageBanner_container}`}>
                                                 <a href={items?.Link !== null ? items?.Link : "#"}>
-                                                    <Image  
+                                                    <Image
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         src={items?.Banner}
                                                         alt="Weedx.io Promotion banner"
@@ -59,27 +59,28 @@ const HomePageBanner = ({props}) => {
                                 delay: 2000,
 
                                 disableOnInteraction: true,
-                            }}   style={{zIndex:0}} modules={[Autoplay]}>
+                            }} style={{ zIndex: 0 }} modules={[Autoplay]}>
                                 {props?.reverse()?.map((items, index) => {
 
                                     return (
                                         <SwiperSlide key={index}>
                                             <div className={`col-12 ${clases.homePageBanner_container}`}>
-                                                <a href={items?.Link !== null ? items?.Link : "#"} >
-
+                                                <a href={items?.Link !== null ? items?.Link : "#"}>
                                                     <Image
-                                                        unoptimized={true}
+                                                        priority
                                                         src={items?.mobile}
                                                         alt="Weedx.io Promotion banner"
                                                         title="Weedx.io Promotion banner"
                                                         width={500}
                                                         height={10}
-                                                        quality={10}
+                                                        quality={30} // Adjusted quality
+                                                        sizes="(max-width: 768px) 100vw, 50vw" // Responsive sizes for mobile and desktop
                                                         className={clases.HomePageBanner_image}
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                        loader={imageLoader}
+                                                        loader={imageLoader} // Consider removing if using default optimization
                                                     />
                                                 </a>
+
                                             </div>
                                         </SwiperSlide>
                                     )
