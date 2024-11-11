@@ -13,7 +13,7 @@ import useStyles from "../../../../styles/style";
 import IconButton from "@mui/material/IconButton";
 import newclases from '@/styles/customstyle.module.scss'
 import Notification from "../Notification";
-export default function DashBoardLink({ state }) {
+export default function DashBoardLink({ state , Hamburger }) {
   const classes = useStyles();
 
   const [current_route, Setcurrent_route] = React.useState();

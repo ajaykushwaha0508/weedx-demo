@@ -28,6 +28,7 @@ export default function App({ Component, pageProps }) {
   const Layout = layouts[Component.layout] || layouts.default;
   const isNotWeedPath = !/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname);
 
+
   React.useEffect(() => {
     NProgress.configure({ showSpinner: false });
     const handleStart = () => {

@@ -1,3 +1,4 @@
+
 import { useEffect, useState,useCallback } from 'react';
 import React from 'react';
 import Grid from '@mui/system/Unstable_Grid';
@@ -22,6 +23,7 @@ import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/router';
 import image1 from "../../../public/weedx.iologo.png"
 import clases from '@/styles/customstyle.module.scss'
+import { debounce } from 'lodash'; // Or implement a custom debounce
 const Navbar = () => {
     const cookies = new Cookies();
     const ref = React.useRef(null);
@@ -29,24 +31,34 @@ const Navbar = () => {
     const Location = useRouter();
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
-    const [Hamburger, setHamburger] = React.useState(true);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [dropDownState, setDropDownState] = React.useState(false);
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-    const detectSize = () => {
-        setHamburger(window?.innerWidth <= 991 ? false : true);
-    };
-    React.useEffect(() => {
-        if (typeof window !== 'undefined') {
-            detectSize();
-            window.addEventListener('resize', detectSize);
-            return () => {
-                window.removeEventListener('resize', detectSize);
-            };
-        }
-    }, []);
+    const [Hamburger, setHamburger] = useState(true);
+
+    // Memoize the detectSize function with debounce to optimize resize handling
+    const detectSize = useCallback(
+      debounce(() => {
+        setHamburger(window.innerWidth > 991);
+      }, 100), // Adjust the debounce delay as needed
+      []
+    );
+  
+    useEffect(() => {
+      // Only run the effect on the client side
+      if (typeof window !== 'undefined') {
+        detectSize(); // Initial detection
+        window.addEventListener('resize', detectSize);
+        
+        // Cleanup on component unmount
+        return () => {
+          window.removeEventListener('resize', detectSize);
+          detectSize.cancel(); // Cancel any pending debounced calls
+        };
+      }
+    }, [detectSize]);
     const openNav = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -149,7 +161,7 @@ const Navbar = () => {
                             <Afterlogin dropDownState={dropDownState} state={state} profileRef ={profileRef} handleClickDropdown= {handleClickDropdown} Logout={Logout}></Afterlogin >
                         </Grid>
                         <Grid xs={12} md={12} xl={12}>
-                            <SliderLink  state={state}></SliderLink>
+                            <SliderLink Hamburger={"nano"} state={state}></SliderLink>
                             <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
                         </Grid>
                     </Grid>
