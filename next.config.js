@@ -34,6 +34,7 @@ module.exports = {
       },
     ],
   },
+  compress: true,
   async headers() {
     return [
       {
