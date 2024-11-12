@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useEffect } from "react";
 import Grid from "@mui/system/Unstable_Grid";
 import { AiFillHeart } from "react-icons/ai";
@@ -13,7 +13,7 @@ import useStyles from "../../../../styles/style";
 import IconButton from "@mui/material/IconButton";
 import newclases from '@/styles/customstyle.module.scss'
 import Notification from "../Notification";
-export default function DashBoardLink({ state , Hamburger }) {
+export default function DashBoardLink({ state, Hamburger }) {
   const classes = useStyles();
 
   const [current_route, Setcurrent_route] = React.useState();
@@ -63,34 +63,32 @@ export default function DashBoardLink({ state , Hamburger }) {
       return "/";
     }
   };
-  const link = () => {location.push("/add-business")}
-  const link1  = () => {location.push("/advertise")}
+  const link = () => { location.push("/add-business") }
+  const link1 = () => { location.push("/advertise") }
   return (
     <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
       <Grid container spacing={2}>
-        <Grid xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid item xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="col nav_list1">
             <ul className="p-0">
-            <li>
-              <Link
-                href={getDispensariesHref()}
-                id={`${
-                  current_route?.slice(0, 18) === "/weed-dispensaries"
+              <li>
+                <Link
+                  href={getDispensariesHref()}
+                  id={`${current_route?.slice(0, 18) === "/weed-dispensaries"
                     ? "Active"
                     : ""
-                }`}
-              >
-                {" "}
-              Dispensaries  
-              </Link>
+                    }`}
+                >
+                  {" "}
+                  Dispensaries
+                </Link>
               </li>
               <Link
                 href={getDeliveryHref()}
-                id={`${
-                  current_route?.slice(0, 16) === "/weed-deliveries"
-                    ? "Active"
-                    : ""
-                }`}
+                id={`${current_route?.slice(0, 16) === "/weed-deliveries"
+                  ? "Active"
+                  : ""
+                  }`}
               >
                 <li>Deliveries</li>
               </Link>
@@ -111,46 +109,40 @@ export default function DashBoardLink({ state , Hamburger }) {
               </Link>
               <Link
                 href="/learn/laws-and-regulation"
-                id={`${
-                  current_route === "/learn/laws-and-regulation" ? "Active" : ""
-                }`}
+                id={`${current_route === "/learn/laws-and-regulation" ? "Active" : ""
+                  }`}
               >
                 <li>Law</li>
               </Link>
             </ul>
           </div>
         </Grid>
-        <Grid xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid item xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="d-flex gap-1 justify-content-center">
             <button className={newclases.btnaddss} onClick={link}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-            
-                {` Add Business`}
+
+              {` Add Business`}
             </button>
             <button className={newclases.btnaddss} onClick={link1}>
-              <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12}/></p>
+              <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12} /></p>
               {`Advertise`}
             </button>
           </div>
         </Grid>
-        <Grid
-          xs={6}
-          md={2}
-          spacing={2}
-          display={{ xs: "none", md: "block", lg: "block" }}
-        >
+        <Grid item xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className=" col-12  addyocardIcon  ">
             <Link href="/whislists">
               <Badge
                 badgeContent={
                   state.login
                     ? Object.values(state.WishList).reduce(
-                        (a, item) => a + item,
-                        0
-                      )
+                      (a, item) => a + item,
+                      0
+                    )
                     : 0
                 }
                 className={classes.sliderLink_badge}
@@ -171,11 +163,11 @@ export default function DashBoardLink({ state , Hamburger }) {
                       state?.Profile?.RemovedNotification?.length
                       ? 0
                       : totalnotify?.length -
-                          state?.Profile?.RemovedNotification?.length >
+                        state?.Profile?.RemovedNotification?.length >
                         0
-                      ? totalnotify?.length -
+                        ? totalnotify?.length -
                         state?.Profile?.RemovedNotification?.length
-                      : 0
+                        : 0
                     : notificationdata?.length
                 }
                 className={classes.sliderLink_badge}
@@ -224,12 +216,7 @@ export default function DashBoardLink({ state , Hamburger }) {
             </Link>
           </div>
         </Grid>
-        <Grid
-          xs={12}
-          md={8}
-          xl={8}
-          display={{ xs: "block", md: "none", lg: "none" }}
-        >
+        <Grid  item xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
           <SearchBar />
         </Grid>
       </Grid>

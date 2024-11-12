@@ -24,7 +24,7 @@ import { useRouter } from 'next/router';
 import image1 from "../../../public/weedx.iologo.png"
 import clases from '@/styles/customstyle.module.scss'
 import { debounce } from 'lodash'; // Or implement a custom debounce
-const Navbar = () => {
+const Navbar = ({Hamburger = true}) => {
     const cookies = new Cookies();
     const ref = React.useRef(null);
     const profileRef = React.useRef(null);
@@ -36,29 +36,29 @@ const Navbar = () => {
     const [dropDownState, setDropDownState] = React.useState(false);
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-    const [Hamburger, setHamburger] = useState(true);
+    // const [Hamburger, setHamburger] = useState(true);
 
     // Memoize the detectSize function with debounce to optimize resize handling
-    const detectSize = useCallback(
-      debounce(() => {
-        setHamburger(window.innerWidth > 991);
-      }, 100), // Adjust the debounce delay as needed
-      []
-    );
+    // const detectSize = useCallback(
+    //   debounce(() => {
+    //     setHamburger(window.innerWidth > 991);
+    //   }, 100), // Adjust the debounce delay as needed
+    //   []
+    // );
   
-    useEffect(() => {
-      // Only run the effect on the client side
-      if (typeof window !== 'undefined') {
-        detectSize(); // Initial detection
-        window.addEventListener('resize', detectSize);
+    // useEffect(() => {
+    //   // Only run the effect on the client side
+    //   if (typeof window !== 'undefined') {
+    //     detectSize(); // Initial detection
+    //     window.addEventListener('resize', detectSize);
         
-        // Cleanup on component unmount
-        return () => {
-          window.removeEventListener('resize', detectSize);
-          detectSize.cancel(); // Cancel any pending debounced calls
-        };
-      }
-    }, [detectSize]);
+    //     // Cleanup on component unmount
+    //     return () => {
+    //       window.removeEventListener('resize', detectSize);
+    //       detectSize.cancel(); // Cancel any pending debounced calls
+    //     };
+    //   }
+    // }, [detectSize]);
     const openNav = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -72,6 +72,8 @@ const Navbar = () => {
         await dispatch({ type: 'ApiProduct' });
         await dispatch({ type: 'Profile', Profile: [] });
     }
+
+
     React.useEffect(() => {
         const handleClickOutside = (event) => {
             if (ref.current && !ref.current.contains(event.target)) {
@@ -103,32 +105,37 @@ const Navbar = () => {
     })
     return (
         <React.Fragment>
-            <div className='container p-0'>
-                <div ref={ref} className={clases.NavbarBox}  id='Navbar_box' >
+            {/* <div className='container p-0'> */}
+                <div ref={ref} className={`${clases.NavbarBox} container p-1`}  id='Navbar_box' >
                     <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                         {
-                            Hamburger ?
-                                <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
+                            Hamburger ? 
+                                <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
                                         <Link href="/"> <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}   src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                                 </Grid>
                                 :
-                                <Grid container xs={3} md={2} xl={2} alignItems="center">
+                                 
+                                 <Grid item container xs={3} md={2} xl={2} alignItems="center">
                                     <div className='center ml-3' >
                                         <button className={clases.openbtn} onClick={openNav}>☰</button>
                                     </div>
                                 </Grid>
                         }
-                        <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
+                        <Grid item xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
                             {
-                                Hamburger ?  <SearchBar path={Location.pathname} />
+                                Hamburger ?
+                                
+                                    <SearchBar path={Location.pathname} />
+                      
                                     :
-                                    <div className='text-center'>
-                                        <Link href="/"><Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
-                                    </div>
+                                               <div className='text-center'>
+                                       <Link href="/"><Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
+                                  </div>
+                        
                             }
                         </Grid>
                         
-                        <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
+                        <Grid  item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                             <div className={clases.Heder_icon} >
                                 <Link href="/whislists">
                                     <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
@@ -156,17 +163,17 @@ const Navbar = () => {
                                 </Link>
                             </div>
                         </Grid>
-                        <Grid xs={5} md={4} xl={3}>
+                        <Grid item xs={5} md={4} xl={3}>
                    
                             <Afterlogin dropDownState={dropDownState} state={state} profileRef ={profileRef} handleClickDropdown= {handleClickDropdown} Logout={Logout}></Afterlogin >
                         </Grid>
-                        <Grid xs={12} md={12} xl={12}>
+                        <Grid item xs={12} md={12} xl={12}>
                             <SliderLink Hamburger={"nano"} state={state}></SliderLink>
                             <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
                         </Grid>
                     </Grid>
                 </div>
-            </div>
+            {/* </div> */}
         </React.Fragment>
     );
 };

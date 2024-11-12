@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
 const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'));
@@ -42,9 +42,9 @@ export default function Home({ initialData }) {
     <>
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
-      <Suspense fallback={<div>Loading...</div>}>
+  
         <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
-      </Suspense>
+
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
       <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>

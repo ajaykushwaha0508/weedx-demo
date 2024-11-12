@@ -6,7 +6,7 @@ const CustomAlert = ({title , discription , setisalert}) => {
         setTimeout(()=>{
             setisalert(false)
         }, 4000);
-    },[])
+    },[setisalert])
   return (
     <div className="customalertpopupwrapper">
         <div className='customalertpopup'>
