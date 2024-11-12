@@ -137,36 +137,31 @@ const Faq = () => {
         }
     ]
   return (
-    <div className='FAQsection'>
+    <div>
         <Faqseo></Faqseo>
         <div className='container-fluid'>
           <Bgheader text="FAQ's  Page"/>
-          <div className='faq_centent'>
-          {
-            data.map((item,index)=>{
-                return  <Accordion   key={index} className={classes.faqbox}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls={`panel${index+1}a-content`}
-                                id={`panel${index+1}a-header`}
-                                className={classes.faqHeading}
-                            >
-                            <Typography >{index +1}. {item.title} </Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                            <Typography className={classes.faqParagraph} >
-                              {item.paara}
-                            </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-            })
-          }
-            
-          
-       
-     
-     
-          </div>
+            <div className='mt-3'>
+                {
+                    data.map((item,index)=>{
+                        return  <Accordion   key={index} className={classes.faqbox}>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls={`panel${index+1}a-content`}
+                                        id={`panel${index+1}a-header`}
+                                        className={classes.faqHeading}
+                                    >
+                                    <Typography >{index +1}. {item.title} </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                    <Typography className={classes.faqParagraph} >
+                                    {item.paara}
+                                    </Typography>
+                                    </AccordionDetails>
+                                </Accordion>
+                    })
+                }
+            </div>
         </div>
     </div>
   )

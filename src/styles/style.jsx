@@ -1738,13 +1738,13 @@ const useStyles = makeStyles({
       backgroundColor:'#ededed',
     },
     "& .MuiTypography-root":{
-      fontSize:'22px',
+      fontSize:'18px',
       fontWeight:'700',
       lineHeight:'1.5',
     },
     '@media(max-Width: 1400px)' : {
       "& .MuiTypography-root":{
-        fontSize:'18px',
+        fontSize:'16px',
         fontWeight:'600',
         lineHeight:'1.5',
       },
@@ -1766,16 +1766,16 @@ const useStyles = makeStyles({
   },
   helpaccordionHeading:{
     "& .MuiTypography-root":{
-      fontSize:'16px',
+      fontSize:'14px',
       fontWeight:'600',
       lineHeight:'1.5',
     },
   },
   faqParagraph:{
     "&.MuiTypography-root":{
-      fontSize:'18px',
+      fontSize:'16px',
       fontWeight:'500',
-      padding:'20px',
+      padding:'10px',
       lineHeight:'1.5',
       color:'#666666'
     },

@@ -10,7 +10,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-
+import newclases from '@/styles/customstyle.module.scss'
 import {AboutusSeo}  from "@/component/ScoPage/CommenpageSeo"
 const AboutUs = () => {
     const ClientPreachSlider = styled(Slider)`
@@ -130,195 +130,170 @@ const AboutUs = () => {
         head: "Optimize your marketing", icons: <MdSettingsSuggest color="#27BE72" />,
         paragraph: "Enhance your business by gaining deeper insights into your existing and potential customers and optimizing your marketing strategies."
     }]
-
     return (
-        <div>
+        <div className={newclases.aboutUsPage}>
             <AboutusSeo></AboutusSeo>
-            <div className='about_us_header'>
-
-
-                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src='/image/about_us_banner.jpg' alt='imgs not available' width={100} height={100} title='imgs not available'  className='About_us_banner_image' />
-                <div className='text-on-image'>
-                    <h1>About us</h1>
+            <div className={newclases.about_us_header}>
+                <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src='/image/about_us_banner.jpg' alt='imgs not available' width={100} height={100} title='imgs not available'  className={newclases.About_us_banner_image} />
+                <div className={newclases.text_on_image}>
+                    <h1>{'About us'}</h1>
                 </div>
-
             </div>
-            <div className="weedxByTheNumber_container">
-
-                <div className="weedx_heading_container">
-                    <h2 className="backwoodar_heading">{`WeedX  by the numbers`}</h2>
+            <div className={newclases.weedxByTheNumber_container}>
+                <div className={newclases.weedx_heading_container}>
+                    <h2 className={newclases.backwoodar_heading}>{`WeedX  by the numbers`}</h2>
                 </div>
-                
-                <div className="weedx_number_container bg-light ">
+                <div className={newclases.weedx_number_container}>
                     <ul>
                         <li>
-                            <span className="upperText">{`60 MILLION`}</span>
-                            <span className="lowertext">{`Visitors to weedx io every year`}</span>
+                            <span className={newclases.upperText}>{`60 MILLION`}</span>
+                            <span className={newclases.lowertext}>{`Visitors to weedx io every year`}</span>
                         </li>
-                        <li> <span className="upperText">{`4+ MILLION`}</span>
-                            <span className="lowertext">{` Orders placed annually
+                        <li> <span className={newclases.upperText}>{`4+ MILLION`}</span>
+                            <span className={newclases.lowertext}>{` Orders placed annually
                             `}</span>                 </li>
-                        <li> <span className="upperText">{`4,600+ MILLION`}</span>
-                            <span className="lowertext">{` Retailers online with weedx io
+                        <li> <span className={newclases.upperText}>{`4,600+ MILLION`}</span>
+                            <span className={newclases.lowertext}>{` Retailers online with weedx io
                             `}</span>                       </li>
-                        <li> <span className="upperText">{`1.3 million`}</span>
-                            <span className="lowertext">{` Product reviews
+                        <li> <span className={newclases.upperText}>{`1.3 million`}</span>
+                            <span className={newclases.lowertext}>{` Product reviews
                             `}</span>          </li>
-                        <li> <span className="upperText">{`5,000+`}</span>
-                            <span className="lowertext">{` Strains in the weedx io database`}</span>
+                        <li> <span className={newclases.upperText}>{`5,000+`}</span>
+                            <span className={newclases.lowertext}>{` Strains in the weedx io database`}</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div className="AboutUsjourney_container">                  
-                   <h2 className="About_Journey_mainheading">{`Weedx Marijuana Dispensaries & Delivery Near Me`}</h2>
-                   <div className="journy_container">
+            <div className={newclases.AboutUsjourney_container}>                  
+                   <h2 className={newclases.About_Journey_mainheading}>{`Weedx Marijuana Dispensaries & Delivery Near Me`}</h2>
+                   <div className={newclases.journy_container}>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                              {`   About Us`}
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                            {`  Welcome to WeedX.io, your premier destination for all things cannabis. At WeedX.io, we are committed to revolutionizing the cannabis industry by providing an innovative e-commerce platform that connects consumers with top-quality dispensaries, brands, and delivery services.`}
+                            </p>
+                        </div>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                             {` Our Mission`}
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                            {`Our mission is to simplify the cannabis shopping experience by offering a seamless, user-friendly platform that caters to both B2B and B2C markets. We aim to empower businesses and consumers alike by providing comprehensive tools and resources that enhance accessibility, convenience, and choice in the cannabis industry.`}
+                            </p>
+                        </div>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                            {` Who We Are`}
 
-                  
-                        {/* {AboutUsJourney.map((items, index) => {
-                            return (
-                                <div className="about_us_inner_section_container" key={index}>
-                                    <h2 className="About_Journey_heading">{items.head}</h2>
-                                    <p className="journey_paragraph">
-                                        {items.paragraph}
-                                    </p>
-                                </div>
-                            )
-                        })} */}
-                          <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                    {`   About Us`}
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                  {`  Welcome to WeedX.io, your premier destination for all things cannabis. At WeedX.io, we are committed to revolutionizing the cannabis industry by providing an innovative e-commerce platform that connects consumers with top-quality dispensaries, brands, and delivery services.`}
-                                    </p>
-                                </div>
-                                <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                   {` Our Mission`}
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                    {`Our mission is to simplify the cannabis shopping experience by offering a seamless, user-friendly platform that caters to both B2B and B2C markets. We aim to empower businesses and consumers alike by providing comprehensive tools and resources that enhance accessibility, convenience, and choice in the cannabis industry.`}
-                                    </p>
-                                </div>
-
-                                <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                   {` Who We Are`}
-
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                   {` WeedX.io was developed by `} <a href="https://selnox.com/">{`Selnox Infotech Pvt Ltd`}</a>,{` a leading tech company dedicated to creating cutting-edge solutions for various industries. Founded by Sandeep Kourav, Selnox Infotech brings together a team of experts passionate about technology and innovation. Our goal is to leverage our expertise to elevate the cannabis industry to new heights.`}
-                                    </p>
-                                </div>
-                                <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                  {`  What We Offer`}
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                        {`WeedX.io is designed to be a one-stop-shop for all your cannabis needs. Our platform features:`}
-                                    </p>
-                                    <ul>
-                                        <li><b>{`Find a Weed Dispensary Near You:`}</b> {` Easily locate and choose from a wide range of dispensaries in your area.
-                                        `}</li>
-                                        <li><b>{`Weed Delivery Near You:`}</b>{` Discover delivery services available in your locality and get your cannabis delivered to your doorstep.
-                                        `}</li>
-                                        <li><b>{` Brand Discovery:`}</b>{` Explore various cannabis brands and their products.
-                                        `}</li>
-                                        <li><b>{`Order Placement:`}</b>{` Conveniently place orders for delivery or in-store pickup.
-                                        `}</li>
-                                        <li><b>{` Location-Based Search:`}</b>{` Utilize our location-based search to find nearby dispensaries and delivery services.
-                                        `}</li>
-                                        <li><b>{` Curbside Pickup:`}</b>{` Enjoy the convenience of curbside pickup for your orders.
-                                        `}</li>
-                                        <li><b>{` Product Reviews and Ratings:`}</b>{` Read and share reviews on products and dispensaries to make informed choices.
-                                        `}</li>
-                                        <li><b>{`Strain Information:`}</b>{` Access detailed information on different cannabis strains to find the perfect match for your needs.
-                                        `}</li>
-                                        <li><b>{`Cannabis Blogs and News:`}</b>{` Stay updated with the latest industry news and insightful blogs on cannabis-related topics.
-                                        `}</li>
-                                        <li><b>{`Cash Payment:`}</b>{` Pay with cash upon delivery or pickup, offering a hassle-free payment option.
-                                        `}</li>
-                                      
-                                    </ul>
-                                </div>
-                                <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                   {`Manage Your Inventory with `}  <a href="https://cannabaze.com/">{`Cannabaze POS`}</a>
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                        {`For dispensaries and cannabis businesses, managing inventory efficiently is crucial. That's where Cannabaze POS comes in. Our advanced Point of Sale system, Cannabaze POS, offers:`}
-                                    </p>
-                                    <ul>
-                                        <li><b>{`Real-Time Inventory Tracking:`}</b> {` Monitor your inventory levels in real-time to ensure you never run out of stock.
-                                        `}</li>
-                                        <li><b>{`Automated Reordering: `}</b>{`  Set up automated reordering based on inventory thresholds to streamline your stock management.
-                                        `}</li>
-                                        <li><b>{` Comprehensive Reporting:`}</b>{` Generate detailed reports on sales, inventory, and performance to make informed business decisions.
-                                        `}</li>
-                                        <li><b>{`Integration with WeedX.io:`}</b>{`Seamlessly integrate with WeedX.io to synchronize your product listings and manage your online sales effectively.
-                                        `}</li>
-                                        <li><b>{`User-Friendly Interface:`}</b>{` Enjoy an intuitive interface that simplifies daily operations and enhances efficiency.
-                                        `}</li>
-                                    </ul>
-                                </div>
-                                <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                   {`Available in the USA and Canada`}
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                        {`WeedX.io proudly serves customers across the USA and Canada, ensuring that our platform is accessible to a broad audience. Whether you're looking for a dispensary near you or need reliable weed delivery services, WeedX.io has you covered in both countries.
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                            {` WeedX.io was developed by `} <a href="https://selnox.com/">{`Selnox Infotech Pvt Ltd`}</a>,{` a leading tech company dedicated to creating cutting-edge solutions for various industries. Founded by Sandeep Kourav, Selnox Infotech brings together a team of experts passionate about technology and innovation. Our goal is to leverage our expertise to elevate the cannabis industry to new heights.`}
+                            </p>
+                        </div>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                            {`  What We Offer`}
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                                {`WeedX.io is designed to be a one-stop-shop for all your cannabis needs. Our platform features:`}
+                            </p>
+                            <ul>
+                                <li><b>{`Find a Weed Dispensary Near You:`}</b> {` Easily locate and choose from a wide range of dispensaries in your area.
+                                `}</li>
+                                <li><b>{`Weed Delivery Near You:`}</b>{` Discover delivery services available in your locality and get your cannabis delivered to your doorstep.
+                                `}</li>
+                                <li><b>{` Brand Discovery:`}</b>{` Explore various cannabis brands and their products.
+                                `}</li>
+                                <li><b>{`Order Placement:`}</b>{` Conveniently place orders for delivery or in-store pickup.
+                                `}</li>
+                                <li><b>{` Location-Based Search:`}</b>{` Utilize our location-based search to find nearby dispensaries and delivery services.
+                                `}</li>
+                                <li><b>{` Curbside Pickup:`}</b>{` Enjoy the convenience of curbside pickup for your orders.
+                                `}</li>
+                                <li><b>{` Product Reviews and Ratings:`}</b>{` Read and share reviews on products and dispensaries to make informed choices.
+                                `}</li>
+                                <li><b>{`Strain Information:`}</b>{` Access detailed information on different cannabis strains to find the perfect match for your needs.
+                                `}</li>
+                                <li><b>{`Cannabis Blogs and News:`}</b>{` Stay updated with the latest industry news and insightful blogs on cannabis-related topics.
+                                `}</li>
+                                <li><b>{`Cash Payment:`}</b>{` Pay with cash upon delivery or pickup, offering a hassle-free payment option.
+                                `}</li>
+                                
+                            </ul>
+                        </div>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                            {`Manage Your Inventory with `}  <a href="https://cannabaze.com/">{`Cannabaze POS`}</a>
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                                {`For dispensaries and cannabis businesses, managing inventory efficiently is crucial. That's where Cannabaze POS comes in. Our advanced Point of Sale system, Cannabaze POS, offers:`}
+                            </p>
+                            <ul>
+                                <li><b>{`Real-Time Inventory Tracking:`}</b> {` Monitor your inventory levels in real-time to ensure you never run out of stock.
+                                `}</li>
+                                <li><b>{`Automated Reordering: `}</b>{`  Set up automated reordering based on inventory thresholds to streamline your stock management.
+                                `}</li>
+                                <li><b>{` Comprehensive Reporting:`}</b>{` Generate detailed reports on sales, inventory, and performance to make informed business decisions.
+                                `}</li>
+                                <li><b>{`Integration with WeedX.io:`}</b>{`Seamlessly integrate with WeedX.io to synchronize your product listings and manage your online sales effectively.
+                                `}</li>
+                                <li><b>{`User-Friendly Interface:`}</b>{` Enjoy an intuitive interface that simplifies daily operations and enhances efficiency.
+                                `}</li>
+                            </ul>
+                        </div>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                            {`Available in the USA and Canada`}
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                                {`WeedX.io proudly serves customers across the USA and Canada, ensuring that our platform is accessible to a broad audience. Whether you're looking for a dispensary near you or need reliable weed delivery services, WeedX.io has you covered in both countries.
 `}
-                                    </p>
-                                </div>
-                                <div className="about_us_inner_section_container">
-                                    <h2 className="About_Journey_heading">
-                                   {`Our Commitment`}
-                                    </h2>
-                                    <p className="journey_paragraph">
-                                        {`WeedX.io is dedicated to providing a secure, reliable, and enjoyable shopping experience. We continually strive to enhance our platform by incorporating user feedback and staying abreast of industry trends. Our commitment to quality and customer satisfaction is unwavering, and we are proud to serve the cannabis community with integrity and excellence.`}
-                                    </p>
-                                </div>
-                               
-                    </div>
+                            </p>
+                        </div>
+                        <div className={newclases.about_us_inner_section_container}>
+                            <h2 className={newclases.About_Journey_heading}>
+                            {`Our Commitment`}
+                            </h2>
+                            <p className={newclases.journey_paragraph}>
+                                {`WeedX.io is dedicated to providing a secure, reliable, and enjoyable shopping experience. We continually strive to enhance our platform by incorporating user feedback and staying abreast of industry trends. Our commitment to quality and customer satisfaction is unwavering, and we are proud to serve the cannabis community with integrity and excellence.`}
+                            </p>
+                        </div> 
+                   </div>
             </div>
-            <div className="our_valuesSection">
-               <h2 className="ourValue_main_headings  section_title">{`Our Values`}</h2>
-                <div className="valueCardWrapper row">
+            <div className={newclases.our_valuesSection}>
+               <h2 className={newclases.section_title}>{`Our Values`}</h2>
+                <div className=" row">
                     {OurValuesArray.map((items, index) => {
                         return (
-                            <div className="col-md-4 col-sm-6 col-12 mt-2" key={index}>
-                                <div className="border ourValues_card_container">
-                                    <div className="ourvalues_icons_container">
+                            <div className="col-md-4 col-sm-6 col-12 mt-2" 
+                            key={index}>
+                                <div className={newclases.ourValues_card_container}>
+                                    <div className={newclases.ourvalues_icons_container}>
                                         <span>{items.icons}</span>
                                     </div>
-                                    <div className="w-100 values_heading_container ">
-                                        <h2 className="ellipsis values_heading">{items.head}</h2>
-                                    </div>
-                                    <div className="values_paragraph_container">
-                                        <p className="values_paragraph">{items.paragraph}</p>
-
-                                    </div>
+                                    <h2 className={`ellipsis ${newclases.values_heading}`}>{items.head}</h2>
+                                    <p className={newclases.values_paragraph}>{items.paragraph}</p>
                                 </div>
                             </div>
                         )
                     })}
                 </div>
-
             </div>
-            <div className='testimonial'>
+            <div className={newclases.testimonial}>
 
-                <h2 className='section_title'>{`Clients preach the WeedX`}</h2>
+                <h2 className={newclases.section_title}>{`Clients preach the WeedX`}</h2>
 
-                <div className="testiminial_card_wrapper row">
+                <div className={`row`}>
                     <ClientPreachSlider {...settings}>
                         {AboutUsBannerArray.map((items, index) => {
                             return (
                                 <div key={index}>
-                                    <div className=' client_preach_container mb-4'>
+                                    <div className={newclases.client_preach_container}>
 
-                                        <div className='clientPreach_content_section'>
-                                            <p className='clientPreach_paragraph'>{items.content}</p>
+                                        <div className={newclases.clientPreach_content_section}>
+                                            <p className={newclases.clientPreach_paragraph}>{items.content}</p>
                                         </div>
 
                                     </div>

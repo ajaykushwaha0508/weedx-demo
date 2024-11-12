@@ -303,9 +303,6 @@ export default function DispensoriesDetails(props) {
             }
         }
     }
-
-
-
     const faq = [
         {
           title: `What is the service area for ${Despen[0]?.Store_Name} ?`,
@@ -389,7 +386,6 @@ export default function DispensoriesDetails(props) {
         }
       ];
     
-
     return (
         <div>
             <div>

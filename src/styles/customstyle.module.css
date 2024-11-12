@@ -2666,6 +2666,228 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   color: #000000;
 }
 
+.helpcenter .bgHedaer {
+  background-color: #a5ffd8;
+  height: 220px;
+  position: relative;
+}
+.helpcenter .bgHedaer .text_on_Learn_banner {
+  text-align: center;
+  display: inline;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  width: -moz-fit-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+}
+.helpcenter .helpcenterConent {
+  justify-content: space-between;
+  margin: 5px;
+  font-weight: 500;
+}
+.helpcenter .helpcenterConent .helpHeading {
+  margin-top: 40px;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #000;
+  font-weight: 700;
+}
+.helpcenter .helpcenterConent .help_contentBox {
+  padding-left: 20px;
+}
+.helpcenter .helpcenterConent .help_contentBox .helpTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+.helpcenter .helpcenterConent .help_contentBox .helpDescription {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #000;
+}
+.helpcenter .helpcenterConent .help_toc {
+  border: 1px solid black;
+}
+.helpcenter .helpcenterConent .help_toc .help_tocHeading_box {
+  background-color: #31B655;
+}
+.helpcenter .helpcenterConent .help_toc .help_tocHeading_box .sideTableHeading {
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+.helpcenter .helpcenterConent .help_toc .tbhelplist {
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: #3d3d3d;
+  cursor: pointer;
+}
+.helpcenter .helpcenterConent .help_toc .tbhelplist :hover {
+  color: #31B655;
+}
+
+.aboutUsPage .about_us_header {
+  position: relative;
+  margin-bottom: 30px;
+}
+.aboutUsPage .about_us_header .About_us_banner_image {
+  height: 300px;
+  width: 100%;
+}
+.aboutUsPage .about_us_header .text_on_image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_heading_container {
+  background: #31B665;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_heading_container .backwoodar_heading {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 100px;
+  margin: 0;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_number_container {
+  background-color: #f8f9fa;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_number_container ul {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li {
+  width: 20%;
+  list-style-type: none;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .upperText {
+  color: #000;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: block;
+  padding: 10px;
+}
+.aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .lowertext {
+  color: #FFF;
+  padding: 10px;
+  background-color: #31B665;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+  height: 100px;
+  text-align: center;
+}
+.aboutUsPage .AboutUsjourney_container {
+  padding: 40px 0;
+  background-color: #F9F9F9;
+  padding: 50px;
+}
+.aboutUsPage .AboutUsjourney_container .About_Journey_mainheading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  color: #000000;
+  line-height: 2;
+}
+.aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container {
+  margin: 40px 0;
+}
+.aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container .About_Journey_heading {
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+  line-height: 2;
+}
+.aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container .journey_paragraph {
+  font-weight: 400;
+  font-size: 16px;
+  color: #565656;
+  margin-bottom: 0;
+}
+.aboutUsPage .our_valuesSection {
+  padding: 40px 0;
+}
+.aboutUsPage .our_valuesSection .ourValues_card_container {
+  background: #FAFAFA;
+  border-radius: 8px;
+  height: 100%;
+  padding: 30px;
+  border: 1px solid #dee2e6;
+}
+.aboutUsPage .our_valuesSection .ourValues_card_container .ourvalues_icons_container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+}
+.aboutUsPage .our_valuesSection .ourValues_card_container .values_heading {
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+  line-height: 2;
+  text-align: center;
+}
+.aboutUsPage .our_valuesSection .ourValues_card_container .values_paragraph {
+  line-height: 2;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+}
+.aboutUsPage .testimonial .client_preach_container {
+  height: 250px;
+  background: #FFFFFF;
+  border: 1px solid #D6D6D6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px;
+}
+.aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
+  color: #565656;
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.LawStateContentsContainer {
+  margin-left: 20px;
+  border: 1px solid #BEBEBE;
+  position: sticky;
+  top: 200px;
+}
+
 @media (max-width: 1440px) {
   .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li {
     font-size: 16px;
@@ -2685,6 +2907,52 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     font-size: 20px;
   }
   footer .footer_main_list p.footer_menu_heading {
+    font-size: 18px;
+  }
+  .aboutUsPage .about_us_header .About_us_banner_image {
+    height: 280px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_heading_container .backwoodar_heading {
+    font-size: 20px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .upperText {
+    font-size: 18px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .lowertext {
+    font-size: 16px;
+    height: 60px;
+  }
+  .aboutUsPage .AboutUsjourney_container {
+    padding: 30px;
+  }
+  .aboutUsPage .AboutUsjourney_container .About_Journey_mainheading {
+    font-size: 24px;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container {
+    margin: 40px 0;
+  }
+  .aboutUsPage .our_valuesSection {
+    padding: 30px 0;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container {
+    padding: 20px;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container .ourvalues_icons_container {
+    height: 80px;
+    font-size: 60px;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container .values_heading {
+    font-size: 20px;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container .values_paragraph {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .aboutUsPage .testimonial .client_preach_container {
+    height: 250px;
+    padding: 25px;
+  }
+  .aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
     font-size: 18px;
   }
 }
@@ -2857,6 +3125,60 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     height: auto;
     width: 100%;
     margin: 0 auto;
+  }
+  .aboutUsPage .about_us_header .About_us_banner_image {
+    height: 220px;
+  }
+  .aboutUsPage .about_us_header .text_on_image {
+    font-size: 32px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_heading_container .backwoodar_heading {
+    font-size: 18px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container::-webkit-scrollbar {
+    display: none;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li {
+    min-width: 27%;
+  }
+  .aboutUsPage .AboutUsjourney_container {
+    padding: 25px;
+  }
+  .aboutUsPage .AboutUsjourney_container .About_Journey_mainheading {
+    font-size: 24px;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container {
+    margin: 40px 0;
+  }
+  .aboutUsPage .our_valuesSection {
+    padding: 25px 0;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container {
+    padding: 10px;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container .ourvalues_icons_container {
+    height: 70px;
+    font-size: 40px;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container .values_heading {
+    font-size: 16px;
+  }
+  .aboutUsPage .our_valuesSection .ourValues_card_container .values_paragraph {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .aboutUsPage .testimonial .client_preach_container {
+    height: 250px;
+    padding: 20px;
+  }
+  .aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
+    font-size: 16px;
   }
 }
 @media (max-width: 768px) {
@@ -3097,6 +3419,51 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .newProductDetailsContainer .newProductdetails_rightSideContent_container .productDetailsCardAddtocart {
     width: 100%;
   }
+  .aboutUsPage .about_us_header {
+    margin-bottom: 10px;
+  }
+  .aboutUsPage .about_us_header .About_us_banner_image {
+    height: 180px;
+  }
+  .aboutUsPage .about_us_header .text_on_image {
+    font-size: 28px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_heading_container .backwoodar_heading {
+    font-size: 16px;
+    line-height: 50px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li {
+    min-width: 27%;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .upperText {
+    font-size: 15px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .lowertext {
+    font-size: 12px;
+  }
+  .aboutUsPage .AboutUsjourney_container {
+    padding: 25px;
+  }
+  .aboutUsPage .AboutUsjourney_container .About_Journey_mainheading {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container {
+    margin: 40px 0;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container .About_Journey_heading {
+    font-size: 18px;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container .journey_paragraph {
+    font-size: 14px;
+  }
+  .aboutUsPage .testimonial .client_preach_container {
+    height: auto;
+    padding: 20px;
+  }
+  .aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
+    font-size: 14px;
+  }
 }
 @media (max-width: 576px) {
   .ad_page .adversticebanner_header {
@@ -3232,8 +3599,81 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .MyOrderProductDetail .orderTracking_container .cancelOrderIndicator {
     font-size: 16px;
   }
+  .helpcenter .bgHedaer {
+    height: 180px;
+  }
+  .helpcenter .bgHedaer .text_on_Learn_banner {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .helpcenter .helpcenterConent .helpHeading {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+  .helpcenter .helpcenterConent .help_contentBox .helpTitle {
+    font-size: 16px;
+  }
+  .helpcenter .helpcenterConent .help_contentBox .helpDescription {
+    font-size: 12px;
+  }
+  .helpcenter .helpcenterConent .help_toc .help_tocHeading_box .sideTableHeading {
+    font-size: 16px;
+  }
+  .helpcenter .helpcenterConent .help_toc .tbhelplist {
+    font-size: 12px;
+  }
 }
 @media (max-width: 480px) {
+  .aboutUsPage .about_us_header {
+    margin-bottom: 10px;
+  }
+  .aboutUsPage .about_us_header .About_us_banner_image {
+    height: 180px;
+  }
+  .aboutUsPage .about_us_header .text_on_image {
+    font-size: 28px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_heading_container .backwoodar_heading {
+    font-size: 16px;
+    line-height: 50px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul {
+    width: 200%;
+    overflow-x: scroll;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li {
+    min-width: 20%;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .upperText {
+    font-size: 15px;
+  }
+  .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .lowertext {
+    font-size: 12px;
+  }
+  .aboutUsPage .AboutUsjourney_container {
+    padding: 25px;
+  }
+  .aboutUsPage .AboutUsjourney_container .About_Journey_mainheading {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container {
+    margin: 40px 0;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container .About_Journey_heading {
+    font-size: 18px;
+  }
+  .aboutUsPage .AboutUsjourney_container .journy_container .about_us_inner_section_container .journey_paragraph {
+    font-size: 14px;
+  }
+  .aboutUsPage .testimonial .client_preach_container {
+    height: auto;
+    padding: 20px;
+    width: 100%;
+  }
+  .aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
+    font-size: 14px;
+  }
   .delivery_items_cards_container {
     width: 100%;
     gap: 15px;

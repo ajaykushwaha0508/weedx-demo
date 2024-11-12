@@ -4658,40 +4658,40 @@ margin: 0;
 
 /* end */
 /* lawStateDescriptionHeadings */
-.lawStateDescriptionHeadings {
-  height: auto;
-}
 
-.lawStateDescription_Laws_Content {
-  display: flex;
-}
-.tableList{
-  color: #2b2b2b;
-  transition: all .3s ease;
-  font-weight: 500;
-}
-.tableList:hover{
-  cursor: pointer;
-  color: #31B655;
-}
-.tableList.tableListActive{
-  color: #31B655;
-  font-weight: 500;
-}
-.isweedLegalHeading {
-  color: #000000;
-  font-weight: 700;
-  font-size: 24px;
-}
-.errorPara{
-  color: red;
-  font-size: 12px;
-}
-.frequentlySubHeading {
-  color: #000000;
-  font-weight: 700;
-  font-size: 22px;
-}
+  .lawStateDescriptionHeadings {
+    height: auto;
+  }
+  .lawStateDescription_Laws_Content {
+    display: flex;
+  }
+  .tableList{
+    color: #2b2b2b;
+    transition: all .3s ease;
+    font-weight: 500;
+  }
+  .tableList:hover{
+    cursor: pointer;
+    color: #31B655;
+  }
+  .tableList.tableListActive{
+    color: #31B655;
+    font-weight: 500;
+  }
+  .isweedLegalHeading {
+    color: #000000;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  .errorPara{
+    color: red;
+    font-size: 12px;
+  }
+  .frequentlySubHeading {
+    color: #000000;
+    font-weight: 700;
+    font-size: 22px;
+  }
 
 .LawStateDescriptionHeading {
   color: #6B6B6B;
@@ -5063,17 +5063,8 @@ line-height: 2;
 .myreviewBox:hover{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
-.helpcenterConent{
-  justify-content: space-between;
-  margin: 5px;
-  font-weight: 500;
-}
-.tbhelplist{
-  transition: all .3s ease;
-}
-.tbhelplist:hover{
-  color: #31B655;
-}
+
+
 .productreview_imgcircle{
   width: 80px;
   height: 80px;
@@ -5109,48 +5100,7 @@ line-height: 2;
   color: #202124;
   word-wrap: break-word;
 }
-.faq_centent{
-  margin-top: 5%;
-}
-.help_toc{
-  border: 1px solid black;
-}
-.help_tocHeading_box{
- background-color: #31B655;
 
-
-}
-.help_tocHeading_box .sideTableHeading{
-   color: #fff;
-   text-align: center;
-   line-height: 60px;
-   margin: 0;
-}
-.helpHeading{
-  margin-top: 40px;
-  font-size: 22px;
-  line-height: 1.4;
-  color: #000;
-  font-weight:700;
-}
-.cursor_pointer{
-  cursor: pointer;
-}
-.helpTitle{
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3;
-  color: #000;
-}
-.helpDescription{
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.3;
-  color: #000;
-}
-.help_contentBox{
-  padding-left: 20px;
-}
 .loader_container{
   width: 100vw;
   height: 100vh;
@@ -6050,8 +6000,6 @@ height: auto;
   margin-top: 8px;
   word-break: break-word;
 }
-
-
 .blogListWrapper .blogListCard {
   display: flex;
   flex-wrap: wrap;
@@ -6222,26 +6170,10 @@ margin-top: 100px;
 
 
 
-.about_us_header {
-  position: relative;
-  margin-bottom: 30px;
-}
-.About_us_banner_image {
-  height: 300px;
-  width: 100%;
-}
 
-.text-on-image {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  color: #000;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
+
+
+
 .section_title{
   color: #000;
   font-size: 36px;
@@ -6251,82 +6183,13 @@ margin-top: 100px;
 }
 /* weedxByTheNumber */
 
-.weedx_heading_container {
-  background: #31B665; 
-}
-.backwoodar_heading {
-  font-weight: 700;
-  font-size: 24px;
-  color: #FFFFFF;
-  text-align: center;
-  line-height: 100px;
-  margin: 0;
-}
-.weedx_number_container ul{
-  display: flex;
-  align-items: center;
- 
-  padding: 0;
-}
-.weedx_number_container ul li{
-  width: 20%;
- list-style-type: none;
-}
-.weedx_number_container ul .upperText{
-  color: #000;
-  text-align: center;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  display: block;
-  padding: 10px;
-}
-.weedx_number_container ul .lowertext{
-  color: #FFF;
-  padding: 10px;
-  background-color: #31B665;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  display: block;
-   height: 100px;
-   text-align: center;
-}
+
+
 /* end */
 
 
 /* AboutUsjourney*/
-.AboutUsjourney_container , .our_valuesSection{
-  padding: 40px 0;
-}
-.AboutUsjourney_container {
-  background-color: #F9F9F9;
-  padding: 50px;
-}
-.About_Journey_mainheading{
-   text-align: center;
-   font-weight: 700;
-  font-size: 28px;
-  color: #000000;
-  line-height: 2;
-}
-.About_Journey_heading {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-  line-height: 2;
-}
-.journey_paragraph {
-  font-weight: 400;
-  font-size: 18px;
-  color: #565656;
-}
 
-.about_us_inner_section_container {
-  margin: 40px 0;
-}
 
 .journey_heading {
   font-size: 20px;
@@ -6338,64 +6201,12 @@ margin-top: 100px;
 
 
 /* ourValues */
-.ourValues_card_container {
-  background: #FAFAFA;
-  border-radius: 8px;
-  height: 100%;
-  padding: 30px;
-} 
-.ourvalues_icons_container {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 70px;
-}
-.values_heading {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-  line-height: 2;
-  text-align: center;
-}
-.values_paragraph {
-  line-height: 2;
-  font-weight: 400;
-  font-size: 16px;
-  color: #000000;
-  text-align: center;
-}
+
+
+
+
 /* end */
-/* clientPreach */
-.client_preach_container {
-  height: 250px;
-  background: #FFFFFF;
-  border: 1px solid #D6D6D6;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 37px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: 0 auto;
-  padding: 30px;
-}
-.client_preach_content_center {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.clientPreach_paragraph {
-  color: #565656;
-  text-align: center;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-/* end */
+
 /* public/nprogress-custom.css */
 #nprogress {
   pointer-events: none;
@@ -6544,12 +6355,7 @@ margin-top: 100px;
     font-size: 22px;
    
   }
-  .weedx_number_container ul .upperText{
-    font-size: 22px;
-  }
-  .weedx_number_container ul .lowertext{
-    font-size: 18px;
-  }
+
   .Sapceing {
     gap: 38px;
   }
@@ -6635,12 +6441,7 @@ margin-top: 100px;
     height: 250px;
     width: 100%;
   }
-    .weedx_number_container ul .upperText{
-      font-size: 18px;
-    }
-    .weedx_number_container ul .lowertext{
-      font-size: 14px;
-    }
+ 
  
 
     .About_Journey_mainheading{
@@ -6745,13 +6546,7 @@ margin-top: 100px;
     line-height: 70px;
     font-size: 18px;
   }
-  .weedx_number_container ul .upperText {
-    font-size: 14px;
-}
-.weedx_number_container ul .lowertext{
-  height: 75px;
-  font-size: 14px;
-}
+
 .AboutUsjourney_container {
   padding: 40px;
 }
@@ -6882,17 +6677,10 @@ margin-top: 100px;
   
 
   .strainType_container .strainTypeInner_container{
-  
+
     height: 140px;
   }
-  .weedx_number_container {
-    overflow-y: hidden;
-    overflow-x: scroll;
-  }
-  .weedx_number_container ol li {
-    min-width: 27%;
-  }
-
+ 
   .newProductDetailsContainer {
     flex-wrap: wrap;
     padding: 20px;
@@ -7955,7 +7743,6 @@ font-size: 24px;
   .disOPenResRating {
     font-size: 12px;
   }
-
 }
 @media(max-width:380px) {
   .realtedVerifyBanner_image_inner_container {
@@ -8062,8 +7849,7 @@ display: contents;
 @media (max-width:400px) {
   .cardnamerating{
     display: block;
-    } 
-   
+  }
 }
 .highlightToday{
   color: #31B655;
