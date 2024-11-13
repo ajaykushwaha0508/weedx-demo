@@ -23,21 +23,6 @@ p {
 }
 /* navbar */ 
 /* Slider Navbar */
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0px;
-  left: 0;
-  background: white;
-  overflow-x: hidden;
-  transition: all .3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
 
 .Slider_content_center {
   display: grid;
@@ -784,23 +769,9 @@ scrollbar-width: none;  /* Firefox */
 .linkTaginsideEditer a span  {
   color: #31B665 !important ;
 }
-
-/* End  */
-
-
-/* Appstyle.css  file From React */ 
-
-
-* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 .x_icon{
   font-size: 18px;
 }
-
-
-
 textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -835,8 +806,7 @@ input[type=checkbox] {
    display: flex;
    justify-content: center;
    align-items: center;
-  }
-
+}
 .multine-ellipsis {
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -4659,9 +4629,6 @@ margin: 0;
 /* end */
 /* lawStateDescriptionHeadings */
 
-  .lawStateDescriptionHeadings {
-    height: auto;
-  }
   .lawStateDescription_Laws_Content {
     display: flex;
   }
@@ -4678,27 +4645,11 @@ margin: 0;
     color: #31B655;
     font-weight: 500;
   }
-  .isweedLegalHeading {
-    color: #000000;
-    font-weight: 700;
-    font-size: 24px;
-  }
+
   .errorPara{
     color: red;
     font-size: 12px;
   }
-  .frequentlySubHeading {
-    color: #000000;
-    font-weight: 700;
-    font-size: 22px;
-  }
-
-.LawStateDescriptionHeading {
-  color: #6B6B6B;
-  font-weight: 700;
-  font-size: 32px;
-}
-
 .LawStateContentOls {
   /* list-style: none; */
   padding-left: 0px;
@@ -4709,13 +4660,6 @@ margin: 0;
   /* border-bottom: 1px solid #E0E0E0; */
 }
 
-.isWeedLegalParagraph {
-  font-size: 16px;
-  color: #6B6B6B;
-  font-weight: 400;
-  text-align: justify;
-  padding-bottom: 24px;
-}
 
 .lawStateContentLinkStyle {
   color: #000000;
@@ -5248,76 +5192,6 @@ line-height: 2;
 
 
 /* ///////////////////////////////////////////////////New Letter///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-.HomePageDealsSignupContainer {
-    padding: 40px 0;
-    background: #f6f6f6;
-    border-radius: 40px;
-  }
-  .newsletterFormFeild{
-    /* background-color: #E6E6E6; */
-    display: flex;
-    align-items: flex-start;
-    overflow: hidden;
-    width: 500px;
-  }
-  .newsletterFormFeild .newsletter_btn{
-    width: 25%;
-    height: 40px;
-  }
-  .newsletterImage{
-    max-width: 200px;
-    margin: 0 auto;
-  }
-  .newsletterImage img{
-    width: 100%;
-  }
-  .homePageSignupHeight {
-    height: 100px;
-    width: 92%;
-    height: 216px;
-    display: grid;
-    align-items: center;
-  }
-  .thankforsubscribe{
-    font-size: 34px;
-    color: #31B655;
-    line-height: 1.5;
-    text-align: center;
-    font-weight: 700;
-    word-spacing: 10px;
-    letter-spacing: 1px;
-  }
-
-  .homePageSignup_heading h3{
-    font-family: "Inter", sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 50.83px;
-    text-align: left;
-    color: #252B42;
-
-  }
-  .homePageSignup_paragraph p {
-  
-    font-family: Averta Demo PE Cutted Demo;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 19.6px;
-    text-align: left;
-    color: #858C94;
-    
-  }
-
-
-  /*  /////////////////////////////////////////////////////News Letter End //////////////////////////////////////////////////////////////////////// */
-
-  /* *******************Media Query ************************* */
-  /**********************   PERFECT CSS   ******************************/
-  
-
-  /* *********************************End***************************** */
-  /************************************** Product card **************************/
-
 
 
 .discountTag{
@@ -6000,80 +5874,6 @@ height: auto;
   margin-top: 8px;
   word-break: break-word;
 }
-.blogListWrapper .blogListCard {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  border: 1px solid #747474;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-.blogListWrapper .blogListCard a img{
-  height: auto;
-  width: 100%;
-  max-height: 220px;
-}
-.blogListWrapper .blogListCard .blogcardText .blogDate {
-  text-align: end;
-  color: #535353;
-  font-size: 14px;
-  font-weight: 500;
-}
-.blogListWrapper .blogListCard .blogcardText a {
-  text-decoration: none;
-}
-.blogListWrapper .blogListCard .blogcardText a h2.blogcardHeading {
-  color: #183B56;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.blogListWrapper .blogListCard .blogcardText .blogcardDescription p{
-  margin-bottom: 0;
-  color: #5A7184;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  height: 140px;
-}
-.blogListWrapper .blogListCard .blogcardText a .blogcardDescription h1, .blogListWrapper .blogListCard .blogcardText a .blogcardDescription h2, .blogListWrapper .blogListCard .blogcardText a .blogcardDescription h3, .blogListWrapper .blogListCard .blogcardText a .blogcardDescription h4, .blogListWrapper .blogListCard .blogcardText a .blogcardDescription h5, .blogListWrapper .blogListCard .blogcardText a .blogcardDescription h6 {
-  display: none !important;
-}
-.blogListWrapper .blogListCard .blogcardText .extra_function {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border-top: 1px solid rgba(116, 116, 116, 0.43);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 10px 0 0;
-  color: #00b96a;
-}
-/* .blogListWrapper .blogListCard .blogcardText .extra_function.extra_function_destop {
-  display: flex;
-} */
-.blogListWrapper .blogListCard .blogcardText .extra_function.extra_function_mobile {
-  display: none;
-}
-.extra_function_mobile span{
- color: #31b566; 
-}
-.extra_function_mobile span.action_icons{
-  margin-right: 10px;
-}
-.blogListWrapper .blogListCard .blogcardText .extra_function .action_icons {
-  font-size: 16px;
-  margin-right: 10px;
-}
-.blogListWrapper .blogListCard {
-  width: 100%;
-}
-.blogListWrapper .blogListCard .extra_function.extra_function_mobile {
-  display: none ;
-}
 .AddProductCartContainer {
   display: flex;
   height: auto;
@@ -6512,11 +6312,6 @@ margin-top: 100px;
   .productCat_cont {
     display: block;
   }
-
-
-
-
-
   .product_search_and_select {
     display: block;
   }
@@ -6527,17 +6322,14 @@ margin-top: 100px;
     margin-top: 50px;
   }
 }  
-@media only screen and (max-width: 992px){
-
-  
-   
+@media only screen and (max-width: 992px){ 
   .navbar_logo_image{
     width: 40px;
     height: 40px;
-      }
-      #mySidebar {
-        width: 0px;
-      }
+  }
+  #mySidebar {
+    width: 0px;
+  }
   .About_us_banner_image {
     height: 220px;
     width: 100%;
@@ -6546,31 +6338,30 @@ margin-top: 100px;
     line-height: 70px;
     font-size: 18px;
   }
-
-.AboutUsjourney_container {
-  padding: 40px;
-}
-.About_Journey_mainheading {
-  font-size: 22px;
-}
-.About_Journey_heading {
-  font-size: 18px;
-}
-.journey_paragraph {
-  font-size: 14px;
-}
-.ourValues_card_container{
-  padding: 10px;
-}
-.ourvalues_icons_container{
-  font-size: 48px;
-}
-.values_heading{ 
-  font-size: 16px;
-}
-.values_paragraph {
-  font-size: 14px;
-}
+  .AboutUsjourney_container {
+    padding: 40px;
+  }
+  .About_Journey_mainheading {
+    font-size: 22px;
+  }
+  .About_Journey_heading {
+    font-size: 18px;
+  }
+  .journey_paragraph {
+    font-size: 14px;
+  }
+  .ourValues_card_container{
+    padding: 10px;
+  }
+  .ourvalues_icons_container{
+    font-size: 48px;
+  }
+  .values_heading{ 
+    font-size: 16px;
+  }
+  .values_paragraph {
+    font-size: 14px;
+  }
   .Sapceing {
     gap: 48px;
   }
@@ -6581,13 +6372,7 @@ margin-top: 100px;
   .nav_search_bar_div {
     width: 100%;
   }
-  .blogcardDescription{
-    height: 74px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+
   .BlogContainer section{
     width: 342px;
   }
@@ -7683,9 +7468,7 @@ font-size: 24px;
   .isweedLegalHeading{
     font-size: 18px;
   }
-  .isWeedLegalParagraph p{
-    font-size: 14px;
-  }
+
   .productreview_imgcircle{
     width: 50px;
     height: 50px;

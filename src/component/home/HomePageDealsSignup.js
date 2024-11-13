@@ -7,6 +7,7 @@ import  newsletters from '../../../public/newsletters.png'
 import React from 'react';
 import Image from 'next/image';
 import { useCallback } from 'react';
+import styled from '@/styles/customstyle.module.scss'
 const HomePageDealsSignup = () => {
     const classes = useStyles()
     const [submited,setsubmited]= React.useState(false)
@@ -39,57 +40,54 @@ const HomePageDealsSignup = () => {
     
 
     return (
-                <div className="col-12 mt-4 HomePageDealsSignupContainer">
-                    <div className='row'>
-                        <div className='col-md-6 col-12 d-md-inline d-none'>
-                            <div className='newsletterImage text-center'>
-                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
-                            </div>
+            <div className={styled.HomePageDealsSignupContainer}>
+                <div className='row'>
+                    <div className='col-md-6 col-12 d-md-inline d-none'>
+                        <div className='newsletterImage text-center'>
+                            <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
                         </div>
-                        <div className='col-md-6  col-12'>
+                    </div>
+                    <div className='col-md-6  col-12 px-0'>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="contentarea">
-                                <div className=" homePageSignup_heading   ">
-                                    <h3>{`Subscribe To Our Newsletters`}</h3>
-                                </div>
-                                <div className=" homePageSignup_paragraph   ">
-                                    <p>{`Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.`}</p>
-                                </div>
+                            <div className={styled.contentarea}>
                             
-                            {
-                                submited ? <h2 className='thankforsubscribe'>{`Thanks For Subscribe`}</h2>:
-                                <div className='newsletterFormFeild'>
-                                    <TextField
-                                        className={classes.homePageDealSignup_TextFields}
-                                        InputProps={{
-                                            style: {
-                                                borderRadius: "20px 0 0 20px",
-                                                backgroundColor: "#efefef"
-                                            }
-                                        }}
-                                        type='email'
-                                        placeholder="Enter Your Email"
-                                        variant="outlined"
-                                        fullWidth
-                                        size='small'
-                                        value={email}
-                                        name="email"
-                                        onChange={handleChange}
-                                        helperText={errors.email?.message}
-                                        error={Boolean(errors?.email)}
-                                        inputRef={register({
-                                            required: "Email not Valid",
-                                            pattern: {
-                                                value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
-                                                message: "Email not Valid"
-                                            }
-                                        })}
+                                    <h3 className={styled.homePageSignup_heading}>{`Subscribe To Our Newsletters`}</h3>
+                                    <p className={styled.homePageSignup_paragraph}>{`Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.`}</p>
+                            
+                                {
+                                    submited ? <h2 className={styled.thankforsubscribe}>{`Thanks For Subscribe`}</h2>:
+                                    <div className={styled.newsletterFormFeild}>
+                                        <TextField
+                                            className={classes.homePageDealSignup_TextFields}
+                                            InputProps={{
+                                                style: {
+                                                    borderRadius: "20px 0 0 20px",
+                                                    backgroundColor: "#efefef"
+                                                }
+                                            }}
+                                            type='email'
+                                            placeholder="Enter Your Email"
+                                            variant="outlined"
+                                            fullWidth
+                                            size='small'
+                                            value={email}
+                                            name="email"
+                                            onChange={handleChange}
+                                            helperText={errors.email?.message}
+                                            error={Boolean(errors?.email)}
+                                            inputRef={register({
+                                                required: "Email not Valid",
+                                                pattern: {
+                                                    value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+                                                    message: "Email not Valid"
+                                                }
+                                            })}
 
-                                    />
-                                    <span className='newsletter_btn'>
-                                        <Button className={` ${classes.homePageButton}`} type='submit' >{`Subscribe`}</Button>
-                                    </span>
-                                </div>
+                                        />
+                                        <span className={styled.newsletter_btn}>
+                                            <Button className={` ${classes.homePageButton}`} type='submit' >{`Subscribe`}</Button>
+                                        </span>
+                                    </div>
                                 }
 
 
@@ -97,10 +95,9 @@ const HomePageDealsSignup = () => {
 
                             </div>
                         </form>
-                        </div>
                     </div>
-                 
                 </div>
+            </div>
     )
 }
 export default HomePageDealsSignup

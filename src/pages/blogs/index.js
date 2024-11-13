@@ -17,6 +17,7 @@ import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
+import styled from "@/styles/customstyle.module.scss"
 const Allblogs = (props) => {
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
@@ -61,54 +62,52 @@ const Allblogs = (props) => {
       {state.permission && <Currentlocation />}
       <div>
         <Blogheaders title="Blogs" />
-        <div className="blogListWrapper">
+        <div className={styled.blogListWrapper}>
           {props?.initialData?.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
-              <div className="row blogListCard mx-0" key={index}>
+              <div className={`row ${styled.blogListCard} mx-0`} key={index}>
                 <div className='row'>
                   <div className="col-4">
                     <Link href={blogUrl} className='d-sm-block d-flex justify-content-center align-items-center h-100'>
                       <Image
-                        className='imageBlogSection'
+                        className={styled.imageBlogSection}
                         width={100}
                         unoptimized
                         height={100}
                         quality={100}
-                        src={items.Image} // Ensure this is a valid image URL
-                        alt={items.Alt_Text} // Provide alternative text for accessibility
-                        title={items.Alt_Text} // Image title
+                        src={items.Image} 
+                        alt={items.Alt_Text} 
+                        title={items.Alt_Text} 
                         onError={(e) => (e.target.src = '/image/blankImage.jpg')} // Fallback to a placeholder image on error
                       />
                     </Link>
 
                   </div>
                   <div className="col">
-                    <div className="blogcardText">
-                      <div className="blogDate">
+                    <div className={styled.blogcardText}>
+                      <div className={styled.blogDate}>
                         <span>{items.Publish_Date.slice(0, 10)}</span>
                       </div>
-                      <Link href={blogUrl}>  <h2 className="blogcardHeading">{items.Title}</h2> </Link>
+                      <Link href={blogUrl}>  <h2 className={styled.blogcardHeading}>{items.Title}</h2> </Link>
                       <div
                         onClick={() => { router.push(blogUrl) }}
-                        className="blogcardDescription"
+                        className={styled.blogcardDescription}
                         dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
                       />
-                      <div className="row extra_function extra_function_destop">
+                      <div className={`row  d-md-flex d-none ${styled.extra_function} ${styled.extra_function_destop}`}>
                         <div className="col-3">
-                          <span className="action_icons"><AiFillEye /></span>
+                          <span className={styled.action_icons}><AiFillEye /></span>
                           <span>{items.ViewCount} Views</span>
                         </div>
                         <div className="col-3">
-                          <span className="action_icons"><BiCommentDetail /></span>
+                          <span className={styled.action_icons}><BiCommentDetail /></span>
                           <span>{items.commentCount}</span>
                         </div>
                         <div className="col-3">
-                          <span
-                            onClick={() => PostLike(items)}
-                            className="action_icons"
-                          >
+                          <span onClick={() => PostLike(items)}
+                            className={styled.action_icons} >
                             {state?.login && items.Liked ? (
                               <AiFillHeart color="#31B655" />
                             ) : (
@@ -118,7 +117,7 @@ const Allblogs = (props) => {
                           <span>{items.likeCount}</span>
                         </div>
                         <div className="col-3">
-                          <span className="action_icons">
+                          <span className={styled.action_icons}>
                             <RWebShare
                               data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
                               sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
@@ -128,25 +127,25 @@ const Allblogs = (props) => {
                               <BsShareFill />
                             </RWebShare>
                           </span>
-                          <span>Share</span>
+                          <span>{'Share'}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-12 mt-1">
-                  <div className="row extra_function extra_function_mobile">
+                <div className="col-12 d-md-none d-block mt-1">
+                  <div className={`row ${styled.extra_function} ${styled.extra_function_mobile}`}>
                     <div className="col-3">
-                      <span className="action_icons"><AiFillEye color="#31B655" /></span>
+                      <span className={styled.action_icons}><AiFillEye color="#31B655" /></span>
                       <span>{items.ViewCount}</span>
                     </div>
                     <div className="col-3">
-                      <span className="action_icons"><BiCommentDetail color="#31B655" /></span>
+                      <span className={styled.action_icons}><BiCommentDetail color="#31B655" /></span>
                       <span>{items.commentCount}</span>
                     </div>
                     <div className="col-3">
                       <span
-                        className="action_icons"
+                        className={styled.action_icons}
                         onClick={() => PostLike(items)}
                       >
                         {state?.login && items.Liked ? (

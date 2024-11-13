@@ -16,28 +16,17 @@ import Cookies from 'universal-cookie';
 import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
-
+import Styled from '@/styles/customstyle.module.scss';
 const Allblogs = (props) => {
-  // const [allblogs, setallblogs] = useState(props.initialData)
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
-  // const [value, SetValue] = React.useState([])
-  // const [allLikes, SetallLikes] = React.useState([])
-  // const [isdata, setisdata] = useState(true)
-  // const [loader, setloader] = React.useState(true)
-  // const [searchtext, setsearchtext] = useState('')
-  
-  // const classes = useStyles()
   const cookies = new Cookies();
   let token_data = cookies.get('User_Token_access')
-
   let accessToken
   if (typeof window !== 'undefined') {
     accessToken = localStorage.getItem('User_Token_access');
   }
   if (Boolean(accessToken)) { token_data = accessToken }
-
-
   function PostLike(item) {
 
     if (state.login) {
@@ -71,20 +60,18 @@ const Allblogs = (props) => {
       {state.permission && <Currentlocation />}
       <div>
         <Blogheaders title="Latest news" />
-        <div className="blogListWrapper">
+        <div className={Styled.blogListWrapper}>
           {props?.initialData.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
-              <div className="row blogListCard mx-0" key={index}>
+              <div className={`row ${Styled.blogListCard} mx-0`} key={index}>
                 <div className='row'>
                   <div className="col-4">
                     <Link href={blogUrl} className='d-sm-block d-flex justify-content-center align-items-center h-100'>
-                      <Image
-                        className='imageBlogSection'
+                      <Image className={Styled.imageBlogSection}
                         width={100}
                         height={100}
-                        // quality={100}
                         unoptimized={true}
                         src={items.Image}
                         alt={items.Alt_Text}
@@ -95,31 +82,31 @@ const Allblogs = (props) => {
 
                   </div>
                   <div className="col">
-                    <div className="blogcardText">
-                      <div className="blogDate">
+                    <div className={Styled.blogcardText}>
+                      <div className={Styled.blogDate}>
                         <span>{items?.Publish_Date?.slice(0, 10)}</span>
                       </div>
                       <Link href={blogUrl}>
-                        <h2 className="blogcardHeading">{items.Title}</h2>
+                        <h2 className={Styled.blogcardHeading}>{items.Title}</h2>
                       </Link>
                       <div
                         onClick={() => { router.push(blogUrl) }}
-                        className="blogcardDescription"
+                        className={Styled.blogcardDescription}
                         dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
                       />
-                      <div className="row extra_function extra_function_destop">
+                      <div className={`row d-md-flex d-none ${Styled.extra_function} ${Styled.extra_function_destop}`}>
                         <div className="col-3">
-                          <span className="action_icons"><AiFillEye /></span>
+                          <span className={Styled.action_icons}><AiFillEye /></span>
                           <span>{items.ViewCount} Views</span>
                         </div>
                         <div className="col-3">
-                          <span className="action_icons"><BiCommentDetail /></span>
+                          <span className={Styled.action_icons}><BiCommentDetail /></span>
                           <span>{items.commentCount}</span>
                         </div>
                         <div className="col-3">
                           <span
                             onClick={() => PostLike(items)}
-                            className="action_icons"
+                            className={Styled.action_icons}
                           >
                             {state?.login && items.Liked ? (
                               <AiFillHeart color="#31B655" />
@@ -130,7 +117,7 @@ const Allblogs = (props) => {
                           <span>{items.likeCount}</span>
                         </div>
                         <div className="col-3">
-                          <span className="action_icons">
+                          <span className={Styled.action_icons}>
                             <RWebShare
                               data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
                               sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
@@ -146,19 +133,19 @@ const Allblogs = (props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-12 mt-1">
-                  <div className="row extra_function extra_function_mobile">
+                <div className="col-12 d-md-none d-block mt-1">
+                  <div className={`row ${Styled.extra_function} ${Styled.extra_function_mobile}`}>
                     <div className="col-4">
-                      <span className="action_icons"><AiFillEye   color="#31B655"/></span>
+                      <span className={Styled.action_icons}><AiFillEye   color="#31B655"/></span>
                       <span>{items.ViewCount}</span>
                     </div>
                     <div className="col-4">
-                      <span className="action_icons"><BiCommentDetail  color="#31B655" /></span>
+                      <span className={Styled.action_icons}><BiCommentDetail  color="#31B655" /></span>
                       <span>{items.commentCount}</span>
                     </div>
                     <div className="col-4">
                       <span
-                        className="action_icons"
+                        className={Styled.action_icons}
                         onClick={() => PostLike(items)}
                       >
                         {state?.login && items.Liked ? (

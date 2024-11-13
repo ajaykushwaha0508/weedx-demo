@@ -3013,1327 +3013,500 @@
         border: 1px solid #BEBEBE;
         position: sticky;
         top: 200px
-      }
-@media (max-width: 1440px){
-    .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
-        font-size: 16px;
     }
-    .StoreDetailspage{
-        .amenities_container {
-            .amenities_list {
-                gap: 3%;
-            }
+    .law_contertn{
+        .LawStateDescriptionHeading {
+            color: #6B6B6B;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 1.6;
+            margin-bottom: 0;
           }
-          .store_detail_SideMenuBar_order_list {
-            .StoreDetailSidemenuBarList {
-                 
-                .StoreDetailSideMenu_listItems {
-                    font-size: 14px;
-                }
-            }
+          .isweedLegalHeading {
+            color: #000000;
+            font-weight: 700;
+            font-size: 24px;
           }
-    }
-}
-@media (max-width: 1400px){
-    footer {
-        .footer_main_div_display {
-            .footer_heading{
-                font-size: 26px;
-            }
-            .footer_sub_heading{
-                font-size: 20px;
-            }
-        }
-    }
-    footer .footer_main_list p.footer_menu_heading{
-        font-size: 18px;
-      }
-      .aboutUsPage{
-        .about_us_header {
-            .About_us_banner_image {
-                height: 280px;
-            }
-            .text_on_image {
-            }
-        }
-        .weedxByTheNumber_container{
-            .weedx_heading_container {
-              
-                .backwoodar_heading {
-                  
-                    font-size: 20px;
-                  }
-            }
-            
-        .weedx_number_container {
+          .isWeedLegalParagraph {
+            font-size: 16px;
+            color: #6B6B6B;
+            font-weight: 400;
+            text-align: justify;
+            padding-bottom: 24px;
+          }
           
-            ul{
-                
-                li{
-                   
-                .upperText{
-                    font-size: 18px;
-                }
-                .lowertext{
-                  
-                    font-size: 16px;
-                    height: 60px;
-                }
-                }
-            }
-        }
-
-        }
-        .AboutUsjourney_container {
-          
-            padding: 30px;
-            .About_Journey_mainheading{
-         
-                font-size: 24px;
-            }
-            .journy_container{
-                .about_us_inner_section_container {
-                    margin: 40px 0;
-                    .About_Journey_heading {
-                        
-                    }
-                    .journey_paragraph {
-                    }
-                  }
-            }
-         
-        }
-        .our_valuesSection{
-            padding: 30px 0;
-            .ourValues_card_container {
-                padding: 20px;
-                .ourvalues_icons_container {
-                    height: 80px;
-                    font-size: 60px;
-                }
-                .values_heading {
-                    font-size: 20px;
-                }
-                .values_paragraph {
-                    font-size: 14px;
-                    line-height: 1.6;
-                }
-            } 
-        }
-        .testimonial{
-            .client_preach_container {
-                height: 250px;
-                padding: 25px;
-                .clientPreach_paragraph {
-                    font-size: 18px;
-                  }
+    }
+    .HomePageDealsSignupContainer {
+        padding: 40px;
+        background: #f6f6f6;
+        border-radius: 40px;
+        margin-top: 20px;
+        .newsletterImage{
+            max-width: 200px;
+            margin: 0 auto;
+            img{
+                width: 100%;
               }
         }
-    }
-}
-@media (max-width: 1366px){
-    .about_card_Wraper {
-        .about_card{
-            padding: 10px;
-            width: 24%;
+        .contentarea{
+            .homePageSignup_heading{
+                font-family: "Inter", sans-serif;
+                font-size: 32px;
+                font-weight: 600;
+                line-height: 50.83px;
+                text-align: left;
+                color: #252B42;
+            
+              }
+              .homePageSignup_paragraph{
+              
+                font-family: Averta Demo PE Cutted Demo;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19.6px;
+                text-align: left;
+                color: #858C94;
+                
+              } 
+              .newsletterFormFeild{
+                /* background-color: #E6E6E6; */
+                display: flex;
+                align-items: flex-start;
+                overflow: hidden;
+                width: 500px;
+                .newsletter_btn{
+                    width: 25%;
+                    height: 40px;
+                  }
+              }
+               
+              .thankforsubscribe{
+                font-size: 34px;
+                color: #31B655;
+                line-height: 1.5;
+                text-align: center;
+                font-weight: 700;
+                word-spacing: 10px;
+                letter-spacing: 1px;
+              }
+            
         }
     }
-}
-@media (max-width: 1200px){
-    .ad_page{
-        .ad_imageTextSection{
-        
-         
-            .ad_Img_Area{
-              
+    .blogListWrapper{
+        .blogListCard {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            margin: 0;
+            border: 1px solid #747474;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            a{
                 img{
-                    width: 100%;
-                    height: auto;
+                height: auto;
+                width: 100%;
+                max-height: 220px;
+              }
+            }
+            .blogcardText {
+                .blogDate {
+                    text-align: end;
+                    color: #535353;
+                    font-size: 14px;
+                    font-weight: 500;
+               }
+               a {
+                text-decoration: none;
+                    h2.blogcardHeading {
+                        color: #183B56;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                    }
+               }
+               .blogcardDescription {
+                    p{
+                        margin-bottom: 0;
+                        color: #5A7184;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        height: 140px;
+                    }
+                    h1{
+                        display: none !important;
+                    }
+                    h2{
+                        display: none !important;
+                    }
+                    h3{
+                        display: none !important;
+                    }
+                    h4{
+                        display: none !important;
+                    }
+                    h5{
+                        display: none !important;
+                    }
+                    h6{
+                        display: none !important;
+                    }
+              }
+          
+            
+            }
+            .extra_function {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                border-top: 1px solid rgba(116, 116, 116, 0.43);
+                font-weight: 700;
+                font-size: 14px;
+                padding: 10px 0 0;
+                color: #00b96a;
+                &.extra_function_mobile {
+                    display: none;
+                }
+                span{
+                    color: #31b566; 
+                    &.action_icons{
+                        margin-right: 10px;
+                        font-size: 16px;
+                        margin-right: 10px;
+                    }
                 }
             }
         }
-        .section_boxBanner{
-          
-            padding: 30px;
-            margin: 40px 0;
+    }
+    @media (max-width: 1440px){
+        .bottom_menu_items p span.footer_li,footer .footer_main_list .footer_li{
+            font-size: 16px;
+        }
+        .StoreDetailspage{
+            .amenities_container {
+                .amenities_list {
+                    gap: 3%;
+                }
+            }
+            .store_detail_SideMenuBar_order_list {
+                .StoreDetailSidemenuBarList {
+                    
+                    .StoreDetailSideMenu_listItems {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1400px){
+        footer {
+            .footer_main_div_display {
+                .footer_heading{
+                    font-size: 26px;
+                }
+                .footer_sub_heading{
+                    font-size: 20px;
+                }
+            }
+        }
+        footer .footer_main_list p.footer_menu_heading{
+            font-size: 18px;
+        }
+        .aboutUsPage{
+            .about_us_header {
+                .About_us_banner_image {
+                    height: 280px;
+                }
+                .text_on_image {
+                }
+            }
+            .weedxByTheNumber_container{
+                .weedx_heading_container {
+                
+                    .backwoodar_heading {
+                    
+                        font-size: 20px;
+                    }
+                }
+                
+            .weedx_number_container {
+            
+                ul{
+                    
+                    li{
+                    
+                    .upperText{
+                        font-size: 18px;
+                    }
+                    .lowertext{
+                    
+                        font-size: 16px;
+                        height: 60px;
+                    }
+                    }
+                }
+            }
+
+            }
+            .AboutUsjourney_container {
+            
+                padding: 30px;
+                .About_Journey_mainheading{
+            
+                    font-size: 24px;
+                }
+                .journy_container{
+                    .about_us_inner_section_container {
+                        margin: 40px 0;
+                        .About_Journey_heading {
+                            
+                        }
+                        .journey_paragraph {
+                        }
+                    }
+                }
+            
+            }
+            .our_valuesSection{
+                padding: 30px 0;
+                .ourValues_card_container {
+                    padding: 20px;
+                    .ourvalues_icons_container {
+                        height: 80px;
+                        font-size: 60px;
+                    }
+                    .values_heading {
+                        font-size: 20px;
+                    }
+                    .values_paragraph {
+                        font-size: 14px;
+                        line-height: 1.6;
+                    }
+                } 
+            }
+            .testimonial{
+                .client_preach_container {
+                    height: 250px;
+                    padding: 25px;
+                    .clientPreach_paragraph {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1366px){
+        .about_card_Wraper {
+            .about_card{
+                padding: 10px;
+                width: 24%;
+            }
+        }
+    }
+    @media (max-width: 1200px){
+        .ad_page{
             .ad_imageTextSection{
+            
+            
+                .ad_Img_Area{
+                
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+            .section_boxBanner{
+            
+                padding: 30px;
+                margin: 40px 0;
+                .ad_imageTextSection{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    .ad_textArea{
+                    width: 50%;
+                    }
+                    .ad_Img_Area{
+                    width: 47%;
+                    }
+                }
+            }
+        }
+        footer {
+            .footer_main_div_display {
+                    .footer_heading{
+                        font-size: 26px;
+                    }
+                    .footer_sub_heading{
+                        width: 75%;
+                    }
+                }
+        }
+        .despensories_card_container{
+            width: 32%;
+        }
+        .HomePageDealsSignupContainer {
+        
+            .newsletterImage{
+                
+            
+            }
+            .contentarea{
+                .homePageSignup_heading{
+                
+                }
+                .homePageSignup_paragraph{
+                
+                
+                    
+                } 
+                .newsletterFormFeild{
+            
+                    width: 100%;
+                    .newsletter_btn{
+                    
+                    }
+                }
+                
+                .thankforsubscribe{
+                
+                }
+                
+            }
+        }
+    }  
+    @media (max-width: 1024px){ 
+        .prod_cat_left_sec {
+        overflow-x: scroll;
+        display: -webkit-box;
+        min-width: 100%;
+        .filter_manu_items{
+            width: 16%;
+            .product_category_dropdown {
+                z-index: 1;
+                cursor: pointer;
+                border: 1px solid #E7E7E7;
+                margin-top: 0px;
+                background-color: #FFFFFF;
+                position: absolute;
+            
+            
+            }
+            
+        }
+        .product_Sorted_filter_dropdown {
+            position: absolute;
+            right: 10px;
+            width: 200px;
+            margin-top: 4px;
+            cursor: pointer;
+            border: 1px solid #E7E7E7;
+            background-color: #FFFFFF;
+        }
+        .prodfilterSortedListGap {
+            display: flex;
+            gap: 10px;
+            height: 45px;
+        }
+    }
+    }
+    @media (max-width: 992px){
+        .despensories_card_container{
+            width: 45%;
+        }
+        .StoreDetailMenuItem_container{
+            position: sticky;
+            top: 144px;
+            ul.store_detail_order_list {
+            justify-content: space-around;
+            padding: 0;
+            li.store_detail_list {
+                
+                span.storeDetalMenuItemCursor {
+                    font-size: 14px;
+                    
+                }
+                }
+            }
+        }
+        .ad_page{
+            .adversticebanner_header{
+                position: relative;
+                h1{
+                    font-size: 22px;
+                }
+            }
+            .ad_imageTextSection{
+                margin-bottom: 40px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 flex-wrap: wrap;
                 .ad_textArea{
-                   width: 50%;
+                    width: 58%;
                 }
                 .ad_Img_Area{
-                  width: 47%;
+                    width:38%;
                 }
             }
-        }
-    }
-    footer {
-        .footer_main_div_display {
-                .footer_heading{
-                    font-size: 26px;
-                }
-                 .footer_sub_heading{
-                    width: 75%;
-                }
+            h3{
+                font-size: 20px;
             }
-    }
-    .despensories_card_container{
-        width: 32%;
-    }
-}  
-@media (max-width: 1024px){ 
-    .prod_cat_left_sec {
-    overflow-x: scroll;
-    display: -webkit-box;
-    min-width: 100%;
-    .filter_manu_items{
-        width: 16%;
-        .product_category_dropdown {
-            z-index: 1;
-            cursor: pointer;
-            border: 1px solid #E7E7E7;
-            margin-top: 0px;
-            background-color: #FFFFFF;
-            position: absolute;
-           
-           
-          }
-        
-      }
-      .product_Sorted_filter_dropdown {
-        position: absolute;
-        right: 10px;
-        width: 200px;
-        margin-top: 4px;
-        cursor: pointer;
-        border: 1px solid #E7E7E7;
-        background-color: #FFFFFF;
-      }
-      .prodfilterSortedListGap {
-        display: flex;
-        gap: 10px;
-        height: 45px;
-      }
-  }
-}
-@media (max-width: 992px){
-    .despensories_card_container{
-        width: 45%;
-    }
-    .StoreDetailMenuItem_container{
-        position: sticky;
-        top: 144px;
-        ul.store_detail_order_list {
-         justify-content: space-around;
-         padding: 0;
-          li.store_detail_list {
-             
-              span.storeDetalMenuItemCursor {
-                  font-size: 14px;
-                 
-              }
-            }
-        }
-    }
-    .ad_page{
-        .adversticebanner_header{
-            position: relative;
-            h1{
-                font-size: 22px;
-            }
-        }
-        .ad_imageTextSection{
-            margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            .ad_textArea{
-                width: 58%;
-            }
-            .ad_Img_Area{
-                width:38%;
-            }
-        }
-        h3{
-            font-size: 20px;
-        }
-        h2{
-            font-size: 24px;
-        }
-        h4{
-            font-size: 18px;
-        }
-        P{
-            font-size: 14px;
-        }
-       ul{
-        li{
-            p{
-                margin-bottom: 8px;
-            }
-        }
-       }
-    }
-    footer {
-        .footer_main_div_display {
-          padding: 0 25px;
-          .footer_heading{
-            font-size: 22px;
-          }
-          .footer_sub_heading{
-            font-size: 18px;
-           }
-           .main_content_logo{
-            .footer_list{
-              
-            }
-            .footer_logo_container{
-                .footerLogo {
-                    width: 140px;
-                  }
-            }
-        }
-          
-        }
-    }
-    .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li{
-        font-size: 14px;
-    }
-    footer .footer_main_list p.footer_menu_heading{
-    font-size: 16px;
-    }  
-    .about_card_Wraper {
-         row-gap: 30px;
-        .about_card{
-            padding: 25px;
-            width: 48%;
-        }
-    }
-    .prodfilterSortedListGap{
-        margin-bottom: 0;
-        padding: 0;
-        height: 100%;
-        align-items: center;
-        background-color: #f9f9f9;
-        height:30px;
-        width: 120px;
-        border: 1px solid gainsboro;
-        border-radius: 3px;
-    }
-    .StoreDetailspage{
-        .amenities_container {   
-        .amenities_list {
-            gap: 7%;
-        }
-        }
-        .store_detail_SideMenuBar_order_list {
-        .StoreDetailSidemenuBarList {
-            min-width: 30%;  
-            }
-        }
-    }
-    .review_secton{
-       
-        .reviews_description {
-          
-            .overall_review_container {
-             
-                .left_circularbar_container {
-                
-                    .left_circularbar {
-                        height: auto;
-                     
-                         margin: 0 auto;
-                         width: 60%;
-                    }
-                }
-              
-            }
-         }
-       
-      
-       
-    }
-    .newProductDetailsContainer {
-    
-        .newProductDetailsCardLeftCol {
-        
-            .newProductDetailsUpperimage_container{
-            
-                .newProductDetails_upper_image {
-                    height: auto;
-                    width: 100%;
-                    margin: 0 auto;
-                }
-             
-            }
-          
-        }
-      
-    }
-    .aboutUsPage{
-        .about_us_header {
-            .About_us_banner_image {
-                height: 220px;
-            }
-            .text_on_image {
-                font-size: 32px;
-            }
-        }
-        .weedxByTheNumber_container{
-            .weedx_heading_container {
-              
-                .backwoodar_heading {
-                  
-                    font-size: 18px;
-                  }
-            }
-            
-        .weedx_number_container {
-            overflow-y: hidden;
-            overflow-x: scroll;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none; 
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            ul{
-                
-                li{
-                    min-width: 27%;
-                .upperText{
-                  
-                }
-                .lowertext{
-                  
-                  
-                }
-                }
-            }
-        }
-
-        }
-        .AboutUsjourney_container {
-          
-            padding:    25px;
-            .About_Journey_mainheading{
-         
+            h2{
                 font-size: 24px;
             }
-            .journy_container{
-                .about_us_inner_section_container {
-                    margin: 40px 0;
-                    .About_Journey_heading {
-                        
-                    }
-                    .journey_paragraph {
-                    }
-                  }
+            h4{
+                font-size: 18px;
             }
-         
-        }
-        .our_valuesSection{
-            padding: 25px 0;
-            .ourValues_card_container {
-                padding: 10px;
-                .ourvalues_icons_container {
-                    height: 70px;
-                    font-size: 40px;
-                }
-                .values_heading {
-                    font-size: 16px;
-                }
-                .values_paragraph {
-                    font-size: 12px;
-                    line-height: 1.6;
-                }
-            } 
-        }
-        .testimonial{
-            .client_preach_container {
-                height: 250px;
-                padding: 20px;
-                .clientPreach_paragraph {
-                    font-size: 16px;
-                  }
-              }
-        }
-    }
-}
-@media (max-width: 768px){
-    .despensories_card_container{
-        width: 47%;
-    }
-    .oopss {
-        width: 100%;
-        padding: 10px;
-        .errortext {
-            font-size: 22px;
-            img {
-                height: 200px;
+            P{
+                font-size: 14px;
             }
-            span {
+        ul{
+            li{
+                p{
+                    margin-bottom: 8px;
+                }
+            }
+        }
+        }
+        footer {
+            .footer_main_div_display {
+            padding: 0 25px;
+            .footer_heading{
                 font-size: 22px;
             }
-            p {
-               
-                    font-size: 14px;
-                
-            }
-            .back {
-                font-size: 15px;
-                padding: 8px;
-                font-weight: 600;
-            }
-        }
-    }
-    .store_detail_SideMenuBar_order_list{
-        .StoreDetailSidemenuBarList {
-            min-width: 47%;
-        }
-    }
-    .ad_page{
-        .ad_imageTextSection{
-            margin-bottom: 40px;
-            .ad_textArea{
-                width: 100%;
-                order: 2;
-            }
-            .ad_Img_Area{
-                width:100%;
-                order: 1;
-                text-align: center;
-                img{
-                    width: 80%;
-                }
-            }
-        }
-        .section_boxBanner{
-          
-            padding: 20px;
-            .ad_imageTextSection{
-                gap: 30px;
-                .ad_textArea{
-                   width: 100%;
-
-                }
-                .ad_Img_Area{
-                  width: 100%;
-                }
-            }
-        }
-        h3{
-            font-size: 20px;
-        }
-        h2{
-            font-size: 24px;
-        }
-        h4{
-            font-size: 18px;
-        }
-        P{
-            font-size: 14px;
-        }
-       ul{
-        li{
-            p{
-                margin-bottom: 8px;
-            }
-        }
-       }
-    }
-    footer {
-        .footer_main_div_display {
-            .footer_sub_heading {
-                width: 100%;
+            .footer_sub_heading{
+                font-size: 18px;
             }
             .main_content_logo{
-                gap: 20px;
                 .footer_list{
-                    width: 48%;
-                    border-right: none;
-                    box-sizing: border-box;
+                
                 }
                 .footer_logo_container{
-                    width: 48%;
-                    border-right: none;
-                    .footerLogo{
-                        width: 160px;
+                    .footerLogo {
+                        width: 140px;
                     }
                 }
-            }
-        }
-        .footer_bootom_headings_container {
-            .copyright_title{
-                font-size: 16px;
-                line-height: 3;
-           }
-        }
-    }
-    .homeBannerContainer{
-        .destop_image{
-            display: none;
-        }
-        .mobile_imges{
-            display: block;
-        }
-    }
-    .CategoryBordrr{
-        .catagoryTabs_section{
-           padding: 10px;  
-          .CategorySliderImageBlock{
-                .catagoriesTabImg{
-                    width: 100px;
-                    height: 100px;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-    .recentViewProductSlider {
-        .dispensoriesContainer{
-            min-width: 180px;
-            .dispensoriesAddressBorder{
-                .dispensoriesContentContainer {
-                    padding: 10px;
-                    .dispensoriesHeadings {
-                    font-size: 18px;
-                    margin-bottom: 5px;
-                    }
-                    
-                    .Dispensaries_card_discription {
-                    p{
-                        font-size: 14px;
-                    }
-                    }
-                    .homecardRating{
-                    .DeliveryServicesRatingTitle {
-                        font-size: 16px;
-                    }
-                    }
-                }
-            }
-        }
-       
-    }
-    .FeaturedBrandImageContainer {
-        width: 120px;
-        height: 90px;
-    }
-    .about_card_Wraper {
-        .about_card{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            .about_text {.acard_title{
-                text-align: left;
-                }}
-       }
-    }
-    .StoreHeader{
-        padding: 15px;
-       
-        .newFlavourimage_div {
-            height: 100px;
-            width: 100px;
-           
-        }
-    
-    }
-    .prod_cat_left_sec {
-        width: 100%;
-        overflow-x: scroll;
-        .filter_manu_items{
-            width: 20%;
-            line-height: 30px;
-        }
-    }
-    .noReview{
-        .nodealsicon{
-            width: 100%;
-            height: 100px;
-        }
-        .noreview_title{
-            font-size: 22px;
-          }
-        .noreview_description {
-         
-            width: 90%;
-        }
-    }
-    .newProductDetailsContainer {
-        padding: 20px;
-        gap: 30px;
-        flex-wrap: wrap;
-        .newProductDetailsCardLeftCol {
-            width:100% ;
-            flex-wrap: wrap;
-            .newProductDetailsUpperimage_container{
-             order: 1;
-             width: 100%;
-             text-align: center;
-                .newProductDetails_upper_image {
-                    height: auto;
-                    width: 80%;
-                    margin: 0 auto;
-                }
-             
-            }
-            .newProductDetailsCardimagelist{
-                    width: 100%;
-                    order: 2;
-                    flex-direction: row;
-                    height: auto;
-                    gap: 10px;
-                    padding: 10px ;
-                    overflow-x: scroll;
-                    .NewProductDetails_image_container {
-                        padding: 2px;
-                        min-width: 60px;
-                        img{
-                            max-width: 100%;
-                            width: 80px;
-                            height: auto;
-                            cursor: pointer;
-                        }
-                    }
-            }
-        }
-        .newProductdetails_rightSideContent_container{
-           width: 100%;
-           .newProductDetails_heading {
-                font-size: 18px;
-           }
-          .newProductDetails_subHeadingss {
-            font-size: 14px;
-          }
-          .productDetailsCardQuestity{
-           
-          
-            .qty_selector{
-                margin: 10px 0;
-                .qty_btn{
-                    cursor: pointer;
-                    width: 20%;
-                    text-align: center;
-                    font-size: 16px;
-                    font-weight: 600;
-                    background-color: #e2e2e2;
-                    color: #000;
-                    border-radius: 50%;
-                    width: 20px;
-                    height: 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-               
-            }
-               
-          }
-          .newProductDetailsButon {
-           
-            .newProductdetailsButtonss {
-                border-style: none;
-                color: #3a3a3a;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: normal;
-                border-radius: 4px;
-                padding: 3px 10px;
-            }
-          }
-          .productDetailsCardAddtocart{
-            width: 100%;
-          }
-        }
-    }
-    .aboutUsPage{
-        .about_us_header {
-            margin-bottom: 10px;
-            .About_us_banner_image {
-                height: 180px;
-            }
-            .text_on_image {
-                font-size: 28px;
-            }
-        }
-        .weedxByTheNumber_container{
-            .weedx_heading_container {
-              
-                .backwoodar_heading {
-                  
-                    font-size: 16px;
-                    line-height: 50px;
-                  }
             }
             
-        .weedx_number_container {
-          
-           
-            ul{
-                
-                li{
-                    min-width: 27%;
-                .upperText{
-                  font-size: 15px;
-                }
-                .lowertext{
-                  font-size: 12px;
-                  
-                }
-                }
             }
         }
-
+        .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li{
+            font-size: 14px;
         }
-        .AboutUsjourney_container {
-          
-            padding:    25px;
-            .About_Journey_mainheading{
-         
-                font-size: 20px;
-                line-height: 1.4;
-            }
-            .journy_container{
-                .about_us_inner_section_container {
-                    margin: 40px 0;
-                    .About_Journey_heading {
-                        font-size: 18px;
-                    }
-                    .journey_paragraph {
-                        font-size: 14px;
-                    }
-                  }
-            }
-         
-        }
-     
-        .testimonial{
-            .client_preach_container {
-                height: auto;
-                padding: 20px;
-                .clientPreach_paragraph {
-                    font-size: 14px;
-                  }
-              }
-        }
-    }
-}
-@media (max-width: 576px){
-    .ad_page{
-        .adversticebanner_header{
-            position: relative;
-            h1{
-                font-size: 16px;
-                width: 90%;
-            }
-               
-        }
-        .ad_imageTextSection{
-            margin-bottom: 24px;
-            .ad_textArea{
-                width: 100%;
-                order: 2;
-            }
-            .ad_Img_Area{
-                width:100%;
-                order: 1;
-                text-align: center;
-                img{
-                    width: 80%;
-                }
-            }
-        }
-        h3{
-            font-size: 18px;
-        }
-        h2{
-            font-size: 20px;
-        }
-        h4{
-            font-size: 16px;
-        }
-        P{
-            font-size: 12px;
-        }
-       ul{
-        li{
-            p{
-                margin-bottom: 8px;
-            }
-        }
-       }
-    }
-    .notificationList{
-        min-width: 300px;
-        z-index: 10;
-        padding: 10px;
-        // right: -50px;
-    }
-    .canabisLawMainHeadings{
+        footer .footer_main_list p.footer_menu_heading{
         font-size: 16px;
-    }
-    footer .footer_main_list p.footer_menu_heading {
-        font-size: 14px;
-    }
-    .review_secton{
-      
-        .reviews_description {
-          
-            .overall_review_container {
-             
-                .left_circularbar_container {
-                
-                    .left_circularbar {
-                        height: auto;
-                     
-                         margin: 0 auto;
-                         width: 40%;
-                    }
-                }
-              
-            }
-         }
-        .related_review_container{
-          padding: 20px; 
-        }
-      
-       
-    }
-    .lawsContainer {
-        margin: 30px 0;
-        .listCountryName {
-            font-size: 18px;
-        }
-        .law_Inner_OPtionList_Ol {
-            li {
-                width: 45%; 
-            }
-        }
-    }
-    .myOrderPAge{
-        .Order_Text{
-         
-            p{
-                font-size: 14px;
-            }
-            h5{
-                font-size: 14px;
-            }
-        } 
-        .NODataInOrderPage{
-            .nodataAlie{
-                width: 100%;
-            
-            p{
-                font-size: 14px;
-            }
-    
-            }
-        }
-        .orderCardBox{
-            .orderdetailsheader{
-                padding: 15px;
-                .sellerName_date {
-                    font-size: 12px;
-                  }
-              }
-        }
-    }
-    .MyOrderProductDetail{
-     
-        .allOrderCard_container {
-     
-            gap: 10px;
-        
-            .imageSectionWrapper {
-             
-                padding: 10px;
-                gap: 10px;
-                .allOrder_Card_Image_section {
-                    height: 100px;
-                    width: auto;
-                    .Allorder_img_container {
-                        width: 100px;
-                        height: 100px;
-                        .Allorder_img {
-                            width:auto ;
-                            height: 100%;
-                        }
-                    }
-                }
-                .allOrder_Card_Content_section {
-                    padding-top: 0px;
-                    padding-left: 00px;
-                    .AllOrder_heading {
-                   
-                        font-size: 16px;
-                    }
-                    .allOrder_span_quantity_div {
-                        
-                        gap: 10px;
-                       
-                    .allOrder_icons_div {
-                        gap: 10px;
-                      }
-                      
-                      .allOrder_span_quantity {
-                       
-                        font-size: 14px;
-                      }
-                      
-                    }
-                    
-                }
-              }
-        }
-        .orderTracking_container {
-            padding: 12px;
-            .customerNameFontss {
-                font-size: 14px;
-                
-            }
-            .customerNumber{
-                font-size: 12px;
-            }
-            .orderTracking_heading {
-                font-size: 16px;
-            }
-            .cancelOrderIndicator{
-            font-size: 16px;
-            }
-        }
-          
-    }
-    .helpcenter{
-        .bgHedaer{
-            height: 180px;
-            .text_on_Learn_banner{
-               font-size: 18px;
-               font-weight: 600;    
-            }
-        }
-        .helpcenterConent{
-           
-            .helpHeading{
-                margin-top: 30px;
-                font-size: 18px;
-            }
-            .help_contentBox{
-                .helpTitle{
-                    font-size: 16px;
-                }
-                .helpDescription{
-                    font-size: 12px;                                                                                                                    
-                }
-            }
-            .help_toc{
-                .help_tocHeading_box{
-                    .sideTableHeading{
-                        font-size: 16px;
-                    }
-                }
-                .tbhelplist{
-                    font-size: 12px;
-                
-                }
-                  
-              }
-        }
-    }
-}
-@media (max-width: 480px){
-    .aboutUsPage{
-        .about_us_header {
-            margin-bottom: 10px;
-            .About_us_banner_image {
-                height: 180px;
-            }
-            .text_on_image {
-                font-size: 28px;
-            }
-        }
-        .weedxByTheNumber_container{
-            .weedx_heading_container {
-              
-                .backwoodar_heading {
-                  
-                    font-size: 16px;
-                    line-height: 50px;
-                  }
-            }
-            
-        .weedx_number_container {
-          
-           
-            ul{
-                width: 200%;
-                overflow-x: scroll;
-                li{
-                    min-width: 20%;
-                .upperText{
-                  font-size: 15px;
-                }
-                .lowertext{
-                  font-size: 12px;
-                  
-                }
-                }
-            }
-        }
-
-        }
-        .AboutUsjourney_container {
-          
-            padding:    25px;
-            .About_Journey_mainheading{
-         
-                font-size: 20px;
-                line-height: 1.4;
-            }
-            .journy_container{
-                .about_us_inner_section_container {
-                    margin: 40px 0;
-                    .About_Journey_heading {
-                        font-size: 18px;
-                    }
-                    .journey_paragraph {
-                        font-size: 14px;
-                    }
-                  }
-            }
-         
-        }
-     
-        .testimonial{
-            .client_preach_container {
-                height: auto;
-                padding: 20px;
-                width: 100%;
-                .clientPreach_paragraph {
-                    font-size: 14px;
-                  }
-              }
-        }
-    }
-    .delivery_items_cards_container{
-        width: 100%;
-        gap: 15px;
-        
-        .delivery_items_card_img_container {
-            min-width: 60px;
-            width: 80px;
-            border: 1px solid rgb(157, 158, 160);
-            padding: 5px;
-        }
-        .delivery_items_card_info_container{
-            flex: 1;
-            padding-left: 10px;
-            width: auto;
-            max-width: 80%;
-        }
-        .delivery_items_button_div {
-            .delivery_items_button{
-            
-                .deliverItemCard_icons {
-                
-                font-size: 12px;
-                }
-            }
-        }
-
-    }
-    .despensories_card_container{
-        width: 100%;
-    }
-    .NavbarBox{
-        padding: 0;
-    }
-    .StoreDetailMenuItem_container{
-      
-        ul.store_detail_order_list {
-        
-          li.store_detail_list {
-             
-              span.storeDetalMenuItemCursor {
-                  font-size: 14px;
-              }
-            }
-        }
-    }
-    .viewallbtn{
-        font-size: 14px;
-    }
-    .Slider_inner_profile_imgs{
-        width: 30px;
-        height: 30px;
-    }
-    footer {
-        .footer_main_div_display{
-            padding-top: 20px;
-            padding: 0 15px;
-            .footer_sub_heading{
-                font-size: 14px;
-            }
-            .main_content_logo {
-                padding: 20px 0 0;
-                padding: 20px 0;
-                justify-content: space-between;
-                .footer_list{
-                    width: 29%;
-                    padding: 0;
-                }
-                .footer_logo_container{
-                    width: 100%;
-                    padding: 0;
-                    display: flex;
-                    justify-content: space-between;
-                    .footerLogo{
-                        width: 100px;
-                        margin: 0;
-                    }
-                }
-            }
-            .footer_icons_column{
-                p{
-                  justify-content: center;
-                }
-            }
-        }
-    }
-    .homeBannerContainer{
-      .homePageBanner_container{
-        margin-bottom: 0;
-      }
-    }
-    .CategoryBordrr{
-        .catagoryTabs_section{
-            .shopByCategoryHeading {
-                font-size: 16px;
-                margin-left: 0px;
-            }
-            .CategorySliderImageBlock{
-                .catagoriesTabImg{
-                    width: 75px;
-                    height: 75px;
-                    cursor: pointer;
-                }
-                .Category_title {
-                    font-size: 12px;
-                  }
-            }
-         }
-    }
-    .recentViewProductSlider {
-        .dispensoriesContainer{
-            min-width: 180px;
-            .dispensoriesAddressBorder{
-                .dispensoriesAddresCardimg{
-                    .dispensories_image {
-                        height: 140px;
-                      }
-                   }
-                .dispensoriesContentContainer {
-                    padding: 10px;
-                  
-                    .dispensoriesHeadings {
-                        font-size: 16px;
-                    }
-                    
-                    
-                    .Dispensaries_card_discription {
-                        p{
-                            font-size: 14px;
-                        }
-                    }
-                    .homecardRating{
-                        .DeliveryServicesRatingTitle {
-                            font-size: 14px;
-                        }
-                    }
-                }
-            }
-        }
-       
-    }
-    .about_card_Wraper {
-        .about_card{
-        padding: 20px;
-      flex-wrap: wrap;
-      .about_text {
-        .acard_title{
-        text-align: center;
-      }}}
-    }
-    .StoreHeader{
-       
-        .storeShareBtn{
-            width: 25px;
-            height: 25px;
-            top: 5px;
-            right: 5px;
-            
-        }
-        .newFlavourimage_div {
-            height: 75px;
-            width: 75px;
-        }
-        .newFlavourBannerSubHead {
-            font-size: 12px;
-        }
-        .StoreHeader_Heading{
-            font-size: 16px;
-        }
-    }
-    .prod_cat_left_sec {
-        .filter_manu_items{
-            width: 120px;
-            border: 1px solid gainsboro;
-            color: rgba(0, 0, 0);
-            line-height: 30px;
-            font-size: 14px;
-           
-                .filter_manu_items{
-                 
-                   
-                    .product_category_dropdown{
-                      
-                        .product_category_dropdown_cursor {
-                            p{
-                               font-size: 18px;
-                            }
-                        }
-                    }
-                    
-                  }
-                 
-                  
-             
-                  
-            
-        }
-        .product_Sorted_filter_dropdown {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            margin-top: 4px;
-            cursor: pointer;
-            border: 1px solid #E7E7E7;
-            background-color: #FFFFFF;
-            left: 0;
-            z-index: 10;
-            .productFilter_sortedList {
-              li{
-                    padding: 10px 0;
-                    font-size: 18px;
-               }
+        }  
+        .about_card_Wraper {
+            row-gap: 30px;
+            .about_card{
+                padding: 25px;
+                width: 48%;
             }
         }
         .prodfilterSortedListGap{
@@ -4346,184 +3519,1317 @@
             width: 120px;
             border: 1px solid gainsboro;
             border-radius: 3px;
-          }
-    }
-    .prod_inner_cont{
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        padding: 10px;
-        .prod_cat_cont{
-            height: auto;
-            .prod_cat_img {
-                img {
-                   height: 120px;
-                }
-                .prod_img_btn{
-                    .cat_prod_inner_btn {
-                        font-size: 7px;
-                      }
-                }
-            }
         }
-        .productListHeadings{
-            font-size: 14px;
-          }
-    }
-    .StoreDetailspage{
-        .amenities_container {
-           
-            .amenties_nameHeading {
-             margin-left: 20px;
-               
-            }
+        .StoreDetailspage{
+            .amenities_container {   
             .amenities_list {
-               gap: 6%;
-               
-                .amenities_list_item_paragrap {
-                   
-                 }
+                gap: 7%;
             }
-           
-          }
-          .StoreDetail_paragraph {
-         
-          }
-          .store_detail_menu_heading {
-           
-          }
-          .store_detail_SideMenuBar_order_list {
-          
+            }
+            .store_detail_SideMenuBar_order_list {
             .StoreDetailSidemenuBarList {
-                    min-width: 50%;
-                    gap: 10px;
-                .StoreDetailSideMenu_listItems {
-                   font-size: 13px; 
+                min-width: 30%;  
                 }
-              }
-          }
-    }
-    .addtoCart_headingss{
-        p{
-            font-size: 14px;
+            }
         }
-        .addToCartHeadingss {
-            font-size: 20px;
-        }
-    }
-    .Add_product_cart_right_container_summary {
-        padding: 15px;
-        h5.AddProdCartFont_weight {
-          
-            font-size: 18px;
-        }
-        .pickup_div {
-            min-height: 80px;
-            padding: 8px;
-            font-size: 14px;
-            .addresHeading{ 
-                font-size: 14px;
-              }
-          }
-          .order_summary_flex {
-         
-          
-            .add_prod_cart_summary_p{
+        .review_secton{
+        
+            .reviews_description {
+            
+                .overall_review_container {
                 
-                font-size: 16px;
+                    .left_circularbar_container {
+                    
+                        .left_circularbar {
+                            height: auto;
+                        
+                            margin: 0 auto;
+                            width: 60%;
+                        }
+                    }
+                
+                }
             }
-          } 
-    }
-    .promocode_container {
-        padding: 10px 0;
-            .promoCode_label {
-                font-size: 16px;
+        
+        
+        
+        }
+        .newProductDetailsContainer {
+        
+            .newProductDetailsCardLeftCol {
+            
+                .newProductDetailsUpperimage_container{
+                
+                    .newProductDetails_upper_image {
+                        height: auto;
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                
+                }
             
             }
-          
-    }
-    .product_card_wrapper{
-
-      gap: 10px;
-        .productSearch_result_container{
-            width: 100%;
-        &.productSearch_result_containermainapge{
-            width: 45%;
+        
         }
-            .productSearchResultImage_container{
-                position: relative;
-                .product_search_result_image{
-                    width: 100%;
-                    height: 130px;
+        .aboutUsPage{
+            .about_us_header {
+                .About_us_banner_image {
+                    height: 220px;
                 }
-              
+                .text_on_image {
+                    font-size: 32px;
+                }
+            }
+            .weedxByTheNumber_container{
+                .weedx_heading_container {
+                
+                    .backwoodar_heading {
+                    
+                        font-size: 18px;
+                    }
+                }
+                
+            .weedx_number_container {
+                overflow-y: hidden;
+                overflow-x: scroll;
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none; 
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                ul{
+                    
+                    li{
+                        min-width: 27%;
+                    .upperText{
+                    
+                    }
+                    .lowertext{
+                    
+                    
+                    }
+                    }
+                }
+            }
+
+            }
+            .AboutUsjourney_container {
+            
+                padding:    25px;
+                .About_Journey_mainheading{
+            
+                    font-size: 24px;
+                }
+                .journy_container{
+                    .about_us_inner_section_container {
+                        margin: 40px 0;
+                        .About_Journey_heading {
+                            
+                        }
+                        .journey_paragraph {
+                        }
+                    }
+                }
+            
+            }
+            .our_valuesSection{
+                padding: 25px 0;
+                .ourValues_card_container {
+                    padding: 10px;
+                    .ourvalues_icons_container {
+                        height: 70px;
+                        font-size: 40px;
+                    }
+                    .values_heading {
+                        font-size: 16px;
+                    }
+                    .values_paragraph {
+                        font-size: 12px;
+                        line-height: 1.6;
+                    }
+                } 
+            }
+            .testimonial{
+                .client_preach_container {
+                    height: 250px;
+                    padding: 20px;
+                    .clientPreach_paragraph {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        .blogListWrapper{
+            .blogListCard {
+               
+               
+                .blogcardText {
+                  
+                   a {
+               
+                        h2.blogcardHeading {
+                            font-size: 18px;
+                        }
+                   }
+                   .blogcardDescription {
+                        p{
+                        
+                            height: 80px;
+                            line-height: 20px;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+                      
+                  }
+                
+                
+                }
             }
         }
     }
-    .OrderDonePage{
-       
-        .order_conform_card{
-            width:100%;
+    @media (max-width: 768px){
+        .despensories_card_container{
+            width: 47%;
+        }
+        .oopss {
+            width: 100%;
             padding: 10px;
-            .order_conform_card_icons{
-                font-size: 32px;
-                color: #31B665;
-                margin-bottom: 10px;
-            }
-            .card_title{
-                font-size: 18px;           
-            } 
-     
-            .trackorderbtn{
-                min-width: 120px;
-            }
-            .trackorderbtn:hover{
-                background-color: #31B655;
-                color: #fff;
-                border: 1px solid #31B655;
+            .errortext {
+                font-size: 22px;
+                img {
+                    height: 200px;
+                }
+                span {
+                    font-size: 22px;
+                }
+                p {
+                
+                        font-size: 14px;
+                    
+                }
+                .back {
+                    font-size: 15px;
+                    padding: 8px;
+                    font-weight: 600;
+                }
             }
         }
-       
-    }
-}
-@media (max-width: 400px){
-    footer {
-        .footer_main_div_display{
-            padding-top: 20px;
-            padding: 0 15px;
-            .footer_sub_heading{
+        .store_detail_SideMenuBar_order_list{
+            .StoreDetailSidemenuBarList {
+                min-width: 47%;
+            }
+        }
+        .ad_page{
+            .ad_imageTextSection{
+                margin-bottom: 40px;
+                .ad_textArea{
+                    width: 100%;
+                    order: 2;
+                }
+                .ad_Img_Area{
+                    width:100%;
+                    order: 1;
+                    text-align: center;
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+            .section_boxBanner{
+            
+                padding: 20px;
+                .ad_imageTextSection{
+                    gap: 30px;
+                    .ad_textArea{
+                    width: 100%;
+
+                    }
+                    .ad_Img_Area{
+                    width: 100%;
+                    }
+                }
+            }
+            h3{
+                font-size: 20px;
+            }
+            h2{
+                font-size: 24px;
+            }
+            h4{
+                font-size: 18px;
+            }
+            P{
                 font-size: 14px;
             }
-            .main_content_logo {
-                padding: 20px 0 0;
-                padding: 20px 0;
-                justify-content: space-between;
-                gap: 10px;
-                .footer_list{
-                    width: 31%;
-                  }
-            }
-        }
-        .footer_main_list {
-            .footer_li{
-            display: inline-block;
-            width: 100%;
-            white-space: nowrap;
-            overflow: hidden !important;
-            text-overflow: ellipsis;
-          }
-        }
-    }   
-   
-      .CategoryBordrr{
-        .catagoryTabs_section{
-            
-            .CategorySliderImageBlock{
-               
-                .Category_title {
-                    font-size: 10px;
+        ul{
+            li{
+                p{
+                    margin-bottom: 8px;
                 }
             }
-         }
+        }
+        }
+        footer {
+            .footer_main_div_display {
+                .footer_sub_heading {
+                    width: 100%;
+                }
+                .main_content_logo{
+                    gap: 20px;
+                    .footer_list{
+                        width: 48%;
+                        border-right: none;
+                        box-sizing: border-box;
+                    }
+                    .footer_logo_container{
+                        width: 48%;
+                        border-right: none;
+                        .footerLogo{
+                            width: 160px;
+                        }
+                    }
+                }
+            }
+            .footer_bootom_headings_container {
+                .copyright_title{
+                    font-size: 16px;
+                    line-height: 3;
+            }
+            }
+        }
+        .homeBannerContainer{
+            .destop_image{
+                display: none;
+            }
+            .mobile_imges{
+                display: block;
+            }
+        }
+        .CategoryBordrr{
+            .catagoryTabs_section{
+            padding: 10px;  
+            .CategorySliderImageBlock{
+                    .catagoriesTabImg{
+                        width: 100px;
+                        height: 100px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .recentViewProductSlider {
+            .dispensoriesContainer{
+                min-width: 180px;
+                .dispensoriesAddressBorder{
+                    .dispensoriesContentContainer {
+                        padding: 10px;
+                        .dispensoriesHeadings {
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                        }
+                        
+                        .Dispensaries_card_discription {
+                        p{
+                            font-size: 14px;
+                        }
+                        }
+                        .homecardRating{
+                        .DeliveryServicesRatingTitle {
+                            font-size: 16px;
+                        }
+                        }
+                    }
+                }
+            }
+        
+        }
+        .FeaturedBrandImageContainer {
+            width: 120px;
+            height: 90px;
+        }
+        .about_card_Wraper {
+            .about_card{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                .about_text {.acard_title{
+                    text-align: left;
+                    }}
+        }
+        }
+        .StoreHeader{
+            padding: 15px;
+        
+            .newFlavourimage_div {
+                height: 100px;
+                width: 100px;
+            
+            }
+        
+        }
+        .prod_cat_left_sec {
+            width: 100%;
+            overflow-x: scroll;
+            .filter_manu_items{
+                width: 20%;
+                line-height: 30px;
+            }
+        }
+        .noReview{
+            .nodealsicon{
+                width: 100%;
+                height: 100px;
+            }
+            .noreview_title{
+                font-size: 22px;
+            }
+            .noreview_description {
+            
+                width: 90%;
+            }
+        }
+        .newProductDetailsContainer {
+            padding: 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+            .newProductDetailsCardLeftCol {
+                width:100% ;
+                flex-wrap: wrap;
+                .newProductDetailsUpperimage_container{
+                order: 1;
+                width: 100%;
+                text-align: center;
+                    .newProductDetails_upper_image {
+                        height: auto;
+                        width: 80%;
+                        margin: 0 auto;
+                    }
+                
+                }
+                .newProductDetailsCardimagelist{
+                        width: 100%;
+                        order: 2;
+                        flex-direction: row;
+                        height: auto;
+                        gap: 10px;
+                        padding: 10px ;
+                        overflow-x: scroll;
+                        .NewProductDetails_image_container {
+                            padding: 2px;
+                            min-width: 60px;
+                            img{
+                                max-width: 100%;
+                                width: 80px;
+                                height: auto;
+                                cursor: pointer;
+                            }
+                        }
+                }
+            }
+            .newProductdetails_rightSideContent_container{
+            width: 100%;
+            .newProductDetails_heading {
+                    font-size: 18px;
+            }
+            .newProductDetails_subHeadingss {
+                font-size: 14px;
+            }
+            .productDetailsCardQuestity{
+            
+            
+                .qty_selector{
+                    margin: 10px 0;
+                    .qty_btn{
+                        cursor: pointer;
+                        width: 20%;
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: 600;
+                        background-color: #e2e2e2;
+                        color: #000;
+                        border-radius: 50%;
+                        width: 20px;
+                        height: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                
+                }
+                
+            }
+            .newProductDetailsButon {
+            
+                .newProductdetailsButtonss {
+                    border-style: none;
+                    color: #3a3a3a;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    border-radius: 4px;
+                    padding: 3px 10px;
+                }
+            }
+            .productDetailsCardAddtocart{
+                width: 100%;
+            }
+            }
+        }
+        .aboutUsPage{
+            .about_us_header {
+                margin-bottom: 10px;
+                .About_us_banner_image {
+                    height: 180px;
+                }
+                .text_on_image {
+                    font-size: 28px;
+                }
+            }
+            .weedxByTheNumber_container{
+                .weedx_heading_container {
+                
+                    .backwoodar_heading {
+                    
+                        font-size: 16px;
+                        line-height: 50px;
+                    }
+                }
+                
+            .weedx_number_container {
+            
+            
+                ul{
+                    
+                    li{
+                        min-width: 27%;
+                    .upperText{
+                    font-size: 15px;
+                    }
+                    .lowertext{
+                    font-size: 12px;
+                    
+                    }
+                    }
+                }
+            }
+
+            }
+            .AboutUsjourney_container {
+            
+                padding:    25px;
+                .About_Journey_mainheading{
+            
+                    font-size: 20px;
+                    line-height: 1.4;
+                }
+                .journy_container{
+                    .about_us_inner_section_container {
+                        margin: 40px 0;
+                        .About_Journey_heading {
+                            font-size: 18px;
+                        }
+                        .journey_paragraph {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            
+            }
+        
+            .testimonial{
+                .client_preach_container {
+                    height: auto;
+                    padding: 20px;
+                    .clientPreach_paragraph {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .law_contertn{
+            .LawStateDescriptionHeading {
+                font-size: 24px;
+            }
+            .isweedLegalHeading {
+                font-size: 18px;
+            }
+            .isWeedLegalParagraph {
+                font-size: 14px;
+                padding-bottom: 15px;
+            }
+            
+        }
+        .blogListWrapper{
+            .blogListCard {
+                padding: 10px;
+                .blogcardText {
+                  
+                    a{
+                        h2.blogcardHeading {
+                            font-size: 16px;
+                            height: 36px;
+                            line-height: 18px;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+                    }
+                    .blogcardDescription {
+                        p{
+                        
+                            height: 42px;
+                            line-height: 14px;
+                            -webkit-line-clamp: 3;
+                        }
+                    }
+                 
+                
+                }
+                .extra_function {
+                    border-top: 1px solid gray;
+                    &.extra_function_mobile {
+                        display: flex;
+                    }
+              }
+            }
+        }
     }
-}
+    @media (max-width: 576px){
+        .ad_page{
+            .adversticebanner_header{
+                position: relative;
+                h1{
+                    font-size: 16px;
+                    width: 90%;
+                }
+                
+            }
+            .ad_imageTextSection{
+                margin-bottom: 24px;
+                .ad_textArea{
+                    width: 100%;
+                    order: 2;
+                }
+                .ad_Img_Area{
+                    width:100%;
+                    order: 1;
+                    text-align: center;
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+            h3{
+                font-size: 18px;
+            }
+            h2{
+                font-size: 20px;
+            }
+            h4{
+                font-size: 16px;
+            }
+            P{
+                font-size: 12px;
+            }
+        ul{
+            li{
+                p{
+                    margin-bottom: 8px;
+                }
+            }
+        }
+        }
+        .notificationList{
+            min-width: 300px;
+            z-index: 10;
+            padding: 10px;
+            // right: -50px;
+        }
+        .canabisLawMainHeadings{
+            font-size: 16px;
+        }
+        footer .footer_main_list p.footer_menu_heading {
+            font-size: 14px;
+        }
+        .review_secton{
+        
+            .reviews_description {
+            
+                .overall_review_container {
+                
+                    .left_circularbar_container {
+                    
+                        .left_circularbar {
+                            height: auto;
+                        
+                            margin: 0 auto;
+                            width: 40%;
+                        }
+                    }
+                
+                }
+            }
+            .related_review_container{
+            padding: 20px; 
+            }
+        
+        
+        }
+        .lawsContainer {
+            margin: 30px 0;
+            .listCountryName {
+                font-size: 18px;
+            }
+            .law_Inner_OPtionList_Ol {
+                li {
+                    width: 45%; 
+                }
+            }
+        }
+        .myOrderPAge{
+            .Order_Text{
+            
+                p{
+                    font-size: 14px;
+                }
+                h5{
+                    font-size: 14px;
+                }
+            } 
+            .NODataInOrderPage{
+                .nodataAlie{
+                    width: 100%;
+                
+                p{
+                    font-size: 14px;
+                }
+        
+                }
+            }
+            .orderCardBox{
+                .orderdetailsheader{
+                    padding: 15px;
+                    .sellerName_date {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .MyOrderProductDetail{
+        
+            .allOrderCard_container {
+        
+                gap: 10px;
+            
+                .imageSectionWrapper {
+                
+                    padding: 10px;
+                    gap: 10px;
+                    .allOrder_Card_Image_section {
+                        height: 100px;
+                        width: auto;
+                        .Allorder_img_container {
+                            width: 100px;
+                            height: 100px;
+                            .Allorder_img {
+                                width:auto ;
+                                height: 100%;
+                            }
+                        }
+                    }
+                    .allOrder_Card_Content_section {
+                        padding-top: 0px;
+                        padding-left: 00px;
+                        .AllOrder_heading {
+                    
+                            font-size: 16px;
+                        }
+                        .allOrder_span_quantity_div {
+                            
+                            gap: 10px;
+                        
+                        .allOrder_icons_div {
+                            gap: 10px;
+                        }
+                        
+                        .allOrder_span_quantity {
+                        
+                            font-size: 14px;
+                        }
+                        
+                        }
+                        
+                    }
+                }
+            }
+            .orderTracking_container {
+                padding: 12px;
+                .customerNameFontss {
+                    font-size: 14px;
+                    
+                }
+                .customerNumber{
+                    font-size: 12px;
+                }
+                .orderTracking_heading {
+                    font-size: 16px;
+                }
+                .cancelOrderIndicator{
+                font-size: 16px;
+                }
+            }
+            
+        }
+        .helpcenter{
+            .bgHedaer{
+                height: 180px;
+                .text_on_Learn_banner{
+                font-size: 18px;
+                font-weight: 600;    
+                }
+            }
+            .helpcenterConent{
+            
+                .helpHeading{
+                    margin-top: 30px;
+                    font-size: 18px;
+                }
+                .help_contentBox{
+                    .helpTitle{
+                        font-size: 16px;
+                    }
+                    .helpDescription{
+                        font-size: 12px;                                                                                                                    
+                    }
+                }
+                .help_toc{
+                    .help_tocHeading_box{
+                        .sideTableHeading{
+                            font-size: 16px;
+                        }
+                    }
+                    .tbhelplist{
+                        font-size: 12px;
+                    
+                    }
+                    
+                }
+            }
+        }
+        .HomePageDealsSignupContainer {
+            padding: 20px;
+            .newsletterImage{
+                
+            
+            }
+            .contentarea{
+                .homePageSignup_heading{
+                font-size: 18px;
+                }
+                .homePageSignup_paragraph{
+                font-size: 16px;
+                
+                    
+                } 
+                .newsletterFormFeild{
+            
+                    width: 100%;
+                    .newsletter_btn{
+                    width: 30%;
+                    }
+                }
+                
+                .thankforsubscribe{
+                
+                }
+                
+            }
+        }
+    }
+    @media (max-width: 480px){
+        .customsearchbarbox {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .aboutUsPage{
+            .about_us_header {
+                margin-bottom: 10px;
+                .About_us_banner_image {
+                    height: 180px;
+                }
+                .text_on_image {
+                    font-size: 28px;
+                }
+            }
+            .weedxByTheNumber_container{
+                .weedx_heading_container {
+                
+                    .backwoodar_heading {
+                    
+                        font-size: 16px;
+                        line-height: 50px;
+                    }
+                }
+                
+            .weedx_number_container {
+            
+            
+                ul{
+                    width: 200%;
+                    overflow-x: scroll;
+                    li{
+                        min-width: 20%;
+                    .upperText{
+                    font-size: 15px;
+                    }
+                    .lowertext{
+                    font-size: 12px;
+                    
+                    }
+                    }
+                }
+            }
+
+            }
+            .AboutUsjourney_container {
+            
+                padding:    25px;
+                .About_Journey_mainheading{
+            
+                    font-size: 20px;
+                    line-height: 1.4;
+                }
+                .journy_container{
+                    .about_us_inner_section_container {
+                        margin: 40px 0;
+                        .About_Journey_heading {
+                            font-size: 18px;
+                        }
+                        .journey_paragraph {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            
+            }
+        
+            .testimonial{
+                .client_preach_container {
+                    height: auto;
+                    padding: 20px;
+                    width: 100%;
+                    .clientPreach_paragraph {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .delivery_items_cards_container{
+            width: 100%;
+            gap: 15px;
+            
+            .delivery_items_card_img_container {
+                min-width: 60px;
+                width: 80px;
+                border: 1px solid rgb(157, 158, 160);
+                padding: 5px;
+            }
+            .delivery_items_card_info_container{
+                flex: 1;
+                padding-left: 10px;
+                width: auto;
+                max-width: 80%;
+            }
+            .delivery_items_button_div {
+                .delivery_items_button{
+                
+                    .deliverItemCard_icons {
+                    
+                    font-size: 12px;
+                    }
+                }
+            }
+
+        }
+        .despensories_card_container{
+            width: 100%;
+        }
+        .NavbarBox{
+            padding: 0;
+        }
+        .StoreDetailMenuItem_container{
+        
+            ul.store_detail_order_list {
+            
+            li.store_detail_list {
+                
+                span.storeDetalMenuItemCursor {
+                    font-size: 14px;
+                }
+                }
+            }
+        }
+        .viewallbtn{
+            font-size: 14px;
+        }
+        .Slider_inner_profile_imgs{
+            width: 30px;
+            height: 30px;
+        }
+        footer {
+            .footer_main_div_display{
+                padding-top: 20px;
+                padding: 0 15px;
+                .footer_sub_heading{
+                    font-size: 14px;
+                }
+                .main_content_logo {
+                    padding: 20px 0 0;
+                    padding: 20px 0;
+                    justify-content: space-between;
+                    .footer_list{
+                        width: 29%;
+                        padding: 0;
+                    }
+                    .footer_logo_container{
+                        width: 100%;
+                        padding: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        .footerLogo{
+                            width: 100px;
+                            margin: 0;
+                        }
+                    }
+                }
+                .footer_icons_column{
+                    p{
+                    justify-content: center;
+                    }
+                }
+            }
+        }
+        .homeBannerContainer{
+        .homePageBanner_container{
+            margin-bottom: 0;
+        }
+        }
+        .CategoryBordrr{
+            .catagoryTabs_section{
+                .shopByCategoryHeading {
+                    font-size: 16px;
+                    margin-left: 0px;
+                }
+                .CategorySliderImageBlock{
+                    .catagoriesTabImg{
+                        width: 75px;
+                        height: 75px;
+                        cursor: pointer;
+                    }
+                    .Category_title {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .recentViewProductSlider {
+            .dispensoriesContainer{
+                min-width: 180px;
+                .dispensoriesAddressBorder{
+                    .dispensoriesAddresCardimg{
+                        .dispensories_image {
+                            height: 140px;
+                        }
+                    }
+                    .dispensoriesContentContainer {
+                        padding: 10px;
+                    
+                        .dispensoriesHeadings {
+                            font-size: 16px;
+                        }
+                        
+                        
+                        .Dispensaries_card_discription {
+                            p{
+                                font-size: 14px;
+                            }
+                        }
+                        .homecardRating{
+                            .DeliveryServicesRatingTitle {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        
+        }
+        .about_card_Wraper {
+            .about_card{
+            padding: 20px;
+        flex-wrap: wrap;
+        .about_text {
+            .acard_title{
+            text-align: center;
+        }}}
+        }
+        .StoreHeader{
+        
+            .storeShareBtn{
+                width: 25px;
+                height: 25px;
+                top: 5px;
+                right: 5px;
+                
+            }
+            .newFlavourimage_div {
+                height: 75px;
+                width: 75px;
+            }
+            .newFlavourBannerSubHead {
+                font-size: 12px;
+            }
+            .StoreHeader_Heading{
+                font-size: 16px;
+            }
+        }
+        .prod_cat_left_sec {
+            .filter_manu_items{
+                width: 120px;
+                border: 1px solid gainsboro;
+                color: rgba(0, 0, 0);
+                line-height: 30px;
+                font-size: 14px;
+            
+                    .filter_manu_items{
+                    
+                    
+                        .product_category_dropdown{
+                        
+                            .product_category_dropdown_cursor {
+                                p{
+                                font-size: 18px;
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    
+                
+                    
+                
+            }
+            .product_Sorted_filter_dropdown {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                margin-top: 4px;
+                cursor: pointer;
+                border: 1px solid #E7E7E7;
+                background-color: #FFFFFF;
+                left: 0;
+                z-index: 10;
+                .productFilter_sortedList {
+                li{
+                        padding: 10px 0;
+                        font-size: 18px;
+                }
+                }
+            }
+            .prodfilterSortedListGap{
+                margin-bottom: 0;
+                padding: 0;
+                height: 100%;
+                align-items: center;
+                background-color: #f9f9f9;
+                height:30px;
+                width: 120px;
+                border: 1px solid gainsboro;
+                border-radius: 3px;
+            }
+        }
+        .prod_inner_cont{
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            .prod_cat_cont{
+                height: auto;
+                .prod_cat_img {
+                    img {
+                    height: 120px;
+                    }
+                    .prod_img_btn{
+                        .cat_prod_inner_btn {
+                            font-size: 7px;
+                        }
+                    }
+                }
+            }
+            .productListHeadings{
+                font-size: 14px;
+            }
+        }
+        .StoreDetailspage{
+            .amenities_container {
+            
+                .amenties_nameHeading {
+                margin-left: 20px;
+                
+                }
+                .amenities_list {
+                gap: 6%;
+                
+                    .amenities_list_item_paragrap {
+                    
+                    }
+                }
+            
+            }
+            .StoreDetail_paragraph {
+            
+            }
+            .store_detail_menu_heading {
+            
+            }
+            .store_detail_SideMenuBar_order_list {
+            
+                .StoreDetailSidemenuBarList {
+                        min-width: 50%;
+                        gap: 10px;
+                    .StoreDetailSideMenu_listItems {
+                    font-size: 13px; 
+                    }
+                }
+            }
+        }
+        .addtoCart_headingss{
+            p{
+                font-size: 14px;
+            }
+            .addToCartHeadingss {
+                font-size: 20px;
+            }
+        }
+        .Add_product_cart_right_container_summary {
+            padding: 15px;
+            h5.AddProdCartFont_weight {
+            
+                font-size: 18px;
+            }
+            .pickup_div {
+                min-height: 80px;
+                padding: 8px;
+                font-size: 14px;
+                .addresHeading{ 
+                    font-size: 14px;
+                }
+            }
+            .order_summary_flex {
+            
+            
+                .add_prod_cart_summary_p{
+                    
+                    font-size: 16px;
+                }
+            } 
+        }
+        .promocode_container {
+            padding: 10px 0;
+                .promoCode_label {
+                    font-size: 16px;
+                
+                }
+            
+        }
+        .product_card_wrapper{
+
+        gap: 10px;
+            .productSearch_result_container{
+                width: 100%;
+            &.productSearch_result_containermainapge{
+                width: 45%;
+            }
+                .productSearchResultImage_container{
+                    position: relative;
+                    .product_search_result_image{
+                        width: 100%;
+                        height: 130px;
+                    }
+                
+                }
+            }
+        }
+        .OrderDonePage{
+        
+            .order_conform_card{
+                width:100%;
+                padding: 10px;
+                .order_conform_card_icons{
+                    font-size: 32px;
+                    color: #31B665;
+                    margin-bottom: 10px;
+                }
+                .card_title{
+                    font-size: 18px;           
+                } 
+        
+                .trackorderbtn{
+                    min-width: 120px;
+                }
+                .trackorderbtn:hover{
+                    background-color: #31B655;
+                    color: #fff;
+                    border: 1px solid #31B655;
+                }
+            }
+        
+        }
+    }
+    @media (max-width: 400px){
+        footer {
+            .footer_main_div_display{
+                padding-top: 20px;
+                padding: 0 15px;
+                .footer_sub_heading{
+                    font-size: 14px;
+                }
+                .main_content_logo {
+                    padding: 20px 0 0;
+                    padding: 20px 0;
+                    justify-content: space-between;
+                    gap: 10px;
+                    .footer_list{
+                        width: 31%;
+                    }
+                }
+            }
+            .footer_main_list {
+                .footer_li{
+                display: inline-block;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+            }
+            }
+        }   
+    
+        .CategoryBordrr{
+            .catagoryTabs_section{
+                
+                .CategorySliderImageBlock{
+                
+                    .Category_title {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }

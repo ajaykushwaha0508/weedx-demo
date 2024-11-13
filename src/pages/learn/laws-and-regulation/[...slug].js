@@ -19,24 +19,21 @@ const Index = (props) => {
               <h2>{props.initialData?.name}</h2>
               </div>
           </div>
-          <div className="law_contertn">
-            <div className="col-12 lawStateDescriptionHeadings">
-              <h1 className="LawStateDescriptionHeading">
-                {`Cannabis Law in`}{props.initialData?.name}
-              </h1>
+          <div className={classes.law_contertn}>
+              <h1 className={classes.LawStateDescriptionHeading}>
+                {`Cannabis Law in `}{props.initialData?.name}
+              </h1> 
               <hr />
-            </div>
             <div className="col-12 d-flex">
               <div className={"col-xl-8 col-md-12"} ref={ref}>
                 {props?.initialData?.content?.map((data1, index) => {
                   return (
                     <React.Fragment key={index}>
                       <div className={data1.title.replaceAll(' ', '_')} id={data1.title.replaceAll(' ', '_')}>
-                        <h2 id="isweedLegalHeadings" className="isweedLegalHeading">{data1.title}</h2>
+                        <h2 id="isweedLegalHeadings" className={classes.isweedLegalHeading}>{data1.title}</h2>
                         <div className="col-12"  >
-                          <section className="isWeedLegalParagraph">
+                          <section className={classes.isWeedLegalParagraph}>
                             <div dangerouslySetInnerHTML={{ __html: data1?.content }}></div>
-
                           </section>
                         </div>
                       </div>

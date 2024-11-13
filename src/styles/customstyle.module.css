@@ -2888,6 +2888,156 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   top: 200px;
 }
 
+.law_contertn .LawStateDescriptionHeading {
+  color: #6B6B6B;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.law_contertn .isweedLegalHeading {
+  color: #000000;
+  font-weight: 700;
+  font-size: 24px;
+}
+.law_contertn .isWeedLegalParagraph {
+  font-size: 16px;
+  color: #6B6B6B;
+  font-weight: 400;
+  text-align: justify;
+  padding-bottom: 24px;
+}
+
+.HomePageDealsSignupContainer {
+  padding: 40px;
+  background: #f6f6f6;
+  border-radius: 40px;
+  margin-top: 20px;
+}
+.HomePageDealsSignupContainer .newsletterImage {
+  max-width: 200px;
+  margin: 0 auto;
+}
+.HomePageDealsSignupContainer .newsletterImage img {
+  width: 100%;
+}
+.HomePageDealsSignupContainer .contentarea .homePageSignup_heading {
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 50.83px;
+  text-align: left;
+  color: #252B42;
+}
+.HomePageDealsSignupContainer .contentarea .homePageSignup_paragraph {
+  font-family: Averta Demo PE Cutted Demo;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  text-align: left;
+  color: #858C94;
+}
+.HomePageDealsSignupContainer .contentarea .newsletterFormFeild {
+  /* background-color: #E6E6E6; */
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  width: 500px;
+}
+.HomePageDealsSignupContainer .contentarea .newsletterFormFeild .newsletter_btn {
+  width: 25%;
+  height: 40px;
+}
+.HomePageDealsSignupContainer .contentarea .thankforsubscribe {
+  font-size: 34px;
+  color: #31B655;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 700;
+  word-spacing: 10px;
+  letter-spacing: 1px;
+}
+
+.blogListWrapper .blogListCard {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0;
+  border: 1px solid #747474;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.blogListWrapper .blogListCard a img {
+  height: auto;
+  width: 100%;
+  max-height: 220px;
+}
+.blogListWrapper .blogListCard .blogcardText .blogDate {
+  text-align: end;
+  color: #535353;
+  font-size: 14px;
+  font-weight: 500;
+}
+.blogListWrapper .blogListCard .blogcardText a {
+  text-decoration: none;
+}
+.blogListWrapper .blogListCard .blogcardText a h2.blogcardHeading {
+  color: #183B56;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription p {
+  margin-bottom: 0;
+  color: #5A7184;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 140px;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription h1 {
+  display: none !important;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription h2 {
+  display: none !important;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription h3 {
+  display: none !important;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription h4 {
+  display: none !important;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription h5 {
+  display: none !important;
+}
+.blogListWrapper .blogListCard .blogcardText .blogcardDescription h6 {
+  display: none !important;
+}
+.blogListWrapper .blogListCard .extra_function {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 1px solid rgba(116, 116, 116, 0.43);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 0 0;
+  color: #00b96a;
+}
+.blogListWrapper .blogListCard .extra_function.extra_function_mobile {
+  display: none;
+}
+.blogListWrapper .blogListCard .extra_function span {
+  color: #31b566;
+}
+.blogListWrapper .blogListCard .extra_function span.action_icons {
+  margin-right: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
 @media (max-width: 1440px) {
   .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li {
     font-size: 16px;
@@ -2991,6 +3141,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .despensories_card_container {
     width: 32%;
+  }
+  .HomePageDealsSignupContainer .contentarea .newsletterFormFeild {
+    width: 100%;
   }
 }
 @media (max-width: 1024px) {
@@ -3179,6 +3332,17 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
     font-size: 16px;
+  }
+  .blogListWrapper .blogListCard .blogcardText a h2.blogcardHeading {
+    font-size: 18px;
+  }
+  .blogListWrapper .blogListCard .blogcardText .blogcardDescription p {
+    height: 80px;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 @media (max-width: 768px) {
@@ -3464,6 +3628,39 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .aboutUsPage .testimonial .client_preach_container .clientPreach_paragraph {
     font-size: 14px;
   }
+  .law_contertn .LawStateDescriptionHeading {
+    font-size: 24px;
+  }
+  .law_contertn .isweedLegalHeading {
+    font-size: 18px;
+  }
+  .law_contertn .isWeedLegalParagraph {
+    font-size: 14px;
+    padding-bottom: 15px;
+  }
+  .blogListWrapper .blogListCard {
+    padding: 10px;
+  }
+  .blogListWrapper .blogListCard .blogcardText a h2.blogcardHeading {
+    font-size: 16px;
+    height: 36px;
+    line-height: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .blogListWrapper .blogListCard .blogcardText .blogcardDescription p {
+    height: 42px;
+    line-height: 14px;
+    -webkit-line-clamp: 3;
+  }
+  .blogListWrapper .blogListCard .extra_function {
+    border-top: 1px solid gray;
+  }
+  .blogListWrapper .blogListCard .extra_function.extra_function_mobile {
+    display: flex;
+  }
 }
 @media (max-width: 576px) {
   .ad_page .adversticebanner_header {
@@ -3622,8 +3819,27 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .helpcenter .helpcenterConent .help_toc .tbhelplist {
     font-size: 12px;
   }
+  .HomePageDealsSignupContainer {
+    padding: 20px;
+  }
+  .HomePageDealsSignupContainer .contentarea .homePageSignup_heading {
+    font-size: 18px;
+  }
+  .HomePageDealsSignupContainer .contentarea .homePageSignup_paragraph {
+    font-size: 16px;
+  }
+  .HomePageDealsSignupContainer .contentarea .newsletterFormFeild {
+    width: 100%;
+  }
+  .HomePageDealsSignupContainer .contentarea .newsletterFormFeild .newsletter_btn {
+    width: 30%;
+  }
 }
 @media (max-width: 480px) {
+  .customsearchbarbox {
+    width: 100%;
+    margin-bottom: 10px;
+  }
   .aboutUsPage .about_us_header {
     margin-bottom: 10px;
   }

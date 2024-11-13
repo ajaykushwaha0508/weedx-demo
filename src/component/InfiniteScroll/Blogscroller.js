@@ -1,6 +1,7 @@
 import React,{ useState ,useContext , useEffect } from "react";
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import { useRouter } from 'next/router';
+import Styled from '@/styles/customstyle.module.scss'
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link';
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
@@ -18,7 +19,7 @@ const Blogscroller = () => {
     const { state } = useContext(Createcontext);
     const [showabledata, setshowabledata] = useState([]);
     let pageheightfixed = 0;
-        useEffect(() => {
+    useEffect(() => {
             const handleScroll = () => {
             let scroll = window.scrollY;
             const element = document.getElementById("skeleton");
@@ -38,7 +39,6 @@ const Blogscroller = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [showabledata]);
-
     const calldata = async () => {
      
         if (showabledata.length === limit) {
@@ -68,17 +68,17 @@ const Blogscroller = () => {
     };
   return (
     <>
-        <div className="blogListWrapper">
+        <div className={Styled.blogListWrapper}>
           { showabledata?.slice(10)?.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
-              <div className="row blogListCard mx-0" key={index}>
+              <div className={`row ${Styled.blogListCard} mx-0`} key={index}>
                 <div className='row'>
                   <div className="col-4">
                     <Link href={blogUrl} className="d-block">
                       <Image
-                        className='imageBlogSection'
+                        className={Styled.imageBlogSection}
                         width={100}
                         height={100}
                         unoptimized={true}
@@ -91,31 +91,31 @@ const Blogscroller = () => {
 
                   </div>
                   <div className="col">
-                    <div className="blogcardText">
-                      <div className="blogDate">
+                    <div className={Styled.blogcardText}>
+                      <div className={Styled.blogDate}>
                         <span>{items.Publish_Date.slice(0, 10)}</span>
                       </div>
                       <Link href={blogUrl}>
-                        <h2 className="blogcardHeading">{items.Title}</h2>
+                        <h2 className={Styled.blogcardHeading}>{items.Title}</h2>
                       </Link>
                       <div
                         onClick={() => { router.push(blogUrl) }}
-                        className="blogcardDescription"
+                        className={Styled.blogcardDescription}
                         dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
                       />
-                      <div className="row extra_function extra_function_destop">
+                      <div className={`row d-md-flex d-none ${Styled.extra_function} ${Styled.extra_function_destop}`}>
                         <div className="col-3">
-                          <span className="action_icons"><AiFillEye /></span>
+                          <span className={Styled.action_icons}><AiFillEye /></span>
                           <span>{items.ViewCount} Views</span>
                         </div>
                         <div className="col-3">
-                          <span className="action_icons"><BiCommentDetail /></span>
+                          <span className={Styled.action_icons}><BiCommentDetail /></span>
                           <span>{items.commentCount}</span>
                         </div>
                         <div className="col-3">
                           <span
                             onClick={() => PostLike(items)}
-                            className="action_icons"
+                            className={Styled.action_icons}
                           >
                             {state?.login && items.Liked ? (
                               <AiFillHeart color="#31B655" />
@@ -126,14 +126,13 @@ const Blogscroller = () => {
                           <span>{items.likeCount}</span>
                         </div>
                         <div className="col-3">
-                          <span className="action_icons">
+                          <span className={Styled.action_icons}>
                             <RWebShare
                               data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
                               sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                               onClick={() => console.info("share successful!")}
                               color="#31B665"
-                            >
-                              <BsShareFill />
+                            > <BsShareFill />
                             </RWebShare>
                           </span>
                           <span>Share</span>
@@ -142,19 +141,19 @@ const Blogscroller = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-12 mt-1">
-                  <div className="row extra_function extra_function_mobile">
+                <div className="col-12 d-md-none d-block mt-1">
+                  <div className={`row ${Styled.extra_function} ${Styled.extra_function_mobile}`}>
                     <div className="col-3">
-                      <span className="action_icons"><AiFillEye /></span>
+                      <span className={Styled.action_icons}><AiFillEye /></span>
                       <span>{items.ViewCount}</span>
                     </div>
                     <div className="col-3">
-                      <span className="action_icons"><BiCommentDetail /></span>
+                      <span className={Styled.action_icons}><BiCommentDetail /></span>
                       <span>{items.commentCount}</span>
                     </div>
                     <div className="col-3">
                       <span
-                        className="action_icons"
+                        className={Styled.action_icons}
                         onClick={() => PostLike(items)}
                       >
                         {state?.login && items.Liked ? (
@@ -166,7 +165,7 @@ const Blogscroller = () => {
                       </span>
                     </div>
                     <div className="col-3">
-                      {/* Additional actions can be added here */}
+                      
                     </div>
                   </div>
                 </div>

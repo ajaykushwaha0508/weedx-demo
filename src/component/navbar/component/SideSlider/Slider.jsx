@@ -75,7 +75,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 <div>
                         <div className=' col-12  mb-4 '>
                             {
-                                !state.login ?
+                                   !state.login ?
                                     <div className=" px-3 d-flex w-100 ml-0 py-3 align-items-center manuheader justify-content-between">
                                         <div className='w-50'>
                                             <span >
@@ -129,7 +129,6 @@ const SideNavbar = ({ closeNav, Open }) => {
                         <div className={`col-12 ${clases.Slider_content_center}`} >
                             <Link href="/" className="text-dark"><p onClick={closeNav} className="m-0 d-flex" ><span> <FaHome color="#31B655" fontSize={25} /></span >{`Home`}</p></Link>
                         </div>
-
                         <hr></hr>
                         <div className={`col-12 ${clases.Slider_content_center}`} >
                             <Link className="text-dark" href={`/weed-dispensaries/in/${state?.Country?.toLowerCase()    }/${state?.State?.toLowerCase() }/${state?.City?.toLowerCase() }`}>
