@@ -45,7 +45,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
     }
   };
   const handleAddressChange = React.useCallback((e, value) => {
-    console.log(e,value)
+    // console.log(e,value)
     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
       Setformatted_address(placeDetails.formatted_address);
       dispatch({ type: 'permission', permission: true })

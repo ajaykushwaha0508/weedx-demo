@@ -123,7 +123,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                         name: item.Weight
                         }
               })
-              console.log(newArr)
+            //   console.log(newArr)
                SetFilter(newArr)
                setloading(false)
             })
@@ -232,7 +232,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
             "SubCategory_Id": SubCategoryid
         }).then(async response => {
             dispatch({ type: 'Loading', Loading: false })
-            console.log(response.data)
+            // console.log(response.data)
             Setarr1(response.data)
             // navigate(`${location.pathname.slice(0, 16) === "/weed-deliveries" ? "/weed-deliveries" : "/weed-dispensaries"}/${StoreName.replace(/\s/g, '-').toLowerCase()}/${"menu"}/${categoryName?.toLowerCase()}/${SubCategory_name?.toLowerCase().replace(/\s/g, '-')}/${SubCategoryid}`)
         }).catch(

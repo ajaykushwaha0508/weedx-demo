@@ -100,7 +100,7 @@ export default function Nevbar() {
 
 
 
-    if (Hamburger === null) return null;
+    if (Hamburger === null) return <></>;
     return (
         <div ref={ref} className={`${clases.NavbarBox} container p-1`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">

@@ -1,13 +1,11 @@
 import { useEffect, useState, useCallback } from 'react';
 import Grid from '@mui/material/Grid';
-import dynamic from 'next/dynamic';
-import Navbar from '@/component/navbar/newnavbar/nevbar';
-// const Navbar = dynamic(() => import('@/component/navbar'), { ssr: false });
-import Footer from '@/component/Footer/Footer';
-import { debounce } from 'lodash';
 
-// const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'), { ssr: false });
-import Chartbot from '@/component/chartbot/Chartbot';
+import Navbar from '@/component/navbar/newnavbar/nevbar';
+
+// import Footer from '@/component/Footer/Footer';
+
+// import Chartbot from '@/component/chartbot/Chartbot';
 const Layout = ({ children }) => {
 
 
@@ -23,8 +21,8 @@ const Layout = ({ children }) => {
           <main>{children}</main> 
         </Grid>
       </div>
-      <Footer />
-      <Chartbot />
+      {/* <Footer />
+      <Chartbot /> */}
     </div>
   );
 };
