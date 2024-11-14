@@ -8,7 +8,7 @@ import React from "react";
 import layout1 from "../layout/layout1"
 import { Context } from "../hooks/context"
 import dynamic from 'next/dynamic';
-import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"
+// import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"
 // const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
 
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }) {
     <GoogleOAuthProvider clientId="418178406595-vqsd5staarqh0pibnho4l4s63gio1bm4.apps.googleusercontent.com">
       <Context>
         <Layout>
-       { isNotWeedPath &&  <CheckAgeEligbilityPopup  value={(cookies.get("CheckAge") && cookies.get("fetchlocation") )=== undefined ? true : false}></CheckAgeEligbilityPopup>}
+       {/* { isNotWeedPath &&  <CheckAgeEligbilityPopup  value={(cookies.get("CheckAge") && cookies.get("fetchlocation") )=== undefined ? true : false}></CheckAgeEligbilityPopup>} */}
         {isNotWeedPath && <Currentlocation></Currentlocation>   }
           <Component {...pageProps} />
         </Layout>
