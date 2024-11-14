@@ -10,7 +10,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import useStyles from '../../../styles/style';
+import useStyles from '@/styles/style';
 import dynamic from 'next/dynamic'
 const DeliveryItemsCard = dynamic(() => import('../../../component/DeliveriesComponent/DeliveryMenuBar/DeliveryItemsCards'), { ssr: true });
 import { Delivery } from '../../../component/ScoPage/Deliveries';
@@ -20,6 +20,7 @@ import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Location from '../../../hooks/utilis/getlocation';
 import Cookies from 'universal-cookie';
 import cookie from 'cookie';
+import clases from '@/styles/customstyle.module.scss'
 const Deliveries = (props) => {
     const cookies = new Cookies();
     // console.log(props)
@@ -214,12 +215,12 @@ const Deliveries = (props) => {
                         }
                     </div>
                     <div className="col-12 webContent">
-                        <h2 className="section_main_title">{contentdata?.Title}</h2>
+                        <h2 className={clases.section_main_title}>{contentdata?.Title}</h2>
                         <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
                     {contentdata.length !== 0 &&
                         contentdata?.Faq[0]?.title !== '' &&
-                        <>  <h3 className="section_main_title">{`FAQs`}</h3>
+                        <>  <h3 className={clases.section_main_title}>{`FAQs`}</h3>
                             <div className="row">
                                 {
                                     contentdata?.Faq?.map((item, index) => {

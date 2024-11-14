@@ -11,7 +11,7 @@ const Featuredbrand = ({ CardDataArray}) => {
     return (
         <div className="px-sm-0 px-3 ">
                 <div className="d-flex align-items-center justify-content-between">
-                    <h2 className="section_main_title">{`Featured Brands`}</h2>
+                    <h2 className={clases.section_main_title}>{`Featured Brands`}</h2>
                     <Link href='/brands'>
                         <span className={clases.viewallbtn}>{`View All`} <FaArrowRight   /></span>
                     </Link>

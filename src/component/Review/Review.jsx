@@ -30,28 +30,31 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
     },[short , AllReview])
     return (
         <div className={newclases.review_secton}>
-            <h2 className="section_main_title">{location.pathname.slice(1, 9) === "products" ?"products Review" : `${reviewtype} Reviews`}</h2>
+            <h2 className={newclases.section_main_title}>{location.pathname.slice(1, 9) === "products" ?"products Review" : `${reviewtype} Reviews`}</h2>
             <div className="row">
                     <div className="col-12">
                             <div className="my-3 gap-3 d-flex justify-content-end">
-                            { type === "store" &&
-                                <FormControl className={`${classes.reviewFilter}`} >
-                                <Select value={reviewtype}   onChange={(e)=>{setReviewtype(e.target.value)}} >
-                                    <MenuItem value={'All'}>All Review</MenuItem>
-                                    <MenuItem value={"product"}>Product Review</MenuItem>
-                                    <MenuItem value={"store"}>Store Review</MenuItem>
-                                </Select></FormControl>
+                                { type === "store" &&
+                                    <FormControl className={`${classes.reviewFilter}`} >
+                                        <Select value={reviewtype}   onChange={(e)=>{setReviewtype(e.target.value)}} >
+                                            <MenuItem value={'All'}>{`All Review`}</MenuItem>
+                                            <MenuItem value={"product"}>{`Product Review`}</MenuItem>
+                                            <MenuItem value={"store"}>{`Store Review`}</MenuItem>
+                                        </Select>
+                                    </FormControl>
                                 }
-                                    {noofreview !== 0 && <FormControl className={`${classes.reviewFilter}`} >
-                                <Select value={short}   onChange={(e)=>{setSort(e.target.value)}}  >
-                                    <MenuItem value={' '}><span>{`Short By`}</span></MenuItem>
-                                    <MenuItem value={'helpful'}>{`Most Relevant`}</MenuItem>
-                                    <MenuItem value={'newest'}>{`Newest Rating`}</MenuItem>
-                                    <MenuItem value={'highrate'}>{`Highest Rating`}</MenuItem>
-                                    <MenuItem value= {'lowrate'}>{`Lowest Rating`}</MenuItem>
-                                </Select>
-                                </FormControl>
-                            }
+                                        
+                                {   
+                                    noofreview !== 0 && <FormControl className={`${classes.reviewFilter}`} >
+                                        <Select value={short} onChange={(e)=>{setSort(e.target.value)}}  >
+                                            <MenuItem value={' '}><span>{`Short By`}</span></MenuItem>
+                                            <MenuItem value={'helpful'}>{`Most Relevant`}</MenuItem>
+                                            <MenuItem value={'newest'}>{`Newest Rating`}</MenuItem>
+                                            <MenuItem value={'highrate'}>{`Highest Rating`}</MenuItem>
+                                            <MenuItem value={'lowrate'}>{`Lowest Rating`}</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                }
                             </div>
                     </div>
             </div>

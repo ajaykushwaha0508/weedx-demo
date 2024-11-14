@@ -43,7 +43,7 @@ const Footer = () => {
                                     <a href="tel:+1 (209) 655-0360">  <BiMobile color="#31B665" size={22} /><span className={newclases.footer_middle_icons_text}>{`+1 (209) 655-0360`}</span></a>
                                 </div>
                                 <div className={newclases.Footer_Left_side_menu}>
-                                    <Link href={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&href=info@weedx.io'}>    <HiOutlineMail color="#31B665" size={22} /><span className={newclases.footer_middle_icons_text}>{`info@weedx.io`}</span></Link>
+                                    <Link href={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&href=info@weedx.io'}>    <HiOutlineMail color="#31B665" size={22} /><span className={newclases.footer_middle_icons_text}>{` info@weedx.io`}</span></Link>
                                 </div>
                             </div>
                         </div>

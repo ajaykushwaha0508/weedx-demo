@@ -6,7 +6,7 @@ const Staticcontent = () => {
         
             <div className="About_weedx">
                 <div className="container-fluid">
-                    <h2 className="section_main_title mb-sm-1 mb-3">{`Welcome to weedx.io`}</h2>
+                    <h2 className={`${clases.section_main_title} mb-sm-1 mb-3`}>{`Welcome to weedx.io`}</h2>
                     <p className="section_main_description">{`Your all-in-one cannabis destination. Discover a world of convenience with our Online Ordering and Delivery   Services. Explore a rich selection of Dispensary and Retailer Listings, all while enjoying the peace of mind that comes with our
                         full Compliance with Local Laws. Your journey to a seamless, legal, and informed cannabis experience begins here at
                         weedx.io`}</p>

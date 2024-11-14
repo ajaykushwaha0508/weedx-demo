@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import gifimage from '../../../public/image/gif.svg';
-import clases from '../../styles/customstyle.module.scss'
-
+import clases from '@/styles/customstyle.module.scss'
 import 'swiper/css/navigation';
 import "swiper/css";
 import { Navigation } from 'swiper/modules';
@@ -17,8 +16,6 @@ import  Faq from '@/component/storedetailsfootecomponent/faq';
 import Review from '@/component/storedetailsfootecomponent/review';
 const Oops = (props) => {
   var date = new Date();
-  console.log(props)
-
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
   const faq1 = [
@@ -97,7 +94,6 @@ const Oops = (props) => {
       />
     }
   ];
-
   const faq = [
     {
       title: `What is the service area for ${props?.delBtn[0]?.Store_Name} ?`,
@@ -245,7 +241,7 @@ const Oops = (props) => {
         {Boolean(props?.allproduct?.length) && <ProductSearchResult link={'/products'} RelatedProductResult={props?.allproduct} currentProductID={props?.allproduct[0]?.id} title={'Explore Nearby Products'} CategoryName={props?.allproduct[0]} />}
       </>
       <>
-        <h3 className="section_main_title mt-4">{`Frequently Asked Questions (FAQs)`}</h3>
+        <h3 className={`${clases.section_main_title} mt-4`}>{`Frequently Asked Questions (FAQs)`}</h3>
         <div className="row">
           {
             (props.faq === "delivery" ? faq : faq1)?.map((item, index) => {

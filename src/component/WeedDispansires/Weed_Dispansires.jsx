@@ -40,13 +40,13 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                         </div>
                     </div>
                     <div className="col-12 webContent">
-                        <h2 className="section_main_title">{contentdata?.Title}</h2>
+                        <h2 className={newclases.section_main_title}>{contentdata?.Title}</h2>
                         <div dangerouslySetInnerHTML={{ __html: contentdata?.Content }} />
                     </div>
                     {contentdata.length !== 0 &&
                         contentdata?.Faq[0]?.title !== '' &&
                         <>  
-                        <h3 className="section_main_title">FAQs</h3>
+                        <h3 className={newclases.section_main_title}>FAQs</h3>
 
                             <div className="row">
                                 {

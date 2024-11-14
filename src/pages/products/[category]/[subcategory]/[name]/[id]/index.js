@@ -3,7 +3,6 @@ import NewProductDetailsCards from "@/component/productcard/NewProductDetailsCar
 import ProductSearchResult from "@/component/productcard/ProductSearchResult"
 import Axios from "axios";
 import dynamic from 'next/dynamic'
-// import { useParams, usenavigate.push, useLocation } from 'react-router-dom';
 import { useRouter } from "next/router";
 import Review from "@/component/Review/Review"
 import { AiOutlineLeft } from "react-icons/ai";
@@ -12,15 +11,9 @@ import { product_OverAllGet_Review, Product_Add_Review, Product_Get_UserComment,
 import Createcontext from "@/hooks/context"
 import _ from 'lodash'
 import Link from "next/link";
-import { makeStyles } from "@material-ui/core/styles";
 import Loader from "@/component/Loader/Loader";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-// const usePlaceholderStyles = makeStyles(theme => ({
-//   placeholder: {
-//     color: "#aaa",
-//     fontWeight: '400'
-//   }
-// }));
+import clases from '@/styles/customstyle.module.scss';
 const NewProductDetails = (props) => {
   const { id } = props.id;
   const StoreProduct =  props.likeproduct
@@ -199,12 +192,6 @@ const NewProductDetails = (props) => {
     }).catch(() => {
     })
   }
-
-
-  // React.useEffect(() => {
-  //   h(Price.length !== 0 && Product.Prices[0].Price.filter((data) => data.id === parseInt(Price[0].Item_id)))
-  // }, [Price])
-
   function discountype(type, amount) {
     switch (type) {
       case "PercentageDiscount":
@@ -227,14 +214,6 @@ const NewProductDetails = (props) => {
   if (!StoreProduct.length) {
     return location?.pathname?.includes('/menu-integration') ? '' : <Loader />
   }
-
-  //  React.useEffect(()=>{
-  //   console.log(location.pathname === `products/${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}/${Product.id}`)
-  //   if (location.pathname === `products/${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}/${Product.id}`) {
-  //     console.log("true")
-  //    }
-  //  },[Product])
-  // console.log(`${modifystr(Product.category_name)}/${modifystr(Product.SubcategoryName)}/${modifystr(Product.Product_Name)}` )
 
 console.log(props , 'props props propsprops ')
   return (
@@ -280,7 +259,7 @@ console.log(props , 'props props propsprops ')
       </span>
       <NewProductDetailsCards link={location.pathname.slice(0, 9) === "/products" ? props.data[0].Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries" : "menu-integration"} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={props.data[0]} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
       {Boolean(props.data[0]?.copuon?.length) && <div className="offerlist">
-        <h2 className="section_main_title">Offers</h2>
+        <h2 className={clases.section_main_title}>{`Offers`}</h2>
         <div className="offerlistwrapper">
           {
             props.data[0].copuon?.map((item, index) => {

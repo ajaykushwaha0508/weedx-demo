@@ -237,9 +237,9 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                 {Boolean(RelatedProductResult?.length) &&
                     <div className="my-sm-4 my-2">
                         {title === "You may also like" || title === "Explore Nearby Products" ?
-                            <h2 className="section_main_title ">{title}</h2>
+                            <h2 className={newclases.section_main_title} >{title}</h2>
                             :
-                            <h1 className="section_main_title ">{title}</h1>
+                            <h1 className={newclases.section_main_title} >{title}</h1>
                         }
                     </div>}
                 { (title === 'You may also like') || title === "Explore Nearby Products" ?

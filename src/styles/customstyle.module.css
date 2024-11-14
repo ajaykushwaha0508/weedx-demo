@@ -1,3 +1,12 @@
+.section_main_title {
+  margin-top: 10px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
 .page_breadcrum span {
   font-size: 12px;
   font-weight: 500;
@@ -531,7 +540,6 @@
   width: 80%;
 }
 
-/* navbar */
 .canabisLawMainHeadings {
   font-size: 24px;
   font-weight: 700;
@@ -3038,6 +3046,249 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   margin-right: 10px;
 }
 
+.agecheckerpopup .checkAgeEligiblityPop_container {
+  height: auto;
+  padding-top: 60px;
+}
+.agecheckerpopup .checkAgeEligiblityPop_container .AgeSetPOpup {
+  margin-top: 4px;
+  border-radius: 35px;
+  gap: 16px;
+  padding-left: 10px;
+  background-color: #ffe791;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  color: #000000;
+  font-weight: 700;
+  padding-left: 20px;
+}
+.agecheckerpopup .checkAgeEligiblityPop_container .checkAgeEligibilty_label {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.agecheckerpopup .checkAgeEligiblityPop_container .checkAgeEligibilty_label label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #363535;
+}
+.agecheckerpopup .checkAgeEligiblityPop_container .checkAgeEligibility_Select {
+  display: flex;
+  justify-content: center;
+}
+.agecheckerpopup .checkEligbiltyMarginTop .checkEligibiltypopCol {
+  border-top: 1px solid #DCD9D9;
+  margin-top: 23px;
+  padding: 10px 0;
+  background-color: #E7E7E7;
+}
+.agecheckerpopup .checkEligbiltyMarginTop .checkEligibiltypopCol .checkAgeEligibility_footer {
+  color: #B6B6B6;
+  font-size: 13px;
+  margin-bottom: 0px;
+  padding: 0px 15px;
+}
+.agecheckerpopup .checkEligbiltyMarginTop .checkEligibiltypopCol .checkAge_thankP {
+  text-align: center;
+  color: #B6B6B6;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.DeliveryItemsCardSkeleton {
+  height: auto;
+  padding: 0px 15px;
+}
+.DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton {
+  background: #FFFFFF;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 15px;
+  height: auto;
+  padding: 10px;
+}
+.DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardLeftSkeleton {
+  height: 250px;
+  padding: 10px;
+}
+.DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardRightSkeleton {
+  height: 150px;
+}
+.DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardRightSkeleton .deliveryItemFirstRightSide {
+  padding: 15px;
+}
+.DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardRightSkeleton .deliveryItemRightSide {
+  padding: 15px;
+}
+.DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardRightSkeletonBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.blogEditorContainer {
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  height: 100%;
+  margin-top: 40px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.blogEditorContainer .UserNmae_Blog {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-color: #F6F6F6;
+  width: 100%;
+  padding: 5px 20px;
+}
+.blogEditorContainer .UserNmae_Blog .UserNmae {
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.blogEditorContainer .blog_Image {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.blogEditorContainer .blog_Image img {
+  width: 70%;
+  height: auto;
+}
+.blogEditorContainer .blog_Title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  text-transform: capitalize;
+  word-break: break-word;
+}
+.blogEditorContainer .blog_text_container p {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+}
+.blogEditorContainer .blog_text_container a {
+  color: #0062ff;
+}
+.blogEditorContainer .blog_text_container a:hover {
+  color: #31B655;
+}
+.blogEditorContainer .blog_text_container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Overpass", sans-serif;
+}
+.blogEditorContainer .blog_text_container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Overpass", sans-serif;
+}
+.blogEditorContainer .blog_text_container h3 {
+  font-size: 23px;
+  font-weight: 600;
+  font-family: "Overpass", sans-serif;
+}
+.blogEditorContainer .blog_text_container h4 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Overpass", sans-serif;
+}
+.blogEditorContainer .blog_text_container h5 {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Overpass", sans-serif;
+}
+.blogEditorContainer .blog_text_container h6 {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Overpass", sans-serif;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings {
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+  padding: 10px;
+  margin-top: 15px;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings P strong {
+  font-weight: 600 !important;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings ul li {
+  margin-bottom: 10px;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer a span {
+  color: #31B665 !important;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer img {
+  max-width: 80% !important;
+  height: auto !important;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer table {
+  border-collapse: separate !important;
+}
+.blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer table tbody {
+  border: revert-layer !important;
+  border-color: inherit;
+  border-collapse: separate !important;
+}
+.blogEditorContainer .Linkofblog {
+  flex-wrap: wrap;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  background: #F6F6F6;
+}
+.blogEditorContainer .Linkofblog .BlogSocal {
+  gap: 10px;
+}
+.blogEditorContainer .Linkofblog .BlogSocal:hover svg {
+  fill: #31B665 !important;
+}
+.blogEditorContainer .Linkofblog .BlogSocal .blogViewCounts {
+  margin-left: 8px;
+}
+.blogEditorContainer .Linkofblog .BlogSocal #center1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blogEditorContainer .Linkofblog .viewsBlog {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  gap: 2px;
+  font-size: 15px;
+  height: 50px;
+  display: inline-flex;
+}
+.blogEditorContainer .Linkofblog .viewsBlog .blogViewCounts {
+  margin-left: 8px;
+}
+.blogEditorContainer .Linkofblog .viewsBlog #center1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer table tbody, .blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer td {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px !important;
+}
+
 @media (max-width: 1440px) {
   .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li {
     font-size: 16px;
@@ -3343,6 +3594,35 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .blogEditorContainer {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .blogEditorContainer .blog_Title {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .blogEditorContainer .blog_text_container h1 {
+    font-size: 26px;
+  }
+  .blogEditorContainer .blog_text_container h2 {
+    font-size: 22px;
+  }
+  .blogEditorContainer .blog_text_container h3 {
+    font-size: 20px;
+  }
+  .blogEditorContainer .blog_text_container h4 {
+    font-size: 16px;
+  }
+  .blogEditorContainer .blog_text_container h5 {
+    font-size: 14px;
+  }
+  .blogEditorContainer .blog_text_container h6 {
+    font-size: 12px;
+  }
+  .blogEditorContainer .blog_text_container p {
+    font-size: 14px;
   }
 }
 @media (max-width: 768px) {
@@ -3834,8 +4114,21 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .HomePageDealsSignupContainer .contentarea .newsletterFormFeild .newsletter_btn {
     width: 30%;
   }
+  .DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardLeftSkeleton {
+    height: 100px;
+  }
+  .DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardRightSkeleton .deliveryItemRightSide {
+    display: none;
+  }
+  .DeliveryItemsCardSkeleton .eachDeliveryItemsCardLeftSkeleton .DeliveryItemsCardRightSkeletonBtn {
+    justify-content: flex-start;
+  }
 }
 @media (max-width: 480px) {
+  .section_main_title {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
   .customsearchbarbox {
     width: 100%;
     margin-bottom: 10px;
@@ -4141,6 +4434,37 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     background-color: #31B655;
     color: #fff;
     border: 1px solid #31B655;
+  }
+  .blogEditorContainer {
+    padding: 10px;
+  }
+  .blogEditorContainer .blog_Image img {
+    width: 90%;
+  }
+  .blogEditorContainer .blog_Title {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .blogEditorContainer .blog_text_container p {
+    font-size: 14px;
+  }
+  .blogEditorContainer .blog_text_container h1 {
+    font-size: 18px;
+  }
+  .blogEditorContainer .blog_text_container h2 {
+    font-size: 16px;
+  }
+  .blogEditorContainer .blog_text_container h3 {
+    font-size: 16px;
+  }
+  .blogEditorContainer .blog_text_container h4 {
+    font-size: 16px;
+  }
+  .blogEditorContainer .blog_text_container h5 {
+    font-size: 16px;
+  }
+  .blogEditorContainer .blog_text_container h6 {
+    font-size: 14px;
   }
 }
 @media (max-width: 400px) {

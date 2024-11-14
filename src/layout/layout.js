@@ -34,8 +34,6 @@ const Layout = ({ children }) => {
     }
   }, [detectSize]);
 
-
-
   return (
     <div>
       <div className='fixed-top' style={{ zIndex: 2 }}>

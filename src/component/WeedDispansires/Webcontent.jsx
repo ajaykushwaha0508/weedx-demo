@@ -5,19 +5,20 @@
     import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
     import Link from "next/link";
     import Neighborhood from "./loactoncomponent/Neighborhood";
+    import clases from '@/styles/customstyle.module.scss';
     import Zipcode from "./loactoncomponent/Zipcode";
     import { GetProduct } from '../../hooks/apicall/api'
     const WebContent = ({ state, Store = [], modifystr, from, url, product, location , urlcscr }) => {
         // console.log(urlcscr)
 
-        function getediblelist() {
-            Store?.forEach((item) => {
-                item?.Category?.forEach((items) => {
-                    if ("EDIBLES" in items) {
-                    }
-                })
-            })
-        }
+        // function getediblelist() {
+        //     Store?.forEach((item) => {
+        //         item?.Category?.forEach((items) => {
+        //             if ("EDIBLES" in items) {
+        //             }
+        //         })
+        //     })
+        // }
         useEffect(() => {
             Store?.forEach((item) => {
                 item?.Category?.forEach((items) => {
@@ -30,7 +31,7 @@
         return (
             <div >
                 <div className="col-12 webContent">
-                    <h2 className="section_main_title">{`Discover the Best Cannabis ${from} in ${location}`} </h2>
+                    <h2 className={clases.section_main_title}>{`Discover the Best Cannabis ${from} in ${location}`} </h2>
                     <div style={{ display: "grid", gap: "8px" }}>
                         <p>{`Explore top-rated weed ${from} in ${location} with Weedx.io. Our platform simplifies the search for trusted recreational and medical ${from} conveniently located near you in ${location} `}</p>
                         <h3>{`Top Weed  ${from} in ${location}`}</h3>
@@ -78,7 +79,7 @@
                 </div>
                 {Boolean(Store.length) && 
                 <div>
-                <h3 className="section_main_title">{`FAQs`}</h3>
+                <h3 className={clases.section_main_title}>{`FAQs`}</h3>
                     <div className="row">
                         <div className="col-lg-6 webContent my-2">
                             <Accordion>

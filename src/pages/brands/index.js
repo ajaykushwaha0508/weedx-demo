@@ -13,7 +13,6 @@ export default Brands;
 
 export async function getStaticProps() {
     let verifyArrayData = [];
-
     try {
         const response = await fetch('https://api.cannabaze.com/UserPanel/Get-AllBrand/');
         if (response.ok) {

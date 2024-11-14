@@ -64,7 +64,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="">
                                     {
-                                        title === 'Weed Dispensaries Near You'?<h1 className='section_main_title'>{title}</h1>:<h2 className='section_main_title'>{title}</h2>
+                                        title === 'Weed Dispensaries Near You'?<h1 className={clases.section_main_title}>{title}</h1>:<h2 className={clases.section_main_title}>{title}</h2>
                                     }
                                     
                                     {link === "weed-deliveries" && <h3 className='section_main_subtitle'>{location}</h3>}

@@ -5,9 +5,9 @@ import { useState } from "react";
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import clases from "@/styles/customstyle.module.scss"
 const RelatedVerifyBanner = ({ BrandDetails }) => {
     const [readmore, setreadmore] = useState(false)
-  
     const handleContainerClick = (e) => {
         if (e.target.tagName === 'SPAN') {
             setreadmore(!readmore)
@@ -15,9 +15,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
     };
     return (
             <div className="brandProfileBanner row center">
-
                 <div className={"relatedVerifyBrand_Banner"}>
-
                     <div className="relatedVerifyBrand_icons">
                       <div className="shareiconcontainer ">
                         <IconButton aria-label="share icons">
@@ -38,9 +36,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                             </div>
                         </div>
                         <div className="RelatedVerifyBanner_content_box">
-
-                            <h1 className="section_main_title">{BrandDetails?.name}</h1>
-
+                            <h1 className={clases.section_main_title}>{BrandDetails?.name}</h1>
                             <div className={readmore ? "related_verify_paragraph" : " brandMoreLess"}>
 
                                 <div id="html"
@@ -53,7 +49,6 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                                     }} />
 
                             </div>
-
                         </div>
                     </div>
 
