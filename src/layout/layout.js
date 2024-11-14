@@ -6,8 +6,8 @@ import Navbar from '@/component/navbar/newnavbar/nevbar';
 import Footer from '@/component/Footer/Footer';
 import { debounce } from 'lodash';
 
-const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'), { ssr: false });
-
+// const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'), { ssr: false });
+import Chartbot from '@/component/chartbot/Chartbot';
 const Layout = ({ children }) => {
 
 
