@@ -109,7 +109,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
             return name
           })
           dispatch({ type: 'DeliveryAddress', DeliveryAddress: name })
-          console.log(response.data)
+          // console.log(response.data)
           Seterror('Delivery Address Selected Successfully!')
           alldata.map((data) => {
             if (data.types.indexOf('country') !== -1) {

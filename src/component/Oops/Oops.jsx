@@ -16,6 +16,8 @@ import  Faq from '@/component/storedetailsfootecomponent/faq';
 import Review from '@/component/storedetailsfootecomponent/review';
 const Oops = (props) => {
   var date = new Date();
+  console.log(props)
+
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
   const faq1 = [

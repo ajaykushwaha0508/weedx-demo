@@ -792,7 +792,7 @@ app.prepare().
 		<priority>0.7</priority>
 	</url>
   <url>
-		<loc>http://localhost:3000/learn/laws-and-regulation/cannabis-law-in-yukon/41</loc>
+		<loc>https://www.weedx.io/learn/learn/laws-and-regulation/cannabis-law-in-yukon/41</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>

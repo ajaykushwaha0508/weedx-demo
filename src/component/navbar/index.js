@@ -1,17 +1,16 @@
-
-import { useEffect, useState,useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import React from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import Link from 'next/link';
 import dynamic from 'next/dynamic'
-const SideNavbar = dynamic(() => import('../navbar/component/SideSlider/Slider') ,{ssr:false});
-const Afterlogin = dynamic(() => import('../navbar/component/afterlogin') ,{ssr:false});
+const SideNavbar = dynamic(() => import('../navbar/component/SideSlider/Slider'));
+const Afterlogin = dynamic(() => import('../navbar/component/afterlogin'));
 import useStyles from "../../styles/style";
 // import SearchBar from "../navbar/component/searchbar";
-const SearchBar =  dynamic(() => import('../navbar/component/searchbar') ,{ssr:false});
+const SearchBar = dynamic(() => import('../navbar/component/SearchBar'));
 import { AiFillHeart } from "react-icons/ai";
 import Image from 'next/image';
-const Notification =  dynamic(() => import('./component/Notification') ,{ssr:false}); ;
+const Notification = dynamic(() => import('./component/Notification'));
 // import Notification from './component/Notification';
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -23,42 +22,31 @@ import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/router';
 import image1 from "../../../public/weedx.iologo.png"
 import clases from '@/styles/customstyle.module.scss'
-import { debounce } from 'lodash'; // Or implement a custom debounce
-const Navbar = ({Hamburger = true}) => {
+const Navbar = () => {
     const cookies = new Cookies();
     const ref = React.useRef(null);
     const profileRef = React.useRef(null);
     const Location = useRouter();
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
+    const [Hamburger, setHamburger] = React.useState(true);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [dropDownState, setDropDownState] = React.useState(false);
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-    // const [Hamburger, setHamburger] = useState(true);
-
-    // Memoize the detectSize function with debounce to optimize resize handling
-    // const detectSize = useCallback(
-    //   debounce(() => {
-    //     setHamburger(window.innerWidth > 991);
-    //   }, 100), // Adjust the debounce delay as needed
-    //   []
-    // );
-  
-    // useEffect(() => {
-    //   // Only run the effect on the client side
-    //   if (typeof window !== 'undefined') {
-    //     detectSize(); // Initial detection
-    //     window.addEventListener('resize', detectSize);
-        
-    //     // Cleanup on component unmount
-    //     return () => {
-    //       window.removeEventListener('resize', detectSize);
-    //       detectSize.cancel(); // Cancel any pending debounced calls
-    //     };
-    //   }
-    // }, [detectSize]);
+    const detectSize = () => {
+        setHamburger(window?.innerWidth <= 991 ? false : true);
+    };
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+            detectSize();
+            window.addEventListener('resize', detectSize);
+            return () => {
+                window.removeEventListener('resize', detectSize);
+            };
+        }
+    }, []);
     const openNav = () => {
         setOpen((prevOpen) => !prevOpen);
     };
@@ -72,8 +60,6 @@ const Navbar = ({Hamburger = true}) => {
         await dispatch({ type: 'ApiProduct' });
         await dispatch({ type: 'Profile', Profile: [] });
     }
-
-
     React.useEffect(() => {
         const handleClickOutside = (event) => {
             if (ref.current && !ref.current.contains(event.target)) {
@@ -100,42 +86,39 @@ const Navbar = ({Hamburger = true}) => {
             document.removeEventListener('click', handleClickOutsideProfile, true);
         };
     }, [dropDownState]);
-    const handleClickDropdown = useCallback(() => {
+    const handleClickDropdown = () => {
         setDropDownState((prevState) => !prevState);
-    })
+    }
     return (
         <React.Fragment>
-            {/* <div className='container p-0'> */}
-                <div ref={ref} className={`${clases.NavbarBox} container p-1`}  id='Navbar_box' >
+            <div className='container p-0'>
+                <div ref={ref} className={clases.NavbarBox} id='Navbar_box' >
                     <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                         {
-                            Hamburger ? 
-                                <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
-                                        <Link href="/"> <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true}   src={image1.src}  alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
+                            Hamburger ?
+                                <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
+                                    <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={image1.src} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                                 </Grid>
                                 :
-                                 
-                                 <Grid item container xs={3} md={2} xl={2} alignItems="center">
+                                <Grid container xs={3} md={2} xl={2} alignItems="center">
                                     <div className='center ml-3' >
                                         <button className={clases.openbtn} onClick={openNav}>☰</button>
                                     </div>
                                 </Grid>
                         }
-                        <Grid item xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
+                        <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
                             {
                                 Hamburger ?
-                                
-                                    <SearchBar path={Location.pathname} />
-                      
+                               
+                                 <SearchBar path={Location.pathname } />
                                     :
-                                               <div className='text-center'>
-                                       <Link href="/"><Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
-                                  </div>
-                        
+                                    <div className='text-center'>
+                                        <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
+                                    </div>
                             }
                         </Grid>
-                        
-                        <Grid  item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
+
+                        <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                             <div className={clases.Heder_icon} >
                                 <Link href="/whislists">
                                     <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
@@ -143,10 +126,10 @@ const Navbar = ({Hamburger = true}) => {
                                     </Badge>
                                 </Link>
                                 <div className="notification_icon" >
-                                    <Badge  onClick={() => setNotify(!notify)} badgeContent={
-                                       Boolean( state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
+                                    <Badge onClick={() => setNotify(!notify)} badgeContent={
+                                        Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
                                     } className={classes.sliderLink_badge}>
-                                        <IconButton  className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications  color="#858585" size={22}></IoIosNotifications></IconButton>
+                                        <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                                     </Badge>
                                     <Notification
                                         notify={notify}
@@ -163,17 +146,17 @@ const Navbar = ({Hamburger = true}) => {
                                 </Link>
                             </div>
                         </Grid>
-                        <Grid item xs={5} md={4} xl={3}>
-                   
-                            <Afterlogin dropDownState={dropDownState} state={state} profileRef ={profileRef} handleClickDropdown= {handleClickDropdown} Logout={Logout}></Afterlogin >
+                        <Grid xs={5} md={4} xl={3}>
+
+                            <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}></Afterlogin >
                         </Grid>
-                        <Grid item xs={12} md={12} xl={12}>
-                            <SliderLink Hamburger={"nano"} state={state}></SliderLink>
+                        <Grid xs={12} md={12} xl={12}>
+                            <SliderLink state={state}></SliderLink>
                             <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
                         </Grid>
                     </Grid>
                 </div>
-            {/* </div> */}
+            </div>
         </React.Fragment>
     );
 };

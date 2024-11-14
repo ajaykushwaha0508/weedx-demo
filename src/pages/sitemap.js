@@ -6,8 +6,8 @@ const Sitemap = () => {
     const { state } = React.useContext(Createcontext)
     const pages = [
         { page: "Home", link: "/" },
-        { page: "Dispensaries", link: `/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}` },
-        { page: "deliveries", link: `/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}` },
+        // { page: "Dispensaries", link: `/weed-dispensaries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}` },
+        // { page: "deliveries", link: `/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}` },
         { page: "All News", link: "/cannabis-news" },
         { page: "brands", link: `/brands` },
         { page: "products", link: `/products` },

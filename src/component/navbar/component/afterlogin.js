@@ -9,7 +9,7 @@ import { TbEdit } from "react-icons/tb";
 import { FaHandsHelping } from "react-icons/fa";
 import useStyles from "@/styles/style";
 import Image from 'next/image';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Logout }) => {
     const classes = useStyles();
     return (

@@ -227,7 +227,6 @@ const Dispensaries = (props) => {
 
     }
 
-    console.log(props.store)
     return (
         <div className="w-100 mx-auto  dispensaries_centers">
             <DispensariesSco location={navigate?.asPath} format_Address={props?.formatted_address} ></DispensariesSco>
