@@ -1,10 +1,11 @@
 import { useEffect, useState, useCallback } from 'react';
 import Grid from '@mui/material/Grid';
-
+import dynamic from 'next/dynamic'
 import Navbar from '@/component/navbar/newnavbar/nevbar';
 
+// const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'), { ssr: false });
 // import Footer from '@/component/Footer/Footer';
-
+const Footer = dynamic(() => import('@/component/Footer/Footer'), { ssr: false });
 // import Chartbot from '@/component/chartbot/Chartbot';
 const Layout = ({ children }) => {
 
@@ -21,8 +22,8 @@ const Layout = ({ children }) => {
           <main>{children}</main> 
         </Grid>
       </div>
-      {/* <Footer />
-      <Chartbot /> */}
+      <Footer />
+      {/* <Chartbot /> */}
     </div>
   );
 };

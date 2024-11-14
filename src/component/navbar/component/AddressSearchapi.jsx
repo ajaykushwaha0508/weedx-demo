@@ -301,7 +301,7 @@ React.useEffect(() => {
   }
 }, [state.locationFocus])
 
-
+console.log(formatted_address)
 return (
   <>
 
@@ -323,8 +323,8 @@ return (
       onBlur={OnBlur}
       sx={{ width: "100%" }}
       options={placePredictions}
-      inputValue={formatted_address || ''}
-      value={formatted_address || ''}
+      inputValue={formatted_address}
+      value={formatted_address}
       onChange={((element, value) => { handleAddressChange(element, value) })}
       renderOption={(props, value, index) => {
         return (
