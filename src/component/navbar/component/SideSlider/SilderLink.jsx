@@ -6,7 +6,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import SearchBar from "../searchbar";
+import SearchBar from "../SearchBar";
 import Badge from "@mui/material/Badge";
 import { HiSpeakerphone } from "react-icons/hi";
 import useStyles from "../../../../styles/style";

@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 import { debounce } from 'lodash'; // Or implement a custom debounce
 import Link from 'next/link';
 import Image from 'next/image';
-import SearchBar from '../component/searchbar';
+import SearchBar from '../component/SearchBar';
 import { useRouter } from 'next/router';
 import Createcontext from "@/hooks/context";
 import Cookies from 'universal-cookie';
