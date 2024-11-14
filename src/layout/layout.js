@@ -8,32 +8,6 @@ const Footer = dynamic(() => import('@/component/Footer/Footer'));
 // import Chartbot from '@/component/chartbot/Chartbot';
 import newclases from '@/styles/customstyle.module.scss';
 const Layout = ({ children }) => {
-  const [Hamburger, setHamburger] = useState(
-    typeof window !== 'undefined' ? window.innerWidth > 991 : true
-  );
-
-  const detectSize = useCallback(
-    debounce(() => {
-      setHamburger(window.innerWidth > 991);
-    }, 100),
-    []
-  );
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Set initial value accurately on mount in case SSR defaults aren't accurate
-      setHamburger(window.innerWidth > 991);
-
-      window.addEventListener('resize', detectSize);
-
-      return () => {
-        window.removeEventListener('resize', detectSize);
-        detectSize.cancel();
-      };
-    }
-  }, [detectSize]);
-
-
 
   return (
     <div>
