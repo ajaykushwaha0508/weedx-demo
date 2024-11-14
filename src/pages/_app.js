@@ -8,8 +8,8 @@ import React from "react";
 import layout1 from "../layout/layout1"
 import { Context } from "../hooks/context"
 import dynamic from 'next/dynamic';
-
-const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
+import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"
+// const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
 
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup";

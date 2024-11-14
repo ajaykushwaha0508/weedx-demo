@@ -8,189 +8,137 @@ import Createcontext from "@/hooks/context"
 import Link from 'next/link';
 import Image from 'next/image';
 import { modifystr } from '@/hooks/utilis/commonfunction';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 
 export default function Notification({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
     const cookies = new Cookies();
-    let token_data = cookies.get('User_Token_access')
-    let accessToken 
+    let token_data = cookies.get('User_Token_access');
     if (typeof window !== 'undefined') {
-         accessToken = localStorage.getItem('User_Token_access');
+      token_data = localStorage.getItem('User_Token_access');
     }
-    if(  Boolean(accessToken) ){ token_data  =  accessToken}
-    const { state , dispatch } = React.useContext(Createcontext)
-    function calculateTImefromDate(value) {
-        let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
-        let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
-        let days = diffTime / (24 * 60 * 60 * 1000);
-        let hours = (days % 1) * 24;
-        let minutes = (hours % 1) * 60;
-        let secs = (minutes % 1) * 60;
-        [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)]
-
-        if (months !== 0) {
-            return months + " Month ago"
-        } else if (days !== 0) {
-            return days + " days ago"
-        }
-        else if (hours !== 0) {
-            return hours + " hours ago"
-        }
-        else if (minutes !== 0) {
-            return minutes + " minutes ago"
-        }
-        else {
-            return secs + " secs ago"
-        }
-    }
-
+  
+    const { state, dispatch } = React.useContext(Createcontext);
+  
+    // Memoizing the time calculation function to avoid recalculating on every render
+    const calculateTImefromDate = React.useCallback((value) => {
+      let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
+      let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
+      let days = diffTime / (24 * 60 * 60 * 1000);
+      let hours = (days % 1) * 24;
+      let minutes = (hours % 1) * 60;
+      let secs = (minutes % 1) * 60;
+      [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)];
+  
+      if (months !== 0) {
+        return months + ' Month ago';
+      } else if (days !== 0) {
+        return days + ' days ago';
+      } else if (hours !== 0) {
+        return hours + ' hours ago';
+      } else if (minutes !== 0) {
+        return minutes + ' minutes ago';
+      } else {
+        return secs + ' secs ago';
+      }
+    }, []);
+  
     React.useEffect(() => {
-        if (state.login) {
-            const config = {
-                headers: { Authorization: `Bearer ${token_data}` }
-            }
-            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
-                config,
-            ).then((res) => { 
-                let datax = []
-                res.data.forEach((item, index) => {
-                  
-                    if (item.Order.length !== 0) {
-                     
-                        datax.push({
-                            Image: item.Order[0].StoreImages,
-                            title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
-                            date: item.Order[0].OrderDate,
-                            link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
-                            Id: item.Notification
-                        })
-                    }
-                    if (item.blog.length !== 0) {
-                       
-                        datax.push({
-                            Image: item.blog[0].Image,
-                            title: item.blog[0].Title,
-                            date: item.blog[0].created,
-                            link: `/${item.blog[0].category_name==="BLOGS"? "blogs":"cannabis-news"}/${modifystr(item.blog[0].Title)}/${item.blog[0].id}`,
-                            Id:item.Notification
-                        })
-                    }
-
-                
-
-                })
-                let newddt = _.sortBy(datax, function (dateObj) {
-                    return dateObj.date;
+      if (state.login) {
+        const config = { headers: { Authorization: `Bearer ${token_data}` } };
+  
+        axios
+          .get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`, config)
+          .then((res) => {
+            let datax = [];
+            res.data.forEach((item) => {
+              if (item.Order.length !== 0) {
+                datax.push({
+                  Image: item.Order[0].StoreImages,
+                  title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
+                  date: item.Order[0].OrderDate,
+                  link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
+                  Id: item.Notification,
                 });
-                Settotalnotify(newddt)
-              
-                Setnotificationdata(newddt.reverse())
-
-            }).catch((err) => {
-
-            })
-        }
-        else {
-            // axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotification/`,
-            // ).then((respones) => {
-               
-            //     if(Boolean(respones?.data)){
-            //         let newdata = respones.data.Blog.map((data) => {
-            //             return { "link": `/${data.category_name==="BLOGS"? "blogs":"cannabis-news"}/${modifystr(data.Title)}/${data.id}`, 'title': data.Title, "image": data.Image, 'date': data.created }
-            //         })
-            //         Setnotificationdata(()=>newdata)
-
-            //     }
-            //     else {
-            //         Setnotificationdata([{ ...notificationdata, "link": `/`, 'title': "Welcome TO WeedX" }])
-            //     }
-            // }).catch((err) => {
-
-            // })
-        }
-    }, [state.login])
-
-    function ClearAll() {
-        const config = {
-            headers: { Authorization: `Bearer ${token_data}` }
-        }
-        let ab = notificationdata.map((item)=>{
-            return item.Id
-        })
-   
-        axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
-            {
-                Clear: ab
-            },
-            config
-        ).then((respones) => {
-            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                Setnotificationdata([])
-            
-        }).catch((err) => {
-
-        })
-    }
-    function Clear(e) {
-        const config = {
-            headers: { Authorization: `Bearer ${token_data}` }
-        }
-        axios.post(`https://api.cannabaze.com/UserPanel/ClearNotification/`,
-            {
-                Clear: [e.Id]
-            },
-            config
-        ).then((respones) => {
-
-            axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
-            config,
-                ).then((res) => {
-
-                  
-                    let datax = []
-                    res.data.forEach((item, index) => {
-
-                        if (item.Order.length !== 0) {
-                         
-                            datax.push({
-                                Image: item.Order[0].IdCard,
-                                title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
-                                date: item.Order[0].OrderDate,
-                                link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
-                                Id: item.Notification
-                            })
-                        }
-                        if (item.blog.length !== 0) {
-                           
-                            datax.push({
-                                Image: item.blog[0].Image,
-                                title: item.blog[0].Title,
-                                date: item.blog[0].updated,
-                                link: `/cannabis-news/${modifystr(item.blog[0].Title)}/${item.blog[0].id}`,
-                                Id:item.Notification
-                            })
-                        }
-                    })
-                    let newddt = _.sortBy(datax, function (dateObj) {
-                        return dateObj.date;
-                    });
-                    dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                    Setnotificationdata(newddt.reverse())
-
-                }).catch((err) => {
-                })
-        }).catch((err) => {
-
-        })
-    }
-
-    function removenotify(data){
-      let ab= notificationdata.filter((item ,index)=>{
-        return item.title !== data.title
-      })
-     Setnotificationdata(ab)
-    }
-
+              }
+              if (item.blog.length !== 0) {
+                datax.push({
+                  Image: item.blog[0].Image,
+                  title: item.blog[0].Title,
+                  date: item.blog[0].created,
+                  link: `/${item.blog[0].category_name === 'BLOGS' ? 'blogs' : 'cannabis-news'}/${modifystr(item.blog[0].Title)}/${item.blog[0].id}`,
+                  Id: item.Notification,
+                });
+              }
+            });
+  
+            let sortedData = _.sortBy(datax, (dateObj) => dateObj.date);
+            Settotalnotify(sortedData);
+            Setnotificationdata(sortedData.reverse());
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    }, [state.login]);
+  
+    const ClearAll = async () => {
+      const config = { headers: { Authorization: `Bearer ${token_data}` } };
+      const notificationIds = notificationdata.map((item) => item.Id);
+  
+      try {
+        await axios.post(
+          'https://api.cannabaze.com/UserPanel/ClearNotification/',
+          { Clear: notificationIds },
+          config
+        );
+        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
+        Setnotificationdata([]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  
+    const Clear = async (e) => {
+      const config = { headers: { Authorization: `Bearer ${token_data}` } };
+  
+      try {
+        await axios.post(
+          'https://api.cannabaze.com/UserPanel/ClearNotification/',
+          { Clear: [e.Id] },
+          config
+        );
+  
+        const response = await axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`, config);
+  
+        let datax = [];
+        response.data.forEach((item) => {
+          if (item.Order.length !== 0) {
+            datax.push({
+              Image: item.Order[0].IdCard,
+              title: `Thank you for ordering with WeedX.io! Your order #${item.Order[0].OrderId} is confirmed for $${item.Order[0].subtotal}.`,
+              date: item.Order[0].OrderDate,
+              link: `/MyOrderProductDetail/${item.Order[0].OrderId}`,
+              Id: item.Notification,
+            });
+          }
+          if (item.blog.length !== 0) {
+            datax.push({
+              Image: item.blog[0].Image,
+              title: item.blog[0].Title,
+              date: item.blog[0].updated,
+              link: `/cannabis-news/${modifystr(item.blog[0].Title)}/${item.blog[0].id}`,
+              Id: item.Notification,
+            });
+          }
+        });
+  
+        let sortedData = _.sortBy(datax, (dateObj) => dateObj.date);
+        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
+        Setnotificationdata(sortedData.reverse());
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
     return (
         notify &&

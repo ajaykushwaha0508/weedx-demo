@@ -11,7 +11,7 @@ import Badge from "@mui/material/Badge";
 import { HiSpeakerphone } from "react-icons/hi";
 import useStyles from "../../../../styles/style";
 import IconButton from "@mui/material/IconButton";
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 import Notification from "../Notification";
 export default function DashBoardLink({ state, Hamburger }) {
   const classes = useStyles();
