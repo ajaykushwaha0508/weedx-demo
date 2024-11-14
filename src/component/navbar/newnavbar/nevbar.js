@@ -18,7 +18,7 @@ import Notification from '../component/Notification';
 import Afterlogin from "../component/afterlogin";
 import  SideNavbar from "../component/SideSlider/Slider"
 import SliderLink from "@/component/navbar/component/SideSlider/SilderLink"
-export default function nevbar() {
+export default function Nevbar() {
     const cookies = new Cookies();
     const ref = React.useRef(null);
     const profileRef = React.useRef(null);
