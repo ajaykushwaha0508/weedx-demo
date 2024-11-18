@@ -13,7 +13,7 @@ import _ from 'lodash'
 import Link from "next/link";
 import Loader from "@/component/Loader/Loader";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-import clases from '@/styles/customstyle.module.scss';
+import clases from '@/styles/customstyle.module.css';
 const NewProductDetails = (props) => {
   const { id } = props.id;
   const StoreProduct =  props.likeproduct
@@ -215,7 +215,7 @@ const NewProductDetails = (props) => {
     return location?.pathname?.includes('/menu-integration') ? '' : <Loader />
   }
 
-console.log(props , 'props props propsprops ')
+// console.log(props , 'props props propsprops ')
   return (
     <div className="container-fluid">
 

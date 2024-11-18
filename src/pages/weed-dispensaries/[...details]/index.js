@@ -26,9 +26,9 @@ import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Swal from 'sweetalert2';
 import Link from "next/link";
 import Image from "next/image";
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 import Oops from "@/component/Oops/Oops";
-import newclasess from '@/styles/customstyle.module.scss'
+import newclasess from '@/styles/customstyle.module.css'
 import Reviewextrs from "@/component/storedetailsfootecomponent/review"
 import Fqa from "@/component/storedetailsfootecomponent/faq"
 export default function DispensoriesDetails(props) {

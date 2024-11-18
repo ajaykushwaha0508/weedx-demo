@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Bgheader from '@/component/bgheader/Bgheader';
 import useStyles from "@/styles/style";
 import { HelpcenterSeo } from "@/component/ScoPage/Faq"
-import styled from '@/styles/customstyle.module.scss'
+import styled from '@/styles/customstyle.module.css'
 const Helpcenter = () => {
     const [allheight, setallheighth] = React.useState([])
     React.useEffect(() => {

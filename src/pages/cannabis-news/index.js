@@ -16,7 +16,7 @@ import Cookies from 'universal-cookie';
 import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
-import Styled from '@/styles/customstyle.module.scss';
+import Styled from '@/styles/customstyle.module.css';
 const Allblogs = (props) => {
   const router = useRouter()
   const { state } = React.useContext(Createcontext)

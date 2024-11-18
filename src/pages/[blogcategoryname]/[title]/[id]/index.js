@@ -32,7 +32,7 @@ import { modifystr } from "@/hooks/utilis/commonfunction";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import styled from '@/styles/customstyle.module.scss'
+import styled from '@/styles/customstyle.module.css'
 const Blogs = (props) => {
     let News = props.data[0]
     const router = useRouter()

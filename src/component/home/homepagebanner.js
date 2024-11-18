@@ -2,98 +2,94 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import HomePageBannerSkeleton from '../skeleton/DashBoardSkeleton/HomePageBannerSkeleton.jsx';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css';
+
 const HomePageBanner = ({ props }) => {
-
-    const [Skeletoncom, SetSkeleton] = React.useState(false)
-
-    const handleImageError = (event) => {
-        //  console.log(event.type === "error")
-        if (event.type === "error") {
-            // event.target.src = "/image/1.jpg"; // Fallback image URL
-            // setImageError(true);
-        }
-    };
-
-    const imageLoader = ({ src, width, quality }) => {
-        return `${src}?w=${width}&q=${quality || 100}`;
+  const handleImageError = (event) => {
+    if (event.type === "error") {
+      event.target.src = '/image/blankImage.jpg'; // Fallback image URL
     }
-    return (
-        <div>
-            {
-                !Skeletoncom ?
-                        <div className={`col-12 ${clases.homeBannerContainer}`}>
-                            <div className={clases.destop_image}>
-                                <Swiper loop={true} autoplay={{
-                                    delay: 25000,
-                                    disableOnInteraction: false,
+  };
 
-                                }} style={{ zIndex: 0 }} modules={[Autoplay]}>
-                                    {props?.reverse()?.map((items, index) => {
-                                        return (
-                                            <SwiperSlide key={index}>
-                                                <div className={`col-12 ${clases.homePageBanner_container}`}>
-                                                    <a href={items?.Link !== null ? items?.Link : "#"}>
-                                                        <Image
-                                                            onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                            src={items?.Banner}
-                                                            alt="Weedx.io Promotion banner"
-                                                            title="Weedx.io Promotion banner"
-                                                            width={1500}
-                                                            quality={1}
-                                                            height={500}
-                                                            priority
-                                                            loader={imageLoader}
-                                                            className={clases.HomePageBanner_image}
-                                                        />
-                                                    </a>
-                                                </div>
-                                            </SwiperSlide>
-                                        )
-                                    })}
-                                </Swiper>
-                            </div>
-                            <div className={clases.mobile_imges}>
-                                <Swiper loop={true} autoplay={{
-                                    delay: 2000,
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 100}`;
+  };
 
-                                    disableOnInteraction: true,
-                                }} style={{ zIndex: 0 }} modules={[Autoplay]}>
-                                    {props?.reverse()?.map((items, index) => {
-
-                                        return (
-                                            <SwiperSlide key={index}>
-                                                <div className={`col-12 ${clases.homePageBanner_container}`}>
-                                                    <a href={items?.Link !== null ? items?.Link : "#"}>
-                                                        <Image
-                                                            priority
-                                                            src={items?.mobile}
-                                                            alt="Weedx.io Promotion banner"
-                                                            title="Weedx.io Promotion banner"
-                                                            width={500}
-                                                            height={10}
-                                                            quality={30} // Adjusted quality
-                                                            sizes="(max-width: 768px) 100vw, 50vw" // Responsive sizes for mobile and desktop
-                                                            className={clases.HomePageBanner_image}
-                                                            onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                            loader={imageLoader} // Consider removing if using default optimization
-                                                        />
-                                                    </a>
-
-                                                </div>
-                                            </SwiperSlide>
-                                        )
-                                    })}
-                                </Swiper>
-                            </div>
-                        </div>
-                    :
-                    <HomePageBannerSkeleton />
-            }
-
-
+  return (
+    <React.Fragment>
+      <div className={clases.homeBannerContainer}>
+        {/* Desktop Images */}
+        <div className={clases.destop_image}>
+          <Swiper
+            loop={true}
+            autoplay={{
+              delay: 5000, // Reduced delay for faster LCP
+              disableOnInteraction: false,
+            }}
+            style={{ zIndex: 0 }}
+            modules={[Autoplay]}
+          >
+            {props?.reverse()?.map((items, index) => (
+              <SwiperSlide key={index}>
+                <div className={`col-12 ${clases.homePageBanner_container}`}>
+                  <a href={items?.Link ? items?.Link : "#"}>
+                    <Image
+                      src={items?.Banner}
+                      alt="Weedx.io Promotion banner"
+                      title="Weedx.io Promotion banner"
+                      width={1500}
+                      height={500}
+                      quality={80} // Adjusted for better compression
+                      priority // Critical for LCP
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1500px"
+                      className={clases.HomePageBanner_image}
+                      onError={handleImageError}
+                      loader={imageLoader}
+                    />
+                  </a>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-    )
-}
-export default HomePageBanner
+
+        {/* Mobile Images */}
+        <div className={clases.mobile_imges}>
+          <Swiper
+            loop={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: true,
+            }}
+            style={{ zIndex: 0 }}
+            modules={[Autoplay]}
+          >
+            {props?.reverse()?.map((items, index) => (
+              <SwiperSlide key={index}>
+                <div className={`col-12 ${clases.homePageBanner_container}`}>
+                  <a href={items?.Link ? items?.Link : "#"}>
+                    <Image
+                      src={items?.mobile}
+                      alt="Weedx.io Promotion banner"
+                      title="Weedx.io Promotion banner"
+                      width={500}
+                      height={500}
+                      quality={50} // Reduced quality for mobile optimization
+                      loading="lazy" // Lazy load for non-critical images
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={clases.HomePageBanner_image}
+                      onError={handleImageError}
+                      loader={imageLoader}
+                    />
+                  </a>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
+
+export default HomePageBanner;

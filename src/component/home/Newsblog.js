@@ -9,7 +9,7 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 // import { LazyLoadImage } from "react-lazy-load-image-component";
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import Image from "next/image";
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const Newsblog = (props) => {
      const News =  props.data
     return (

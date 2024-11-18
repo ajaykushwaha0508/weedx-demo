@@ -24,7 +24,7 @@ import { useRouter } from "next/router";
 import React from 'react';
 import Badge from '@mui/material/Badge';
 import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 import Cookies from 'universal-cookie';
 import { useState } from 'react';
 import Createcontext from "../../../hooks/context"

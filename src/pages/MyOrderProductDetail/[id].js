@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import useStyles from "@/styles/style";
 import Swal from 'sweetalert2';
 import { ConstructionOutlined } from "@mui/icons-material";
-import styled from '@/styles/customstyle.module.scss'
+import styled from '@/styles/customstyle.module.css'
 const Index = () => {
     const router = useRouter();
     const classes = useStyles();

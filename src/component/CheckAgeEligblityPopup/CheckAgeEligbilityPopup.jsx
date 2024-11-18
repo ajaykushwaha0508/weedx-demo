@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import useStyles from '@/styles/style';
-import newclass from '@/styles/customstyle.module.scss'
+import newclass from '@/styles/customstyle.module.css'
 import Cookies from 'universal-cookie';
 import Createcontext from "@/hooks/context"
 import {ImNotification} from "react-icons/im"

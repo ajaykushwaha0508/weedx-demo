@@ -26,7 +26,6 @@ export default function App({ Component, pageProps }) {
   const cookies = new Cookies();
   const Layout = layouts[Component.layout] || layouts.default;
   const isNotWeedPath = !/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname);
-  console.log(!/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname) , "fire ")
   React.useEffect(() => {
     NProgress.configure({ showSpinner: false });
     const handleStart = () => {
@@ -59,4 +58,14 @@ export default function App({ Component, pageProps }) {
       </Context>
     </GoogleOAuthProvider>
   );
+}
+
+
+export async function getServerSideProps(context) {
+  const userAgent = context.req.headers['user-agent'] || '';
+  let isMobile = /mobile/i.test(userAgent);
+  console.log(userAgent , "ghhhhhhhhhhh")
+  return {
+    props: { isMobile }, // Pass the device type as a prop to the page
+  };
 }

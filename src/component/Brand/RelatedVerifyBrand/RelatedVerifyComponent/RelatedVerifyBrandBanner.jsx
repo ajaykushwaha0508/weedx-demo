@@ -5,7 +5,7 @@ import { useState } from "react";
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import clases from "@/styles/customstyle.module.scss"
+import clases from "@/styles/customstyle.module.css"
 const RelatedVerifyBanner = ({ BrandDetails }) => {
     const [readmore, setreadmore] = useState(false)
     const handleContainerClick = (e) => {

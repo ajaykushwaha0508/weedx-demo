@@ -6,7 +6,7 @@ import useStyles from '../../styles/style';
 import Axios from "axios";
 import HomePageBannerSkeleton from '../../component/skeleton/DashBoardSkeleton/HomePageBannerSkeleton';
 import Image from 'next/image';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const HomePageWeedBanner = ({ props }) => {
 
 

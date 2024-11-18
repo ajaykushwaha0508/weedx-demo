@@ -12,7 +12,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Cookies from 'universal-cookie';
 import Swal  from'sweetalert2'
 import Select from '@mui/material/Select';
-import styled from "@/styles/customstyle.module.scss";
+import styled from "@/styles/customstyle.module.css";
 import { RiH5 } from "react-icons/ri";
 const MyOrder = () => {
     const cookies = new Cookies();

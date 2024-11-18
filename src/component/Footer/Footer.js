@@ -1,29 +1,43 @@
-import { BsLinkedin } from "react-icons/bs"
-import { FaFacebook } from "react-icons/fa"
-import { FaInstagram } from "react-icons/fa"
-import useStyles from "../../styles/style"
-import Axios from "axios"
-import React from "react";
-import { IoLocationSharp } from "react-icons/io5"
-import { BiMobile } from "react-icons/bi"
-import { HiOutlineMail } from "react-icons/hi"
-import Image from "next/image"
-import logoimage from '../../../public/image/weedx.io logo.png'
-import Link from "next/link"
-import { modifystr } from "@/hooks/utilis/commonfunction"
-import newclases from '@/styles/customstyle.module.scss'
+import { BsLinkedin } from 'react-icons/bs';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { IoLocationSharp } from 'react-icons/io5';
+import { BiMobile } from 'react-icons/bi';
+import { HiOutlineMail } from 'react-icons/hi';
+import useStyles from '../../styles/style';
+import Axios from 'axios';
+import React, { useEffect, useState, useMemo } from 'react';
+import Image from 'next/image';
+import logoimage from '../../../public/image/weedx.io logo.png';
+import Link from 'next/link';
+import { modifystr } from '@/hooks/utilis/commonfunction';
+import newclases from '@/styles/customstyle.module.css';
+
+// Dynamically import icons to reduce JS bundle size
+const LinkedInIcon = React.lazy(() => import('react-icons/bs').then(module => ({ default: module.BsLinkedin })));
+const FacebookIcon = React.lazy(() => import('react-icons/fa').then(module => ({ default: module.FaFacebook })));
+const InstagramIcon = React.lazy(() => import('react-icons/fa').then(module => ({ default: module.FaInstagram })));
+
 const Footer = () => {
-    const classes = useStyles()
-    const [Categorys, SetCategorys] = React.useState([])
-    const [morelist, setmorelist] = React.useState(false)
-    React.useEffect(() => {
-        Axios.get("https://api.cannabaze.com/UserPanel/Get-Categories/", {}).then(Response => {
-            SetCategorys(Response.data)
-
-        }).catch(() => {
-
-        })
-    }, [])
+    const classes = useStyles();
+    const [Categorys, SetCategorys] = useState([]);
+    const [morelist, setmorelist] = useState(false);
+  
+    // Use useMemo to avoid unnecessary re-fetching of categories
+    const fetchCategories = async () => {
+      try {
+        const response = await Axios.get('https://api.cannabaze.com/UserPanel/Get-Categories/');
+        SetCategorys(response.data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchCategories();
+    }, []);
+  
+    const categoriesList = useMemo(() => Categorys, [Categorys]); // Memoize the categories list
+  
     return (
         <footer className="mt-4">
             <div className="container px-0">

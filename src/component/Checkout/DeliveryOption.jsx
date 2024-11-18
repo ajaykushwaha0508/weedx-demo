@@ -12,7 +12,7 @@ import useStyles from "@/styles/style"
 import Createcontext from "@/hooks/context"
 import { FiEdit } from "react-icons/fi";
 import Link from 'next/link';
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 const DeliveryOption = ({ SetShowData, DeliveryOptionData, address  , Hours  ,Time, SetTime}) => {
 
     const { state, dispatch } = React.useContext(Createcontext)

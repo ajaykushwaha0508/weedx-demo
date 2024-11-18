@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { modifystr } from '@/hooks/utilis/commonfunction';
 import clases from '@/styles/customstyle.module.css'
 
-export default function Notification({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
+ function Notification ({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access');
     if (typeof window !== 'undefined') {
@@ -221,3 +221,4 @@ export default function Notification({ notify, setnotify,Settotalnotify, Setnoti
 
     )
 }
+export default  React.memo(Notification)

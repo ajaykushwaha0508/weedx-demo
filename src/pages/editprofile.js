@@ -8,7 +8,7 @@ import Resizer from 'react-image-file-resizer';
 import { AiFillCamera } from "react-icons/ai";
 import Link from "next/link"
 import Cookies from 'universal-cookie';
-import clases from '../styles/customstyle.module.scss'
+import clases from '../styles/customstyle.module.css'
 import Image from "next/image"
 import Axios from 'axios';
 import Createcontext from "../hooks/context"

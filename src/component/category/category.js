@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Categoryskeleton from "../skeleton/categoryskeleton";
 import { FirstLetterCaps } from "../../hooks/utilis/commonfunction"
 import Image from 'next/image';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
     const Params = useRouter().query;
     const location = useRouter()

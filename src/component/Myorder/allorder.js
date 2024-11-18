@@ -5,7 +5,7 @@ import { LoadingButton } from "@mui/lab";
 import Box from '@mui/material/Box';
 import Link from "next/link";
 import useStyles from '@/styles/style'
-import newclass from '@/styles/customstyle.module.scss'
+import newclass from '@/styles/customstyle.module.css'
 import { useRouter } from "next/router";
 const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
   const router = useRouter()

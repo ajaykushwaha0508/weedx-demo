@@ -10,7 +10,7 @@ import Createcontext from "@/hooks/context"
 import Cookies from 'universal-cookie';
 import axios from "axios";
 import { useRouter } from "next/router";
-import newclasess from '@/styles/customstyle.module.scss'
+import newclasess from '@/styles/customstyle.module.css'
 const PromoCode = () => {
     const { state, dispatch } = React.useContext(Createcontext);
     const classes = useStyles()

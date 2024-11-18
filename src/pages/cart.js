@@ -9,7 +9,7 @@ import EmptyCard from "@/component/Addtocard/EmptyCard"
 import { Cart } from "@/component/ScoPage/CommenpageSeo";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 const AddToCart = () => {
     const { state } = React.useContext(Createcontext)
     const location = useRouter()

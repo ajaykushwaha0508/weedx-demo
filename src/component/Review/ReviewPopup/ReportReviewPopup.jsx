@@ -8,7 +8,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { LoadingButton } from "@mui/lab";
-import newclasess from '@/styles/customstyle.module.scss'
+import newclasess from '@/styles/customstyle.module.css'
 import Box from "@mui/material/Box";
 const ReportReviewPopup = () => {
     const classes = useStyles()

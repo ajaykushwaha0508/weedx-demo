@@ -3,7 +3,7 @@ import { DealsSeo } from "@/component/ScoPage/DealsSeo";
 import ProductSearchResult from "../../component/productcard/ProductSearchResult"
 import axios from "axios";
 import { FaIdeal } from "react-icons/fa";
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 import React from "react";
 import Image from "next/image";
 const MainDeals=()=>{

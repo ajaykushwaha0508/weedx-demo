@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import LawStateContent from "@/component/LawsComponent/LawStateContent";
 import Content from "@/component/LawsComponent/LawContentsJson";
 import _ from "lodash";
-import classes from '@/styles/customstyle.module.scss';
+import classes from '@/styles/customstyle.module.css';
 import { LawState } from '../../../component/ScoPage/LearnSeo';
 import { useRouter } from "next/router";
 import { modifystr } from "@/hooks/utilis/commonfunction";

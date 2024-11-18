@@ -10,7 +10,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 import {AboutusSeo}  from "@/component/ScoPage/CommenpageSeo"
 const AboutUs = () => {
     const ClientPreachSlider = styled(Slider)`

@@ -20,7 +20,7 @@ import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Location from '../../../hooks/utilis/getlocation';
 import Cookies from 'universal-cookie';
 import cookie from 'cookie';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const Deliveries = (props) => {
     const cookies = new Cookies();
     // console.log(props)

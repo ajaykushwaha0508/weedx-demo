@@ -1,6 +1,6 @@
 import React from "react"
 import Skeleton from '@mui/material/Skeleton';
-import Styled from '@/styles/customstyle.module.scss'
+import Styled from '@/styles/customstyle.module.css'
 const DeliveryItemsCardSkeleton = () => {
     const DeliverItemsCardArray = [1, 2, 3, 4, 5, 6]
     return (

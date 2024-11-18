@@ -1,7 +1,7 @@
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import useStyles from "@/styles/style";
-import newcalses from '@/styles/customstyle.module.scss'
+import newcalses from '@/styles/customstyle.module.css'
 import { RiCloseCircleFill } from "react-icons/ri";
 import Resizer from 'react-image-file-resizer';
 import { IconButton } from "@mui/material";

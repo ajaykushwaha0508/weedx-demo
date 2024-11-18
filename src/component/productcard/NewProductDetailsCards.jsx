@@ -29,7 +29,7 @@ import AddToCartPopUp from "../../component/Addtocard/AddToCartPopUp/AddToCartPo
 import { WhisList } from '@/component/Whishlist/WhisList'
 import Loader from "@/component/Loader/Loader";
 import { modifystr } from "../../hooks/utilis/commonfunction";
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, quentity, setquentity, dynamicWeight, setdynamicWeight, link = "/products" }) => {
 
     const cookies = new Cookies();

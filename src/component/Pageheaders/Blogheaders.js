@@ -7,7 +7,7 @@ import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {modifystr} from '@/hooks/utilis/commonfunction';
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 const Blogheaders = (props) => {
     const [searchtext, setsearchtext] = useState('')
     const [allblogs, setallblogs] = useState([])

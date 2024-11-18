@@ -26,7 +26,7 @@ function ConfirmPassword(Email,password) {
 const CreatePassword = () => {
     const router = useRouter();
     const { Email } = router.query;
-    console.log(router , 'email')
+    // console.log(router , 'email')
     const classes = useStyles()
     const method = useForm()
     const [showPassword, setShowPassword] = React.useState(false);
