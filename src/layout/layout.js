@@ -1,9 +1,9 @@
 
 import Grid from '@mui/material/Grid';
 import dynamic from 'next/dynamic'
-const Navbar = dynamic(() => import('@/component/navbar/newnavbar/nevbar'),{ ssr: false });
+// const Navbar = dynamic(() => import('@/component/navbar/newnavbar/nevbar'),{ ssr: false });
 const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'));
-// import Navbar from '@/component/navbar/newnavbar/nevbar';
+import Navbar from '@/component/navbar/newnavbar/nevbar';
 const Footer = dynamic(() => import('@/component/Footer/Footer'),{ ssr: true });
 
 const Layout = ({ children }) => {
