@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import styled from '@/styles/customstyle.module.scss'
 const Privatepolicy = ({refrenc}) => {
     const router = useRouter()
     const [allHeigths,setallheight] = React.useState([])
@@ -24,8 +25,7 @@ const Privatepolicy = ({refrenc}) => {
           setallheight(data)
       
     },[])
-  
-  React.useEffect(() => {
+    React.useEffect(() => {
        let divElement = document.getElementById('Navbar_box')?.clientHeight
         
          allHeigths.forEach((item)=>{
@@ -33,9 +33,9 @@ const Privatepolicy = ({refrenc}) => {
       })
     }, [allHeigths])
   return (
-        <div className="tc_topic_list">
-            <div className="heading_box">
-            <h3 className='text-white m-0 sideTableHeading'>{`Table of Contents`}</h3>
+        <div className={styled.tc_topic_list}>
+            <div className={styled.heading_box}>
+            <h3 className={`text-white m-0 ${styled.sideTableHeading}`}>{`Table of Contents`}</h3>
             </div>
             <ul>
                <Link href={{ hash:`#introduction`,}} ><li  className={router.pathname.includes( "#introduction") && "activeTable"  }>{`1. Introduction`} </li></Link>

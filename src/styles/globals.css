@@ -5339,107 +5339,6 @@ line-height: 2;
   }
    /* ***************************end************************** */
 
-   .term_condition .tc_hero{
-    background-color: #E8FFF1 ;
-    text-align: center;
-  margin-bottom: 50px;
-  }
-  .term_condition .tc_hero .page_heading{
-      color: #000;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  line-height: 100px;
-  margin: 0;
-  }
-  .term_condition .tc_topic_list{
-      position: sticky;
-      top: 144px;
-      max-height: 70vh;
-      overflow-x: hidden;
-      overflow-y: scroll;
-      border-bottom: 1px solid #80808059;
-  }
-  .term_condition .tc_topic_list::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .term_condition .tc_topic_list {
-      -ms-overflow-style: none; 
-      scrollbar-width: none;  
-    }
-  .term_condition .tc_topic_list .heading_box{
-      background: #31B665; 
-      padding: 10px;
-  }
-  .term_condition .tc_topic_list .heading_box a{
-    color: white;
-    font-size: 22px;
-    margin-right: 20px;
-  }
-  .term_condition .tc_topic_list ul{
-      margin: 0;
-      padding: 0;
-  }
-  .term_condition .tc_topic_list ul li{
-      list-style-type: none;
-      color: #000;
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 2;
-      padding: 7px 10px;
-      border: 1px solid #E0E0E0;
-  }
-  .term_condition .tc_topic_list ul li{
-      color: #000;
-      transition: all .2s ease;
-  }
-  .term_condition .tc_topic_list ul li:hover{
-      color: #31B665;
-      font-weight: 600;
-  }
-  .sideTableHeading{
-      font-size: 18px;
-      line-height: 1.3;
-  }
-  .term_condition .tc_topic_list ul li.activeTable{
-      color:#31B665
-  }
-  .term_condition .tc_content .tc_main-centent{
-      color: #000;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-  }
-  .term_condition .tc_content .tc_main-centent li{
-     margin-bottom: 40px;
-  }
-  .term_condition .tc_content .tc_main-centent .question{
-      display: block;
-      color: #000;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-  }
-  .term_condition .tc_content .tc_main-centent li .answer{
-      color: #666;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.3;
-      display: block;
-      margin-bottom: 10px;
-  }
-  .term_condition .tc_content .tc_main-centent li .answer a{
-      color: #31B665;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.3;
-  } 
-
-
   .bgHedaer{
     background-color: #a5ffd8;
     height: 220px;
@@ -5830,7 +5729,7 @@ margin-top: 100px;
   line-height: 1.5;
   font-family: 'Inter', sans-serif;
 }
-.tc_content .tc_main-centent .section_box ul li{
+.tc_content .tc_main_centent .section_box ul li{
   margin-bottom: 10px;
 }
 .section_box .addbusinessbtn{
@@ -5880,13 +5779,13 @@ margin-top: 100px;
 }
 @media only screen and (max-width:1440px){
 
-  .term_condition .tc_content .tc_main-centent .question{
+  .term_condition .tc_content .tc_main_centent .question{
     font-size: 18px;
   }
-  .term_condition .tc_content .tc_main-centent li .answer{
+  .term_condition .tc_content .tc_main_centent li .answer{
     font-size: 16px;
   }
-  .term_condition .tc_content .tc_main-centent li{
+  .term_condition .tc_content .tc_main_centent li{
     margin-bottom: 25px;
   }
   .term_condition .tc_topic_list ul li{
@@ -6576,13 +6475,13 @@ font-size: 24px;
     padding: 0px 10px;
     overflow-y: hidden;
   }
-  .term_condition .tc_content .tc_main-centent li .answer{
+  .term_condition .tc_content .tc_main_centent li .answer{
     font-size: 14px;
   }
-  .term_condition .tc_content .tc_main-centent li .answer a{
+  .term_condition .tc_content .tc_main_centent li .answer a{
     font-size: 14px;
   }
-  .term_condition .tc_content .tc_main-centent{
+  .term_condition .tc_content .tc_main_centent{
     font-size: 18px;
     padding: 0 20px;
   }
@@ -7143,6 +7042,7 @@ font-size: 24px;
   .About_weedx{
     background-color: #F9F9F9;
     padding:10px;
+    margin: 10px 0;
   }
 
   .FeaturedBrandImage_height {

@@ -16,7 +16,7 @@ const HomePageWeedBanner = ({ props }) => {
 
     return (
         <div className={clases.homeBannerContainer}>
-            <React.Fragment>
+          
                 <div className={clases.destop_image}>
                     <Swiper loop={true} autoplay={{
                         delay: 250000,
@@ -71,7 +71,7 @@ const HomePageWeedBanner = ({ props }) => {
                         })}
                     </Swiper>
                 </div>
-            </React.Fragment>
+         
         </div>
     )
 }

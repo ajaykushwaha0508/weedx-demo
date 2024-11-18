@@ -30,14 +30,12 @@ export default function Nevbar() {
     const [Hamburger, setHamburger] = React.useState(null);  // Initial state set to null to handle SSR
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-    // Memoize the detectSize function with debounce to optimize resize handling
     const detectSize = React.useCallback(
         debounce(() => {
             setHamburger(window.innerWidth > 991);
         }, 100),
         []
     );
-
     React.useEffect(() => {
         if (typeof window !== 'undefined') {
             // Set initial value based on client-side window size
@@ -51,9 +49,6 @@ export default function Nevbar() {
             };
         }
     }, [detectSize]);
-
-
-
     const openNav = React.useCallback(() => {
         setOpen((prevOpen) => !prevOpen);
     }, []);  // empty dependency array ensures this function is only created once
@@ -102,7 +97,7 @@ export default function Nevbar() {
 
     if (Hamburger === null) return null;
     return (
-        <div ref={ref} className={`${clases.NavbarBox} container p-1`} id='Navbar_box' >
+        <div ref={ref} className={`${clases.NavbarBox} container`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                 {
                     Hamburger ?
@@ -129,46 +124,45 @@ export default function Nevbar() {
 
                     }
                 </Grid>
-                
-                        <Grid  item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
-                            <div className={clases.Heder_icon} >
-                                <Link href="/whislists">
-                                    <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
-                                        <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
-                                    </Badge>
-                                </Link>
-                                <div className="notification_icon" >
-                                    <Badge  onClick={() => setNotify(!notify)} 
-                                    badgeContent={
-                                       Boolean( state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
-                                    }
-                                     className={classes.sliderLink_badge}>
-                                        <IconButton  className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications  color="#858585" size={22}></IoIosNotifications></IconButton>
-                                    </Badge>
-                                  <Notification
-                                        notify={notify}
-                                        setnotify={setNotify}
-                                        notificationdata={notificationData}
-                                        Setnotificationdata={setNotificationData}
-                                        Settotalnotify={setTotalNotify}
-                                    ></Notification> 
-                                </div>
-                                <Link href="/cart">
-                                    <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
-                                        <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
-                                    </Badge>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={5} md={4} xl={3}>
-                   
-                            <Afterlogin dropDownState={dropDownState} state={state} profileRef ={profileRef} handleClickDropdown= {handleClickDropdown} Logout={Logout}></Afterlogin >
-                        </Grid>
-                        <Grid item xs={12} md={12} xl={12}>
-          
-                           <SliderLink Hamburger={"nano"} state={state}></SliderLink>
-                             <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
-                        </Grid>
+                <Grid  item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
+                    <div className={clases.Heder_icon} >
+                        <Link href="/whislists">
+                            <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
+                                <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
+                            </Badge>
+                        </Link>
+                        <div className="notification_icon" >
+                            <Badge  onClick={() => setNotify(!notify)} 
+                            badgeContent={
+                                Boolean( state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
+                            }
+                                className={classes.sliderLink_badge}>
+                                <IconButton  className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications  color="#858585" size={22}></IoIosNotifications></IconButton>
+                            </Badge>
+                            <Notification
+                                notify={notify}
+                                setnotify={setNotify}
+                                notificationdata={notificationData}
+                                Setnotificationdata={setNotificationData}
+                                Settotalnotify={setTotalNotify}
+                            ></Notification> 
+                        </div>
+                        <Link href="/cart">
+                            <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                                <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
+                            </Badge>
+                        </Link>
+                    </div>
+                </Grid>
+                <Grid item xs={5} md={4} xl={3}>
+            
+                    <Afterlogin dropDownState={dropDownState} state={state} profileRef ={profileRef} handleClickDropdown= {handleClickDropdown} Logout={Logout}></Afterlogin >
+                </Grid>
+                <Grid item xs={12} md={12} xl={12}>
+    
+                    <SliderLink Hamburger={"nano"} state={state}></SliderLink>
+                        <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
+                </Grid>
             </Grid>
         </div>
     )

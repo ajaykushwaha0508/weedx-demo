@@ -149,7 +149,7 @@
 }
 
 .CategoryBordrr .catagoryTabs_section {
-  padding: 10px;
+  padding: 10px 0;
 }
 .CategoryBordrr .catagoryTabs_section .shopByCategoryHeading {
   font-weight: 700;
@@ -324,7 +324,7 @@
 .NavbarBox .Heder_icon {
   justify-content: flex-end;
   gap: 5%;
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
   display: flex;
 }
 
@@ -3289,10 +3289,103 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   border-width: 1px !important;
 }
 
+.term_condition .tc_hero {
+  background-color: #E8FFF1;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.term_condition .tc_hero .page_heading {
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  line-height: 100px;
+  margin: 0;
+}
+.term_condition .tc_topic_list {
+  position: sticky;
+  top: 144px;
+  max-height: 70vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3490196078);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.term_condition .tc_topic_list::-webkit-scrollbar {
+  display: none;
+}
+.term_condition .tc_topic_list .heading_box {
+  background: #31B665;
+  padding: 10px;
+}
+.term_condition .tc_topic_list .heading_box a {
+  color: white;
+  font-size: 22px;
+  margin-right: 20px;
+}
+.term_condition .tc_topic_list ul {
+  margin: 0;
+  padding: 0;
+}
+.term_condition .tc_topic_list ul li {
+  list-style-type: none;
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2;
+  padding: 7px 10px;
+  border: 1px solid #E0E0E0;
+  color: #000;
+  transition: all 0.2s ease;
+}
+.term_condition .tc_topic_list ul li:hover {
+  color: #31B665;
+  font-weight: 600;
+}
+.term_condition .tc_topic_list ul li.activeTable {
+  color: #31B665;
+}
+.term_condition .tc_content .tc_main_centent {
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+}
+.term_condition .tc_content .tc_main_centent li {
+  margin-bottom: 40px;
+}
+.term_condition .tc_content .tc_main_centent li .answer {
+  color: #666;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  display: block;
+  margin-bottom: 10px;
+}
+.term_condition .tc_content .tc_main_centent li .answer a {
+  color: #31B665;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.term_condition .tc_content .tc_main_centent .question {
+  display: block;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.sideTableHeading {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
 @media (max-width: 1440px) {
-  .bottom_menu_items p span.footer_li, footer .footer_main_list .footer_li {
-    font-size: 16px;
-  }
   .StoreDetailspage .amenities_container .amenities_list {
     gap: 3%;
   }
@@ -3304,17 +3397,8 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   footer .footer_main_div_display .footer_heading {
     font-size: 26px;
   }
-  footer .footer_main_div_display .footer_sub_heading {
-    font-size: 20px;
-  }
-  footer .footer_main_list p.footer_menu_heading {
-    font-size: 18px;
-  }
   .aboutUsPage .about_us_header .About_us_banner_image {
     height: 280px;
-  }
-  .aboutUsPage .weedxByTheNumber_container .weedx_heading_container .backwoodar_heading {
-    font-size: 20px;
   }
   .aboutUsPage .weedxByTheNumber_container .weedx_number_container ul li .upperText {
     font-size: 18px;
@@ -4206,7 +4290,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     width: 100%;
   }
   .NavbarBox {
-    padding: 0;
+    padding: 10px 0 0 0;
   }
   .StoreDetailMenuItem_container ul.store_detail_order_list li.store_detail_list span.storeDetalMenuItemCursor {
     font-size: 14px;

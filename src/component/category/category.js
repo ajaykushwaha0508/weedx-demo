@@ -9,9 +9,9 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
     const Params = useRouter().query;
     const location = useRouter()
     return (
-        <React.Fragment>
+      
             <div className={clases.CategoryBordrr}>
-                <div className='row'>
+               
                     {
                         !Skeleton ? <div className={clases.catagoryTabs_section}>
                             {
@@ -45,9 +45,9 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                             :
                             <Categoryskeleton></Categoryskeleton>
                     }
-                </div>
+             
             </div>
-        </React.Fragment>
+      
     )
 }
 export default Category

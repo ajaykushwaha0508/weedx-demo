@@ -318,7 +318,7 @@ return (
       }}
       id="autocomplete-demo"
       onFocus={onFocus}
-      className={`sec_input_search SearchBar ${classes.SearchBar_Text}`}
+      className={`SearchBar ${classes.SearchBar_Text}`}
       style={{ width: "100%", height: "45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
       onBlur={OnBlur}
       sx={{ width: "100%" }}

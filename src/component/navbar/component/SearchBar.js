@@ -202,7 +202,6 @@ const SearchBar = ({ path }) => {
                         />
                     )}
                 />
-
                 <AddressSearchapi
                     openLocation={openLocation}
                     SearchBarWidth={searchBarWidth}

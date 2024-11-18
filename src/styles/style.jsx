@@ -157,6 +157,7 @@ const useStyles = makeStyles({
   },
 
   SearchBar_Text: {
+    // borderLeft:'1px solid gray',
     "& .MuiOutlinedInput-notchedOutline": {
         border: "0px",
         paddingTop: '8.5px',

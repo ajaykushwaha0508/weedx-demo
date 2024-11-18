@@ -92,74 +92,72 @@ const Navbar = () => {
         setDropDownState((prevState) => !prevState);
     }
     return (
-        <React.Fragment>
-            <div className='container p-0'>
-                <div ref={ref} className={clases.NavbarBox} id='Navbar_box' >
-                    <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
+        <div className='container p-0'>
+            <div ref={ref} className={clases.NavbarBox} id='Navbar_box' >
+                <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
+                    {
+                        Hamburger ?
+                            <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
+                                <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={image1.src} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
+                            </Grid>
+                            :
+                            <Grid container xs={3} md={2} xl={2} alignItems="center">
+                                <div className='center ml-3' >
+                                    <button className={clases.openbtn} onClick={openNav}>☰</button>
+                                </div>
+                            </Grid>
+                    }
+                    <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
                         {
                             Hamburger ?
-                                <Grid container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
-                                    <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={image1.src} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
-                                </Grid>
+                            
+                                <SearchBar path={Location.pathname } />
                                 :
-                                <Grid container xs={3} md={2} xl={2} alignItems="center">
-                                    <div className='center ml-3' >
-                                        <button className={clases.openbtn} onClick={openNav}>☰</button>
-                                    </div>
-                                </Grid>
-                        }
-                        <Grid xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
-                            {
-                                Hamburger ?
-                               
-                                 <SearchBar path={Location.pathname } />
-                                    :
-                                    <div className='text-center'>
-                                        <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
-                                    </div>
-                            }
-                        </Grid>
-
-                        <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
-                            <div className={clases.Heder_icon} >
-                                <Link href="/whislists">
-                                    <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
-                                        <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
-                                    </Badge>
-                                </Link>
-                                <div className="notification_icon" >
-                                    <Badge onClick={() => setNotify(!notify)} badgeContent={
-                                        Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
-                                    } className={classes.sliderLink_badge}>
-                                        <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
-                                    </Badge>
-                                    <Notification
-                                        notify={notify}
-                                        setnotify={setNotify}
-                                        notificationdata={notificationData}
-                                        Setnotificationdata={setNotificationData}
-                                        Settotalnotify={setTotalNotify}
-                                    ></Notification>
+                                <div className='text-center'>
+                                    <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={image1.src} width={100} height={100} /></Link>
                                 </div>
-                                <Link href="/cart">
-                                    <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
-                                        <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
-                                    </Badge>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid xs={5} md={4} xl={3}>
-
-                            <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}></Afterlogin >
-                        </Grid>
-                        <Grid xs={12} md={12} xl={12}>
-                            <SliderLink state={state}></SliderLink>
-                            <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
-                        </Grid>
+                        }
                     </Grid>
-                </div>
+
+                    <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
+                        <div className={clases.Heder_icon} >
+                            <Link href="/whislists">
+                                <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
+                                    <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
+                                </Badge>
+                            </Link>
+                            <div className="notification_icon" >
+                                <Badge onClick={() => setNotify(!notify)} badgeContent={
+                                    Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
+                                } className={classes.sliderLink_badge}>
+                                    <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
+                                </Badge>
+                                <Notification
+                                    notify={notify}
+                                    setnotify={setNotify}
+                                    notificationdata={notificationData}
+                                    Setnotificationdata={setNotificationData}
+                                    Settotalnotify={setTotalNotify}
+                                ></Notification>
+                            </div>
+                            <Link href="/cart">
+                                <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                                    <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
+                                </Badge>
+                            </Link>
+                        </div>
+                    </Grid>
+                    <Grid xs={5} md={4} xl={3}>
+
+                        <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}></Afterlogin >
+                    </Grid>
+                    <Grid xs={12} md={12} xl={12}>
+                        <SliderLink state={state}></SliderLink>
+                        <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
+                    </Grid>
+                </Grid>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 export default Navbar;
