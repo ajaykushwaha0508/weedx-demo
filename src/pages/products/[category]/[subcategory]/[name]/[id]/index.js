@@ -215,7 +215,7 @@ const NewProductDetails = (props) => {
     return location?.pathname?.includes('/menu-integration') ? '' : <Loader />
   }
 
-console.log(props , 'props props propsprops ')
+// console.log(props , 'props props propsprops ')
   return (
     <div className="container-fluid">
 

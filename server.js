@@ -64,7 +64,7 @@ app.prepare().
 
       // Create the full origin URL
       const fullOrigin = `${req.protocol}://${origin}`;
-      console.log(origin, fullOrigin, "fdgdgfd")
+      // console.log(origin, fullOrigin, "fdgdgfd")
       // Return the origin as a response
       res.json({ origin: fullOrigin });
     });
