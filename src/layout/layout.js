@@ -8,7 +8,6 @@ const Footer = dynamic(() => import('@/component/Footer/Footer'));
 // import Chartbot from '@/component/chartbot/Chartbot';
 import newclases from '@/styles/customstyle.module.scss';
 const Layout = ({ children }) => {
-
   return (
     <div>
       <div className='fixed-top' style={{zIndex:2}}>
@@ -20,7 +19,6 @@ const Layout = ({ children }) => {
         </Grid>
       </div>
       <Footer/>
-   
       <Chartbot></Chartbot>
     </div>
   );
