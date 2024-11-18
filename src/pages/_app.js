@@ -10,7 +10,6 @@ import { Context } from "../hooks/context"
 import dynamic from 'next/dynamic';
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"
 // const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
-
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup";
 import { useRouter } from "next/router";
@@ -27,8 +26,7 @@ export default function App({ Component, pageProps }) {
   const cookies = new Cookies();
   const Layout = layouts[Component.layout] || layouts.default;
   const isNotWeedPath = !/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname);
-
-
+  console.log(!/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname) , "fire ")
   React.useEffect(() => {
     NProgress.configure({ showSpinner: false });
     const handleStart = () => {
