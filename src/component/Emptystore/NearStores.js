@@ -1,5 +1,5 @@
 import React from 'react'
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 
 const NearStores = () => {
   return (

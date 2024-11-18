@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import { useRouter } from "next/router";
 import style from "../../styles/style"
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 import Select from '@mui/material/Select';
 import React,{useEffect, useState} from "react"
 import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"

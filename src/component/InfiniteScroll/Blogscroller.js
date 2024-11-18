@@ -1,7 +1,7 @@
 import React,{ useState ,useContext , useEffect } from "react";
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import { useRouter } from 'next/router';
-import Styled from '@/styles/customstyle.module.scss'
+import Styled from '@/styles/customstyle.module.css'
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link';
 import { AiFillHeart, AiFillEye } from "react-icons/ai";

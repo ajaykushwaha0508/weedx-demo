@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import Business from "@/component/tableofcontent/Business";
 import Businesspageseo from "@/component/ScoPage/businesspageseo";
-import classes from '@/styles/customstyle.module.scss'
+import classes from '@/styles/customstyle.module.css'
 import AdvertiseBanner from '../../public/image/ADDBUSINESSBanner.webp';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';

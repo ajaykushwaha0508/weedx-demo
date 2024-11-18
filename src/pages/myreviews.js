@@ -13,7 +13,7 @@ import useStyles from "@/styles/style";
 import { StoreHelpFull } from '@/hooks/apicall/api';
 import { ProductHelpFull } from '@/hooks/utilis/ProductApi';
 import { Menuintegration_login } from '@/component/Menuintregation/Menuintregation';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 
 const Myreview = () => {
     const classes = useStyles();

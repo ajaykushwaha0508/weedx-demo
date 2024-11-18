@@ -12,7 +12,7 @@ import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
 import { GiWeightScale } from "react-icons/gi"
 import _ from "lodash"
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 const NewFlavourBanner = dynamic(() => import('../../../component/StoreDetails/NewFlavourBanner'), { ssr: true });
 const StoreDetailMenuItem = dynamic(() => import('../../../component/StoreDetails/StoreDetailComponent/StoreDetailMenuItem'), { ssr: true });
 import CategoryProduct from "../../../component/category/category";
@@ -26,7 +26,7 @@ import DispensoriesAddressSkeleton from "../../../component/skeleton/DashBoardSk
 import { modifystr } from "../../../hooks/utilis/commonfunction";
 import Swal from 'sweetalert2';
 import Image from "next/image";
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 import Oops from "@/component/Oops/Oops";
 import Reviewextrs from '@/component/storedetailsfootecomponent/review';
 import Fqa from '@/component/storedetailsfootecomponent/faq'

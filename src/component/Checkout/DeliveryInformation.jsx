@@ -15,7 +15,7 @@ import Createcontext from "@/hooks/context";
 import { BsExclamationCircleFill } from "react-icons/bs";
 import Button from '@mui/material/Button';
 import { FaRegIdCard } from "react-icons/fa";
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setDataImage, Details, SetDetails , DefalutImage , SetDefalutimage }) => {
     const { dispatch } = React.useContext(Createcontext)
     const method = useForm()

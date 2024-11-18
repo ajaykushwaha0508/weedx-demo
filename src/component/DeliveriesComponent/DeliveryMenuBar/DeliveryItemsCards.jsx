@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from '../../../styles/style';
 import { MdShoppingCart } from "react-icons/md"
-import clases from "@/styles/customstyle.module.scss"
+import clases from "@/styles/customstyle.module.css"
 import Link from 'next/link';
 import { Rating } from '@mui/material';
 import Image from 'next/image';

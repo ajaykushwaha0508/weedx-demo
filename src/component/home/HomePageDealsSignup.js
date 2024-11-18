@@ -7,7 +7,7 @@ import  newsletters from '../../../public/newsletters.png'
 import React from 'react';
 import Image from 'next/image';
 import { useCallback } from 'react';
-import styled from '@/styles/customstyle.module.scss'
+import styled from '@/styles/customstyle.module.css'
 const HomePageDealsSignup = () => {
     const classes = useStyles()
     const [submited,setsubmited]= React.useState(false)

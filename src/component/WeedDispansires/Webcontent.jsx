@@ -5,7 +5,7 @@
     import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
     import Link from "next/link";
     import Neighborhood from "./loactoncomponent/Neighborhood";
-    import clases from '@/styles/customstyle.module.scss';
+    import clases from '@/styles/customstyle.module.css';
     import Zipcode from "./loactoncomponent/Zipcode";
     import { GetProduct } from '../../hooks/apicall/api'
     const WebContent = ({ state, Store = [], modifystr, from, url, product, location , urlcscr }) => {

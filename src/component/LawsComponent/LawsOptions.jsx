@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { modifystr } from "@/hooks/utilis/commonfunction";
 import weedleaf from '../../../public/image/weedleaf.webp'
 import useStyles from "@/styles/style";
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 const LawsOptions = (props) => {
     const clasess = useStyles()
     return (

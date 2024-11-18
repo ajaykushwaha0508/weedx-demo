@@ -7,7 +7,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import useStyles from "@/styles/style"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import newclases from "@/styles/customstyle.module.scss"
+import newclases from "@/styles/customstyle.module.css"
 const Payment = ({ SetShowPlaceOrder }) => {
     const classes = useStyles()
     const [value, setValue] = React.useState('');

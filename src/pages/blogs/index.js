@@ -17,7 +17,7 @@ import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
-import styled from "@/styles/customstyle.module.scss"
+import styled from "@/styles/customstyle.module.css"
 const Allblogs = (props) => {
   const router = useRouter()
   const { state } = React.useContext(Createcontext)

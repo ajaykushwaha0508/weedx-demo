@@ -7,10 +7,10 @@ import AddToCartSummary from "@/component/Addtocard/AddToCartSummary"
 import Cookies from 'universal-cookie';
 import Createcontext from "@/hooks/context"
 import { useRouter } from "next/router"
-import newcalses from '@/styles/customstyle.module.scss'
+import newcalses from '@/styles/customstyle.module.css'
 import Axios from "axios"
 import ProtectRout from "@/hooks/utilis/ProtectRout"
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 const CheckOutMainPage = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();

@@ -14,7 +14,7 @@ import Createcontext from "../../hooks/context"
 import { modifystr } from '../../hooks/utilis/commonfunction';
 import Image from 'next/image';
 import Link from 'next/link';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 // import { DespensioriesItem } from '@/hooks/apicall/api';
 const DeliveryServices = ({ link, title, data , location , initialData }) => {
     let DeliveryService = data || []

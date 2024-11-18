@@ -4,7 +4,7 @@ import React from "react";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import useStyles from "../../../styles/style"
-import newclases from "@/styles/customstyle.module.scss"
+import newclases from "@/styles/customstyle.module.css"
 import WriteReviewPopup from "../ReviewPopup/WriteReviewPopup"
 const OverAllReview = ({ Rating, api,noReview,AllReview, SetApi  ,onSubmit,reviewloading,  GetProductReview, SetGetProductReview}) => {
     const classes = useStyles()

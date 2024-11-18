@@ -1,7 +1,7 @@
 
 import Bgheader from '@/component/bgheader/Bgheader'
 import React from 'react'
-import classes from '@/styles/customstyle.module.scss';
+import classes from '@/styles/customstyle.module.css';
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from 'next/link';

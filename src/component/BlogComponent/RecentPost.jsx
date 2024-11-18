@@ -3,7 +3,7 @@ import ScrollContainer from "react-indiana-drag-scroll"
 import { useParams } from "react-router-dom";
 import Link from "next/link";
 import Image from "next/image";
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 import { modifystr } from "@/hooks/utilis/commonfunction";
 const RecentPost = () => {
  const id = useParams()

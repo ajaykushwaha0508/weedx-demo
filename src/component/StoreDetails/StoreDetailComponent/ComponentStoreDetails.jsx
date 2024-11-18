@@ -12,7 +12,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MdSecurity } from "react-icons/md";
 import Openingtime from "./Openingtime";
-import newcalsses from '@/styles/customstyle.module.scss'
+import newcalsses from '@/styles/customstyle.module.css'
 const StoreDetail1 = ({ storeDetails }) => {
   return (
     <div className={`${newcalsses.StoreDetailspage} mt-3`}>

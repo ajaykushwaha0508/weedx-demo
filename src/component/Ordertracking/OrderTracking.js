@@ -11,7 +11,7 @@ import useStyles from '@/styles/style';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {IoMdShare} from "react-icons/io"
 import { AiOutlineConsoleSql } from 'react-icons/ai';
-import styled from '@/styles/customstyle.module.scss'
+import styled from '@/styles/customstyle.module.css'
 
 const OrderTracking = ({AllOrder_data}) => {
     const classes = useStyles()

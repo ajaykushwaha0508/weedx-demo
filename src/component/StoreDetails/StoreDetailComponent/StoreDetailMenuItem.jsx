@@ -1,6 +1,6 @@
 
 import React from "react"
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const StoreDetailMenuItem = ({SelectionTab , tab}) => {
     const StoreDetailMenuItem = [{ item: "Menu",color:"#31B665" }, { item: "Store Details",color:"#31B665" },
      { item: "Review",color:"#31B665" },  { item: "Deals",color:"#31B665" },

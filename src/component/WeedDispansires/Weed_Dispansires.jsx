@@ -7,7 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../hooks/context";
 import dynamic from 'next/dynamic'
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 const WebContent = dynamic(() => import('../WeedDispansires/Webcontent'), { ssr: true });
 import { modifystr } from "../../hooks/utilis/commonfunction";
 const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, product, location  ,  urlcscr}) => {

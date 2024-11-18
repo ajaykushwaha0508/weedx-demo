@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import gifimage from '../../../public/image/gif.svg';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 import 'swiper/css/navigation';
 import "swiper/css";
 import { Navigation } from 'swiper/modules';

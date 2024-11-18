@@ -14,7 +14,7 @@ import { isShopOpen, modifystr } from '../../hooks/utilis/commonfunction'
 import Link from "next/link";
 import { useRouter } from "next/router"; 
 import Image from "next/image";
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const NewFlavourBanner = ({ delBtn }) => {
     const location = useRouter()
     const classes = useStyles()

@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 import { FaRegPaperPlane } from "react-icons/fa";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import newclass from  "@/styles/customstyle.module.scss"
+import newclass from  "@/styles/customstyle.module.css"
 import Axios from 'axios';
 const PlaceOrder = ({orderid}) => {
     const location = useRouter();

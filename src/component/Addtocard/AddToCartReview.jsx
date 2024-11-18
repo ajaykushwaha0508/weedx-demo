@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { modifystr } from '@/hooks/utilis/commonfunction';
 import Image from "next/image";
 import  Swal from 'sweetalert2';
-import newclasess from "@/styles/customstyle.module.scss"
+import newclasess from "@/styles/customstyle.module.css"
 const AddToCartReview = () => {
         const { state, dispatch } = React.useContext(Createcontext)
         const Navigate = useRouter();

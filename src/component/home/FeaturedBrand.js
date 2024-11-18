@@ -4,7 +4,7 @@ import * as React from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import { modifystr } from "@/hooks/utilis/commonfunction";
 import Link from 'next/link';
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const Featuredbrand = ({ CardDataArray}) => {
     const ref = React.useRef(null);
 

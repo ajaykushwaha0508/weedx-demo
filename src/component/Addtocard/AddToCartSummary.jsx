@@ -7,7 +7,7 @@ import useStyles from "@/styles/style";
 import Createcontext from "@/hooks/context";
 import { CircularProgress } from '@mui/material';
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 import PromoCode from "./Promocode";
 import { Menuintegration_login } from "@/component/Login/menu-integration_login";
 const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {

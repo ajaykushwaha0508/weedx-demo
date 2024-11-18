@@ -17,7 +17,7 @@ import AddToCartPopUp from "../Addtocard/AddToCartPopUp/AddToCartPopUp";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import IconButton from "@mui/material/IconButton";
 import Pagination from '@mui/material/Pagination';
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 import DispensoriesAddressSkeleton from "../skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import { modifystr } from "../../hooks/utilis/commonfunction";
 const ProductList = ({ arr, link = "products" }) => {

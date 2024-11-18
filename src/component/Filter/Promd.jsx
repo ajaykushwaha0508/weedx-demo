@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { PriceFilter } from "../../../Api/Api"
 import Createcontext from "../../../Hooks/Context"
-import newclases from '@/styles/customstyle.module.scss';
+import newclases from '@/styles/customstyle.module.css';
 import Loader from "../Loader/Loader";
 const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id }) => {
     const classes = useStyles()

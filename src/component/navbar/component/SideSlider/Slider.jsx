@@ -14,7 +14,7 @@ import { HiSpeakerphone } from "react-icons/hi";
 // import { URL } from 'url';
 import Cookies from 'universal-cookie';
 import Image from "next/image";
-import clases from '@/styles/customstyle.module.scss';
+import clases from '@/styles/customstyle.module.css';
 const SideNavbar = ({ closeNav, Open }) => {
     const profileRef = React.useRef(null)
     const Navigate = useRouter()

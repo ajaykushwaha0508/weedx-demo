@@ -22,7 +22,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { WishListPost } from "@/component/Whishlist/WishListApi_"
 import { WhisList } from "@/component/Whishlist/WhisList"
-import newclases from '@/styles/customstyle.module.scss'
+import newclases from '@/styles/customstyle.module.css'
 import { Navigation } from 'swiper/modules';
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import Image from "next/image";
