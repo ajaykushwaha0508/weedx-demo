@@ -40,7 +40,7 @@ const MyOrder = () => {
             SetFilter(" ")
             SetAllOrder_data(res?.data?.reverse())
             setShowabledata(res?.data?.reverse())
-            console.log(res.data , 'stgsdg')
+            // console.log(res.data , 'stgsdg')
             SetLoading(false)
         }).catch()
     

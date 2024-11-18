@@ -21,7 +21,7 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/router';
 import image1 from "../../../public/weedx.iologo.png"
-import clases from '@/styles/customstyle.module.scss'
+import clases from '@/styles/customstyle.module.css'
 const Navbar = () => {
     const cookies = new Cookies();
     const ref = React.useRef(null);
@@ -29,7 +29,9 @@ const Navbar = () => {
     const Location = useRouter();
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
-    const [Hamburger, setHamburger] = React.useState(true);
+    const [Hamburger, setHamburger] = useState(
+        typeof window !== 'undefined' ? window.innerWidth > 991 : true
+      );
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [dropDownState, setDropDownState] = React.useState(false);

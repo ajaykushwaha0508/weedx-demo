@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 import { debounce } from 'lodash'; // Or implement a custom debounce
 import Link from 'next/link';
 import Image from 'next/image';
-import SearchBar from '../component/SearchBar';
+import SearchBar from '@/component/navbar/component/SearchBar';
 import { useRouter } from 'next/router';
 import Createcontext from "@/hooks/context";
 import Cookies from 'universal-cookie';
@@ -27,22 +27,32 @@ export default function Nevbar() {
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
     const [dropDownState, setDropDownState] = React.useState(false);
-    const [Hamburger, setHamburger] = React.useState(true);
+    const [Hamburger, setHamburger] = React.useState(null);  // Initial state set to null to handle SSR
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
     // Memoize the detectSize function with debounce to optimize resize handling
-    const detectSize = () => {
-        setHamburger(window?.innerWidth <= 991 ? false : true);
-    };
+    const detectSize = React.useCallback(
+        debounce(() => {
+            setHamburger(window.innerWidth > 991);
+        }, 100),
+        []
+    );
+
     React.useEffect(() => {
         if (typeof window !== 'undefined') {
-            detectSize();
+            // Set initial value based on client-side window size
+            setHamburger(window.innerWidth > 991);
+
             window.addEventListener('resize', detectSize);
+
             return () => {
                 window.removeEventListener('resize', detectSize);
+                detectSize.cancel();
             };
         }
-    }, []);
+    }, [detectSize]);
+
+
 
     const openNav = React.useCallback(() => {
         setOpen((prevOpen) => !prevOpen);
@@ -88,7 +98,9 @@ export default function Nevbar() {
         await dispatch({ type: 'Profile', Profile: [] });
     }
 
-    
+
+
+    if (Hamburger === null) return null;
     return (
         <div ref={ref} className={`${clases.NavbarBox} container p-1`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
