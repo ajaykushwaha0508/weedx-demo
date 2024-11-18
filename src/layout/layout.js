@@ -5,8 +5,7 @@ const Navbar = dynamic(() => import('@/component/navbar/newnavbar/nevbar'),{ ssr
 const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'));
 // import Navbar from '@/component/navbar/newnavbar/nevbar';
 const Footer = dynamic(() => import('@/component/Footer/Footer'));
-// import Chartbot from '@/component/chartbot/Chartbot';
-import newclases from '@/styles/customstyle.module.scss';
+
 const Layout = ({ children }) => {
   return (
     <div>

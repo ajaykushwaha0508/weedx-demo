@@ -68,7 +68,7 @@ export default function DashBoardLink({ state, Hamburger }) {
   return (
     <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
       <Grid container spacing={2}>
-        <Grid item xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid item={true} xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="col nav_list1">
             <ul className="p-0">
               <li>
@@ -117,7 +117,7 @@ export default function DashBoardLink({ state, Hamburger }) {
             </ul>
           </div>
         </Grid>
-        <Grid item xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid item={true} xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className="d-flex gap-1 justify-content-center">
             <button className={newclases.btnaddss} onClick={link}>
               <span></span>
@@ -133,7 +133,7 @@ export default function DashBoardLink({ state, Hamburger }) {
             </button>
           </div>
         </Grid>
-        <Grid item xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid item={true} xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }}>
           <div className=" col-12  addyocardIcon  ">
             <Link href="/whislists">
               <Badge
@@ -216,7 +216,7 @@ export default function DashBoardLink({ state, Hamburger }) {
             </Link>
           </div>
         </Grid>
-        <Grid  item xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
+        <Grid  item={true} xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
           <SearchBar />
         </Grid>
       </Grid>
