@@ -35,5 +35,4 @@ module.exports = withBundleAnalyzer({
     };
     return config;
   },
-  future: { webpack5: true }, // Ensure Webpack 5 is being used
 });

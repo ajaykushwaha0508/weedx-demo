@@ -1,6 +1,6 @@
 import { Button, Grid } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
+import React  , {memo}from 'react';
 import { FiShoppingBag } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
@@ -65,4 +65,4 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
     );
 };
 
-export default Afterlogin;
+export default memo(Afterlogin);

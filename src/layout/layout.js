@@ -4,8 +4,8 @@ import dynamic from 'next/dynamic'
 // const Navbar = dynamic(() => import('@/component/navbar/newnavbar/nevbar'),{ ssr: false });
 const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'));
 import Navbar from '@/component/navbar/newnavbar/nevbar';
-const Footer = dynamic(() => import('@/component/Footer/Footer'),{ ssr: true });
-
+// const Footer = dynamic(() => import('@/component/Footer/Footer'),{ ssr: true });
+import Footer from '@/component/Footer/Footer';
 const Layout = ({ children }) => {
   return (
     <div>

@@ -27,7 +27,7 @@ export default function Nevbar() {
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
     const [dropDownState, setDropDownState] = React.useState(false);
-    const [Hamburger, setHamburger] = React.useState(null);  // Initial state set to null to handle SSR
+    const [Hamburger, setHamburger] = React.useState(true);  // Initial state set to null to handle SSR
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
     // Memoize the detectSize function with debounce to optimize resize handling
@@ -100,7 +100,6 @@ export default function Nevbar() {
 
 
 
-    if (Hamburger === null) return null;
     return (
         <div ref={ref} className={`${clases.NavbarBox} container p-1`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">

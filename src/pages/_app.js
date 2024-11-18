@@ -60,3 +60,13 @@ export default function App({ Component, pageProps }) {
     </GoogleOAuthProvider>
   );
 }
+
+
+export async function getServerSideProps(context) {
+  const userAgent = context.req.headers['user-agent'] || '';
+  let isMobile = /mobile/i.test(userAgent);
+  console.log(userAgent , "ghhhhhhhhhhh")
+  return {
+    props: { isMobile }, // Pass the device type as a prop to the page
+  };
+}

@@ -1,5 +1,5 @@
 
-import React from "react"
+import React , {memo} from "react"
 import Button from '@mui/material/Button';
 import useStyles from "../../../../styles/style"
 import { useRouter } from 'next/router';
@@ -131,13 +131,13 @@ const SideNavbar = ({ closeNav, Open }) => {
                         </div>
                         <hr></hr>
                         <div className={`col-12 ${clases.Slider_content_center}`} >
-                            <Link className="text-dark" href={`/weed-dispensaries/in/${state?.Country?.toLowerCase()    }/${state?.State?.toLowerCase() }/${state?.City?.toLowerCase() }`}>
-                                <p onClick={closeNav} className="m-0 d-flex"><span ><FaClinicMedical color="#31B655" fontSize={25} /></span>{`Dispensaries`}</p></Link>
+                            {Boolean(state?.Country) && <Link className="text-dark" href={`/weed-dispensaries/in/${state?.Country?.toLowerCase()    }/${state?.State?.toLowerCase() }/${state?.City?.toLowerCase() }`}>
+                                <p onClick={closeNav} className="m-0 d-flex"><span ><FaClinicMedical color="#31B655" fontSize={25} /></span>{`Dispensaries`}</p></Link>}
                         </div>
                         <hr></hr>
 
                         <div className={`col-12 ${clases.Slider_content_center}`}>
-                            <Link className="text-dark" href={`/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0 d-flex"><span><TbTruckDelivery color="#31B655" fontSize={25} /></span>Deliveries</p></Link>
+                           {Boolean(state?.Country) &&  <Link className="text-dark" href={`/weed-deliveries/in/${state?.Country?.toLowerCase()}/${state?.State?.toLowerCase()}/${state?.City?.toLowerCase()}`}><p onClick={closeNav} className="m-0 d-flex"><span><TbTruckDelivery color="#31B655" fontSize={25} /></span>Deliveries</p></Link>}
                         </div>
                         <hr></hr>
                        
@@ -195,4 +195,4 @@ const SideNavbar = ({ closeNav, Open }) => {
         </React.Fragment>
     )
 }
-export default SideNavbar
+export default memo (SideNavbar)
