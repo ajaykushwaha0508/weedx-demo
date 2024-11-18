@@ -10,6 +10,7 @@ import { Context } from "../hooks/context"
 import dynamic from 'next/dynamic';
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"
 // const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
+
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup";
 import { useRouter } from "next/router";

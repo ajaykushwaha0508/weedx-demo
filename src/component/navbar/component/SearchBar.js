@@ -216,4 +216,4 @@ const SearchBar = ({ path }) => {
     );
 };
 
-export default SearchBar;
+export default React.memo(SearchBar);

@@ -32,7 +32,7 @@ import newclasess from '@/styles/customstyle.module.scss'
 import Reviewextrs from "@/component/storedetailsfootecomponent/review"
 import Fqa from "@/component/storedetailsfootecomponent/faq"
 export default function DispensoriesDetails(props) {
-    console.log(props)
+    // console.log(props)
     const navigate = useRouter()
     const { id, storeData, product, review } = props?.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
