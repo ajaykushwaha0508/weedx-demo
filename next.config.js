@@ -17,12 +17,20 @@ module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
-        // Apply headers to all routes in the application
-        source: '/:path*',
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate', // Adjust the value as needed
+            value: 'public, max-age=31536000, immutable', // Cache static assets for 1 year
+          },
+        ],
+      },
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'private, max-age=600', // Cache API responses for 10 minutes
           },
         ],
       },
