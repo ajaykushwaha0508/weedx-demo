@@ -797,9 +797,10 @@
     }
     .homeBannerContainer{
         .mobile_imges{
-            // display: none;
+            display: none;  
         }
         .homePageBanner_container {
+ 
             width: 100%;
             margin-bottom: 12px;
             .HomePageBanner_image {
@@ -4176,10 +4177,10 @@
         }
         .homeBannerContainer{
             .destop_image{
-                // display: none;
+                display: none;
             }
             .mobile_imges{
-                // display: block;
+                display: block;
             }
         }
         .CategoryBordrr{
@@ -4912,6 +4913,7 @@
             }
         }
         .homeBannerContainer{
+
         .homePageBanner_container{
             margin-bottom: 0;
         }

@@ -799,6 +799,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   font-weight: 600;
 }
 
+.homeBannerContainer .mobile_imges {
+  display: none;
+}
 .homeBannerContainer .homePageBanner_container {
   width: 100%;
   margin-bottom: 12px;
@@ -3836,6 +3839,12 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   footer .footer_bootom_headings_container .copyright_title {
     font-size: 16px;
     line-height: 3;
+  }
+  .homeBannerContainer .destop_image {
+    display: none;
+  }
+  .homeBannerContainer .mobile_imges {
+    display: block;
   }
   .CategoryBordrr .catagoryTabs_section {
     padding: 10px;
