@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
-const HomePageBanner = React.memo(({ props }) => {
+const HomePageBanner = ({ props }) => {
   const handleImageError = (event) => {
     if (event.type === "error") {
       event.target.src = '/image/blankImage.jpg'; // Fallback image URL
@@ -20,7 +20,7 @@ const HomePageBanner = React.memo(({ props }) => {
       <div className='homeBannerContainer'>
 
         {/* Desktop Images */}
-        <Grid items display={{ xs: "none", md: "block", lg: "block" }}>
+        <Grid  display={{ xs: "none", md: "block", lg: "block" }}>
           <Swiper
             loop={true}
             autoplay={{
@@ -55,7 +55,7 @@ const HomePageBanner = React.memo(({ props }) => {
         </Grid>
 
         {/* Mobile Images */}
-        <Grid items display={{ xs: "block", md: "none", lg: "none" }}>
+        <Grid  display={{ xs: "block", md: "none", lg: "none" }}>
           <Swiper
             loop={true}
             autoplay={{
@@ -91,6 +91,5 @@ const HomePageBanner = React.memo(({ props }) => {
       </div>
     </React.Fragment>
   );
-});
-HomePageBanner.displayName = "HomePageBanner";
+}
 export default HomePageBanner;

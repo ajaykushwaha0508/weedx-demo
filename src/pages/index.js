@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
 import dynamic from 'next/dynamic'
 const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'));
-// const xyz = React.lazy(()=>import("../filename"))
-const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'), { ssr: false });
+
+import  HomePageBanner from "../component/home/homepagebanner"
 const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const CategoryProduct = dynamic(() => import('../component/category/category'));
 const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
-const HomePageWeedBanner = dynamic(() => import('../component/home/homepagebanner'), { ssr: false });
+// const HomePageWeedBanner = dynamic(() => import('../component/home/homepagebanner'));
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'));
 const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));
@@ -48,7 +48,7 @@ export default function Home({ initialData }) {
 
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
       <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
-      <HomePageWeedBanner props={initialData.bottembannner}></HomePageWeedBanner>
+      <HomePageBanner props={initialData.bottembannner}></HomePageBanner>
       <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
