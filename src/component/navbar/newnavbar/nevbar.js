@@ -18,8 +18,10 @@ import Notification from '../component/Notification';
 import Afterlogin from "../component/afterlogin";
 import  SideNavbar from "../component/SideSlider/Slider"
 import SliderLink from "@/component/navbar/component/SideSlider/SilderLink"
+import { useMediaQuery } from '@mui/material';
 export default function Nevbar() {
     const cookies = new Cookies();
+    const isLargeScreen = useMediaQuery('(min-width:991px)');
     const ref = React.useRef(null);
     const profileRef = React.useRef(null);
     const Location = useRouter();
@@ -27,28 +29,9 @@ export default function Nevbar() {
     const { state, dispatch } = React.useContext(Createcontext);
     const [notify, setNotify] = React.useState(false);
     const [dropDownState, setDropDownState] = React.useState(false);
-    const [Hamburger, setHamburger] = React.useState(true);  // Initial state set to null to handle SSR
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-    const detectSize = React.useCallback(
-        debounce(() => {
-            setHamburger(window.innerWidth > 991);
-        }, 100),
-        []
-    );
-    React.useEffect(() => {
-        if (typeof window !== 'undefined') {
-            // Set initial value based on client-side window size
-            setHamburger(window.innerWidth > 991);
-
-            window.addEventListener('resize', detectSize);
-
-            return () => {
-                window.removeEventListener('resize', detectSize);
-                detectSize.cancel();
-            };
-        }
-    }, [detectSize]);
+       
     const openNav = React.useCallback(() => {
         setOpen((prevOpen) => !prevOpen);
     }, []);  // empty dependency array ensures this function is only created once
@@ -93,13 +76,11 @@ export default function Nevbar() {
         await dispatch({ type: 'Profile', Profile: [] });
     }
 
-
-
     return (
         <div ref={ref} className={`${clases.NavbarBox} container`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                 {
-                    Hamburger ?
+                    isLargeScreen ?
                         <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
                             <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={'/weedx.iologo.png'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                         </Grid>
@@ -113,7 +94,7 @@ export default function Nevbar() {
                 }
                 <Grid item xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
                     {
-                        Hamburger ?
+                        isLargeScreen ?
 
                             <SearchBar path={Location?.pathname || ""} />
                             :
