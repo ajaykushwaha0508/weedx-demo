@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
 const HomePageBanner = React.memo(({ props }) => {
