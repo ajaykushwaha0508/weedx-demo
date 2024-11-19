@@ -1,7 +1,7 @@
 import React from 'react'
 import clases from '@/styles/customstyle.module.css'
 import classes from '@/styles/customstyle.module.css'
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { debounce } from 'lodash'; // Or implement a custom debounce
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,12 +16,10 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
 import Notification from '../component/Notification';
 import Afterlogin from "../component/afterlogin";
-import  SideNavbar from "../component/SideSlider/Slider"
+import SideNavbar from "../component/SideSlider/Slider"
 import SliderLink from "@/component/navbar/component/SideSlider/SilderLink"
-import { useMediaQuery } from '@mui/material';
 export default function Nevbar() {
     const cookies = new Cookies();
-    const isLargeScreen = useMediaQuery('(min-width:991px)');
     const ref = React.useRef(null);
     const profileRef = React.useRef(null);
     const Location = useRouter();
@@ -31,7 +29,7 @@ export default function Nevbar() {
     const [dropDownState, setDropDownState] = React.useState(false);
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-       
+
     const openNav = React.useCallback(() => {
         setOpen((prevOpen) => !prevOpen);
     }, []);  // empty dependency array ensures this function is only created once
@@ -79,32 +77,24 @@ export default function Nevbar() {
     return (
         <div ref={ref} className={`${clases.NavbarBox} container`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
-                {
-                    isLargeScreen ?
-                        <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start">
-                            <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={'/weedx.iologo.png'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
-                        </Grid>
-                        :
 
-                        <Grid item container xs={3} md={2} xl={2} alignItems="center">
-                            <Grid className='center ml-3' >
-                                <button className={clases.openbtn} onClick={openNav}>☰</button>
-                            </Grid>
-                        </Grid>
-                }
-                <Grid item xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
-                    {
-                        isLargeScreen ?
 
-                            <SearchBar path={Location?.pathname || ""} />
-                            :
-                            <Grid className='text-center'>
-                                <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.png'} width={100} height={100} /></Link>
-                            </Grid>
 
-                    }
+                <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start" display={{ xs: "none", md: "block", lg: "block" }}>
+                    <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={'/weedx.iologo.png'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                 </Grid>
-                <Grid  item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
+
+
+                <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "block", md: "none", lg: "none" }}>
+                    <button className={clases.openbtn} onClick={openNav}>☰</button>
+                </Grid>
+                <Grid item xs={6} md={6} xl={7} display={{ xs: "none", md: "block", lg: "block" }}>
+                    <SearchBar path={Location?.pathname || ""} />
+                </Grid>
+                <Grid className='text-center' item xs={6} md={6} xl={7} display={{ xs: "block", md: "none", lg: "none" }}>
+                    <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.png'} width={100} height={100} /></Link>
+                </Grid>
+                <Grid item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                     <div className={clases.Heder_icon} >
                         <Link href="/whislists">
                             <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
@@ -112,12 +102,12 @@ export default function Nevbar() {
                             </Badge>
                         </Link>
                         <div className="notification_icon" >
-                            <Badge  onClick={() => setNotify(!notify)} 
-                            badgeContent={
-                                Boolean( state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
-                            }
+                            <Badge onClick={() => setNotify(!notify)}
+                                badgeContent={
+                                    Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
+                                }
                                 className={classes.sliderLink_badge}>
-                                <IconButton  className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications  color="#858585" size={22}></IoIosNotifications></IconButton>
+                                <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                             </Badge>
                             <Notification
                                 notify={notify}
@@ -125,7 +115,7 @@ export default function Nevbar() {
                                 notificationdata={notificationData}
                                 Setnotificationdata={setNotificationData}
                                 Settotalnotify={setTotalNotify}
-                            ></Notification> 
+                            ></Notification>
                         </div>
                         <Link href="/cart">
                             <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
@@ -134,14 +124,14 @@ export default function Nevbar() {
                         </Link>
                     </div>
                 </Grid>
-                <Grid item xs={5} md={4} xl={3}>
-            
-                    <Afterlogin dropDownState={dropDownState} state={state} profileRef ={profileRef} handleClickDropdown= {handleClickDropdown} Logout={Logout}></Afterlogin >
+                <Grid item xs={5} md={4} xl={3} >
+
+                    <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}></Afterlogin >
                 </Grid>
                 <Grid item xs={12} md={12} xl={12}>
-    
+
                     <SliderLink Hamburger={"nano"} state={state}></SliderLink>
-                        <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
+                    <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
                 </Grid>
             </Grid>
         </div>
