@@ -7,6 +7,9 @@
   text-transform: capitalize;
 }
 
+.page_breadcrum {
+  padding: 10px 0;
+}
 .page_breadcrum span {
   font-size: 12px;
   font-weight: 500;
@@ -710,14 +713,8 @@ footer .footer_main_div_display .bottom_menu_items p span.footer_li {
   width: 24.33%;
   border-right: 3px solid #e1e1e1;
   text-align: center;
-  width: 24.33%;
-  border-right: 3px solid #e1e1e1;
-  text-align: center;
 }
 footer .footer_main_div_display .footer_icons_column p {
-  justify-content: center;
-  justify-content: flex-end;
-  gap: 10px;
   justify-content: center;
   justify-content: flex-end;
   gap: 10px;
@@ -738,22 +735,13 @@ footer .footer_bootom_headings_container .copyright_title {
 .bottom_menu_items p, .footer_icons_column p {
   display: flex;
   align-items: center;
-  display: flex;
-  align-items: center;
 }
 
 .bottom_menu_items p a {
   display: contents;
-  display: contents;
 }
 
 footer .bottom_menu_items .footer_li, footer .footer_main_list .footer_li {
-  color: #183B56;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 2;
-  transition: all 0.3s ease;
   color: #183B56;
   font-size: 14px;
   font-style: normal;
@@ -765,12 +753,11 @@ footer .bottom_menu_items .footer_li, footer .footer_main_list .footer_li {
 footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .footer_li:hover {
   color: #31B665;
   font-weight: 600;
-  color: #31B665;
-  font-weight: 600;
 }
 
 .homeBannerContainer .mobile_imges {
   display: none;
+  padding: 0 1px;
 }
 .homeBannerContainer .homePageBanner_container {
   width: 100%;
@@ -1058,7 +1045,6 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Shabnam", Tahoma, sans-serif;
   color: #31B655;
   direction: rtl;
 }
@@ -3571,6 +3557,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   footer .footer_main_div_display .footer_sub_heading {
     font-size: 18px;
   }
+  footer .footer_main_div_display .main_content_logo .footer_list .footer_main_list p.footer_menu_heading {
+    font-size: 14px;
+  }
   footer .footer_main_div_display .main_content_logo .footer_logo_container .footerLogo {
     width: 140px;
   }
@@ -3715,7 +3704,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .oopss {
     width: 100%;
-    padding: 10px;
+    background-color: rgba(65, 206, 0, 0.0901960784);
+    padding: 15px;
+    margin-top: 0;
   }
   .oopss .errortext {
     font-size: 22px;
@@ -3727,7 +3718,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     font-size: 22px;
   }
   .oopss .errortext p {
-    font-size: 14px;
+    font-size: 15px;
   }
   .oopss .errortext .back {
     font-size: 15px;
@@ -3808,7 +3799,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     display: block;
   }
   .CategoryBordrr .catagoryTabs_section {
-    padding: 10px;
+    padding: 10px 0;
   }
   .CategoryBordrr .catagoryTabs_section .CategorySliderImageBlock .catagoriesTabImg {
     width: 100px;
@@ -4072,7 +4063,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .canabisLawMainHeadings {
     font-size: 16px;
   }
-  footer .footer_main_list p.footer_menu_heading {
+  footer .footer_main_div_display .main_content_logo .footer_list .footer_main_list p.footer_menu_heading {
     font-size: 14px;
   }
   .review_secton .reviews_description .overall_review_container .left_circularbar_container .left_circularbar {
@@ -4082,6 +4073,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .review_secton .related_review_container {
     padding: 20px;
+    margin-bottom: 0;
   }
   .lawsContainer {
     margin: 30px 0;
@@ -4185,12 +4177,17 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .HomePageDealsSignupContainer {
     padding: 20px;
+    border-radius: 20px;
   }
   .HomePageDealsSignupContainer .contentarea .homePageSignup_heading {
     font-size: 18px;
+    text-align: center;
+    line-height: 1.7;
   }
   .HomePageDealsSignupContainer .contentarea .homePageSignup_paragraph {
     font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
   }
   .HomePageDealsSignupContainer .contentarea .newsletterFormFeild {
     width: 100%;
@@ -4371,11 +4368,15 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .about_card_Wraper .about_card .about_text .acard_title {
     text-align: center;
   }
+  .StoreHeader {
+    margin-bottom: 20px;
+    border: 1px solid #1f722d;
+  }
   .StoreHeader .storeShareBtn {
     width: 25px;
     height: 25px;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
   }
   .StoreHeader .newFlavourimage_div {
     height: 75px;
@@ -4442,7 +4443,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     font-size: 14px;
   }
   .StoreDetailspage .amenities_container .amenties_nameHeading {
-    margin-left: 20px;
+    margin-left: 0px;
   }
   .StoreDetailspage .amenities_container .amenities_list {
     gap: 6%;

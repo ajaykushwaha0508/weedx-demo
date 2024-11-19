@@ -155,7 +155,7 @@ const Faq = () => {
                                     </AccordionSummary>
                                     <AccordionDetails>
                                     <Typography className={classes.faqParagraph} >
-                                    {item.paara}
+                                        {item.paara}
                                     </Typography>
                                     </AccordionDetails>
                                 </Accordion>

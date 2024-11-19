@@ -1,17 +1,15 @@
 
-import React , {memo} from "react"
+import React , {memo} from "react";
 import Button from '@mui/material/Button';
-import useStyles from "../../../../styles/style"
+import useStyles from "../../../../styles/style";
 import { useRouter } from 'next/router';
 import Link from "next/link";
-import Createcontext from "../../../../hooks/context"
+import Createcontext from "../../../../hooks/context";
 import { FaHome, FaClinicMedical, FaIdeal, FaProductHunt } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { SiFuturelearn } from "react-icons/si";
 import { RxCross2 } from "react-icons/rx";
 import { HiSpeakerphone } from "react-icons/hi";
-
-// import { URL } from 'url';
 import Cookies from 'universal-cookie';
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.css';
@@ -22,7 +20,6 @@ const SideNavbar = ({ closeNav, Open }) => {
     const [SliderStateDropDown, SetSliderStateDropdown] = React.useState(null)
     const classes = useStyles()
     const cookies = new Cookies();
-
     async function Logout() {
         localStorage.removeItem('User_Token_access');
         cookies.remove('User_Token_access');
@@ -69,6 +66,7 @@ const SideNavbar = ({ closeNav, Open }) => {
         closeNav()
     }
     const link1  = () => {Navigate.push("/advertise"); closeNav()}
+    console.log(state?.Profile?.image)
     return (
         <React.Fragment>
             <div id="mySidebar" className={clases.sidebar} style={{ width: Open ? "300px" : "0px" }}>
@@ -105,12 +103,16 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 <div className={clases.SliderImageProfile_container}>
 
                                                     <Image
-                                                      
+                                                        src={state?.Profile?.image}
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                         unoptimized={true}
                                                         width={100}
                                                         height={100}
-                                                        alt='Profile' title='Profile' onClick={Redirect} src={state?.Profile?.image} className={clases.Slider_inner_profile_imgs} />
+                                                        alt='Profile' 
+                                                        title='Profile'
+                                                        onClick={Redirect}  
+                                                        className={clases.Slider_inner_profile_imgs}
+                                                    />
 
                                                 </div>
                                                 <div className={clases.slider_image_profile_names_conatiner}>
@@ -172,14 +174,10 @@ const SideNavbar = ({ closeNav, Open }) => {
                         !state.login ?
                         <>
                             <div className='col-5'>
-
-                                <Button onClick={Login} className={classes.muiBtn} >Login</Button>
-
+                                <Button onClick={Login} className={classes.muiBtn} >{`Login`}</Button>
                             </div>
                             <div className='col-5'>
-
-                                <Button onClick={Signup} className={classes.muiBtn} >Signup</Button>
-
+                                <Button onClick={Signup} className={classes.muiBtn} >{`Signup`}</Button>
                             </div>
                         </>
                         :

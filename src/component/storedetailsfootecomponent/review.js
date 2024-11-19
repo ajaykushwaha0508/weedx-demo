@@ -4,6 +4,8 @@ import "swiper/css";
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from 'next/image'
+import { BsStarFill } from "react-icons/bs";
+import Styled from '@/styles/customstyle.module.scss'
 const styles = {
     card: {
         border: "1px solid #ddd",
@@ -74,18 +76,15 @@ const styles = {
 
 };
 
-import { BsStarFill } from "react-icons/bs";
 
 const Review = (props) => {
 
     return (
         <div>
-
-            {Boolean(props?.AllReview?.length) &&
-                <div>
-                    <div>
-                        <h4 className='oopsreviewheading'>{`What Customers Say about ${props.storename}`}</h4>
-                    </div>
+            {
+                Boolean(props?.AllReview?.length) &&
+                <React.Fragment>
+                    <h4 className={`${Styled.section_main_title} mb-3 `}>{`What Customers Say about ${props.storename}`}</h4>
                     <Swiper className={`mySwiper similerproduxt`}
                         spaceBetween={50}
                         slidesPerView={2}
@@ -144,7 +143,6 @@ const Review = (props) => {
                                                     <span style={styles.date}>{data.created_at.slice(0, 10)}</span>
                                                 </div>
                                             </div>
-
                                             <div className='mt-2' >
                                                 <h4 style={styles.contenth4}>{data.Title}</h4>
                                                 <div className='description-text' >
@@ -161,12 +159,9 @@ const Review = (props) => {
                             })
                         }
                     </Swiper>
-
-                </div>
+                </React.Fragment>
             }
-
         </div>
     )
 }
-
 export default Review

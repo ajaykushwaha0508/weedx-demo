@@ -147,7 +147,7 @@ const Product = (props) => {
             {!Boolean(props.id) ? <ProductSeo location={navigate?.asPath}></ProductSeo> :
                 <ProductCategorySeo categoryname={slug[0]} location={navigate?.asPath} ></ProductCategorySeo>}
             <div className="row">
-                <div className="col-12 mt-4">
+                <div className="col-12">
                     <CategoryProduct Category={Category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
                 </div>
                 {

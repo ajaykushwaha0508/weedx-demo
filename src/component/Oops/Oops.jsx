@@ -3,6 +3,8 @@ import Image from 'next/image'
 import gifimage from '../../../public/image/gif.svg';
 import clases from '@/styles/customstyle.module.css'
 import 'swiper/css/navigation';
+import Typography from '@mui/material/Typography';
+import useStyles from "@/styles/style";
 import "swiper/css";
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +19,7 @@ import Review from '@/component/storedetailsfootecomponent/review';
 const Oops = (props) => {
   var date = new Date();
   // console.log(props)
-
+const styled = useStyles()
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
   const faq1 = [
@@ -191,7 +193,7 @@ const Oops = (props) => {
       <>
         {
           Boolean(props?.store?.length) &&
-          <>
+          <React.Fragment>
             {
               Boolean(props?.store?.length !== 1) &&
               <div className='mt-5' >
@@ -238,38 +240,35 @@ const Oops = (props) => {
                 })
               }
             </Swiper>
-          </>
+          </React.Fragment>
         }
         {Boolean(props?.allproduct?.length) && <ProductSearchResult link={'/products'} RelatedProductResult={props?.allproduct} currentProductID={props?.allproduct[0]?.id} title={'Explore Nearby Products'} CategoryName={props?.allproduct[0]} />}
       </>
-      <>
-        <h3 className={`${clases.section_main_title} mt-4`}>{`Frequently Asked Questions (FAQs)`}</h3>
+      <React.Fragment>
+        <h3 className={`${clases.section_main_title} my-3`}>{`Frequently Asked Questions (FAQs)`}</h3>
         <div className="row">
           {
             (props.faq === "delivery" ? faq : faq1)?.map((item, index) => {
-              return <div key={index} className="col-lg-12 my-1"> <Accordion>
+              return <div key={index} className="col-lg-12 my-1"> <Accordion className={styled.faqbox}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1-content"
                   id="panel1-header"
-                >
-                  <h3
-                    style={{
-                      fontWeight: "600",
-                      fontSize: "14px",
-                      lineHeight: "14px"
-                    }}
-                  >{item.title}</h3>
+                  className={styled.faqHeading} >
+                    <Typography >{item.title} </Typography>
                 </AccordionSummary>
                 <AccordionDetails >
-                  <span style={{ margin: "0" }}>{item.answer}</span>
+                <Typography className={styled.faqParagraph} >
+                                        {item.answer}
+                                    </Typography>
+                
                 </AccordionDetails>
               </Accordion></div>
             })
           }
 
         </div>
-      </>
+      </React.Fragment>
     </>
   )
 }

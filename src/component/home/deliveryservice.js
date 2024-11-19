@@ -56,7 +56,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
       
     return (
         <React.Fragment>
-            <div className="px-sm-0 px-3">
+            <div className="px-sm-0">
                 <div >
                     {
                         <React.Fragment>

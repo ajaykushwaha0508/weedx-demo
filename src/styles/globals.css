@@ -104,10 +104,7 @@ a {
 
 }
 
-.col_Search {
-  justify-content: center;
-  display: flex;
-}
+
 
 .nav_search_bar_div input:focus {
   outline: none;
@@ -7166,12 +7163,6 @@ font-size: 24px;
 
 
 
-.oopsreviewheading{
- font-weight: 700;
- size: 36px;
- line-height: 24px;
-
-}
 
 .description-text p {
   overflow: hidden;
@@ -7214,12 +7205,7 @@ font-size: 24px;
   .nearbyStore{
     font-size: 16px;
   }
-  .oopsreviewheading{
-   font-size: 14px;
-   }
 }
-
-
 .cardnamerating{
 display: contents;
 } 

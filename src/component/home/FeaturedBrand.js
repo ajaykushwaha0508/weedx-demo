@@ -9,7 +9,7 @@ const Featuredbrand = ({ CardDataArray}) => {
     const ref = React.useRef(null);
 
     return (
-        <div className="px-sm-0 px-3 ">
+        <div className="px-sm-0">
                 <div className="d-flex align-items-center justify-content-between">
                     <h2 className={clases.section_main_title}>{`Featured Brands`}</h2>
                     <Link href='/brands'>

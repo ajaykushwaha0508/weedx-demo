@@ -7,6 +7,7 @@
         text-transform: capitalize;
     }
     .page_breadcrum{
+        padding: 10px 0;
         span{
             font-size: 12px;
             font-weight: 500;
@@ -729,9 +730,7 @@
                             width: 24.33%;
                             border-right: 3px solid #e1e1e1;
                             text-align: center;
-                            width: 24.33%;
-                            border-right: 3px solid #e1e1e1;
-                            text-align: center;
+                        
                         }
                     }
                 }
@@ -741,9 +740,7 @@
                     justify-content: center;
                     justify-content: flex-end;
                     gap: 10px;
-                    justify-content: center;
-                    justify-content: flex-end;
-                    gap: 10px;
+                  
                 }
             }
         }
@@ -764,24 +761,15 @@
     .bottom_menu_items p, .footer_icons_column p {
         display: flex;
         align-items: center;
-        display: flex;
-        align-items: center;
     }
-    .bottom_menu_items {
-        p {
-            a {
-                display: contents;
+    .bottom_menu_items{
+        p{
+            a{
                 display: contents;
             }
         }
     }
-    footer .bottom_menu_items .footer_li,footer .footer_main_list .footer_li {
-        color: #183B56;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 2;
-        transition: all .3s ease;
+    footer .bottom_menu_items .footer_li,  footer .footer_main_list .footer_li {
         color: #183B56;
         font-size: 14px;
         font-style: normal;
@@ -789,15 +777,15 @@
         line-height: 2;
         transition: all .3s ease;
     }
-    footer .bottom_menu_items p span.footer_li:hover,footer  .footer_main_list .footer_li:hover {
+    footer .bottom_menu_items p span.footer_li:hover,footer .footer_main_list .footer_li:hover {
         color: #31B665;
         font-weight: 600;
-        color: #31B665;
-        font-weight: 600;
+     
     }
     .homeBannerContainer{
         .mobile_imges{
             display: none;
+            padding: 0 1px;
         }
         
         .homePageBanner_container {
@@ -1087,7 +1075,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: "Shabnam", Tahoma, sans-serif;
             color: #31B655;
             direction: rtl;
             img {
@@ -1776,16 +1763,18 @@
                 color: #858585;
                 margin-top: 15px;
             }
-            .review_description_container{ p{
-                font-family: "Poppins", sans-serif;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 1.5;
-                text-align: left;
-                word-wrap: break-word;
-                color: #a5a5a5;
-                margin: 0;
-            }}
+            .review_description_container{ 
+                p{
+                    font-family: "Poppins", sans-serif;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    text-align: left;
+                    word-wrap: break-word;
+                    color: #a5a5a5;
+                    margin: 0;
+                }
+            }
             .related_review_footer{
                 display: flex;
                 justify-content: flex-start;
@@ -3694,7 +3683,7 @@
             width: 32%;
         }
         .HomePageDealsSignupContainer {
-        
+          
             .newsletterImage{
                 
             
@@ -3828,7 +3817,11 @@
             }
             .main_content_logo{
                 .footer_list{
-                
+                    .footer_main_list {
+                        p.footer_menu_heading {
+                        font-size: 14px;
+                        }
+                    }
                 }
                 .footer_logo_container{
                     .footerLogo {
@@ -4071,7 +4064,9 @@
         }
         .oopss {
             width: 100%;
-            padding: 10px;
+            background-color: #41ce0017;
+            padding: 15px;
+            margin-top: 0;
             .errortext {
                 font-size: 22px;
                 img {
@@ -4082,8 +4077,7 @@
                 }
                 p {
                 
-                        font-size: 14px;
-                    
+                    font-size: 15px;
                 }
                 .back {
                     font-size: 15px;
@@ -4185,7 +4179,7 @@
         }
         .CategoryBordrr{
             .catagoryTabs_section{
-            padding: 10px;  
+            padding: 10px 0;  
             .CategorySliderImageBlock{
                     .catagoriesTabImg{
                         width: 100px;
@@ -4529,8 +4523,18 @@
         .canabisLawMainHeadings{
             font-size: 16px;
         }
-        footer .footer_main_list p.footer_menu_heading {
-            font-size: 14px;
+        footer {
+            .footer_main_div_display{
+                .main_content_logo{
+                    .footer_list{
+                        .footer_main_list {
+                            p.footer_menu_heading {
+                            font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
         }
         .review_secton{
         
@@ -4551,7 +4555,8 @@
                 }
             }
             .related_review_container{
-            padding: 20px; 
+               padding: 20px; 
+               margin-bottom: 0;
             }
         
         
@@ -4699,31 +4704,28 @@
         }
         .HomePageDealsSignupContainer {
             padding: 20px;
+            border-radius: 20px;
             .newsletterImage{
                 
             
             }
             .contentarea{
                 .homePageSignup_heading{
-                font-size: 18px;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 1.7;
                 }
                 .homePageSignup_paragraph{
-                font-size: 16px;
-                
-                    
+                    font-size: 16px;
+                    text-align: center;
+                    line-height: 1.4;
                 } 
                 .newsletterFormFeild{
-            
                     width: 100%;
                     .newsletter_btn{
-                    width: 30%;
+                      width: 30%;
                     }
                 }
-                
-                .thankforsubscribe{
-                
-                }
-                
             }
         }
         .DeliveryItemsCardSkeleton {
@@ -4913,9 +4915,9 @@
             }
         }
         .homeBannerContainer{
-        .homePageBanner_container{
-            margin-bottom: 0;
-        }
+            .homePageBanner_container{
+                margin-bottom: 0;
+            }
         }
         .CategoryBordrr{
             .catagoryTabs_section{
@@ -4977,12 +4979,13 @@
         }}}
         }
         .StoreHeader{
-        
+            margin-bottom: 20px;
+             border: 1px solid #1f722d;
             .storeShareBtn{
                 width: 25px;
                 height: 25px;
-                top: 5px;
-                right: 5px;
+                top: 10px;
+                right: 10px;
                 
             }
             .newFlavourimage_div {
@@ -5078,8 +5081,7 @@
             .amenities_container {
             
                 .amenties_nameHeading {
-                margin-left: 20px;
-                
+                   margin-left: 0px;
                 }
                 .amenities_list {
                 gap: 6%;

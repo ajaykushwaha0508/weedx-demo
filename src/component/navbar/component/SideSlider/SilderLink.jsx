@@ -251,11 +251,9 @@ function DashBoardLink({ state, Hamburger }) {
   const [notify, setnotify] = React.useState(false);
   const [notificationdata, Setnotificationdata] = React.useState([]);
   const [totalnotify, Settotalnotify] = React.useState([]);
-
   useEffect(() => {
     Setcurrent_route(location.pathname);
   }, [location]);
-
   const scrollToTop = useCallback(() => {
     document.documentElement.scrollTo({
       top: 0,
@@ -292,7 +290,6 @@ function DashBoardLink({ state, Hamburger }) {
   const link = useCallback(() => {
     location.push('/add-business');
   }, [location]);
-
   const link1 = useCallback(() => {
     location.push('/advertise');
   }, [location]);
@@ -302,158 +299,158 @@ function DashBoardLink({ state, Hamburger }) {
       {Boolean(state.Country) && (
  
           <Grid container spacing={2}>
-        <Grid item={true} xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
-          <div className="col nav_list1">
-            <ul className="p-0">
-              <li>
+          <Grid item={true} xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
+            <div className="col nav_list1">
+              <ul className="p-0">
+                <li>
+                  <Link
+                    href={getDispensariesHref()}
+                    id={`${current_route?.slice(0, 18) === "/weed-dispensaries"
+                      ? "Active"
+                      : ""
+                      }`}
+                  >
+                    {" "}
+                    Dispensaries
+                  </Link>
+                </li>
                 <Link
-                  href={getDispensariesHref()}
-                  id={`${current_route?.slice(0, 18) === "/weed-dispensaries"
+                  href={getDeliveryHref()}
+                  id={`${current_route?.slice(0, 16) === "/weed-deliveries"
                     ? "Active"
                     : ""
                     }`}
                 >
-                  {" "}
-                  Dispensaries
+                  <li>Deliveries</li>
                 </Link>
-              </li>
-              <Link
-                href={getDeliveryHref()}
-                id={`${current_route?.slice(0, 16) === "/weed-deliveries"
-                  ? "Active"
-                  : ""
-                  }`}
-              >
-                <li>Deliveries</li>
-              </Link>
 
-              <Link
-                onClick={scrollToTop}
-                href="/products"
-                id={`${current_route === "/products" ? "Active" : ""}`}
-              >
-                <li>Product</li>
-              </Link>
-
-              <Link
-                href="/deals"
-                id={`${current_route === "/deals" ? "Active" : ""}`}
-              >
-                <li onClick={scrollToTop}>Deals</li>
-              </Link>
-              <Link
-                href="/learn/laws-and-regulation"
-                id={`${current_route === "/learn/laws-and-regulation" ? "Active" : ""
-                  }`}
-              >
-                <li>Law</li>
-              </Link>
-            </ul>
-          </div>
-        </Grid>
-        <Grid item={true} xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
-          <div className="d-flex gap-1 justify-content-center">
-            <button className={newclases.btnaddss} onClick={link}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-
-              {` Add Business`}
-            </button>
-            <button className={newclases.btnaddss} onClick={link1}>
-              <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12} /></p>
-              {`Advertise`}
-            </button>
-          </div>
-        </Grid>
-        <Grid item={true} xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }}>
-          <div className=" col-12  addyocardIcon  ">
-            <Link href="/whislists">
-              <Badge
-                badgeContent={
-                  state.login
-                    ? Object.values(state.WishList).reduce(
-                      (a, item) => a + item,
-                      0
-                    )
-                    : 0
-                }
-                className={classes.sliderLink_badge}
-              >
-                <IconButton
-                  className={classes.navBarButton_icons}
-                  aria-label="whislist"
+                <Link
+                  onClick={scrollToTop}
+                  href="/products"
+                  id={`${current_route === "/products" ? "Active" : ""}`}
                 >
-                  <AiFillHeart color="#858585" size={22}></AiFillHeart>
-                </IconButton>
-              </Badge>
-            </Link>
-            <div className="notification_icon">
-              <Badge
-                badgeContent={
-                  state.login
-                    ? totalnotify?.length ===
-                      state?.Profile?.RemovedNotification?.length
-                      ? 0
-                      : totalnotify?.length -
-                        state?.Profile?.RemovedNotification?.length >
-                        0
-                        ? totalnotify?.length -
-                        state?.Profile?.RemovedNotification?.length
-                        : 0
-                    : notificationdata?.length
-                }
-                className={classes.sliderLink_badge}
-                onClick={() => {
-                  // setnotify(()=>!notify);
-                  setnotify((notify) => !notify);
-                }}
-              >
-                <IconButton
-                  className={classes.navBarButton_icons}
-                  aria-label="notification"
-                >
-                  {" "}
-                  <IoIosNotifications
-                    color="#858585"
-                    size={23}
-                  ></IoIosNotifications>{" "}
-                </IconButton>
-              </Badge>
+                  <li>Product</li>
+                </Link>
 
-              <Notification
-                notify={notify}
-                setnotify={setnotify}
-                notificationdata={notificationdata}
-                Setnotificationdata={Setnotificationdata}
-                Settotalnotify={Settotalnotify}
-              ></Notification>
+                <Link
+                  href="/deals"
+                  id={`${current_route === "/deals" ? "Active" : ""}`}
+                >
+                  <li onClick={scrollToTop}>Deals</li>
+                </Link>
+                <Link
+                  href="/learn/laws-and-regulation"
+                  id={`${current_route === "/learn/laws-and-regulation" ? "Active" : ""
+                    }`}
+                >
+                  <li>Law</li>
+                </Link>
+              </ul>
             </div>
-            <Link href="/cart">
-              <Badge
-                className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}
-                badgeContent={
-                  state.AllProduct?.length > 0 ? state.AllProduct?.length : null
-                }
-              >
-                <IconButton
-                  className={classes.navBarButton_icons}
-                  aria-label="shopping-cart"
+          </Grid>
+          <Grid item={true} xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
+            <div className="d-flex gap-1 justify-content-center">
+              <button className={newclases.btnaddss} onClick={link}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                {` Add Business`}
+              </button>
+              <button className={newclases.btnaddss} onClick={link1}>
+                <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12} /></p>
+                {`Advertise`}
+              </button>
+            </div>
+          </Grid>
+          <Grid item={true} xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }}>
+            <div className=" col-12  addyocardIcon  ">
+              <Link href="/whislists">
+                <Badge
+                  badgeContent={
+                    state.login
+                      ? Object.values(state.WishList).reduce(
+                        (a, item) => a + item,
+                        0
+                      )
+                      : 0
+                  }
+                  className={classes.sliderLink_badge}
                 >
-                  <MdOutlineShoppingCart
-                    color="#858585"
-                    size={22}
-                  ></MdOutlineShoppingCart>
-                </IconButton>
-              </Badge>
-            </Link>
-          </div>
-        </Grid>
-        <Grid  item={true} xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
-          <SearchBar />
-        </Grid>
-      </Grid>
+                  <IconButton
+                    className={classes.navBarButton_icons}
+                    aria-label="whislist"
+                  >
+                    <AiFillHeart color="#858585" size={22}></AiFillHeart>
+                  </IconButton>
+                </Badge>
+              </Link>
+              <div className="notification_icon">
+                <Badge
+                  badgeContent={
+                    state.login
+                      ? totalnotify?.length ===
+                        state?.Profile?.RemovedNotification?.length
+                        ? 0
+                        : totalnotify?.length -
+                          state?.Profile?.RemovedNotification?.length >
+                          0
+                          ? totalnotify?.length -
+                          state?.Profile?.RemovedNotification?.length
+                          : 0
+                      : notificationdata?.length
+                  }
+                  className={classes.sliderLink_badge}
+                  onClick={() => {
+                    // setnotify(()=>!notify);
+                    setnotify((notify) => !notify);
+                  }}
+                >
+                  <IconButton
+                    className={classes.navBarButton_icons}
+                    aria-label="notification"
+                  >
+                    {" "}
+                    <IoIosNotifications
+                      color="#858585"
+                      size={23}
+                    ></IoIosNotifications>{" "}
+                  </IconButton>
+                </Badge>
+
+                <Notification
+                  notify={notify}
+                  setnotify={setnotify}
+                  notificationdata={notificationdata}
+                  Setnotificationdata={Setnotificationdata}
+                  Settotalnotify={Settotalnotify}
+                ></Notification>
+              </div>
+              <Link href="/cart">
+                <Badge
+                  className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}
+                  badgeContent={
+                    state.AllProduct?.length > 0 ? state.AllProduct?.length : null
+                  }
+                >
+                  <IconButton
+                    className={classes.navBarButton_icons}
+                    aria-label="shopping-cart"
+                  >
+                    <MdOutlineShoppingCart
+                      color="#858585"
+                      size={22}
+                    ></MdOutlineShoppingCart>
+                  </IconButton>
+                </Badge>
+              </Link>
+            </div>
+          </Grid>
+          <Grid className={classes.nav_search_bar}  item={true} xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
+            <SearchBar />
+          </Grid>
+          </Grid>
      
       )}
     </div>

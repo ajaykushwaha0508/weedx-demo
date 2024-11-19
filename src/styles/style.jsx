@@ -285,6 +285,9 @@ const useStyles = makeStyles({
 
     }
   },
+  nav_search_bar:{
+   padding:'10px 0 0 0'
+  },
   businessaccordion:{
     backgroundColor:'transparent',
     boxShadow:'none',
@@ -864,24 +867,15 @@ const useStyles = makeStyles({
       outline: "1px solid #31B665"
     }
   },
-
-  sliderLink_badge: {
+  sliderLink_badge:{
     "& .MuiBadge-badge": {
-      background: "#31B665",
-      color: "#FFFFFF"
-    },
-    '@media (max-width: 576px)': {
-      "& .MuiBadge-badge": {
-      background: "#31B665",
+      background: "#31B655",
       color: "#FFFFFF",
-      
-      // display:'none',
     },
-     }
   },
   searchBar_padding: {
     "&.MuiTextField-root": {
-      paddingLeft: "10px"
+      paddingLeft: "10px",
     }
   },
   homePageDealSignup_TextFields: {
@@ -1682,9 +1676,14 @@ const useStyles = makeStyles({
     }
   },
   faqbox:{
-   "&.MuiPaper-root":{
-    marginBottom:'12px',
-   }
+    "&.MuiPaper-root":{
+      marginBottom:'12px',
+    },
+    '@media(max-Width: 1400px)' : {
+      "&.MuiPaper-root":{
+        marginBottom:'0px',
+      },
+    }
   },
   reviewFilter:{
     "&.MuiFormControl-root": {

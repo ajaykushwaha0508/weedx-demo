@@ -114,13 +114,11 @@ export default function Nevbar() {
                 <Grid item xs={6} md={6} xl={7} display={{ xs: "block", md: "block", lg: "block" }}>
                     {
                         Hamburger ?
-
                             <SearchBar path={Location?.pathname || ""} />
                             :
                             <Grid className='text-center'>
                                 <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.png'} width={100} height={100} /></Link>
                             </Grid>
-
                     }
                 </Grid>
                 <Grid  item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
@@ -147,7 +145,7 @@ export default function Nevbar() {
                             ></Notification> 
                         </div>
                         <Link href="/cart">
-                            <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                            <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={classes.sliderLink_badge}>
                                 <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                             </Badge>
                         </Link>

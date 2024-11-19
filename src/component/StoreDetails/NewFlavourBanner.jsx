@@ -63,7 +63,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                                 <p style={{color:shopopen ?"#31B655":"red"}} className={clases.marginLeftnewFlavStore}>{shopopen ? "Open" : "Closed"}</p>
                                             </div>
                                         </div>
-                                        <div className=' d-flex  my-3 gap-3 align-items-center '>
+                                        <div className=' d-flex  mt-3 gap-3 align-items-center '>
                                            
 
                                             {
@@ -109,7 +109,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                                     <p style={{color:shopopen ?"#31B655":"red"}} className={clases.marginLeftnewFlavStore}>{shopopen ? "Open" : "Closed"}</p>
                                 </div>
                             </div>
-                            <div className=' d-flex  my-3 gap-3 align-items-center '>
+                            <div className=' d-flex  mt-3 gap-3 align-items-center '>
                                 {/* {
                                     data.StoreEmail !== "" && data.StoreEmail !== null &&
                                     <Box className={`${classes.loadingBtnTextAndBack}`}  >  <LoadingButton className={`${classes.storeheaderbtn}`} variant="outlined">{'Email'}</LoadingButton>
