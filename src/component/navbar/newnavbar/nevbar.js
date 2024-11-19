@@ -77,14 +77,9 @@ export default function Nevbar() {
     return (
         <div ref={ref} className={`${clases.NavbarBox} container`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
-
-
-
                 <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start" display={{ xs: "none", md: "block", lg: "block" }}>
                     <Link href="/"> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} src={'/weedx.iologo.png'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                 </Grid>
-
-
                 <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "block", md: "none", lg: "none" }}>
                     <button className={clases.openbtn} onClick={openNav}>☰</button>
                 </Grid>

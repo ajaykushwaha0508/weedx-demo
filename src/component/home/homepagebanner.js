@@ -2,9 +2,8 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import clases from '@/styles/customstyle.module.css';
-
-const HomePageBanner = ({ props }) => {
+import { Box, Grid } from '@mui/material';
+const HomePageBanner = React.memo(({ props }) => {
   const handleImageError = (event) => {
     if (event.type === "error") {
       event.target.src = '/image/blankImage.jpg'; // Fallback image URL
@@ -17,9 +16,10 @@ const HomePageBanner = ({ props }) => {
 
   return (
     <React.Fragment>
-      <div className={clases.homeBannerContainer}>
+      <div className='homeBannerContainer'>
+
         {/* Desktop Images */}
-        <div className={clases.destop_image}>
+        <Grid items display={{ xs: "none", md: "block", lg: "block" }}>
           <Swiper
             loop={true}
             autoplay={{
@@ -31,7 +31,7 @@ const HomePageBanner = ({ props }) => {
           >
             {props?.reverse()?.map((items, index) => (
               <SwiperSlide key={index}>
-                <div className={`col-12 ${clases.homePageBanner_container}`}>
+                <div className={`col-12 homePageBanner_container`}>
                   <a href={items?.Link ? items?.Link : "#"}>
                     <Image
                       src={items?.Banner}
@@ -42,7 +42,7 @@ const HomePageBanner = ({ props }) => {
                       quality={80} // Adjusted for better compression
                       priority // Critical for LCP
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1500px"
-                      className={clases.HomePageBanner_image}
+                      className={'HomePageBanner_image'}
                       onError={handleImageError}
                       loader={imageLoader}
                     />
@@ -51,10 +51,10 @@ const HomePageBanner = ({ props }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </Grid>
 
         {/* Mobile Images */}
-        <div className={clases.mobile_imges}>
+        <Grid items display={{ xs: "block", md: "none", lg: "none" }}>
           <Swiper
             loop={true}
             autoplay={{
@@ -66,7 +66,7 @@ const HomePageBanner = ({ props }) => {
           >
             {props?.reverse()?.map((items, index) => (
               <SwiperSlide key={index}>
-                <div className={`col-12 ${clases.homePageBanner_container}`}>
+                <div className={`col-12 homePageBanner_container`}>
                   <a href={items?.Link ? items?.Link : "#"}>
                     <Image
                       src={items?.mobile}
@@ -77,7 +77,7 @@ const HomePageBanner = ({ props }) => {
                       quality={50} // Reduced quality for mobile optimization
                       loading="lazy" // Lazy load for non-critical images
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className={clases.HomePageBanner_image}
+                      className={'HomePageBanner_image'}
                       onError={handleImageError}
                       loader={imageLoader}
                     />
@@ -86,10 +86,10 @@ const HomePageBanner = ({ props }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </Grid>
       </div>
     </React.Fragment>
   );
-};
-
+});
+HomePageBanner.displayName = "HomePageBanner";
 export default HomePageBanner;

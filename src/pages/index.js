@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
 import dynamic from 'next/dynamic'
 const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'));
-const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'));
+// const xyz = React.lazy(()=>import("../filename"))
+const HomePageBanner = dynamic(() => import('../component/home/homepagebanner'), { ssr: false });
 const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
 const CategoryProduct = dynamic(() => import('../component/category/category'));
 const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
-const HomePageWeedBanner = dynamic(() => import('../component/home/HomePageWeedBanner'));
+const HomePageWeedBanner = dynamic(() => import('../component/home/homepagebanner'), { ssr: false });
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'));
 const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));

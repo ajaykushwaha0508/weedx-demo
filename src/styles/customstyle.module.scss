@@ -500,10 +500,10 @@
     }
     .nav_list1{ 
         a {
-        text-align: center;
-        color: #ffffff;
-        text-decoration: none;
-        display: flex;
+        // text-align: center;
+        // // color: #ffffff;
+        // text-decoration: none;
+        // display: flex;
     }
     ul{
         gap: 6%;
@@ -531,9 +531,9 @@
                 opacity: 1;
                 color: #00b96a;
                 text-decoration: underline;
-                &::before {
-                    width: 100%;
-                }
+                // &::before {
+                //     width: 100%;
+                // }
             }
             &::before {
                 content: "";
@@ -797,9 +797,8 @@
     }
     .homeBannerContainer{
         .mobile_imges{
-            display: none;
+            // display: none;
         }
-        
         .homePageBanner_container {
             width: 100%;
             margin-bottom: 12px;
@@ -4177,10 +4176,10 @@
         }
         .homeBannerContainer{
             .destop_image{
-                display: none;
+                // display: none;
             }
             .mobile_imges{
-                display: block;
+                // display: block;
             }
         }
         .CategoryBordrr{

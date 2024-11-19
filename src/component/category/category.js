@@ -4,24 +4,20 @@ import { useRouter } from 'next/router';
 import Categoryskeleton from "../skeleton/categoryskeleton";
 import { FirstLetterCaps } from "../../hooks/utilis/commonfunction"
 import Image from 'next/image';
-import clases from '@/styles/customstyle.module.css'
-const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
-    const Params = useRouter().query;
-    const location = useRouter()
+// import clases from '@/styles/customstyle.module.css'
+const Category =  React.memo(({ ShowCategoryProduct, Category }) => {
+
     return (
       
-            <div className={clases.CategoryBordrr}>
+            <div className={"CategoryBordrr"}>
                
                     {
-                        !Skeleton ? <div className={clases.catagoryTabs_section}>
-                            {
-                                Object.keys(Params).length === 0 ? <h2 className={clases.shopByCategoryHeading}>{`Shop By Category`}</h2> : null
-                            }
+                   
                             <ScrollContainer className="ScrollContainerRelative">
                                 {Category?.map((ele, index) => {
                                 
                                     return (
-                                        <div className={clases.CategorySliderImageBlock} key={index}>
+                                        <div className={"CategorySliderImageBlock"} key={index}>
                                            
                                                 <Image
                                                     onClick={() => { ShowCategoryProduct(ele.id, ele.name) }}
@@ -29,11 +25,12 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                                     title={ele.name.substr(0, 100)}
                                                     width={100}
                                                     height={100}
+                                                    priority
                                                     unoptimized={true}
                                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                    className={clases.catagoriesTabImg} />
+                                                    className={"catagoriesTabImg"} />
                                           
-                                            <div className={`col center ${clases.Category_title}`} >
+                                            <div className={`col center ${"Category_title"}`} >
                                                 <p>{FirstLetterCaps(ele?.name?.substr(0, 100))}</p>
                                             </div>
 
@@ -41,15 +38,16 @@ const Category = ({ ShowCategoryProduct, Category, Skeleton }) => {
                                     )
                                 })}
                             </ScrollContainer>
-                        </div>
-                            :
-                            <Categoryskeleton></Categoryskeleton>
+                        // </div>
+                        //     :
+                        //     <Categoryskeleton></Categoryskeleton>
                     }
              
             </div>
       
     )
-}
+})
+Category.displayName = "Category";
 export default Category
 
 

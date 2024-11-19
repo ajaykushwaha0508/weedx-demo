@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import "@/styles/globals.css";
 import "@/styles/customstyle.module.css"
+import "@/styles/customstyle.module.min.css"
 import layout from "../layout/layout"
 import React from "react";
 import layout1 from "../layout/layout1"
