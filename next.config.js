@@ -17,13 +17,9 @@ module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
-        // Apply headers to all routes in the application
-        source: '/:path*',
+        source: '/(.*)',
         headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate', // Adjust the value as needed
-          },
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
     ];

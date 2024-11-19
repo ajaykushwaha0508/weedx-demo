@@ -2,7 +2,7 @@
 import Grid from '@mui/material/Grid';
 import dynamic from 'next/dynamic'
 // const Navbar = dynamic(() => import('@/component/navbar/newnavbar/nevbar'),{ ssr: false });
-const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'));
+const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'),{ ssr: true });
 import Navbar from '@/component/navbar/newnavbar/nevbar';
 // const Footer = dynamic(() => import('@/component/Footer/Footer'),{ ssr: true });
 import Footer from '@/component/Footer/Footer';

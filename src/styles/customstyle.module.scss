@@ -501,10 +501,10 @@
     }
     .nav_list1{ 
         a {
-        text-align: center;
-        color: #ffffff;
-        text-decoration: none;
-        display: flex;
+        // text-align: center;
+        // // color: #ffffff;
+        // text-decoration: none;
+        // display: flex;
     }
     ul{
         gap: 6%;
@@ -532,9 +532,9 @@
                 opacity: 1;
                 color: #00b96a;
                 text-decoration: underline;
-                &::before {
-                    width: 100%;
-                }
+                // &::before {
+                //     width: 100%;
+                // }
             }
             &::before {
                 content: "";
@@ -787,8 +787,8 @@
             display: none;
             padding: 0 1px;
         }
-        
         .homePageBanner_container {
+ 
             width: 100%;
             margin-bottom: 12px;
             .HomePageBanner_image {
@@ -3683,32 +3683,10 @@
             width: 32%;
         }
         .HomePageDealsSignupContainer {
-          
-            .newsletterImage{
-                
-            
-            }
             .contentarea{
-                .homePageSignup_heading{
-                
-                }
-                .homePageSignup_paragraph{
-                
-                
-                    
-                } 
                 .newsletterFormFeild{
-            
                     width: 100%;
-                    .newsletter_btn{
-                    
-                    }
                 }
-                
-                .thankforsubscribe{
-                
-                }
-                
             }
         }
     }  
@@ -3959,11 +3937,7 @@
                 .journy_container{
                     .about_us_inner_section_container {
                         margin: 40px 0;
-                        .About_Journey_heading {
-                            
-                        }
-                        .journey_paragraph {
-                        }
+                       
                     }
                 }
             
