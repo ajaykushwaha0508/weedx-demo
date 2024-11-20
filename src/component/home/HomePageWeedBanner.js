@@ -36,7 +36,10 @@ const HomePageWeedBanner = ({ props }) => {
                                                 src={`${ele?.Banner}`}
                                                 alt="Weedx.io Promotion banner"
                                                 title="Weedx.io Promotion banner"
-                                                className={clases.HomePageBanner_image} />
+                                                className={clases.HomePageBanner_image}
+                                  
+
+                                                />
                                         </a>
                                     </div>
 
@@ -63,7 +66,10 @@ const HomePageWeedBanner = ({ props }) => {
                                                 src={`${ele?.mobile}`}
                                                 alt="Weedx.io Promotion banner"
                                                 title="Weedx.io Promotion banner"
-                                                className={clases.HomePageBanner_image} />
+                                                className={clases.HomePageBanner_image}
+                                               
+
+                                                />
                                         </a>
                                     </div>
                                 </SwiperSlide>

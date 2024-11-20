@@ -45,7 +45,7 @@ const HomePageDealsSignup = () => {
                     <div className='row'>
                         <div className='col-xl-6  col-md-5 col-12 d-md-inline d-none'>
                             <div className={`${styled.newsletterImage} text-center`}>
-                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
+                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
                             </div>
                         </div>
                         <div className='col-xl-6  col-md-6 col-sm-10 col-12  mx-auto px-0'>

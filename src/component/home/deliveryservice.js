@@ -85,7 +85,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                                             <div className={clases.dispensoriesAddresCardimg}>
                                                                 <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
                                                                     <Image
-                                                                        unoptimized={true}
+                                                                        priority
                                                                         width={100}
                                                                         height={100}
                                                                         quality={100}
@@ -133,7 +133,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
                                             <Image
                                                  onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                 width={100}
-                                                unoptimized={true}
+                                                priority
                                                 height={100} src='/NOTDELIVERED.png' alt='NOTDELIVERED' title='NOTDELIVERED' />
                                         </div>
                                         <p>No Delivery Services available</p>

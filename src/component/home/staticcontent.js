@@ -13,7 +13,7 @@ const Staticcontent = () => {
                     <div className={"about_card_Wraper"}>
                         <div className={"about_card"}>
                             <div className={"about_card_img"}>
-                                <Image unoptimized={true} width={100}
+                                <Image priority width={100}
                                     height={100}
                                     src={'https://selnew.s3.amazonaws.com/media/AboutUs1/about1.webp'}
                                     alt=" Online Ordering"
@@ -35,7 +35,7 @@ const Staticcontent = () => {
                         <div className={"about_card"}>
                             <div className={"about_card_img"}>
                                 <Image
-                                    unoptimized={true}
+                                    priority
                                     width={100}
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     height={100}
@@ -56,7 +56,7 @@ const Staticcontent = () => {
                         <div className={"about_card"}>
                             <div className={"about_card_img"}>
                                 <Image
-                                    unoptimized={true}
+                                    upriority
                                     width={100}
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     height={100}
@@ -88,7 +88,7 @@ const Staticcontent = () => {
                                     alt="Retailer Listings"
                                     title="Retailer Listings"
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                    unoptimized={true}
+                                    priority
                                 />
                             </div>
                             <div className={"about_text"}>

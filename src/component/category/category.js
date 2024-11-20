@@ -31,7 +31,6 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                                     width={100}
                                     height={100}
                                     priority
-                                    unoptimized={true}
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     className={"catagoriesTabImg"} />
 

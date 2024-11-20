@@ -22,7 +22,7 @@ const Featuredbrand = ({ CardDataArray}) => {
                             return (
                                     <Link  href={`/brands/${modifystr(items.name)}/${items.id}`} key={index}>
                                         <div className={`${clases.FeaturedBrandImageContainer} px-0`}>
-                                            <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100}  alt={items.name} title={items.name}  src={`${items.Brand_Logo}`} />
+                                            <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100}  alt={items.name} title={items.name}  src={`${items.Brand_Logo}`} />
                                         </div>
                                     </Link>
                             )

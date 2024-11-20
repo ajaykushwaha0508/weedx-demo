@@ -7,7 +7,7 @@ const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'),{
 });
 
 import  HomePageBanner from "../component/home/homepagebanner"
-// const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'), { ssr: true ,  memo: true });
+const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'), { ssr: true ,  memo: true });
 const CategoryProduct = dynamic(() => import('../component/category/category'),{ 
   memo: true 
 });
@@ -61,7 +61,7 @@ export default function Home({ initialData }) {
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <NewsBlog data={initialData.news}></NewsBlog>
-      {/* <HomePageDealsSignup />  */}
+      <HomePageDealsSignup /> 
     </>
   );
 }

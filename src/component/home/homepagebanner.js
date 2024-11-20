@@ -35,19 +35,21 @@ const HomePageBanner = ({ props }) => {
               <SwiperSlide key={index}>
                 <div className={`col-12 homePageBanner_container`}>
                   <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src={items?.Banner}
-                      alt="Weedx.io Promotion banner"
-                      title="Weedx.io Promotion banner"
-                      width={1500}
-                      height={500}
-                      quality={100} // Adjusted for better compression
-                      priority // Critical for LCP
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1500px"
-                      className={'HomePageBanner_image'}
-                      onError={handleImageError}
-                      loader={imageLoader}
-                    />
+                  <Image
+                    src={items?.Banner || '/image/placeholder.jpg'}
+                    alt="Weedx.io Promotion banner"
+                    title="Weedx.io Promotion banner"
+                    width={1500}
+                    height={500}
+                    quality={100} // High quality for desktop
+                    priority={index === 0} // Eager load the first image
+                    placeholder="blur"
+                    blurDataURL="/image/placeholder.jpg" // Placeholder image
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1500px"
+                    className={'HomePageBanner_image'}
+                    onError={handleImageError}
+                    loader={imageLoader}
+                  />
                   </a>
                 </div>
               </SwiperSlide>
@@ -69,19 +71,20 @@ const HomePageBanner = ({ props }) => {
             {props?.reverse()?.map((items, index) => (
               <SwiperSlide key={index} style={{ height: '212px' }} className='homePageBanner_container'>
                 <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={items?.mobile}
-                    alt="Weedx.io Promotion banner"
-                    title="Weedx.io Promotion banner"
-                    width={500}
-                    height={500}
-                    quality={100} // Reduced quality for mobile optimization
-                    loading="lazy" // Lazy load for non-critical images
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className={'HomePageBanner_image'}
-                    onError={handleImageError}
-                    loader={imageLoader}
-                  />
+                <Image
+                  src={items?.mobile || '/image/placeholder.jpg'}
+                  alt="Weedx.io Mobile Promotion Banner"
+                  title="Weedx.io Mobile Promotion Banner"
+                  width={500}
+                  height={500}
+                  quality={75} // Reduced quality for mobile
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={'HomePageBanner_image'}
+                  onError={handleImageError}
+                  loader={imageLoader}
+                  placeholder="blur"
+                  blurDataURL="/image/placeholder.jpg"
+                />
                 </a>
               </SwiperSlide>
             ))}

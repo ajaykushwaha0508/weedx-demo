@@ -34,7 +34,7 @@ const Newsblog = (props) => {
                                                     src={`${ele.Image}`} 
                                                     alt={'Weedx'}
                                                     title={ele.Title} 
-                                                    unoptimized={true}
+                                                    priority
                                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                     style={{ pointerEvents: "none" }} />
                                                 </div>
