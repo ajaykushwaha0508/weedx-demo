@@ -7,7 +7,10 @@ module.exports = {
         hostname: 'selnew.s3.amazonaws.com',
         pathname: '/media/**',
       },
-      
+   
     ],
+  },
+  sassOptions: {
+    outputStyle: 'compressed', // Minify SCSS during build
   },
 };
