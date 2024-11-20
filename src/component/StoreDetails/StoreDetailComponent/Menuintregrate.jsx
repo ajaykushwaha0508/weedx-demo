@@ -21,6 +21,7 @@ import Tooltip from '@mui/material/Tooltip';
 // import { useNavigate } from "react-router-dom";
 import { useRouter } from "next/router";
 import { modifystr } from "../../../../Hooks/Function";
+import Image from "next/image";
 const Menuintregrate = ({tab = "Menu" }) => {
     // const navigate = useNavigate()
     const { state, dispatch } = React.useContext(Createcontext)
@@ -66,7 +67,6 @@ const Menuintregrate = ({tab = "Menu" }) => {
     React.useEffect(function () {
         Aos.init({ duration: 1000 });
       }, []);
-
     return (
        <div className="integratedheader"> 
                         <div className="container-fluid">
@@ -115,12 +115,15 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                                 <div className='position-relative' ref={profileRef}>
                                                     <Grid display={{ md: "flex" }} justifyContent="flex-end">
                                                         <div className='Navbar_profile_logo_container'>
-                                                            <LazyLoadImage
-                                                                onError={event => {
-                                                                    event.target.src = "/image/user.webp"
-                                                                    event.onerror = null
-                                                                }}
+                                                            <Image
                                                                 src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
+
+                                                                // onError={event => {
+                                                                //     event.target.src = "/image/user.webp"
+                                                                //     event.onerror = null
+                                                                // }}
+                                                                width={100}
+                                                                height={100}
                                                                 alt='Profile'
                                                                 title='Profile'
                                                                 className="Navbar_logo_imgs"
