@@ -2,16 +2,24 @@ import React from "react";
 import { useRouter } from "next/router";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
 import dynamic from 'next/dynamic'
-const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'));
+const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'),{ 
+  memo: true 
+});
 
 import  HomePageBanner from "../component/home/homepagebanner"
-const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'));
-const CategoryProduct = dynamic(() => import('../component/category/category'));
-const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true });
+const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'), { ssr: true ,  memo: true });
+const CategoryProduct = dynamic(() => import('../component/category/category'),{ 
+  memo: true 
+});
+const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true ,  memo: true });
 // const HomePageWeedBanner = dynamic(() => import('../component/home/homepagebanner'));
-const Staticcontent = dynamic(() => import('../component/home/staticcontent'));
+const Staticcontent = dynamic(() => import('../component/home/staticcontent'), { 
+  memo: true 
+});
 const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
-const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'));
+const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'), { 
+  memo: true 
+});
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import Createcontext from "@/hooks/context";
 import { modifystr } from "@/hooks/utilis/commonfunction";
@@ -33,10 +41,10 @@ export default function Home({ initialData }) {
   const [Skeleton, SetSkeleton] = React.useState(true)
 
   const Navigate = useRouter()
-  function ShowCategoryProduct(id, name) {
-
+  
+  const ShowCategoryProduct = React.useCallback((id, name) => {
     Navigate.push(`/products/${modifystr(name)}/${id}`);
-  }
+  }, [Navigate]);
 
   // console.log(initialData.Dispensaries)
   return (
