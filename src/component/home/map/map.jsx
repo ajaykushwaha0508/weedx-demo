@@ -1,6 +1,6 @@
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import Image from 'next/image'
-import logo from '../../../../public/weedx.iologo.png'
+import logo from '../../../../public/weedx.iologo.webp'
 export   function MapContainer(props) {
   function _mapLoaded(mapProps, map) {
     map.setOptions({

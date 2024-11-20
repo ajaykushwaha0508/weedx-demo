@@ -24,7 +24,7 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
     const ref = React.useRef(null);
     const handleImageError = (event) => {
         event.target.onerror = null; // Reset to prevent infinite loop
-        event.target.src = "/weedx.iologo.png"; // Replace with your fallback image source
+        event.target.src = "/weedx.iologo.webp"; // Replace with your fallback image source
     };
     const getDeliveryHref = () => {
         if (state.Country && state.State && state.City && state.route) {

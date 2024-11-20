@@ -48,7 +48,7 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
             <meta name='description' content={`${Productnm} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis ${useRouter().pathname.slice(0, 16) === "/weed-deliveries" ? `Delivery` : `Dispensary`} in ${City}, ${State}.`} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} />
             <meta name="robots" content={robot}></meta>
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
             {/* Facebook tags */}
             <meta property="og:type" content="website" />
             <meta property="og:title" content={`${Productname}`} />
