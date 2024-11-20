@@ -9,7 +9,6 @@ html,
 body {
   font-family: Poppins, sans-serif;
   max-width: 100vw;
-  overflow-x: hidden;
   padding-right: 0 !important;
 }
 a {

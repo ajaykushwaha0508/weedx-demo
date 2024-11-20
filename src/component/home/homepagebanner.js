@@ -36,15 +36,15 @@ const HomePageBanner = ({ props }) => {
                 <div className={`col-12 homePageBanner_container`}>
                   <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={items?.Banner || '/image/placeholder.jpg'}
+                    src={items?.Banner }
                     alt="Weedx.io Promotion banner"
                     title="Weedx.io Promotion banner"
                     width={1500}
                     height={500}
                     quality={100} // High quality for desktop
                     priority={index === 0} // Eager load the first image
-                    placeholder="blur"
-                    blurDataURL="/image/placeholder.jpg" // Placeholder image
+                    // placeholder="blur"
+                    // blurDataURL="/image/blankImage.jpg" // Placeholder image
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1500px"
                     className={'HomePageBanner_image'}
                     onError={handleImageError}
@@ -72,7 +72,7 @@ const HomePageBanner = ({ props }) => {
               <SwiperSlide key={index} style={{ height: '212px' }} className='homePageBanner_container'>
                 <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                 <Image
-                  src={items?.mobile || '/image/placeholder.jpg'}
+                  src={items?.mobile || '/image/blankImage.jpg'}
                   alt="Weedx.io Mobile Promotion Banner"
                   title="Weedx.io Mobile Promotion Banner"
                   width={500}
@@ -82,8 +82,8 @@ const HomePageBanner = ({ props }) => {
                   className={'HomePageBanner_image'}
                   onError={handleImageError}
                   loader={imageLoader}
-                  placeholder="blur"
-                  blurDataURL="/image/placeholder.jpg"
+                  // placeholder="blur"
+                  // blurDataURL="/image/blankImage.jpg"
                 />
                 </a>
               </SwiperSlide>

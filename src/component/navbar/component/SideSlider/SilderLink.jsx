@@ -70,8 +70,6 @@ function DashBoardLink({ state }) {
 
   return (
     <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
-      {Boolean(state.Country) && (
- 
           <Grid container spacing={2}>
           <Grid item ="true" xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
             <div className="col nav_list1">
@@ -225,8 +223,6 @@ function DashBoardLink({ state }) {
             <SearchBar />
           </Grid>
           </Grid>
-     
-      )}
     </div>
   );
 }
