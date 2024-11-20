@@ -7,6 +7,11 @@ const Chartbot = dynamic(() => import('@/component/chartbot/Chartbot'),{ ssr: tr
 import Navbar from '@/component/navbar/newnavbar/nevbar';
 const Footer = dynamic(() => import('@/component/Footer/Footer'),{ ssr: true });
 // import Footer from '@/component/Footer/Footer';
+import { Roboto } from '@next/font/google';
+  const roboto = Roboto({
+    subsets: ['latin'],
+    weight: ['100',  '300', '400', '500', '700'],
+  });
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
@@ -15,7 +20,7 @@ const Layout = ({ children }) => {
       </div>
       <div className='container' id='layout'>
         <Grid item xs={12} md={12} xl={12}>
-          <main>{children}</main>
+          <main className={roboto.className}>{children}</main>
         </Grid>
       </div>
       <Footer/>

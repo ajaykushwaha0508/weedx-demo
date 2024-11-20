@@ -15,9 +15,8 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                 {
                     Object.keys(Params).length === 0 ? <h2 className={'shopByCategoryHeading'}>{`Shop By Category`}</h2> : null
                 }
-            </div>
-            {
-
+           
+           
                 <ScrollContainer className="ScrollContainerRelative">
                     {Category?.map((ele, index) => {
 
@@ -42,11 +41,8 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                         )
                     })}
                 </ScrollContainer>
-                // </div>
-                //     :
-                //     <Categoryskeleton></Categoryskeleton>
-            }
 
+            </div>
         </div>
 
     )

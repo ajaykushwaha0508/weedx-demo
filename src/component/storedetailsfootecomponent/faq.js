@@ -11,6 +11,7 @@ const Faq = (props) => {
 const classes = useStyles()
 
     return (
+      <div className='container mt-3'>
         <div className="row">
         {
           props.faq?.map((item, index) => {
@@ -19,6 +20,7 @@ const classes = useStyles()
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
                 id="panel1-header"
+                className={classes.faqHeading}
               >
                <Typography >{item.title}</Typography>
               </AccordionSummary>
@@ -32,6 +34,7 @@ const classes = useStyles()
           })
         }
 
+        </div>
       </div>
     )
 }
