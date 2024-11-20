@@ -56,7 +56,7 @@ const Staticcontent = () => {
                         <div className={"about_card"}>
                             <div className={"about_card_img"}>
                                 <Image
-                                    upriority
+                                    priority
                                     width={100}
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     height={100}
