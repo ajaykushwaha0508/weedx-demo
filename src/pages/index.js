@@ -38,7 +38,7 @@ const transformString = (str) => {
 };
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
-  const [Skeleton, SetSkeleton] = React.useState(true)
+
 
   const Navigate = useRouter()
   
@@ -54,10 +54,10 @@ export default function Home({ initialData }) {
   
         <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
 
-      <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} Skeleton={false}></CategoryProduct>
-      <DeliveryServices Skeleton={Skeleton} link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
+      <DeliveryServices link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <HomePageBanner props={initialData.bottembannner}></HomePageBanner>
-      <DeliveryServices Skeleton={Skeleton} link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <DeliveryServices  link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <NewsBlog data={initialData.news}></NewsBlog>

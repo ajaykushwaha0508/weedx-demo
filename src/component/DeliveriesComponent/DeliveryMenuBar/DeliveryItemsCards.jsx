@@ -19,7 +19,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                             <div className={clases.delivery_items_card_img_container}>
                                 <Link href={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
                                     <Image
-                                        unoptimized={true}
+                                        priority
                                         width={100}
                                         height={100}
                                         className='w-100 h-auto'

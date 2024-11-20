@@ -87,7 +87,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                      width={100}
                                      height={100}
                                     alt={items.Product_Name}
-                                    unoptimized={true}
+                                    priority
                                     title={items.Product_Name}
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                      />

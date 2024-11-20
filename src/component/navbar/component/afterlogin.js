@@ -18,7 +18,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
             <div className='position-relative' ref={profileRef}>
                 <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
                     <div className={clases.Navbar_profile_logo_container}>
-                        <Image   unoptimized={true}
+                        <Image   priority
                             src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
                             alt='Profile'
                             width={100}

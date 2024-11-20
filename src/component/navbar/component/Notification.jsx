@@ -162,7 +162,7 @@ import clases from '@/styles/customstyle.module.css'
                                                 <Link href={data.link} onClick={()=>{setnotify(false)}}>
                                                     <div className={clases.notification_img}>
                                                         <div className={clases.notiimgCircle}>
-                                                            <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={data.Image} alt={data.title} title={data.title} />
+                                                            <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} src={data.Image} alt={data.title} title={data.title} />
                                                         </div>
                                                     </div>
                                                 </Link>
@@ -202,7 +202,7 @@ import clases from '@/styles/customstyle.module.css'
                                             <Link href={data.link} onClick={()=>{setnotify(false) ; removenotify(data)}}>
                                                 <div className={clases.notification_img}>
                                                     <div className={clases.notiimgCircle}>
-                                                        <Image   unoptimized={true} width={100} height={100} src={data?.image} alt={data.title} title={data.title} onError={() => '/image/weedx.io logo.png'} />
+                                                        <Image   priority width={100} height={100} src={data?.image} alt={data.title} title={data.title} onError={() => '/image/weedx.io logo.png'} />
                                                     </div>
                                                 </div>
                                             </Link>

@@ -48,7 +48,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
                             <div key={index} className={newclass.place_order_product_cart}>
                                 <div className={newclass.place_order_product_cart_image}>
                                     <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                      unoptimized={true} width={100}  height={100}
+                                      priority width={100}  height={100}
                                       className='w-100' src={`${items.Image}`} alt={items.ProductName} title={items.ProductName} />
                                 </div>
                                 <div className={newclass.place_order_product_cart_Text}>
@@ -133,7 +133,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
                           <div key={index} className={newclass.place_order_product_cart}>
                               <div className={newclass.place_order_product_cart_image}>
                                   <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                    unoptimized={true} width={100}  height={100}
+                                    priority width={100}  height={100}
                                     className='w-100' src={`${items.Image}`} alt={items.ProductName} title={items.ProductName} />
                               </div>
                               <div className={newclass.place_order_product_cart_Text}>

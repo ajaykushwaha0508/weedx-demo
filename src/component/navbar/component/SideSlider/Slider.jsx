@@ -80,7 +80,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 <Link href="/">
                                                     <Image
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                        unoptimized={true}
+                                                        priority
                                                         src="/image/WeedWhiteLogo.webp"
                                                         alt="WeedX.io logo"
                                                         title="WeedX.io logo"
@@ -105,7 +105,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                     <Image
                                                         src={state?.Profile?.image}
                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                        unoptimized={true}
+                                                        priority
                                                         width={100}
                                                         height={100}
                                                         alt='Profile' 

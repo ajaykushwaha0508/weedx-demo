@@ -60,12 +60,12 @@ const advertise = () => {
                       </ul>
                     </div>
                     <div className={classes.ad_Img_Area}>
-                      <Image src={Ads1.src} unoptimized={true} width={400} height={250} alt='weedx' title='ad_iamge'/>
+                      <Image src={Ads1.src} priority width={400} height={250} alt='weedx' title='ad_iamge'/>
                     </div>
                 </div>
                 <div className={classes.ad_imageTextSection}>
                     <div className={classes.ad_Img_Area}>
-                      <Image  alt='weedx' src={Ads2.src} unoptimized={true} width={400} height={250}/>
+                      <Image  alt='weedx' src={Ads2.src} priority width={400} height={250}/>
                     </div>
                     <div className={classes.ad_textArea}>
                       <h4>{`2. Sponsored Listings`}</h4>
@@ -91,7 +91,7 @@ const advertise = () => {
                       </ul>
                     </div>
                     <div className={classes.ad_Img_Area}>
-                      <Image  alt='weedx' src={Ads3.src} unoptimized={true} width={400} height={250}/>
+                      <Image  alt='weedx' src={Ads3.src} priority width={400} height={250}/>
                     </div>
                 </div>
                 <div  className={`${classes.ad_imageTextSection}`}>

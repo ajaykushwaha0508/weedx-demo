@@ -228,7 +228,7 @@ const Blogs = (props) => {
                                                             <div className="col-12 d-flex align-items-center">
                                                                 <div className="commentCardImages">
                                                                     <div className="imageContainer">
-                                                                        <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={500} height={500} src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
+                                                                        <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={500} height={500} src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="commentCradContentSection">
@@ -311,7 +311,7 @@ const Blogs = (props) => {
                                                         <div className="col-12 d-flex justify-content-center">
                                                             <div className="commentCardImages">
                                                                 <div className="imageContainer">
-                                                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={500} height={500}
+                                                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={500} height={500}
                                                                         src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
                                                                 </div>
                                                             </div>

@@ -126,7 +126,7 @@ const Myreview = () => {
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
                                     <div className='productreview_imgcircle'>
-                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={400} height={400} src={item?.Product.images[0]?.image} alt='Profile' title='Profile' className="Navbar_profile_imgs" />
+                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={400} height={400} src={item?.Product.images[0]?.image} alt='Profile' title='Profile' className="Navbar_profile_imgs" />
                                     </div>
                                 </div>
                                 <div className='productReviewText'>
@@ -150,7 +150,7 @@ const Myreview = () => {
                                         <div className="d-flex gap-2">
                                             <div className="related_img_container">
                                                 <div className="related_review_image">
-                                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} className='realted_review_images' src={item?.review.StoreImage} alt="userImage" title="userImage" />
+                                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} className='realted_review_images' src={item?.review.StoreImage} alt="userImage" title="userImage" />
                                                 </div>
                                             </div>
                                             <div className="related_review_content">
@@ -181,7 +181,7 @@ const Myreview = () => {
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
                                     <div className='productreview_imgcircle'>
-                                        <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} src={item?.StoreImage} alt='Profile' title='Profile' className="Navbar_profile_imgs" />
+                                        <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} src={item?.StoreImage} alt='Profile' title='Profile' className="Navbar_profile_imgs" />
                                     </div>
                                 </div>
                                 <div className='productReviewText'>
@@ -205,7 +205,7 @@ const Myreview = () => {
                                         <div className="d-flex gap-2">
                                             <div className="related_img_container">
                                                 <div className="related_review_image">
-                                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')}  unoptimized={true} width={100} height={100} className='realted_review_images' src={item?.StoreImage} alt="userImage" title="userImage" />
+                                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')}  priority width={100} height={100} className='realted_review_images' src={item?.StoreImage} alt="userImage" title="userImage" />
                                                 </div>
                                             </div>
                                             <div className="related_review_content">

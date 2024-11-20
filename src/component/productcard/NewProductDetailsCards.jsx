@@ -288,7 +288,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                             {Product?.images?.map((items, index) => {
                                                 return (
                                                         <div key={index} className={`${newclases.NewProductDetails_image_container} ${displaypic ===items.image && newclases.active  }`}>
-                                                            <Image   unoptimized={true}
+                                                            <Image   priority
                                                                 width={150}
                                                                 height={150}
                                                                 className={newclases.NewProductDetails_image}
@@ -306,7 +306,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                 <div className={newclases.newProductDetailsUpperimage_container}>
                                     <Image className={newclases.newProductDetails_upper_image}
                                         width={100}
-                                        unoptimized={true}
+                                        priority
                                         height={100}
                                         src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image}
                                         alt={Product?.Product_Name}

@@ -18,7 +18,7 @@ const Dispensoriescart = (props) => {
         <div className="row">
             <div className={`col-4 ${newclases.disensories_card_image_div}`}>
                 <Link  href={`/weed-dispensaries/${modifystr(ele?.Store_Name)}/${ele.id}`}>
-                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} unoptimized={true} width={100} height={100} id={ele?.id} src={`${ele.Store_Image}`} alt={ele.Store_Name} title={ele.Store_Name} className={newclases.dispensories_card_image} />
+                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} id={ele?.id} src={`${ele.Store_Image}`} alt={ele.Store_Name} title={ele.Store_Name} className={newclases.dispensories_card_image} />
                 </Link>
 
             </div>

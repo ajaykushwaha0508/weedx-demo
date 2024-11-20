@@ -35,7 +35,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                             <div className={clases.newFlavourimage_div}>
                                 <Image
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                    unoptimized={true}
+                                    priority
                                     width={100}
                                     height={100}
                                     quality={100}

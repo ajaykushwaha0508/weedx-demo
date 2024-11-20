@@ -38,7 +38,7 @@ const RecentPost = () => {
                                                 alt={ele.Title}
                                                 quality={70}
                                                 title={ele.Title}
-                                                unoptimized={true}
+                                                priority
                                                 onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                 style={{ pointerEvents: "none" }} />
                                             </div>

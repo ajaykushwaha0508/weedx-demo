@@ -421,7 +421,7 @@ const ProductList = ({ arr, link = "products" }) => {
                               onClick={() => { Navigate.push(`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`) }}
 
                               width={100}
-                              unoptimized={true}
+                              priority
                               onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                               height={100}
                               src={`${ele?.images[0]?.image}`}

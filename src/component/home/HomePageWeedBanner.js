@@ -30,7 +30,7 @@ const HomePageWeedBanner = ({ props }) => {
                                     <div className={`col-12 ${clases.homePageBanner_container}`} >
                                         <a href={ele.Link !== null ? ele.Link : "#"}>
                                             <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                unoptimized={true}
+                                                priority
                                                 width={1400} height={500}
                                                 loader={imageLoader}
                                                 src={`${ele?.Banner}`}
@@ -59,7 +59,7 @@ const HomePageWeedBanner = ({ props }) => {
                                 <SwiperSlide key={index}>
                                     <div className={`col-12 ${clases.homePageBanner_container}`}>
                                         <a href={ele.Link !== null ? ele.Link : "#"}>
-                                            <Image unoptimized={true}
+                                            <Image priority
                                                 onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                                 width={100} height={10}
                                                 loader={imageLoader}

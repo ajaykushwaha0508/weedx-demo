@@ -78,7 +78,7 @@ const PlaceOrder = ({orderid}) => {
                                             return (<div key={index} className={newclass.place_order_product_cart}>
                                                 <div className={newclass.place_order_product_cart_image}>
                                                     <Image 
-                                                    unoptimized={true}
+                                                    priority
                                                     width={100}
                                                     height={100} 
                                       

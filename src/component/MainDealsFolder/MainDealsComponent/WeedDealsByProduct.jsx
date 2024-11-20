@@ -24,7 +24,7 @@ const WeedDealsByProduct = ({ArrayData,heading}) => {
 
                                         <Image
                                           onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                        unoptimized={true}
+                                        priority
                                             width={100}
                                             height={100}
                                             className="popularStrain_Image"

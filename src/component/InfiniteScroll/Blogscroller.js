@@ -81,7 +81,7 @@ const Blogscroller = () => {
                         className={Styled.imageBlogSection}
                         width={100}
                         height={100}
-                        unoptimized={true}
+                        priority
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}

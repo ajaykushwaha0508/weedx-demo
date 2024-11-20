@@ -27,7 +27,7 @@ const LawsOptions = (props) => {
                                             return (
                                                 <Link href={{  pathname: `/learn/laws-and-regulation/${'cannabis-law-in-'+modifystr(val.name)}/${val.id }`,
                                                     }}   key={index} >
-                                                    <li> <Image src={weedleaf.src} className={newclases.lawOPtionListImage}   width={100}  unoptimized={true}  height={100} onError={(e) => (e.target.src = '/image/blankImage.jpg')}   alt={val.name}   title={val.name} />
+                                                    <li> <Image src={weedleaf.src} className={newclases.lawOPtionListImage}   width={100}  priority  height={100} onError={(e) => (e.target.src = '/image/blankImage.jpg')}   alt={val.name}   title={val.name} />
                                                         <span className={newclases.lawOptionCountry_state_List}>{val.name}</span>
                                                     </li>
                                                 </Link>
