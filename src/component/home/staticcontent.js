@@ -1,19 +1,18 @@
 import React from 'react';
-import clases from "@/styles/customstyle.module.css"
 import Image from 'next/image';
 const Staticcontent = () => {
     return (
         
             <div className="About_weedx">
                 <div className="container-fluid">
-                    <h2 className={`${clases.section_main_title} mb-sm-1 mb-3 text-center`}>{`Welcome to weedx.io`}</h2>
+                    <h2 className={`${"section_main_title"} mb-sm-1 mb-3 text-center`}>{`Welcome to weedx.io`}</h2>
                     <p className="section_main_description">{`Your all-in-one cannabis destination. Discover a world of convenience with our Online Ordering and Delivery   Services. Explore a rich selection of Dispensary and Retailer Listings, all while enjoying the peace of mind that comes with our
                         full Compliance with Local Laws. Your journey to a seamless, legal, and informed cannabis experience begins here at
                         weedx.io`}</p>
 
-                    <div className={clases.about_card_Wraper}>
-                        <div className={clases.about_card}>
-                            <div className={clases.about_card_img}>
+                    <div className={"about_card_Wraper"}>
+                        <div className={"about_card"}>
+                            <div className={"about_card_img"}>
                                 <Image unoptimized={true} width={100}
                                     height={100}
                                     src={'https://selnew.s3.amazonaws.com/media/AboutUs1/about1.webp'}
@@ -22,9 +21,9 @@ const Staticcontent = () => {
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                 />
                             </div>
-                            <div className={clases.about_text}>
-                                <h3 className={clases.acard_title}>{` Online Ordering`} </h3>
-                                <p className={clases.acard_description}>
+                            <div className={"about_text"}>
+                                <h3 className={"acard_title"}>{` Online Ordering`} </h3>
+                                <p className={"acard_description"}>
                                     {` Experience the convenience of ordering your
                                     favorite cannabis products online. Browse a
                                     wide selection, place your order, and have it
@@ -33,8 +32,8 @@ const Staticcontent = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className={clases.about_card}>
-                            <div className={clases.about_card_img}>
+                        <div className={"about_card"}>
+                            <div className={"about_card_img"}>
                                 <Image
                                     unoptimized={true}
                                     width={100}
@@ -45,17 +44,17 @@ const Staticcontent = () => {
                                     title="Delivery Services"
                                 />
                             </div>
-                            <div className={clases.about_text}>
-                                <h3 className={clases.acard_title}> {`  Delivery Services`} </h3>
-                                <p className={clases.acard_description}> {` Enjoy the ease of cannabis delivery right
+                            <div className={"about_text"}>
+                                <h3 className={"acard_title"}> {`  Delivery Services`} </h3>
+                                <p className={"acard_description"}> {` Enjoy the ease of cannabis delivery right
                                     to your doorstep. Whether you're seeking
                                     flowers, edibles, or concentrates, our
                                     delivery services ensure a hassle-free
                                     experience`} </p>
                             </div>
                         </div>
-                        <div className={clases.about_card}>
-                            <div className={clases.about_card_img}>
+                        <div className={"about_card"}>
+                            <div className={"about_card_img"}>
                                 <Image
                                     unoptimized={true}
                                     width={100}
@@ -66,11 +65,11 @@ const Staticcontent = () => {
                                     title="Dispensary Listings"
                                 />
                             </div>
-                            <div className={clases.about_text}>
-                                <h3 className={clases.acard_title}>
+                            <div className={"about_text"}>
+                                <h3 className={"acard_title"}>
                                     {`Dispensary Listings`}
                                 </h3>
-                                <p className={clases.acard_description}>
+                                <p className={"acard_description"}>
                                     {`  Explore our comprehensive directory of
                                     cannabis dispensaries. Each listing
                                     provides essential details, including
@@ -80,8 +79,8 @@ const Staticcontent = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className={clases.about_card}>
-                            <div className={clases.about_card_img}>
+                        <div className={"about_card"}>
+                            <div className={"about_card_img"}>
                                 <Image
                                     width={100}
                                     height={100}
@@ -92,11 +91,11 @@ const Staticcontent = () => {
                                     unoptimized={true}
                                 />
                             </div>
-                            <div className={clases.about_text}>
-                                <h3 className={clases.acard_title}>
+                            <div className={"about_text"}>
+                                <h3 className={"acard_title"}>
                                     {`  Retailer Listings`}
                                 </h3>
-                                <p className={clases.acard_description}>
+                                <p className={"acard_description"}>
                                     {`Our retailer listings showcase the best
                                     places to explore, purchase, and learn
                                     about cannabis. Discover the perfect

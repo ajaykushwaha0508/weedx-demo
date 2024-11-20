@@ -566,7 +566,7 @@ const fetchDispensariesAndProducts = async (id, country, state, city) => {
         // Setallstore(dispensariesResponse.data);
         const productsData = await productsResponse.json();
         // Setallallproduct(productsData)
-        console.log(review)
+        // console.log(review)
         return ([{ product: productsData, delivery: dispensariesResponse.data, review:review.data }])
     } catch (error) {
         console.error('Error fetching data:', error);

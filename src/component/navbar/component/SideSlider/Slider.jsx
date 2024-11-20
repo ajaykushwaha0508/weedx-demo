@@ -66,7 +66,7 @@ const SideNavbar = ({ closeNav, Open }) => {
         closeNav()
     }
     const link1  = () => {Navigate.push("/advertise"); closeNav()}
-    console.log(state?.Profile?.image)
+    // console.log(state?.Profile?.image)
     return (
         <React.Fragment>
             <div id="mySidebar" className={clases.sidebar} style={{ width: Open ? "300px" : "0px" }}>
