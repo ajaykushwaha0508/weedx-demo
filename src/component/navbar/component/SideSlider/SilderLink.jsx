@@ -244,7 +244,7 @@ import useStyles from '../../../../styles/style';
 const SearchBar = dynamic(() => import('../SearchBar'), { ssr: false });
 const Notification = dynamic(() => import('../Notification'));
 
-function DashBoardLink({ state, Hamburger }) {
+function DashBoardLink({ state }) {
   const classes = useStyles();
   const location = useRouter();
   const [current_route, Setcurrent_route] = React.useState();
