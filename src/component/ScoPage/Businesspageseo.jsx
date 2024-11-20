@@ -15,7 +15,7 @@ const businesspageseo = () => {
  `} />
             <meta property="og:description" content={`List your dispensary, delivery service, or cannabis brand on WeedX.io. Easily manage inventory and orders with Cannabaze, available on mobile. Get started now!
 `} />
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
             { /* End Facebook tags */}
 
             { /* Twitter tags */}
@@ -25,7 +25,7 @@ const businesspageseo = () => {
  `} />
             <meta name="twitter:description" content={`List your dispensary, delivery service, or cannabis brand on WeedX.io. Easily manage inventory and orders with Cannabaze, available on mobile. Get started now!
 `} />
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
        
         </Head>
   )

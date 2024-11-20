@@ -11,14 +11,14 @@ function BrandSeo({ location }) {
             <meta property="og:type" content="website" />
             <meta property="og:title" content={"Shop from Top Marijuana Brands Near You | weedx.io | "} />
             <meta property="og:description" content={"Shop high-quality Recreational and Medical Marijuana from top brands Near you. Order online and get the best delivery, dispensaries, and deals on weedx.io"} />
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
             { /* End Facebook tags */}
             { /* Twitter tags */}
             <meta name="twitter:creator" content={"website"} />
             <meta name="twitter:card" content={"website Dispensaries & Delivery Near Me"} />
             <meta name="twitter:title" content={"Shop from Top Marijuana Brands Near You | weedx.io | "} />
             <meta name="twitter:description" content={"Shop high-quality Recreational and Medical Marijuana from top brands Near you. Order online and get the best delivery, dispensaries, and deals on weedx.io"} />
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
         </Head>
     )
 }

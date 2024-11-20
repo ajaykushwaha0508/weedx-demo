@@ -13,7 +13,7 @@ function DispensariesSco({ location, format_Address }) {
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={` Weed Dispensaries in ${format_Address}| weedx.io |`} />
             <meta property="og:description" content={` Find Nearby Dispensaries in ${format_Address} for Recreational & Medical weed. Browse Top Cannabis Products and Place Orders from Trusted Local Dispensaries.`} />
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
             { /* End Facebook tags */}
             { /* Twitter tags */}
             <meta name="twitter:creator" content={"website"} />

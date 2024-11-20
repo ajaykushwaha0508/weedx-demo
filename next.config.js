@@ -13,4 +13,17 @@ module.exports = {
   sassOptions: {
     outputStyle: 'compressed', // Minify SCSS during build
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable', // Cache for one year
+          },
+        ],
+      },
+    ]
+  },
 };

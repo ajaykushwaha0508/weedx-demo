@@ -10,7 +10,7 @@ function Advertisseo(){
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`Advertise with WeedX.io - Cannabis Industry Advertising Solutions`} />
             <meta property="og:description" content={`  Advertise your cannabis business on WeedX.io. Choose from banner ads, sponsored listings, or blog posts to reach a targeted cannabis audience. Contact info@weedx.io to get started.`} />
-            <meta property="og:image" content={'/weedxlogo.png'} />
+            <meta property="og:image" content={'/weedxlogo.webp'} />
             { /* End Facebook tags */}
             { /* Twitter tags */}
             <meta name="twitter:creator" content={"website"} />
