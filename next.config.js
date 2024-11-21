@@ -29,7 +29,15 @@ module.exports = withBundleAnalyzer({
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:;",
+            value: `
+            default-src 'self';
+            connect-src 'self' https://maps.googleapis.com;
+            script-src 'self' 'unsafe-inline' https://maps.googleapis.com;
+            style-src 'self' 'unsafe-inline';
+            img-src 'self' https://*.googleapis.com data:;
+            font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
+            media-src 'self' data:;
+          `.replace(/\s{2,}/g, ' '), // Minify the policy
           },
         ],
       },
@@ -37,7 +45,6 @@ module.exports = withBundleAnalyzer({
   },
   productionBrowserSourceMaps: true, // Generate source maps for debugging
   compress: true, // Enable gzip compression
-  poweredByHeader: false, // Remove "X-Powered-By" header for security
   experimental: {
     modern: true, // Use modern JavaScript syntax
     scrollRestoration: true, // Restore scroll position on navigation
