@@ -28,6 +28,7 @@ export default class MyDocument extends Document {
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
+
         <script
                     dangerouslySetInnerHTML={{
                         __html: `
