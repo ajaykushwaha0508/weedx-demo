@@ -691,6 +691,7 @@ line-height: normal;
   margin-left: -10px;
 }
 .ellipsis {
+
   text-overflow: ellipsis;
   /* enables ellipsis */
   white-space: nowrap;

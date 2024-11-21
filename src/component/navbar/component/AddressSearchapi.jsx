@@ -1,4 +1,4 @@
-
+import { useId } from 'react';
 import { IoLocationSharp } from "react-icons/io5"
 import { MdOutlineMyLocation } from "react-icons/md"
 import { IconButton, InputAdornment, TextField } from "@mui/material";
@@ -202,174 +202,243 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
 
   function OnBlur() {
 
-  setOpenLocation(false)
-  Setformatted_address(state.Location)
+    setOpenLocation(false)
+    Setformatted_address(state.Location)
 
-}
-function onFocus() {
-  setOpenLocation(true)
-  Setformatted_address('')
-}
+  }
+  function onFocus() {
+    setOpenLocation(true)
+    Setformatted_address('')
+  }
+  const uniqueId = useId();
+  const [open, setOpen] = React.useState(false);
+  function current(event) {
+    navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
 
-const [open, setOpen] = React.useState(false);
-function current(event) {
-  navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
+      if (permissionStatus.state === 'denied') {
+        alert('Please allow location access.');
+      } else {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+            .then(res => res.json())
+            .then((response) => {
 
-    if (permissionStatus.state === 'denied') {
-      alert('Please allow location access.');
-    } else {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
-          .then(res => res.json())
-          .then((response) => {
-
-            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address });
-            Setformatted_address(response?.results[0]?.formatted_address)
-            var Coun
-            var sta
-            var ci
-            var route
-            response?.results[0]?.address_components?.map((data) => {
-              if (data.types.indexOf('country') !== -1) {
-                Coun = data?.long_name?.replace(/\s/g, '-')
-                return dispatch({ type: 'Country', Country: data?.long_name?.replace(/\s/g, '-') })
-              }
-              if (data.types.indexOf('administrative_area_level_1') !== -1) {
-                sta = data?.long_name?.replace(/\s/g, '-')
-                return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
-              } else {
-                dispatch({ type: 'State', State: '' })
-              }
-              if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
-                || data.types.indexOf('sublocality') !== -1) {
-                ci = data?.long_name?.replace(/\s/g, '-')
-                dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
-              } else {
-                dispatch({ type: 'City', City: '' })
-              }
-              if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1) {
-                route = data?.long_name?.replace(/\s/g, '-')
-                dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
-              } else {
-                dispatch({ type: 'route', route: '' })
-              }
-              if (ci === undefined) {
-                if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1) {
-                  ci = data?.long_name.replace(/\s/g, '-')
-                  dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+              dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address });
+              Setformatted_address(response?.results[0]?.formatted_address)
+              var Coun
+              var sta
+              var ci
+              var route
+              response?.results[0]?.address_components?.map((data) => {
+                if (data.types.indexOf('country') !== -1) {
+                  Coun = data?.long_name?.replace(/\s/g, '-')
+                  return dispatch({ type: 'Country', Country: data?.long_name?.replace(/\s/g, '-') })
                 }
-              }
+                if (data.types.indexOf('administrative_area_level_1') !== -1) {
+                  sta = data?.long_name?.replace(/\s/g, '-')
+                  return dispatch({ type: 'State', State: data?.long_name?.replace(/\s/g, '-') })
+                } else {
+                  dispatch({ type: 'State', State: '' })
+                }
+                if ((data.types.indexOf('locality') !== -1 && data.types.indexOf('administrative_area_level_3' !== -1)) || data.types.indexOf("postal_town") !== -1
+                  || data.types.indexOf('sublocality') !== -1) {
+                  ci = data?.long_name?.replace(/\s/g, '-')
+                  dispatch({ type: 'City', City: data?.long_name?.replace(/\s/g, '-') })
+                } else {
+                  dispatch({ type: 'City', City: '' })
+                }
+                if (data.types.indexOf('route') !== -1 || data.types.indexOf('sublocality_level_2') !== -1 || data.types.indexOf("establishment") !== -1) {
+                  route = data?.long_name?.replace(/\s/g, '-')
+                  dispatch({ type: 'route', route: data?.long_name?.replace(/\s/g, '-') })
+                } else {
+                  dispatch({ type: 'route', route: '' })
+                }
+                if (ci === undefined) {
+                  if (data.types.indexOf('administrative_area_level_2') !== -1 || data.types.indexOf('political') !== -1) {
+                    ci = data?.long_name.replace(/\s/g, '-')
+                    dispatch({ type: 'City', City: data?.long_name.replace(/\s/g, '-') })
+                  }
+                }
 
-            })
-            if (sta !== undefined && ci !== undefined && route !== undefined) {
-              window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
-              window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
+              })
+              if (sta !== undefined && ci !== undefined && route !== undefined) {
+                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
+                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}/${route?.toLowerCase()}`)
 
-            }
-            else {
-              if (sta !== undefined && ci !== undefined && Coun !== undefined) {
-                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
-
-              }
-              else if (Coun !== undefined && sta !== undefined) {
-
-                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
-                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
-              }
-              else if (Coun !== undefined) {
-
-                window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}`)
-                window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}`)
               }
               else {
-                Setformatted_address(state.Location)
+                if (sta !== undefined && ci !== undefined && Coun !== undefined) {
+                  window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+                  window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}/${ci?.toLowerCase()}`)
+
+                }
+                else if (Coun !== undefined && sta !== undefined) {
+
+                  window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
+                  window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}/${sta?.toLowerCase()}`)
+                }
+                else if (Coun !== undefined) {
+
+                  window.location.pathname.slice(0, 18) === '/weed-dispensaries' && navigate.replace(`${Coun?.toLowerCase()}`)
+                  window.location.pathname.slice(0, 16) === '/weed-deliveries' && navigate.replace(`${Coun?.toLowerCase()}`)
+                }
+                else {
+                  Setformatted_address(state.Location)
+                }
               }
+              dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
             }
-            dispatch({ type: 'Location', Location: response?.results[0]?.formatted_address })
-          }
 
-          )
+            )
 
-      });
-    }
-  });
-}
-React.useEffect(() => {
-  if (state.locationFocus) {
-    onFocus()
+        });
+      }
+    });
   }
-}, [state.locationFocus])
+  React.useEffect(() => {
+    if (state.locationFocus) {
+      onFocus()
+    }
+  }, [state.locationFocus])
 
 
-return (
-  <>
+  return (
+    <>
 
-    <Autocomplete
-     label="Search location" 
-      freeSolo
-      disableClearable
-      open={open}
-      onOpen={() => {
-        setOpen(true);
+{/* <Autocomplete
+  id={`autocomplete-${uniqueId}`} // Unique ID for the Autocomplete
+  open={open}
+  onOpen={() => setOpen(true)}
+  onClose={() => setOpen(false)}
+  options={placePredictions}
+  renderOption={(props, value) => (
+    <li
+      {...props}
+      id={`option-${uniqueId}-${value?.description}`} // Unique ID for each option
+      role="option" // Correct role for dropdown items
+    >
+      <IoLocationSharp />
+      {value?.description}
+    </li>
+  )}
+  renderInput={(params) => (
+    <TextField
+      {...params}
+      id={`autocomplete-input-${uniqueId}`} // Unique ID for TextField
+      aria-label="Search location" // Accessible name for screen readers
+      InputProps={{
+        ...params.InputProps,
+        startAdornment: (
+          <>
+            <InputAdornment position="start">
+              <IoLocationSharp />
+            </InputAdornment>
+            {params.InputProps.startAdornment}
+          </>
+        ),
+        endAdornment: (
+          <IconButton onClick={current} aria-label="Get current location">
+            <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
+          </IconButton>
+        ),
       }}
-      onClose={() => {
-        setOpen(false);
-      }}
-      id="autocomplete-demo"
-      onFocus={onFocus}
-      className={`SearchBar ${classes.SearchBar_Text}`}
-      style={{ width: "100%", height: "45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
-      onBlur={OnBlur}
-      sx={{ width: "100%" }}
-      options={placePredictions}
-      inputValue={formatted_address || ''}
-      value={formatted_address || ''}
-      onChange={((element, value) => { handleAddressChange(element, value) })}
-      renderOption={(props, value, index) => {
-        return (
-          <li  {...props} >  <IoLocationSharp />{value?.description}</li>
-        )
-      }}
-      // getOptionSelected={(option, value) => option?.description === value?.description}
-      getOptionLabel={(option) => (option?.description ? option?.description : '')}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-
-          onChange={(e) => {    
-            Setformatted_address(e.target.value);
-            // console.log("kjdkfjdjkf")
-            getPlacePredictions({
-              input: e.target.value
-            })
-            setOpen(true)
-          }}
-          InputProps={{
-            ...params.InputProps,
-            startAdornment: (
-              <>
-                <InputAdornment position="start">
-                  <IoLocationSharp />
-                </InputAdornment>
-                {params.InputProps.startAdornment}
-              </>
-            ),
-            endAdornment: (
-              <IconButton onClick={current} aria-label="Get current location">
-                <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
-              </IconButton>
-
-            ),
-          }}
-
-
-        />
-      )}
     />
-  </>
-);
+  )}
+  getOptionLabel={(option) => option?.description || ''}
+/> */}
+       <Autocomplete
+        id={`autocomplete-${uniqueId}`} // Unique Autocomplete ID
+       
+        freeSolo
+        disableClearable
+        open={open}
+        onOpen={() => {
+          setOpen(true);
+        }}
+        onClose={() => {
+          setOpen(false);
+        }}
+        onFocus={onFocus}
+        className={`SearchBar ${classes.SearchBar_Text}`}
+        style={{ width: "100%", height: "45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
+        onBlur={OnBlur}
+        sx={{ width: "100%" }}
+        options={placePredictions}
+        inputValue={formatted_address || ''}
+        value={formatted_address || ''}
+        onChange={((element, value) => { handleAddressChange(element, value) })}
+        renderOption={(props, value, index) => {
+          return (
+            <li  {...props} 
+            id={`option-${uniqueId}-${value?.description}`} // Unique ID for each option
+            role="option" // Correct role for dropdown items
+            
+            >  <IoLocationSharp />{value?.description}</li>
+          )
+        }}
+        // getOptionSelected={(option, value) => option?.description === value?.description}
+        getOptionLabel={(option) => (option?.description ? option?.description : '')}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            id={`autocomplete-${uniqueId}`} // Unique Autocomplete I
+            aria-label="Search location" // Accessible name for screen readers
+            onChange={(e) => {
+              Setformatted_address(e.target.value);
+              // console.log("kjdkfjdjkf")
+              getPlacePredictions({
+                input: e.target.value
+              })
+              setOpen(true)
+            }}
+            InputProps={{
+              ...params.InputProps,
+              startAdornment: (
+                <>
+                  <InputAdornment position="start">
+                    <IoLocationSharp />
+                  </InputAdornment>
+                  {params.InputProps.startAdornment}
+                </>
+              ),
+              endAdornment: (
+                <IconButton onClick={current} aria-label="Get current location">
+                  <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
+                </IconButton>
+
+              ),
+            }}
+
+
+          />
+        )}
+      />
+
+    </>
+  );
 })
+
+
+SearchingLocation.displayName = "SearchingLocation";
+export default SearchingLocation;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -632,5 +701,3 @@ return (
 //     />
 //   );
 // });
-SearchingLocation.displayName = "SearchingLocation";
-export default SearchingLocation;

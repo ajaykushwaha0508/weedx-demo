@@ -1,7 +1,8 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheets } from '@mui/styles'; // or @mui/material/styles depending on your version
+import { ServerStyleSheets } from '@mui/styles';
 import Script from 'next/script';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheets = new ServerStyleSheets();
@@ -23,29 +24,39 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head >
-          <link rel="preconnect" href="https://api.cannabaze.com" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://selnew.s3.amazonaws.com" />
-          <Script
-            id="gtm-script"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-M27MSTCW');
-          `,
-            }}
-          />
+        <Head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-          <script
-            id="organization-jsonld"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: `
+
+        <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'GA_MEASUREMENT_ID', {
+                            cookie_flags: 'SameSite=None;Secure',
+                        });
+                        `,
+                    }}
+                ></script>
+
+
+          {/* Google Tag Manager */}
+          <Script id="gtm-script" strategy="afterInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-M27MSTCW');
+            `}
+          </Script>
+
+          {/* Organization JSON-LD */}
+          <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
+            {`
               {
                 "@context": "https://schema.org",
                 "@type": "Organization",
@@ -57,7 +68,7 @@ export default class MyDocument extends Document {
                   "@type": "ContactPoint",
                   "telephone": "+1 (209) 655-0360",
                   "contactType": "customer service",
-                  "areaServed": ["US","GB","CA","AF","AX","AL","AS","AD","DZ","IN"],
+                  "areaServed": ["US", "GB", "CA", "AF", "AX", "AL", "AS", "AD", "DZ", "IN"],
                   "availableLanguage": "en"
                 },
                 "sameAs": [
@@ -68,16 +79,12 @@ export default class MyDocument extends Document {
                   "https://www.linkedin.com/company/weedx-io/"
                 ]
               }
-              `,
-            }}
-          />
+            `}
+          </Script>
 
           {/* Website JSON-LD */}
-          <script
-            id="website-jsonld"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: `
+          <Script id="website-jsonld" type="application/ld+json" strategy="afterInteractive">
+            {`
               {
                 "@context": "http://schema.org",
                 "@type": "WebSite",
@@ -88,15 +95,22 @@ export default class MyDocument extends Document {
                   "query-input": "required name=search_term_string"
                 }
               }
-              `,
-            }}
-          />
-
+            `}
+          </Script>
         </Head>
         <body>
+          {/* GTM Fallback for NoScript */}
+          <noscript>
+            <iframe
+            
+              src="https://www.googletagmanager.com/ns.html?id=GTM-M27MSTCW"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            ></iframe>
+          </noscript>
           <Main />
           <NextScript />
-
         </body>
       </Html>
     );

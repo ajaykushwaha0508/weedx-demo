@@ -72,7 +72,8 @@ const HomePageBanner = ({ props }) => {
               <SwiperSlide key={index} style={{ height: '212px' }} className='homePageBanner_container'>
                 <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                 <Image
-                  src={items?.mobile || '/image/blankImage.jpg'}
+                            src={items?.mobile }
+                  // src={items?.mobile || '/image/blankImage.jpg'}
                   alt="Weedx.io Mobile Promotion Banner"
                   title="Weedx.io Mobile Promotion Banner"
                   width={500}

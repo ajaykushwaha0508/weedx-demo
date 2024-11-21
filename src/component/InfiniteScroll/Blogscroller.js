@@ -66,10 +66,11 @@ const Blogscroller = () => {
             }
         }
     };
+    console.log(showabledata)
   return (
     <>
         <div className={Styled.blogListWrapper}>
-          { showabledata?.slice(10)?.map((items, index) => {
+          { showabledata.map((items, index) => {
             const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
             const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
             return (
@@ -126,13 +127,13 @@ const Blogscroller = () => {
                         </div>
                         <div className="col-3">
                           <span className={Styled.action_icons}>
-                            <RWebShare
+                            {/* <RWebShare
                               data={{ url: `https://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
                               sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                               onClick={() => console.info("share successful!")}
                               color="#31B665"
                             > <BsShareFill />
-                            </RWebShare>
+                            </RWebShare> */}
                           </span>
                           <span>Share</span>
                         </div>

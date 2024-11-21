@@ -70,160 +70,184 @@ function DashBoardLink({ state }) {
 
   return (
     <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
-          <Grid container spacing={2}>
-          <Grid item ="true" xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
-            <div className="col nav_list1">
-              <ul className="p-0">
-                <li>
-                  <Link
-                    href={getDispensariesHref()}
-                    id={`${current_route?.slice(0, 18) === "/weed-dispensaries"
+      <Grid container spacing={2}>
+        {/* Navigation Links */}
+        <Grid
+         item="true" 
+         xs={8} md={6} display={{ xs: "none", md: "block", lg: "block" }}>
+          <div className="col nav_list1">
+            <ul className="p-0">
+              <li>
+                <Link
+                  href={getDispensariesHref()}
+                  id={
+                    current_route?.slice(0, 18) === "/weed-dispensaries"
                       ? "Active"
                       : ""
-                      }`}
-                  >
-                    {" "}
-                    Dispensaries
-                  </Link>
-                </li>
+                  }
+                >
+                  Dispensaries
+                </Link>
+              </li>
+              <li>
                 <Link
                   href={getDeliveryHref()}
-                  id={`${current_route?.slice(0, 16) === "/weed-deliveries"
-                    ? "Active"
-                    : ""
-                    }`}
+                  id={
+                    current_route?.slice(0, 16) === "/weed-deliveries"
+                      ? "Active"
+                      : ""
+                  }
                 >
-                  <li>Deliveries</li>
+                  Deliveries
                 </Link>
-
+              </li>
+              <li>
                 <Link
-                  onClick={scrollToTop}
                   href="/products"
-                  id={`${current_route === "/products" ? "Active" : ""}`}
+                  onClick={scrollToTop}
+                  id={current_route === "/products" ? "Active" : ""}
                 >
-                  <li>Product</li>
+                  Product
                 </Link>
-
+              </li>
+              <li>
                 <Link
                   href="/deals"
-                  id={`${current_route === "/deals" ? "Active" : ""}`}
+                  onClick={scrollToTop}
+                  id={current_route === "/deals" ? "Active" : ""}
                 >
-                  <li onClick={scrollToTop}>Deals</li>
+                  Deals
                 </Link>
+              </li>
+              <li>
                 <Link
                   href="/learn/laws-and-regulation"
-                  id={`${current_route === "/learn/laws-and-regulation" ? "Active" : ""
-                    }`}
+                  id={
+                    current_route === "/learn/laws-and-regulation" ? "Active" : ""
+                  }
                 >
-                  <li>Law</li>
+                  Law
                 </Link>
-              </ul>
-            </div>
-          </Grid>
-          <Grid item ="true"xs={8} md={4} display={{ xs: "none", md: "block", lg: "block" }}>
-            <div className="d-flex gap-1 justify-content-center">
-              <button className={newclases.btnaddss} onClick={link}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+              </li>
+            </ul>
+          </div>
+        </Grid>
 
-                {` Add Business`}
-              </button>
-              <button className={newclases.btnaddss} onClick={link1}>
-                <p className={newclases.iconscircle}><HiSpeakerphone color="#FFF" size={12} /></p>
-                {`Advertise`}
-              </button>
-            </div>
-          </Grid>
-          <Grid item ="true" xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }}>
-            <div className=" col-12  addyocardIcon  ">
-              <Link href="/whislists">
-                <Badge
-                  badgeContent={
-                    state.login
-                      ? Object.values(state.WishList).reduce(
-                        (a, item) => a + item,
+        {/* Add Business and Advertise Buttons */}
+        <Grid
+            item="true"
+          xs={8}
+          md={4}
+          display={{ xs: "none", md: "block", lg: "block" }}
+        >
+          <div className="d-flex gap-1 justify-content-center">
+            <button className={newclases.btnaddss} onClick={link}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Add Business
+            </button>
+            <button className={newclases.btnaddss} onClick={link1}>
+              <p className={newclases.iconscircle}>
+                <HiSpeakerphone color="#FFF" size={12} />
+              </p>
+              Advertise
+            </button>
+          </div>
+        </Grid>
+
+        {/* Wishlist, Notifications, and Cart */}
+        <Grid
+            item="true"
+          xs={6}
+          md={2}
+          spacing={2}
+          display={{ xs: "none", md: "block", lg: "block" }}
+        >
+          <div className="col-12 addyocardIcon">
+            <Link href="/whislists" aria-label="Wishlist">
+              <Badge
+                badgeContent={
+                  state.login
+                    ? Object.values(state.WishList).reduce((a, item) => a + item, 0)
+                    : 0
+                }
+                className={classes.sliderLink_badge}
+              >
+                <IconButton
+                  className={classes.navBarButton_icons}
+                  aria-label="Wishlist"
+                >
+                  <AiFillHeart color="#858585" size={22} />
+                </IconButton>
+              </Badge>
+            </Link>
+            <div className="notification_icon">
+              <Badge
+                badgeContent={
+                  state.login
+                    ? totalnotify?.length ===
+                      state?.Profile?.RemovedNotification?.length
+                      ? 0
+                      : Math.max(
+                        totalnotify?.length -
+                        state?.Profile?.RemovedNotification?.length,
                         0
                       )
-                      : 0
-                  }
-                  className={classes.sliderLink_badge}
+                    : notificationdata?.length
+                }
+                className={classes.sliderLink_badge}
+                onClick={() => setnotify((notify) => !notify)}
+              >
+                <IconButton
+                  className={classes.navBarButton_icons}
+                  aria-label="Notifications"
                 >
-                  <IconButton
-                    className={classes.navBarButton_icons}
-                    aria-label="whislist"
-                  >
-                    <AiFillHeart color="#858585" size={22}></AiFillHeart>
-                  </IconButton>
-                </Badge>
-              </Link>
-              <div className="notification_icon">
-                <Badge
-                  badgeContent={
-                    state.login
-                      ? totalnotify?.length ===
-                        state?.Profile?.RemovedNotification?.length
-                        ? 0
-                        : totalnotify?.length -
-                          state?.Profile?.RemovedNotification?.length >
-                          0
-                          ? totalnotify?.length -
-                          state?.Profile?.RemovedNotification?.length
-                          : 0
-                      : notificationdata?.length
-                  }
-                  className={classes.sliderLink_badge}
-                  onClick={() => {
-                    // setnotify(()=>!notify);
-                    setnotify((notify) => !notify);
-                  }}
-                >
-                  <IconButton
-                    className={classes.navBarButton_icons}
-                    aria-label="notification"
-                  >
-                    {" "}
-                    <IoIosNotifications
-                      color="#858585"
-                      size={23}
-                    ></IoIosNotifications>{" "}
-                  </IconButton>
-                </Badge>
-
-                <Notification
-                  notify={notify}
-                  setnotify={setnotify}
-                  notificationdata={notificationdata}
-                  Setnotificationdata={Setnotificationdata}
-                  Settotalnotify={Settotalnotify}
-                ></Notification>
-              </div>
-              <Link href="/cart">
-                <Badge
-                  className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}
-                  badgeContent={
-                    state.AllProduct?.length > 0 ? state.AllProduct?.length : null
-                  }
-                >
-                  <IconButton
-                    className={classes.navBarButton_icons}
-                    aria-label="shopping-cart"
-                  >
-                    <MdOutlineShoppingCart
-                      color="#858585"
-                      size={22}
-                    ></MdOutlineShoppingCart>
-                  </IconButton>
-                </Badge>
-              </Link>
+                  <IoIosNotifications color="#858585" size={23} />
+                </IconButton>
+              </Badge>
+              <Notification
+                notify={notify}
+                setnotify={setnotify}
+                notificationdata={notificationdata}
+                Setnotificationdata={Setnotificationdata}
+                Settotalnotify={Settotalnotify}
+              />
             </div>
-          </Grid>
-          <Grid className={classes.nav_search_bar}  item ="true" xs={12} md={8} xl={8} display={{ xs: "block", md: "none", lg: "none" }}>
-            <SearchBar />
-          </Grid>
-          </Grid>
+            <Link href="/cart" aria-label="Shopping Cart">
+              <Badge
+                className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge
+                  }`}
+                badgeContent={
+                  state.AllProduct?.length > 0 ? state.AllProduct?.length : null
+                }
+              >
+                <IconButton
+                  className={classes.navBarButton_icons}
+                  aria-label="Shopping Cart"
+                >
+                  <MdOutlineShoppingCart color="#858585" size={22} />
+                </IconButton>
+              </Badge>
+            </Link>
+          </div>
+        </Grid>
+
+        {/* Search Bar for Smaller Screens */}
+        <Grid
+          className={classes.nav_search_bar}
+            item="true"
+          xs={12}
+          md={8}
+          xl={8}
+          display={{ xs: "block", md: "none", lg: "none" }}
+        >
+          <SearchBar />
+        </Grid>
+      </Grid>
     </div>
+
   );
 }
 
