@@ -50,7 +50,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
             </div>
 
             :
-            <div className='col-12 Login_Sigup_button justify-content-end Sapceing'>
+            <div className='col-12 d-flex align-items-center gap-1 justify-content-end Sapceing'>
                 <div className='col-lg-4 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block", }}>
                         <Link href="/login"><Button className={classes.muiBtn}>{`Log In`}</Button></Link>

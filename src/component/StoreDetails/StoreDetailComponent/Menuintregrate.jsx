@@ -159,7 +159,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
 
                                                 </div>
                                                 :
-                                                <div className='Login_Sigup_button justify-content-end  Sapceing'>
+                                                <div className='d-flex align-items-center gap-1 justify-content-end  Sapceing'>
                                                 
                                                         <Grid >
                                                             <span  onClick={()=>setOpen(()=>true)}>

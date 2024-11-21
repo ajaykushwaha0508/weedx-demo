@@ -485,7 +485,7 @@ const ProductList = ({ arr, link = "products" }) => {
                           </div>
                         </div>
                       </Link>
-                      <div className="col-12 d-flex mt-sm-2 mt-2  Fly">
+                      <div className="col-12 d-flex mt-sm-2 mt-2 ">
                         {ele.Prices[0]?.Price?.length > 1 ?
                           <Box
                             className={`w-100 ${classes.loadingBtnTextAndBack}`}

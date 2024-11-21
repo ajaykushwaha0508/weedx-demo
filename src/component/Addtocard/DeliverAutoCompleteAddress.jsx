@@ -14,7 +14,6 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
     const g = state.DeliveryAddress
     return g === "" ? '' : g
   })
-
   const [error, Seterror] = React.useState()
   const { ref } = usePlacesWidget({
     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
@@ -89,7 +88,6 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
       types: ["point_of_interest"],
     },
   });
-
   function CheckPostal(data, name , alldata) {
     Axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`,
       {
@@ -130,12 +128,9 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
         }
       })
   }
-
   function handlechnage(e) {
     SetAddress(e.target.value)
   }
-
-
   return (
     <React.Fragment>
       <TextField
@@ -154,16 +149,15 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
           ),
           endAdornment: <InputAdornment position="end">
 
-            {error === 'Street Address Missing' || error === 'We’re sorry, but your delivery address is outside our service area.' ? <BiErrorCircle className='help-block'></BiErrorCircle> : <IoCheckmarkSharp />}
+          {error === 'Street Address Missing' || error === 'We’re sorry, but your delivery address is outside our service area.' ? <BiErrorCircle className='text-danger small '></BiErrorCircle> : <IoCheckmarkSharp />}
 
           </InputAdornment>
         }}
         error={Boolean(error === 'Street Address Missings' || error === 'We’re sorry, but your delivery address is outside our service area.')}
       />
       {
-        error !== "" && <span className="help-block" style={{ color: error === "Delivery Address Selected Successfully!" && "green" }}>{error}</span>
+        error !== "" && <span className="text-danger small " style={{ color: error === "Delivery Address Selected Successfully!" && "green" }}>{error}</span>
       }
     </React.Fragment>
   )
-
 }

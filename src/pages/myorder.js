@@ -14,6 +14,7 @@ import Swal  from'sweetalert2'
 import Select from '@mui/material/Select';
 import styled from "@/styles/customstyle.module.css";
 import { RiH5 } from "react-icons/ri";
+import Loader from '@/component/Loader/Loader';
 const MyOrder = () => {
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access');
@@ -206,13 +207,14 @@ const MyOrder = () => {
                              <AllOrder AllOrder_data={showabledata} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} searchitem={searchitem} />:
                             <div className={styled.NODataInOrderPage}>
                                 <div className={styled.nodataAlie}>
-                                    <p className="nodatainOderText">{GetFilter}</p>
-                                    <p className="nodatainOderTextp"> {`  No orders to display at the moment. Start shopping to see your order history here!`}</p>
+                                    <p className={styled.nodatainOderText}>{GetFilter}</p>
+                                    <p className={styled.nodatainOderTextp}> {`  No orders to display at the moment. Start shopping to see your order history here!`}</p>
                                     <button onClick={()=>navigate.push("/products")} className="noorderbtn"> {`Shop Now`} </button>
                                 </div>
                             </div>
                         }
                     </div>
+                    <Loader/>
                 </div>
            
         </React.Fragment>

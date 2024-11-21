@@ -153,7 +153,7 @@ const Blogs = (props) => {
                         </div>
                         <div className={styled.blog_text_container} >
                                <div className={styled.Linkofblog}>
-                                    <div className="{`col {styled.BlogSocal}`}" id="center1">
+                                    <div className={`col ${styled.BlogSocal}`} >
 
                                         <RWebShare
                                             data={{ url: "https://www.weedx.io" + props.url }}
@@ -167,7 +167,7 @@ const Blogs = (props) => {
 
                                         <div className="blogViewCounts destop_view">Share</div>
                                     </div>
-                                    <div className={`col ${styled.viewsBlog}`}  id="center1">
+                                    <div className={`col ${styled.viewsBlog}`}  >
                                         <IconButton>
                                             <IoEyeSharp></IoEyeSharp>
                                         </IconButton>
@@ -176,13 +176,13 @@ const Blogs = (props) => {
 
 
                                     </div>
-                                    <div className={`col ${styled.viewsBlog} BlogSocal`} id="center1"  onClick={scrolltocomment} >
+                                    <div className={`col ${styled.viewsBlog} ${styled.BlogSocal}`}   onClick={scrolltocomment} >
                                         <IconButton>
                                             <BiCommentDetail />
                                         </IconButton>
                                         <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
                                     </div>
-                                    <div className={`col ${styled.viewsBlog} BlogSocal like`} id="center1">
+                                    <div className={`col ${styled.viewsBlog} ${styled.BlogSocal}`} >
                                         <IconButton onClick={(() => { PostLike(color()?.like) })}>
                                             <AiFillHeart></AiFillHeart>
                                         </IconButton>

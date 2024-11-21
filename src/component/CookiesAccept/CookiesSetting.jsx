@@ -146,9 +146,7 @@ export default function CookieSetting() {
   }
     return (
         <div>
-            {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button> */}
+          
             <Box className={classes.CookiesSetting}>
                 <LoadingButton onClick={handleClickOpen} >COOKIES SETTINGS</LoadingButton>
             </Box>
@@ -157,9 +155,9 @@ export default function CookieSetting() {
                 open={open}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                   <h3> Cookie Settings </h3>
+                   <h3>{' Cookie Settings'} </h3>
                     <p className='Cookiessetting'>
-                        This website uses cookies to improve your browsing experience and to show you personalized content. Some cookies are necessary for the site to function in its intended form. Others are grouped by category and could be disabled. You can get more information about the cookies we use, by reading our Privacy Policy and Terms of Use
+                        {'This website uses cookies to improve your browsing experience and to show you personalized content. Some cookies are necessary for the site to function in its intended form. Others are grouped by category and could be disabled. You can get more information about the cookies we use, by reading our Privacy Policy and Terms of Use'}
                     </p>
                 </BootstrapDialogTitle>
                 <DialogContent dividers>

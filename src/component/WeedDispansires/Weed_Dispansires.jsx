@@ -20,13 +20,13 @@ const Weed_Dispansires = ({ Store, searchtext, setsearchtext, contentdata, produ
                         <div className="row dispensories_search_result">
                             <div className="col-12 dispensories_open_result_heading">
                                 <div className="row">
-                                    <div className="col-12 dispensories_open_search_result mt-2">
+                                    <div className="col-12 mt-2">
                                         <div className="form-outline" data-mdb-input-init>
                                             <input value={searchtext} onChange={(e) => setsearchtext(e.target.value)} placeholder="Search......" type="search" id="form1" className={searchtext?.length !== 0 ? `form-control ${newclases.customSearchBar}` : `form-control ${newclases.customSearchBar} ${newclases.customSearchBarsearchicon}`} />
                                         </div>
                                     </div>
                                 </div>
-                                <div className='col-12 dispensoriesOpenResultHeadingss py-2'>
+                                <div className='col-12 py-2'>
                                     <span className='dispensories_result_head'>Showing result</span>
                                     <span className='dispensories_result_head'>{Store?.length || 0} </span>
                                 </div>

@@ -19,20 +19,14 @@ export default function CookiesAccept() {
         <div className='col-12 AcceptCookies'>
             <div className='col-md-10 col-12 AcceptCookiesContent'>
                 <div className='row' style={{ gap: '3px' }}>
-
                     <div className="col">
-                        <p>This website uses cookies to improve your browsing experience and to show you personalized content.By browsing our website you consent to all cookies in accordance with our cookie policies included in our </p>
+                        <p>{`This website uses cookies to improve your browsing experience and to show you personalized content.By browsing our website you consent to all cookies in accordance with our cookie policies included in our`} </p>
                     </div>
-                    <div className=" col-lg-2 col-md-auto MediaFCookiesAccept">
-                        {/* <Box className={classes.CookiesSetting}>
-                   <LoadingButton >COOKIES SETTINGS</LoadingButton>
-                   </Box> */}
+                    <div className=" col-lg-2 col-md-auto MediaFCookiesAccept">       
                         <CookieSetting></CookieSetting>
                     </div>
                     <div className="col-lg-2">
                         <Box className={classes.CookiesAccept}>
-
-
                             <LoadingButton onClick={handleCookies}>ACCEPT ALL</LoadingButton>
                         </Box>
                     </div>

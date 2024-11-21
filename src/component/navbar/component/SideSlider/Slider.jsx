@@ -69,7 +69,7 @@ const SideNavbar = ({ closeNav, Open }) => {
     // console.log(state?.Profile?.image)
     return (
         <React.Fragment>
-            <div id="mySidebar" className={clases.sidebar} style={{ width: Open ? "300px" : "0px" }}>
+            <div className={clases.sidebar} style={{ width: Open ? "300px" : "0px" }}>
                 <div>
                         <div className=' col-12  mb-4 '>
                             {
@@ -169,7 +169,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                             </button>
                         </div>
                 </div>
-                <div className=' col-12 Login_Sigup_button mt-4 mb-3 '>
+                <div className=' col-12 d-flex align-items-center gap-1 mt-4 mb-3 '>
                     {
                         !state.login ?
                         <>

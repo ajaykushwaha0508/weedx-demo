@@ -14,7 +14,6 @@ const Bgheader = dynamic(()=>import("@/component/bgheader/Bgheader") , {ssr:fals
 import { useRouter } from "next/router";
 import useStyles from "../../../styles/style";
 import Link from "next/link";
-import Clases from '@/styles/customstyle.module.css'
 import Content from "@/component/LawsComponent/LawContentsJson";
 import { Law } from "@/component/ScoPage/LearnSeo";
 const Index = (props) => {
@@ -67,7 +66,7 @@ const Index = (props) => {
                 <TabPanel value="/learn/laws-and-regulation">
                  
                     <div className="row ">
-                      <h2 className={Clases.canabisLawMainHeadings}>{`Cannabis Law in USA, Canada & Internationals`}</h2>
+                      <h2 className={'canabisLawMainHeadings'}>{`Cannabis Law in USA, Canada & Internationals`}</h2>
                       <Bgheader text="Law" />
                       <LawsOptions data={Content} />
                     </div>

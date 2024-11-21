@@ -18,8 +18,7 @@ import  Faq from '@/component/storedetailsfootecomponent/faq';
 import Review from '@/component/storedetailsfootecomponent/review';
 const Oops = (props) => {
   var date = new Date();
-  // console.log(props)
-const styled = useStyles()
+  const styled = useStyles()
   const easternTime = date.toLocaleString("en-US", { timeZone: "America/New_York" })
   let day = new Date(easternTime)
   const faq1 = [
@@ -189,7 +188,7 @@ const styled = useStyles()
           <span className={clases.back}>{`VIEW OTHER BUSINESSES`}</span>
         </div>
       </div>
-   <Review AllReview = {props?.AllReview || []} storename={props?.delBtn[0].Store_Name} ></Review>
+      <Review AllReview = {props?.AllReview || []} storename={props?.delBtn[0].Store_Name} ></Review>
       <>
         {
           Boolean(props?.store?.length) &&
@@ -197,8 +196,8 @@ const styled = useStyles()
             {
               Boolean(props?.store?.length !== 1) &&
               <div className='mt-5' >
-                <h4 className='center nearbyStore'>{`Explore Other Nearby Dispensaries`}</h4>
-                <h4 className='nearbystoreheading center'>{`Can’t find what you’re looking for? Check out these nearby dispensaries that have products available now.`}</h4>
+                <h4 className='center section_main_title'>{`Explore Other Nearby Dispensaries`}</h4>
+                <h4 className='section_main_subtitle center'>{`Can’t find what you’re looking for? Check out these nearby dispensaries that have products available now.`}</h4>
               </div>
             }
             <Swiper className={`mySwiper similerproduxt mt-5 `}

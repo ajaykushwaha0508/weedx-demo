@@ -421,21 +421,21 @@ export default function DispensoriesDetails(props) {
                                 (Boolean(DespensariesData.length) ?
                                     <>
                                         <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-                                        <div className="row">
-                                            <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                                <ProductFilter Store_id={Despen[0]?.id}
-                                                    id={id}
-                                                    ProductFilterData={ProductFilterData}
-                                                    Setarr1={setproduct}
-                                                    arr={DespensariesData}
-                                                />
-                                                <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
-                                                    <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                            <div className="row">
+                                                <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                                    <ProductFilter Store_id={Despen[0]?.id}
+                                                        id={id}
+                                                        ProductFilterData={ProductFilterData}
+                                                        Setarr1={setproduct}
+                                                        arr={DespensariesData}
+                                                    />
+                                                    <div className={"col-12 col-lg-9 col-xxl-10"}>
+                                                        <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                    </div>
                                                 </div>
+                                                    <Reviewextrs AllReview = {AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
+                                                    <Fqa faq={faq} ></Fqa>
                                             </div>
-                                                <Reviewextrs AllReview = {AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
-                                                <Fqa faq={faq} ></Fqa>
-                                        </div>
                                     </>
                                     :
                                     <div>
@@ -466,7 +466,7 @@ export default function DispensoriesDetails(props) {
                                                 arr={DespensariesData}
                                                 id={id}
                                             />
-                                            <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                            <div className={"col-12 col-lg-9 col-xxl-10"}>
                                                 <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                             </div>
                                      

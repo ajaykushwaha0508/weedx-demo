@@ -252,7 +252,7 @@ const Dispensaries = (props) => {
             <div className="w-100 dispensory_menu my-2">
                 {
                     (props.store?.length !== 0 ?
-                        <Box className={`dispensories_tabss ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
+                        <Box className={` ${classes.dispensory_tab_background}`} sx={{ width: '100%' }}>
                             <Box className={classes.open_dispensory_tab} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs scrollButtons={false} variant="scrollable" sx={{ justifyContent: 'space-around' }} value={value} onChange={handleChange} aria-label="basic tabs example">
                                     <Tab label="All" {...a11yProps(0)} />
@@ -324,16 +324,12 @@ async function postData(createurl, value, address) {
         console.error('Error:', error);
     }
 }
-
-
 function capitalizeFirstLetter(string) {
     return string
         .split(/[\s-]/)  // Split by both space and hyphen
         .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter, lowercase the rest
         .join(' ');  // Join the words back with spaces
 }
-
-
 export const getServerSideProps= async (context) => {
 
     const { req, query } = context;
@@ -492,6 +488,4 @@ export const getServerSideProps= async (context) => {
         };
     }
 };
-
-
 export default Dispensaries;

@@ -415,7 +415,7 @@ export default function DispensoriesDetails(props) {
                                                 Setarr1={setproduct}
                                                 arr={DespensariesData}
                                             />
-                                            <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                            <div className={ "col-12 col-lg-9 col-xxl-10"}>
                                                 <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData.slice(0, 4)} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                                 {/* <div className="col-12 d-flex justify-content-sm-center ">
                                                     <button>{"View more product"}</button>
@@ -454,7 +454,7 @@ export default function DispensoriesDetails(props) {
                                             arr={DespensariesData}
                                             id={id}
                                         />
-                                        <div className={location.asPath.includes('/menu-integration') ? "col-12 col-lg-9 col-xxl-10 prod_cat_right_sec" : "col-12 col-lg-9 col-xxl-10"}>
+                                        <div className={"col-12 col-lg-9 col-xxl-10"}>
                                             <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
                                         </div>
 

@@ -286,11 +286,7 @@ const ssss = useStyles()
                   <h2 className={classes.section_box_heading}>{`Need Help? We’re Here for You!`}</h2>
                   <p className={classes.section_box_para}>{`If you have any questions or need support, feel free to reach out to us. Just drop us an email at  `} <b><Link href="mailto:info@weedx.io">{`info@weedx.io,  `}</Link></b> {`and our support team will be happy to assist you.`}</p>
                 </div>
-                {/* <div className={classes.section_box}>
-                  <h2 className={classes.section_box_heading}>{`Join the WeedX.io Community Today!`}</h2>
-                  <p className={classes.section_box_para}>{`Ready to take your cannabis business to the next level? Start growing your audience, simplifying your operations, and expanding your reach with `}  <b><Link href={'/'}> {`WeedX.io.`}</Link> </b> {` List your dispensary, delivery service, or brand today and get started with the best cannabis e-commerce platform around.`}</p>
-                  <p className={classes.section_box_para}></p>
-                </div> */}
+               
                 <div className={classes.ad_footer}>
                   <h2 className={classes.page_heading}> {`Join the WeedX.io Community Today!`}
                   </h2>
