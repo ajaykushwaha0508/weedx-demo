@@ -1,7 +1,7 @@
 import React from 'react'
 import {ClickAwayListener} from '@mui/base/ClickAwayListener';
 import axios from 'axios';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import Cookies from 'universal-cookie';
 import { RxCross2 } from "react-icons/rx";
 import Createcontext from "@/hooks/context"
@@ -71,7 +71,7 @@ import clases from '@/styles/customstyle.module.css'
               }
             });
   
-            let sortedData = _.sortBy(datax, (dateObj) => dateObj.date);
+            let sortedData = debounce.sortBy(datax, (dateObj) => dateObj.date);
             Settotalnotify(sortedData);
             Setnotificationdata(sortedData.reverse());
           })
@@ -132,7 +132,7 @@ import clases from '@/styles/customstyle.module.css'
           }
         });
   
-        let sortedData = _.sortBy(datax, (dateObj) => dateObj.date);
+        let sortedData = debounce.sortBy(datax, (dateObj) => dateObj.date);
         dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
         Setnotificationdata(sortedData.reverse());
       } catch (err) {
