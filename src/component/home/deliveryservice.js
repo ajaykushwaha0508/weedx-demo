@@ -106,7 +106,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                                                     <p className={`ellipsis ${clases.dispensoriesHeadings}`}>{items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)}</p>
                                                                         <div className={clases.Dispensaries_card_discription}>
                                                                             <span><BiMap className={classes.disPen_Icons} /></span>
-                                                                            <p className='ellipsis mb-0'>{items?.Store_Address}</p>
+                                                                            <p style={{color:"#000"}} className='ellipsis mb-0'>{items?.Store_Address}</p>
                                                                         </div>
                                                                   
                                                                 </Link>

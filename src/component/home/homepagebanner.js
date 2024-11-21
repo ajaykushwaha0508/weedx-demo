@@ -36,7 +36,7 @@ const HomePageBanner = ({ props }) => {
                 <div className={`col-12 homePageBanner_container`}>
                   <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={items?.Banner }
+                    src={"/api/cache-images?url="+items?.Banner }
                     alt="Weedx.io Promotion banner"
                     title="Weedx.io Promotion banner"
                     width={1500}
@@ -72,7 +72,8 @@ const HomePageBanner = ({ props }) => {
               <SwiperSlide key={index} style={{ height: '212px' }} className='homePageBanner_container'>
                 <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                 <Image
-                  src={items?.mobile || '/image/blankImage.jpg'}
+                            src={"/api/cache-images?url="+items?.mobile }
+                  // src={items?.mobile || '/image/blankImage.jpg'}
                   alt="Weedx.io Mobile Promotion Banner"
                   title="Weedx.io Mobile Promotion Banner"
                   width={500}

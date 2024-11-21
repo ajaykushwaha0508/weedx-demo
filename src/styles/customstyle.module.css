@@ -19,7 +19,7 @@
 .btnaddss {
   position: relative;
   padding: 6px 15px;
-  color: #31b655;
+  color: #006400; /* Dark green text for better contrast */
   font-size: 14px;
   letter-spacing: 1px;
   border-radius: 5px;
@@ -28,7 +28,7 @@
   border: none;
   cursor: pointer;
   box-sizing: border-box;
-  background: #fff;
+  background-color: #fff; /* Keep white background */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -49,7 +49,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #31B655;
+  background-color: #006400; /* Match with the new text color */
+  color: #ffffff; /* White icon color for better contrast */
   margin-bottom: 0;
 }
 .btnaddss span {
@@ -60,7 +61,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #31B655;
+  background: #006400; /* Match border animations with new color */
   -webkit-animation: borderAnimation1 2s linear infinite;
           animation: borderAnimation1 2s linear infinite;
 }
@@ -85,7 +86,7 @@
   right: 0;
   width: 1px;
   height: 100%;
-  background: #31B655;
+  background: #006400;
   -webkit-animation: borderAnimation2 2s linear infinite;
           animation: borderAnimation2 2s linear infinite;
   -webkit-animation-delay: 1s;
@@ -112,7 +113,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #31B655;
+  background: #006400;
   -webkit-animation: borderAnimation3 2s linear infinite;
           animation: borderAnimation3 2s linear infinite;
 }
@@ -137,7 +138,7 @@
   left: 0;
   width: 1px;
   height: 100%;
-  background: #31B655;
+  background: #006400;
   -webkit-animation: borderAnimation4 2s linear infinite;
           animation: borderAnimation4 2s linear infinite;
   -webkit-animation-delay: 1s;
@@ -158,6 +159,9 @@
   100% {
     transform: translateY(-100%);
   }
+}
+.btnaddss:hover {
+  background-color: #f0f0f0; /* Light gray hover background */
 }
 
 .font_size_paragraph {
@@ -651,7 +655,7 @@ footer .footer_main_div_display {
 }
 footer .footer_main_div_display .footer_heading {
   text-align: center;
-  color: #31B665;
+  color: #229145;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -754,12 +758,14 @@ footer .footer_bootom_headings_container {
   text-align: center;
 }
 footer .footer_bootom_headings_container .copyright_title {
-  color: #FFF;
+  color: #FFF; /* White text */
+  background-color: #229254; /* Keep the same green background */
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 3;
   margin: 0;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6); /* Add subtle shadow for improved readability */
 }
 
 .bottom_menu_items p, .footer_icons_column p {
@@ -2966,7 +2972,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   font-weight: 400;
   line-height: 19.6px;
   text-align: left;
-  color: #858C94;
+  color: #000000;
 }
 .HomePageDealsSignupContainer .contentarea .newsletterFormFeild {
   /* background-color: #E6E6E6; */

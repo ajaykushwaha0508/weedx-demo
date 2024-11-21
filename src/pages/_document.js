@@ -27,6 +27,21 @@ export default class MyDocument extends Document {
         <Head>
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'GA_MEASUREMENT_ID', {
+                            cookie_flags: 'SameSite=None;Secure',
+                        });
+                        `,
+                    }}
+                ></script>
+
+
           {/* Google Tag Manager */}
           <Script id="gtm-script" strategy="afterInteractive">
             {`
