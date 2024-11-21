@@ -4,8 +4,11 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 // import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Rating } from '@mui/material';
 import useStyles from '../../styles/style';
+
+// const FaArrowRight = dynamic(() => import("react-icons/fa"), { ssr: false });
 import { FaArrowRight } from "react-icons/fa";
 import { BiMap } from "react-icons/bi"
+// const BiMap = dynamic(() => import("react-icons/fa"), { ssr: false });
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
@@ -16,7 +19,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import clases from '@/styles/customstyle.module.css'
 // import { DespensioriesItem } from '@/hooks/apicall/api';
-const DeliveryServices = ({ link, title, data , location , initialData }) => {
+const DeliveryServices =  React.memo(({ link, title, data , location , initialData }) => {
     let DeliveryService = data || []
     const navigate = useRouter()
     const { state } = React.useContext(Createcontext)
@@ -148,5 +151,6 @@ const DeliveryServices = ({ link, title, data , location , initialData }) => {
             </div>
         </React.Fragment>
     )
-}
+})
+DeliveryServices.displayName = "DeliveryServices";
 export default DeliveryServices

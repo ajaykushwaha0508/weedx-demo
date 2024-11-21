@@ -2,6 +2,14 @@ import React from 'react';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
 const Chartbot = () => {
+  React.useEffect(() => {
+    const chatbox = document.querySelector('.whatsappcharboxcustom');
+    if (chatbox?.getAttribute('aria-hidden') === 'true') {
+      const focusableElements = chatbox.querySelectorAll('input, button, [tabindex]');
+      focusableElements.forEach(el => el.setAttribute('tabindex', '-1'));
+    }
+  }, []);
+
   return (
     <div
       className="col-10"

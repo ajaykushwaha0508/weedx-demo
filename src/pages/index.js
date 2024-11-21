@@ -11,8 +11,9 @@ const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDeal
 const CategoryProduct = dynamic(() => import('../component/category/category'),{ 
   memo: true 
 });
-const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: true ,  memo: true });
-// const HomePageWeedBanner = dynamic(() => import('../component/home/homepagebanner'));
+// const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: false ,  memo: true });
+// const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'));
+import  DeliveryServices from '../component/home/deliveryservice'
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'), { 
   memo: true 
 });

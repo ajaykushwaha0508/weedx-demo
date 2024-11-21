@@ -61,7 +61,16 @@
   width: 100%;
   height: 1px;
   background: #31B655;
-  animation: borderAnimation1 2s linear infinite;
+  -webkit-animation: borderAnimation1 2s linear infinite;
+          animation: borderAnimation1 2s linear infinite;
+}
+@-webkit-keyframes borderAnimation1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 @keyframes borderAnimation1 {
   0% {
@@ -77,8 +86,18 @@
   width: 1px;
   height: 100%;
   background: #31B655;
-  animation: borderAnimation2 2s linear infinite;
-  animation-delay: 1s;
+  -webkit-animation: borderAnimation2 2s linear infinite;
+          animation: borderAnimation2 2s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+@-webkit-keyframes borderAnimation2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 @keyframes borderAnimation2 {
   0% {
@@ -94,7 +113,16 @@
   width: 100%;
   height: 1px;
   background: #31B655;
-  animation: borderAnimation3 2s linear infinite;
+  -webkit-animation: borderAnimation3 2s linear infinite;
+          animation: borderAnimation3 2s linear infinite;
+}
+@-webkit-keyframes borderAnimation3 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 @keyframes borderAnimation3 {
   0% {
@@ -110,8 +138,18 @@
   width: 1px;
   height: 100%;
   background: #31B655;
-  animation: borderAnimation4 2s linear infinite;
-  animation-delay: 1s;
+  -webkit-animation: borderAnimation4 2s linear infinite;
+          animation: borderAnimation4 2s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+@-webkit-keyframes borderAnimation4 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 @keyframes borderAnimation4 {
   0% {
@@ -348,6 +386,7 @@
   display: none;
 }
 .notificationList .notificationHeader {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
@@ -896,7 +935,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 .new_blog_card {
   width: 220px;
   border-radius: 8px;
-  background-color: hsla(225, 2%, 66%, 0.1);
+  background-color: hsla(225deg, 2%, 66%, 0.1);
   padding: 10px;
   border: 1px solid #e9e9e9;
   height: 100%;
@@ -1316,6 +1355,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   height: auto;
   line-height: 14px;
   padding: 2px 8px;
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -1500,8 +1540,10 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   position: relative;
 }
 .review_secton .reviews_description {
+  position: -webkit-sticky;
   position: sticky;
   top: 150px;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -1589,7 +1631,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   border: 1px dashed #727CA4;
   width: 100%;
   border-radius: 20px;
-  background-color: hsla(229, 21%, 85%, 0.2);
+  background-color: hsla(229deg, 21%, 85%, 0.2);
   gap: 10px;
   cursor: pointer;
 }
@@ -1928,6 +1970,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 990px;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 20px;
@@ -2664,7 +2707,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  width: -webkit-fit-content;
   width: -moz-fit-content;
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   max-width: 100%;
@@ -2869,6 +2914,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 .LawStateContentsContainer {
   margin-left: 20px;
   border: 1px solid #BEBEBE;
+  position: -webkit-sticky;
   position: sticky;
   top: 200px;
 }
@@ -3281,6 +3327,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   margin: 0;
 }
 .term_condition .tc_topic_list {
+  position: -webkit-sticky;
   position: sticky;
   top: 144px;
   max-height: 70vh;
@@ -3495,6 +3542,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     width: 45%;
   }
   .StoreDetailMenuItem_container {
+    position: -webkit-sticky;
     position: sticky;
     top: 144px;
   }
@@ -4570,4 +4618,5 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .CategoryBordrr .catagoryTabs_section .CategorySliderImageBlock .Category_title {
     font-size: 10px;
   }
-}/*# sourceMappingURL=customstyle.module.css.map */
+}
+/*# sourceMappingURL=customstyle.module.css.map */

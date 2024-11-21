@@ -17,13 +17,13 @@ import IconButton from '@mui/material/IconButton';
 import Notification from '../component/Notification';
 import Afterlogin from "../component/afterlogin";
 import dynamic from 'next/dynamic'
-const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
-  memo: true 
-});
+// const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
+//   memo: true 
+// });
 const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"),{ 
     memo: true 
   });
-// import SideNavbar from "../component/SideSlider/Slider"
+import SideNavbar from "../component/SideSlider/Slider"
 // import SliderLink from "@/component/navbar/component/SideSlider/SilderLink"
 export default function Nevbar() {
     const cookies = new Cookies();
