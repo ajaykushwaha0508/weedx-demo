@@ -6,7 +6,7 @@ const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'),{
   memo: true 
 });
 
-// import  HomePageBanner from "../component/home/homepagebanner"
+import  HomePageBanner from "../component/home/homepagebanner"
 const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'), { ssr: true ,  memo: true });
 const CategoryProduct = dynamic(() => import('../component/category/category'),{ 
   memo: true 
@@ -55,11 +55,11 @@ export default function Home({ initialData }) {
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
   
-        {/* <HomePageBanner props={initialData?.topbanner}> </HomePageBanner> */}
+        <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
 
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
       <DeliveryServices link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
-      {/* <HomePageBanner props={initialData.bottembannner}></HomePageBanner> */}
+      <HomePageBanner props={initialData.bottembannner}></HomePageBanner>
       <DeliveryServices  link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
