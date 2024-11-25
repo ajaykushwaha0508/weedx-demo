@@ -44,7 +44,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
       }
     }
   };
-  const handleAddressChange = React.useCallback((e, value) => {
+  const handleAddressChange = (e, value) => {
     // console.log(e,value)
     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
       Setformatted_address(placeDetails.formatted_address);
@@ -198,7 +198,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
       dispatch({ type: 'location_Api', location_Api: false })
       dispatch({ type: 'Location', Location: placeDetails?.formatted_address })
     })
-  }, [placesService])
+  }
 
   function OnBlur() {
 
@@ -305,49 +305,8 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
   return (
     <>
 
-{/* <Autocomplete
-  id={`autocomplete-${uniqueId}`} // Unique ID for the Autocomplete
-  open={open}
-  onOpen={() => setOpen(true)}
-  onClose={() => setOpen(false)}
-  options={placePredictions}
-  renderOption={(props, value) => (
-    <li
-      {...props}
-      id={`option-${uniqueId}-${value?.description}`} // Unique ID for each option
-      role="option" // Correct role for dropdown items
-    >
-      <IoLocationSharp />
-      {value?.description}
-    </li>
-  )}
-  renderInput={(params) => (
-    <TextField
-      {...params}
-      id={`autocomplete-input-${uniqueId}`} // Unique ID for TextField
-      aria-label="Search location" // Accessible name for screen readers
-      InputProps={{
-        ...params.InputProps,
-        startAdornment: (
-          <>
-            <InputAdornment position="start">
-              <IoLocationSharp />
-            </InputAdornment>
-            {params.InputProps.startAdornment}
-          </>
-        ),
-        endAdornment: (
-          <IconButton onClick={current} aria-label="Get current location">
-            <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
-          </IconButton>
-        ),
-      }}
-    />
-  )}
-  getOptionLabel={(option) => option?.description || ''}
-/> */}
        <Autocomplete
-        id={`autocomplete-${uniqueId}`} // Unique Autocomplete ID
+        id={`autocomplete-${uniqueId}`} 
        
         freeSolo
         disableClearable
