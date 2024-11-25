@@ -25,9 +25,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <script
                     dangerouslySetInnerHTML={{
@@ -37,6 +36,7 @@ export default class MyDocument extends Document {
                         gtag('js', new Date());
                         gtag('config', 'GA_MEASUREMENT_ID', {
                             cookie_flags: 'SameSite=None;Secure',
+                            anonymize_ip: true 
                         });
                         `,
                     }}

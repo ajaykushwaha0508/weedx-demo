@@ -6,7 +6,7 @@ const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'),{
   memo: true 
 });
 
-import  HomePageBanner from "../component/home/homepagebanner"
+// import  HomePageBanner from "../component/home/homepagebanner"
 const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'), { ssr: true ,  memo: true });
 const CategoryProduct = dynamic(() => import('../component/category/category'),{ 
   memo: true 
@@ -17,7 +17,11 @@ import  DeliveryServices from '../component/home/deliveryservice'
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'), { 
   memo: true 
 });
-const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
+const Newsblog = dynamic(() => import('@/component/home/Newsblog'), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>Loading Newsblog...</p>, // Optional loading placeholder
+});
+
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'), { 
   memo: true 
 });
@@ -40,28 +44,26 @@ const transformString = (str) => {
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
 
-
   const Navigate = useRouter()
   
   const ShowCategoryProduct = React.useCallback((id, name) => {
     Navigate.push(`/products/${modifystr(name)}/${id}`);
   }, [Navigate]);
-
-  // console.log(initialData.Dispensaries)
+0
   return (
     <>
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
   
-        <HomePageBanner props={initialData?.topbanner}> </HomePageBanner>
+        {/* <HomePageBanner props={initialData?.topbanner}> </HomePageBanner> */}
 
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
       <DeliveryServices link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
-      <HomePageBanner props={initialData.bottembannner}></HomePageBanner>
+      {/* <HomePageBanner props={initialData.bottembannner}></HomePageBanner> */}
       <DeliveryServices  link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
-      <NewsBlog data={initialData.news}></NewsBlog>
+      <Newsblog data={initialData.news}></Newsblog>
       <HomePageDealsSignup /> 
     </>
   );
