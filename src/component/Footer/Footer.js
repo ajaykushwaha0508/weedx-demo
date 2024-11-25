@@ -47,7 +47,7 @@ const Footer = () => {
                     <div className={`row ${'main_content_logo'}`}>
                         <div className={'footer_logo_container'}>
                             <div className={'footerLogo'}>
-                                <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} className={'footer_logo_image'} src={logoimage.src} alt="weedx.io logo" title="weedx.io logo" />
+                                <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} className={'footer_logo_image'} src={'/image/weedx.io logo.png'} alt="weedx.io logo" title="weedx.io logo" />
                             </div>
                             <div className={'contact_info'}>
                                 <div className={'Footer_Left_side_menu'}>
