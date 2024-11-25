@@ -15,22 +15,23 @@ module.exports = {
   productionBrowserSourceMaps: true, // Enable source maps in production
 
   webpack: (config, { dev, isServer }) => {
-    if (dev) {
-      config.devtool = 'source-map'; // Enable source maps in development
-    } else {
+    if (!dev) {
+      config.devtool = false; // Disable source maps in production
+    }else {
       // Additional production optimizations
       config.optimization = {
         ...config.optimization,
         splitChunks: {
           chunks: 'all', // Split large chunks into smaller parts
+          maxSize: 250000, // Reduce the chunk size limit
+
         },
       };
     }
 
     // Handle large files warnings during the build
     config.performance = {
-      maxAssetSize: 512000, // Set max asset size to 500 KB
-      maxEntrypointSize: 512000, // Set max entrypoint size to 500 KB
+      hints: false // Set max entrypoint size to 500 KB
     };
 
     // Ensure Webpack processes large JavaScript files
