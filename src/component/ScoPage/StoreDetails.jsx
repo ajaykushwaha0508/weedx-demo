@@ -88,6 +88,7 @@ function StoreDetails({ Despen  }) {
     return (
         <Head>
             <title>{metaTag.title}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content={metaTag.description} />
             <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${ asPath.includes('weed-deliveries') ? "weed-deliveries" : 'weed-dispensaries'}/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`}  />
             <meta name="robots" content={metaTag.robot} />

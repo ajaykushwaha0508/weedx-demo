@@ -4,6 +4,8 @@ function AboutusSeo() {
     return (
         <Head>
             <title>{` About Us-weedx.io | Weed Dispensary & Delivery Near Me | `}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
             <meta name='description' content={`weedx.io discover cannabis products and order them from best delivery and dispensary services near you. Explore the best dispensary and get the best weed`} />
             <link rel="canonical" href={`https://www.weedx.io/aboutus`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>

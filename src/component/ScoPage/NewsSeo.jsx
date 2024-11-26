@@ -6,7 +6,8 @@ function NewsSeo({location}) {
         return (
             <Head>
                 <title>{"Weedx Blog: Cannabis Knowledge & Industry Insights."}</title>
-   
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+
                 <meta name='description' content={" Stay informed with the WeedX Blog! Get the latest tips, trends, and expert insights on all things cannabis. Enhance your knowledge and stay ahead in the industry."} />
                 <link rel="canonical" href={`https://www.weedx.io/${location}`} /> 
                 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>

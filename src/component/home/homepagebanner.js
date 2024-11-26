@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
-
+import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props }) => {
   const handleImageError = (event) => {
     if (event.type === "error") {
@@ -28,19 +28,23 @@ const HomePageBanner = ({ props }) => {
               delay: 5000, // Reduced delay for faster LCP
               disableOnInteraction: false,
             }}
-            style={{ zIndex: 0 }}
-            modules={[Autoplay]}
+            style={{
+              zIndex: 0,
+              height:'390px'
+            }}
+            a11y={{ enabled: true }}
+            modules={[Autoplay, A11y]}
           >
             {props?.reverse()?.map((items, index) => (
               <SwiperSlide key={index}>
                 <div className={`col-12 homePageBanner_container`}>
                   <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={items?.Banner }
+                    src={items?.Banner}
                     alt="Weedx.io Promotion banner"
                     title="Weedx.io Promotion banner"
-                    width={1500}
-                    height={500}
+                    width={100}
+                    height={100}
                     quality={100} // High quality for desktop
                     priority={index === 0} // Eager load the first image
                     // placeholder="blur"
@@ -62,11 +66,12 @@ const HomePageBanner = ({ props }) => {
           <Swiper
             loop={true}
             autoplay={{
-              delay: 2000,
-              disableOnInteraction: true,
+              delay: 5000,
+              disableOnInteraction: false,
             }}
             style={{ zIndex: 0 }}
-            modules={[Autoplay]}
+            a11y={{ enabled: true }}
+            modules={[Autoplay, A11y]}
           >
             {props?.reverse()?.map((items, index) => (
               <SwiperSlide key={index} style={{ height: '212px' }} className='homePageBanner_container'>
@@ -78,11 +83,12 @@ const HomePageBanner = ({ props }) => {
                   title="Weedx.io Mobile Promotion Banner"
                   width={500}
                   height={500}
-                  quality={75} // Reduced quality for mobile
+                  quality={60} // Reduced quality for mobile
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className={'HomePageBanner_image'}
                   onError={handleImageError}
                   loader={imageLoader}
+                  priority={index === 0}
                   // placeholder="blur"
                   // blurDataURL="/image/blankImage.jpg"
                 />

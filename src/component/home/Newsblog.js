@@ -58,7 +58,7 @@ const NewsCard = React.memo(({ ele, index }) => (
                     title={ele.Title}
                     priority={index < 2} // Load first two images eagerly, others lazily
                     placeholder="blur"
-                    blurDataURL="/image/placeholder.jpg" // Placeholder image
+                    blurDataURL="/image/blankImage.jpg" // Placeholder image
                     onError={(e) => (e.target.src = '/image/blankImage.jpg')} // Fallback on error
                 />
             </div>

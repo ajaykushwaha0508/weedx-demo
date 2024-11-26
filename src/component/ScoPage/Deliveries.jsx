@@ -11,6 +11,8 @@ function Delivery({ location ,formatted_address }) {
   return (
     <Head>
       <title>{title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
       <meta
         name="description"
         content={`Find Nearby Weed Delivery in ${formatted_address} for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}

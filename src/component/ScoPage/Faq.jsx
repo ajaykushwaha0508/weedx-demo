@@ -3,7 +3,8 @@ function Faqseo() {
     return (
         <Head>
             <title>{"WeedX.Io FAQs: Cannabis Orders, Shipping, Compliance & More"}</title>
-         
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
             <meta name='description' content={"FAQs of WeedX.Io for insights on cannabis orders, shipping, compliance, and more. Find the best Recreational and Medical Marijuana Dispensaries & Delivery Near you."} />
             <link rel="canonical" href={`https://www.weedx.io/faq`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
