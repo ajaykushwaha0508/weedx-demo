@@ -95,7 +95,6 @@ const Navbar = () => {
         <div className='container p-0'>
             <div ref={ref} className={clases.NavbarBox} id='Navbar_box' >
                 <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
-                  
                     <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "block", md: "none", lg: "none" }}>
                         <button className={clases.openbtn} onClick={openNav}>☰</button>
                     </Grid>

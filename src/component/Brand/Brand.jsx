@@ -13,7 +13,7 @@ const Brand = ({VerifyArrayData}) => {
     return (
         <React.Fragment>
             <div className="">
-                <div className=" brands_containers_height">
+              
                     <div className="col-12 col-sm-10 brandHeading">
 
                         <div className="container-fluid">
@@ -51,7 +51,7 @@ const Brand = ({VerifyArrayData}) => {
                             </div>
                         </div>
                     </div>
-                </div>
+              
 
             </div>
         </React.Fragment>

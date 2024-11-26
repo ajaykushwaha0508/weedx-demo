@@ -76,77 +76,70 @@ const MedicalCardDetailsPopup = ({ Profile, Api, SetApi }) => {
                         <div className='col-12 text-end AddPhotoIdPoppup_col '>
                             <IconButton aria-label="closebutton"><RiCloseCircleFill onClick={handleClose} color='#949494' size={24} /></IconButton>
                         </div>
-                        <div className='col-12 medicalCard_col_height'>
+                    
                             <h2 className='medicalCard_heading'>Add Medical Card Informations</h2>
-
-                        </div>
-
+                       
                     </div>
                     <form  onSubmit={handleSubmit(onSubmit)}>
                         <div className='row'>
-                            <div className='col-12 MedicalCard_label_div'>
+                            <div className='col-12'>
                                 <label htmlFor='medical card number'>Medical Card Number*</label>
                             </div>
-                            <div className='col-12 medicalCard_col_height mt-2'>
+                            <div className='col-12  mt-2'>
                                 <TextField type='number'
-                                 id='medical card number'
-                                 name='MedicalCardNumber'
-                                 placeholder={Profile.MedicalCardNumber}
-                                 className={`${classes.FilledTextFieldStyle}`}
-                                  fullWidth variant='filled'
-                                  inputRef={register({
-                                    required: "Medical Card Number is required*.",
-
-                                })}
-                                error={Boolean(errors?.MedicalCardNumber)}
-                                helperText={errors.MedicalCardNumber?.message}
+                                    id='medical card number'
+                                    name='MedicalCardNumber'
+                                    placeholder={Profile.MedicalCardNumber}
+                                    className={`${classes.FilledTextFieldStyle}`}
+                                    fullWidth variant='filled'
+                                    inputRef={register({
+                                        required: "Medical Card Number is required*.",
+                                    })}
+                                    error={Boolean(errors?.MedicalCardNumber)}
+                                    helperText={errors.MedicalCardNumber?.message}
                                   />
                             </div>
-
                         </div>
                         <div className='row mt-4'>
-                            <div className='col-12 MedicalCard_label_div mt-2'>
+                           
                                 <label htmlFor='ExpiryDates'>Medical Card Expiration*</label>
-                            </div>
-                            <div className='col-12 medicalCard_col_height mt-2'>
-                                <TextField type="date" 
-                                id="ExpiryDates" fullWidth 
-                                variant='filled'
-                                defaultValue={Profile.MedicalCardExpire}
-                                placeholder={Profile.MedicalCardExpire}
-                                name="MedicalCardExpire"
-                                className={`${classes.FilledTextFieldStyle}`}
-                             
-                                inputRef={register({
-                                    required: "Medical Card Expire is required*.",
+                                <div className='col-12  mt-2'>
+                                    <TextField type="date" 
+                                    id="ExpiryDates" fullWidth 
+                                    variant='filled'
+                                    defaultValue={Profile.MedicalCardExpire}
+                                    placeholder={Profile.MedicalCardExpire}
+                                    name="MedicalCardExpire"
+                                    className={`${classes.FilledTextFieldStyle}`}
+                                    
+                                    inputRef={register({
+                                        required: "Medical Card Expire is required*.",
 
-                                })}
-                                error={Boolean(errors?.MedicalCardExpire)}
-                                helperText={errors.MedicalCardExpire?.message}
-                                 />
+                                    })}
+                                    error={Boolean(errors?.MedicalCardExpire)}
+                                    helperText={errors.MedicalCardExpire?.message}
+                                        />
 
-                            </div>
+                                </div>
 
                         </div>
                         <div className='row mt-4'>
-                            <div className='col-12 MedicalCard_label_div mt-2'>
-                                <label htmlFor='MedicalCardState'>Medical Card State*</label>
+                            <div className='col-12 mt-2'>
+                                <label htmlFor='MedicalCardState'>{'Medical Card State*'}</label>
                             </div>
-                            <div className='col-12 medicalCard_col_height mt-2'>
+                            <div className='col-12 mt-2'>
                                 <TextField type="text"
-                                 id="MedicalCardState" 
-                                 name="MedicalCardState"
-                                 fullWidth variant='filled'
-                                 placeholder={Profile.MedicalCardState}
-                                 className={`${classes.FilledTextFieldStyle}`}
-                                 inputRef={register({
-                                    required: "Medical Card State is required*.",
-
-                                })}
-                                error={Boolean(errors?.MedicalCardState)}
-                                helperText={errors.MedicalCardState?.message}
-                                  />
-
+                                    id="MedicalCardState" 
+                                    name="MedicalCardState"
+                                    fullWidth variant='filled'
+                                    placeholder={Profile.MedicalCardState}
+                                    className={`${classes.FilledTextFieldStyle}`}
+                                    inputRef={register({
+                                        required: "Medical Card State is required*.",
+                                    })}
+                                    error={Boolean(errors?.MedicalCardState)}
+                                    helperText={errors.MedicalCardState?.message}
+                                />
                             </div>
 
                         </div>

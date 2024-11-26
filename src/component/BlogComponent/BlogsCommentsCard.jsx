@@ -58,7 +58,6 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
 
                                             <div className="col-12 blogsCommentCardDateCol">
                                                 <span className="blogsCommentCardDate">{CommentDate}</span>
-
                                             </div>
                                             <div className="col-12 d-flex align-items-center">
                                                 <section className="commentCardImages">
@@ -71,7 +70,6 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                     <div className="col-12">
                                                     <p className="blogUserComments">{val.comment}</p>
                                                     </div>
-                                                   
                                                 </section>
                                                 {state.login &&  state?.Profile?.id === val.user && (
                                                     <div className="col d-flex justify-content-center align-items-center">
@@ -97,7 +95,8 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                 nextPage={nextPage}
                             />
                     </section>
-                )}
+                )
+            }
 
 
         </section>

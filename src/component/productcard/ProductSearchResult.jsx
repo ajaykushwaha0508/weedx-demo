@@ -314,7 +314,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                             <p className={`${newclases.product_search_result_sub_heading} text-truncate`}>by {items.StoreName}</p>
                                                             <div className={newclases.product_category_list}>
                                                                 <span className={newclases.product_search_result_span1}>15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`THC | 0.2`}{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`CBD`}</span>
-                                                                <div className={newclases.product_cart_review}>
+                                                                <div className='d-flex gap-1'>
                                                                     {new Array(items.rating).fill(null).map((itwm, index) => (
                                                                         <BsStarFill key={index + 1} size={16} color="#31B665" />
                                                                     ))}
@@ -324,12 +324,12 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                                     ))}
                                                                 </div>
                                                             </div>
-                                                                <p className={`${newclases.productSearch} text-truncate text-dark`}>
-                                                                    <span className={newclases.productSearchPrice}>${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span>
-                                                                    {`per`} {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
-                                                                <div> { items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
-                                                                        <span className={newclases.carddiscountoffer}>{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>{`  and more Offers`} </div> }
-                                                                </div>
+                                                            <p className={`${newclases.productSearch} text-truncate text-dark`}>
+                                                                <span className={newclases.productSearchPrice}>${parseInt(items.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(items.Prices[0].Price[0].Price) > parseInt(items.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(items.Prices[0].Price[0].Price)}</del>} </span>
+                                                                {`per`} {items.Prices[0].Price[0].Weight ? items.Prices[0].Price[0].Weight : `${items.Prices[0].Price[0].Unit} Unit`}</p>
+                                                            <div> { items?.CategoryCoupoun?.length !== 0 || items?.ProductCoupoun?.length !== 0 && <div className="discountinfo">
+                                                                    <span className={newclases.carddiscountoffer}>{discountshoer(items.CategoryCoupoun, items.ProductCoupoun)} </span>{`  and more Offers`} </div> }
+                                                            </div>
                                                         </Link>
                                                       
                                                             <Box className={`center ${classes.loadingBtnTextAndBack}`}>
@@ -414,7 +414,7 @@ const ProductSearchResult = ({ RelatedProductResult, CategoryName, currentProduc
                                                 </Link>
                                                 <div className={newclases.product_category_list}>
                                                     <span className={newclases.product_search_result_span1}>15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`CBD`}</span>
-                                                    <div className={newclases.product_cart_review}>
+                                                    <div className={'d-flex gap-1'}>
                                                         {new Array(items.rating).fill(null).map((itwm, index) => (
                                                             <BsStarFill key={index + 1} size={16} color="#31B665" className="" />
                                                         ))}

@@ -101,9 +101,8 @@ const Index = () => {
                                 </div>
                                 <div className={styled.allOrder_span_quantity_div}>
                                     <span className={styled.allOrder_span_quantity}>
-                                        Amount: <span className="Amount_price">
-                                            {AllOrder_data[0]?.Product[0]?.Price.SalePrice}
-                                        </span>
+                                        Amount: {AllOrder_data[0]?.Product[0]?.Price.SalePrice}
+                                       
                                     </span>
                                     <div className={styled.allOrder_icons_div}>
                                         <BsFillCircleFill

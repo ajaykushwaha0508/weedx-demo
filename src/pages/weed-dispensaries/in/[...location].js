@@ -158,72 +158,7 @@ const Dispensaries = (props) => {
     }, [props.isDirectHit, props.isFromGoogle]);
 
    async function breadcrumCountry(country, state1, city) {
-        // if (Boolean(city)) {
-        //     dispatch({ type: 'route', route: "" })
-        //     dispatch({ type: 'Location', Location: state.City })
-        //     navigate.push(`/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/${modifystr(state.State.toLowerCase())}/${modifystr(state.City.toLowerCase())}`)
-        // }
-        // else if (Boolean(state1)) {
-        //     // dispatch({ type: 'Location', Location: state.State })
-        //     // dispatch({ type: 'City', City: "" })
-        //     // dispatch({ type: 'route', route: "" })
-        //     // navigate.push(`/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`)
-        //     const l=   {
-        //         resolvedUrl : `/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`
-        //     }   
-        //    const  type = ""
-        //     const k = await Location((state?.State + state.Country)  , type , l, 14, 'dispensaries'); 
-        //     console.log(k)
-        //     const setLocation = {
-        //         country: k?.country,
-        //         state: k?.state,
-        //         city: k?.city,
-        //         route: k?.route,
-        //         formatted_address: k?.formatted_address
-        //     };
-        //     const date = new Date();
-        //     date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
-        //     cookies.set('fetchlocation', JSON.stringify(setLocation), {
-        //         expires: date,
-        //         path: '/' // Set the path where the cookie is accessible
-        //     });       
-        //     dispatch({ type: 'Location', Location: k?.formatted_address })
-        //     dispatch({ type: 'permission', permission: true });
-        //     dispatch({ type: 'Country', Country: k?.country });
-        //     dispatch({ type: 'countrycode', countrycode: props.location?.countrycode });
-        //     dispatch({ type: 'State', State: k?.state });
-        //     dispatch({ type: 'statecode', statecode: k?.statecode });
-        //     dispatch({ type: 'City', City: k?.city })
-        //     dispatch({ type: 'citycode', citycode: k?.citycode });
-        //     dispatch({ type: 'route', route: k?.route });                
-        //     navigate.push({
-        //         pathname: `/weed-dispensaries/in/${modifystr(state.Country)}/${modifystr(state?.State)}`
-        //       });
-        // }
-        // else if (Boolean(country)) {         
-        //  const l=   {
-        //         resolvedUrl : `/weed-dispensaries/in/${modifystr(state.Country.toLowerCase())}/`
-        //     }   
-        //    const  type = ""
-        //     const k = await Location(state.Country, type , l, 14, 'dispensaries'); 
-        //     console.log(k)
-        //     const setLocation = {
-        //         country: k?.country,
-        //         state: k?.state,
-        //         city: k?.city,
-        //         route: k?.route,
-        //         formatted_address: k?.formatted_address
-        //     };
-        //     const date = new Date();
-        //     date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
-        //     cookies.set('fetchlocation', JSON.stringify(setLocation), {
-        //         expires: date,
-        //         path: '/' // Set the path where the cookie is accessible
-        //     });                       
-        //     navigate.push({
-        //         pathname: `/weed-dispensaries/in/${modifystr(k?.country)}/`
-        //       });
-        // }
+      
 
     }
 

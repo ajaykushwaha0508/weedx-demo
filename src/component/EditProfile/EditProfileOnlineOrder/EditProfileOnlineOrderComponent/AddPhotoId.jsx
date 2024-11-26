@@ -130,14 +130,13 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                 </section>
 
                             </div>
-
                         </div>
-                        {Error !== '' && <p style={{color:"red"}}>{Error}</p>}
+                        {Error !== '' && <p className='text-danger'>{Error}</p>}
                         <Box className={` mt-4 ${classes.editEmail_loadingBtn}`}>
-                            <LoadingButton onClick={Submit}>Save</LoadingButton>
+                            <LoadingButton onClick={Submit}>{'Save'}</LoadingButton>
                         </Box>
                         <Box className={`mt-5 ${classes.editEmail_loadingBtn_cancel}`}>
-                            <LoadingButton onClick={handleClose}>Cancel</LoadingButton>
+                            <LoadingButton onClick={handleClose}>{'Cancel'}</LoadingButton>
                         </Box>
                     </form>
                 </div>

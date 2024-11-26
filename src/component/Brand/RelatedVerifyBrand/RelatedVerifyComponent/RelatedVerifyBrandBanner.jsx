@@ -14,10 +14,10 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
         }
     };
     return (
-            <div className="brandProfileBanner row center">
+           
                 <div className={"relatedVerifyBrand_Banner"}>
                     <div className="relatedVerifyBrand_icons">
-                      <div className="shareiconcontainer ">
+                  
                         <IconButton aria-label="share icons">
                             <RWebShare
                                 data={{ url: 'https://www.weedx.io/'+useRouter().asPath}}
@@ -27,7 +27,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                                 <MdShare color="#949494" size={20} />
                             </RWebShare>
                         </IconButton>
-                      </div>
+                     
                     </div>
                     <div className="related_verifyBrandBanner_maincol">
                         <div className="RelatedVerifyBrandBanner_image_box">
@@ -54,7 +54,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
 
 
                 </div>
-            </div>
+       
     )
 }
 export default RelatedVerifyBanner

@@ -10,37 +10,37 @@ const DealByStrainType = ({ArrayData,heading}) => {
     return (
 
 
-                <div className="col-12 d-block   popularStrainContainerSlider dealsByStrainTypeSliderContainer " id="width" ref={ref}>
+                <div className="col-12 d-block   popularStrainContainerSlider  " id="width" ref={ref}>
                         <h3 className="popularStrain_heading">{heading}</h3>
-                    <ScrollContainer className="ScrollContainer_newProductCtaegory">
-                        {ArrayData.map((items,index)=>{
-                            return(
-                                <div className="col-6 col-md-4 col-lg-2  newProductCard mx-0 popularStrainCard_slider pt-2 " key={index}>
+                        <ScrollContainer className="w-100 d-flex">
+                            {ArrayData.map((items,index)=>{
+                                return(
+                                    <div className="col-6 col-md-4 col-lg-2  newProductCard mx-0  pt-2 " key={index}>
 
 
-                                <div className="w-100 center">
-                                    <div className="popularStrainImageContainer">
+                                    <div className="w-100 center">
+                                        <div className="popularStrainImageContainer">
 
-                                        <LazyLoadImage
-                                          
-                                             className="popularStrain_Image"
-                                             src={items.imgUrl}
-                                             alt={items.name}
-                                             title={items.name}
-                                             />
-                                             
+                                            <LazyLoadImage
+                                            
+                                                className="popularStrain_Image"
+                                                src={items.imgUrl}
+                                                alt={items.name}
+                                                title={items.name}
+                                                />
+                                                
+                                        </div>
+
+                                        
+                                    </div>
+                                    <div className="w-100  popularStrainContent ">
+                                        <p className="my-0 popularStrainName ellipsis">{items.name}</p>
                                     </div>
 
-                                    
                                 </div>
-                                <div className="w-100  popularStrainContent ">
-                                    <p className="my-0 popularStrainName ellipsis">{items.name}</p>
-                                </div>
-
-                            </div>
-                            )
-                        }) }
-                    </ScrollContainer>
+                                )
+                            }) }
+                        </ScrollContainer>
 
                 </div>
 

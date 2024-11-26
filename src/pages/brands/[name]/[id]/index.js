@@ -34,7 +34,7 @@ const RelatedVerifyBrand = (props) => {
     // }, [searchval])
 
     return (
-      <div className="container">
+      <div className="container pt-3">
             {state.permission && <Currentlocation></Currentlocation>}
             <BrandDetailsSeo brandname={props.params.brand[0].name.toLowerCase()} location={asPath} image={props.params.brand[0].Brand_Logo}></BrandDetailsSeo>
             <RelatedVerifyBanner BrandDetails={props.params.brand[0]} />
@@ -54,12 +54,9 @@ const RelatedVerifyBrand = (props) => {
             </div>
             <ProductSearchResult RelatedProductResult={props.params.product} />
         </div>
-    )
+    )  
 }
 export default RelatedVerifyBrand
-
-
-
 export async function getServerSideProps(context) {
 
     let product = []

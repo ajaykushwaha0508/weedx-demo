@@ -100,9 +100,9 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
               return !searchitem.map((item)=>item.OrderId).includes(item.OrderId) 
             })?.map((val, index) => {
               return (
-                <div className={newclass.orderCardBox} key={index}>
+                <div className={'orderCardBox'} key={index}>
                   <div className="rounded border  px-0 mt-4">
-                    <div className={newclass.orderdetailsheader}>
+                    <div className={'orderdetailsheader'}>
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex gap-2"> 
                            <p className={newclass.sellerName_date}>{`Order ID : `}{val.OrderId}  </p>   <div className="d-flex gap-1 align-items-center">
@@ -130,14 +130,14 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
                      
                        {val.Product.map((items, index) => {
                         return (
-                          <div key={index} className={newclass.place_order_product_cart}>
-                              <div className={newclass.place_order_product_cart_image}>
+                          <div key={index} className={'place_order_product_cart'}>
+                              <div className={'place_order_product_cart_image'}>
                                   <Image  onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     priority width={100}  height={100}
                                     className='w-100' src={`${items.Image}`} alt={items.ProductName} title={items.ProductName} />
                               </div>
-                              <div className={newclass.place_order_product_cart_Text}>
-                                  <h4 className={newclass.productname}>{items.ProductName}</h4> 
+                              <div className={'place_order_product_cart_Text'}>
+                                  <h4 className={'productname'}>{items.ProductName}</h4> 
                                   <p><b>{`Price`}</b>{` : $`} {items.TotalPrice}</p>  
                                   <p><b>{`Qty`}</b> : {items.Cart_Quantity}</p>
                               </div>
@@ -179,7 +179,6 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
                 </div>
               );
             })}
-          
           </div>
   
   );

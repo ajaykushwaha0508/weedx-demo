@@ -19,22 +19,19 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: "600px",
+    bgcolor: '#f1f3f6',
+    boxShadow: '0px 0px 15px 0px rgba(255,255,255,0.5)',
+    p: 4,
     "@media(max-width:800px)": {
         width: "80%",
         marginTop: '10%',
-
     },
     "@media(max-width:500px)": {
-        width: "98%",
-        marginTop: '30%',
-
+        width: "90%",
+        marginTop: '10%',
+        p:2,
     },
-
-    bgcolor: 'background.paper',
-    boxShadow: '0px 0px 15px 0px rgba(255,255,255,1)',
-    p: 4,
 };
-
 const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, adding }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
@@ -67,64 +64,51 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
     };
     const classes = useStyles()
     return (
-        <>
-            <LoadingButton 
-                onClick={handleOpen} >
-               <span><FaShoppingCart  size={18} /> </span>  Add To Cart
+        <React.Fragment>
+            <LoadingButton  onClick={handleOpen} >
+               <span><FaShoppingCart  size={18} /> </span> {' Add To Cart'}
             </LoadingButton>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
+            <Modal  open={open}   onClose={handleClose}   aria-labelledby="modal-modal-title"  aria-describedby="modal-modal-description" >
                 <Box sx={style}>
                     <div className='container-fluid'>
-                        <div className='row'>
-                            <div className='col-12 col-md-6  col-sm-6 productInc_dec_image_cont'>
-                                <Image className='prod_inc_dec_image'
+                        <div className='row ProductIncDecQuantity'>
+                            <div className='col-12 col-md-5  col-sm-6 productInc_dec_image_cont'>
+                                    <Image className='prod_inc_dec_image'
                                     src={`${items?.images[0].image}`}
                                      width={100}
                                      height={100}
                                     alt={items.Product_Name}
                                     priority
                                     title={items.Product_Name}
-                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                     />
+                                           onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                    />
                             </div>
-                            <div className='col-12 col-md-6 col-sm-6 productInc_dec_content'>
-
-
+                            <div className='col-12 col-md-7 col-sm-6 productInc_dec_content'>
                                 <h1 className=' prod_inc_dec_quant_heading ellipsis'>{items.Product_Name}</h1>
-
                                 <h2 className='prod_inc_dec_quant_subheading ellipsis'>by {items.StoreName}</h2>
                                 <div className='product_inc_dec_quantity_btn_cont'>
                                     <button className='product_inc_dec_quantity_btn'>15% THC</button>
                                     <button className='product_inc_dec_quantity_btn'>0.2% CBD</button>
-                                    <button className='product_inc_dec_quantity_btn_indica'>Indica</button>
-
-
+                                    <button className='product_inc_dec_quantity_btn'>Indica</button>
                                 </div>
-                                <div className="product_cart_review my-3">
+                                <div className="d-flex gap-1 my-md-3 my-1">
                                     { new Array(items.rating).fill(null).map((data, index) => (
-                                        <BsStarFill key={index} size={16} color="#31B665" className="" />
+                                        <BsStarFill key={index} size={16} color="#31B665"  />
                                     ))}
 
                                     {new Array(5 - items.rating).fill(null).map((data, index) => (
-                                        <BsStar key ={index} size={16} color="#31B665" className="" />
+                                        <BsStar key ={index} size={16} color="#31B665"  />
                                     ))}
                                 </div>
-                                <div className='weight_font my-3'>
-                                   <FormLabel sx={{ width: "100%", color: 'black' }}>weight</FormLabel>
-                                    <FormControl sx={{ width: '100%' }} size="small" className={`${classes.reviewFilter}`}>
-                                      
+                                <div className='weight_font my-md-3 my-1'>
+                                   <FormLabel sx={{ width: "100%", color: 'black' }}>{'weight'}</FormLabel>
+                                    <FormControl sx={{ width: '100%' }} size="small" className={`${classes.reviewFilter}`}>                
                                         <Select
                                             value={SelectWeight}
                                             onChange={handleChange}
                                             displayEmpty
                                             inputProps={{ 'aria-label': 'Without label' }}
                                             sx={{ width: "100%", color: 'black' }}
-                                            // className={classes.}
                                         >
                                           
                                             {
@@ -141,9 +125,9 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                         </Select>
                                     </FormControl>
                                 </div>
-                                <div className='prod_quant_num mt-4'>
+                                <div className='prod_quant_num mt-md-4 mt-2'>
 
-                                    <FormLabel>Quantity</FormLabel>
+                                    <p>{'Quantity'}</p>
 
                                     <div className='prod_inc_plus_minus d-flex'>
 
@@ -166,31 +150,16 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                         </div>
                                     </div>
                                 </div>
-
                                 {
                                     items?.Prices[0]?.Price.map((data, index) => {
                                         return (
                                             SelectWeight === data.id &&
                                             <h2 key={index}><span className='prod_price_font'>${parseInt(data.SalePrice * counter)}</span><span className='mx-2 prod_quant_font  '>/ {data.Weight === '' ? "Unit" : data.Weight} </span></h2>
                                         )
-
                                     })
                                 }
-
-                                <Box  className={` boxWidth ${classes.loadingBtnTextAndBack}`} >
-                                    {/* <LoadingButton style={{ width: "100%", height: "35px" }} variant="outlined" onClick={() => { AddToCart(items,counter , SelectWeight  , handleClose)  }} >Add to Cart</LoadingButton> */}
-                                    {/* {items?.Prices[0].Price[0].Stock !== "IN Stock" ?
-                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }}
-                                            onClick={() => { AddToCart(items, counter, SelectWeight, handleClose) }} >
-                                            Add To Cart
-                                        </LoadingButton>
-                                        :
-                                        <LoadingButton style={{ width: "100%", height: "30px", fontSize: "14px" }} >
-                                            Out of Stock
-                                        </LoadingButton>
-                                    } */}
+                                <Box  className={`${classes.loadingBtnTextAndBack}`} >
                                     {
-                                        // SelectWeight === items.id &&
                                         items?.Prices[0].Price.map((data , index) => {
                                           if(data.id === SelectWeight){
                                             if (data.Stock === "IN Stock" && adding === items.id ) {
@@ -198,31 +167,27 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                                 return (
                                                     <LoadingButton key={index} style={{ width: "100%", height: "30px", fontSize: "14px" }}
                                                         onClick={() => { AddToCart(items, counter, SelectWeight, handleClose) }} >
-                                                        Add To Cart
+                                                       {`Add To Cart`}
                                                     </LoadingButton>
                                                 )
                                             }
                                             else {
                                                 return (
                                                     <LoadingButton key={index} className={classes.outofstockbtn} >
-                                                        Out of Stock
+                                                       {`Out of Stock`}
                                                     </LoadingButton>
                                                 )
                                             }
-
                                           }
-
                                         })
                                     }
                                 </Box>
-
-
                             </div>
                         </div>
                     </div>
                 </Box>
             </Modal>
-        </>
+        </React.Fragment>
     )
 }
 export default ProductIncDecQuantity

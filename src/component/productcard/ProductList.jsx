@@ -526,7 +526,7 @@ const ProductList = ({ arr, link = "products" }) => {
         ) : (
           <DispensoriesAddressSkeleton />
         )
-      ) : (
+      ):(
         <div className="col-12 center  ">
           <p className="mb-0">No Product</p>
         </div>

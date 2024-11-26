@@ -59,7 +59,7 @@ const CreatePassword = () => {
                 <div className='row'>
                     <label htmlFor='NewPassword'>{`New Password`}</label>
 
-                    <div className='col-lg-12 signup_margins_top_textfield '>
+                    <div className='col-lg-12 mt-1 '>
                         <TextField
                             className={`${classes.textFieldFocusBorderColor}`}
                             type={showPassword ? 'text' : 'password'}
@@ -105,7 +105,7 @@ const CreatePassword = () => {
                 <div className='row mt-4'>
                     <label htmlFor='ConfirmPassword'>Confirm Password</label>
 
-                    <div className='col-lg-12 signup_margins_top_textfield '>
+                    <div className='col-lg-12 mt-1 '>
                         <TextField
                             defaultValue={''}
                             className={`${classes.textFieldFocusBorderColor}`}
@@ -148,7 +148,7 @@ const CreatePassword = () => {
 
 
 
-                <div className='row  signup_margins_top'>
+                <div className='row mt-3'>
                     <div className=' col-lg-12 '>
                         <Box
                             className={` ${classes.loadingBtnTextAndBack}`}
@@ -158,7 +158,7 @@ const CreatePassword = () => {
                     </div>
 
                 </div>
-                <div className='row  signup_margins_top'>
+                <div className='row mt-3'>
                     <div className='col-lg-12 '>
                         <Box
                             className={`  ${classes.Reset_password_canel_loading_btn}`}

@@ -65,7 +65,7 @@ const SignupWithEmail = (props) => {
                 <div className='row'>
                     <label>Email</label>
 
-                    <div className='col-lg-12 signup_margins_top_textfield '>
+                    <div className='col-lg-12 mt-1 '>
                         <TextField
                             value={props.email}
                             disabled={EmailDisabled}
@@ -86,10 +86,10 @@ const SignupWithEmail = (props) => {
                         />
                     </div>
                 </div>
-                <div className='row signup_margins_top'>
+                <div className='rowmt-3'>
                     <label>Enter your username</label>
 
-                    <div className='col-lg-12 signup_margins_top_textfield '>
+                    <div className='col-lg-12 mt-1 '>
                         <TextField
                             placeholder='Enter your Username'
                             variant="outlined"
@@ -111,10 +111,10 @@ const SignupWithEmail = (props) => {
                         />
                     </div>
                 </div>
-                <div className='row signup_margins_top'>
+                <div className='rowmt-3'>
                     <label>Password using minimum 8 character</label>
 
-                    <div className='col-lg-12 signup_margins_top_textfield '>
+                    <div className='col-lg-12 mt-1 '>
                         <TextField
                             autoComplete="on"
                             className={`${classes.textFieldFocusBorderColor}`}
@@ -156,7 +156,7 @@ const SignupWithEmail = (props) => {
                         />
                     </div>
                 </div>
-                <div className='row  signup_margins_top'>
+                <div className='row mt-3'>
                     <div className='col-lg-12 '>
                         <Box className={`  ${classes.loadingBtnTextAndBack}`}>
                             <LoadingButton variant="outlined" loading={loading} type='submit'>Signup</LoadingButton>

@@ -14,9 +14,7 @@ const WhisLists = () => {
             <div className="row">
                 <div className="col-12 whislistBackBtn_Container px-0">
                     <span><IconButton onClick={() => Navigate.push('/products')}><MdOutlineKeyboardArrowLeft color="#000000"/></IconButton></span><span onClick={() => Navigate(-1)} className="BackPageBtn">Back</span>
-
                 </div>
-              
                 <WhisListCard/>
             </div>
         </div>

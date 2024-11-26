@@ -53,7 +53,7 @@ const ForgotPassword = () => {
                     </div>
                     <div className='row'>
                         {/* <label htmlFor='EmailUser'>Email</label> */}
-                        <div className='col-lg-12 signup_margins_top_textfield '>
+                        <div className='col-lg-12 mt-1 '>
                             <TextField
                                 id="EmailUser"
                                 name="email"
@@ -70,13 +70,13 @@ const ForgotPassword = () => {
                                 placeholder="Enter Your Email" variant="outlined" fullWidth size='small' />
                         </div>
                     </div>
-                    <div className='row  signup_margins_top'>
+                    <div className='row mt-3'>
                         <div className=' col-lg-12 '>
                             <Box  className={` ${classes.loadingBtnTextAndBack}`} > <LoadingButton variant="outlined" type={"submit"}>{`Send OTP`}</LoadingButton>   </Box>
                         </div>
 
                     </div>
-                    <div className='row  signup_margins_top'>
+                    <div className='row mt-3'>
                         <div className='col-lg-12 '>
                             <Box
                                 className={`  ${classes.Reset_password_canel_loading_btn}`}

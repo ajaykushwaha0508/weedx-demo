@@ -90,9 +90,6 @@ export function WhisList({ open1, SetWishList }) {
     return (
 
         <div style={{ width: 500 }}>
-            {/* <Button variant="outlined" onClick={handleClickOpen}>
-                Open dialog
-            </Button> */}
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
@@ -101,30 +98,29 @@ export function WhisList({ open1, SetWishList }) {
                     style: { borderRadius: '1rem' }   }}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    <div className='col-12 WhisListTop' >
+                    <div className='col-12 d-flex justify-content-center align-items-center text-danger' >
                         <AiFillHeart size={50}></AiFillHeart>
                     </div>
                 </BootstrapDialogTitle>
                 <div>
                     <DialogContent >
                         <Typography gutterBottom>
-                            <span className='TypographyWishList'>  Save your favorites in one place</span>
+                            <span className='TypographyWishList'>{'Save your favorites in one place'}</span>
                         </Typography>
                         <Typography gutterBottom  >
                             <span className='TypographyWishList1'>
-                                Log in or sign up to save your favorite products, brands,
-                                strains and dispensaries across all devices
+                             {`   Log in or sign up to save your favorite products, brands,
+                                strains and dispensaries across all devices`}
                             </span>
                         </Typography>
                         <Typography gutterBottom component={'div'}>
-                            <h2 className='TypographyWishList2'> <span><FaCannabis></FaCannabis></span> <span>Save products to browse another time</span></h2>
+                            <h2 className='TypographyWishList2'> <span><FaCannabis></FaCannabis></span> <span>{'Save products to browse another time'}</span></h2>
                         </Typography>
                         <Typography gutterBottom component={'div'}>
                             <h2 className='TypographyWishList2' >
                                 <span><BsFillTagFill></BsFillTagFill></span>
-                                <span>Learn about latest deals on saved items</span>
+                                <span>{'Learn about latest deals on saved items'}</span>
                             </h2>
-
                         </Typography>
                         <Typography gutterBottom component={'div'}>
                             <h2 className='TypographyWishList2' >
@@ -136,14 +132,13 @@ export function WhisList({ open1, SetWishList }) {
                     </DialogContent>
                 </div>
                 <DialogActions>
-                   <div className='col-12 center whislistLOginBtnCol' >
-                   <Grid>
-                      <Link href="/login" >   <Button className={classes.muiBtn} >Login</Button></Link>
-                    </Grid>
-                    <Grid>
-                      <Link href="/signup" >    <Button   onClick={handleClose} sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></Link>
-                    </Grid>
-                    
+                   <div className='col-12 center gap-3' >
+                        <Grid>
+                           <Link href="/login" >   <Button className={classes.muiBtn} >Login</Button></Link>
+                        </Grid>
+                        <Grid>
+                           <Link href="/signup" >    <Button   onClick={handleClose} sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup} >Signup</Button></Link>
+                        </Grid>
                    </div>
                 </DialogActions>
             </BootstrapDialog>

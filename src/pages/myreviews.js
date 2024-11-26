@@ -126,15 +126,15 @@ const Myreview = () => {
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
                                     <div className='productreview_imgcircle'>
-                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={400} height={400} src={item?.Product.images[0]?.image} alt='Profile' title='Profile' className="Navbar_profile_imgs" />
+                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={400} height={400} src={item?.Product?.images[0]?.image} alt='Profile' title='Profile' className="Navbar_profile_imgs" />
                                     </div>
                                 </div>
                                 <div className='productReviewText'>
-                                    <h2 className='producRRRtitle'>{item.review.ProductName}</h2>
-                                    <h4>{calculateTimeFromDate(item.review.created_at)}</h4>
+                                    <h2 className='producRRRtitle'>{item?.review?.ProductName}</h2>
+                                    <h4>{calculateTimeFromDate(item?.review?.created_at)}</h4>
                                 </div>
                             </div>
-                            <div className="product_cart_review">
+                            <div className="d-flex gap-1">
                                 {Boolean(item.rating) && new Array(item?.review?.rating).fill(null).map((_, index) => (
                                     <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
@@ -142,8 +142,8 @@ const Myreview = () => {
                                     <BsStar size={16} color="#31B665" className="" key={index} />
                                 ))}
                             </div>
-                            <h2 className="Myreview_titile">{item.review.Title}</h2>
-                            <p className='myreviewComment'>{item.review.comment}</p>
+                            <h2 className="Myreview_titile">{item?.review?.Title}</h2>
+                            <p className='myreviewComment'>{item?.review?.comment}</p>
                             {item.review.Reply !== null && (
                                 <div className='replyByvenderreview'>
                                     <div className='container-fluid mx-2 review_reply'>
@@ -189,11 +189,11 @@ const Myreview = () => {
                                     <h4>{calculateTimeFromDate(item.created_at)}</h4>
                                 </div>
                             </div>
-                            <div className="product_cart_review">
+                            <div className="d-flex gap-1">
                                 {Boolean(item.rating) && new Array(item?.rating).fill(null).map((_, index) => (
                                     <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
-                                {new Array(5 - (item?.rating)).fill(null).map((_, index) => (
+                                {new Array(Math.max(0, 5 - (item?.rating ?? 0))).fill(null).map((_, index) => (
                                     <BsStar size={16} color="#31B665" className="" key={index} />
                                 ))}
                             </div>

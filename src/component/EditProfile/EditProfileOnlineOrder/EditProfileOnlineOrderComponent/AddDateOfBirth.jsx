@@ -65,13 +65,10 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
         date.setYear(date.getFullYear() - 18);
         date.toLocaleString()
         var year = date.getFullYear();
-      
         var month = (1 + date.getMonth()).toString();
         month = month.length > 1 ? month : '0' + month;
-      
         var day = date.getDate().toString();
         day = day.length > 1 ? day : '0' + day;
-        
         return  year + '-' + month  + '-' + day  ;
     }
 
@@ -83,14 +80,12 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
             <Dialog open={Open} onClose={handleClose} className={classes.addDateOfBirthPopup} >
                 <div className='container-fluid py-4 px-4'>
                     <div className='row'>
-                        <div className='col-12 text-end dobCol'>
+                        <div className='col-12 text-end'>
                             <IconButton aria-label="closebutton" onClick={handleClose}><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <div className='col-12 addDateOfBirth_label mt-2'>
                             <h2 className='dob_heading'>Add Date of Birth</h2>
-
                         </div>
-
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='row mt-4'>

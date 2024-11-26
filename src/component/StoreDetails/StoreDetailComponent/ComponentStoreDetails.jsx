@@ -74,7 +74,7 @@ const StoreDetail1 = ({ storeDetails }) => {
       <div className="row  my-2">
         <div className="col-lg-8 h-100 my-2 order-sm-first order-last">
        
-            <div className="destop_view">
+            <div className="d-md-block d-none">
               <p className={newcalsses.StoreDetail_paragraph}>
               {`  About Us`}</p>
               <div
@@ -83,7 +83,7 @@ const StoreDetail1 = ({ storeDetails }) => {
                 }}
               ></div>
             </div>
-            <div className="mobile_view">
+            <div className="d-md-none d-block">
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}

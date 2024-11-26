@@ -105,7 +105,7 @@ const Login = () => {
                             </div>
                             <form onSubmit={method.handleSubmit(Submit)}>
                                 <div className='logininputbox'>
-                                    <div className='col-lg-12 signup_margins_top_textfield '>
+                                    <div className='col-lg-12 mt-1 '>
                                         <TextField
                                             placeholder="Enter Your Email"
                                             variant="outlined"
@@ -130,7 +130,7 @@ const Login = () => {
                                 <div className='row logininputbox'>
                                     {/* <label htmlFor='Password'>Password</label> */}
 
-                                    <div className='col-lg-12 signup_margins_top_textfield '>
+                                    <div className='col-lg-12 mt-1 '>
                                         <TextField
                                             type={showPassword ? 'text' : 'password'}
                                             placeholder="Password"
@@ -166,7 +166,7 @@ const Login = () => {
                                     </div>
                                 </div>
                           
-                                <div className='row  signup_margins_top'>
+                                <div className='row mt-3'>
                                     <div className=' col-lg-12 '>
                                         <Box className={ !loading ?`${classes.loginBtnTextAndBackground}` : `${classes.loginBtnTextAndBackgroundAfter}`} >
                                             <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
@@ -178,7 +178,7 @@ const Login = () => {
                             <div className='w-100 d-flex mt-4 center align-items-center'>
                                 <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
                             </div>
-                            <div className='row  signup_margins_top'>
+                            <div className='row mt-3'>
                                 <div className='col-lg-12 '>
 
                                     <LoginWithGoogle></LoginWithGoogle>

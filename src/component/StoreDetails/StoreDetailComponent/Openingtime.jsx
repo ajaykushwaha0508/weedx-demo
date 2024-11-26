@@ -9,7 +9,7 @@ const Openingtime = ({storeDetails , heading , type ,key}) => {
   let day = new Date(easternTime)
   return (
     <React.Fragment>
-      <div className='destop_view'>
+      <div className='d-md-block d-none'>
          <div className="opning_time mt-2">
               <h4>{heading}</h4>
               <hr></hr>
@@ -39,7 +39,7 @@ const Openingtime = ({storeDetails , heading , type ,key}) => {
               }
          </div>
       </div>
-      <div className='mobile_view'>
+      <div className='d-md-none d-block'>
         <div className="opning_time mt-2">
             <Accordion>
             <AccordionSummary

@@ -274,15 +274,12 @@ export const getServerSideProps = async (context) => {
         'Cache-Control',
         'public, s-maxage=60, stale-while-revalidate=59'
     );
-
-    // Prepare location data for the request payload
     const locationObject = {
         City: transformString(locationData.city),
         Country: transformString(locationData.country),
         State: transformString(locationData.state),
         limit: 10
     };
-
     let product = [];
     try {
         // Fetch category data

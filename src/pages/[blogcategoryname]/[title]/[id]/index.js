@@ -165,14 +165,14 @@ const Blogs = (props) => {
                                             </IconButton>
                                         </RWebShare>
 
-                                        <div className="blogViewCounts destop_view">Share</div>
+                                        <div className="blogViewCounts d-md-block d-none">Share</div>
                                     </div>
                                     <div className={`col ${styled.viewsBlog}`}  >
                                         <IconButton>
                                             <IoEyeSharp></IoEyeSharp>
                                         </IconButton>
 
-                                        <span className="blogViewCounts">{News.ViewCount} <span className="destop_view">Views</span></span>
+                                        <span className="blogViewCounts">{News.ViewCount} <span className="d-md-block d-none">Views</span></span>
 
 
                                     </div>
@@ -180,7 +180,7 @@ const Blogs = (props) => {
                                         <IconButton>
                                             <BiCommentDetail />
                                         </IconButton>
-                                        <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="destop_view"> Comment</span> </span>
+                                        <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="d-md-block d-none"> Comment</span> </span>
                                     </div>
                                     <div className={`col ${styled.viewsBlog} ${styled.BlogSocal}`} >
                                         <IconButton onClick={(() => { PostLike(color()?.like) })}>
@@ -220,7 +220,6 @@ const Blogs = (props) => {
                                                     const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
                                                     return (
                                                         <div className="border blogCommentEachCards" key={index}>
-
                                                             <div className="col-12 blogsCommentCardDateCol">
                                                                 <span className="blogsCommentCardDate">{CommentDate}</span>
 
@@ -288,10 +287,6 @@ const Blogs = (props) => {
                                                                         }</span>
                                                                     </div>
                                                                 )}
-
-
-
-
                                                             </div>
                                                         </div>
                                                     )

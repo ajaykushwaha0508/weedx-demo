@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     "& input": {
       "&:-webkit-autofill": {
         WebkitBoxShadow: "0 0 0 1000px #F2F1F1 inset"
-
       }
     }
   },
@@ -36,8 +35,6 @@ const useStyles = makeStyles({
       }
     },
     '& .MuiOutlinedInput-root': {
-      
-     
       '& fieldset': {
         borderColor: `#BEBEBE`
       },
@@ -66,10 +63,6 @@ const useStyles = makeStyles({
           }
         }
     },
-    // "& .MuiInputBase-root":{
-    //   padding:'0',
-     
-    // },
     "& .MuiFormLabel-root":{
       color:'#31B655',
     }
@@ -79,8 +72,6 @@ const useStyles = makeStyles({
     backgroundColor:'#F6F6F6',
     borderRadius:'12px',
     '& .MuiOutlinedInput-root': {
-      
-     
       '& fieldset': {
         border:'none',
       },
@@ -100,7 +91,6 @@ const useStyles = makeStyles({
          fontSize:'14px',
        }
     },
-    
   },
   textFieldFocusBorderColor: {
       height:'40px',
@@ -112,7 +102,7 @@ const useStyles = makeStyles({
         borderColor: "#31B665",
       },
       '&:hover fieldset': {
-        borderColor: '#31B665', // - Set the Input border when parent has :hover
+        borderColor: '#31B665',
       },
     }
   },
@@ -128,10 +118,8 @@ const useStyles = makeStyles({
         color:'#31B655',
         border:'1px solid #31B655',
         backgroundColor:'#fff',
-
       }
     }
-
   },
   textFieldcartPage: {
     "& .MuiOutlinedInput-root": {
@@ -143,7 +131,6 @@ const useStyles = makeStyles({
       },
       '&:hover fieldset': {
         borderColor: '#31B665',
-        // - Set the Input border when parent has :hover
       },
     }
   },
@@ -156,7 +143,6 @@ const useStyles = makeStyles({
   },
 
   SearchBar_Text: {
-    // borderLeft:'1px solid gray',
     "& .MuiOutlinedInput-notchedOutline": {
         border: "0px",
         paddingTop: '8.5px',
@@ -209,7 +195,6 @@ const useStyles = makeStyles({
       " &.Mui-focused fieldset": {
         borderColor: "#31B665",
       },
-
       '&:hover fieldset': {
         borderColor: '#31B665', // - Set the Input border when parent has :hover
       },
@@ -221,7 +206,6 @@ const useStyles = makeStyles({
     },
     "& .MuiOutlinedInput-input": {
       width: "119px",
-      // border:"2px solid green"
     },
     "& .MuiSelect-nativeInput": {
       height: "33px",
@@ -231,7 +215,6 @@ const useStyles = makeStyles({
   muiSelectTime:{
     "&.MuiFormControl-root": {
       width: "100%",
-    
       minWidth: "120px",
       margin: "1px",
    " & .MuiSelect-select" :{
@@ -245,43 +228,34 @@ const useStyles = makeStyles({
       " &.Mui-focused fieldset": {
         borderColor: "#31B665",
       },
-
       '&:hover fieldset': {
-        borderColor: '#31B665', // - Set the Input border when parent has :hover
+        borderColor: '#31B665',
       },
     },
     "& .MuiInputBase-root": {
       height: "38px",
       minWidth: "150px",
-      // border:"1px solid yellow"
     },
-    "& .MuiOutlinedInput-input": {
-      // width: "119px",
-      // border:"2px solid green"
-    },
+    
     "& .MuiSelect-nativeInput": {
       height: "33px",
-      // width: "119px",
     }
   },
   muiBtn: {
     "&.MuiButtonBase-root": {
-      backgroundColor: "white",
-      color: "#707070",
-      // outline: "1px solid #00b96a",
-      border: "1px solid #31B665",
-      borderRadius: "5px",
-      minWidth: "100%",
-      textTransform: "none",
-      width: "120px",
-       height: "45px"
+        backgroundColor:"white",
+        color:"#707070",
+        border:"1px solid #31B665",
+        borderRadius:"5px",
+        minWidth:"100%",
+        maxWidth:'100%',
+        textTransform:"none",
+        width:"120px",
+        height:"45px",
     },
     "&.MuiButtonBase-root:hover": {
-
       color: "white",
       background: "#00b96a",
-      // boxShadow: "2px 2px"
-
     }
   },
   nav_search_bar:{
@@ -1221,27 +1195,6 @@ const useStyles = makeStyles({
       border: "1px solid #31B665"
     },
   },
-  fiveZero_Three: {
-    "& .MuiButton-text": {
-      fontSize: ".5rem",
-    },
-    "& .MuiLoadingButton-root": {
-      width: "50%",
-      height: "50px",
-      borderRadius: "5px",
-      backgroundColor: "#FFFFFF",
-      color: "#434343",
-      textTransform: "none",
-      border: "1px solid #31B665",
-      fontWeight: "700",
-      fontSize: "14px"
-    },
-    "& .MuiButtonBase-root:hover": {
-      color: "#434343",
-      backgroundColor: "#FFFFFF",
-      border: "1px solid #31B665"
-    },
-  },
   fourZero_Three: {
     "& .MuiButton-text": {
       fontSize: ".5rem",
@@ -1424,7 +1377,6 @@ const useStyles = makeStyles({
     marginLeft: "10px"
   },
   strainTypSearchBar: {
-    
     "& .css-y40w8": {
       position: "absolute",
       right: "0px",
@@ -1527,7 +1479,6 @@ const useStyles = makeStyles({
         width: "100%",
         height: "400px"
       }
-
     },
     dispensoriesAddressSkeletonHeading: {
       "& .MuiSkeleton-text ": {
@@ -1535,8 +1486,6 @@ const useStyles = makeStyles({
         width: "100px",
         backgroundColor: "red"
       }
-
-
     },
     recatngularDispenAdd: {
       width: "40%",
@@ -1556,7 +1505,6 @@ const useStyles = makeStyles({
     },
     "& .MuiInputLabel-root.Mui-focused": {
       color: "#31B665"
-
     }
   },
   muiDatePicker: {
@@ -1586,56 +1534,44 @@ const useStyles = makeStyles({
       border: "1px solid #31B665"
     }
   },
-
   emailVer_title: {
-
     "& .MuiTypography-root": {
       color: "#000000",
       fontSize: "25px",
       fontWeight: 700,
       marginTop: "20px",
-
       display: 'flex',
       justifyContent: "center",
-
     }
-
   },
   muiDialogContent: {
     "& .MuiDialogContent-root": {
       padding: "10px 20px",
-
-
     }
   },
   muiNormalBtn: {
     "& .MuiButtonBase-root": {
       textTransform: "none",
-
     },
     "& .MuiButton-text": {
       fontSize: ".7rem",
       color: "blue",
-
     }
   },
   emailVerLoadingBtn: {
     "& .MuiLoadingButton-root": {
       textTransform: "none",
-
     },
     "& .MuiButton-text": {
       fontSize: ".7rem",
       color: "blue",
-
     }
   },
   WriteReviewDialog: {
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        // paddingBottom:"40px",
-        height: "auto",  // Set your width here
+        height: "auto",
         borderRadius: "20px",
         background: "#FFFFFF",
       },
@@ -1659,7 +1595,6 @@ const useStyles = makeStyles({
   odsbtn:{
     "&.MuiButtonBase-root":{
       width: "100%",
-      // height: "30px",
        fontSize: "14px" ,
        color:"red" ,
         border: '2px solid red',
@@ -1698,23 +1633,16 @@ const useStyles = makeStyles({
       " &.Mui-focused fieldset": {
         borderColor: "#31B665",
       },
-
       '&:hover fieldset': {
-        borderColor: '#31B665', // - Set the Input border when parent has :hover
+        borderColor: '#31B665',
       },
     },
     "& .MuiInputBase-root": {
       width: "140px",
       height: "38px",
-    
-    },
-    "& .MuiOutlinedInput-input": {
-      // width: "119px",
-      // border:"2px solid green"
     },
     "& .MuiSelect-nativeInput": {
       height: "33px",
-      // width: "119px",
     }
   },
   WriteReviewBtn_Color: {
@@ -1785,7 +1713,6 @@ const useStyles = makeStyles({
         lineHeight:'1.5',
       },
     },
-   
     '@media(max-Width: 780px)' : {
       "&.MuiTypography-root":{
         fontSize:'14px',
@@ -1794,7 +1721,6 @@ const useStyles = makeStyles({
         padding:'10px',
       },
     },
-   
   },
   dsicounSelects:{
     margin:"20px 0",
@@ -1838,14 +1764,12 @@ const useStyles = makeStyles({
       borderColor:'#31B665',
     },
     "&.MuiButtonBase-root:hover": {
-
       color: "#fff",
       border: "1px solid #f0f0f0",
       background: "#31B655",
-     
-"& .MuiBadge-root svg":{
-  fill:'white',
-}
+      "& .MuiBadge-root svg":{
+        fill:'white',
+      }
     },
   },
   donehelpfullBtn_Color:{
@@ -1874,7 +1798,6 @@ const useStyles = makeStyles({
       borderColor:'#31B665',
       backgroundColor:'#31B655'
     }
-
 },
   WriteReviewStarIcons: {
     "&.MuiRating-root": {
@@ -1950,7 +1873,6 @@ const useStyles = makeStyles({
       borderRadius:"50%",
       backgroundColor:"#D9D9D9",
       marginInline:"4px",
-
     }
    },
    deliveryOptionRadioBtn:{
@@ -1967,17 +1889,14 @@ const useStyles = makeStyles({
       border:"1px solid #f0f0f0",
       borderRadius:"8px",
       textTransform:"none",
-     backgroundColor:'#4BBF78',
+      backgroundColor:'#4BBF78',
       fontSize:"16px",
       width:'200px',
     },
     "&.MuiButtonBase-root:hover": {
-
       color: "#4BBF78",
       border: "1px solid #f0f0f0",
       background: "#FFFFFF",
-     
-
     },
    },
    textFieldcartsummeryPage:{
@@ -1993,19 +1912,6 @@ const useStyles = makeStyles({
         borderColor: `#31B665 `
       }
     }  
-    // "& .MuiOutlinedInput-root": {
-    //   color:"#000",
-    //   backgroundColor:"#fff",
-    //   " &.Mui-focused fieldset": {
-    //     color:"#000",
-    //     borderColor: "#31B665",
-    //     backgroundColor:"#fff",
-    //   },
-    //   '&:hover fieldset': {
-    //      color:"#000",
-    //     borderColor: '#31B665',
-    //   },
-    // }
   },
   weightSelectbox:{
     minWidth:'80px',
@@ -2033,27 +1939,18 @@ const useStyles = makeStyles({
       "&.MuiInputBase-root": {
         width: "140px",
         height: "38px",
-      
-      },
-      "&.MuiOutlinedInput-input": {
-       
       },
       "&.MuiSelect-nativeInput": {
         height: "33px",
-       
       }
   },
   paper: {
-    // left: '100px',
     width: '100%',
     border: "1px solid #d6cfcf",
     position: 'absolute',
-    // height:' 100%',
     margin: '0px',
-    // transform: translate('494px',' 62px')
   },  
   promptstyle:{
-   
       "& .MuiPaper-root":{
         backgroundColor:'#31B655 !important',
         padding:'10px !important',
@@ -2065,7 +1962,4 @@ const useStyles = makeStyles({
     
   }
 })
-
-
-
 export default useStyles
