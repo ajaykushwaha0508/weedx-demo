@@ -17,7 +17,11 @@ import  DeliveryServices from '../component/home/deliveryservice'
 const Staticcontent = dynamic(() => import('../component/home/staticcontent'), { 
   memo: true 
 });
-const NewsBlog = dynamic(() => import('../component/home/Newsblog'), { ssr: true });
+const Newsblog = dynamic(() => import('@/component/home/Newsblog'), {
+  ssr: false, // Disable server-side rendering for this component
+  loading: () => <p>Loading Newsblog...</p>, // Optional loading placeholder
+});
+
 const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'), { 
   memo: true 
 });
@@ -40,14 +44,12 @@ const transformString = (str) => {
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
 
-
   const Navigate = useRouter()
   
   const ShowCategoryProduct = React.useCallback((id, name) => {
     Navigate.push(`/products/${modifystr(name)}/${id}`);
   }, [Navigate]);
-
-  // console.log(initialData.Dispensaries)
+0
   return (
     <>
       {state.permission && <Currentlocation></Currentlocation>}
@@ -61,7 +63,7 @@ export default function Home({ initialData }) {
       <DeliveryServices  link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
-      <NewsBlog data={initialData.news}></NewsBlog>
+      <Newsblog data={initialData.news}></Newsblog>
       <HomePageDealsSignup /> 
     </>
   );

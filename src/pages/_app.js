@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { BrowserRouter as Router } from 'react-router-dom';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import "@/styles/globals.css";
 import "@/styles/customstyle.module.min.css"
 import layout from "../layout/layout"
@@ -17,6 +17,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import Cookies from 'universal-cookie';
 import 'nprogress/nprogress.css';
+import CookieConsent from "react-cookie-consent";
 const layouts = {
   default: layout,
   layout1: layout1,
@@ -25,7 +26,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const cookies = new Cookies();
   const Layout = layouts[Component.layout] || layouts.default;
-  const isNotWeedPath =React.useMemo(
+  const isNotWeedPath = React.useMemo(
     () => !/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname),
     [router.pathname]
   );
@@ -49,13 +50,13 @@ export default function App({ Component, pageProps }) {
       Router.events.off('routeChangeError', handleStop);
     };
   }, []);
-  
+
   return (
     <GoogleOAuthProvider clientId="418178406595-vqsd5staarqh0pibnho4l4s63gio1bm4.apps.googleusercontent.com">
       <Context>
         <Layout>
-       {/* { isNotWeedPath &&  <CheckAgeEligbilityPopup  value={(cookies.get("CheckAge") && cookies.get("fetchlocation") )=== undefined ? true : false}></CheckAgeEligbilityPopup>} */}
-        {isNotWeedPath && <Currentlocation></Currentlocation>   }
+          {/* { isNotWeedPath &&  <CheckAgeEligbilityPopup  value={(cookies.get("CheckAge") && cookies.get("fetchlocation") )=== undefined ? true : false}></CheckAgeEligbilityPopup>} */}
+          {isNotWeedPath && <Currentlocation></Currentlocation>}
           <Component {...pageProps} />
         </Layout>
       </Context>

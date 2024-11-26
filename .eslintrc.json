@@ -1,6 +1,6 @@
 {
   "extends": ["next", "next/core-web-vitals"],
   "rules": {
-    // Add or override any custom rules here
+    "react/display-name": "off"
   }
 }
