@@ -20,9 +20,10 @@ module.exports = withBundleAnalyzer({
 
   webpack: (config, { dev, isServer }) => {
     if (!dev) {
-      config.devtool = false; // Disable source maps in production
-    } else {
-      // Additional production optimizations
+      // Disable source maps in production
+      config.devtool = false;
+  
+      // Production-specific optimizations
       config.optimization = {
         ...config.optimization,
         splitChunks: {
@@ -30,14 +31,17 @@ module.exports = withBundleAnalyzer({
           maxSize: 250000, // Reduce the chunk size limit
         },
       };
+    } else {
+      // Ensure a good experience in development
+      config.devtool = 'eval-source-map'; // Better for debugging
+      delete config.optimization.splitChunks; // Avoid chunking in dev mode
     }
-
-    // Handle large files warnings during the build
+  
+    // Suppress performance hints during development
     config.performance = {
-      hints: false, // Suppress performance hints
+      hints: dev ? false : 'warning', // Warnings only in production
     };
-
-    // Ensure Webpack processes large JavaScript files
+  
     return config;
-  },
+  }
 });
