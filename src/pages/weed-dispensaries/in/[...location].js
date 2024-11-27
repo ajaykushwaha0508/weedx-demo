@@ -377,14 +377,9 @@ export const getServerSideProps= async (context) => {
         if (Webcontent.ok) {
             content = await Webcontent.json();
         }
-
         if (Dispensaries.ok) {
-            data = await Dispensaries.json() || [];
-            
+            data = await Dispensaries.json() || [];   
         }
-
-        
-
         if (data === "No Dispensary in your area") {
             return {
                 props: {
