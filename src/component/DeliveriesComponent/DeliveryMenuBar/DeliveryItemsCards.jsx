@@ -14,9 +14,9 @@ const DeliveryItemsCard = ({ Deliverie }) => {
         <div>
             {Deliverie?.map((items, index) => {
                 return (
-                    <div className={clases.delivery_items_cards_container} key={index}>
+                    <div className={`delivery_items_cards_container`} key={index}>
                         <div className='d-flex w-100 justify-content-between'>
-                            <div className={clases.delivery_items_card_img_container}>
+                            <div className={`delivery_items_card_img_container`}>
                                 <Link href={`/weed-deliveries/${modifystr(items.Store_Name)}/${items.id}`}>
                                     <Image
                                         priority
@@ -30,24 +30,24 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     />
                                 </Link>
                             </div>
-                            <div className={clases.delivery_items_card_info_container}>
-                                    <h2 className={`ellipsis ${clases.DeliveryItem_heading}`}>{items.Store_Name}</h2>
-                                    <div className={clases.homecardRating}>
+                            <div className={`delivery_items_card_info_container`}>
+                                    <h2 className={`ellipsis ${'DeliveryItem_heading'}`}>{items.Store_Name}</h2>
+                                    <div className={'homecardRating'}>
                                         <Link href={`/weed-deliveries/${modifystr(items.Store_Name)}/${"review"}/${items.id}`}>
                                             <div className="d-flex ">
-                                                <span className={`${clases.disOPenResRating} text-white`}>{items.rating === null ? 0 : items.rating.toFixed(0) + ".0"}</span>
+                                                <span className={`${'disOPenResRating'} text-white`}>{items.rating === null ? 0 : items.rating.toFixed(0) + ".0"}</span>
                                                 <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={items.rating === null ? 0 : parseFloat(items.rating.toFixed(1))} readOnly />
                                             </div>
                                         </Link>
                                     </div>
-                                    <p className={`ellipsis ${clases.delivery_item_paragraph}`}>{items.Store_Address}</p>
-                                    <p className={`ellipsis ${clases.delivery_item_paragraph}`}>{items.address2}</p>
+                                    <p className={`ellipsis ${'delivery_item_paragraph'}`}>{items.Store_Address}</p>
+                                    <p className={`ellipsis ${'delivery_item_paragraph'}`}>{items.address2}</p>
                                    
-                                    <div className={clases.categoryinfowrapper}>
+                                    <div className={'categoryinfowrapper'}>
                                         {
                                             items?.Categories?.map((data, index) => {
-                                                return (<div className={clases.categoryinfo} key={index + 1}>
-                                                    <p className={clases.delivery_item_paragraph}>{Object.keys(data)} ({Object.values(data)})</p>
+                                                return (<div className={'categoryinfo'} key={index + 1}>
+                                                    <p className={'delivery_item_paragraph'}>{Object.keys(data)} ({Object.values(data)})</p>
                                                 </div>
                                                 )
                                             })
@@ -56,14 +56,14 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                     </div>
                             </div>
                         </div>
-                        <div className={clases.delivery_items_button_div}>
-                                <div className={clases.delivery_items_button}>
+                        <div className={`delivery_items_button_div`}>
+                                <div className={`delivery_items_button`}>
                                     {   (items.SetbyMin) !== null ?
-                                        <div className={clases.deliverItemCard_icons}>
+                                        <div className={`deliverItemCard_icons`}>
                                             <MdShoppingCart color='#707070' size={16} /> <span>{items.SetbyMin.Startmin || 0} min to {items.SetbyMin.Endmin || 0} min |</span>{items.DeliveryPrice !== 0 ? <span> ${items.DeliveryPrice} Delivery changes </span> : <span>Free delivery</span>}
                                         </div>
                                           :
-                                        <div className={clases.deliverItemCard_icons}>
+                                        <div className={`deliverItemCard_icons`}>
                                             <MdShoppingCart color='#707070' size={16} /> <span>30 to 90 min |</span> <span>Free delivery</span> |<span>$50 min</span>
                                         </div>
                                     }

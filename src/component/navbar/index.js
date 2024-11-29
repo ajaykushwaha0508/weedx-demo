@@ -20,8 +20,6 @@ import Cookies from 'universal-cookie';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/router';
-import image1 from "../../../public/weedx.iologo.webp"
-import clases from '@/styles/customstyle.module.css'
 const Navbar = () => {
     const cookies = new Cookies();
     const ref = React.useRef(null);
@@ -93,10 +91,10 @@ const Navbar = () => {
     }
     return (
         <div className='container p-0'>
-            <div ref={ref} className={clases.NavbarBox} id='Navbar_box' >
+            <div ref={ref} className={'NavbarBox'} id='Navbar_box' >
                 <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
                     <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "block", md: "none", lg: "none" }}>
-                        <button className={clases.openbtn} onClick={openNav}>☰</button>
+                        <button className={'openbtn'} onClick={openNav}>☰</button>
                     </Grid>
                     <Grid item xs={6} md={6} xl={7} display={{ xs: "none", md: "block", lg: "block" }}>
                         <SearchBar path={Location?.pathname || ""} />
@@ -105,13 +103,13 @@ const Navbar = () => {
                         <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.webp'} width={100} height={100} /></Link>
                     </Grid>
                     <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
-                        <div className={clases.Heder_icon} >
+                        <div className={'Heder_icon'} >
                             <Link href="/whislists">
                                 <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
                                     <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
                                 </Badge>
                             </Link>
-                            <div className="notification_icon" >
+                            <div className="position-relative" >
                                 <Badge onClick={() => setNotify(!notify)} badgeContent={
                                     Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
                                 } className={classes.sliderLink_badge}>
@@ -126,7 +124,7 @@ const Navbar = () => {
                                 ></Notification>
                             </div>
                             <Link href="/cart">
-                                <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                                <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={classes.sliderLink_badge}>
                                     <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                                 </Badge>
                             </Link>

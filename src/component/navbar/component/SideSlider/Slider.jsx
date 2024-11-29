@@ -116,7 +116,7 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                                                 </div>
                                                 <div className={clases.slider_image_profile_names_conatiner}>
-                                                    <h2 className={`${clases.slider_image_name_heading} ellipsis`} onClick={Redirect}>{state.Profile.username}</h2>
+                                                    <p className={`${clases.slider_image_name_heading} ellipsis`} onClick={Redirect}>{state.Profile.username}</p>
                                                 </div>
                                             </section>
 

@@ -104,8 +104,8 @@ const Login = () => {
                                 <h1>Log In</h1>
                             </div>
                             <form onSubmit={method.handleSubmit(Submit)}>
-                                <div className='logininputbox'>
-                                    <div className='col-lg-12 mt-1 '>
+                             
+                                    <div className='mt-1'>
                                         <TextField
                                             placeholder="Enter Your Email"
                                             variant="outlined"
@@ -126,11 +126,9 @@ const Login = () => {
                                             error={Boolean(method.errors?.email) || (Boolean(dulicate?.email))}
                                         />
                                     </div>
-                                </div>
-                                <div className='row logininputbox'>
-                                    {/* <label htmlFor='Password'>Password</label> */}
-
-                                    <div className='col-lg-12 mt-1 '>
+                              
+                           
+                                    <div className='mt-1'>
                                         <TextField
                                             type={showPassword ? 'text' : 'password'}
                                             placeholder="Password"
@@ -164,7 +162,7 @@ const Login = () => {
                                             error={Boolean(method.errors?.password)}
                                         />
                                     </div>
-                                </div>
+                             
                           
                                 <div className='row mt-3'>
                                     <div className=' col-lg-12 '>

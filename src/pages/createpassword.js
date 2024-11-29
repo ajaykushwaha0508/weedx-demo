@@ -51,7 +51,7 @@ const CreatePassword = () => {
         <div className="login_signup_reset_container">
             <form onSubmit={method.handleSubmit(Submit)}>
            
-                    <div className='col-12 signup_head'>
+                    <div className='signup_head'>
                         <h1>{` Create a New Password`}</h1>
                     </div>
     

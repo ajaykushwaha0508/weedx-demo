@@ -239,7 +239,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
         let val = Boolean(dynamicWeight) ? dynamicWeight : Product?.Prices[0]?.Price[0].SalePrice
         Product?.Prices[0]?.Price?.forEach((item, index) => {
 
-            if (item.SalePrice === val && item.Quantity - 1 >= quentity) {
+            if(item.SalePrice === val && item.Quantity - 1 >= quentity) {
                 setquentity(quentity + 1)
             } else if (item.SalePrice === val && item.Quantity - 1 <= quentity) {
 
@@ -269,9 +269,6 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
         })
     }
-
-
-
     React.useEffect(() => {
         if (Product.length !== 0) {
             SetSelectVariant(Product?.Prices[0]?.Price[0]?.id)
@@ -510,13 +507,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                 }
                             </IconButton>
                             <span className="shareiconcontainer">
-                                {/* <RWebShare
-                                    // data={{ url: window.location.href }}
-                                    sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
-                                    onClick={() => console.info("share successful!")}
-                                    color="#31B665" >
-                                    <BsShareFill />
-                                </RWebShare> */}
+                              
                             </span>
 
                         </div>

@@ -78,45 +78,39 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
         >
             <Box>
             <div className='differentstorepopup'>
-                {/* <ClickAwayListener onClickAway={()=>{SetCartClean(false)}}> */}
-                    <div className='popupbox'>
-                        <div className='col-12 AddToCartImageContainer'>
-                            <div className='addToCartPopUpImage_background mx-auto'>
-                            <GiShoppingCart size={72} color='#31B655' />
-                            </div>
-
-
-                        </div>
-                        <div className='col-12 AddToCartHeading'>
-                            <p>Start a new Cart</p>
-
-                        </div>
-                        <div className='col-12 AddToCartParagraphHeight'>
-                            <p>You have currently have a items in  you cart from other menu.You may  only add items from one menu. <br/>
-                                Would you like to finish your previous order,or start a new cart
-                            </p>
-                        </div>
-                        <div className='col-12'>
-                            <Box
-                                className={`  ${classes.differstoreaddtocartbtn}`}
-                            >
-                                <LoadingButton 
-                                  loadingIndicator={
-                                    <CircularProgress size={16} sx={{ color: 'white' }} />  // Change 'red' to any color you want
-                                  }
-                                className={Loading && 'loading' } variant="outlined" loading={Loading} onClick={CleanData} type={'submit'}>Start a new cart</LoadingButton>
-                            </Box>
-                        </div>
-                        <div className='col-12 my-2'>
-                            <Box
-                                className={`  ${classes.differstoreaddtocartbtn}`}
-                            >
-                                <LoadingButton variant="outlined" loading={false} onClick={Redirect} type={'submit'}>Complete  previous order</LoadingButton>
-                            </Box>
-                        </div>
-                        <span className='popupctrossbtn' onClick={()=>{SetCartClean(false)}}><RxCross2 size={22} color='red' /></span>
+                <div className='popupbox'>
+                    <div className='addToCartPopUpImage_background mx-auto'>
+                        <GiShoppingCart size={72} color='#31B655' />
                     </div>
-                {/* </ClickAwayListener> */}
+                    <div className='AddToCartHeading'>
+                        <p>{`Start a new Cart`}</p>
+                    </div>
+                    <div className='AddToCartParagraphHeight'>
+                        <p>
+                            {`You have currently have a items in  you cart from other menu.You may  only add items from one menu.`} <br/>
+                            {` Would you like to finish your previous order,or start a new cart`}
+                        </p>
+                    </div>
+                 
+                        <Box
+                            className={`  ${classes.differstoreaddtocartbtn}`}
+                        >
+                            <LoadingButton 
+                                loadingIndicator={
+                                <CircularProgress size={16} sx={{ color: 'white' }} />  // Change 'red' to any color you want
+                                }
+                            className={Loading && 'loading' } variant="outlined" loading={Loading} onClick={CleanData} type={'submit'}>Start a new cart</LoadingButton>
+                        </Box>
+            
+                    <div className='my-2'>
+                        <Box
+                            className={`  ${classes.differstoreaddtocartbtn}`}
+                        >
+                            <LoadingButton variant="outlined" loading={false} onClick={Redirect} type={'submit'}>Complete  previous order</LoadingButton>
+                        </Box>
+                    </div>
+                    <span className='popupctrossbtn' onClick={()=>{SetCartClean(false)}}><RxCross2 size={22} color='red' /></span>
+                </div>
             </div>
             </Box>
         </Dialog>

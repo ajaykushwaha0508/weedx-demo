@@ -125,7 +125,7 @@ const EditProfile = () => {
                 </div>
                 <div className="row">
                     <div className="col-lg-8">
-                        <div className="profileImage">
+                        <div className="text-center">
                             <div className="ProfileImageWrapper">
 
                                 {

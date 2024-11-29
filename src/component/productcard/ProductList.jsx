@@ -17,7 +17,6 @@ import AddToCartPopUp from "../Addtocard/AddToCartPopUp/AddToCartPopUp";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import IconButton from "@mui/material/IconButton";
 import Pagination from '@mui/material/Pagination';
-import newclases from '@/styles/customstyle.module.css';
 import DispensoriesAddressSkeleton from "../skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton";
 import { modifystr } from "../../hooks/utilis/commonfunction";
 const ProductList = ({ arr, link = "products" }) => {
@@ -389,11 +388,11 @@ const ProductList = ({ arr, link = "products" }) => {
               {arr?.map((ele, index) => {
                 return (
                   <div
-                    className="col-6 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 "
+                    className="col-6 col-xxl-3 col-xl-4  col-md-4 col-sm-6 "
                     key={index}
                   >
-                    <div className={newclases.prod_inner_cont}>
-                      <span className={newclases.product_inner_rowspan}>
+                    <div className={'prod_inner_cont'}>
+                      <span className={'product_inner_rowspan'}>
                         <IconButton
                           onClick={() => {
                             handleWhishList(ele.id);
@@ -411,9 +410,9 @@ const ProductList = ({ arr, link = "products" }) => {
                           )}
                         </IconButton>
                       </span>
-                      <div className={newclases.prod_cat_cont}>
+                      <div className={'prod_cat_cont'}>
 
-                        <div className={`col-12 ${newclases.prod_cat_img}`}>
+                        <div className={`col-12 ${'prod_cat_img'}`}>
                           <Link href={`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
                             prevuisurl: location.pathname,
                           }}>
@@ -429,24 +428,24 @@ const ProductList = ({ arr, link = "products" }) => {
                               title={ele.Product_Name}
                             />
                           </Link>
-                          <div className={newclases.prod_img_btn}>
+                          <div className={'prod_img_btn'}>
                             {ele.THC !== 0 && (
-                              <button className={`${newclases.cat_prod_inner_btn} ${newclases.btn2}`}>
+                              <button className={`${'cat_prod_inner_btn'} ${'btn2'}`}>
                                 THC {ele.THC} {ele.lab_Result !== "Magnesium" ? '%' : "Mg."}
                               </button>
                             )}
                             {ele.CBD !== 0 && (
-                              <button className={`${newclases.cat_prod_inner_btn} ${newclases.btn2}`}>
+                              <button className={`${'cat_prod_inner_btn'} ${'btn2'}`}>
                                 CBD {ele.CBD} {ele.lab_Result !== "Magnesium" ? '%' : "Mg."}
                               </button>
                             )}
                             {ele.CBN !== 0 && (
-                              <button className={`${newclases.cat_prod_inner_btn} ${newclases.btn2}`}>
+                              <button className={`${'cat_prod_inner_btn'} ${'btn2'}`}>
                                 CBN {ele.CBN} {ele.lab_Result !== "Magnesium" ? '%' : "Mg."}
                               </button>
                             )}
                             {ele.strain !== "None" && (
-                              <button className={`${newclases.cat_prod_inner_btn} ${newclases.btn1}`}>
+                              <button className={`${'cat_prod_inner_btn'} ${'btn1'}`}>
                                 {ele.strain}
                               </button>
                             )}
@@ -456,9 +455,9 @@ const ProductList = ({ arr, link = "products" }) => {
                       <Link href={`/${link}/${modifystr(ele.category_name)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.Product_Name)}/${ele.id}`} state={{
                         prevuisurl: location.pathname,
                       }}>
-                        <div className={newclases.product_cat_allProduct}>
+                        <div className={'product_cat_allProduct'}>
                           <div className="col-12 ">
-                            <h3 className={`${newclases.productListHeadings} ellipsis`} title={ele.Product_Name} >   {ele.Product_Name} </h3>
+                            <h3 className={`${'productListHeadings'} ellipsis`} title={ele.Product_Name} >   {ele.Product_Name} </h3>
                           </div>
                           <div className="col-12 py-2 d-flex ellipsis mb-0"  >
                             {new Array(ele.rating).fill(null).map((ine, indesx) => (
@@ -481,7 +480,7 @@ const ProductList = ({ arr, link = "products" }) => {
                             })}
                           </div>
                           <div className="text-dark">
-                            <p className={`${newclases.productSearch} text-truncate mb-0`}><span className="productSearchPrice">${parseInt(ele.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(ele.Prices[0].Price[0].Price) > parseInt(ele.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(ele.Prices[0].Price[0].Price)}</del>} </span> per {ele.Prices[0].Price[0].Weight ? ele.Prices[0].Price[0].Weight : `${ele.Prices[0].Price[0].Unit} Unit`}</p>
+                            <p className={`${'productSearch'} text-truncate mb-0`}><span className="productSearchPrice">${parseInt(ele.Prices[0]?.Price[0]?.SalePrice)}  {parseInt(ele.Prices[0].Price[0].Price) > parseInt(ele.Prices[0].Price[0].SalePrice) && <del className="text-muted">${parseInt(ele.Prices[0].Price[0].Price)}</del>} </span> per {ele.Prices[0].Price[0].Weight ? ele.Prices[0].Price[0].Weight : `${ele.Prices[0].Price[0].Unit} Unit`}</p>
                           </div>
                         </div>
                       </Link>

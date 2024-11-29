@@ -18,17 +18,14 @@ const Newsblog = ({ data }) => {
 
     return (
         <div className="px-sm-0">
-            {/* Header Section */}
             <div className="d-flex align-items-center justify-content-between">
-                <h3 className={clases.section_main_title}>Trendings</h3>
+                <h3 className={clases.section_main_title}>{'Trendings'}</h3>
                 <Link href="/cannabis-news">
                     <span className={clases.viewallbtn}>
-                        View All <FaArrowRight />
+                       {' View All'} <FaArrowRight />
                     </span>
                 </Link>
             </div>
-
-            {/* Blog Cards Slider */}
             <div className="blogs_card_slider">
                 <ScrollContainer className="ScrollContainerRelative">
                     {News.map((ele, index) => (
@@ -39,8 +36,6 @@ const Newsblog = ({ data }) => {
         </div>
     );
 };
-
-// NewsCard Component (Memoized for Performance)
 const NewsCard = React.memo(({ ele, index }) => (
     <Link
         href={`/${ele.CategoryName === 'BLOGS' ? 'blogs' : 'cannabis-news'
@@ -58,12 +53,10 @@ const NewsCard = React.memo(({ ele, index }) => (
                     title={ele.Title}
                     priority={index < 2} // Load first two images eagerly, others lazily
                     placeholder="blur"
-                    blurDataURL="/image/placeholder.jpg" // Placeholder image
+                    blurDataURL="/image/blankImage.jpg"
                     onError={(e) => (e.target.src = '/image/blankImage.jpg')} // Fallback on error
                 />
             </div>
-
-            {/* Blog Text */}
             <div className={clases.new_blog_card_text}>
                 <span className={`${clases.latest_font_size} text-capitalize`}>
                     {ele.Title}
@@ -72,7 +65,5 @@ const NewsCard = React.memo(({ ele, index }) => (
         </div>
     </Link>
 ));
-
-
 Newsblog.displayName = "Newsblog"; // Add displayName here
 export default React.memo(Newsblog); // Memoize the Newsblog component to avoid unnecessary re-renders

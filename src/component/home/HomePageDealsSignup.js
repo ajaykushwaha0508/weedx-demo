@@ -7,7 +7,7 @@ import  newsletters from '../../../public/newsletters.png'
 import React from 'react';
 import Image from 'next/image';
 import { useCallback } from 'react';
-import styled from '@/styles/customstyle.module.css'
+// import styled from '@/styles/customstyle.module.css'
 const HomePageDealsSignup = () => {
     const classes = useStyles()
     const [submited,setsubmited]= React.useState(false)
@@ -37,27 +37,25 @@ const HomePageDealsSignup = () => {
         event.preventDefault();
         setEmail(event.target.value);
     }, [setEmail]);
-    
-
     return (
-            <div className={`px-sm-0  ${styled.HomePageDealsSignupContainer}`}>
+            <div className={`px-sm-0 HomePageDealsSignupContainer`}>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-xl-6  col-md-5 col-12 d-md-inline d-none'>
-                            <div className={`${styled.newsletterImage} text-center`}>
+                            <div className={`newsletterImage text-center`}>
                                 <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
                             </div>
                         </div>
-                        <div className='col-xl-6  col-md-6 col-sm-10 col-12  mx-auto px-0'>
+                        <div className='col-xl-6  col-md-6 col-sm-10 col-12  mx-auto px-0 d-flex justify-content-center align-items-center'>
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className={styled.contentarea}>
+                                <div className={`contentarea`}>
                                 
-                                        <h3 className={styled.homePageSignup_heading}>{`Subscribe To Our Newsletters`}</h3>
-                                        <p className={styled.homePageSignup_paragraph}>{`Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.`}</p>
+                                        <h3 className={`homePageSignup_heading`}>{`Subscribe To Our Newsletters`}</h3>
+                                        <p className={`homePageSignup_paragraph`}>{`Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.`}</p>
                                 
                                     {
-                                        submited ? <h2 className={styled.thankforsubscribe}>{`Thanks For Subscribe`}</h2>:
-                                        <div className={styled.newsletterFormFeild}>
+                                        submited ? <h2 className={`thankforsubscribe`}>{`Thanks For Subscribe`}</h2>:
+                                        <div className={`newsletterFormFeild`}>
                                             <TextField
                                                 className={classes.homePageDealSignup_TextFields}
                                                 InputProps={{
@@ -85,15 +83,11 @@ const HomePageDealsSignup = () => {
                                                 })}
 
                                             />
-                                            <span className={styled.newsletter_btn}>
+                                            <span className={`newsletter_btn`}>
                                                 <Button className={` ${classes.homePageButton}`} type='submit' >{`Subscribe`}</Button>
                                             </span>
                                         </div>
                                     }
-
-
-
-
                                 </div>
                             </form>
                         </div>

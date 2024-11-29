@@ -38,7 +38,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                 <div className="col-6">
                     <h2 className="blogsCommentheadings">{'Comments'} {CommentCardArrays?.length && CommentCardArrays?.length}</h2>
                 </div>
-                <div className="col-6 blogCommentCardArrowBtn">
+                <div className="col-6 d-flex justify-content-end">
                     {ShowCards ? (
                         <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowUp /></IconButton>
                     ) : (

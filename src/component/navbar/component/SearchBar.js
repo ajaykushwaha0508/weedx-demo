@@ -74,7 +74,7 @@ const SearchBar = ({ path }) => {
             const container = document.getElementById('navsearchConntainer');
             if (container) {
                 const containerWidth = container.clientWidth;
-                if (window.innerWidth <= 900) {
+                if (window.innerWidth <= 992) {
                     setSearchBarWidth(true);
                     // setOptionWidth(containerWidth);
                 } else {

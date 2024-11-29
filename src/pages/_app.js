@@ -17,7 +17,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import Cookies from 'universal-cookie';
 import 'nprogress/nprogress.css';
-import CookieConsent from "react-cookie-consent";
+// import CookieConsent from "react-cookie-consent";
 const layouts = {
   default: layout,
   layout1: layout1,

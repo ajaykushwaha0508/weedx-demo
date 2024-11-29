@@ -341,7 +341,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
 
     return (
         <>
-            <div className={`col-12 ${newclases.product_search_and_select}`}>
+            <div className={`col-12 ${'product_search_and_select'}`}>
                 <div className="col-12 col-md-2">
                    
                        <div  className="form-outline" data-mdb-input-init>
@@ -353,7 +353,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                          type="search" 
                          id="form1" 
 
-                         className={searchtext.length !== 0 ? `form-control ${newclases.customSearchBar}` : `form-control ${newclases.customSearchBar} ${newclases.customSearchBarsearchicon}`} />
+                         className={searchtext.length !== 0 ? `form-control ${'customSearchBar'}` : `form-control ${'customSearchBar'} ${'customSearchBarsearchicon'}`} />
                       
                     </div>
                 </div>
@@ -379,29 +379,29 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                     </Grid>
                 </div>
             </div>
-            <div className={` col-lg-3 col-xxl-2 col-md-12 gap-sm-0 gap-2 ${newclases.prod_cat_left_sec}`}>
+            <div className={` col-lg-3 col-xxl-2 col-md-12 gap-sm-0 gap-2 ${'prod_cat_left_sec'}`}>
                 {ProductFilterData?.map((ele, index) => {
                     const { Id, Name, Icons } = ele;
                         return (
-                            <div key={index} className={newclases.filter_manu_items}>
+                            <div key={index} className={'filter_manu_items'}>
                                         <div className="col-12 d-flex align-items-center px-2 gap-2" onClick={() => HandleOpenEvent(Id, Name)} >
                                                 <p className="m-0 d-none" >{Icons}</p>
                                                 <p className="m-0">{Name}</p>
-                                                <p className={`m-0 ${newclases.brand_right_arrow}`}>{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons}  /> : <FiChevronRight className={classes.muiIcons} />}</p>
+                                                <p className={`m-0 ${'brand_right_arrow'}`}>{(Id === OpenEvent) ? <IoIosArrowDown className={classes.muiIcons}  /> : <FiChevronRight className={classes.muiIcons} />}</p>
                                         </div>
                                         {   
                                             (Id === OpenEvent) ?
                                             (
                                                 <ClickAwayListener onClickAway={() => {SetOpenEvent(null) }}>
                                                     { loading ? <Loader/>
-                                                      : <div className={newclases.product_category_dropdown} id="Related_Brand_Data" ref={ref}>
+                                                      : <div className={'product_category_dropdown'} id="Related_Brand_Data" ref={ref}>
 
                                                             {
                                                                 Filter.length !== 0 ?
                                                                     Filter?.map((data , index) => {
                                                                         return (
                                                                             <div key={index}>
-                                                                                <div className={`col-10 ${newclases.product_category_dropdown_cursor}`}>
+                                                                                <div className={`col-10 ${'product_category_dropdown_cursor'}`}>
                                                                                 {ele.Name === "Category" ? <p  className="m-0" onClick={() => { Category_Drop(data.id, ele.Name) }}>{data.name}</p> : <div>  <input type="checkbox" onChange={()=>{Category_Drop(data.id, ele.Name , data )}} id={data.name} name={data.name} value={data.name} /> <label htmlFor={data.name} className="m-0" >{data.name}</label> </div>}
                                                                                 </div>
                                                                                 {
@@ -410,7 +410,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                                                                                         return (
                                                                                             SubCategory.CatgoryId === data.id
                                                                                             &&
-                                                                                            <div key={index} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className={`col-10 ${newclases.product_sub_category_dropDown_cursor}`}>
+                                                                                            <div key={index} onClick={() => { FilterSubCategorydata(SubCategory.id, SubCategory.SubCategory_name, data.name, SubCategory.Store_id) }} className={`col-10 ${'product_sub_category_dropDown_cursor'}`}>
                                                                                                 <input type="radio" id={SubCategory.SubCategory_name} name={data.name} value={SubCategory.SubCategory_name} />  <label htmlFor={SubCategory.SubCategory_name}>{SubCategory.SubCategory_name}</label>
                                                                                             </div>
                                                                                         )
@@ -467,9 +467,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                         const { Id, name } = ele
                         return (
                                 <div key={index} onClick={() => HandleOpenSortedData(Id, name)}>
-                                    <ol className={`${newclases.productFilter_sortedList} ${newclases.prodfilterSortedListGap}`}>
+                                    <ol className={'productFilter_sortedList prodfilterSortedListGap'}>
                                         <li> {(Id === OpenSortedData) ? <FiChevronLeft /> : ""}</li>
-                                        <li className="">{name}</li>
+                                        <li>{name}</li>
                                         <li>  {(Id === OpenSortedData) ? "" : <FiChevronRight />}</li>
                                     </ol>
                                     {Id === OpenSortedData ? (
@@ -478,17 +478,15 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                                         SetOpenSortedData(null);
                                         }}
                                     >
-                                        <div className={`border ${newclases.product_Sorted_filter_dropdown}`}>
-                                            <ol className={newclases.productFilter_sortedList}>
+                                        <div className={`border product_Sorted_filter_dropdown`}>
+                                            <ol className={'productFilter_sortedList'}>
                                                 {SortedData.map((ele, index) => {
                                                 return <li key={index}>{ele.type}</li>;
                                                 })}
                                             </ol>
                                         </div>
                                     </ClickAwayListener>
-                                    ) : (
-                                    ""
-                                    )}
+                                    ) : ("")}
                                 </div>
                             );
                             })}

@@ -45,23 +45,17 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
                         <textarea type="text" value={GetComment} onChange={WriteComment} className="BolgCommentBOx" rows="4" cols="50"></textarea>
                     </div>
                     <div className="col-12 p x-0  recentPostBtnCenter mt-4">
-
-                        <Box
-                            className={`recentPostBox_width1 ${classes.recentPostCancelBtn}`}
-                        >
-                            <LoadingButton variant="outlined">Cancel</LoadingButton>
+                        <Box className={`recentPostBox_width1 ${classes.recentPostCancelBtn}`}>
+                            <LoadingButton variant="outlined">{'Cancel'}</LoadingButton>
                         </Box>
-                        <Box
-                            className={`recentPostBox_width2 ${classes.recentPostCancelBtn2}`}
-                        >
-                            <LoadingButton disabled={state.login === false ?true :false} onClick={PostComment} variant="outlined">Post</LoadingButton>
+                        <Box className={`recentPostBox_width2 ${classes.recentPostCancelBtn2}`} >
+                            <LoadingButton disabled={state.login === false ?true :false} onClick={PostComment} variant="outlined">{'Post'}</LoadingButton>
                         </Box>
                     </div>
-
                 </div>
             </div>
 
-        </React.Fragment>
+        </React.Fragment> 
     )
 }
 export default RecentPostComment

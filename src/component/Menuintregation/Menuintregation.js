@@ -93,11 +93,11 @@ export function Menuintegration_login({ open, setOpen }) {
            
             <Dialog open={open}  onClose={handleClose}>
                     <div className="login_signup_reset_container ">
-                        <div className='col-12 signup_head'>
+                        <div className='signup_head'>
                             <h1>Log In</h1>
                         </div>
                         <form onSubmit={method.handleSubmit(Submit)}>
-                            <div className='logininputbox'>
+                            <div className=''>
                                 <div className='col-lg-12 mt-1 '>
                                     <TextField
                                         placeholder="Enter Your Email"
@@ -120,7 +120,7 @@ export function Menuintegration_login({ open, setOpen }) {
                                     />
                                 </div>
                             </div>
-                            <div className='row logininputbox'>
+                            <div className='row'>
                                 <div className='col-lg-12 mt-1 '>
                                     <TextField
                                         type={showPassword ? 'text' : 'password'}

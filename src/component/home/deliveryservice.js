@@ -67,25 +67,25 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="">
                                     {
-                                        title === 'Weed Dispensaries Near You'?<h1 className={clases.section_main_title}>{title}</h1>:<h2 className={clases.section_main_title}>{title}</h2>
+                                        title === 'Weed Dispensaries Near You'?<h1 className={`section_main_title`}>{title}</h1>:<h2 className={`section_main_title`}>{title}</h2>
                                     }
                                     
                                     {link === "weed-deliveries" && <h3 className='section_main_subtitle'>{location}</h3>}
                                 </div>
                                 <Link href={link === "weed-deliveries" ?getDeliveryHref() : getDispensariesHref()}>
-                                    <span className={clases.viewallbtn}>View All <FaArrowRight /></span>
+                                    <span className={`viewallbtn`}>View All <FaArrowRight /></span>
                                 </Link>
                             </div>
                             {
                                 
                                     Boolean(DeliveryService.length) ?
-                                    <div className={clases.recentViewProductSlider} id="width" ref={ref}>
+                                    <div className={`recentViewProductSlider`} id="width" ref={ref}>
                                         <ScrollContainer className="ScrollContainerRelative">
                                             {DeliveryService?.map((items, index) => {
                                                 return (
-                                                    <div className={clases.dispensoriesContainer} key={index}>
-                                                        <div className={clases.dispensoriesAddressBorder}>
-                                                            <div className={clases.dispensoriesAddresCardimg}>
+                                                    <div className={`dispensoriesContainer`} key={index}>
+                                                        <div className={`dispensoriesAddressBorder`}>
+                                                            <div className={`dispensoriesAddresCardimg`}>
                                                                 <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
                                                                     <Image
                                                                         priority
@@ -96,28 +96,21 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                                                         alt={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
                                                                         title={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
                                                                         onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                                        className={`${clases.dispensories_image}  center-block`}
+                                                                        className={`${`dispensories_image`}  center-block`}
                                                                     />
                                                                 </Link>
                                                             </div>
-                                                            <div className={clases.dispensoriesContentContainer}>
+                                                            <div className={`dispensoriesContentContainer`}>
                                                                 <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
                                                                 
-                                                                    <p className={`ellipsis ${clases.dispensoriesHeadings}`}>{items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)}</p>
-                                                                        <div className={clases.Dispensaries_card_discription}>
+                                                                    <p className={`ellipsis ${`dispensoriesHeadings`}`}>{items?.Store_Name.charAt(0).toUpperCase() + items?.Store_Name.slice(1)}</p>
+                                                                        <div className={`Dispensaries_card_discription`}>
                                                                             <span><BiMap className={classes.disPen_Icons} /></span>
                                                                             <p style={{color:"#000"}} className='ellipsis mb-0'>{items?.Store_Address}</p>
                                                                         </div>
                                                                   
                                                                 </Link>
-                                                                {/* <div className={clases.homecardRating}>
-                                                                    <Link href={`/weed-dispensaries/${modifystr(items?.Store_Name)}/${'review'}/${items?.id}`}>
-                                                                        <div className=' w-100 d-flex align-items-center gap-2'>
-                                                                            <span className={clases.DeliveryServicesRatingTitle}>{items?.rating !== null ? items?.rating.toFixed(1) : 0}</span>
-                                                                            <Rating className={classes.homePageStarIcons} color='#fff' name="read-only" value={items?.rating === null ? 0 : items?.rating} readOnly />
-                                                                        </div>
-                                                                    </Link>
-                                                                </div> */}
+                                                         
                                                                 <div className='col-12  mt-2'>
                                                                     <Box className={`${classes.loadingBtnTextAndBack}`} >
                                                                         <LoadingButton onClick={() => { navigate.push(`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`) }} style={{ width: "100%" }}>{`Order Pickup`}</LoadingButton>

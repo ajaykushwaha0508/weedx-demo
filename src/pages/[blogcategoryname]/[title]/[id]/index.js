@@ -199,14 +199,12 @@ const Blogs = (props) => {
                                     <div className="col-6">
                                         <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>
                                     </div>
-                                    <div className="col-6 blogCommentCardArrowBtn">
+                                    <div className="col-6 d-flex justify-content-end">
                                         {ShowCards ? (
                                             <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowUp /></IconButton>
                                         ) : (
                                             <IconButton onClick={() => SetShowCards(!ShowCards)}><IoIosArrowDown /></IconButton>
-
                                         )}
-
                                     </div>
                                 </div>
                                 {
@@ -312,10 +310,7 @@ const Blogs = (props) => {
                                                             </div>
                                                             <div className="commentCradContentSection">
                                                                 <h2 className="blogCommentName">{val.username}</h2>
-                                                                <div className="col-12">
-                                                                    <p className="blogUserComments">{val.comment}</p>
-                                                                </div>
-
+                                                                <p className="blogUserComments">{val.comment}</p>
                                                             </div>
                                                             {state.login && state?.Profile?.id === val.user && (
                                                                 <div className="col d-flex justify-content-center align-items-center">
@@ -323,10 +318,6 @@ const Blogs = (props) => {
 
                                                                 </div>
                                                             )}
-
-
-
-
                                                         </div>
                                                     </div>
                                                 )

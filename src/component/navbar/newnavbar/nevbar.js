@@ -1,10 +1,8 @@
 import React from 'react'
-import clases from '@/styles/customstyle.module.css'
-import classes from '@/styles/customstyle.module.css'
-import { Box, Grid } from '@mui/material';
-import { debounce } from 'lodash'; // Or implement a custom debounce
+import {Grid } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
+import useStyles from '@/styles/style';
 import SearchBar from '@/component/navbar/component/SearchBar';
 import { useRouter } from 'next/router';
 import Createcontext from "@/hooks/context";
@@ -17,16 +15,13 @@ import IconButton from '@mui/material/IconButton';
 import Notification from '../component/Notification';
 import Afterlogin from "../component/afterlogin";
 import dynamic from 'next/dynamic'
-// const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
-//   memo: true 
-// });
 const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"),{ 
     memo: true 
   });
 import SideNavbar from "../component/SideSlider/Slider"
-// import SliderLink from "@/component/navbar/component/SideSlider/SilderLink"
 export default function Nevbar() {
     const cookies = new Cookies();
+    const clasess = useStyles()
     const ref = React.useRef(null);
     const profileRef = React.useRef(null);
     const Location = useRouter();
@@ -36,7 +31,6 @@ export default function Nevbar() {
     const [dropDownState, setDropDownState] = React.useState(false);
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
-
     const openNav = React.useCallback(() => {
         setOpen((prevOpen) => !prevOpen);
     }, []);  // empty dependency array ensures this function is only created once
@@ -72,7 +66,7 @@ export default function Nevbar() {
 
     const handleClickDropdown = React.useCallback(() => {
         setDropDownState((prevState) => !prevState);
-    })
+    },[])
     async function Logout() {
         localStorage.removeItem('User_Token_access');
         cookies.remove('User_Token_access');
@@ -82,13 +76,13 @@ export default function Nevbar() {
     }
 
     return (
-        <div ref={ref} className={`${clases.NavbarBox} container`} id='Navbar_box' >
-            <Grid container spacing={0} rowSpacing={0.3} justifyContent="between">
+        <div ref={ref} className={`${'NavbarBox'} container`} id='Navbar_box' >
+            <Grid container spacing={0} rowSpacing={0.3} justifyContent="space-between">
                 <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start" display={{ xs: "none", md: "block", lg: "block" }}>
                     <Link href="/"> <Image  priority src={'/weedx.iologo.webp'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
                 </Grid>
-                <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "block", md: "none", lg: "none" }}>
-                    <button className={clases.openbtn} onClick={openNav}>☰</button>
+                <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "flex", md: "none", lg: "none" }}>
+                    <button className={'openbtn'} onClick={openNav}>☰</button>
                 </Grid>
                 <Grid item xs={6} md={6} xl={7} display={{ xs: "none", md: "block", lg: "block" }}>
                     <SearchBar path={Location?.pathname || ""} />
@@ -97,19 +91,19 @@ export default function Nevbar() {
                     <Link href="/"><Image  priority className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.webp'} width={100} height={100} /></Link>
                 </Grid>
                 <Grid item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
-                    <div className={clases.Heder_icon} >
+                    <div className={'Heder_icon'} >
                         <Link href="/whislists">
-                            <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
-                                <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
+                            <Badge badgeContent={state?.login && Object.values(state?.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state?.WishList).reduce((a, item) => a + item, 0) : 0} className={clasess.sliderLink_badge}>
+                                <IconButton className={'navBarButton_icons'} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
                             </Badge>
                         </Link>
-                        <div className="notification_icon" >
+                        <div className="position-relative" >
                             <Badge onClick={() => setNotify(!notify)}
                                 badgeContent={
-                                    Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
+                                    Boolean(state?.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
                                 }
-                                className={classes.sliderLink_badge}>
-                                <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
+                                className={clasess.sliderLink_badge}>
+                                <IconButton className={'navBarButton_icons'} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                             </Badge>
                             <Notification
                                 notify={notify}
@@ -120,8 +114,8 @@ export default function Nevbar() {
                             ></Notification>
                         </div>
                         <Link href="/cart">
-                            <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={classes.sliderLink_badge}>
-                                <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
+                            <Badge badgeContent={state?.AllProduct?.length > 0 ? state?.AllProduct?.length : null} className={clasess.sliderLink_badge}>
+                                <IconButton className={'navBarButton_icons'} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                             </Badge>
                         </Link>
                     </div>

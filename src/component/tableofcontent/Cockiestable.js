@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styled from '@/styles/customstyle.module.scss';
 const Cockiestable = ({referal}) => {
     const [allHeigths, setallheight] = React.useState([]);
     const router = useRouter();
@@ -22,25 +21,20 @@ const Cockiestable = ({referal}) => {
       setallheight(data);
     }, []);
     React.useEffect(() => {
-      let divElement = document.getElementById("Navbar_box")?.clientHeight;
-  
       allHeigths.forEach((item) => {
-        //    if(location.hash === `#${item.id}`){
-        //      window.scroll(0 , item.topheigth - divElement)
-        //    }
       });
     }, [allHeigths]);
   return (
-    <div className={styled.tc_topic_list}>
-      <div className={styled.heading_box}>
-        <h3 className={`text-white m-0 ${styled.sideTableHeading}`}>{`Table of Contents`}</h3>
+    <div className={`tc_topic_list`}>
+      <div className={`heading_box`}>
+        <h3 className={`text-white m-0 ${`sideTableHeading`}`}>{`Table of Contents`}</h3>
       </div>
       <ul>
         <Link href={{ hash: `#introduction` }}>
           <li
             className={
               router.pathname.includes("#introduction") &&
-              styled.activeTable
+              `activeTable`
             }
           >{`1. Introduction `}</li>
         </Link>
@@ -48,7 +42,7 @@ const Cockiestable = ({referal}) => {
           <li
             className={
               router.pathname.includes("#what_are_cookies?") &&
-              styled.activeTable
+              `activeTable`
             }
           >
             {" "}
@@ -59,7 +53,7 @@ const Cockiestable = ({referal}) => {
           <li
             className={
               router.pathname.includes("#types_of_Cookies_we_use") &&
-              styled.activeTable
+              `activeTable`
             }
           >
             {" "}
@@ -70,7 +64,7 @@ const Cockiestable = ({referal}) => {
           <li
             className={
               router.pathname.includes("#how_we_use_cookies<") &&
-              styled.activeTable
+              `activeTable`
             }
           >{`4. How We Use Cookies`}</li>
         </Link>
@@ -79,7 +73,7 @@ const Cockiestable = ({referal}) => {
             className={
               router.pathname.includes(
                 "#managing_your_cookie_preferences"
-              ) && styled.activeTable
+              ) && `activeTable`
             }
           >
             {" "}
@@ -90,7 +84,7 @@ const Cockiestable = ({referal}) => {
           <li
             className={
               router.pathname.includes("#third_party_cookies") &&
-              styled.activeTable
+              `activeTable`
             }
           >{`6. Third-Party Cookies`}</li>
         </Link>
@@ -99,13 +93,13 @@ const Cockiestable = ({referal}) => {
             className={
               router.pathname.includes(
                 "changes_to_this_cookie_policy"
-              ) && styled.activeTable
+              ) && `activeTable`
             }
           >{`7. Changes to This Cookie Policy `}</li>
         </Link>
         <Link href={{ hash: `#contact_us` }}>
           <li className={
-              router.pathname.includes("#contact_us") && styled.activeTable
+              router.pathname.includes("#contact_us") && `activeTable`
             } >
             {` 8. Contact Us`}{" "}
           </li>

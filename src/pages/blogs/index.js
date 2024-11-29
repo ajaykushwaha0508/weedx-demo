@@ -96,7 +96,7 @@ const Allblogs = (props) => {
                         className={styled.blogcardDescription}
                         dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
                       />
-                      <div className={`row  d-md-flex d-none ${styled.extra_function} ${styled.extra_function_destop}`}>
+                      <div className={`row  d-md-flex d-none ${styled.extra_function} `}>
                         <div className="col-3">
                           <span className={styled.action_icons}><AiFillEye /></span>
                           <span>{items.ViewCount} Views</span>

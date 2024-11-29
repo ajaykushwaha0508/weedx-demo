@@ -13,11 +13,8 @@ import { MdOutlineShoppingCart } from 'react-icons/md';
 import { HiSpeakerphone } from 'react-icons/hi';
 import newclases from '@/styles/customstyle.module.css';
 import useStyles from '../../../../styles/style';
-
-// Lazy load heavy components
 const SearchBar = dynamic(() => import('../SearchBar'), { ssr: false });
 const Notification = dynamic(() => import('../Notification'));
-
 function DashBoardLink({ state }) {
   const classes = useStyles();
   const location = useRouter();
@@ -69,7 +66,7 @@ function DashBoardLink({ state }) {
   }, [location]);
 
   return (
-    <div className="container-fluid Top p-sm-0 p-2 m-0 mt-sm-4">
+    <div className="container-fluid Top p-2 m-0">
       <Grid container spacing={2}>
         {/* Navigation Links */}
         <Grid
@@ -156,34 +153,16 @@ function DashBoardLink({ state }) {
             </button>
           </div>
         </Grid>
-
-        {/* Wishlist, Notifications, and Cart */}
-        <Grid
-            item="true"
-          xs={6}
-          md={2}
-          spacing={2}
-          display={{ xs: "none", md: "block", lg: "block" }}
-        >
+        <Grid item="true" xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >
           <div className="col-12 addyocardIcon">
             <Link href="/whislists" aria-label="Wishlist">
-              <Badge
-                badgeContent={
-                  state.login
-                    ? Object.values(state.WishList).reduce((a, item) => a + item, 0)
-                    : 0
-                }
-                className={classes.sliderLink_badge}
-              >
-                <IconButton
-                  className={classes.navBarButton_icons}
-                  aria-label="Wishlist"
-                >
+              <Badge badgeContent={state.login ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0 }  className={classes.sliderLink_badge} >
+                <IconButton  className={classes.navBarButton_icons} aria-label="Wishlist" >
                   <AiFillHeart color="#858585" size={22} />
                 </IconButton>
               </Badge>
             </Link>
-            <div className="notification_icon">
+            <div className="position-relative">
               <Badge
                 badgeContent={
                   state.login
@@ -193,8 +172,7 @@ function DashBoardLink({ state }) {
                       : Math.max(
                         totalnotify?.length -
                         state?.Profile?.RemovedNotification?.length,
-                        0
-                      )
+                        0)
                     : notificationdata?.length
                 }
                 className={classes.sliderLink_badge}
@@ -207,12 +185,12 @@ function DashBoardLink({ state }) {
                   <IoIosNotifications color="#858585" size={23} />
                 </IconButton>
               </Badge>
-              <Notification
-                notify={notify}
-                setnotify={setnotify}
-                notificationdata={notificationdata}
-                Setnotificationdata={Setnotificationdata}
-                Settotalnotify={Settotalnotify}
+                <Notification
+                  notify={notify}
+                  setnotify={setnotify}
+                  notificationdata={notificationdata}
+                  Setnotificationdata={Setnotificationdata}
+                  Settotalnotify={Settotalnotify}
               />
             </div>
             <Link href="/cart" aria-label="Shopping Cart">
@@ -233,8 +211,6 @@ function DashBoardLink({ state }) {
             </Link>
           </div>
         </Grid>
-
-        {/* Search Bar for Smaller Screens */}
         <Grid
           className={classes.nav_search_bar}
             item="true"

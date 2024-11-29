@@ -86,12 +86,12 @@ const Login = (props) => {
     return (
         <div className="login_signup_reset_container ">
             {state.permission === false && <Currentlocation></Currentlocation>}
-            <div className='col-12 signup_head'>
+            <div className='signup_head'>
                 <h1>Log In</h1>
             </div>
             <form onSubmit={method.handleSubmit(Submit)}>
-                <div className='logininputbox'>
-                    <div className='col-lg-12 mt-1 '>
+              
+                    <div className='mt-1 '>
                         <TextField
                             placeholder="Enter Your Email"
                             variant="outlined"
@@ -112,11 +112,7 @@ const Login = (props) => {
                             error={Boolean(method.errors?.email) || (Boolean(dulicate?.email))}
                         />
                     </div>
-                </div>
-                <div className='row logininputbox'>
-                    {/* <label htmlFor='Password'>Password</label> */}
-
-                    <div className='col-lg-12 mt-1 '>
+                    <div className='mt-1 '>
                         <TextField
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Password"
@@ -150,7 +146,7 @@ const Login = (props) => {
                             error={Boolean(method.errors?.password)}
                         />
                     </div>
-                </div>
+               
                 <div className='my-2 text-end'><Link className='signInfo' href={'/forgot-password'}><span>{`Forgot password`}</span></Link></div>
                 <div className='mt-3'>
                         <Box className={!loading ? `${classes.loginBtnTextAndBackground}` : `${classes.loginBtnTextAndBackgroundAfter}`} >
@@ -161,14 +157,11 @@ const Login = (props) => {
             <div className='w-100 d-flex mt-4 center align-items-center'>
                 <div className='login_horizontalLine '></div> <span className='px-2 login_OR'>OR</span> <div className='login_horizontalLine '></div>
             </div>
-            <div className='row mt-3'>
-                <div className='col-lg-12  loginwithgoogle' >
-                    <LoginWithGoogle></LoginWithGoogle>
-                </div>
+            <div className='d-lg-block d-none mt-3' >
+                <LoginWithGoogle></LoginWithGoogle>
             </div>
             <div className='w-100 text-center my-3 '>
                 <h2 className='login_bottom'>{`New To weedx ?`} <Link className='signInfo' href={'/signup'}><span>{`Sign up`}</span></Link></h2>
-                {/* <Link className='signInfo' href={'/signup'}><span>{`Create your Weedx Account`}</span></Link> */}
             </div>
             <div className='crosslogin'>
                 <Tooltip title="Back">
@@ -180,10 +173,7 @@ const Login = (props) => {
         </div>
     )
 }
-
 export default Login
-
-
 export async function getServerSideProps(context) {
     return {
         props: {

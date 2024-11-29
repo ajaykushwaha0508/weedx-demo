@@ -258,9 +258,7 @@ const useStyles = makeStyles({
       background: "#00b96a",
     }
   },
-  nav_search_bar:{
-   padding:'10px 0 0 0'
-  },
+
   businessaccordion:{
     backgroundColor:'transparent',
     boxShadow:'none',
@@ -284,7 +282,7 @@ const useStyles = makeStyles({
       color: "white",
       backgroundColor: "#00b96a",
       borderRadius: "5px",
-      minWidth: "100%",
+      maxWidth: "100%",
       textTransform: "none",
       width: "120px",
       height: "45px",

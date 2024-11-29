@@ -103,7 +103,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                 <div className="d-flex gap-4">
                                     <div style={{ display: "contents" }}>
                                         <Link href="/carts">
-                                            <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`state.LoadingApi ? "animated bounce" : " " ${classes.sliderLink_badge}`}>
+                                            <Badge badgeContent={state.AllProduct?.length > 0 ? state.AllProduct?.length : null} className={`sliderLink_badge`}>
                                                 <IconButton className={classes.navBarButton_icons} aria-label='shopping-cart'><MdOutlineShoppingCart color="#858585" size={22}></MdOutlineShoppingCart></IconButton>
                                             </Badge>
                                         </Link>
@@ -117,11 +117,6 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                                         <div className='Navbar_profile_logo_container'>
                                                             <Image
                                                                 src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
-
-                                                                // onError={event => {
-                                                                //     event.target.src = "/image/user.webp"
-                                                                //     event.onerror = null
-                                                                // }}
                                                                 width={100}
                                                                 height={100}
                                                                 alt='Profile'
@@ -134,24 +129,15 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                                     {DropDownState && (
                                                         <div className='profileDropdown_container'>
                                                             <section className='Navbar_proflie_image_name_section'>
-
                                                                 <div className='profile_name_container'>
                                                                     <p className='profile_names ellipsis'>{state.Profile.username}</p>
-
                                                                 </div>
-
                                                             </section>
                                                             <hr />
                                                             <section className=' navbarProfileDropDownSection'>
-                                                                <ol className='navbar_profile_orderList px-0'>
-
-                                                                    
+                                                                <ol className='navbar_profile_orderList px-0'>   
                                                                     <li className='profile_list' onClick={() => { Logout() }}>  <span><TbLogout /></span> LOGOUT</li>
-
-
-
                                                                 </ol>
-
                                                             </section>
 
                                                         </div>
@@ -159,7 +145,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
 
                                                 </div>
                                                 :
-                                                <div className='d-flex align-items-center gap-1 justify-content-end  Sapceing'>
+                                                <div className='d-flex align-items-center gap-1 justify-content-end  gap-2'>
                                                 
                                                         <Grid >
                                                             <span  onClick={()=>setOpen(()=>true)}>

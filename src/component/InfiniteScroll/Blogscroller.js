@@ -103,7 +103,7 @@ const Blogscroller = () => {
                         className={Styled.blogcardDescription}
                         dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
                       />
-                      <div className={`row d-md-flex d-none ${Styled.extra_function} ${Styled.extra_function_destop}`}>
+                      <div className={`row d-md-flex d-none ${Styled.extra_function}`}>
                         <div className="col-3">
                           <span className={Styled.action_icons}><AiFillEye /></span>
                           <span>{items.ViewCount} Views</span>

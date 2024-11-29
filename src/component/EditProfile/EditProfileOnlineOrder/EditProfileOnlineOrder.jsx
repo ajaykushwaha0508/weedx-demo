@@ -7,7 +7,7 @@ import AddDateOfBirth from './EditProfileOnlineOrderComponent/AddDateOfBirth';
 const EditProfileOnlineOrder = ({Profile,Api,SetApi}) => {
    
     return (
-        <div className="col-12 EditProfileOnlineOrder_main_column mt-4">
+        <div className="col-12 EditProfileLogin_mainColumns mt-4">
           
             <h2 className="email_notification_headings">{`Online Order`}</h2>
             <div className="row mx-0">

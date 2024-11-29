@@ -1,13 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import styled from '@/styles/customstyle.module.scss'
 const Termandcondition = ({refplace}) => {
   const router = useRouter()
 
   return (
-    <div className={styled.tc_topic_list}>
-        <div className={styled.heading_box}><h3 className={`text-white m-0 ${styled.sideTableHeading}`}>{`Table of Contents`}</h3></div>
+    <div className={`tc_topic_list`}>
+        <div className={`heading_box`}><h3 className={`text-white m-0 ${`sideTableHeading`}`}>{`Table of Contents`}</h3></div>
         <ul>
             <Link href={{ hash:`#acceptance_of_terms`,}} > <li className={router.pathname.includes( `#acceptance_of_terms`) && "activeTable"  }>{`1. Acceptance of Terms`} </li></Link>
             <Link href={{ hash:`#eligibility_to_use_website`,}} > <li className={router.pathname.includes(`#eligibility_to_use_website`) && "activeTable"  }> {`2.  Eligibility to Use Website `}</li></Link>

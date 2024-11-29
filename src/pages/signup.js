@@ -50,7 +50,7 @@ const Signup = () => {
   return (
     <div className="login_signup_reset_container ">
     <div className='row'>
-        <div className='col-12 signup_head'>
+        <div className='signup_head'>
             <h1>Sign Up</h1>
 
         </div>

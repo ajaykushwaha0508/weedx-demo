@@ -108,12 +108,11 @@ export function Menuintegration_login({ open, setOpen }) {
            
             <Dialog open={open}  onClose={handleClose}>
                     <div className="login_signup_reset_container ">
-                        <div className='col-12 signup_head'>
+                        <div className='signup_head'>
                             <h1>Log In</h1>
                         </div>
                         <form onSubmit={method.handleSubmit(Submit)}>
-                            <div className='logininputbox'>
-                                <div className='col-lg-12 mt-1 '>
+                                <div className='mt-1 '>
                                     <TextField
                                         placeholder="Enter Your Email"
                                         variant="outlined"
@@ -134,9 +133,7 @@ export function Menuintegration_login({ open, setOpen }) {
                                         error={Boolean(method.errors?.email) || (Boolean(dulicate?.email))}
                                     />
                                 </div>
-                            </div>
-                            <div className='row logininputbox'>
-                                <div className='col-lg-12 mt-1 '>
+                                <div className='mt-1 '>
                                     <TextField
                                         type={showPassword ? 'text' : 'password'}
                                         placeholder="Password"
@@ -170,14 +167,12 @@ export function Menuintegration_login({ open, setOpen }) {
                                         error={Boolean(method.errors?.password)}
                                     />
                                 </div>
-                            </div>
-
-                            <div className='row mt-3'>
-                                <div className=' col-lg-12 '>
+                            <div className='mt-3'>
+                               
                                     <Box className={!loading ? `${classes.loginBtnTextAndBackground}` : `${classes.loginBtnTextAndBackgroundAfter}`} >
                                         <LoadingButton variant="outlined" loading={loading} type='submit'>LOGIN</LoadingButton>
                                     </Box>
-                                </div>
+                           
 
                             </div>
                         </form>

@@ -263,7 +263,7 @@ const AboutUs = () => {
                    </div>
             </div>
             <div className={newclases.our_valuesSection}>
-               <h2 className={newclases.section_title}>{`Our Values`}</h2>
+               <h2 className={newclases.section_main_title}>{`Our Values`}</h2>
                 <div className=" row">
                     {OurValuesArray.map((items, index) => {
                         return (
@@ -283,7 +283,7 @@ const AboutUs = () => {
             </div>
             <div className={newclases.testimonial}>
 
-                <h2 className={newclases.section_title}>{`Clients preach the WeedX`}</h2>
+                <h2 className={newclases.section_main_title}>{`Clients preach the WeedX`}</h2>
 
                 <div className={`row`}>
                     <ClientPreachSlider {...settings}>

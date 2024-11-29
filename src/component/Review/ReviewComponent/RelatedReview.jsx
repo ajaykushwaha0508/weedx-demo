@@ -277,8 +277,8 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             </div>
                                         }
 
-                                <div className={newclases.related_review_footer}>
-                                    <div className={`${newclases.related_review_footer_paragraph} ellipsis`}  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
+                                <div className={'related_review_footer'}>
+                                    <div className={`related_review_footer_paragraph ellipsis`}  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
                                             <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
                                                {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
                                             </Badge>

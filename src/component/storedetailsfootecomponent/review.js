@@ -5,7 +5,6 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from 'next/image'
 import { BsStarFill } from "react-icons/bs";
-import Styled from '@/styles/customstyle.module.scss'
 const styles = {
     card: {
         border: "1px solid #ddd",
@@ -97,7 +96,7 @@ const Review = (props) => {
             {
                 Boolean(props?.AllReview?.length) &&
                     <React.Fragment>
-                        <h4 className={`${Styled.section_main_title} mb-3 `}>{`What Customers Say about ${props.storename}`}</h4>
+                        <h4 className={`section_main_title mb-3 `}>{`What Customers Say about ${props.storename}`}</h4>
                         <Swiper className={`mySwiper similerproduxt`}
                             spaceBetween={50}
                             slidesPerView={2}
