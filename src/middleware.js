@@ -13,7 +13,6 @@ export async function middleware(req) {
   // Access cookies from the request
   const cookies = req.cookies;
   let location = cookies.get('fetchlocation');
-
   if (!location) {
     const setLocation = {
       country: 'United-States',
@@ -26,9 +25,6 @@ export async function middleware(req) {
     response.headers.set('X-fetchlocation', location);
   } else {
     response.cookies.set('fetchlocation', location.value , {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'Strict', // Consider "Lax" for cross-origin compatibility
       maxAge: 60 * 60 * 24 * 7, // 7 days
     });
     response.headers.set('X-fetchlocation', location.value);

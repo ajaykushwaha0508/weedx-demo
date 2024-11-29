@@ -4,6 +4,8 @@ function BrandSeo({ location }) {
     return (
         <Head>
             <title>Shop from Top Marijuana Brands Near You | weedx.io</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
             <meta name='description' content={`Shop high-quality Recreational and Medical Marijuana from top brands Near you. Order online and get the best delivery, dispensaries, and deals on weedx.io`} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>

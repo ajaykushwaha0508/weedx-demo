@@ -4,6 +4,8 @@ const businesspageseo = () => {
     <Head>
             <title>{`Add Your Cannabis Business - Dispensary, Delivery Service, or Brand on WeedX.io
  `}</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+
             <meta name='description' content={`List your dispensary, delivery service, or cannabis brand on WeedX.io. Easily manage inventory and orders with Cannabaze, available on mobile. Get started now!
 `} />
         

@@ -28,7 +28,7 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                                     title={ele.name.substr(0, 100)}
                                     width={100}
                                     height={100}
-                                    priority
+                                    priority={index === 0}
                                     onError={(e) => (e.target.src = '/image/blankImage.jpg')}
                                     className={"catagoriesTabImg"} />
 

@@ -3,6 +3,7 @@ function LearnSeo({location}) {
     return (
         <Head>
             <title>{"Learn everything about you favorite Cannabis | weedx.io |"}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} /> 

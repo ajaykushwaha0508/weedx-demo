@@ -45,6 +45,7 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
     return (
         <Head>
             <title>{Productname}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name='description' content={`${Productnm} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis Product in ${City}, ${State}.`} />
             <link rel="canonical" href={`https://www.weedx.io${location}`} />
             <meta name="robots" content={robot}></meta>

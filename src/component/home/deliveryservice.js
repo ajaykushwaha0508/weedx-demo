@@ -88,7 +88,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                                             <div className={`dispensoriesAddresCardimg`}>
                                                                 <Link href={`/${link}/${modifystr(items?.Store_Name)}/${items?.id}`}>
                                                                     <Image
-                                                                        priority
+                                                                        priority={index}
                                                                         width={100}
                                                                         height={100}
                                                                         quality={100}
