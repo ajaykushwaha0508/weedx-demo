@@ -42,13 +42,8 @@ const HomePageDealsSignup = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-xl-6  col-md-5 col-12 d-md-inline d-none'>
-<<<<<<< HEAD
-                            <div className={`newsletterImage text-center`}>
-                                <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
-=======
                             <div className={`${styled.newsletterImage} text-center`}>
                                 <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={200} height={200} src={newsletters.src} alt='newsletter Icon' title='newsletter Icon'/>
->>>>>>> 46c2af0 (h)
                             </div>
                         </div>
                         <div className='col-xl-6  col-md-6 col-sm-10 col-12  mx-auto px-0 d-flex justify-content-center align-items-center'>
