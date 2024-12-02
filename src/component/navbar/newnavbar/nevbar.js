@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import {Grid } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,10 +14,10 @@ import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
 // import Notification from '../component/Notification';
-const Notification = dynamic(() => import("../component/Notification"),{ssr:true});
+const Notification = dynamic(() => import("../component/Notification"),{ssr:false});
 // import Afterlogin from "../component/afterlogin";
-const Afterlogin = dynamic(() => import("../component/afterlogin"),{ssr:true});
-import dynamic from 'next/dynamic'
+const Afterlogin = dynamic(() => import("../component/afterlogin"),{ssr:false});
+
 // const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
 //   memo: true 
 // });
@@ -130,7 +131,7 @@ export default function Nevbar() {
                 <Grid item xs={12} md={12} xl={12}>
 
                     <SliderLink state={state}></SliderLink>
-                    <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
+                    {/* <SideNavbar closeNav={closeNav} Open={open}></SideNavbar> */}
                 </Grid>
             </Grid>
         </div>
