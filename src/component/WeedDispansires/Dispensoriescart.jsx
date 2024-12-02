@@ -18,8 +18,8 @@ const Dispensoriescart = (props) => {
                 <div className={`col-4 ${newclases.disensories_card_image_div}`}>
                     <Link href={`/weed-dispensaries/${modifystr(ele?.Store_Name)}/${ele.id}`}>
                         <Image
-                             src={ele?.Store_Image || '/image/blankImage.jpg'} // Default image agar Store_Image na ho
-                            //  onError={(e) => (e.target.src = '/image/blankImage.jpg')} // Default image
+                             src={ele?.Store_Image || '/blankImage.jpg'} // Default image agar Store_Image na ho
+                            //  onError={(e) => (e.target.src = '/blankImage.jpg')} // Default image
                             onError={(e) => {
                                 // Infinite loop prevent karne ke liye check karein
                                 if (e.target.src.endsWith('/images/blankImage.jpg')) {

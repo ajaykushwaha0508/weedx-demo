@@ -925,10 +925,10 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
 
       return handle(req, res);
     });
-    server.listen(3000, (err) => {
-      if (err) throw err;
-      console.log('> woking on http://localhost:3000');
-    });
+      server.listen(3000, (err) => {
+        if (err) throw err;
+        console.log('> woking on http://localhost:3000');
+      });
 
   });
 

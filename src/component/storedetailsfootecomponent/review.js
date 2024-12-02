@@ -134,7 +134,7 @@ const Review = (props) => {
                                                             unoptimized
                                                             src={data.userImage}
                                                             alt="Profile"
-                                                            onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                            onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                             style={styles.image}
                                                         />
                                                         <div className={styles.cardnamerating}>

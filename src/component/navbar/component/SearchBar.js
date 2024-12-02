@@ -94,7 +94,7 @@ const SearchBar = ({ path }) => {
     };
 
     const handleImageError = (event) => {
-        event.target.src = "/image/blankImage.jpg"; // Fallback image on error
+        event.target.src = "/blankImage.jpg"; // Fallback image on error
     };
 
     const handleSearchAPI = (id, type, t) => {

@@ -509,7 +509,7 @@ export default function DispensoriesDetails(props) {
                     {
                         tab === 'deals' && <div className={newclasess.noReview}>
                             <div className={newclasess.noreviewicon}>
-                                <div className={newclasess.iconcircl}> <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} src={'/image/nodeal.png'} className={newclasess.nodealsicon} alt="no Deals" title="no Deals" /></div>
+                                <div className={newclasess.iconcircl}> <Image onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={'/image/nodeal.png'} className={newclasess.nodealsicon} alt="no Deals" title="no Deals" /></div>
                             </div>
                             <h3 className={newclasess.noreview_title}>{`Discover More Savings Soon!`}</h3>
                             <p className={`${newclasess.noreview_description} w-lg-50`} >{`It looks like there are no active deals at the moment at `}<Link target="_blank" href={`/weed-dispensaries/${modifystr(Despen[0]?.Store_Name)}/${Despen[0]?.id}`}><b>{Despen[0]?.Store_Name}</b></Link>{`. Don't worry, though – our partnered stores frequently update their promotions. Be sure to check back regularly for exciting discounts and special offers on your favorite products.`}</p>

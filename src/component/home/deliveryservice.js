@@ -94,8 +94,8 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                                                         src={items?.Store_Image}
                                                                         alt={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
                                                                         title={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
-                                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
-                                                                        className={`${`dispensories_image`}  center-block`}
+                                                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
+                                                                        className={`${clases.dispensories_image}  center-block`}
                                                                     />
                                                                 </Link>
                                                             </div>
@@ -126,7 +126,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                     <div className='nodeliveryinhomepage' >
                                         <div className='nodeliveryinhomeimage'>
                                             <Image
-                                                 onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                 onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                 width={100}
                                                 priority
                                                 height={100} src='/NOTDELIVERED.png' alt='NOTDELIVERED' title='NOTDELIVERED' />

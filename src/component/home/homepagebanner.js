@@ -9,7 +9,7 @@ import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props , btype }) => {
   const handleImageError = (event) => {
     if (event.type === "error") {
-      event.target.src = '/image/blankImage.jpg'; // Fallback image URL
+      event.target.src = '/blankImage.jpg'; // Fallback image URL
     }
   };
   const imageLoader = ({ src, width, quality }) => {

@@ -42,7 +42,7 @@ const VerifyBrands = () => {
                             
                                     <Link   href={`/brands/${modifystr(items.name)}/${items.id}`}> 
                                     <div className="col-6  verifyBrand_image_container ">
-                                    <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100}  className="verify_brand_image"  src={`${items.Brand_Logo}`}  alt={items.name} title={items.name} />
+                                    <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100}  className="verify_brand_image"  src={`${items.Brand_Logo}`}  alt={items.name} title={items.name} />
 
                                     </div>
                                     <div className="col-6 verify_content_container">

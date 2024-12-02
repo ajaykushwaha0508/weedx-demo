@@ -421,7 +421,7 @@ const ProductList = ({ arr, link = "products" }) => {
 
                               width={100}
                               priority
-                              onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                              onError={(e) => (e.target.src = '/blankImage.jpg')}
                               height={100}
                               src={`${ele?.images[0]?.image}`}
                               alt={ele.Product_Name}

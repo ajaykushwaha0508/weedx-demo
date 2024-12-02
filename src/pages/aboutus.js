@@ -134,7 +134,7 @@ const AboutUs = () => {
         <div className={newclases.aboutUsPage}>
             <AboutusSeo></AboutusSeo>
             <div className={newclases.about_us_header}>
-                <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority src='/image/about_us_banner.jpg' alt='imgs not available' width={100} height={100} title='imgs not available'  className={newclases.About_us_banner_image} />
+                <Image onError={(e) => (e.target.src = '/blankImage.jpg')} priority src='/image/about_us_banner.jpg' alt='imgs not available' width={100} height={100} title='imgs not available'  className={newclases.About_us_banner_image} />
                 <div className={newclases.text_on_image}>
                     <h1>{'About us'}</h1>
                 </div>

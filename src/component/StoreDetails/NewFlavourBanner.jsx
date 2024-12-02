@@ -34,7 +34,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                         <div className="d-inline">
                             <div className={clases.newFlavourimage_div}>
                                 <Image
-                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                    onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     priority
                                     width={100}
                                     height={100}

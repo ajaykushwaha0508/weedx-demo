@@ -82,7 +82,7 @@ const PlaceOrder = ({orderid}) => {
                                                     width={100}
                                                     height={100} 
                                       
-                                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                    onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                     className='w-100' src={`${item.Image}`} alt={item.ProductName} title={item.ProductName} />
 
                                                 </div>

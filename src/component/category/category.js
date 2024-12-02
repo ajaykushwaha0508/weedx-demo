@@ -29,7 +29,7 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                                     width={100}
                                     height={100}
                                     priority={index === 0}
-                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                    onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     className={"catagoriesTabImg"} />
 
                                 <div className={`col center ${"Category_title"}`} >

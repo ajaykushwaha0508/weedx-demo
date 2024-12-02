@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import {Grid } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,12 +13,15 @@ import { AiFillHeart } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
-import Notification from '../component/Notification';
-import Afterlogin from "../component/afterlogin";
-import dynamic from 'next/dynamic'
-const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"),{ 
-    memo: true 
-  });
+// import Notification from '../component/Notification';
+const Notification = dynamic(() => import("../component/Notification"),{ssr:false});
+// import Afterlogin from "../component/afterlogin";
+const Afterlogin = dynamic(() => import("../component/afterlogin"),{ssr:false});
+
+// const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
+//   memo: true 
+// });
+const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"),{ ssr:false });
 import SideNavbar from "../component/SideSlider/Slider"
 export default function Nevbar() {
     const cookies = new Cookies();
@@ -127,7 +131,7 @@ export default function Nevbar() {
                 <Grid item xs={12} md={12} xl={12}>
 
                     <SliderLink state={state}></SliderLink>
-                    <SideNavbar closeNav={closeNav} Open={open}></SideNavbar>
+                    {/* <SideNavbar closeNav={closeNav} Open={open}></SideNavbar> */}
                 </Grid>
             </Grid>
         </div>

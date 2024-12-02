@@ -4,7 +4,7 @@ import weedx from '../../../public/image/weedx.webp'
 const Loader = () => {
   return (
     <div className="loader_container">
-       <span className="newloader shine"><Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={300} height={300} src={weedx.src} alt='weedx.io logo'  title='weedx.io logo'/></span>
+       <span className="newloader shine"><Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={300} height={300} src={weedx.src} alt='weedx.io logo'  title='weedx.io logo'/></span>
     </div>
   )
 }

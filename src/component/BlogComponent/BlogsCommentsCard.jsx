@@ -62,7 +62,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                             <div className="col-12 d-flex align-items-center">
                                                 <section className="commentCardImages">
                                                     <div className="imageContainer">
-                                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={500} height={500}  src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
+                                                        <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={500} height={500}  src={`${val.image}`} className="blogsCommentImages" alt={val.username} title={val.username} />
                                                     </div>
                                                 </section>
                                                 <section className="commentCradContentSection">

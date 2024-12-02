@@ -162,7 +162,7 @@ const Product = (props) => {
                                         setIsDropdownOpen(!isDropdownOpen)
                                     }}>
                                         {selectedOption && (
-                                            <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} priority src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} title={selectedOption.name} className="dropdown-option-image" />
+                                            <Image onError={(e) => (e.target.src = '/blankImage.jpg')} width={100} height={100} priority src={`${selectedOption.SubCategoryImage}`} alt={selectedOption.name} title={selectedOption.name} className="dropdown-option-image" />
                                         )}
                                         <span className="dropdown-option-label">
                                             {selectedOption ? selectedOption.name : 'Sort by Subcategory '}
@@ -172,7 +172,7 @@ const Product = (props) => {
                                     <ul className={`dropdown-menu image_dropdown ${isDropdownOpen ? 'open' : ''}`}>
                                         {subcategories?.map((option, index) => (
                                             <li key={index} onClick={() => selectOption(option)}>
-                                                <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} width={100} height={100} priority src={`${option.SubCategoryImage}`} alt={option.name} title={option.name} className="dropdown-option-image" />
+                                                <Image onError={(e) => (e.target.src = '/blankImage.jpg')} width={100} height={100} priority src={`${option.SubCategoryImage}`} alt={option.name} title={option.name} className="dropdown-option-image" />
                                                 <span className="dropdown-option-label">{option.name}</span>
                                             </li>
                                         ))}

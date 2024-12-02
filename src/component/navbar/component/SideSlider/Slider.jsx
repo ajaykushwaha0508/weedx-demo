@@ -79,7 +79,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                             <span >
                                                 <Link href="/">
                                                     <Image
-                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                         priority
                                                         src="/WeedWhiteLogo.webp"
                                                         alt="WeedX.io logo"
@@ -104,7 +104,7 @@ const SideNavbar = ({ closeNav, Open }) => {
 
                                                     <Image
                                                         src={state?.Profile?.image}
-                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                         priority
                                                         width={100}
                                                         height={100}
