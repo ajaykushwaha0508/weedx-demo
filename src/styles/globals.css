@@ -1147,3 +1147,87 @@ textarea:focus {
       color: gray;
     }
 }
+.hm_banner {
+
+  background-color: #a7ffe2;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  background-image: url('../../public/cannabisplants.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+
+}
+.hm_bannerGlass{
+  width: 100%;
+  height: 100%;
+  background: rgba(37, 37, 37, .8);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1px );
+  -webkit-backdrop-filter: blur( 1px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  gap: 30px;
+}
+.hm_banner-content {
+  flex: 1;
+  max-width: 500px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+.hm_banner-heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.hm_banner-description {
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+.hm_banner-image {
+  flex-shrink: 0;
+  /* width: 500px; */
+  height: auto;
+}
+
+.hm_banner-image img {
+    width: 100%;
+    height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hm_banner {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .hm_banner-content {
+      padding-right: 0;
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .hm_banner-image {
+      width: 0%;
+  }
+  .hm_banner-heading {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .hm_banner-description {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.5;
+  }
+}

@@ -67,7 +67,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="">
                                     {
-                                        title === 'Weed Dispensaries Near You'?<h1 className={`section_main_title`}>{title}</h1>:<h2 className={`section_main_title`}>{title}</h2>
+                                        title === 'Weed Dispensaries Near You'?<h2 className={`section_main_title`}>{title}</h2>:<h2 className={`section_main_title`}>{title}</h2>
                                     }
                                     
                                     {link === "weed-deliveries" && <h3 className='section_main_subtitle'>{location}</h3>}
@@ -77,8 +77,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                 </Link>
                             </div>
                             {
-                                
-                                    Boolean(DeliveryService.length) ?
+                                 Boolean(DeliveryService.length) ?
                                     <div className={`recentViewProductSlider`} id="width" ref={ref}>
                                         <ScrollContainer className="ScrollContainerRelative">
                                             {DeliveryService?.map((items, index) => {

@@ -25,10 +25,10 @@ const AddToCart = () => {
                 ?
                 <div className="row mt-sm-4">
                     <div className="col-12">
-                        {location.pathname !== '/carts' && <div className={`col-12 ${newclases.addtoCart_headingss}`}>
+                        {location.pathname !== '/carts' && <div className={`col-12 addtoCart_headingss`}>
                                 <p className="mb-0">{`Your Cart from`}</p>
                                 <Link href={`${state.AllProduct[0].Store_Type === "dispensary" ? "/weed-dispensaries" : "/weed-deliveries"}/${modifystr(state.AllProduct[0]?.StoreName)}/${state.AllProduct[0]?.Store_id}`}>        
-                                     <h1 className={newclases.addToCartHeadingss}> {state.AllProduct[0]?.StoreName} </h1>
+                                     <h1 className={'addToCartHeadingss'}> {state.AllProduct[0]?.StoreName} </h1>
                                 </Link>
                             </div>
                         }

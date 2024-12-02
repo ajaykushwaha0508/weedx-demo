@@ -8,19 +8,14 @@ import HomePageBannerSkeleton from '../../component/skeleton/DashBoardSkeleton/H
 import Image from 'next/image';
 import clases from '@/styles/customstyle.module.css'
 const HomePageWeedBanner = ({ props }) => {
-
-
     const imageLoader = ({ src, width, quality }) => {
         return `${src}`
     }
-
     return (
-        <div className={clases.homeBannerContainer}>
-          
+        <div className={homeBannerContainer}>
                 <div className={clases.destop_image}>
                     <Swiper loop={true} autoplay={{
-                        delay: 250000,
-
+                        delay: 1000,
                         disableOnInteraction: false,
                     }} style={{ zIndex: 0 }} modules={[Autoplay]}>
                         {props?.reverse()?.map((ele, index) => {
@@ -50,8 +45,7 @@ const HomePageWeedBanner = ({ props }) => {
                 </div>
                 <div className={clases.mobile_imges}>
                     <Swiper loop={true} autoplay={{
-                        delay: 2500,
-
+                        delay: 1500,
                         disableOnInteraction: false,
                     }} style={{ zIndex: 0 }} modules={[Autoplay]}>
                         {props?.reverse()?.map((ele, index) => {
@@ -77,7 +71,6 @@ const HomePageWeedBanner = ({ props }) => {
                         })}
                     </Swiper>
                 </div>
-         
         </div>
     )
 }
