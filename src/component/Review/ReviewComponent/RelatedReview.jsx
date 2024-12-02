@@ -197,7 +197,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                           
                                                 <div className={newclases.related_review_image}>
                                                     <Image
-                                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                         priority
                                                         width={100}
                                                         height={100}
@@ -229,7 +229,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                                 {
                                                     ele.images.map((item , index)=>{
                                                          return     <div key={index} className={newclases.reviewimagebox} onClick={()=>openimageslider(ele , 'image' ,index)}>
-                                                                        <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} src={item.image} className='reviewImage' alt='review image' title='review image'/>
+                                                                        <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={item.image} className='reviewImage' alt='review image' title='review image'/>
                                                                     </div>
                                                     })
                                                 }
@@ -250,7 +250,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                                    
                                                         <div className={newclases.related_review_image}>
                                                             <Image
-                                                              onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                              onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                                priority
                                                                 width={100} 
                                                                 height={100}

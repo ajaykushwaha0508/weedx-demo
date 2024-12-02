@@ -14,7 +14,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
     const classes = useStyles();
     return (
         <div >
-            { state.login ? 
+            {/* { state.login ? 
             <div className='position-relative' ref={profileRef}>
                 <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
                     <div className={clases.Navbar_profile_logo_container}>
@@ -25,7 +25,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
                             height={100}
                             title='Profile'
                             className={clases.Navbar_logo_imgs}
-                            onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                            onError={(e) => (e.target.src = '/blankImage.jpg')}
                             onClick={()=>handleClickDropdown()}
                         />
                     </div>
@@ -49,8 +49,13 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
                 }
             </div>
 
+<<<<<<< HEAD
             :
             <div className='col-12 d-flex align-items-center gap-1 justify-content-end gap-2'>
+=======
+            : */}
+            <div className='col-12 d-flex align-items-center gap-1 justify-content-end Sapceing'>
+>>>>>>> 46c2af0 (h)
                 <div className='col-lg-4 col-xl-5 col-sm-4'>
                     <Grid display={{ xs: "none", md: "block", lg: "block", }}>
                         <Link href="/login"><Button className={classes.muiBtn}>{`Log In`}</Button></Link>
@@ -61,7 +66,8 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
                         <Link href="/signup"><Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup}>{`Sign Up`}</Button></Link>
                     </Grid>
                 </div>
-            </div>}
+            </div>
+            {/* } */}
         </div>
     );
 };

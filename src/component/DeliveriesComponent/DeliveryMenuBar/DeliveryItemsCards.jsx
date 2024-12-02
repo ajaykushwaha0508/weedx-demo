@@ -26,7 +26,7 @@ const DeliveryItemsCard = ({ Deliverie }) => {
                                         src={`${items.Store_Image}`}
                                         alt={items.Store_Name}
                                         title={items.Store_Name}
-                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     />
                                 </Link>
                             </div>

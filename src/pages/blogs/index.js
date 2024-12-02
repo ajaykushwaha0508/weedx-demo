@@ -80,7 +80,7 @@ const Allblogs = (props) => {
                         src={items.Image} 
                         alt={items.Alt_Text} 
                         title={items.Alt_Text} 
-                        onError={(e) => (e.target.src = '/image/blankImage.jpg')} // Fallback to a placeholder image on error
+                        onError={(e) => (e.target.src = '/blankImage.jpg')} // Fallback to a placeholder image on error
                       />
                     </Link>
 

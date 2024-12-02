@@ -12,6 +12,7 @@ const Brand = ({VerifyArrayData}) => {
     const classes = useStyles()
     return (
         <React.Fragment>
+<<<<<<< HEAD
             <BrandSeo location={location.pathname}></BrandSeo>
             <h1 className="section_main_title m-0">{`Brands`}</h1>
             <div className="col-12 col-lg-10 mx-auto">
@@ -24,6 +25,24 @@ const Brand = ({VerifyArrayData}) => {
                                         <div className="row verifyBrand_row mx-1 my-md-3 my-2">
                                                 <div className="col-5  verifyBrand_image_container ">
                                                     <Image    onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} className="verify_brand_image" src={`${items.Brand_Logo}`} alt={items.name} title={items.name} />
+=======
+            <div className="">
+              
+                    <div className="col-12 col-sm-10 brandHeading">
+
+                        <div className="container-fluid">
+                            <BrandSeo location={location.pathname}></BrandSeo>
+                            <div className="row w-100 m-sm-auto m-0">
+                                <h1 className="section_title m-0">{`Brands`}</h1>
+                                {VerifyArrayData?.map((items, index) => {
+                                    return (
+                                        <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
+                                            <div className="row verifyBrand_row mx-1 my-3">
+
+                                                <Link    href={`/brands/${modifystr(items.name)}/${items.id}`}>
+                                                    <div className="col-6  verifyBrand_image_container ">
+                                                        <Image    onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} className="verify_brand_image" src={`${items.Brand_Logo}`} alt={items.name} title={items.name} />
+>>>>>>> 46c2af0 (h)
 
                                                 </div>
                                                 <div className="col-7 verify_content_container">

@@ -80,7 +80,7 @@ const ProductIncDecQuantity = ({ popup, SetPopup, items, AddToCart, setadding, a
                                     alt={items.Product_Name}
                                     priority
                                     title={items.Product_Name}
-                                           onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                           onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     />
                             </div>
                             <div className='col-12 col-md-7 col-sm-6 productInc_dec_content'>

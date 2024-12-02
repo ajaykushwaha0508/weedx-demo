@@ -99,7 +99,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
                                             selectedImage !== null ? <Image src={selectedImage} alt='user Image' title={'User Image'} className='add_photo_size' />
                                                 :
                                                 <Image
-                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                     src={image}
                                                     // src={image}
                                                     alt='User Image'

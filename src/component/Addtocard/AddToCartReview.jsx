@@ -226,7 +226,7 @@ const AddToCartReview = () => {
                                                     alt={ele.StoreName}
                                                     title={ele.StoreName} 
                                                     priority
-                                                    onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                    onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                     />
                                                 </Link>
                                             </div>
@@ -278,7 +278,7 @@ const AddToCartReview = () => {
                                     <div className={newclasess.mb_addtoproduct_card_img}>
                                         <Link href={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
                                             <Image   width={100}  height={100} src={`${ele.Image}`} alt={ele.ProductName}  title={ele.ProductName}
-                                                priority  onError={(e) => (e.target.src = '/image/blankImage.jpg')} />
+                                                priority  onError={(e) => (e.target.src = '/blankImage.jpg')} />
                                         </Link>
                                     </div>
                                     <div className={newclasess.mb_addtoproduct_card_content}>

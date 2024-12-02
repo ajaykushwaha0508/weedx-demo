@@ -93,7 +93,7 @@ const DeliveryInformation = ({ SetShowDeliveryInformation, image, setImage, setD
                                                 label="First name *"
                                                 variant="standard"
                                                 fullWidth
-                                                onChange={((e)=>handleChange(e))}
+                                                onChange={(e) => handleChange(e)}
                                                 name='FirstName'
                                                 inputRef={method.register({
                                                     required: "First name is required*.",

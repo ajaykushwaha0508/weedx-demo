@@ -39,7 +39,7 @@ const RecentPost = () => {
                                                 quality={70}
                                                 title={ele.Title}
                                                 priority
-                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                 style={{ pointerEvents: "none" }} />
                                             </div>
                                             <div className={clases.new_blog_card_text}>  

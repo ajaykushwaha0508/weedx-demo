@@ -12,12 +12,21 @@ import { AiFillHeart } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
-import Notification from '../component/Notification';
-import Afterlogin from "../component/afterlogin";
+// import Notification from '../component/Notification';
+const Notification = dynamic(() => import("../component/Notification"),{ssr:true});
+// import Afterlogin from "../component/afterlogin";
+const Afterlogin = dynamic(() => import("../component/afterlogin"),{ssr:true});
 import dynamic from 'next/dynamic'
+<<<<<<< HEAD
 const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"),{ 
     memo: true 
   });
+=======
+// const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
+//   memo: true 
+// });
+const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"),{ ssr:false });
+>>>>>>> 46c2af0 (h)
 import SideNavbar from "../component/SideSlider/Slider"
 export default function Nevbar() {
     const cookies = new Cookies();

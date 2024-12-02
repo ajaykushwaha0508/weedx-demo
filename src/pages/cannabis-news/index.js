@@ -76,7 +76,7 @@ const Allblogs = (props) => {
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}
-                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                       />
                     </Link>
 

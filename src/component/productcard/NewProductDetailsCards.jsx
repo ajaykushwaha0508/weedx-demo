@@ -292,7 +292,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                                                 src={items.image}
                                                                 alt={Product?.Product_Name}
                                                                 title={Product?.Product_Name}
-                                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                                onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                                 onClick={() => { Setdisplaypic(items?.image) }}
                                                             />
                                                         </div>
@@ -307,7 +307,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                                         height={100}
                                         src={Boolean(displaypic) ? displaypic : Product?.images[0]?.image}
                                         alt={Product?.Product_Name}
-                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                         title={Product?.Product_Name} />
 
                                 </div>

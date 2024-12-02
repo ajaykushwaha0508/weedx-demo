@@ -100,7 +100,7 @@ const Navbar = () => {
                         <SearchBar path={Location?.pathname || ""} />
                     </Grid>
                     <Grid className='text-center' item xs={6} md={6} xl={7} display={{ xs: "block", md: "none", lg: "none" }}>
-                        <Link href="/"><Image onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.webp'} width={100} height={100} /></Link>
+                        <Link href="/"><Image onError={(e) => (e.target.src = '/blankImage.jpg')} priority className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.webp'} width={100} height={100} /></Link>
                     </Grid>
                     <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                         <div className={'Heder_icon'} >

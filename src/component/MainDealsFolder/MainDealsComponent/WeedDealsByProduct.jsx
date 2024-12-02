@@ -18,7 +18,7 @@ const WeedDealsByProduct = ({ArrayData,heading}) => {
                                     <div className="popularStrainImageContainer">
 
                                         <Image
-                                            onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                            onError={(e) => (e.target.src = '/blankImage.jpg')}
                                         priority
                                             width={100}
                                             height={100}

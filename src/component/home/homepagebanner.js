@@ -8,7 +8,7 @@ import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props }) => {
   const handleImageError = (event) => {
     if (event.type === "error") {
-      event.target.src = '/image/blankImage.jpg'; // Fallback image URL
+      event.target.src = '/blankImage.jpg'; // Fallback image URL
     }
   };
 
@@ -48,7 +48,7 @@ const HomePageBanner = ({ props }) => {
                     quality={100} // High quality for desktop
                     priority={index === 0} // Eager load the first image
                     // placeholder="blur"
-                    // blurDataURL="/image/blankImage.jpg" // Placeholder image
+                    // blurDataURL="/blankImage.jpg" // Placeholder image
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1500px"
                     className={'HomePageBanner_image'}
                     onError={handleImageError}
@@ -78,7 +78,7 @@ const HomePageBanner = ({ props }) => {
                 <a href={items?.Link || "#"} target="_blank" rel="noopener noreferrer">
                 <Image
                             src={items?.mobile }
-                  // src={items?.mobile || '/image/blankImage.jpg'}
+                  // src={items?.mobile || '/blankImage.jpg'}
                   alt="Weedx.io Mobile Promotion Banner"
                   title="Weedx.io Mobile Promotion Banner"
                   width={500}
@@ -90,7 +90,7 @@ const HomePageBanner = ({ props }) => {
                   loader={imageLoader}
                   priority={index === 0}
                   // placeholder="blur"
-                  // blurDataURL="/image/blankImage.jpg"
+                  // blurDataURL="/blankImage.jpg"
                 />
                 </a>
               </SwiperSlide>

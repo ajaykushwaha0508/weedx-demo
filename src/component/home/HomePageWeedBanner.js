@@ -29,7 +29,7 @@ const HomePageWeedBanner = ({ props }) => {
 
                                     <div className={`col-12 ${clases.homePageBanner_container}`} >
                                         <a href={ele.Link !== null ? ele.Link : "#"}>
-                                            <Image onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                            <Image onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                 priority
                                                 width={1400} height={500}
                                                 loader={imageLoader}
@@ -60,7 +60,7 @@ const HomePageWeedBanner = ({ props }) => {
                                     <div className={`col-12 ${clases.homePageBanner_container}`}>
                                         <a href={ele.Link !== null ? ele.Link : "#"}>
                                             <Image priority
-                                                onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                                onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                 width={100} height={10}
                                                 loader={imageLoader}
                                                 src={`${ele?.mobile}`}

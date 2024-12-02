@@ -129,12 +129,12 @@ const EditProfile = () => {
                             <div className="ProfileImageWrapper">
 
                                 {
-                                    selectedImage !== null ? <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} src={selectedImage} alt='profile_image'
+                                    selectedImage !== null ? <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={selectedImage} alt='profile_image'
                                         title='profile_image'
                                         className="profile_images" />
                                         :
                                         <Image
-                                        onError={(e) => (e.target.src = '/image/blankImage.jpg')}
+                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                         priority
                                             width={100}
                                             height={100}

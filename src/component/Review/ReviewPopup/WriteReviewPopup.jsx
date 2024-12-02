@@ -232,7 +232,7 @@ import Image from "next/image";
                             mediaurls.map((item, index)=>{
                               if(Boolean(images[index]?.type?.includes('image'))){
                                 return <span key={index} className="uploadedImage"> <span onClick={()=>{removemedia(index)}} className="crossbtn"><RxCross2 />
-                                </span> <Image   onError={(e) => (e.target.src = '/image/blankImage.jpg')} priority width={100} height={100} src={item} alt="adkgfdg" /> </span>
+                                </span> <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={item} alt="adkgfdg" /> </span>
                               }else{
                                 return <span key={index}className="uploadedVideo"> <span onClick={()=>{removemedia(index)}} className="crossbtn"><RxCross2 />
                                 </span> <video src={item} width="320" height="240" muted controls autoplay />   </span>
