@@ -19,6 +19,89 @@ const HomePageBanner = ({ props , btype }) => {
 
   console.log(isMobile)
   return (
+      <div className="homeBannerContainer">
+      <Swiper
+        loop
+        autoplay={{
+          delay: isMobile ? 5000 : 1000, // Adjust delay based on screen size
+          disableOnInteraction: false,
+        }}
+        style={{
+          zIndex: 0,
+          height: isMobile ? '212px' : '390px',
+        }}
+        a11y={{ enabled: true }}
+        modules={[Autoplay, A11y]}
+      >
+        {btype !== 'submainbanner' && (
+          <SwiperSlide>
+            <div className="hm_banner">
+              <div className="hm_bannerGlass">
+                <div className="hm_banner-content">
+                  <h1 className="hm_banner-heading">{'Find Weed Near You'}</h1>
+                  <p className="hm_banner-description">
+                    {'Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.'}
+                  </p>
+                </div>
+                <div className="hm_banner-image">
+                  {/* <Image src={destokig} width={100} height={100} alt="Banner Image" /> */}
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        )}
+        {props?.reverse()?.map((items, index) => (
+          <SwiperSlide key={index}>
+            <div className="homePageBanner_container">
+              <a href={items?.Link || '#'} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={isMobile ? items?.mobile : items?.Banner}
+                  alt="Weedx.io Promotion Banner"
+                  title="Weedx.io Promotion Banner"
+                  width={isMobile ? 500 : 100}
+                  height={isMobile ? 500 : 100}
+                  quality={isMobile ? 60 : 100} // Adjust quality based on screen size
+                  sizes={isMobile ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 1200px) 80vw, 1500px'}
+                  className="HomePageBanner_image"
+                  onError={handleImageError}
+                  loader={imageLoader}
+                  priority={index === 0} // Eager load the first image
+                />
+              </a>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+export default HomePageBanner;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       // <div className='homeBannerContainer'>
       //   <Grid item display={{ xs: "none", md: "block", lg: "block" }}>
       //     <Swiper
@@ -129,60 +212,3 @@ const HomePageBanner = ({ props , btype }) => {
       //     </Swiper>
       //   </Grid>
       // </div>
-      <div className="homeBannerContainer">
-      <Swiper
-        loop
-        autoplay={{
-          delay: isMobile ? 5000 : 1000, // Adjust delay based on screen size
-          disableOnInteraction: false,
-        }}
-        style={{
-          zIndex: 0,
-          height: isMobile ? '212px' : '390px',
-        }}
-        a11y={{ enabled: true }}
-        modules={[Autoplay, A11y]}
-      >
-        {btype !== 'submainbanner' && (
-          <SwiperSlide>
-            <div className="hm_banner">
-              <div className="hm_bannerGlass">
-                <div className="hm_banner-content">
-                  <h1 className="hm_banner-heading">{'Find Weed Near You'}</h1>
-                  <p className="hm_banner-description">
-                    {'Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.'}
-                  </p>
-                </div>
-                <div className="hm_banner-image">
-                  {/* <Image src={destokig} width={100} height={100} alt="Banner Image" /> */}
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        )}
-        {props?.reverse()?.map((items, index) => (
-          <SwiperSlide key={index}>
-            <div className="homePageBanner_container">
-              <a href={items?.Link || '#'} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src={isMobile ? items?.mobile : items?.Banner}
-                  alt="Weedx.io Promotion Banner"
-                  title="Weedx.io Promotion Banner"
-                  width={isMobile ? 500 : 100}
-                  height={isMobile ? 500 : 100}
-                  quality={isMobile ? 60 : 100} // Adjust quality based on screen size
-                  sizes={isMobile ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 1200px) 80vw, 1500px'}
-                  className="HomePageBanner_image"
-                  onError={handleImageError}
-                  loader={imageLoader}
-                  priority={index === 0} // Eager load the first image
-                />
-              </a>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-}
-export default HomePageBanner;
