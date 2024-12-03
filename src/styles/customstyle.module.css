@@ -5589,6 +5589,12 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   footer .footer_main_div_display .footer_icons_column p {
     justify-content: center;
   }
+  .homeBannerContainer .swiper {
+    height: auto !important;
+  }
+  .homeBannerContainer .swiper .swiper-slide {
+    height: unset;
+  }
   .homeBannerContainer .homePageBanner_container {
     margin-bottom: 0;
   }
@@ -5608,10 +5614,10 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     font-size: 12px;
   }
   .recentViewProductSlider .dispensoriesContainer {
-    min-width: 180px;
+    min-width: 160px;
   }
   .recentViewProductSlider .dispensoriesContainer .dispensoriesAddressBorder .dispensoriesAddresCardimg .dispensories_image {
-    height: 140px;
+    height: 100px;
   }
   .recentViewProductSlider .dispensoriesContainer .dispensoriesAddressBorder .dispensoriesContentContainer {
     padding: 10px;
@@ -5629,6 +5635,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
     background-color: #F9F9F9;
     padding: 10px;
     margin: 10px 0;
+  }
+  .About_weedx .section_main_description {
+    font-size: 14px;
   }
   .About_weedx .about_card_Wraper .about_card {
     padding: 15px;

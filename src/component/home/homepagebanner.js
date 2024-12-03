@@ -17,13 +17,12 @@ const HomePageBanner = ({ props , btype }) => {
     return `${src}?w=${width}&q=${quality || 100}`;
   };
 
-  console.log(isMobile)
   return (
       <div className="homeBannerContainer">
       <Swiper
         loop
         autoplay={{
-          delay: isMobile ? 5000 : 1000, // Adjust delay based on screen size
+          delay: isMobile ? 50000000 : 900000000, // Adjust delay based on screen size
           disableOnInteraction: false,
         }}
         style={{

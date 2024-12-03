@@ -898,6 +898,7 @@
      
     }
     .homeBannerContainer{
+      
         .mobile_imges{
             display: none;
             padding: 0 1px;
@@ -6185,13 +6186,18 @@
             }
         }
         .homeBannerContainer{
+            .swiper{
+                height: auto !important;
+                .swiper-slide{
+                    height: unset;
+                }
+            }
             .homePageBanner_container{
                 margin-bottom: 0;
             }
         }
         .CategoryBordrr{
-                padding: 0 16px;
-
+            padding: 0 16px;
             .catagoryTabs_section{
                 .shopByCategoryHeading {
                     font-size: 16px;
@@ -6211,11 +6217,11 @@
         }
         .recentViewProductSlider {
             .dispensoriesContainer{
-                min-width: 180px;
+                min-width: 160px;
                 .dispensoriesAddressBorder{
                     .dispensoriesAddresCardimg{
                         .dispensories_image {
-                            height: 140px;
+                            height: 100px;
                         }
                     }
                     .dispensoriesContentContainer {
@@ -6239,12 +6245,14 @@
                     }
                 }
             }
-        
         }
         .About_weedx{
             background-color: #F9F9F9;
             padding:10px;
             margin: 10px 0;
+            .section_main_description{
+              font-size: 14px;
+            } 
             .about_card_Wraper {
                 .about_card{
                         padding: 15px;
@@ -6265,7 +6273,7 @@
                     }
                 }
             }
-          }
+        }
         .StoreHeader{
              margin-bottom: 20px;
              border: 1px solid #1f722d;

@@ -6,9 +6,7 @@ const Staticcontent = () => {
             <div className="About_weedx">
                 <div className="container-fluid">
                     <h2 className={`${"section_main_title"} mb-sm-1 mb-3 text-center`}>{`Welcome to weedx.io`}</h2>
-                    <p className="section_main_description">{`Your all-in-one cannabis destination. Discover a world of convenience with our Online Ordering and Delivery   Services. Explore a rich selection of Dispensary and Retailer Listings, all while enjoying the peace of mind that comes with our
-                        full Compliance with Local Laws. Your journey to a seamless, legal, and informed cannabis experience begins here at
-                        weedx.io`}</p>
+                    <p className="section_main_description">{`WeedX.io is your one-stop destination for all things cannabis! Connect with local dispensaries, explore trusted brands, and enjoy fast delivery or convenient pickup options. Browse detailed menus, discover high-quality cannabis products, and experience seamless shopping tailored to your needs. Whether you’re seeking medical or recreational marijuana, WeedX.io makes access easy and hassle-free.`}</p>
 
                     <div className={"about_card_Wraper"}>
                         <div className={"about_card"}>

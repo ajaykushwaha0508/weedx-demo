@@ -1208,26 +1208,27 @@ textarea:focus {
   .hm_banner {
       flex-direction: column;
       text-align: center;
+      max-height: 212px;
   }
-
   .hm_banner-content {
       padding-right: 0;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
   }
-
+  .hm_bannerGlass{
+    padding: 20px;
+    border-radius: 4px;
+    gap: 0;
+    /* max-height: 180px; */
+  }
   .hm_banner-image {
       width: 0%;
   }
   .hm_banner-heading {
     font-size: 28px;
-    font-weight: 800;
-    color: #ffffff;
     margin-bottom: 10px;
   }
   .hm_banner-description {
     font-size: 16px;
-    color: #ffffff;
-    line-height: 1.5;
   }
 }
