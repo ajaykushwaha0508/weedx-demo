@@ -22,7 +22,7 @@ const HomePageBanner = ({ props , btype }) => {
       <Swiper
         loop
         autoplay={{
-          delay: isMobile ? 50000000 : 900000000, // Adjust delay based on screen size
+          delay: isMobile ? 5000 : 1000, // Adjust delay based on screen size
           disableOnInteraction: false,
         }}
         style={{

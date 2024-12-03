@@ -212,7 +212,7 @@ const MyOrder = () => {
                             </div>
                         }
                     </div>
-                    <Loader/>
+                    {/* <Loader/> */}
                 </div>
            
         </React.Fragment>
