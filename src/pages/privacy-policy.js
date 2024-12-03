@@ -7,7 +7,7 @@ const Privacypolicy = () => {
   const ref = useRef(null);
   return (
     <React.Fragment>
-      <div className={styled.term_condition}>
+      <div className={'term_condition'}>
         <PrivacyPolicy></PrivacyPolicy>
         <div className="container-fluid">
           <div className={`tc_hero`}>
