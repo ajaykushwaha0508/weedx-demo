@@ -95,7 +95,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                                                         alt={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
                                                                         title={items?.Store_Name.charAt(0)?.toUpperCase() + items?.Store_Name.slice(1)}
                                                                         onError={(e) => (e.target.src = '/blankImage.jpg')}
-                                                                        className={`${clases.dispensories_image}  center-block`}
+                                                                        className={`dispensories_image center-block`}
                                                                     />
                                                                 </Link>
                                                             </div>
