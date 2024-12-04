@@ -13,14 +13,10 @@ const EmptyCard = () => {
             Navigate.push(-1)
         }
         else {
-
             Navigate.push("/products")
         }
-
     }
-
-    return (
-      
+    return ( 
         <div className=" Empty_container_margin_top">
             <div className="EmtyCard_container">
                     <div className="image_container">
@@ -34,14 +30,8 @@ const EmptyCard = () => {
                     <div className="height_empty_div_heading">
                         <h1>{`Your cart is empty`}</h1>
                     </div>
-                    <div className="height_empty_div_paragraph ellipsis">
-                        <p>{`Don't wait to bake. Add items to your cart and enjoy`}</p><br/>
-
-                    </div>
-                    <div className="height_empty_div_paragraph ellipsis">
-                    <p>{` your weed today.`}</p>
-
-                    </div>
+                    <p className="height_empty_div_paragraph ellipsis">{`Don't wait to bake. Add items to your cart and enjoy`}</p><br/>
+                    <p className="height_empty_div_paragraph ellipsis">{` your weed today.`}</p>
                     {   
                         <div className="height_Empty_btnDiv mt-2">
                             <Box className={`  ${classes.loadingBtnTextAndBack}`}>

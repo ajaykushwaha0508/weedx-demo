@@ -15,7 +15,7 @@ const WhisLists = () => {
              {state.permission === false && <Currentlocation></Currentlocation>}
             <WhislistSeo></WhislistSeo>
             <div className="row">
-                <div className="col-12 whislistBackBtn_Container px-0">
+                <div className="col-12 d-flex align-content-center px-0">
                     <span><IconButton onClick={() => Navigate.push('/products')}><MdOutlineKeyboardArrowLeft color="#000000"/></IconButton></span><span onClick={() => Navigate.push(-1)} className="BackPageBtn">Back</span>
 
                 </div>

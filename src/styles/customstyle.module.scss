@@ -4116,14 +4116,17 @@
         .EmtyCard_container {
             min-height: 300px;
             width: 50%;
+            padding: 20px;
+            background-color: #b1fddc;
             text-align: center;
+            border-radius: 8px;
             .image_container {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-bottom: 20px;
                 .Empty_card_image {
-
+                    background-color: #fff;
                     height: 120px;
                     width: 120px;
                     border-radius: 60px;
@@ -5235,6 +5238,13 @@
         }
     }
     @media (max-width: 768px){
+        .Empty_container_margin_top {
+            margin:0px 0;
+            width: 100%;
+            .EmtyCard_container {
+                width: 100%;
+            } 
+        }
         .homeBannerContainer{
             height: 274px;
         }
@@ -5384,7 +5394,6 @@
             }
             }
         }
-      
         .CategoryBordrr{
             .catagoryTabs_section{
             padding: 10px 0;  
@@ -5858,15 +5867,16 @@
         
                 }
             }
-            .orderCardBox{
-                .orderdetailsheader{
-                    padding: 15px;
-                    .sellerName_date {
-                        font-size: 12px;
-                    }
-                    .allOrder_spanName {
-                        font-size: 12px;
-                    }
+        
+        }
+        .orderCardBox{
+            .orderdetailsheader{
+                padding: 15px;
+                .sellerName_date {
+                    font-size: 12px;
+                }
+                .allOrder_spanName {
+                    font-size: 12px;
                 }
             }
         }
@@ -6201,7 +6211,7 @@
         }
         .homeBannerContainer{
             height: auto;
-            max-height: 205px;
+            max-height: 220px;
             .swiper{
                
                 .swiper-slide{
@@ -6688,6 +6698,11 @@
                     }
                 }
             }
+        }
+    }
+    @media (max-width: 440px){
+        .homeBannerContainer{
+            height: 210px;
         }
     }
     @media (max-width: 400px){

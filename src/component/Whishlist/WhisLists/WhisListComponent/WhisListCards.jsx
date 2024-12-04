@@ -33,9 +33,10 @@ const WhisListCard = () => {
     return (                                                                                                                            
         <div className="whislistCard_wrapper1">
             {
-                GetApiData.length ? <ProductSearchResult RelatedProductResult={GetApiData} title={"Wishlist"} /> : <div className="container-fluid Empty_container_margin_top">
-                    <div className="row">
-                        <div className="col-12 EmtyCard_container">
+                GetApiData.length ? <ProductSearchResult RelatedProductResult={GetApiData} title={"Wishlist"} /> :
+                 <div className="Empty_container_margin_top">
+                   
+                        <div className="EmtyCard_container">
                             <div className="row">
                                 <div className="col-12 image_container">
                                     <div className="Empty_card_image">
@@ -49,16 +50,17 @@ const WhisListCard = () => {
                                     <h2 className="height_empty_div_heading">{`You have no favorites.`}</h2>
                                     <p className="height_empty_div_paragraph ellipsis">{`Don't wait to bake. Add items to your favorites  and enjoy`}</p><br/>
                                     <p className=" height_empty_div_paragraph ellipsis"> {`your weed today.`}</p>
-
-                              
-                                    <Box className={`  ${classes.loadingBtnTextAndBack}`} >
-                                        <LoadingButton onClick={ShopNow} style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
-                                    </Box>
-                              
+                                    <div className="text-center mt-4">
+                                        <div className="col-md-4 col-sm-8 col-12 mx-auto">
+                                            <Box className={`  ${classes.loadingBtnTextAndBack}`} >
+                                                <LoadingButton onClick={ShopNow} style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>Shop now</LoadingButton>
+                                            </Box>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
 
-                    </div>
+                   
                 </div>
             }
              

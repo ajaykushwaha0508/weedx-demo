@@ -3,18 +3,13 @@ import countries from  "i18n-iso-countries";
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 export async function middleware(req) {
   const response = NextResponse.next();
-  
-  // Handle URL case normalization
-  if (req.nextUrl.pathname === "/AboutUs") {
+    if (req.nextUrl.pathname === "/AboutUs") {
     return NextResponse.redirect(
       `${req.nextUrl.origin}${req.nextUrl.pathname.toLowerCase()}`
     );
   }
-
-  // Access cookies from the request
   const cookies = req.cookies;
   let location = cookies.get('fetchlocation');
-//  console.log( location)
   if (!location) {
     const setLocation = {
       country: 'United-States',

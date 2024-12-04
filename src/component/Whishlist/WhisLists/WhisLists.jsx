@@ -12,7 +12,7 @@ const WhisLists = () => {
         <div className="container-fluid">
             <WhislistSeo></WhislistSeo>
             <div className="row">
-                <div className="col-12 whislistBackBtn_Container px-0">
+                <div className="d-flex align-items-center  ">
                     <span><IconButton onClick={() => Navigate.push('/products')}><MdOutlineKeyboardArrowLeft color="#000000"/></IconButton></span><span onClick={() => Navigate(-1)} className="BackPageBtn">Back</span>
                 </div>
                 <WhisListCard/>

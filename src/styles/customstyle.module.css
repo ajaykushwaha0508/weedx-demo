@@ -3949,7 +3949,10 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 .Empty_container_margin_top .EmtyCard_container {
   min-height: 300px;
   width: 50%;
+  padding: 20px;
+  background-color: #b1fddc;
   text-align: center;
+  border-radius: 8px;
 }
 .Empty_container_margin_top .EmtyCard_container .image_container {
   display: flex;
@@ -3958,6 +3961,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   margin-bottom: 20px;
 }
 .Empty_container_margin_top .EmtyCard_container .image_container .Empty_card_image {
+  background-color: #fff;
   height: 120px;
   width: 120px;
   border-radius: 60px;
@@ -4840,6 +4844,13 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
 }
 @media (max-width: 768px) {
+  .Empty_container_margin_top {
+    margin: 0px 0;
+    width: 100%;
+  }
+  .Empty_container_margin_top .EmtyCard_container {
+    width: 100%;
+  }
   .homeBannerContainer {
     height: 274px;
   }
@@ -5306,13 +5317,13 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .myOrderPAge .NODataInOrderPage .nodataAlie p {
     font-size: 14px;
   }
-  .myOrderPAge .orderCardBox .orderdetailsheader {
+  .orderCardBox .orderdetailsheader {
     padding: 15px;
   }
-  .myOrderPAge .orderCardBox .orderdetailsheader .sellerName_date {
+  .orderCardBox .orderdetailsheader .sellerName_date {
     font-size: 12px;
   }
-  .myOrderPAge .orderCardBox .orderdetailsheader .allOrder_spanName {
+  .orderCardBox .orderdetailsheader .allOrder_spanName {
     font-size: 12px;
   }
   .MyOrderProductDetail .allOrderCard_container {
@@ -5549,7 +5560,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
   .homeBannerContainer {
     height: auto;
-    max-height: 205px;
+    max-height: 220px;
   }
   .homeBannerContainer .swiper .swiper-slide {
     height: unset;
@@ -5928,6 +5939,11 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   .StoreDetailspage .store_detail_SideMenuBar_order_list .StoreDetailSidemenuBarList .StoreDetailSideMenu_listItems {
     height: 30px;
     font-size: 14px;
+  }
+}
+@media (max-width: 440px) {
+  .homeBannerContainer {
+    height: 210px;
   }
 }
 @media (max-width: 400px) {

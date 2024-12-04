@@ -11,8 +11,6 @@ import useStyles from '@/styles/style';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {IoMdShare} from "react-icons/io"
 import { AiOutlineConsoleSql } from 'react-icons/ai';
-import styled from '@/styles/customstyle.module.css'
-
 const OrderTracking = ({AllOrder_data}) => {
     const classes = useStyles()
     const [activeStep, setActiveStep] = React.useState(1);
@@ -29,48 +27,48 @@ const OrderTracking = ({AllOrder_data}) => {
     },[])
     return (
       
-           <div className={styled.orderTracking_container}>
+           <div className={'orderTracking_container'}>
            
-            <h1 className={styled.orderTracking_heading}>{`Order Tracking`}</h1>
+            <h1 className={'orderTracking_heading'}>{`Order Tracking`}</h1>
             { AllOrder_data[0]?.Order_Status=== "Cancel" ?
-             <h2 className={styled.cancelOrderIndicator}>{`This Order has been Cancelled`}</h2>
+                <h2 className={'cancelOrderIndicator'}>{`This Order has been Cancelled`}</h2>
                 : 
-            <React.Fragment>
-            <Box sx={{ maxWidth: 400,margin:'0 auto' }}>
-                <Stepper activeStep={activeStep} orientation="vertical" className={classes.OrderTrackingCircleColor}>
-                
-                        <Step >
-                            <StepLabel >
-                            Order Placed
-                            </StepLabel>
-                        </Step>
-                        <Step >
-                            <StepLabel >
-                             Shipped
-                            </StepLabel>
-                        </Step>
-                        <Step >
-                            <StepLabel >
-                            Delivered
-                            </StepLabel>
-                        </Step>
-                
-                </Stepper>
-                {activeStep === 3 && (
-                    <Paper square elevation={0} sx={{ p: 3 }}>
-                        <Typography>Your items has been delivered</Typography>
-                        <Typography sx={{ color: "#31B665" }}>Show more</Typography>
+                <React.Fragment>
+                    <Box sx={{ maxWidth: 400,margin:'0 auto' }}>
+                        <Stepper activeStep={activeStep} orientation="vertical" className={classes.OrderTrackingCircleColor}>
+                        
+                                <Step >
+                                    <StepLabel >
+                                    Order Placed
+                                    </StepLabel>
+                                </Step>
+                                <Step >
+                                    <StepLabel >
+                                    Shipped
+                                    </StepLabel>
+                                </Step>
+                                <Step >
+                                    <StepLabel >
+                                    Delivered
+                                    </StepLabel>
+                                </Step>
+                        
+                        </Stepper>
+                        {activeStep === 3 && (
+                            <Paper square elevation={0} sx={{ p: 3 }}>
+                                <Typography>Your items has been delivered</Typography>
+                                <Typography sx={{ color: "#31B665" }}>Show more</Typography>
 
-                    </Paper>
-                )}
-            </Box>
-            <Box className={`mt-4 center ${classes.OrderTrackingLoadingBtn}`}>
+                            </Paper>
+                        )}
+                    </Box>
+                    <Box className={`mt-4 center ${classes.OrderTrackingLoadingBtn}`}>
 
-                    <LoadingButton>Tracking Link</LoadingButton>
-                    <LoadingButton startIcon={<IoMdShare color='#8A8A8A'/>} className="mx-2"> Share</LoadingButton>
+                            <LoadingButton>Tracking Link</LoadingButton>
+                            <LoadingButton startIcon={<IoMdShare color='#8A8A8A'/>} className="mx-2"> Share</LoadingButton>
 
-            </Box>
-            </React.Fragment>
+                    </Box>
+                </React.Fragment>
             }
             </div>
     
