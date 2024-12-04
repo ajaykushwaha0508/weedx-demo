@@ -5,6 +5,7 @@ import Script from 'next/script';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
+
     const sheets = new ServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
@@ -14,16 +15,20 @@ export default class MyDocument extends Document {
       });
 
     const initialProps = await Document.getInitialProps(ctx);
+  const code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
 
     return {
       ...initialProps,
       styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+      code        
     };
   }
+   
 
   render() {
+  
     return (
-      <Html lang="en">
+      <Html lang={this.props.code}>
         <Head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 

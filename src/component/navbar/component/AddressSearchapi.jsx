@@ -53,6 +53,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
       var sta
       var ci
       var route
+      var countrycode
       const object = {}
       const short = {}
       placeDetails?.address_components.map((data) => {
@@ -64,6 +65,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
 
       if (Boolean(object.country)) {
         Coun = object.country.replace(/\s/g, '-');
+        countrycode = short.country
         dispatch({ type: 'Country', Country: Coun });
         dispatch({ type: 'countrycode', countrycode: short.country });
       }
@@ -179,12 +181,14 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
       if (!sta) {
         dispatch({ type: 'State', State: '' });
       }
+      
       const setLocation = {
         country: Coun || '',
         state: sta || "",
         city: ci || '',
         route: route || '',
-        formatted_address: placeDetails.formatted_address
+        formatted_address: placeDetails.formatted_address,
+        country_code: countrycode
       }
       const date = new Date();
       date.setTime(date.getTime() + 60 * 60 * 24 * 365);
@@ -192,6 +196,8 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
         expires: date,
         path: '/' // Set the path where the cookie is accessible
       });
+      cookies.set('locale',  `en-${countrycode}`, { path: '/' })
+      document.documentElement.lang = `en-${countrycode}`
       if (router.asPath === '/products' || router.asPath === '/') {
         router.replace(router.asPath);
       }
