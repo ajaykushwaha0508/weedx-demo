@@ -14,7 +14,6 @@ const CreateContext = createContext();
 const cookies = new Cookies();
 const login = cookies.get("User_Token_access") || getTokenFromLocalStorage();
 const isLoggedIn = !!login;
-
 const initialState = {
     login: isLoggedIn,
     ApiProduct: false,
@@ -61,8 +60,7 @@ const initialState = {
     citycode: "",
     statecode: "",
     location_Api: true,
-};
-
+}; 
 const Context = (props) => {
     const [state, dispatch] = useReducer(Reducer, initialState);
 
@@ -146,10 +144,7 @@ const Context = (props) => {
         }
 
     }, [state.ApiProduct, state.login]);
-
-    // Memoize the context value to prevent re-renders
     const contextValue = useMemo(() => ({ state, dispatch }), [state]);
-
     return (
         <CreateContext.Provider value={contextValue}>
             {props.children}

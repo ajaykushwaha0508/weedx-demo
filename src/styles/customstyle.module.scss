@@ -898,7 +898,10 @@
      
     }
     .homeBannerContainer{
-      
+        height: 400px;
+        .swiper {
+             height: auto !important;
+        }
         .mobile_imges{
             display: none;
             padding: 0 1px;
@@ -2770,23 +2773,24 @@
                     }
             }
         }
-        .orderCardBox{
-            .orderdetailsheader{
-                background-color: #e7e7e778;
-                padding: 15px;
-                .sellerName_date {
-                    font-size: 16px;
-                    color: #474747;
-                    font-weight: 600;
-                    margin-bottom: 0px;
-                }
-                .allOrder_spanName {
-                    font-size: 16px;
-                    font-weight: 400;
-                    color: #000000;
-                }
-                    
-                }
+       
+    }
+    .orderCardBox{
+        .orderdetailsheader{
+            background-color: #e7e7e778;
+            padding: 15px;
+            .sellerName_date {
+                font-size: 16px;
+                color: #474747;
+                font-weight: 600;
+                margin-bottom: 0px;
+            }
+            .allOrder_spanName {
+                font-size: 16px;
+                font-weight: 400;
+                color: #000000;
+            }
+                
         }
     }
     .MyOrderProductDetail{
@@ -4673,6 +4677,9 @@
                 }
             }
         }
+        .homeBannerContainer{
+            height: 340px;
+        }
     }
     @media (max-width: 1366px){
        .About_weedx { .about_card_Wraper {
@@ -4808,7 +4815,10 @@
                 justify-content: center;
                 align-items: center;
             } 
-    }
+        }
+        .homeBannerContainer{
+            height: 280px;
+        }
     }
     @media (max-width: 1024px){ 
         .prod_cat_left_sec {
@@ -4849,6 +4859,9 @@
     }
     }
     @media (max-width: 992px){
+        .homeBannerContainer{
+            height: 260px;
+        }
         .HomePageDealsSignupContainer {
             padding: 30px;
             .contentarea{
@@ -5216,7 +5229,15 @@
         }
           
     }
+    @media (max-width: 900px){
+        .homeBannerContainer{
+            height: 210px;
+        }
+    }
     @media (max-width: 768px){
+        .homeBannerContainer{
+            height: 274px;
+        }
         .headerBoxdescription{
             padding: 15px;
             h1{
@@ -5363,14 +5384,7 @@
             }
             }
         }
-        .homeBannerContainer{
-            .destop_image{
-                display: none;
-            }
-            .mobile_imges{
-                display: block;
-            }
-        }
+      
         .CategoryBordrr{
             .catagoryTabs_section{
             padding: 10px 0;  
@@ -6186,8 +6200,10 @@
             }
         }
         .homeBannerContainer{
+            height: auto;
+            max-height: 205px;
             .swiper{
-                height: auto !important;
+               
                 .swiper-slide{
                     height: unset;
                 }
@@ -6675,6 +6691,10 @@
         }
     }
     @media (max-width: 400px){
+        .homeBannerContainer{
+            max-height: 180px;
+        }
+
         footer {
             .footer_main_div_display{
                 padding-top: 20px;

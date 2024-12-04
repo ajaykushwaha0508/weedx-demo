@@ -11,6 +11,11 @@ module.exports = withBundleAnalyzer({
         hostname: 'selnew.s3.amazonaws.com',
         pathname: '/media/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'selnoxmedia.s3.amazonaws.com',
+        pathname: '/media/**',
+      },
     ],
   },
   sassOptions: {

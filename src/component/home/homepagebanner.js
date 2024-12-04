@@ -4,7 +4,8 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Image from 'next/image';
 import { Box, Grid , useMediaQuery} from '@mui/material';
-import destokig from '../../../public/destokig.png'
+import mobilestaticbanner from '../../../public/mobilestaticbanner.jpg'
+import destopstaticbanner from '../../../public/destopstaticbanner.png'
 import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props , btype }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -22,12 +23,12 @@ const HomePageBanner = ({ props , btype }) => {
       <Swiper
         loop
         autoplay={{
-          delay: isMobile ? 5000 : 1000, // Adjust delay based on screen size
+          delay: isMobile ? 5000000000 : 900000000, // Adjust delay based on screen size
           disableOnInteraction: false,
         }}
         style={{
           zIndex: 0,
-          height: isMobile ? '212px' : '390px',
+          // height: isMobile ? '212px' : '390px',
         }}
         a11y={{ enabled: true }}
         modules={[Autoplay, A11y]}
@@ -35,6 +36,9 @@ const HomePageBanner = ({ props , btype }) => {
         {btype !== 'submainbanner' && (
           <SwiperSlide>
             <div className="hm_banner">
+              <div className='hm_mainiamgebox'>
+                <Image src={!isMobile ? destopstaticbanner.src  : mobilestaticbanner.src} alt={'iamge'} width={400} height={170}  />
+              </div>
               <div className="hm_bannerGlass">
                 <div className="hm_banner-content">
                   <h1 className="hm_banner-heading">{'Find Weed Near You'}</h1>

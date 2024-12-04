@@ -17,33 +17,33 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown , Lo
             { state.login ? 
             <div className='position-relative' ref={profileRef}>
                 <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
-                    <div className={clases.Navbar_profile_logo_container}>
+                    <div className={'Navbar_profile_logo_container'}>
                         <Image   priority
                             src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
                             alt='Profile'
                             width={100}
                             height={100}
                             title='Profile'
-                            className={clases.Navbar_logo_imgs}
+                            className={'Navbar_logo_imgs'}
                             onError={(e) => (e.target.src = '/blankImage.jpg')}
                             onClick={()=>handleClickDropdown()}
                         />
                     </div>
                 </Grid>
                 {dropDownState &&
-                    <div className={clases.profileDropdown_container}>
-                        <section className={clases.Navbar_proflie_image_name_section}>
-                           <p className={`${clases.profile_names} ellipsis`}>{state.Profile.username}</p>
+                    <div className={'profileDropdown_container'}>
+                        <section className={'Navbar_proflie_image_name_section'}>
+                           <p className={`profile_names ellipsis`}>{state.Profile.username}</p>
                         </section>
                         <hr />
                      
-                        <ol className={clases.navbar_profile_orderList}>
-                            <Link href={'/editprofile'}> <li className={clases.profile_list}> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
-                            <Link href={'/myorder'}> <li className={clases.profile_list}> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
-                            <Link href={'/whislists'}> <li className={clases.profile_list}> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
-                            <Link href={'/myreviews'}> <li className={clases.profile_list}> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
-                            <Link href={'/helpcenter'}> <li className={clases.profile_list}> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
-                            <li className={clases.profile_list} onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
+                        <ol className={'navbar_profile_orderList'}>
+                            <Link href={'/editprofile'}> <li className={'profile_list'}> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
+                            <Link href={'/myorder'}> <li className={'profile_list'}> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
+                            <Link href={'/whislists'}> <li className={'profile_list'}> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
+                            <Link href={'/myreviews'}> <li className={'profile_list'}> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
+                            <Link href={'/helpcenter'}> <li className={'profile_list'}> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
+                            <li className={'profile_list'} onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
                         </ol>
                     </div>
                 }
