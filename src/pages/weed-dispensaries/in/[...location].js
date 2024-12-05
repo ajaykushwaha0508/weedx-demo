@@ -85,7 +85,7 @@ const Dispensaries = (props) => {
                 const date = new Date();
                 date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
                 const countryCode = countries.getAlpha2Code(props?.location?.country, "en") || "US";
-                 document.documentElement.lang = `en-${countryCode}`
+                //  document.documentElement.lang = `en-${countryCode}`
                 cookies.set('fetchlocation', JSON.stringify(setLocation), {
                     expires: date,
                     path: '/' // Set the path where the cookie is accessible
@@ -111,7 +111,7 @@ const Dispensaries = (props) => {
                 const date = new Date();
                 date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
                 const countryCode = countries.getAlpha2Code(props?.location?.country, "en") || "US";
-                 document.documentElement.lang = `en-${countryCode}`
+                //  document.documentElement.lang = `en-${countryCode}`
                 cookies.set('fetchlocation', JSON.stringify(setLocation), {
                     expires: date,
                     path: '/' // Set the path where the cookie is accessible
@@ -138,7 +138,7 @@ const Dispensaries = (props) => {
                 date.setTime(date.getTime() + 60 * 60 * 24 * 365); // 1 year expiry
                 const countryCode = countries.getAlpha2Code(props?.location?.country, "en") || "US";
               
-                 document.documentElement.lang = `en-${countryCode}`
+                //  document.documentElement.lang = `en-${countryCode}`
                 cookies.set('fetchlocation', JSON.stringify(setLocation), {
                     expires: date,
                     path: '/' // Set the path where the cookie is accessible
