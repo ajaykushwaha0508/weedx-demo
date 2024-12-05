@@ -2,7 +2,8 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@mui/styles';
 import Script from 'next/script';
-
+import countries from  "i18n-iso-countries";
+countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
 
@@ -15,8 +16,22 @@ export default class MyDocument extends Document {
       });
 
     const initialProps = await Document.getInitialProps(ctx);
-  const code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
-
+    var code 
+    if ( ctx.req.url.startsWith('/weed-dispensaries') || ctx.req.url.startsWith('/weed-deliveries') ) {
+     if (ctx.req.url.startsWith('/weed-dispensaries')){
+         const l =  ctx.req.url.split('/weed-dispensaries/in/')[1]
+         code = "en-"+ countries.getAlpha2Code(l, "en") || "US"
+     }
+     else{
+       const l =  ctx.req.url.split('/weed-deliveries/in/')[1]
+         code = "en-"+ countries.getAlpha2Code(l, "en") || "US"
+     }
+    }
+    else{
+      code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
+    }
+  // const code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
+  //   console.log(ctx.req.url.startsWith('/weed-dispensaries') , ctx.req.url.split('/weed-dispensaries/in/')[1]   )
     return {
       ...initialProps,
       styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
@@ -26,7 +41,7 @@ export default class MyDocument extends Document {
    
 
   render() {
-  
+
     return (
       <Html lang={this.props.code}>
         <Head>
