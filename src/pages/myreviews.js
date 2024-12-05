@@ -4,6 +4,9 @@ import { BsStar, BsStarFill } from "react-icons/bs";
 import { IconButton } from "@mui/material";
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Box from '@mui/material/Box';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { FaComment } from "react-icons/fa";
 import Image from 'next/image';
 import Cookies from 'universal-cookie';
 import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
@@ -119,7 +122,35 @@ const Myreview = () => {
                     <span><IconButton onClick={() => router.push('-1')}><MdOutlineKeyboardArrowLeft color="#000000" /></IconButton></span>
                     <span onClick={() => router.push(-1)} className="BackPageBtn">Back</span>
                 </div>
-                <div className="col-12 mt-sm-4 mt-2"><h1 className={clases.section_main_title}>My Reviews</h1></div>
+                <div className="col-12 mt-sm-4 mt-2">
+                    <h1 className={clases.section_main_title}>{'My Reviews'}</h1>
+                </div>
+                {
+                    !Boolean(allstorereviews.length && allproductreviews.length) ?  <div className=" Empty_container_margin_top">
+                    <div className="EmtyCard_container">
+                            <div className="image_container">
+                                <div className="Empty_card_image">
+                                    <Box className={classes.muiIcons}>
+                                    <FaComment size={40}/>
+                                    </Box>
+                                </div>
+        
+                            </div>
+                            <div className="height_empty_div_heading">
+                                <h1>{`Your cart is empty`}</h1>
+                            </div>
+                            <p className="height_empty_div_paragraph ellipsis">{`Don't wait to bake. Add items to your cart and enjoy`}</p><br/>
+                            <p className="height_empty_div_paragraph ellipsis">{` your weed today.`}</p>
+                            {/* {   
+                                <div className="height_Empty_btnDiv mt-2">
+                                    <Box className={`  ${classes.loadingBtnTextAndBack}`}>
+                                            <LoadingButton  style={{width:"100%",height:"100%"}} variant="outlined" loading={false} type={'submit'}>{`Shop now`}</LoadingButton>
+                                    </Box>
+                                </div>
+                            } */}
+                    </div>
+                </div>
+                :
                 <div className='reviews'>
                     {allstorereviews?.map((item) => (
                         <div className='myreviewBox' key={item.review.id}>
@@ -232,6 +263,7 @@ const Myreview = () => {
                         </div>
                     ))}
                 </div>
+                }
             </div>
             {open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>}
         </div>

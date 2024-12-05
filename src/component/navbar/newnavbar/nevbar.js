@@ -36,9 +36,10 @@ export default function Nevbar() {
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
     const openNav = React.useCallback(() => {
+        console.log('asdnj sdfa')
         setOpen((prevOpen) => !prevOpen);
     }, []);  // empty dependency array ensures this function is only created once
-    const closeNav = () => {
+    const closeNav = () => {  
         setOpen(false);
     };
     React.useEffect(() => {

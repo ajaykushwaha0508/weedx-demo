@@ -4,12 +4,14 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
 
   FilledTextFieldStyle: {
-    "& .MuiFilledInput-root:hover": {
-      background: "#F2F1F1"
-    },
-    "& .MuiInputBase-input.MuiFilledInput-input": {
-      padding: "18px",
-      borderRadius:"20px"
+    "&.MuiFormControl-root":{
+   
+     "& .MuiInputBase-root":{
+      backgroundColor:'#fff',
+      "& .MuiInputBase-input":{
+        paddingTop:'0',
+      }
+     }
     },
     "& .MuiFilledInput-underline:after": {
       borderBottomColor: "#31B665"
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
     },
     "& input": {
       "&:-webkit-autofill": {
-        WebkitBoxShadow: "0 0 0 1000px #F2F1F1 inset"
+        WebkitBoxShadow: "0 0 0 1000px #fff inset"
       }
     }
   },
@@ -968,8 +970,11 @@ const useStyles = makeStyles({
     "& .MuiDialog-container": {
       "& .MuiPaper-root": {
         width: "50%",
-        height: "400px",
+        maxWidth:'500px',
         borderRadius: "20px",
+        // display:'flex',
+        // justifyContent:'center',
+        // alignItems:'center',
         background: "#FFFFFF",
       },
     },
@@ -987,18 +992,18 @@ const useStyles = makeStyles({
     },
     "& .MuiLoadingButton-root": {
       width: "100%",
-      height: "50px",
+    
       borderRadius: "5px",
-      backgroundColor: "#FFFFFF",
-      color: "#707070",
+      backgroundColor: "#31B665",
+      color: "#fff",
       textTransform: "none",
       border: "1px solid #31B665",
       fontWeight: "700",
       fontSize: "14px"
     },
     "& .MuiButtonBase-root:hover": {
-      color: "#FFFFFF",
-      backgroundColor: "#31B665",
+      color: "#31B665",
+      backgroundColor: "#fff",
       border: "1px solid #31B665"
     },
   },
@@ -1008,7 +1013,6 @@ const useStyles = makeStyles({
     },
     "& .MuiLoadingButton-root": {
       width: "100%",
-      height: "50px",
       borderRadius: "5px",
       color: "#434343",
       textTransform: "none",
@@ -1021,62 +1025,6 @@ const useStyles = makeStyles({
       backgroundColor: "#C1C1C1",
       border: "1px solid #C1C1C1"
     },
-  },
-  notification_user_dialogBox_width_height: {
-    "& .MuiDialog-container": {
-      "& .MuiPaper-root": {
-        width: "50%",
-        height: "490px",  // Set your width here
-        borderRadius: "20px",
-        background: "#FFFFFF",
-      },
-    },
-    "@media(max-width:500px)": {
-      "& .MuiDialog-container": {
-        "& .MuiPaper-root": {
-          minWidth: "90%",
-        },
-      },
-    }
-  },
-  editPwd_Popup_dialog: {
-    "& .MuiDialog-container": {
-      "& .MuiPaper-root": {
-        width: "50%",
-        height: "auto",
-        borderRadius: "20px",
-        background: "#FFFFFF",
-        padding: "30px 0px"
-      }
-    },
-    "@media(max-width:500px)": {
-      "& .MuiDialog-container": {
-        "& .MuiPaper-root": {
-          minWidth: "90%"
-        }
-
-      }
-    }
-  },
-  
-  EditUserNamePopup: {
-    "& .MuiDialog-container": {
-      "& .MuiPaper-root": {
-        width: "50%",
-        height: "450px",
-        borderRadius: "20px",
-        background: "#FFFFFF",
-      }
-    },
-    "@media(max-width:500px)": {
-      "& .MuiDialog-container": {
-        "& .MuiPaper-root": {
-          minWidth: "90%"
-        }
-
-      }
-    }
-
   },
   AddMobilePopup: {
     "& .MuiDialog-container": {

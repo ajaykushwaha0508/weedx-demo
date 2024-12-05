@@ -298,10 +298,6 @@ textarea:focus {
   font-weight: 400;
 }
 .height_empty_div_paragraph {
-  height: 24px;
-}
-
-.height_empty_div_paragraph {
   color: rgb(124, 124, 124);
   font-size: 1rem;
   line-height: 1.5;
@@ -446,10 +442,6 @@ textarea:focus {
   margin-top: 12px;
   margin-left: 10px;
 }
-.profile_setting_container {
-  height: 100px;
-}
-
 .EditProfile_heading_cont {
   height: 40px;
 }
@@ -497,11 +489,6 @@ textarea:focus {
   display: flex;
   align-items: center;
 }
-
-.EditProfileLoginParagraph {
-  padding-left: 33px;
-}
-
 .editProfileLoginParaStyle {
   font-size: 14px;
   color: #707070;
@@ -510,9 +497,7 @@ textarea:focus {
   margin: 0;
 }
 
-.EditProfileLogin_mainColumns {
-  height: auto;
-}
+
 .EditProfileOnlineOrder_container {
   background: #ffffff;
   border: 1px solid #e2e2e2;
@@ -542,31 +527,8 @@ textarea:focus {
   color: #413d3d;
   font-family: "Inter", sans-serif;
 }
-.EditEmail_pop_heading {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-}
-.EditEmailPopup_col_height {
-  height: 60px;
-}
 
-.edit_emailPopUp_btn_container {
-  height: 60px;
-  margin-top: 20px;
-}
-.edit_UserPopUp_btn_container {
-  height: 60px;
-  margin-top: 20px;
-}
-.Edit_userName {
-  font-weight: 700;
-  font-size: 24px;
-  color: #000000;
-}
-.EditUser_col_div {
-  height: 60px;
-}
+
 .notification_col_ReactSwitch {
   display: flex;
   justify-content: flex-end;
@@ -594,21 +556,6 @@ textarea:focus {
   font-weight: 400;
   font-size: 14px;
 }
-.editPassword_Col {
-  height: 50px;
-}
-
-.editPassword_Col_textfield {
-  height: 57px;
-}
-
-.editPassword_heading {
-  color: #000000;
-  font-weight: 700;
-  font-size: 24px;
-}
-
-
 
 .editPassword_label {
   color: #000000;
@@ -640,9 +587,7 @@ textarea:focus {
   font-weight: 700;
 }
 
-.edit_userName_col {
-  height: 50px;
-}
+
 .addMobileNumberPopup_heading {
   color: #000000;
   font-size: 24px;
@@ -1111,7 +1056,7 @@ textarea:focus {
     .email_saving_sub_heading {
       font-size: 11px;
     }
-  
+
     .medicalCard_heading {
       font-size: 16px;
     }
@@ -1139,6 +1084,10 @@ textarea:focus {
       font-size: 12px;
       color: gray;
     }
+    .editProfile_name {
+      font-size: 14px;
+    }
+    
 }
 .hm_banner {
 

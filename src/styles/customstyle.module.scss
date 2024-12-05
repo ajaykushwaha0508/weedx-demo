@@ -4582,7 +4582,35 @@
             }
         }
     }
-    
+    .editemilPopupcontainer{
+        width: 100%;
+        padding: 20px;
+        height: 100%;
+        position: relative;
+        .editprofileCrossbtn{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+
+        }
+        .profileeditpopupContentbox{
+            width: 500px;
+            .editpopupfeildIcons{
+                font-size: 70px;
+                text-align: center;
+                color: #31B655;
+            }
+            .EditEmail_pop_heading {
+                font-weight: 700;
+                font-size: 24px;
+                color: #000000;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 40px;
+              }
+        }
+      
+    }
     @media (max-width: 1440px){
         .StoreDetailspage{
             .amenities_container {
@@ -5742,6 +5770,23 @@
             .tc_topic_list {
               display: none;
             }
+        }
+        .editemilPopupcontainer{
+           
+          
+           
+            .profileeditpopupContentbox{
+                width: 100%;
+                .editpopupfeildIcons{
+                    font-size: 50px;
+                }
+                .EditEmail_pop_heading {
+                   
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                  }
+            }
+          
         }
     }
     @media (max-width: 576px){

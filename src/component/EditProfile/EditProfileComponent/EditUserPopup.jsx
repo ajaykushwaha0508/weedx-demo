@@ -13,6 +13,7 @@ import { RiCloseCircleFill } from "react-icons/ri"
 import IconButton from '@mui/material/IconButton';
 import { useForm } from "react-hook-form";
 import Cookies from 'universal-cookie';
+import { FaRegUserCircle } from "react-icons/fa";
 import Axios from 'axios';
 const EditUserPopup = ({ username, Api, SetApi }) => {
     const classes = useStyles()
@@ -71,19 +72,18 @@ const handleChnage = (e) =>{
     return (
         <div>
             <Button className={`${classes.EditProfileBtn_Color}`} onClick={handleClickOpen} startIcon={< MdEdit color="#707070" size={18} />}>
-                Edit
+                {'Edit'}
             </Button>
-            <Dialog open={open} onClose={handleClose} className={`${classes.notification_user_dialogBox_width_height}`}>
-                <div className='container-fluid px-4'>
-                    <div className='row'>
-                        <div className='col-12 text-end mt-4 EditUser_col_div'>
+            <Dialog open={open} onClose={handleClose} className={`${classes.notification_dialogBox_width_height}`}>
+                    {/* <div className='editemilPopupcontainer'>
+                        <div className='text-end mt-4 '>
                             <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                         </div>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className='col-12 mt-4 EditUser_col_div'>
+                            <div className='col-12'>
                                 <label className='Edit_userName' htmlFor='Edit User Name'>Edit User Name</label>
                             </div>
-                            <div className='col-12 mt-4 EditUser_col_div'>
+                            <div className='col-12 '>
                                 <TextField
                                     className={`${classes.FilledTextFieldStyle}`}
                                     placeholder={username}
@@ -100,40 +100,76 @@ const handleChnage = (e) =>{
                                     error={Boolean(errors?.username)}
                                 />
                             </div>
-                            <Box
-                                className={`edit_UserPopUp_btn_container mt-4
-                         ${classes.editEmail_loadingBtn}`}
-                            >
+                            <Box className={classes.editEmail_loadingBtn} >
                                 <LoadingButton type="submit" variant="outlined" >Save</LoadingButton>
                             </Box>
-                            <Box
-                                className={`edit_UserPopUp_btn_container mt-4 ${classes.editEmail_loadingBtn_cancel}`}
-                            >
+                            <Box className={` mt-4 ${classes.editEmail_loadingBtn_cancel}`} >
                                 <LoadingButton onClick={handleClose} variant="outlined" >Cancel</LoadingButton>
                             </Box>
                         </form>
+                    </div> */}
+                    <div className='editemilPopupcontainer'>
+                    <div className='  editprofileCrossbtn'>
+                        <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
+                    </div>
+                    <div className='d-flex justify-content-center align-content-center w-100 h-100'>   
+                        <div className='profileeditpopupContentbox'>
+                            <div  className='editpopupfeildIcons'>
+                              <FaRegUserCircle />
+                            </div>
+                            <label className='EditEmail_pop_heading' htmlFor='Edit_User_Name'>Edit User Name</label>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                          
+                            <div className='col-12 '>
+                                <TextField
+                                    className={`${classes.FilledTextFieldStyle}`}
+                                    placeholder={username}
+                                    value={user}
+                                    onChange={handleChnage}
+                                    fullWidth variant="filled"
+                                    id='Edit User Name'
+                                    name='username'
+                                    inputRef={register({
+                                        required: "username is required*.",
+
+                                    })}
+                                    helperText={errors.username?.message}
+                                    error={Boolean(errors?.username)}
+                                />
+                            </div>
+                            <div className='row mt-4'>
+                                <div className='col-6'> 
+                                      <Box  className={classes.editEmail_loadingBtn} >
+                                        <LoadingButton type="submit" variant="outlined" >Save</LoadingButton>
+                                      </Box>
+                                </div>
+                                <div className='col-6'>
+                                    <Box  className={classes.editEmail_loadingBtn_cancel} >
+                                       <LoadingButton onClick={handleClose} variant="outlined" >Cancel</LoadingButton>
+                                    </Box>
+                                </div>
+                            </div>
+                          
+                           
+                           </form>
+                        </div>
                     </div>
                 </div>
-
-
             </Dialog>
             <Snackbar
-               anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-        }}
-        autoHideDuration={2000}
-        TransitionComponent={'SlideTransition'}
-        open={status}
-        onClose={()=>setstatus(false)}
-        message="Success"
-        className={classes.promptstyle}
-        action={
-            <RxCross2 size={22}  onClick={()=>setstatus(false)} />
-               }
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                autoHideDuration={2000}
+                TransitionComponent={'SlideTransition'}
+                open={status}
+                onClose={()=>setstatus(false)}
+                message="Success"
+                className={classes.promptstyle}
+                action={ <RxCross2 size={22}  onClick={()=>setstatus(false)} />}
              />
         </div>
-
     )
 }
 export default EditUserPopup

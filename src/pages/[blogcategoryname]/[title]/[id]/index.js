@@ -141,19 +141,19 @@ const Blogs = (props) => {
                             </div>
                         </section>
                     </div>
-                    <div className={styled.blogEditorContainer}>
-                        <h1 className={styled.blog_Title}>{News?.Title}</h1>
-                        <section className={styled.blog_Image}>
+                    <div className={'blogEditorContainer'}>
+                        <h1 className={'blog_Title'}>{News?.Title}</h1>
+                        <section className={'blog_Image'}>
                             <Image src={News.Image} alt="image" width={1200} height={900} quality={100} />
                         </section>
-                        <div className={styled.blog_text_container}  >
-                            <div className={styled.blogEditorPaddings}>
-                                <figure className={styled.linkTaginsideEditer} dangerouslySetInnerHTML={{ __html:News.Description}} />
+                        <div className={'blog_text_container'}  >
+                            <div className={'blogEditorPaddings'}>
+                                <figure className={'linkTaginsideEditer'} dangerouslySetInnerHTML={{ __html:News.Description}} />
                             </div>
                         </div>
-                        <div className={styled.blog_text_container} >
-                               <div className={styled.Linkofblog}>
-                                    <div className={`col ${styled.BlogSocal}`} >
+                        <div className={'blog_text_container'} >
+                               <div className={'Linkofblog'}>
+                                    <div className={`col BlogSocal`} >
 
                                         <RWebShare
                                             data={{ url: "https://www.weedx.io" + props.url }}
@@ -167,7 +167,7 @@ const Blogs = (props) => {
 
                                         <div className="blogViewCounts d-md-block d-none">Share</div>
                                     </div>
-                                    <div className={`col ${styled.viewsBlog}`}  >
+                                    <div className={`col viewsBlog`}  >
                                         <IconButton>
                                             <IoEyeSharp></IoEyeSharp>
                                         </IconButton>
@@ -176,13 +176,13 @@ const Blogs = (props) => {
 
 
                                     </div>
-                                    <div className={`col ${styled.viewsBlog} ${styled.BlogSocal}`}   onClick={scrolltocomment} >
+                                    <div className={`col viewsBlog BlogSocal`}   onClick={scrolltocomment} >
                                         <IconButton>
                                             <BiCommentDetail />
                                         </IconButton>
                                         <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="d-md-block d-none"> Comment</span> </span>
                                     </div>
-                                    <div className={`col ${styled.viewsBlog} ${styled.BlogSocal}`} >
+                                    <div className={`col viewsBlog} BlogSocal`} >
                                         <IconButton onClick={(() => { PostLike(color()?.like) })}>
                                             <AiFillHeart></AiFillHeart>
                                         </IconButton>
@@ -197,7 +197,7 @@ const Blogs = (props) => {
                             <section className="px-0" id="blodComment">
                                 <div className="col-12 blogsCommentCountCol">
                                     <div className="col-6">
-                                        <h2 className="blogsCommentheadings">Comments ({CommentCardArrays?.length})</h2>
+                                        <h2 className="blogsCommentheadings">{'Comments'} ({CommentCardArrays?.length})</h2>
                                     </div>
                                     <div className="col-6 d-flex justify-content-end">
                                         {ShowCards ? (
@@ -332,7 +332,7 @@ const Blogs = (props) => {
                                             />
                                         </section>
                                     )
-                                    }
+                                }
                             </section>
                         </div>
                    </div>

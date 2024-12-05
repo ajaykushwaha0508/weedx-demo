@@ -8,7 +8,7 @@ import EditPasswordPopup from "./EditPasswordPopup";
 const EditProfileLogin = ({Profile, Api, SetApi}) => {
     
     return (
-        <div className="col-12 EditProfileLogin_mainColumns">
+        <div className="col-12 ">
             <div className="w-100">
                 <h2 className=" email_notification_headings">{`Login`}</h2>
             </div>
@@ -20,7 +20,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                                 <div className="EditEmail_inner_container ">
                                     <span><MdEmail color="#707070" size={20} /></span><span className="editProfileLogin_padding_left editProfile_label"><label>{`Email`}</label></span>
                                 </div>
-                                <div className="EditProfileLoginParagraph">
+                                <div className="">
                                     <p className="editProfileLoginParaStyle ellipsis">{Profile?.email}</p>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                                     <span><FaUser color="#707070" size={20} /></span>
                                     <span className="editProfileLogin_padding_left editProfile_label"><label>{`User Name`}</label></span>
                                 </div>
-                                <div className=" EditProfileLoginParagraph">
+                                <div className=" ">
                                     <p className="editProfileLoginParaStyle ellipsis">{Profile?.username}</p>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                                     <span><AiFillEye color="#707070" size={20} /></span>
                                     <span className="editProfileLogin_padding_left editProfile_label"><label>{`Password`}</label></span>
                                 </div>
-                                <div className=" EditProfileLoginParagraph">
+                                <div className=" ">
                                     <p className="editProfileLoginParaStyle">{`Password`}</p>
                                 </div>
                             </div>
@@ -67,7 +67,6 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
 
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

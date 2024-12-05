@@ -115,7 +115,7 @@ const EditProfile = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-12 profile_setting_container mt-4">
+                <div className="col-12 mt-4">
                     <div className="EditProfile_heading_cont d-lg-none d-block">
                         <Link href="/"><span><IconButton><IoChevronBackSharp color="#707070" size={18} /></IconButton></span><span className="editProfile_backBtn">Back to Home</span></Link>
                     </div>
