@@ -28,8 +28,8 @@ export default class MyDocument extends Document {
 
     const initialProps = await Document.getInitialProps(ctx);
     var code
-    if (Boolean(ctx?.req?.url.startsWith('/weed-dispensaries')) || Boolean(ctx?.req?.url.startsWith('/weed-deliveries'))) {
-      if (ctx.req.url.startsWith('/weed-dispensaries')) {
+    if (Boolean(ctx?.req?.url.startsWith('/weed-dispensaries/in')) || Boolean(ctx?.req?.url.startsWith('/weed-deliveries/in'))) {
+      if (ctx.req.url.startsWith('/weed-dispensaries/in')) {
         const k = ctx.req.url.slice('/weed-dispensaries/in/'.length)
         const parts = k.split('/')
         code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
