@@ -2,7 +2,7 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@mui/styles';
 import Script from 'next/script';
-import countries from  "i18n-iso-countries";
+import countries from "i18n-iso-countries";
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -14,42 +14,58 @@ export default class MyDocument extends Document {
       originalRenderPage({
         enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
       });
+    const transformString = (str) => {
+      if (typeof str !== "string" || !str.trim()) {
+        return '';
+      }
+
+      return str
+        .replace(/-/g, " ")  // Replace hyphens with spaces
+        .split(' ')          // Split the string into an array of words
+        .map(word => word.charAt(0) + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
+        .join(' ');          // Join the words back into a single string
+    };
 
     const initialProps = await Document.getInitialProps(ctx);
-    var code 
-    if ( ctx.req.url.startsWith('/weed-dispensaries') || ctx.req.url.startsWith('/weed-deliveries') ) {
-     if (ctx.req.url.startsWith('/weed-dispensaries')){
-         const l =  ctx.req.url.split('/weed-dispensaries/in/')[1]
-         code = "en-"+ countries.getAlpha2Code(l, "en") || "US"
-     }
-     else{
-       const l =  ctx.req.url.split('/weed-deliveries/in/')[1]
-         code = "en-"+ countries.getAlpha2Code(l, "en") || "US"
-     }
+    var code
+    if (Boolean(ctx?.req?.url.startsWith('/weed-dispensaries')) || Boolean(ctx?.req?.url.startsWith('/weed-deliveries'))) {
+      if (ctx.req.url.startsWith('/weed-dispensaries')) {
+        const k = ctx.req.url.slice('/weed-dispensaries/in/'.length)
+        const parts = k.split('/')
+        code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
+
+      }
+      else {
+        const k = ctx.req.url.slice('/weed-deliveries/in/'.length)
+        const parts = k.split('/')
+        code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
+
+
+      }
     }
-    else{
+    else {
       code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
     }
-  // const code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
-  //   console.log(ctx.req.url.startsWith('/weed-dispensaries') , ctx.req.url.split('/weed-dispensaries/in/')[1]   )
+    // const code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
+    //   console.log(ctx.req.url.startsWith('/weed-dispensaries') , ctx.req.url.split('/weed-dispensaries/in/')[1]   )
     return {
       ...initialProps,
       styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
-      code        
+      code
     };
   }
-   
+
 
   render() {
 
     return (
       <Html lang={this.props.code}>
         <Head>
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-        <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
@@ -58,8 +74,8 @@ export default class MyDocument extends Document {
                             anonymize_ip: true 
                         });
                         `,
-                    }}
-                ></script>
+            }}
+          ></script>
 
 
           {/* Google Tag Manager */}
@@ -121,7 +137,7 @@ export default class MyDocument extends Document {
           {/* GTM Fallback for NoScript */}
           <noscript>
             <iframe
-            
+
               src="https://www.googletagmanager.com/ns.html?id=GTM-M27MSTCW"
               height="0"
               width="0"
