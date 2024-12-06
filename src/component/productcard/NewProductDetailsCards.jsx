@@ -40,14 +40,12 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
     let token_data = cookies.get('User_Token_access')
     let accessToken
     if (typeof window !== 'undefined') {
-
         accessToken = localStorage.getItem('User_Token_access');
-
     }
     if (Boolean(accessToken)) { token_data = accessToken };
     const [CartClean, SetCartClean] = React.useState(false)
-    const [productdescription, setproductdescription] = React.useState(false)
-    const [startload, setstartload] = React.useState(false)
+    // const [productdescription, setproductdescription] = React.useState(false)
+    // const [startload, setstartload] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
 
     const [AddTOCard, SetAddToCard] = React.useState(() => {
@@ -182,12 +180,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
             // dispatch({ type: 'Cart_subTotal' })
         }
     }
-
     React.useEffect(() => {
         localStorage.setItem('items', JSON.stringify(AddTOCard))
 
     }, [AddTOCard])
-
     function k(id) {
 
         Product?.Prices?.map((item) => {

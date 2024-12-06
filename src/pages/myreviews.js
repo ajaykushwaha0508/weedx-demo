@@ -94,6 +94,7 @@ const Myreview = () => {
     };
 
     const calculateTimeFromDate = (value) => {
+        console.log(value)
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
         let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
         let days = diffTime / (24 * 60 * 60 * 1000);
@@ -101,7 +102,6 @@ const Myreview = () => {
         let minutes = (hours % 1) * 60;
         let secs = (minutes % 1) * 60;
         [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)];
-
         if (months !== 0) {
             return months + "Month ago";
         } else if (days !== 0) {
@@ -114,7 +114,6 @@ const Myreview = () => {
             return secs + "secs ago";
         }
     };
-    // console.log(allstorereviews)
     return (
         <div className='container'>
             <div className='myreviewContainer'>
@@ -153,7 +152,7 @@ const Myreview = () => {
                 :
                 <div className='reviews'>
                     {allstorereviews?.map((item) => (
-                        <div className='myreviewBox' key={item.review.id}>
+                        <div className='myreviewBox' key={item?.review?.id}>
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
                                     <div className='productreview_imgcircle'>
@@ -169,26 +168,26 @@ const Myreview = () => {
                                 {Boolean(item.rating) && new Array(item?.review?.rating).fill(null).map((_, index) => (
                                     <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
-                                {new Array(5 - item.review?.rating).fill(null).map((_, index) => (
-                                    <BsStar size={16} color="#31B665" className="" key={index} />
-                                ))}
+                             {Array.from({ length: 5 - (item?.review?.rating || 0) }).map((_, index) => (
+                                <BsStar size={16} color="#31B665" className="" key={index} />
+                            ))}
                             </div>
                             <h2 className="Myreview_titile">{item?.review?.Title}</h2>
                             <p className='myreviewComment'>{item?.review?.comment}</p>
-                            {item.review.Reply !== null && (
+                            {item?.review?.Reply !== null && (
                                 <div className='replyByvenderreview'>
                                     <div className='container-fluid mx-2 review_reply'>
                                         <div className="d-flex gap-2">
                                             <div className="related_img_container">
                                                 <div className="related_review_image">
-                                                    <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} className='realted_review_images' src={item?.review.StoreImage} alt="userImage" title="userImage" />
+                                                    <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} className='realted_review_images' src={item?.review?.StoreImage} alt="userImage" title="userImage" />
                                                 </div>
                                             </div>
                                             <div className="related_review_content">
                                                 <h3 className='reviews_title'>Response from the Owner</h3>
-                                                <p className='reviews_writer'>{item?.review.Store_Name}</p>
+                                                <p className='reviews_writer'>{item?.review?.Store_Name}</p>
                                                 <div className='review_date'>
-                                                    <p>{calculateTimeFromDate(item?.review.ReplyTime)}</p>
+                                                    <p>{calculateTimeFromDate(item?.review?.ReplyTime)}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,15 +198,15 @@ const Myreview = () => {
                                 </div>
                             )}
                             <div className='myreview_footer text-end px-3'>
-                                <Badge badgeContent={item?.review.count} className={classes.sliderLink_badge}>
-                                    {item?.review.helpfull?.includes(state?.Profile?.id)
-                                        ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulProductReview(item.review) : router.push('/login') }} />
-                                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state.login ? handleHelpfulProductReview(item.review) : router.push("/login") }} />}
+                                <Badge badgeContent={item?.review?.count} className={classes.sliderLink_badge}>
+                                    {item?.review?.helpfull?.includes(state?.Profile?.id)
+                                        ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulProductReview(item?.review) : router.push('/login') }} />
+                                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state.login ? handleHelpfulProductReview(item?.review) : router.push("/login") }} />}
                                 </Badge>
                             </div>
                         </div>
                     ))}
-                    {allproductreviews?.map((item) => (
+                    {/* {allproductreviews?.map((item) => (
                         <div className='myreviewBox' key={item.id}>
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
@@ -261,7 +260,7 @@ const Myreview = () => {
                                 </Badge>
                             </div>
                         </div>
-                    ))}
+                    ))} */}
                 </div>
                 }
             </div>

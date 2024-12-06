@@ -28,6 +28,7 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
         setsorteddata(sortBy(AllReview, [function(o) { return o.rating; }]))
        }
     },[short , AllReview])
+    console.log(sorteddata ,'short')
     return (
         <div className={newclases.review_secton}>
             <h2 className={newclases.section_main_title}>{location.pathname.slice(1, 9) === "products" ?"products Review" : `${reviewtype} Reviews`}</h2>

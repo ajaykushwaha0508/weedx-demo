@@ -36,9 +36,9 @@ export default function Nevbar() {
     const [notificationData, setNotificationData] = React.useState([]);
     const [totalNotify, setTotalNotify] = React.useState([]);
     const openNav = React.useCallback(() => {
-        console.log('asdnj sdfa')
+        console.log(open ,'asdnj sdfa')
         setOpen((prevOpen) => !prevOpen);
-    }, []);  // empty dependency array ensures this function is only created once
+    }, []); 
     const closeNav = () => {  
         setOpen(false);
     };
@@ -126,11 +126,9 @@ export default function Nevbar() {
                     </div>
                 </Grid>
                 <Grid item xs={5} md={4} xl={3} >
-
                     <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}></Afterlogin >
                 </Grid>
                 <Grid item xs={12} md={12} xl={12}>
-
                     <SliderLink state={state}></SliderLink>
                     {/* <SideNavbar closeNav={closeNav} Open={open}></SideNavbar> */}
                 </Grid>
