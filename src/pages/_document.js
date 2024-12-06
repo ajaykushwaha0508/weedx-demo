@@ -33,21 +33,16 @@ export default class MyDocument extends Document {
         const k = ctx.req.url.slice('/weed-dispensaries/in/'.length)
         const parts = k.split('/')
         code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
-
       }
       else {
         const k = ctx.req.url.slice('/weed-deliveries/in/'.length)
         const parts = k.split('/')
         code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
-
-
       }
     }
     else {
       code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
     }
-    // const code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
-    //   console.log(ctx.req.url.startsWith('/weed-dispensaries') , ctx.req.url.split('/weed-dispensaries/in/')[1]   )
     return {
       ...initialProps,
       styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
