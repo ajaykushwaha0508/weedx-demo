@@ -132,7 +132,7 @@ export default function Nevbar() {
                 <Grid item xs={12} md={12} xl={12}>
 
                     <SliderLink state={state}></SliderLink>
-                    {/* <SideNavbar closeNav={closeNav} Open={open}></SideNavbar> */}
+                    <SideNavbar closeNav={closeNav} Open={open}></SideNavbar> 
                 </Grid>
             </Grid>
         </div>
