@@ -1,6 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import {Grid } from '@mui/material';
+import {Grid , Avatar } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import useStyles from '@/styles/style';
@@ -84,7 +84,14 @@ export default function Nevbar() {
         <div ref={ref} className={`${'NavbarBox'} container`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="space-between">
                 <Grid item container xs={2} md={2} xl={2} alignItems="center" justifyContent="start" display={{ xs: "none", md: "block", lg: "block" }}>
-                    <Link href="/"> <Image  priority src={'/weedx.iologo.webp'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} /> </Link>
+                    <Link href="/"> 
+                    {/* <Image  priority src={'/weedx.iologo.webp'} alt="WeedX.io logo" title="WeedX.io logo" width={50} height={50} />  */}
+                    <Avatar
+          alt="WeedX.io Logo"
+          src="/weedx.iologo.webp" // Replace with your image URL
+          sx={{ width: 50, height: 50 }}
+        />
+                    </Link>
                 </Grid>
                 <Grid item container xs={3} md={2} xl={2} alignItems="center" display={{ xs: "flex", md: "none", lg: "none" }}>
                     <button className={'openbtn'} onClick={openNav}>☰</button>
@@ -93,7 +100,11 @@ export default function Nevbar() {
                     <SearchBar path={Location?.pathname || ""} />
                 </Grid>
                 <Grid className='text-center' item xs={6} md={6} xl={7} display={{ xs: "block", md: "none", lg: "none" }}>
-                    <Link href="/"><Image  priority className='navbar_logo_image' alt="WeedX.io logo" title="WeedX.io logo" src={'/weedx.iologo.webp'} width={100} height={100} /></Link>
+                    <Link href="/">             <Avatar
+          alt="WeedX.io Logo"
+          src="/weedx.iologo.webp" // Replace with your image URL
+          sx={{ width: 50, height: 50 }}
+        /></Link>
                 </Grid>
                 <Grid item xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                     <div className={'Heder_icon'} >
