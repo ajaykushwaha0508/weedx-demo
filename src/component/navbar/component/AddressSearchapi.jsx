@@ -9,6 +9,8 @@ import useStyles from "../../../styles/style"
 import Createcontext from "../../../hooks/context"
 // import { use  navigate.replace } from "react-router-dom";
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic'
+// const useGoogle = dynamic(() => import("react-google-autocomplete/lib/usePlacesAutocompleteService"));
 // import 'dns-polyfill';
 import Cookies from 'universal-cookie';
 const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) => {
@@ -46,6 +48,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
   };
   const handleAddressChange = (e, value) => {
     // console.log(e,value)
+    if (placesService && value?.place_id) {
     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
       Setformatted_address(placeDetails.formatted_address);
       dispatch({ type: 'permission', permission: true })
@@ -204,6 +207,9 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
       dispatch({ type: 'location_Api', location_Api: false })
       dispatch({ type: 'Location', Location: placeDetails?.formatted_address })
     })
+  } else {
+    console.log('Places Service not available yet');
+  }
   }
 
   function OnBlur() {
