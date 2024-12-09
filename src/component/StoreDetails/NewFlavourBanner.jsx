@@ -26,20 +26,20 @@ const NewFlavourBanner = ({ delBtn }) => {
     }, [new Date().getMinutes(), delBtn])
     return (
         <React.Fragment>
-            <div className={clases.StoreHeader} >
+            <div className={'StoreHeader'} >
            
                {  delBtn?.map((data, index) =>
                  {  
                     return  <div className="d-flex align-items-md-start align-items-center   gap-lg-5 gap-md-4 gap-2" key={index}>
                         <div className="d-inline">
-                            <div className={clases.newFlavourimage_div}>
+                            <div className={'newFlavourimage_div'}>
                                 <Image
                                     onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     priority
                                     width={100}
                                     height={100}
                                     quality={100}
-                                    className={clases.newFlavour_image}
+                                    className={'newFlavour_image'}
                                     src={`${data?.Store_Image}`}
                                     alt={data.Store_Name}
                                     title={data.Store_Name}
@@ -47,20 +47,20 @@ const NewFlavourBanner = ({ delBtn }) => {
                             </div>
                         </div>
                         <div className="d-inline">
-                                    <h1 className={clases.StoreHeader_Heading}>{data.Store_Name}</h1>
+                                    <h1 className={'StoreHeader_Heading'}>{data.Store_Name}</h1>
                                     <div className='d-flex gap-2 align-items-center'>
-                                        <IoLocationSharp /><h4 id='' className={clases.newFlavourBannerSubHead}>{data.Store_Address}</h4>
+                                        <IoLocationSharp /><h4 id='' className={'newFlavourBannerSubHead'}>{data.Store_Address}</h4>
                                     </div>
                                     <div className="d-none d-md-block">
                                         <div className="d-flex gap-3 my-2 align-items-center">
                                             <div className='d-flex gap-1 align-items-center'>
                                                 <BsStarFill size={16} color="#FFD700" />
-                                                <p className={clases.marginLeftnewFlavStore}>{data?.rating?.toFixed(1)}</p>
+                                                <p className={'marginLeftnewFlavStore'}>{data?.rating?.toFixed(1)}</p>
                                             </div>
 
                                             <div className='d-flex gap-1 align-items-center'>
                                                 <TbCircleFilled size={16}  color={shopopen ? "#31B665" : "red"} />
-                                                <p style={{color:shopopen ?"#31B655":"red"}} className={clases.marginLeftnewFlavStore}>{shopopen ? "Open" : "Closed"}</p>
+                                                <p style={{color:shopopen ?"#31B655":"red"}} className={'marginLeftnewFlavStore'}>{shopopen ? "Open" : "Closed"}</p>
                                             </div>
                                         </div>
                                         <div className=' d-flex  mt-3 gap-3 align-items-center '>
@@ -87,7 +87,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                             <div className="d-flex gap-3 my-2 align-items-center">
                                 <div className='d-flex gap-1 align-items-center'>
                                     <BsStarFill size={16} color="#FFD700" />
-                                    <p className={clases.marginLeftnewFlavStore}>{data?.rating?.toFixed(1)}</p>
+                                    <p className={'marginLeftnewFlavStore'}>{data?.rating?.toFixed(1)}</p>
                                 </div>
                                 {/* 
                                         <div className='d-flex gap-1 align-items-center'>
@@ -106,7 +106,7 @@ const NewFlavourBanner = ({ delBtn }) => {
 
                                 <div className='d-flex gap-1 align-items-center'>
                                     <TbCircleFilled size={16}  color={shopopen ? "#31B665" : "red"} />
-                                    <p style={{color:shopopen ?"#31B655":"red"}} className={clases.marginLeftnewFlavStore}>{shopopen ? "Open" : "Closed"}</p>
+                                    <p style={{color:shopopen ?"#31B655":"red"}} className={'marginLeftnewFlavStore'}>{shopopen ? "Open" : "Closed"}</p>
                                 </div>
                             </div>
                             <div className=' d-flex  mt-3 gap-3 align-items-center '>
@@ -129,7 +129,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                     }
                  )
                 }
-                <div className={clases.storeShareBtn}>
+                <div className={'storeShareBtn'}>
                  <RWebShare
                         data={{ url: `https://www.weedx.io`+location.asPath }}
                         sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}

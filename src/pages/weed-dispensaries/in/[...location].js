@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style";
 import dynamic from 'next/dynamic'
-const WeedDispansires = dynamic(() => import('../../../component/WeedDispansires/Weed_Dispansires'));
+// const WeedDispansires = dynamic(() => import('../../../component/WeedDispansires/Weed_Dispansires'));
+ import WeedDispansires from '../../../component/WeedDispansires/Weed_Dispansires';
 const DispensariesSco = dynamic(() => import('../../../component/ScoPage/dispensariessco'), { ssr: true });
 import Createcontext from "@/hooks/context"
 // import { useRouter } from 'next/router';
@@ -51,7 +52,7 @@ function a11yProps(index) {
 const Dispensaries = (props) => {
     const cookies = new Cookies();
     const classes = useStyles()
-    const [searchtext, setsearchtext] = React.useState("");
+    // const [searchtext, setsearchtext] = React.useState("");
     const navigate = useRouter()
     const { state, dispatch } = React.useContext(Createcontext)
     const [value, setValue] = React.useState(0);
@@ -165,10 +166,13 @@ const Dispensaries = (props) => {
         }
     }, [props.isDirectHit, props.isFromGoogle]);
 
-   async function breadcrumCountry(country, state1, city) {
-      
+    async function breadcrumCountry(country, state1, city) {
+        
 
-    }
+        }
+    // React.useEffect((res)=>{
+       
+    // },[searchtext])
 
     return (
         <div className="w-100 mx-auto  dispensaries_centers">
@@ -206,30 +210,29 @@ const Dispensaries = (props) => {
                                 </Tabs>
                             </Box>
                             <Box sx={{ "& .MuiBox-root": { paddingLeft: "0px", paddingRight: "0px", paddingTop: "20px" } }}>
-                            <TabPanel value={value} index={0}>
-                                    <WeedDispansires Store={props?.store} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                <TabPanel value={value} index={0}>
+                                    <WeedDispansires Store={props?.store} location={locations} product={props.product}  contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={1}>
                                     <WeedDispansires Store={props.store.filter((item)=>{
                                       return isShopOpen([item])
-                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    })} location={locations} product={props.product}  contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
                                     <WeedDispansires Store={props.store.filter((item)=>{ 
                                         return item.StoreFront === true
-                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    })} location={locations} product={props.product}  contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
                                     <WeedDispansires Store={props.store.filter((item)=>{
                                         return item?.Order_Type === "Delivery"
-                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    })} location={locations} product={props.product}  contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
                                 <TabPanel value={value} index={4}>
                                     <WeedDispansires Store={props.store?.filter((item)=>{
                                         return item?.Delivery
-                                    })} location={locations} product={props.product} searchtext={searchtext} setsearchtext={setsearchtext} contentdata={contentdata} urlcscr={props.location} />
+                                    })} location={locations} product={props.product}  contentdata={contentdata} urlcscr={props.location} />
                                 </TabPanel>
-                             
                             </Box>
                         </Box>
                         :

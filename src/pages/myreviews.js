@@ -150,7 +150,7 @@ const Myreview = () => {
                 </div>
                 :
                 <div className='reviews'>
-                    {/* {allproductreviews?.map((item) => (
+                    {allproductreviews?.map((item) => (
                         <div className='myreviewBox' key={item?.review?.id}>
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
@@ -204,7 +204,7 @@ const Myreview = () => {
                                 </Badge>
                             </div>
                         </div>
-                    ))} */}
+                    ))}
                     {allstorereviews?.map((item) => (
                         <div className='myreviewBox' key={item.id}>
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>

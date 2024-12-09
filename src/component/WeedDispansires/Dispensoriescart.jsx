@@ -13,9 +13,9 @@ const Dispensoriescart = (props) => {
     const { ele } = props
     const classes = useStyles()
     return (
-        <div className={`${props.type === "swiper" && 'w-100'}   ${newclases.despensories_card_container}`} >
+        <div className={`${props.type === "swiper" && 'w-100'}   despensories_card_container`} >
             <div className="row">
-                <div className={`col-4 ${newclases.disensories_card_image_div}`}>
+                <div className={`col-4 disensories_card_image_div`}>
                     <Link href={`/weed-dispensaries/${modifystr(ele?.Store_Name)}/${ele.id}`}>
                         <Image
                              src={ele?.Store_Image || '/blankImage.jpg'} // Default image agar Store_Image na ho
@@ -36,31 +36,31 @@ const Dispensoriescart = (props) => {
                              id={ele?.id} 
                              alt={ele.Store_Name || 'Default Image'} 
                              title={ele.Store_Name || 'Default Image'} 
-                             className={newclases.dispensories_card_image} 
+                             className={'dispensories_card_image'} 
                         />
                     </Link>
 
                 </div>
-                <div className={`col-8 ${newclases.dispenosries_card_content_div}`}>
+                <div className={`col-8 dispenosries_card_content_div`}>
 
-                    <p title={ele.Store_Name} className={`text-truncate ${newclases.dispensoriesHeadingName}`}>
+                    <p title={ele.Store_Name} className={`text-truncate dispensoriesHeadingName`}>
                         <Link href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${ele.id}`}>
                             <span >{ele.Store_Name}</span>
                         </Link>             </p>
 
-                    <p className={`text-truncate ${newclases.dispensorieAddressNames}`}>{ele.Store_Address}</p>
-                    <div className={newclases.dispensories_buttonsContainer}>
-                        <button className={newclases.dispensories_open_res_btn} style={{ color: isShopOpen([ele]) ? "#31B665" : "red" }}>{isShopOpen([ele]) ? 'Open' : "Closed"}</button>
-                        {ele.Delivery && <button className={newclases.dispensories_open_res_btn}>{`Order Online`}</button>}
+                    <p className={`text-truncate dispensorieAddressNames`}>{ele.Store_Address}</p>
+                    <div className="dispensories_buttonsContainer">
+                        <button className="dispensories_open_res_btn" style={{ color: isShopOpen([ele]) ? "#31B665" : "red" }}>{isShopOpen([ele]) ? 'Open' : "Closed"}</button>
+                        {ele.Delivery && <button className={"dispensories_open_res_btn"}>{`Order Online`}</button>}
 
-                        {ele.CurbSide_Pickup && <button className={newclases.dispensories_open_res_btn}>{`Pickup delivery`}</button>}
+                        {ele.CurbSide_Pickup && <button className={"dispensories_open_res_btn"}>{`Pickup delivery`}</button>}
 
-                        {ele.StoreFront && <button className={newclases.dispensories_open_res_btn}>{'Store Front'}</button>}
+                        {ele.StoreFront && <button className={"dispensories_open_res_btn"}>{'Store Front'}</button>}
                     </div>
-                    <div className={newclases.homecardRating}>
+                    <div className={"homecardRating"}>
                         <Link href={`/weed-dispensaries/${modifystr(ele.Store_Name)}/${"review"}/${ele.id}`}>
                             <div className="d-flex">
-                                <span className={newclases.disOPenResRating}>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
+                                <span className={"disOPenResRating"}>{ele?.rating !== null ? ele?.rating.toFixed(1) : 0}</span>
                                 <Rating className={`mx-2 ${classes.homePageStarIcons}`} color='green' name="read-only" value={ele.rating === null ? 0 : ele.rating} readOnly />
                             </div>
                         </Link>

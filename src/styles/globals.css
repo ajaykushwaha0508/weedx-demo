@@ -1,12 +1,13 @@
 * {
   box-sizing: border-box;
   padding: 0;
+  font-family: var(--font-roboto), sans-serif;
   margin: 0;
 }
 
 html,
 body {
-  font-family: "Poppins", sans-serif;
+ 
   max-width: 100vw;
   padding-right: 0 !important;
 }
@@ -15,6 +16,9 @@ body {
 }
 .textCapitalize::first-letter {
   text-transform: uppercase;
+}
+.section_main_title {
+  font-family: var(--font-inter);
 }
 .ellipsis {
   text-overflow: ellipsis;
@@ -47,6 +51,7 @@ a:hover {
 }
 .no-result p {
   position: sticky;
+  font-family: var(--font-inter);
   top: 38%;
   text-align: center;
   margin: 0;

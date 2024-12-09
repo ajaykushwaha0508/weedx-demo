@@ -8,24 +8,42 @@ import Navbar from '@/component/navbar/newnavbar/nevbar';
 // const Footer = dynamic(() => import('@/component/Footer/Footer'),{ ssr: false });
 import Footer from '@/component/Footer/Footer';
 import Chartbot from '@/component/chartbot/Chartbot';
-import { Roboto } from '@next/font/google';
+// import { Roboto } from '@next/font/google';
+import { Inter , Roboto , Poppins } from 'next/font/google'
+
   const roboto = Roboto({
     subsets: ['latin'],
     weight: ['100',  '300', '400', '500', '700'],
+    variable: '--font-roboto',
+  });
+  const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+    weight: ['100',  '300', '400', '500', '700'],
+  });
+  const poppins = Poppins({
+    subsets: ['latin'],
+    variable: '--font-poppins',
+    display: 'swap',
+    weight: ['100',  '300', '400', '500', '700'],
   });
 const Layout = ({ children }) => {
+
   return (
     <React.Fragment>
-      <div className='fixed-top' style={{zIndex:2}}>
-        <Navbar/>
-      </div>
-      <div className='container' id='layout'>
-        <Grid item xs={12} md={12} xl={12}>
-          <main className={roboto.className}>{children}</main>
-        </Grid>
-      </div>
-      <Footer/>
-      <Chartbot></Chartbot>
+      <div className={`${roboto.variable}  ${inter.variable}  ${poppins.variable}`}>
+        <div className='fixed-top' style={{zIndex:2}}>
+          <Navbar/>
+        </div>
+        <div className='container' id='layout'>
+          <Grid item xs={12} md={12} xl={12}>
+            <main >{children}</main>
+          </Grid>
+        </div>
+        <Footer/>
+        <Chartbot></Chartbot>
+      </div>  
     </React.Fragment>
   );
 };

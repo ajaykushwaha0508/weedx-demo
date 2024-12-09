@@ -61,44 +61,43 @@ const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, t
             </div>
             {
                 noofreview !== 0 ?
-                    <div className="row">
-                        <div className={`col-md-5 col-12 ${newclases.reviews_description}`}>
-                            <OverAllReview
-                                Rating={Rating}
-                                noReview={noofreview}
-                                GetProductReview={GetProductReview}
-                                SetGetProductReview={SetGetProductReview}
-                                onSubmit={onSubmit}
-                                api={api}
-                                SetApi={SetApi}
-                                reviewloading={reviewloading}
-                                AllReview={AllReview}
-                            />
-                        </div>
-                        <div className="col-md-7 col-12">
-                            <RelatedReview
-                                HellFull={HellFull}
-                                storeDetails={delBtn}
-                                handleEdit={handleEdit}
-                                handleDelete={handleDelete}
-                                AllReview={sorteddata?.length !== 0 ? sorteddata : AllReview } 
-                                SetReview={SetReview}
-                                GetProductReview={GetProductReview}
-                                SetGetProductReview={SetGetProductReview}
-                            />
-                        </div>
+                <div className="row">
+                    <div className={`col-md-5 col-12 ${newclases.reviews_description}`}>
+                        <OverAllReview
+                            Rating={Rating}
+                            noReview={noofreview}
+                            GetProductReview={GetProductReview}
+                            SetGetProductReview={SetGetProductReview}
+                            onSubmit={onSubmit}
+                            api={api}
+                            SetApi={SetApi}
+                            reviewloading={reviewloading}
+                            AllReview={AllReview}
+                        />
                     </div>
-                    :
-                    <div className={newclases.noReview}>
-                        <div className={newclases.noreviewicon}>
-                            <div className={newclases.iconcircl}><AiFillLike size={70} color="gray" /></div>
-                        </div>
-                        <h3 className={newclases.noreview_title}>{`Be the first to review`}</h3>
-                        <p className={newclases.noreview_description}>{`Share your experience with the weedx community.`}</p>
-                        <WriteReviewPopup onSubmit={onSubmit} button className={'noReviewBtn'} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} api={api} SetApi={SetApi} />
+                    <div className="col-md-7 col-12">
+                        <RelatedReview
+                            HellFull={HellFull}
+                            storeDetails={delBtn}
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                            AllReview={sorteddata?.length !== 0 ? sorteddata : AllReview } 
+                            SetReview={SetReview}
+                            GetProductReview={GetProductReview}
+                            SetGetProductReview={SetGetProductReview}
+                        />
                     </div>
+                </div>
+                :
+                <div className={newclases.noReview}>
+                    <div className={newclases.noreviewicon}>
+                        <div className={newclases.iconcircl}><AiFillLike size={70} color="gray" /></div>
+                    </div>
+                    <h3 className={newclases.noreview_title}>{`Be the first to review`}</h3>
+                    <p className={newclases.noreview_description}>{`Share your experience with the weedx community.`}</p>
+                    <WriteReviewPopup onSubmit={onSubmit} button className={'noReviewBtn'} GetProductReview={GetProductReview} SetGetProductReview={SetGetProductReview} api={api} SetApi={SetApi} />
+                </div>
             }
-
         </div>
     )
 }
