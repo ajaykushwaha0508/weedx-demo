@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import "@/styles/globals.css";
 import "@/styles/customstyle.module.min.css"
-// import layout from "../layout/layout"
+import layout from "../layout/layout"
 import React from "react";
 import layout1 from "../layout/layout1"
 import { Context } from "../hooks/context"
@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic';
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"
 // const CheckAgeEligbilityPopup = dynamic(() => import("@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup"), { ssr: false });
 const Currentlocation = dynamic(() => import("@/component/currentlocation/CurrentLocation"), { ssr: false });
-const layout = dynamic(() => import("../layout/layout"), { ssr: false });
+// const layout = dynamic(() => import("../layout/layout"), { ssr: false });
 // import CheckAgeEligbilityPopup from "@/component/CheckAgeEligblityPopup/CheckAgeEligbilityPopup";
 import { useRouter } from "next/router";
 import Router from 'next/router';

@@ -1089,6 +1089,8 @@ textarea:focus {
     }
     
 }
+
+
 .hm_banner {
 
   background-color: #a7ffe2;
@@ -1179,3 +1181,27 @@ textarea:focus {
     font-size: 16px;
   }
 }
+
+
+.full-width {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+  .Defalut_full-width {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    filter: brightness(40%);
+    opacity: 0.8;
+  }
+  .slider_h1{
+    position: absolute ;
+    top: 40%; 
+    left: 50%;
+    transform: 'translate(-50%, -50%)',
+  }
+  .slider_P{
+    position: absolute;
+    top: 55%;
+        left: 50%;
+    transform: 'translate(-50%, -50%)',
+    }

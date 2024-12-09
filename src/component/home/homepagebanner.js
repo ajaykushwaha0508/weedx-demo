@@ -9,6 +9,8 @@ import destopstaticbanner from '../../../public/destopstaticbanner.png'
 import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props , btype }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+
   const handleImageError = (event) => {
     if (event.type === "error") {
       event.target.src = '/blankImage.jpg'; // Fallback image URL
@@ -17,9 +19,36 @@ const HomePageBanner = ({ props , btype }) => {
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 100}`;
   };
+  const bannerStyle = {
+    position: 'relative',
+    textAlign: 'center',
+    width: '100%',
+    height: 'auto',
+  };
 
+  const overlayTextStyle = {
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: 'white',
+    textShadow: '0px 0px 10px rgba(0, 0, 0, 0.7)',
+  };
+
+  const headingStyle = {
+    ...overlayTextStyle,
+    top: '50%',
+    fontSize:  isMobile ? "25px":'42px',
+    transform: 'translate(-50%, -50%)', // Adjust for both axes
+  };
+
+  const paragraphStyle = {
+    ...overlayTextStyle,
+    top: '60%',
+    width:  isMobile ? '100%' : "50%",
+    fontSize: isMobile ? "14px":'20px',
+  };
   return (
-      <div className="homeBannerContainer">
+
       <Swiper
         loop
         autoplay={{
@@ -28,59 +57,62 @@ const HomePageBanner = ({ props , btype }) => {
         }}
         style={{
           zIndex: 0,
-          // height: isMobile ? '212px' : '390px',
+          height: '100%',
+          display:"flex"
         }}
         a11y={{ enabled: true }}
-        modules={[Autoplay, A11y]}
+        // modules={[Autoplay, A11y]}
       >
-        {btype !== 'submainbanner' && (
-          <SwiperSlide>
-            <div className="hm_banner">
-              <div className='hm_mainiamgebox'>
-                <Image src={!isMobile ? destopstaticbanner.src  : mobilestaticbanner.src} alt={'iamge'} width={400} height={170}  />
-              </div>
-              <div className="hm_bannerGlass">
-                <div className="hm_banner-content">
-                  <h1 className="hm_banner-heading">{'Find Weed Near You'}</h1>
-                  <p className="hm_banner-description">
-                    {'Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.'}
-                  </p>
-                </div>
-                <div className="hm_banner-image">
-                  {/* <Image src={destokig} width={100} height={100} alt="Banner Image" /> */}
-                </div>
-              </div>
-            </div>
+  {btype !== 'submainbanner' && (
+          <SwiperSlide >
+   <div style={bannerStyle} aria-label="Weed Finder Banner">
+      <Image
+        className="Defalut_full-width"
+        src={isMobile ? mobilestaticbanner : destopstaticbanner}
+        alt="Find Weed Near You"
+        layout="responsive"
+        quality={100}
+        width={100}
+        height={100}
+        priority
+      />
+      <div style={{ gap: '10px' }}>
+        <h1 style={headingStyle}>
+          Find Weed Near You
+        </h1>
+        <p style={paragraphStyle}>
+          Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.
+        </p>
+      </div>
+    </div>
+
           </SwiperSlide>
         )}
         {props?.reverse()?.map((items, index) => (
           <SwiperSlide key={index}>
-            <div className="homePageBanner_container">
               <a href={items?.Link || '#'} target="_blank" rel="noopener noreferrer">
                 <Image
                   src={isMobile ? items?.mobile : items?.Banner}
                   alt="Weedx.io Promotion Banner"
                   title="Weedx.io Promotion Banner"
-                  width={isMobile ? 500 : 100}
-                  height={isMobile ? 500 : 100}
-                  quality={isMobile ? 60 : 100} // Adjust quality based on screen size
-                  sizes={isMobile ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 1200px) 80vw, 1500px'}
-                  className="HomePageBanner_image"
+                  width={100}
+                  height={100}
+                  quality={100} // Adjust quality based on screen size
+                  // sizes={isMobile ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 1200px) 80vw, 1500px'}
+                  className="full-width"
                   onError={handleImageError}
                   loader={imageLoader}
-                  priority={index === 0} // Eager load the first image
+                  priority={index} // Eager load the first image
                 />
               </a>
-            </div>
           </SwiperSlide>
         ))}
+        
       </Swiper>
-    </div>
+
   );
 }
 export default HomePageBanner;
-
-
 
 
 

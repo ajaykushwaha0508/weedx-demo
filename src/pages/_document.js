@@ -57,7 +57,10 @@ export default class MyDocument extends Document {
       <Html lang={this.props.code}>
         <Head>
           <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
+          <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU&libraries=places`}
+        strategy="beforeInteractive"
+      />
           <script
             dangerouslySetInnerHTML={{
               __html: `

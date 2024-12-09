@@ -6,7 +6,9 @@ import Axios from "axios";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import useStyles from "../../../styles/style";
+import dynamic from 'next/dynamic'
 import AddressSearchapi from "./AddressSearchapi";
+// const AddressSearchapi = dynamic(() => import("./AddressSearchapi"),{ssr:false , loading:()=><p>loading....</p>});
 import { modifystr } from '../../../hooks/utilis/commonfunction';
 import { styled } from '@mui/material/styles';
 
