@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic'
 // const useGoogle = dynamic(() => import("react-google-autocomplete/lib/usePlacesAutocompleteService"));
 // import 'dns-polyfill';
 import Cookies from 'universal-cookie';
-const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) => {
+const SearchingLocation = ({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) => {
   const classes = useStyles()
   const cookies = new Cookies();
   const navigate = useRouter();
@@ -27,7 +27,8 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
   } = useGoogle({
     debounce: 500,
     language: 'en',
-    apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
+    apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU',
+    libraries: ['places'],
   });
 
 
@@ -313,7 +314,6 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
     }
   }, [state.locationFocus])
 
-
   return (
     <>
 
@@ -334,7 +334,7 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
         style={{ width: "100%", height: "45px", borderRadius: (openLocation && SearchBarWidth) ? " 16px 16px 16px 16px" : " 0px 16px 16px 0px", top: "0px", display: open1 && SearchBarWidth ? "none" : "inline-flex", }}
         onBlur={OnBlur}
         sx={{ width: "100%" }}
-        options={placePredictions}
+        options={placePredictions || []}
         inputValue={formatted_address || ''}
         value={formatted_address || ''}
         onChange={((element, value) => { handleAddressChange(element, value) })}
@@ -387,10 +387,10 @@ const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, set
 
     </>
   );
-})
+}
 
 
-SearchingLocation.displayName = "SearchingLocation";
+// SearchingLocation.displayName = "SearchingLocation";
 export default SearchingLocation;
 
 
@@ -413,262 +413,3 @@ export default SearchingLocation;
 
 
 
-
-
-// import React, { useCallback, useEffect, useState, useContext } from 'react';
-// import { IoLocationSharp } from 'react-icons/io5';
-// import { MdOutlineMyLocation } from 'react-icons/md';
-// import { IconButton, InputAdornment, TextField } from '@mui/material';
-// import Autocomplete from '@mui/material/Autocomplete';
-// import useGoogle from 'react-google-autocomplete/lib/usePlacesAutocompleteService';
-// import Cookies from 'universal-cookie';
-// import useStyles from '../../../styles/style';
-// import Createcontext from '../../../hooks/context';
-// import { useRouter } from 'next/router';
-
-// const SearchingLocation = React.memo(({ openLocation, SearchBarWidth, open1, setOpenLocation, path }) => {
-//   const classes = useStyles();
-//   const cookies = new Cookies();
-//   const router = useRouter();
-//   const { state, dispatch } = useContext(Createcontext);
-
-//   const [formattedAddress, setFormattedAddress] = useState('');
-//   const [open, setOpen] = useState(false);
-
-//   const { placesService, placePredictions, getPlacePredictions } = useGoogle({
-//     debounce: 500,
-//     language: 'en',
-//     apiKey: 'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'
-//   });
-
-//   // Update address when state changes
-//   useEffect(() => {
-//     setFormattedAddress(state?.Location || '');
-//   }, [state]);
-
-//   const handleAddressChange = useCallback((e, value) => {
-
-//     placesService?.getDetails({ placeId: value?.place_id }, (placeDetails) => {
-//       setFormattedAddress(placeDetails.formatted_address);
-//       dispatch({ type: 'permission', permission: true })
-//       var Coun
-//       var sta
-//       var ci
-//       var route
-//       const object = {}
-//       const short = {}
-//       placeDetails?.address_components.map((data) => {
-//         let l = data.types[0] === "political" ? data.types[1] : data.types[0]
-//         object[l] = data.long_name
-//         short[l] = data?.short_name
-//       })
-
-
-//       if (Boolean(object.country)) {
-//         Coun = object.country.replace(/\s/g, '-');
-//         dispatch({ type: 'Country', Country: Coun });
-//         dispatch({ type: 'countrycode', countrycode: short.country });
-//       }
-//       else if (Object.keys(object).length === 1) {
-//         Coun = Object.values(object)[0].replace(/\s/g, '-');
-//         dispatch({ type: 'Country', Country: Coun });
-//         dispatch({ type: 'countrycode', countrycode: short.country });
-//       }
-//       if (Boolean(object.administrative_area_level_1)) {
-//         sta = object.administrative_area_level_1.replace(/\s/g, '-');
-//         dispatch({ type: 'State', State: sta });
-//         dispatch({ type: 'statecode', statecode: short.administrative_area_level_1 });
-//       }
-//       if (Boolean(object.administrative_area_level_3) || Boolean(object.establishment) || Boolean(object.locality) || Boolean(object.sublocality) || Boolean(object.administrative_area_level_2)) {
-//         if (Boolean(object.administrative_area_level_3)) {
-//           ci = object.administrative_area_level_3.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.administrative_area_level_3 });
-//         }
-//         if (Boolean(object.sublocality) && Boolean(object.locality)) {
-//           ci = object.sublocality.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.sublocality });
-//         }
-//         else if (Boolean(object.locality)) {
-//           ci = object.locality.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.locality });
-//         }
-//         else if (Object.keys(object).length !== 1 && Boolean(object.establishment)) {
-//           ci = object.establishment.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.establishment });
-//         }
-//         else if (Boolean(object.sublocality_level_1)) {
-//           ci = object.sublocality_level_1.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//         }
-
-//         if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-//           ci = object.sublocality_level_1.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.sublocality_level_1 });
-//         }
-//         if (Boolean(object.sublocality_level_1) && Boolean(object.locality)) {
-//           ci = object.sublocality_level_1.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.sublocality_level_1 });
-//         }
-//         if ((Boolean(object.administrative_area_level_3) && Boolean(object.locality)) && (Boolean(object.administrative_area_level_1) && Boolean(object.locality))) {
-//           ci = object.locality.replace(/\s/g, '-')
-//           dispatch({ type: 'City', City: ci })
-//           dispatch({ type: 'citycode', citycode: short.locality });
-//         }
-//         else {
-//           if (!Boolean(object.administrative_area_level_3) && !Boolean(object.establishment) && !Boolean(object.locality) && !Boolean(object.sublocality) && Boolean(object.administrative_area_level_2)) {
-//             if (!ci) {
-//               ci = object.administrative_area_level_2.replace(/\s/g, '-')
-//               dispatch({ type: 'City', City: ci })
-//               dispatch({ type: 'citycode', citycode: short.administrative_area_level_2 });
-//             }
-//           }
-//         }
-//       }
-//       if (Boolean(object.route) || Boolean(object.sublocality_level_2) || Boolean(object.neighborhood) || Boolean(object.establishment)) {
-//         if (Boolean(object.route)) {
-//           route = object.route.replace(/\s/g, '-');
-//           dispatch({ type: 'route', route: route });
-//         }
-//         else if (Boolean(object.sublocality)) {
-//           route = object.sublocality.replace(/\s/g, '-');
-//           dispatch({ type: 'route', route: route });
-//         }
-//         else if (Boolean(object.neighborhood)) {
-//           route = object.neighborhood.replace(/\s/g, '-');
-//           dispatch({ type: 'route', route: route });
-//         }
-//         else if (Boolean(object.establishment)) {
-//           route = object.establishment.replace(/\s/g, '-');
-//           dispatch({ type: 'route', route: route });
-//         }
-//         else if (Boolean(object.sublocality_level_2)) {
-//           route = object.sublocality_level_2.replace(/\s/g, '-');
-//           dispatch({ type: 'route', route: route });
-//         }
-
-//       }
-//       if (ci && sta && Coun && route) {
-//         navigateToPath(`${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}/${route.toLowerCase()}`);
-//         dispatch({ type: 'havecity', havecity: true });
-//       } else if (ci && sta && Coun) {
-//         dispatch({ type: 'route', route: '' });
-//         navigateToPath(`${Coun.toLowerCase()}/${sta.toLowerCase()}/${ci.toLowerCase()}`);
-//         dispatch({ type: 'havecity', havecity: true });
-//       } else if (sta && Coun) {
-//         dispatch({ type: 'route', route: '' });
-//         navigateToPath(`${Coun.toLowerCase()}/${sta.toLowerCase()}`);
-//         dispatch({ type: 'havestate', havestate: true });
-//         dispatch({ type: 'havecity', havecity: false });
-//       } else if (Coun) {
-//         dispatch({ type: 'route', route: '' });
-//         navigateToPath(`${Coun.toLowerCase()}`);
-//         dispatch({ type: 'havecountry', havecountry: true });
-//         dispatch({ type: 'havestate', havestate: false });
-//         dispatch({ type: 'havecity', havecity: false });
-//       } else {
-//         SetFormatted_address(state.Location);
-//       }
-
-//       if (!ci) {
-//         dispatch({ type: 'City', City: '' });
-//       }
-//       if (!sta) {
-//         dispatch({ type: 'State', State: '' });
-//       }
-//       const setLocation = {
-//         country: Coun || '',
-//         state: sta || "",
-//         city: ci || '',
-//         route: route || '',
-//         formatted_address: placeDetails.formatted_address
-//       }
-//       const date = new Date();
-//       date.setTime(date.getTime() + 60 * 60 * 24 * 365);
-//       cookies.set('fetchlocation', JSON.stringify(setLocation), {
-//         expires: date,
-//         path: '/' // Set the path where the cookie is accessible
-//       });
-//       if (router.asPath === '/products' || router.asPath === '/') {
-//         router.replace(router.asPath);
-//     }
-//       dispatch({ type: 'location_Api', location_Api: false })
-//       dispatch({ type: 'Location', Location: placeDetails?.formatted_address })
-//     })
-//   }, [placesService, router, dispatch]);
-
-//   // Handles current location fetch
-//   const fetchCurrentLocation = () => {
-//     navigator.geolocation.getCurrentPosition(async (position) => {
-//       const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'}`);
-//       const locationData = await res.json();
-//       const locationAddress = locationData.results[0]?.formatted_address || '';
-//       setFormattedAddress(locationAddress);
-//       dispatch({ type: 'Location', Location: locationAddress });
-//     });
-//   };
-// console.log(formattedAddress)
-//   return (
-//     <Autocomplete
-//       freeSolo
-//       disableClearable
-//       open={open}
-//       onOpen={() => setOpen(true)}
-//       onClose={() => setOpen(false)}
-//       id="autocomplete-demo"
-//       onFocus={() => {
-//         setOpenLocation(true);
-//         setFormattedAddress('');
-//       }}
-//       className={`sec_input_search SearchBar ${classes.SearchBar_Text}`}
-//       style={{
-//         width: '100%',
-//         height: '45px',
-//         borderRadius: openLocation && SearchBarWidth ? '16px' : '0px 16px 16px 0px',
-//         top: '0px',
-//         display: open1 && SearchBarWidth ? 'none' : 'inline-flex',
-//       }}
-//       options={placePredictions}
-//       inputValue={formattedAddress}
-//       onChange={(e, value) => handleAddressChange(e, value)}
-//       renderOption={(props, option) => (
-//         <li {...props}>
-//           <IoLocationSharp />
-//           {option.description}
-//         </li>
-//       )}
-//       getOptionLabel={(option) => option.description || ''}
-//       renderInput={(params) => (
-//         <TextField
-//           {...params}
-//           onChange={(e) => {
-//             setFormattedAddress(e.target.value);
-//             getPlacePredictions({ input: e.target.value });
-//             setOpen(true);
-//           }}
-//           InputProps={{
-//             ...params.InputProps,
-//             startAdornment: (
-//               <>
-//                 <InputAdornment position="start">
-//                   <IoLocationSharp />
-//                 </InputAdornment>
-//                 {params.InputProps.startAdornment}
-//               </>
-//             ),
-//             endAdornment: (
-//               <IconButton onClick={fetchCurrentLocation}>
-//                 <MdOutlineMyLocation color="inherit" size={16} style={{ cursor: 'pointer' }} />
-//               </IconButton>
-//             ),
-//           }}
-//         />
-//       )}
-//     />
-//   );
-// });
