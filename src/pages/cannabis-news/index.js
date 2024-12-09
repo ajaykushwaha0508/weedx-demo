@@ -72,7 +72,8 @@ const Allblogs = (props) => {
                       <Image className={Styled.imageBlogSection}
                         width={100}
                         height={100}
-                        priority
+                        // priority
+                        quality={100}
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}

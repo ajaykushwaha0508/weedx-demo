@@ -94,7 +94,7 @@ const Product = (props) => {
         }
         else if (params === "categoryname") {
             const categoryfind = _.find(Category, function (o) { return o.name === name.toUpperCase() })
-            navigate.push(`/products/${categoryfind.name}/${categoryfind.id}`)
+            navigate.push(`/products/${modifystr(categoryfind.name)}/${categoryfind.id}`)
         }
     }
 
