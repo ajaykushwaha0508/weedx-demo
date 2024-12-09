@@ -61,7 +61,7 @@ const HomePageBanner = ({ props , btype }) => {
           display:"flex"
         }}
         a11y={{ enabled: true }}
-        // modules={[Autoplay, A11y]}
+        modules={[Autoplay, A11y]}
       >
   {btype !== 'submainbanner' && (
           <SwiperSlide >
