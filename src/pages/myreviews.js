@@ -94,7 +94,6 @@ const Myreview = () => {
     };
 
     const calculateTimeFromDate = (value) => {
-        console.log(value)
         let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
         let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
         let days = diffTime / (24 * 60 * 60 * 1000);
@@ -103,15 +102,15 @@ const Myreview = () => {
         let secs = (minutes % 1) * 60;
         [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)];
         if (months !== 0) {
-            return months + "Month ago";
+            return months + " Month ago";
         } else if (days !== 0) {
-            return days + "days ago";
+            return days + " days ago";
         } else if (hours !== 0) {
-            return hours + "hours ago";
+            return hours + " hours ago";
         } else if (minutes !== 0) {
-            return minutes + "minutes ago";
+            return minutes + " minutes ago";
         } else {
-            return secs + "secs ago";
+            return secs + " secs ago";
         }
     };
     return (
@@ -130,7 +129,7 @@ const Myreview = () => {
                             <div className="image_container">
                                 <div className="Empty_card_image">
                                     <Box className={classes.muiIcons}>
-                                    <FaComment size={40}/>
+                                      <FaComment size={40}/>
                                     </Box>
                                 </div>
         
@@ -151,7 +150,7 @@ const Myreview = () => {
                 </div>
                 :
                 <div className='reviews'>
-                    {allstorereviews?.map((item) => (
+                    {/* {allproductreviews?.map((item) => (
                         <div className='myreviewBox' key={item?.review?.id}>
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
@@ -165,12 +164,12 @@ const Myreview = () => {
                                 </div>
                             </div>
                             <div className="d-flex gap-1">
-                                {Boolean(item.rating) && new Array(item?.review?.rating).fill(null).map((_, index) => (
+                                {Boolean(item?.review?.rating) && new Array(item?.review?.rating).fill(null).map((_, index) => (
                                     <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
-                             {Array.from({ length: 5 - (item?.review?.rating || 0) }).map((_, index) => (
-                                <BsStar size={16} color="#31B665" className="" key={index} />
-                            ))}
+                                {Array.from({ length: 5 - (item?.review?.rating || 0) }).map((_, index) => (
+                                    <BsStar size={16} color="#31B665" className="" key={index} />
+                                ))}
                             </div>
                             <h2 className="Myreview_titile">{item?.review?.Title}</h2>
                             <p className='myreviewComment'>{item?.review?.comment}</p>
@@ -205,8 +204,8 @@ const Myreview = () => {
                                 </Badge>
                             </div>
                         </div>
-                    ))}
-                    {/* {allproductreviews?.map((item) => (
+                    ))} */}
+                    {allstorereviews?.map((item) => (
                         <div className='myreviewBox' key={item.id}>
                             <div className='reviewHeaders mb-sm-4 mb-3 d-flex gap-3'>
                                 <div className='productReviewImg'>
@@ -219,7 +218,7 @@ const Myreview = () => {
                                     <h4>{calculateTimeFromDate(item.created_at)}</h4>
                                 </div>
                             </div>
-                            <div className="d-flex gap-1">
+                            <div className="d-flex gap-1 mb-2 mb-md-3">
                                 {Boolean(item.rating) && new Array(item?.rating).fill(null).map((_, index) => (
                                     <BsStarFill size={16} color="#31B665" className="" key={index} />
                                 ))}
@@ -260,7 +259,7 @@ const Myreview = () => {
                                 </Badge>
                             </div>
                         </div>
-                    ))} */}
+                    ))}
                 </div>
                 }
             </div>
