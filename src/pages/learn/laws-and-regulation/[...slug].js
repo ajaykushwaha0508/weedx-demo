@@ -43,7 +43,7 @@ const Index = (props) => {
                 <p className={classes.lawDisclaimer}> <b>{`Note :-`}</b> {`By understanding the cannabis laws and regulations in ${props.initialData?.name}, residents and visitors alike can ensure they are compliant and informed. Whether you're purchasing, consuming, or considering cultivation, it's crucial to stay updated with the latest legal guidelines.`}</p>
               </div>
 
-              <div className={"col-4  d-none"}>
+              <div className={"col-4"}>
                 <LawStateContent head={props?.initialData?.content} refrence={ref} />
               </div>
             </div>
