@@ -78,10 +78,10 @@ const HomePageBanner = ({ props , btype }) => {
       />
       <div style={{ gap: '10px' }}>
         <h1 style={headingStyle}>
-          Find Weed Near You
+        {`Find Weed Near You`}
         </h1>
         <p style={paragraphStyle}>
-          Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.
+          {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.`}
         </p>
       </div>
     </div>
