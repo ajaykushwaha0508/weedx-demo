@@ -19,11 +19,11 @@ const Notification = dynamic(() => import("../component/Notification"), { ssr: f
 // import Afterlogin from "../component/afterlogin";
 const Afterlogin = dynamic(() => import("../component/afterlogin"), { ssr: false });
 
-// const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{ 
-//   memo: true 
-// });
+const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{  ssr: false,
+  memo: false 
+});
 const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"), { ssr: false });
-import SideNavbar from "../component/SideSlider/Slider"
+// import SideNavbar from "../component/SideSlider/Slider"
 export default function Nevbar() {
     const cookies = new Cookies();
     const clasess = useStyles()

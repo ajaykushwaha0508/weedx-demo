@@ -241,7 +241,8 @@ const Oops = (props) => {
             </Swiper>
           </React.Fragment>
         }
-        {Boolean(props?.allproduct?.length) && <ProductSearchResult link={'/products'} RelatedProductResult={props?.allproduct} currentProductID={props?.allproduct[0]?.id} title={'Explore Nearby Products'} CategoryName={props?.allproduct[0]} />}
+
+        {Boolean(props?.allproduct?.length && props?.allproduct !== "No Product Found") && <ProductSearchResult link={'/products'} RelatedProductResult={props?.allproduct} currentProductID={props?.allproduct[0]?.id} title={'Explore Nearby Products'} CategoryName={props?.allproduct[0]} />}
       </>
       <React.Fragment>
         <h3 className={`${clases.section_main_title} my-3`}>{`Frequently Asked Questions (FAQs)`}</h3>
