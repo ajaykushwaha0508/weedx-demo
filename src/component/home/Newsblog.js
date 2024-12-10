@@ -38,8 +38,7 @@ const Newsblog = ({ data }) => {
 };
 const NewsCard = React.memo(({ ele, index }) => (
     <Link
-        href={`/${ele.CategoryName === 'BLOGS' ? 'blogs' : 'cannabis-news'
-            }/${modifystr(ele.Title)}/${ele.id}`}
+        href={`/${ele.CategoryName === 'BLOGS' ? 'blogs' : 'cannabis-news' }/${modifystr(ele.Title)}/${ele.id}`}
         className="d-block"
     >
         <div className={clases.new_blog_card}>

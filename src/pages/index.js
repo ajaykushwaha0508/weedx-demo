@@ -49,7 +49,7 @@ export default function Home({ initialData }) {
   const ShowCategoryProduct = React.useCallback((id, name) => {
     Navigate.push(`/products/${modifystr(name)}/${id}`);
   }, [Navigate]);
-0
+
   return (
     <>
       {state.permission && <Currentlocation></Currentlocation>}

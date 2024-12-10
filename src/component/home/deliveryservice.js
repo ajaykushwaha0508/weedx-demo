@@ -131,7 +131,7 @@ const DeliveryServices =  React.memo(({ link, title, data , location , initialDa
                                                 priority
                                                 height={100} src='/NOTDELIVERED.png' alt='NOTDELIVERED' title='NOTDELIVERED' />
                                         </div>
-                                        <p>No Delivery Services available</p>
+                                        <p>{'No Delivery Services available'}</p>
                                     </div>
                             }
 
