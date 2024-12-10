@@ -7,10 +7,8 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const ip = '192.168.1.20';
 const axios = require('axios');
-const archiver = require('archiver');
+
 const { createGzip } = require('zlib');
-const fs = require('fs');
-const path = require('path');
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -925,17 +923,9 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
 
       return handle(req, res);
     });
-      server.listen(3000, (err) => {
+    server.listen(3000, (err) => {
         if (err) throw err; 
         console.log('> woking on http://localhost:3000');
       });
 
   });
-
-
-//   <loc>https://www.weedx.io/weed-dispensaries/in/romania/bucure-ti/bucure-ti-sectorul-1/calea-floreasca</loc>
-// <changefreq>daily</changefreq>
-// <priority>0.8</priority>
-// </url>
-// <url>
-// <loc>https://www.weedx.io/weed-dispensaries/in/romania/bucure-ti/bucure-ti-sectorul-1/bulevardul-dinicu-golescu</loc>
