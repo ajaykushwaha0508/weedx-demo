@@ -22,7 +22,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Log
                             <Avatar
                                 alt="Profile"
                                 src={state.Profile.googlelink === null ? state.Profile.image : state.Profile.googlelink}
-                                sx={{ width: 50, height: 50 }}
+                                sx={{ width: 45, height: 45 }}
                                 title="Profile"
                                 
                                 onClick={handleClickDropdown}
