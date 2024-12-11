@@ -26,8 +26,11 @@ import newclases from '@/styles/customstyle.module.css'
 import { Navigation } from 'swiper/modules';
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import Image from "next/image";
-const ProductSearchResult = ({ RelatedProductResult=[], CategoryName, currentProductID, title, link = "products" }) => {
+const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentProductID, title, link = "products" }) => {
     // console.log(RelatedProductResult ,'cfgnsdfjg fuisn ')
+    if (!Array.isArray(RelatedProductResult)) {
+        RelatedProductResult = [];  // Default to empty array if it's not an array
+      }
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -234,14 +237,15 @@ const ProductSearchResult = ({ RelatedProductResult=[], CategoryName, currentPro
     return (
         <div>
             <div className="">
-                {Boolean(RelatedProductResult?.length) &&
+                {Boolean(RelatedProductResult.length) &&
                     <div className="my-sm-4 my-2">
                         {title === "You may also like" || title === "Explore Nearby Products" ?
                             <h2 className={newclases.section_main_title} >{title}</h2>
                             :
                             <h1 className={newclases.section_main_title} >{title}</h1>
                         }
-                    </div>}
+                    </div>
+                    }
                 { (title === 'You may also like') || title === "Explore Nearby Products" ?
                     <div className={newclases.product_card_wrapper}>
                         <Swiper className={`mySwiper similerproduxt`}
@@ -365,7 +369,11 @@ const ProductSearchResult = ({ RelatedProductResult=[], CategoryName, currentPro
                         </Swiper>
                     </div>
                     :
+                
                     <div className={newclases.product_card_wrapper}>
+                        {
+                            console.log(Array.isArray(RelatedProductResult).length , RelatedProductResult)
+                        }
                         {
                             RelatedProductResult?.map((items, index) => {
                                 if (items.id !== currentProductID) {
