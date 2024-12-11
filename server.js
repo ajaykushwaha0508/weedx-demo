@@ -926,6 +926,6 @@ Sitemap: https://www.weedx.io/sitemap.xml`);
     server.listen(3000, (err) => {
         if (err) throw err; 
         console.log('> woking on http://localhost:3000');
-      });
+    });
 
   });

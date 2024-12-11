@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import countries from  "i18n-iso-countries";
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+
 export async function middleware(req) {
   const response = NextResponse.next();
     if (req.nextUrl.pathname === "/AboutUs") {
@@ -32,9 +33,7 @@ export async function middleware(req) {
     const locale = `${primaryLanguage}-${countryCode}`;
     response.cookies.set('locale', locale, { path: '/' });
   }
-
   return response;
-
 }
 
 export const config = {
