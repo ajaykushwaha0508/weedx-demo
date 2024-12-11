@@ -372,9 +372,6 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                 
                     <div className={newclases.product_card_wrapper}>
                         {
-                            console.log(Array.isArray(RelatedProductResult).length , RelatedProductResult)
-                        }
-                        {
                             RelatedProductResult?.map((items, index) => {
                                 if (items.id !== currentProductID) {
                                     return (
