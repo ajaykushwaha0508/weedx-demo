@@ -1,14 +1,19 @@
-import React from 'react';
-import Createcontext from '../hooks/context';
-const Layout2 = ({ children }) => {
-    const {state , dispatch} =  React.useContext(Createcontext)
+import React,{useState} from 'react';
+// import Createcontext from '../hooks/context';
+import Embadedfooter from '@/component/Embeded/embededFooter/Embadedfooter';
+import Embadednavbar from '@/component/Embeded/embededNavbar/Embadednavbar';
+
+const Layout1 = ({ children }) => {
+ 
+    
   return (
     <div>
-      <header>Header for Layout 1</header>
-      <main>{children}</main>
-      <footer>Footer for Layout 1</footer>
+       <Embadednavbar />
+        <div className='container'>
+          <main>{children}</main>
+        </div>
+       <Embadedfooter/>
     </div>
   );
-};
-
-export default Layout2;
+};  
+export default Layout1;

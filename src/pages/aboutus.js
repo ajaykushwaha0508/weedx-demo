@@ -1,5 +1,6 @@
 'use Client'
 import Newsletter from "@/component/home/HomePageDealsSignup/"
+import Layout from "@/layout/layout";
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Image from "next/image";
 import { AiOutlineSetting } from "react-icons/ai"
@@ -12,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import newclases from '@/styles/customstyle.module.css'
 import {AboutusSeo}  from "@/component/ScoPage/CommenpageSeo"
-const AboutUs = () => {
+export default function AboutUs(){
     const ClientPreachSlider = styled(Slider)`
 
     .slick-arrow{
@@ -307,4 +308,6 @@ const AboutUs = () => {
         </div>
     )
 }
-export default AboutUs
+AboutUs.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};

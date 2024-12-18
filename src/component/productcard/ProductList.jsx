@@ -25,10 +25,11 @@ const ProductList = ({ arr, link = "products" }) => {
   const showdata = arr
   const [productperpage, setproductperPage] = React.useState(8);
   const Navigate = useRouter();
-  const location = useRouter()
+  const location = useRouter();
+  console.log(location.pathname.includes('embedded'));
   const [CartClean, SetCartClean] = React.useState(false);
-  const [adding, setadding] = React.useState('')
-  const [popup, SetPopup] = React.useState(true)
+  const [adding, setadding] = React.useState('');
+  const [popup, SetPopup] = React.useState(true);
   let token_data = cookies.get("User_Token_access");
   let accessToken
   if (typeof window !== 'undefined') {
@@ -342,7 +343,7 @@ const ProductList = ({ arr, link = "products" }) => {
   }, [AddTOCard]);
   const classes = useStyles();
   const handleWhishList = (id) => {
-    if (state.login === false) {
+    if (state?.login === false) {
       SetWishList(!Whishlist);
     } else {
       WishListPost(id)
@@ -362,7 +363,6 @@ const ProductList = ({ arr, link = "products" }) => {
         .catch((err) => { });
     }
   };
-
   const pagechanges = (event, value) => {
     setPage(value);
     window.scrollTo({ top: 0, left: 0 })
@@ -382,15 +382,11 @@ const ProductList = ({ arr, link = "products" }) => {
       {(showdata?.length !== 0 && typeof (showdata) !== "string") ? (
         !state?.Loading ? (
           <React.Fragment>
-            <div
-              className="row h-auto mb-2  mx-2"
-            >
-              {arr?.map((ele, index) => {
+            <div className="row h-auto mb-2  mx-2"  >
+              {arr.map((ele, index) => {
+               
                 return (
-                  <div
-                    className="col-6 col-xxl-3 col-xl-4  col-md-4 col-sm-6 "
-                    key={index}
-                  >
+                  <div className="col-6 col-xxl-3 col-xl-4  col-md-4 col-sm-6 " key={index} >
                     <div className={'prod_inner_cont'}>
                       <span className={'product_inner_rowspan'}>
                         <IconButton
@@ -399,8 +395,8 @@ const ProductList = ({ arr, link = "products" }) => {
                           }}
                           aria-label="Example"
                         >
-                          {state.login ? (
-                            state.WishList[ele.id] ? (
+                          {state?.login ? (
+                            state?.WishList[ele?.id] ? (
                               <AiFillHeart color="#31B665"></AiFillHeart>
                             ) : (
                               <AiOutlineHeart />
@@ -503,7 +499,7 @@ const ProductList = ({ arr, link = "products" }) => {
                             <Box
                               className={`w-100 ${classes.loadingBtnTextAndBack}`}>
                               <LoadingButton className={`${classes.odsbtn}`}>
-                                Out of Stock
+                               {' Out of Stock'}
                               </LoadingButton>
                             </Box>
                           ))
@@ -511,7 +507,6 @@ const ProductList = ({ arr, link = "products" }) => {
 
                       </div>
                     </div>
-
                   </div>
                 );
               })}
@@ -519,8 +514,7 @@ const ProductList = ({ arr, link = "products" }) => {
                 (showdata.length > productperpage && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={showdata.length % productperpage === 0 ? parseInt(showdata.length / productperpage) : (parseInt(showdata.length / productperpage) + 1)} page={page} onChange={pagechanges} /></div>
               }
             </div>
-
-            <PreCheckout />
+           {!  location.pathname.includes('embedded') &&  <PreCheckout />}
           </React.Fragment>
         ) : (
           <DispensoriesAddressSkeleton />

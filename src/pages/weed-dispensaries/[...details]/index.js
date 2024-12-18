@@ -10,6 +10,7 @@ import { BsLayoutSplit } from "react-icons/bs"
 import { MdOutlineBrandingWatermark } from "react-icons/md"
 import { MdOutlinePriceChange } from "react-icons/md"
 import { BsStripe } from "react-icons/bs"
+import Layout from "@/layout/layout";
 import { GiWeightScale } from "react-icons/gi"
 import _ from "lodash"
 const NewFlavourBanner = dynamic(() => import('../../../component/StoreDetails/NewFlavourBanner'), { ssr: true });
@@ -32,7 +33,6 @@ import newclasess from '@/styles/customstyle.module.css'
 import Reviewextrs from "@/component/storedetailsfootecomponent/review"
 import Fqa from "@/component/storedetailsfootecomponent/faq"
 export default function DispensoriesDetails(props) {
-    // console.log(props)
     const navigate = useRouter()
     const { id, storeData, product, review } = props?.params
     let tab = (navigate.query.details.length === 2) ? "menu" : navigate.query.details[1]
@@ -417,9 +417,7 @@ export default function DispensoriesDetails(props) {
                                             />
                                             <div className={ "col-12 col-lg-9 col-xxl-10"}>
                                                 <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData.slice(0, 4)} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
-                                                {/* <div className="col-12 d-flex justify-content-sm-center ">
-                                                    <button>{"View more product"}</button>
-                                                </div> */}
+                                               
                                             </div>
                                             <Reviewextrs AllReview={AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
                                             <Fqa faq={faq1} ></Fqa>
@@ -523,6 +521,9 @@ export default function DispensoriesDetails(props) {
 
     )
 }
+DispensoriesDetails.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
 const fetchDispensariesAndProducts = async (country, state, city) => {
     const object2 = {
         City: city,

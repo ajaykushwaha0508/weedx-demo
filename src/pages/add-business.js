@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef } from "react";
+import Layout from "@/layout/layout";
 import Link from "next/link";
 import Business from "@/component/tableofcontent/Business";
 import Businesspageseo from "@/component/ScoPage/businesspageseo";
@@ -16,9 +17,9 @@ import Add_business2 from '../../public/image/add_business2.png'
 import Add_business1 from '../../public/image/add_business2.png'
 import useStyles from "@/styles/style";
 
-const Businesspage = () => {
+export default function Businesspage(){
   const ref = useRef(null);
-const ssss = useStyles()
+  const ssss = useStyles()
   return (
     <div className={classes.ad_page}>
       <Businesspageseo/>
@@ -304,6 +305,8 @@ const ssss = useStyles()
     </div>
   );
 };
-export default Businesspage;
+ Businesspage.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 

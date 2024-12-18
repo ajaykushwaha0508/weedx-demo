@@ -18,6 +18,7 @@ const StoreDetailMenuItem = dynamic(() => import('../../../component/StoreDetail
 import CategoryProduct from "../../../component/category/category";
 const ComponentStoreDetails = dynamic(() => import('../../../component/StoreDetails/StoreDetailComponent/ComponentStoreDetails'), { ssr: true });
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
+import Layout from "@/layout/layout";
 import Review from "../../../component/Review/Review";
 const StoreDetails = dynamic(() => import('../../../component/ScoPage/StoreDetails'), { ssr: true });
 import { Store_Add_Review, Store_OverAllGet_Review, Store_Get_UserComment, Store_Get_Review, Delete_StoreReview, StoreHelpFull } from "../../../hooks/apicall/api";
@@ -540,7 +541,9 @@ export default function DispensoriesDetails(props) {
     )
 }
 
-
+DispensoriesDetails.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
 const fetchDispensariesAndProducts = async (id, country, state, city) => {
     const object2 = {
         City: city,

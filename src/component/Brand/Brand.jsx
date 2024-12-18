@@ -20,7 +20,6 @@ const Brand = ({VerifyArrayData}) => {
                             return (
                                 <div className="col-xl-6 col-md-12 col-12 verify_brand_container" key={index}>
                                     <div className="row verifyBrand_row mx-1 my-3">
-
                                         <Link    href={`/brands/${modifystr(items.name)}/${items.id}`}>
                                             <div className="col-6  verifyBrand_image_container ">
                                                 <Image    onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} className="verify_brand_image" src={`${items.Brand_Logo}`} alt={items.name} title={items.name} />
@@ -40,8 +39,8 @@ const Brand = ({VerifyArrayData}) => {
                                             </div>
                                                 
                                         </Link>
-                                        </div>
-                        </div>
+                                    </div>
+                                </div>
                             )
                         })}
                     </div>

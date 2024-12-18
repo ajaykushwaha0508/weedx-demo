@@ -1,16 +1,16 @@
-    
 import React from "react";
-import AddToCartReview from "@/component/Addtocard/AddToCartReview"
-import AddToCartSummary from "@/component/Addtocard/AddToCartSummary"
-import Createcontext from "@/hooks/context"
+import AddToCartReview from "@/component/Addtocard/AddToCartReview";
+import AddToCartSummary from "@/component/Addtocard/AddToCartSummary";
+import Createcontext from "@/hooks/context";
 import Link from "next/link";
+import Layout from '@/layout/layout';
 import { useRouter } from "next/router";
-import EmptyCard from "@/component/Addtocard/EmptyCard"
+import EmptyCard from "@/component/Addtocard/EmptyCard";
 import { Cart } from "@/component/ScoPage/CommenpageSeo";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { modifystr } from "@/hooks/utilis/commonfunction";
 import newclases from '@/styles/customstyle.module.css';
-const AddToCart = () => {
+export default function AddToCart(){
     const { state } = React.useContext(Createcontext)
     const location = useRouter()
 
@@ -48,5 +48,6 @@ const AddToCart = () => {
         </div >
     )
 }
-export default AddToCart
-
+AddToCart.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};

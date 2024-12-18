@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Createcontext from "../../../hooks/context"
+import Layout from "@/layout/layout";
 import { useRouter } from 'next/router';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -23,7 +24,7 @@ import cookie from 'cookie';
 import clases from '@/styles/customstyle.module.css'
 import countries from  "i18n-iso-countries";
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-const Deliveries = (props) => {
+export default function Deliveries (props){
     const cookies = new Cookies();
     // console.log(props)
     const { state, dispatch } = React.useContext(Createcontext)
@@ -259,7 +260,9 @@ const Deliveries = (props) => {
         </div>
     )
 }
-export default Deliveries
+ Deliveries.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
 
 export async function GetAllDelivery(object) {
     try {

@@ -1,27 +1,22 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import dynamic from 'next/dynamic'
-// import { useLocation, usenavigate.push, useParams } from "react-router-dom"
 import { useRouter } from "next/router";
 import useStyles from "../../../../src/styles/style"
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import { ProductSeo, ProductCategorySeo } from "@/component/ScoPage/ProductSeo"
-import SkeletonCard from '@/component/skeleton/DashBoardSkeleton/DispensoriesAddressSkeleton';
-// import ProductSearchResult from "@/component/productcard/ProductSearchResult"
 import Createcontext from "@/hooks/context"
-import _, { kebabCase } from "lodash"
+import Layout from "@/layout/layout";
+import _ from "lodash"
 import { SubCategoryApibyname } from "@/hooks/apicall/api"
 import { modifystr } from "@/hooks/utilis/commonfunction";
-import Currentlocation from "@/component/currentlocation/CurrentLocation";
 const CategoryProduct = dynamic(() => import('@/component/category/category'), { ssr: true });
 const ProductSearchResult = dynamic(() => import('@/component/productcard/ProductSearchResult'), { ssr: true });
 import CircularProgress from '@mui/material/CircularProgress';
 import Image from "next/image";
-import cookies from 'next-cookies';
-import { setCookie } from 'nookies';
-const Product = (props) => {
+export default function Product(props){
 
     const navigate = useRouter();
     const { slug } = navigate.query;
@@ -247,10 +242,9 @@ const Product = (props) => {
             </div>
         </React.Fragment>)
 }
-export default Product
-
-
-
+ Product.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
 export const getServerSideProps = async (context) => {
     const { req, res, params, query } = context;
     let locationData = {};
@@ -327,7 +321,6 @@ export const getServerSideProps = async (context) => {
         return { notFound: true };
     }
 };
-
 // Helper function to fetch products by category
 const fetchProductByCategory = async (categoryId, locationObject) => {
     try {
@@ -342,7 +335,6 @@ const fetchProductByCategory = async (categoryId, locationObject) => {
         return [];
     }
 };
-
 // Helper function to fetch products by subcategory
 const fetchProductBySubCategory = async (subCategoryId, locationObject) => {
     try {
@@ -358,7 +350,6 @@ const fetchProductBySubCategory = async (subCategoryId, locationObject) => {
         return [];
     }
 };
-
 // Helper function to fetch all products
 const fetchAllProducts = async (locationObject) => {
     try {

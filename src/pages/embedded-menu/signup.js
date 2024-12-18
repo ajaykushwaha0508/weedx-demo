@@ -1,7 +1,7 @@
 'use client'
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import useStyles from "../styles/style"
+import useStyles from "../../styles/style"
 import TextField from '@mui/material/TextField';
 // import {  useLocation} from 'react-router-dom';
 import { useRouter } from 'next/navigation';
@@ -9,10 +9,11 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { RxCross2 } from "react-icons/rx";
 import { useForm } from "react-hook-form";
-import Createcontext from "../hooks/context"
-import LoginWithGoogle from '../component/LoginWithGoogle/LoginWithGoogle'
+import Createcontext from "../../hooks/context"
+import LoginWithGoogle from '../../component/LoginWithGoogle/LoginWithGoogle'
 import React,{useState} from 'react';
 import Axios from 'axios'
+import Layout1 from '@/layout/layout1';
 export default function Signup (){
     const { state } = React.useContext(Createcontext)
     const [emailvalid,setemailvalid]=useState(false)
@@ -26,18 +27,10 @@ export default function Signup (){
         email:State.email
       }).then((res)=>{
         if(res.data.email !== "Email is already Registered"){
-            // navigate("/signupwithemail", { state: { State } })
-            if(location.pathname==='/menu-integration/signup'){
-                router.push({
-                    pathname: '/menu-integration/signupwithemail',
-                    query: { state: { State }}
-                })
-            }else{
-                router.push({
-                    pathname: '/signupwithemail',
-                    query: { useremail:   State.email  }
-                })
-            }
+            router.push({
+                pathname: '/embedded-menu/login',
+                query: { state: { State }}
+            })
         }else{
             setemailvalid(true)
         }
@@ -106,7 +99,7 @@ export default function Signup (){
 
     <div className='w-100 text-center my-2 '>
         {/* <h2 className='login_bottom'>New To weedx ?</h2>  */}
-       <span onClick={()=>{  router.push("/login", { state: { lastlocation:'signin' } })}}>Already a member? Login</span>
+       <span onClick={()=>{  router.push("/embedded-menu/login", { state: { lastlocation:'signin' } })}}>Already a member? Login</span>
     </div>
     <div className='crosslogin'>
           <Tooltip title="Back">
@@ -119,5 +112,5 @@ export default function Signup (){
   )
 }
  Signup.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>;
+    return <Layout1>{page}</Layout1>;
   };

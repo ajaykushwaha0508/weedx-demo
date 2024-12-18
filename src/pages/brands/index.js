@@ -1,6 +1,7 @@
 import React from 'react';
 import Brand from '@/component/Brand/Brand';
-const Brands = (props) => { 
+import Layout from '@/layout/layout';
+export default function Brands (props){ 
     return (
         <div>
             <Brand VerifyArrayData={props.verifyArrayData}></Brand>
@@ -8,7 +9,9 @@ const Brands = (props) => {
     );
 };
 
-export default Brands;
+Brands.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
 
 
 export async function getStaticProps() {

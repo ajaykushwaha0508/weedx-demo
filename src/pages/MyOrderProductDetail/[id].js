@@ -2,6 +2,7 @@ import React from "react";
 import { MyOrderSeoDetail } from '@/component/ScoPage/CommenpageSeo';
 import Image from 'next/image';
 import { AiOutlineLeft } from "react-icons/ai";
+import Layout from "@/layout/layout";
 import OrderTracking from "@/component/Ordertracking/OrderTracking";
 import { IconButton } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
@@ -11,7 +12,7 @@ import { useRouter } from "next/router";
 import useStyles from "@/styles/style";
 import Swal from 'sweetalert2';
 import { ConstructionOutlined } from "@mui/icons-material";
-const Index = () => {
+export default function Index (){
     const router = useRouter();
     const classes = useStyles();
     const [AllOrder_data, SetAllOrder_data] = React.useState([]);
@@ -181,5 +182,6 @@ const Index = () => {
         </div>
     );
 };
-
-export default Index;
+Index.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};

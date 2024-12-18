@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import NewProductDetailsCards from "@/component/productcard/NewProductDetailsCards"
 import ProductSearchResult from "@/component/productcard/ProductSearchResult"
 import Axios from "axios";
+import Layout from "@/layout/layout";
 import dynamic from 'next/dynamic'
 import { useRouter } from "next/router";
 import Review from "@/component/Review/Review"
@@ -14,7 +15,7 @@ import Link from "next/link";
 import Loader from "@/component/Loader/Loader";
 import { modifystr } from "@/hooks/utilis/commonfunction";
 import clases from '@/styles/customstyle.module.css';
-const NewProductDetails = (props) => {
+export default function NewProductDetails(props){
   const { id } = props.id;
   const StoreProduct =  props.likeproduct
   const [discount, setdiscount] = React.useState({
@@ -304,7 +305,9 @@ const NewProductDetails = (props) => {
     </div>
   )
 }
-export default NewProductDetails
+NewProductDetails.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 export async function getServerSideProps(context) {
   const { category, subcategory, name, id } = context.params;
   const res = await fetch(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`);

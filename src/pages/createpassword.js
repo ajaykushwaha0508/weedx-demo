@@ -2,6 +2,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
 import TextField from '@mui/material/TextField';
+import Layout from '@/layout/layout';
 import { useForm } from "react-hook-form";
 import React from 'react';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -23,7 +24,7 @@ function ConfirmPassword(Email,password) {
     );
     return data;
 }
-const CreatePassword = () => {
+export default function CreatePassword(){
     const router = useRouter();
     const { Email } = router.query;
     // console.log(router , 'email')
@@ -180,4 +181,6 @@ const CreatePassword = () => {
         </div>
     )
 }
-export default CreatePassword
+CreatePassword.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  }

@@ -11,9 +11,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Cookies from 'universal-cookie';
 import Swal  from'sweetalert2'
 import Select from '@mui/material/Select';
+import Layout from "@/layout/layout";
 import styled from "@/styles/customstyle.module.css";
 import Loader from '@/component/Loader/Loader';
-const MyOrder = () => {
+export default function  MyOrder(){
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access');
     if (typeof window !== 'undefined') {  token_data = localStorage.getItem('User_Token_access'); }
@@ -217,4 +218,6 @@ const MyOrder = () => {
         </React.Fragment>
     )
 }
-export default MyOrder
+MyOrder.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

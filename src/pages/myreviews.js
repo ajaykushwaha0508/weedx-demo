@@ -18,7 +18,7 @@ import { ProductHelpFull } from '@/hooks/utilis/ProductApi';
 import { Menuintegration_login } from '@/component/Menuintregation/Menuintregation';
 import clases from '@/styles/customstyle.module.css'
 
-const Myreview = () => {
+export default function  Myreview(){
     const classes = useStyles();
     const [allproductreviews, setAllProductReviews] = useState([]);
     const [allstorereviews, setAllStoreReviews] = useState([]);
@@ -268,4 +268,6 @@ const Myreview = () => {
     );
 };
 
-export default Myreview;
+Myreview.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

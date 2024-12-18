@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Layout from "@/layout/layout";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
 import dynamic from 'next/dynamic'
 const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'),{ 
@@ -55,7 +56,7 @@ export default function Home({ initialData }) {
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
   
-        <HomePageBanner props={initialData?.topbanner} btype={'mainbanner'}> </HomePageBanner>
+      <HomePageBanner props={initialData?.topbanner} btype={'mainbanner'}> </HomePageBanner>
 
       <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
       <DeliveryServices link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
@@ -71,7 +72,9 @@ export default function Home({ initialData }) {
 
 
 
-
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 
 export async function getServerSideProps(context) {
@@ -83,14 +86,11 @@ export async function getServerSideProps(context) {
     Country: transformString(cookies.country) || '',
     limit: 10
   };
-
-  // Remove empty keys
   for (const key in object) {
     if (object[key] === '') {
       delete object[key];
     }
   }
-
   const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
@@ -105,7 +105,6 @@ export async function getServerSideProps(context) {
       },
     };
   };
-
   const fetchWithTimeout = async (url, options = {}, timeout = 5000) => {
     const source = axios.CancelToken.source();
     const timeoutId = setTimeout(() => source.cancel(), timeout);
@@ -128,7 +127,6 @@ export async function getServerSideProps(context) {
       throw error;
     }
   };
-
   try {
     // Start timer
     const startTime = Date.now();

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Layout from "@/layout/layout";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style";
@@ -49,7 +50,7 @@ function a11yProps(index) {
 }
 
 
-const Dispensaries = (props) => {
+export default function Dispensaries (props){
     const cookies = new Cookies();
     const classes = useStyles()
     // const [searchtext, setsearchtext] = React.useState("");
@@ -429,4 +430,6 @@ export const getServerSideProps= async (context) => {
         };
     }
 };
-export default Dispensaries;
+Dispensaries.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};

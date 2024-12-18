@@ -1,6 +1,7 @@
 import React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import Layout from '@/layout/layout';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,7 +9,7 @@ import Bgheader from '@/component/bgheader/Bgheader';
 import useStyles from "@/styles/style";
 import { HelpcenterSeo } from "@/component/ScoPage/Faq"
 import styled from '@/styles/customstyle.module.css'
-const Helpcenter = () => {
+export default function Helpcenter(){
     const [allheight, setallheighth] = React.useState([])
     React.useEffect(() => {
         let navheight = document.getElementById('Navbar_box')?.clientHeight
@@ -206,5 +207,6 @@ const Helpcenter = () => {
         </div>
     ) 
 }
-
-export default Helpcenter
+Helpcenter.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

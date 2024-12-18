@@ -2,12 +2,13 @@ import React from 'react'
 import Bgheader from '@/component/bgheader/Bgheader'
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import Layout from '@/layout/layout';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import useStyles from "@/styles/style";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Faqseo} from '@/component/ScoPage/Faq';
-const Faq = () => {
+export default function Faq(){
     const classes=useStyles()
     const data  =  
         [
@@ -167,4 +168,6 @@ const Faq = () => {
   )
 }
 
-export default Faq
+Faq.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

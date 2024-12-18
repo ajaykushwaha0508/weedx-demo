@@ -1,6 +1,7 @@
 import RelatedVerifyBanner from "@/component/Brand/RelatedVerifyBrand/RelatedVerifyComponent/RelatedVerifyBrandBanner"
 import SearchBar from '@mkyy/mui-search-bar';
 import { useRouter } from "next/router";
+import Layout from "@/layout/layout";
 import React from "react";
 import useStyles from "@/styles/style";
 import Createcontext from "@/hooks/context"
@@ -8,7 +9,7 @@ import { BrandDetailsSeo } from "@/component/ScoPage/BrandsSeo";
 import ProductSearchResult from "@/component/productcard/ProductSearchResult";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-const RelatedVerifyBrand = (props) => {
+export default function RelatedVerifyBrand (props){
     const classes = useStyles()
     const { pathname, asPath } = useRouter()
     const { state } = React.useContext(Createcontext)
@@ -56,7 +57,9 @@ const RelatedVerifyBrand = (props) => {
         </div>
     )  
 }
-export default RelatedVerifyBrand
+RelatedVerifyBrand.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};
 export async function getServerSideProps(context) {
 
     let product = []

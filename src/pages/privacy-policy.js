@@ -3,7 +3,7 @@ import Newsletter from '@/component/home/HomePageDealsSignup/';
 import {PrivacyPolicy}  from "@/component/ScoPage/CommenpageSeo";
 import { useRef } from 'react';
 import Privacypolicytb from '@/component/tableofcontent/Privatepolicy'
-const Privacypolicy = () => {
+export default function  Privacypolicy (){
   const ref = useRef(null);
   return (
     <React.Fragment>
@@ -100,4 +100,6 @@ const Privacypolicy = () => {
     </React.Fragment>
   )
 }
-export default Privacypolicy
+Privacypolicy.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

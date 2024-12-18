@@ -12,11 +12,12 @@ const LawsOptions = dynamic(()=>import("@/component/LawsComponent/LawsOptions") 
 // import Bgheader from "@/component/bgheader/Bgheader";
 const Bgheader = dynamic(()=>import("@/component/bgheader/Bgheader") , {ssr:false ,  loading: () => "ppppp"} ) ;
 import { useRouter } from "next/router";
+import Layout from "@/layout/layout";
 import useStyles from "../../../styles/style";
 import Link from "next/link";
 import Content from "@/component/LawsComponent/LawContentsJson";
 import { Law } from "@/component/ScoPage/LearnSeo";
-const Index = (props) => {
+export default function Index (props){
   const router = useRouter();
   const classes = useStyles();
   const [value, setValue] = useState(router?.pathname);
@@ -82,4 +83,6 @@ const Index = (props) => {
   );
 };
 
-export default Index;
+Index.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

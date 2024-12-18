@@ -2,12 +2,13 @@ import React from "react";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { IconButton } from "@mui/material";
 import WhisListCard from "@/component/Whishlist/WhisLists/WhisListComponent/WhisListCards";
+import Layout from "@/layout/layout";
 import { useRouter } from "next/router";
 import { WhislistSeo } from "@/component/ScoPage/CommenpageSeo";
 import dynamic from "next/dynamic";
 const Currentlocation = dynamic(() => import('@/component/currentlocation/CurrentLocation'));
 import Createcontext from "@/hooks/context"
-const WhisLists = () => {
+export default function  WhisLists(){
     const Navigate = useRouter()
     const { state } = React.useContext(Createcontext)
     return (
@@ -25,4 +26,6 @@ const WhisLists = () => {
         </div>
     )
 }
-export default WhisLists
+WhisLists.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

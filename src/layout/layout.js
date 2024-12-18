@@ -28,24 +28,21 @@ import { Inter , Roboto , Poppins } from 'next/font/google'
     display: 'swap',
     weight: ['100',  '300', '400', '500', '700'],
   });
-const Layout = ({ children }) => {
-
-  return (
-    <React.Fragment>
-      <div className={`${roboto.variable}  ${inter.variable}  ${poppins.variable}`}>
-        <div className='fixed-top' style={{zIndex:2}}>
-          <Navbar/>
-        </div>
-        <div className='container' id='layout'>
-          <Grid item xs={12} md={12} xl={12}>
-            <main >{children}</main>
-          </Grid>
-        </div>
-        <Footer/>
-        <Chartbot></Chartbot>
-      </div>  
-    </React.Fragment>
-  );
-};
+  const Layout = ({ children }) => {
+    return (
+        <div className={`${roboto.variable}  ${inter.variable}  ${poppins.variable}`}>
+          <div className='fixed-top' style={{zIndex:2}}>
+            <Navbar/>
+          </div>
+          <div className='container' id='layout'>
+            <Grid item xs={12} md={12} xl={12}>
+              <main >{children}</main>
+            </Grid>
+          </div>
+          <Footer/>
+          <Chartbot></Chartbot>
+        </div>  
+    );
+  };
 
 export default Layout;

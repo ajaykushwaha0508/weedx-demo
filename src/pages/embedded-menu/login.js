@@ -1,8 +1,7 @@
 'use client'
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import useStyles from "../styles/style"
-import Layout from "@/layout/layout";
+import useStyles from "@/styles/style"
 import TextField from '@mui/material/TextField';
 import { usePathname } from 'next/navigation'
 import { useForm } from "react-hook-form";
@@ -18,8 +17,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Tooltip from '@mui/material/Tooltip';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { CiLock } from "react-icons/ci"
-import LoginWithGoogle from '../component/LoginWithGoogle/LoginWithGoogle';
-import Createcontext from "../hooks/context"
+import LoginWithGoogle from '@/component/LoginWithGoogle/LoginWithGoogle';
+import Createcontext from "@/hooks/context"
+import Layout1 from '@/layout/layout1';
 export default function Login(props){
     const cookies = new Cookies();
     const pathname = usePathname()
@@ -162,7 +162,7 @@ export default function Login(props){
                 <LoginWithGoogle></LoginWithGoogle>
             </div>
             <div className='w-100 text-center my-3 '>
-                <h2 className='login_bottom'>{`New To weedx ?`} <Link className='signInfo' href={'/signup'}><span>{`Sign up`}</span></Link></h2>
+                <h2 className='login_bottom'>{`New To weedx ?`} <Link className='signInfo' href={'/embedded-menu/signup'}><span>{`Sign up`}</span></Link></h2>
             </div>
             <div className='crosslogin'>
                 <Tooltip title="Back">
@@ -175,7 +175,7 @@ export default function Login(props){
     )
 }
 Login.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>;
+    return <Layout1>{page}</Layout1>;
   };
 export async function getServerSideProps(context) {
     return {

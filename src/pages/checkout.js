@@ -2,6 +2,7 @@ import DeliveryOption from "@/component/Checkout/DeliveryOption"
 import { DeliveryInformation } from "@/component/Checkout/DeliveryInformation"
 import Payment from "@/component/Checkout/Payment"
 import React from "react"
+import Layout from '@/layout/layout';
 import AddToCartReview from "@/component/Addtocard/AddToCartReview"
 import AddToCartSummary from "@/component/Addtocard/AddToCartSummary"
 import Cookies from 'universal-cookie';
@@ -157,4 +158,6 @@ const CheckOutMainPage = () => {
             </ProtectRout>
         )
 }
-export default CheckOutMainPage
+export default CheckOutMainPage.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

@@ -1,9 +1,10 @@
 import PlaceOrder from '@/component/Checkout/PlaceOrder';
 import React from 'react';
+import Layout from "@/layout/layout";
 import Createcontext from '@/hooks/context';
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 
-const Orderplaced = (props) => {
+export default function Orderplaced  (props){
 const {state} = React.useContext(Createcontext)
     return (
       <>
@@ -13,9 +14,9 @@ const {state} = React.useContext(Createcontext)
     );
 };
 
-
-
-export default Orderplaced;
+Orderplaced.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 
 export async function getServerSideProps(context) {

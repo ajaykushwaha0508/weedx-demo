@@ -3,6 +3,7 @@ import React from "react";
 import Newsletter from "@/component/home/HomePageDealsSignup/";
 import { CookiesPolicy } from '@/component/ScoPage/CommenpageSeo';
 import Link from "next/link";
+import Layout from '@/layout/layout';
 import Cockiestable from "@/component/tableofcontent/Cockiestable";
 import { useRef } from "react";
 const Termsconditions = () => {
@@ -100,4 +101,6 @@ const Termsconditions = () => {
   );
 };
 
-export default Termsconditions;
+export default Termsconditions.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

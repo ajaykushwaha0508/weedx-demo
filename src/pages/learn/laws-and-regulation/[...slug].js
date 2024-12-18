@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import LawStateContent from "@/component/LawsComponent/LawStateContent";
 import Content from "@/component/LawsComponent/LawContentsJson";
+import Layout from "@/layout/layout";
 import _ from "lodash";
 import classes from '@/styles/customstyle.module.css';
 import { LawState } from '../../../component/ScoPage/LearnSeo';
 import { useRouter } from "next/router";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-const Index = (props) => {
+export default function Index (props){
   const ref = useRef(null);
   const router = useRouter()
   return (
@@ -53,8 +54,9 @@ const Index = (props) => {
     </React.Fragment>
   );
 };
-
-export default Index;
+Index.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 
 export async function getServerSideProps(context) {

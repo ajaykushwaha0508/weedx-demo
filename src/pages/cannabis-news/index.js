@@ -15,9 +15,10 @@ import { RWebShare } from "react-web-share";
 import Cookies from 'universal-cookie';
 import Blogheaders from '@/component/Pageheaders/Blogheaders';
 import { modifystr } from "@/hooks/utilis/commonfunction"
+import Layout from "@/layout/layout";
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 import Styled from '@/styles/customstyle.module.css';
-const Allblogs = (props) => {
+export default function Allblogs(props){
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
   const cookies = new Cookies();
@@ -170,7 +171,9 @@ const Allblogs = (props) => {
   )
 }
 
-export default Allblogs
+ Allblogs.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 // export async function getStaticPaths() {
 //   const paths = []; // Return an empty array to generate no pages at build time

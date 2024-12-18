@@ -4,7 +4,7 @@ import { TermsAndConditions } from "@/component/ScoPage/CommenpageSeo";
 import { useRef } from 'react';
 import Link from 'next/link';
 import Termandcondition from '@/component/tableofcontent/Termandcondition'
-const Termsconditions = () => {
+export default function  Termsconditions(){
   const ref = useRef(null);
   return (
     <React.Fragment>
@@ -135,5 +135,6 @@ const Termsconditions = () => {
     </React.Fragment>
   )
 }
-
-export default Termsconditions
+Termsconditions.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

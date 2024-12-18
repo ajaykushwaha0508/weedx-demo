@@ -16,7 +16,9 @@ const reducer = (state, action) => {
   
           return { ...state, AllProduct: action.AllProduct }
         }
-  
+        case 'emdaddedcat':
+          return { ...state, Embedded_category: action.Embedded_category }
+    
       case "DeliveryOption":
         {
           return { ...state, DeliveryOption: action.DeliveryOption }

@@ -15,7 +15,7 @@ import Createcontext from "../hooks/context"
 import  Swal from 'sweetalert2';
 import Router from 'next/router'
 
-const EditProfile = () => {
+const EditProfile(){
     
     const { state, dispatch } = useContext(Createcontext)
     const cookies = new Cookies();
@@ -166,4 +166,6 @@ const EditProfile = () => {
         </div>
     )
 }
-export default EditProfile
+EditProfile.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };

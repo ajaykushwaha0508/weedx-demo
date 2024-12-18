@@ -23,6 +23,7 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import Createcontext from "@/hooks/context";
 import { BlogLike, Get_Comment, Post_BlogLike } from "@/hooks/apicall/api"
 import _ from "lodash"
+import Layout from "@/layout/layout";
 import Cookies from 'universal-cookie';
 import { RWebShare } from "react-web-share";
 import { WhisList } from "@/component/Whishlist/WhisList";
@@ -33,7 +34,7 @@ import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import styled from '@/styles/customstyle.module.css'
-const Blogs = (props) => {
+export default function Blogs (props){
     let News = props.data[0]
     const router = useRouter()
     const { state } = React.useContext(Createcontext) 
@@ -340,7 +341,7 @@ const Blogs = (props) => {
             <Newsletter />
         </React.Fragment>
     )
-    }
+}
 export async function getServerSideProps(context) {
     try {
         const { id, title, blogcategoryname } = context.params;
@@ -372,7 +373,6 @@ export async function getServerSideProps(context) {
         };
     }
 }
-
-export default Blogs
-
-
+Blogs.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+};

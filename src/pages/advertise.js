@@ -4,6 +4,7 @@ import React from 'react'
 import classes from '@/styles/customstyle.module.css';
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
+import Layout from '@/layout/layout';
 import Link from 'next/link';
 import Image from 'next/image';
 import Ads1 from '../../public/image/ads1.gif'
@@ -12,7 +13,7 @@ import Ads3 from '../../public/image/ads3.gif'
 import AdvertiseBanner from "../../public/image/AdvertiseBanner.webp"
 // import Advertisseo from '@/component/ScoPage/advertisseo';
 import Head from 'next/head';
-const advertise = () => {
+export default function advertise(){
   return (
     <>  
             <Head>
@@ -118,4 +119,6 @@ const advertise = () => {
   )
 }
 
-export default advertise
+advertise.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

@@ -9,6 +9,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "@/component/ScoPage/NewsSeo";
 import _, { assignWith } from "lodash";
+import Layout from "@/layout/layout";
 import Image from 'next/image';
 import Createcontext from '@/hooks/context.js';
 import { RWebShare } from "react-web-share";
@@ -18,7 +19,7 @@ import { modifystr } from "@/hooks/utilis/commonfunction"
 import Currentlocation from '@/component/currentlocation/CurrentLocation';
 import Blogscroller from '@/component/InfiniteScroll/Blogscroller';
 import styled from "@/styles/customstyle.module.css"
-const Allblogs = (props) => {
+export default function Allblogs (props){
   const router = useRouter()
   const { state } = React.useContext(Createcontext)
   const cookies = new Cookies();
@@ -172,16 +173,9 @@ const Allblogs = (props) => {
   )
 }
 
-export default Allblogs
-
-// export async function getStaticPaths() {
-//   const paths = []; // Return an empty array to generate no pages at build time
-//   return {
-//       paths,
-//       fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
-//   };
-// }
-
+Allblogs.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 export async function getStaticProps(context) {
   try {

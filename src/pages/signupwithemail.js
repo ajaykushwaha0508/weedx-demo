@@ -13,7 +13,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import Tooltip from '@mui/material/Tooltip';
 import { RxCross2 } from "react-icons/rx";
-const SignupWithEmail = (props) => {
+export default function  SignupWithEmail (props) {
     const Navigate = useRouter()
     const location = useRouter();
     const [showPassword, setShowPassword] = React.useState(false);
@@ -179,7 +179,9 @@ const SignupWithEmail = (props) => {
 
     )
 }
-export default SignupWithEmail
+SignupWithEmail.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };
 
 export async function getServerSideProps(context) {
     return {

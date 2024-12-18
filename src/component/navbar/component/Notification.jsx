@@ -74,8 +74,7 @@ import clases from '@/styles/customstyle.module.css'
             let sortedData = debounce.sortBy(datax, (dateObj) => dateObj.date);
             Settotalnotify(sortedData);
             Setnotificationdata(sortedData.reverse());
-          })
-          .catch((err) => {
+          }).catch((err) => {
             console.error(err);
           });
       }
