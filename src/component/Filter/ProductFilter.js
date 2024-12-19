@@ -301,14 +301,14 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
               
                 dispatch({ type: 'Loading', Loading: true })
                 Axios.post(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/`, 
-                {
-                    search:e,
+                {   search:e,
                     store:Store_id
                 }).then(response => {
-                    let newdata = response.data.filter((item) => {
-                        return item.Store_id === Store_id
-                    })
-                    Setarr1(newdata)
+                    // let newdata = response.data.filter((item) => {
+                    //     return item.Store_id === Store_id
+                    // })
+                    Setarr1(response.data)
+                    console.log( response.data ,'newdata')
                     dispatch({ type: 'Loading', Loading: false })
                 }).catch(
                     function (error) {

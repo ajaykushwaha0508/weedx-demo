@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import useStyles from "../../styles/style";
 import { FaShoppingCart } from "react-icons/fa";
+import { WishListPost } from "@/component/Whishlist/WishListApi_"
 import { useRouter } from "next/router";
 import Link from "next/link";
 import _ from "lodash";
@@ -25,6 +26,7 @@ const ProductList = ({ arr, link = "products" }) => {
   const showdata = arr
   const [productperpage, setproductperPage] = React.useState(8);
   const Navigate = useRouter();
+  console.log(Navigate.pathname.includes('embedded'));
   const location = useRouter();
   console.log(location.pathname.includes('embedded'));
   const [CartClean, SetCartClean] = React.useState(false);
@@ -346,7 +348,7 @@ const ProductList = ({ arr, link = "products" }) => {
     if (state?.login === false) {
       SetWishList(!Whishlist);
     } else {
-      WishListPost(id)
+        WishListPost(id)
         .then(async (res) => {
           if (res.data.data === "Remove From WishList") {
             dispatch({
@@ -388,7 +390,7 @@ const ProductList = ({ arr, link = "products" }) => {
                 return (
                   <div className="col-6 col-xxl-3 col-xl-4  col-md-4 col-sm-6 " key={index} >
                     <div className={'prod_inner_cont'}>
-                      <span className={'product_inner_rowspan'}>
+                     {  !location.pathname.includes('embedded') && <span className={'product_inner_rowspan'}>
                         <IconButton
                           onClick={() => {
                             handleWhishList(ele.id);
@@ -405,7 +407,7 @@ const ProductList = ({ arr, link = "products" }) => {
                             <AiOutlineHeart />
                           )}
                         </IconButton>
-                      </span>
+                      </span>}
                       <div className={'prod_cat_cont'}>
 
                         <div className={`col-12 ${'prod_cat_img'}`}>

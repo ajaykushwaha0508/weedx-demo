@@ -373,15 +373,11 @@ export default function DispensoriesDetails(props) {
       
         <div>
             <div>
-                {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
-                    ?
-
-                    <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>
-                    :
-                    ""
+                {
+                    Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
+                    ?  <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails> :   ""
                 }
                 <div className={clases.page_breadcrum}>
-
                     <span onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries' : "/weed-deliveries")}> {location.asPath.slice(0, 18) === "/weed-dispensaries" ? 'weed-dispensaries' : "weed-deliveries"}  {" > "}</span>
                     <span onClick={() => navigationtab(location.asPath.slice(0, 18) === "/weed-dispensaries" ? '/weed-dispensaries'
                         : "/weed-deliveries", modifystr(Despen[0]?.Store_Name), id)}>{Despen[0]?.Store_Name}</span>
@@ -397,17 +393,16 @@ export default function DispensoriesDetails(props) {
             }
             <div className="product_container" >
                 {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
-                <div >
-
+                <div >  
                     {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
                     {
-                        (tab === 'menu' || tab === undefined) &&
-                        <React.Fragment>
-                            {!productload ? <> {!location.asPath.includes('/menu-integration') ?
-                                (Boolean(DespensariesData.length) ?
-                                    <>
+                        (tab === 'menu' || tab === undefined) &&  <React.Fragment>
+                            {
+                              !productload ? 
+                            // !location.asPath.includes('/menu-integration') ?
+                                // (Boolean(DespensariesData.length) ?
+                                  <React.Fragment>
                                         <CategoryProduct Category={category} ShowCategoryProduct={ShowCategoryProduct}> </CategoryProduct>
-
                                         <div className="row" >
                                             <ProductFilter Store_id={Despen[0]?.id}
                                                 id={id}
@@ -416,49 +411,46 @@ export default function DispensoriesDetails(props) {
                                                 arr={DespensariesData}
                                             />
                                             <div className={ "col-12 col-lg-9 col-xxl-10"}>
-                                                <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData.slice(0, 4)} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
-                                               
+                                                {Boolean(DespensariesData.length) ? <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData.slice(0, 4)} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                                :<Oops
+                                                allproduct={props?.params?.extradata?.products || []}
+                                                location={{ country: state.Country, state: state.State, city: state.City }}
+                                                store={props?.params?.extradata?.dispensaries || []}
+                                                HellFull={HellFull}
+                                                type={`store`}
+                                                reviewtype={reviewtype}
+                                                setReviewtype={setReviewtype}
+                                                delBtn={Despen}
+                                                handleEdit={handleEdit}
+                                                reviewloading={reviewloading}
+                                                handleDelete={handleDelete}
+                                                Rating={Rating}
+                                                onSubmit={onSubmit}
+                                                GetProductReview={GetProductReview}
+                                                SetGetProductReview={SetGetProductReview}
+                                                AllReview={review}
+                                            />}
                                             </div>
                                             <Reviewextrs AllReview={AllReview || []} storename={Despen[0].Store_Name} ></Reviewextrs>
                                             <Fqa faq={faq1} ></Fqa>
                                         </div>
+                                   </React.Fragment>
+                                    
+                                    
+                            :
+                                (!productload ?  (Boolean(DespensariesData.length) ? 
+                                        <div className="col-12 productCat_cont" style={{ display: "contents" }}>
+                                            <ProductFilter Store_id={Despen[0]?.id}
+                                                ProductFilterData={ProductFilterData}
+                                                Setarr1={SetDespensariesProductData}
+                                                arr={DespensariesData}
+                                                id={id}
+                                            />
+                                            <div className={"col-12 col-lg-9 col-xxl-10"}>
+                                                <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
+                                            </div>
 
-                                    </>
-                                    :
-                                    <Oops
-                                        allproduct={props?.params?.extradata?.products || []}
-                                        location={{ country: state.Country, state: state.State, city: state.City }}
-                                        store={props?.params?.extradata?.dispensaries || []}
-                                        HellFull={HellFull}
-                                        type={`store`}
-                                        reviewtype={reviewtype}
-                                        setReviewtype={setReviewtype}
-                                        delBtn={Despen}
-                                        handleEdit={handleEdit}
-                                        reviewloading={reviewloading}
-                                        handleDelete={handleDelete}
-                                        Rating={Rating}
-                                        onSubmit={onSubmit}
-                                        GetProductReview={GetProductReview}
-                                        SetGetProductReview={SetGetProductReview}
-                                        AllReview={review}
-                                    />
-                                ) :
-                                (!productload ?
-                                    (Boolean(DespensariesData.length) ? <div className="col-12 productCat_cont" style={{ display: "contents" }}>
-                                        <ProductFilter Store_id={Despen[0]?.id}
-                                            ProductFilterData={ProductFilterData}
-                                            Setarr1={SetDespensariesProductData}
-                                            arr={DespensariesData}
-                                            id={id}
-                                        />
-                                        <div className={"col-12 col-lg-9 col-xxl-10"}>
-                                            <ProductList arr={Boolean(categoryProduct.length) ? categoryProduct : DespensariesData} link={Boolean(location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries") ? "products" : "menu-integration"} />
-                                        </div>
-
-                                    </div>
-                                        :
-                                        <Oops   allproduct={props?.params?.extradata?.products || []}
+                                        </div>  :   <Oops   allproduct={props?.params?.extradata?.products || []}
                                         location={{ country: state.Country, state: state.State, city: state.City }}
                                         store={props?.params?.extradata?.dispensaries || []}
                                         HellFull={HellFull}
@@ -474,13 +466,9 @@ export default function DispensoriesDetails(props) {
                                         GetProductReview={GetProductReview}
                                         SetGetProductReview={SetGetProductReview}
                                         AllReview={review}/>
-                                    )
-                                    :
-                                    <DispensoriesAddressSkeleton />
+                                    ) :  <DispensoriesAddressSkeleton />
                                 )
                             }
-                            </> :
-                                <DispensoriesAddressSkeleton />}
                         </React.Fragment>
                     }
                     {
@@ -571,8 +559,7 @@ export async function getStaticProps(context) {
     let extradata
     await delay(100);
 
-    try {
-        // Fetch store details
+    try{
         const storeResponse = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreById/${context.params.details[storeId]}`);
         const reviewResponse = await axios.get(`https://api.cannabaze.com/UserPanel/Get-StoreReview/${context.params.details[storeId]}`);
         const productResponse = await axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`);

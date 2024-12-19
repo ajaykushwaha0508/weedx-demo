@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import { FaProductHunt } from "react-icons/fa";
 import IconButton from "@mui/material/IconButton";
 import Createcontext from "@/hooks/context"
 import Menu from "@mui/material/Menu";
@@ -84,12 +85,17 @@ const Embadednavbar=()=>{
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
           >
+                    <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: "All" })}  key={1} >
+                      <Stack direction="row" alignItems={'center'} spacing={2}>
+                        <Avatar alt="Remy Sharp"><FaProductHunt size={25} color="#31B655" /></Avatar> {' All Products'}
+                      </Stack>
+                    </MenuItem>
             {
               categories.map((item , index)=>{
              
-            return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index} >
+            return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index+1} >
                       <Stack direction="row" alignItems={'center'} spacing={2}>
-                        <Avatar alt="Remy Sharp" src={item.categoryImages} /> {item.name} 
+                        <Avatar alt={item.name} src={item.categoryImages} /> {item.name} 
                       </Stack>
                     </MenuItem>
               })

@@ -1150,7 +1150,7 @@
     .oopss {
         background: #fff;
         width: 600px;
-        height: 100%;
+     
         padding: 50px;
         line-height: 1.5em;
         border-radius: 8px;
@@ -2468,6 +2468,7 @@
         transition: all .4s ease-in;
         border-radius: 5px;
         position: relative;
+        margin: 10px 0;
         width: 32%;
         &:hover{
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -2495,13 +2496,14 @@
                 font-weight: 500;
                 margin-bottom: 5px;
                 line-height: 1.6;
-            }
+            } 
             .dispensories_buttonsContainer{
                 display: flex;
                 align-items: center;
                 gap: 10px;
                 flex-wrap: wrap;
-              
+                padding: 10px 0;
+                height: 50px;
                 button.dispensories_open_res_btn{
                     font-size: 12px;
                     font-weight: 500;

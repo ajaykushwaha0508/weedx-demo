@@ -1125,7 +1125,6 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 .oopss {
   background: #fff;
   width: 600px;
-  height: 100%;
   padding: 50px;
   line-height: 1.5em;
   border-radius: 8px;
@@ -2380,6 +2379,7 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   transition: all 0.4s ease-in;
   border-radius: 5px;
   position: relative;
+  margin: 10px 0;
   width: 32%;
 }
 .despensories_card_container:hover {
@@ -2415,6 +2415,8 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  padding: 10px 0;
+  height: 50px;
 }
 .despensories_card_container .dispenosries_card_content_div .dispensories_buttonsContainer button.dispensories_open_res_btn {
   font-size: 12px;
