@@ -6,7 +6,7 @@ import Link from "next/link";
 import Layout from '@/layout/layout';
 import Cockiestable from "@/component/tableofcontent/Cockiestable";
 import { useRef } from "react";
-const Termsconditions = () => {
+export default function Termsconditions(){
   const ref = useRef(null);
   return (
     <>
@@ -101,6 +101,6 @@ const Termsconditions = () => {
   );
 };
 
-export default Termsconditions.getLayout = function getLayout(page) {
+ Termsconditions.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };

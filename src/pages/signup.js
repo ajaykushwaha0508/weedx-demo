@@ -13,6 +13,7 @@ import Createcontext from "../hooks/context"
 import LoginWithGoogle from '../component/LoginWithGoogle/LoginWithGoogle'
 import React,{useState} from 'react';
 import Axios from 'axios'
+import Layout from '@/layout/layout';
 export default function Signup (){
     const { state } = React.useContext(Createcontext)
     const [emailvalid,setemailvalid]=useState(false)

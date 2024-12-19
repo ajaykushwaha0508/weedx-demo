@@ -14,8 +14,9 @@ import Axios from 'axios';
 import Createcontext from "../hooks/context"
 import  Swal from 'sweetalert2';
 import Router from 'next/router'
+import Layout from "@/layout/layout"
 
-const EditProfile(){
+export default function EditProfile(){
     
     const { state, dispatch } = useContext(Createcontext)
     const cookies = new Cookies();

@@ -3,6 +3,7 @@ import Newsletter from '@/component/home/HomePageDealsSignup/';
 import {PrivacyPolicy}  from "@/component/ScoPage/CommenpageSeo";
 import { useRef } from 'react';
 import Privacypolicytb from '@/component/tableofcontent/Privatepolicy'
+import Layout from '@/layout/layout';
 export default function  Privacypolicy (){
   const ref = useRef(null);
   return (

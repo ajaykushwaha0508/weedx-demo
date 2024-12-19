@@ -85,9 +85,9 @@ const Embadednavbar=()=>{
             onClose={handleMenuClose}
           >
             {
-              categories.map((item)=>{
+              categories.map((item , index)=>{
              
-            return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}>
+            return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index} >
                       <Stack direction="row" alignItems={'center'} spacing={2}>
                         <Avatar alt="Remy Sharp" src={item.categoryImages} /> {item.name} 
                       </Stack>

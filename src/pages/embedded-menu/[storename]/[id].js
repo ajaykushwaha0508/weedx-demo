@@ -1,5 +1,5 @@
 import Layout1 from "@/layout/layout1";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext ,useState } from "react";
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Head from 'next/head';
@@ -15,10 +15,9 @@ import dynamic from 'next/dynamic'
 import useStyles from "@/styles/style";
 const ProductFilter = dynamic(() => import('@/component/Filter/ProductFilter'), { ssr: true });
 const ProductList = dynamic(() => import('@/component/productcard/ProductList'), { ssr: true });
-export default function index(){
+export default function Storepageembeded(){
   const router = useRouter()
-  const { state, dispatch } = React.useContext(Createcontext)
-  console.log(state.Embedded_category,'state')
+  const { state, dispatch } = useContext(Createcontext)
   const classes = useStyles()
   const [products  ,setProduct]= useState([])
   const { id } = router.query
@@ -68,7 +67,7 @@ export default function index(){
         </div>
   )
 }
- index.getLayout = function getLayout(page) {
+Storepageembeded.getLayout = function getLayout(page) {
     return <Layout1>{page}</Layout1>;
 };
 export async function getServerSideProps(context) {

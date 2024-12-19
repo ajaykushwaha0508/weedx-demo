@@ -13,6 +13,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import Tooltip from '@mui/material/Tooltip';
 import { RxCross2 } from "react-icons/rx";
+import Layout from '@/layout/layout';
 export default function  SignupWithEmail (props) {
     const Navigate = useRouter()
     const location = useRouter();

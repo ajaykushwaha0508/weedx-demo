@@ -12,7 +12,7 @@ import newcalses from '@/styles/customstyle.module.css'
 import Axios from "axios"
 import ProtectRout from "@/hooks/utilis/ProtectRout"
 import newclases from '@/styles/customstyle.module.css'
-const CheckOutMainPage = () => {
+export default  function CheckOutMainPage(){
     const { state, dispatch } = React.useContext(Createcontext)
     const cookies = new Cookies();
     const navigate = useRouter()
@@ -158,6 +158,6 @@ const CheckOutMainPage = () => {
             </ProtectRout>
         )
 }
-export default CheckOutMainPage.getLayout = function getLayout(page) {
+CheckOutMainPage.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>;
-  };
+};

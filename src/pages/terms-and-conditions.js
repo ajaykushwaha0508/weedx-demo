@@ -4,6 +4,7 @@ import { TermsAndConditions } from "@/component/ScoPage/CommenpageSeo";
 import { useRef } from 'react';
 import Link from 'next/link';
 import Termandcondition from '@/component/tableofcontent/Termandcondition'
+import Layout from '@/layout/layout';
 export default function  Termsconditions(){
   const ref = useRef(null);
   return (
