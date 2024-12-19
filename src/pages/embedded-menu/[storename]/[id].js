@@ -45,9 +45,8 @@ export default function Storepageembeded(){
          })
         
          setProduct(productss)
-
       },[state.Embedded_category])
-     
+      
   return ( <div>
           <Head>
            <meta name="robots" content="NOINDEX , INDEXIFEMBEDDED" />
