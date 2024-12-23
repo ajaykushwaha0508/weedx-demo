@@ -1192,7 +1192,38 @@ const useStyles = makeStyles({
       border: "1px solid #31B665"
     },
   },
-
+  Embadedappbar:{
+    backgroundColor:'#31B655',
+  },
+  Embadedappbarmenu:{
+    flexGrow:1,
+    display:'flex',
+    "& .MuiButtonBase-root": {
+      color: "#FFFFFF",
+      fontSize: "16px",
+      textTransform: "none",
+      fontWeight: "600",
+      "&:hover": {
+        color: "#31B655",
+        backgroundColor: "#fff",
+        transition: "all .3s ease",
+      }
+    },
+  },
+  Embadedappbarauth:{
+    gap:'10px',
+    "& .MuiButtonBase-root": {
+      color: "#FFFFFF",
+      fontSize: "16px",
+      textTransform: "none",
+      fontWeight: "600",
+      "&:hover": {
+        color: "#31B655",
+        backgroundColor: "#fff",
+        transition: "all .3s ease",
+      }
+    },
+  },
   CookiesAccept: {
     "& .MuiButton-text": {
       fontSize: "12px",

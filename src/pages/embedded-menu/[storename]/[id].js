@@ -21,7 +21,8 @@ export default function Storepageembeded(){
   const classes = useStyles()
   const [products  ,setProduct]= useState([])
   const { id } = router.query
-     const ProductFilterData= [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
+  console.log(id)
+      const ProductFilterData= [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
       { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
       { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
       { Id: 4, Name: "Price", Type1: "Any", Type2: "$25", Price: "$100", Icons: <MdOutlinePriceChange className={classes.muiIcons} /> },
@@ -36,6 +37,7 @@ export default function Storepageembeded(){
           }).catch((error) => {
               console.error(error);
           });
+         dispatch({ type:'emdaddedStoreID', EmbadedStoreID: id})
       }
       }, [id])
       React.useEffect(()=>{

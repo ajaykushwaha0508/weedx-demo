@@ -9,16 +9,14 @@ const reducer = (state, action) => {
       case "CartCount":
         {
           return { ...state, CartCount: action.CartCount }
-  
         }
-      case "AllProduct":
-        {
-  
-          return { ...state, AllProduct: action.AllProduct }
-        }
-        case 'emdaddedcat':
-          return { ...state, Embedded_category: action.Embedded_category }
-    
+      case "AllProduct":{ 
+        return { ...state, AllProduct: action.AllProduct } 
+      }
+      case 'emdaddedcat':
+        return { ...state, Embedded_category: action.Embedded_category }
+      case 'emdaddedStoreID':
+        return { ...state, Embedded_StoreID: action.EmbadedStoreID }
       case "DeliveryOption":
         {
           return { ...state, DeliveryOption: action.DeliveryOption }
@@ -31,22 +29,10 @@ const reducer = (state, action) => {
         {
           return { ...state, Cart_subTotal: action.Cart_subTotal }
         }
-      case "LoadingApi":
-        {
-          return { ...state, LoadingApi: action.LoadingApi }
-        }
-      case "Order_place":
-        {
-          return { ...state, Order_place: action.Order_place }
-        }
-      case "Dispensories":
-        {
-          return { ...state, Dispensories: action.Dispensories }
-        }
-      case "Location":
-        {
-          return { ...state, Location: action.Location }
-        }
+      case "LoadingApi":{ return { ...state, LoadingApi: action.LoadingApi } }
+      case "Order_place": { return { ...state, Order_place: action.Order_place }}
+      case "Dispensories": { return { ...state, Dispensories: action.Dispensories } }
+      case "Location": { return { ...state, Location: action.Location }}
       case "DefalutLocation":
         {
           return { ...state, DefalutLocation: action.DefalutLocation }
@@ -55,14 +41,12 @@ const reducer = (state, action) => {
         {
           return { ...state, LocationData: action.LocationData }
         }
-  
       case "Cookies":
         {
           return { ...state, Cookies: action.Cookies }
         }
       case "locationchange":
         {
-  
           return { ...state, locationFocus: action.focus }
         }
       case "DeliveryAddress":
@@ -173,26 +157,24 @@ const reducer = (state, action) => {
         {
           return { ...state, havecity: action.havecity }
         }
-        case "countrycode":
-          {
-            return { ...state, countrycode: action.countrycode }
-          }
-    
-        case "citycode":
-          {
-            return { ...state, citycode: action.citycode }
-          }
-    
-        case "statecode":
-          {
-            return { ...state, statecode: action.statecode }
-          }
-          case "location_Api":
-            {
-              return { ...state, location_Api: action.location_Api }
-            }
-      
+      case "countrycode":
+        {
+          return { ...state, countrycode: action.countrycode }
+        }
   
+      case "citycode":
+        {
+          return { ...state, citycode: action.citycode }
+        }
+  
+      case "statecode":
+        {
+          return { ...state, statecode: action.statecode }
+        }
+      case "location_Api":
+        {
+          return { ...state, location_Api: action.location_Api }
+        }
       default: return state
     }
   };

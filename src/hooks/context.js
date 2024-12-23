@@ -22,6 +22,7 @@ const initialState = {
     DeliveryInformation: false,
     Cart_subTotal: "",
     Embedded_category: "",
+    Embedded_StoreID:"",
     LoadingApi: false,
     Order_place: false,
     Dispensories: [],

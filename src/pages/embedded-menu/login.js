@@ -30,17 +30,14 @@ export default function Login(props){
     const classes = useStyles()
     const [showPassword, setShowPassword] = React.useState(false);
     const router = useRouter()
-
+    console.log( state ,'state')
     const [dulicate] = React.useState([])
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
-
         Setloading(true)
         axios.post("https://api.cannabaze.com/UserPanel/Login/", {
-
             email: data.email,
             password: data.password
-
         },
         ).then(response => {
             if (response.data !== "Not Authorised") {
@@ -83,12 +80,11 @@ export default function Login(props){
             }
         )
     }
-
     return (
         <div className="login_signup_reset_container ">
             {state.permission === false && <Currentlocation></Currentlocation>}
             <div className='signup_head'>
-                <h1>Log In</h1>
+                <h1>{'Log In'}</h1>
             </div>
             <form onSubmit={method.handleSubmit(Submit)}>
               
@@ -176,7 +172,7 @@ export default function Login(props){
 }
 Login.getLayout = function getLayout(page) {
     return <Layout1>{page}</Layout1>;
-  };
+};
 export async function getServerSideProps(context) {
     return {
         props: {

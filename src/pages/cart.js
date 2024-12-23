@@ -13,10 +13,7 @@ import newclases from '@/styles/customstyle.module.css';
 export default function AddToCart(){
     const { state } = React.useContext(Createcontext)
     const location = useRouter()
-
-
     return (
-
         <div className="container py-lg-2 py-4">
             {state.permission === false && <Currentlocation></Currentlocation>}
             <Cart></Cart>

@@ -77,13 +77,11 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
       }
   
       if (isCartPage) {
-       
         navigate.push(navigate.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", undefined, { shallow: true, state:  { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions } });
       } else if (!state.DeliveryOption || !state.DeliveryInformation) {
         alert("First fill the form");
         return;
       }
-  
       if (isCheckoutPage) {
         SubmitData();
       }
