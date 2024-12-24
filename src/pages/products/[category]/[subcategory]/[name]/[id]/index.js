@@ -116,7 +116,7 @@ export default function NewProductDetails(props){
 
   React.useEffect(() => {
 
-    if (state.login && state.Profile.id !== undefined && props.data[0].id !== undefined) {
+    if (state?.login && state.Profile.id !== undefined && props.data[0].id !== undefined) {
       Product_Get_UserComment(state.Profile.id, props.data[0].id).then((res) => {
 
         if (res.data.length !== 0) {

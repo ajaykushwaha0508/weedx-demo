@@ -175,7 +175,7 @@ export async function getServerSideProps(context) {
     // End timer and calculate total time
     const endTime = Date.now();
     const totalTime = endTime - startTime;
-    console.log(`API calls completed in ${totalTime} ms`);
+    // console.log(`API calls completed in ${totalTime} ms`);
 
     const responseData = {
       topbanner: topbanner || [],

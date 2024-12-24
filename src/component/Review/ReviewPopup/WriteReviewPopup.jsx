@@ -58,7 +58,7 @@ import Image from "next/image";
     );
   };
   const handleClickOpen = () => {
-    if (state.login) {
+    if (state?.login) {
       SetGetProductReview({ ...GetProductReview, popup: true });
     }else{
       if(location?.pathname?.includes('/menu-integration') ){

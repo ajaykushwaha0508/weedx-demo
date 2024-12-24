@@ -43,7 +43,7 @@ import clases from '@/styles/customstyle.module.css'
     }, []);
   
     React.useEffect(() => {
-      if (state.login) {
+      if (state?.login) {
         const config = { headers: { Authorization: `Bearer ${token_data}` } };
   
         axios
@@ -78,7 +78,7 @@ import clases from '@/styles/customstyle.module.css'
             console.error(err);
           });
       }
-    }, [state.login]);
+    }, [state?.login]);
   
     const ClearAll = async () => {
       const config = { headers: { Authorization: `Bearer ${token_data}` } };

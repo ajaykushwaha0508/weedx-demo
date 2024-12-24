@@ -216,7 +216,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
         })
     }
     const handleWhishList = (id) => {
-        if (state.login === false) {
+        if (state?.login === false) {
             SetWishList(!Whishlist)
         }
         else {
@@ -499,7 +499,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
 
                             <IconButton onClick={() => { handleWhishList(Product?.id) }} aria-label="Example">
                                 {
-                                    state.login ? state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                    state?.login ? state.WishList[Product?.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
                                 }
                             </IconButton>
                             <span className="shareiconcontainer">

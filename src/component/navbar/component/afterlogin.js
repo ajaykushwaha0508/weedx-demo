@@ -15,7 +15,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Log
     const classes = useStyles();
     return (
         <div >
-            {state.login ?
+            {state?.login ?
                 <div className='position-relative' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
                         <div className={'Navbar_profile_logo_container'}>

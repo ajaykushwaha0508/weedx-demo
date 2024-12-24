@@ -180,7 +180,7 @@ export default function DispensoriesDetails(props) {
         }
     }, [reviewtype, id, api])
     React.useEffect(() => {
-        if (state.login && state.Profile.id !== undefined && id !== undefined) {
+        if (state?.login && state.Profile.id !== undefined && id !== undefined) {
             Store_Get_UserComment(state.Profile.id, id).then((res) => {
 
                 if (res.data.length !== 0) {

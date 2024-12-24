@@ -28,7 +28,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
     const { state ,dispatch } = React.useContext(Createcontext)
     const [Loading, SetLoading] = React.useState(false)
     function CleanData() {
-        if (state.login) {
+        if (state?.login) {
             SetLoading(true)
             const config = {
                 headers: { Authorization: `Bearer ${token_data}` }

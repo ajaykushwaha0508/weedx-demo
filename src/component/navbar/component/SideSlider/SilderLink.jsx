@@ -156,7 +156,7 @@ function DashBoardLink({ state }) {
         <Grid item="true" xs={6} md={2} spacing={2} display={{ xs: "none", md: "block", lg: "block" }} >
           <div className="col-12 addyocardIcon">
             <Link href="/whislists" aria-label="Wishlist">
-              <Badge badgeContent={state.login ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0 }  className={classes.sliderLink_badge} >
+              <Badge badgeContent={state?.login ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0 }  className={classes.sliderLink_badge} >
                 <IconButton  className={classes.navBarButton_icons} aria-label="Wishlist" >
                   <AiFillHeart color="#858585" size={22} />
                 </IconButton>
@@ -165,7 +165,7 @@ function DashBoardLink({ state }) {
             <div className="position-relative">
               <Badge
                 badgeContent={
-                  state.login
+                  state?.login
                     ? totalnotify?.length ===
                       state?.Profile?.RemovedNotification?.length
                       ? 0

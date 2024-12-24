@@ -55,7 +55,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
     }
   };
   const CheckoutProcess = (event, j) => {
-    if (!state.login) {
+    if (!state?.login) {
       if (navigate.pathname === '/carts') {
         setOpen(true);
       } else {

@@ -10,7 +10,7 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
     const [GetComment, SetComment] = React.useState('')
     const classes = useStyles()
     function WriteComment(e) {
-        if (state.login) {
+        if (state?.login) {
 
             SetComment(e.target.value)
         }
@@ -49,7 +49,7 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
                             <LoadingButton variant="outlined">{'Cancel'}</LoadingButton>
                         </Box>
                         <Box className={`recentPostBox_width2 ${classes.recentPostCancelBtn2}`} >
-                            <LoadingButton disabled={state.login === false ?true :false} onClick={PostComment} variant="outlined">{'Post'}</LoadingButton>
+                            <LoadingButton disabled={state?.login === false ?true :false} onClick={PostComment} variant="outlined">{'Post'}</LoadingButton>
                         </Box>
                     </div>
                 </div>

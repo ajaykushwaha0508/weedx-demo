@@ -22,7 +22,10 @@ const initialState = {
     DeliveryInformation: false,
     Cart_subTotal: "",
     Embedded_category: "",
-    Embedded_StoreID:"",
+    Embedded_Store:{
+        StoreID: "",
+        StoreName: "",
+    },
     LoadingApi: false,
     Order_place: false,
     Dispensories: [],
@@ -145,7 +148,7 @@ const Context = (props) => {
             dispatch({ type: 'DefalutLocation', DefalutLocation: defaultLocation });
         }
 
-    }, [state.ApiProduct, state.login]);
+    }, [state.ApiProduct, state?.login]);
     const contextValue = useMemo(() => ({ state, dispatch }), [state]);
     return (
         <CreateContext.Provider value={contextValue}>

@@ -20,7 +20,7 @@ const WhisListCard = () => {
     const { state, dispatch } = React.useContext(Createcontext)
     const [GetApiData, SetGetApiData] = React.useState([])
     React.useEffect(() => {
-        if(state.login){
+        if(state?.login){
             WishListget().then((val) => {
                 SetGetApiData(val.data)
             }).catch((error) => {

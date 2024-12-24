@@ -71,7 +71,7 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                     <p className="blogUserComments">{val.comment}</p>
                                                     </div>
                                                 </section>
-                                                {state.login &&  state?.Profile?.id === val.user && (
+                                                {state?.login &&  state?.Profile?.id === val.user && (
                                                     <div className="col d-flex justify-content-center align-items-center">
                                                         <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton>
 

@@ -30,7 +30,7 @@ export default function Allblogs(props){
   if (Boolean(accessToken)) { token_data = accessToken }
   function PostLike(item) {
 
-    if (state.login) {
+    if (state?.login) {
       Post_BlogLike(item?.id, !item.Liked).then((res) => {
 
         axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/', {

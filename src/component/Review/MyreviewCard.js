@@ -35,7 +35,7 @@ const MyreviewCard = () => {
     }
 
     useEffect(() => {
-        if (state.login) {
+        if (state?.login) {
             axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/', {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then((res) => {
@@ -48,10 +48,10 @@ const MyreviewCard = () => {
                 setAllStoreReviews(res.data);
             });
         }
-    }, [state.login, token_data]);
+    }, [state?.login, token_data]);
 
     const handleHelpfulProductReview = (reviewId) => {
-        if (state.login) {
+        if (state?.login) {
             ProductHelpFull(reviewId.id, state.Profile.id).then(() => {
                 axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/', {
                     headers: { Authorization: `Bearer ${token_data}` }
@@ -65,7 +65,7 @@ const MyreviewCard = () => {
     };
 
     const handleHelpfulStoreReview = (reviewId) => {
-        if (state.login) {
+        if (state?.login) {
             StoreHelpFull(reviewId.id, state.Profile.id).then(() => {
                 axios.get('https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/', {
                     headers: { Authorization: `Bearer ${token_data}` }
@@ -162,7 +162,7 @@ const MyreviewCard = () => {
                 <Badge badgeContent={item?.review?.count} className={classes.sliderLink_badge}>
                     {item?.review?.helpfull?.includes(state?.Profile?.id)
                         ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulProductReview(item?.review) : router.push('/login') }} />
-                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state.login ? handleHelpfulProductReview(item?.review) : router.push("/login") }} />}
+                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulProductReview(item?.review) : router.push("/login") }} />}
                 </Badge>
             </div>
         </div>
@@ -217,7 +217,7 @@ const MyreviewCard = () => {
                 <Badge badgeContent={item?.count} className={classes.sliderLink_badge}>
                     {item?.helpfull?.includes(state?.Profile?.id)
                         ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulStoreReview(item) : (router.pathname.includes('/menu-integration') ? setOpen(true) : router.push('/login')) }} />
-                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state.login ? handleHelpfulStoreReview(item) : (router.pathname.includes('/menu-integration') ? setOpen(true) : router.push('/login')) }} />}
+                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulStoreReview(item) : (router.pathname.includes('/menu-integration') ? setOpen(true) : router.push('/login')) }} />}
                 </Badge>
             </div>
         </div>

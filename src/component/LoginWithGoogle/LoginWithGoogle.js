@@ -41,7 +41,7 @@ function LoginWithGoogle() {
                 router.back()
         }).catch(
             function (error) {
-                if(!state.login){
+                if(!state?.login){
                 alert(error?.response?.data?.message)
                }
             })

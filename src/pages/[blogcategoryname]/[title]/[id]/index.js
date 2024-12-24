@@ -50,7 +50,7 @@ export default function Blogs (props){
         accessToken = localStorage.getItem('User_Token_access');
     }
     function PostLike(like) {
-        if (state.login) {
+        if (state?.login) {
             Post_BlogLike(News?.id, !like).then((res) => {
                 BlogLike(News.id).then((res) => {
                     SetLikes(res.data.Like)
@@ -213,7 +213,7 @@ export default function Blogs (props){
                                         <section>
 
                                             {
-                                                (state.login && Boolean(usercomment?.length)) &&
+                                                (state?.login && Boolean(usercomment?.length)) &&
                                                 usercomment?.map((val, index) => {
 
                                                     const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
@@ -236,7 +236,7 @@ export default function Blogs (props){
                                                                     </div>
 
                                                                 </div>
-                                                                {state.login && state?.Profile?.id === val.user && (
+                                                                {state?.login && state?.Profile?.id === val.user && (
                                                                     <div className="col d-flex justify-content-center align-items-center">
                                                                         {/* <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton> */}
                                                                         <span className='userreviewaction'> {
@@ -313,7 +313,7 @@ export default function Blogs (props){
                                                                 <h2 className="blogCommentName">{val.username}</h2>
                                                                 <p className="blogUserComments">{val.comment}</p>
                                                             </div>
-                                                            {state.login && state?.Profile?.id === val.user && (
+                                                            {state?.login && state?.Profile?.id === val.user && (
                                                                 <div className="col d-flex justify-content-center align-items-center">
                                                                     <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton>
 

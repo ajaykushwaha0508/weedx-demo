@@ -105,13 +105,13 @@ const Navbar = () => {
                     <Grid xs={3} md={2} xl={1} display={{ xs: "block", md: "none", lg: "none" }}>
                         <div className={'Heder_icon'} >
                             <Link href="/whislists">
-                                <Badge badgeContent={state.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
+                                <Badge badgeContent={state?.login && Object.values(state.WishList).reduce((a, item) => a + item, 0) >= 1 ? Object.values(state.WishList).reduce((a, item) => a + item, 0) : 0} className={classes.sliderLink_badge}>
                                     <IconButton className={classes.navBarButton_icons} aria-label='whishlist'><AiFillHeart color="#858585" size={22} /></IconButton>
                                 </Badge>
                             </Link>
                             <div className="position-relative" >
                                 <Badge onClick={() => setNotify(!notify)} badgeContent={
-                                    Boolean(state.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
+                                    Boolean(state?.login) ? (totalNotify?.length === state?.Profile?.RemovedNotification?.length ? 0 : (totalNotify?.length - state?.Profile?.RemovedNotification?.length) > 0 ? totalNotify?.length - state?.Profile?.RemovedNotification?.length : 0) : notificationData?.length
                                 } className={classes.sliderLink_badge}>
                                     <IconButton className={classes.navBarButton_icons} aria-label='notification'><IoIosNotifications color="#858585" size={22}></IoIosNotifications></IconButton>
                                 </Badge>

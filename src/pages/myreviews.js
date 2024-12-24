@@ -39,7 +39,7 @@ export default function  Myreview(){
     }
 
     useEffect(() => {
-        if (state.login) {
+        if (state?.login) {
             axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/', {
                 headers: { Authorization: `Bearer ${token_data}` }
             }).then((res) => {
@@ -52,10 +52,10 @@ export default function  Myreview(){
                 setAllStoreReviews(res.data);
             });
         }
-    }, [state.login, token_data]);
+    }, [state?.login, token_data]);
 
     const handleHelpfulProductReview = (reviewId) => {
-        if (state.login) {
+        if (state?.login) {
             ProductHelpFull(reviewId.id, state.Profile.id).then(() => {
                 axios.get('https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/', {
                     headers: { Authorization: `Bearer ${token_data}` }
@@ -69,7 +69,7 @@ export default function  Myreview(){
     };
 
     const handleHelpfulStoreReview = (reviewId) => {
-        if (state.login) {
+        if (state?.login) {
             StoreHelpFull(reviewId.id, state.Profile.id).then(() => {
                 axios.get('https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/', {
                     headers: { Authorization: `Bearer ${token_data}` }
@@ -201,7 +201,7 @@ export default function  Myreview(){
                                 <Badge badgeContent={item?.review?.count} className={classes.sliderLink_badge}>
                                     {item?.review?.helpfull?.includes(state?.Profile?.id)
                                         ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulProductReview(item?.review) : router.push('/login') }} />
-                                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state.login ? handleHelpfulProductReview(item?.review) : router.push("/login") }} />}
+                                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulProductReview(item?.review) : router.push("/login") }} />}
                                 </Badge>
                             </div>
                         </div>
@@ -256,7 +256,7 @@ export default function  Myreview(){
                                 <Badge badgeContent={item?.count} className={classes.sliderLink_badge}>
                                     {item?.helpfull?.includes(state?.Profile?.id)
                                         ? <AiTwotoneLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulStoreReview(item) : (router.pathname.includes('/menu-integration') ? setOpen(true) : router.push('/login')) }} />
-                                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state.login ? handleHelpfulStoreReview(item) : (router.pathname.includes('/menu-integration') ? setOpen(true) : router.push('/login')) }} />}
+                                        : <AiOutlineLike color='#31B655' size={25} onClick={() => { state?.login ? handleHelpfulStoreReview(item) : (router.pathname.includes('/menu-integration') ? setOpen(true) : router.push('/login')) }} />}
                                 </Badge>
                             </div>
                         </div>

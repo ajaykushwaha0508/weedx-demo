@@ -130,7 +130,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     return (
         <React.Fragment>
                 <div>
-                    {(state.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
+                    {(state?.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
                         return (
                             <div className={newclases.related_review_container} key={index}>
@@ -139,7 +139,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <p className={newclases.reviewdateTexyt}>{calculateTImefromDate(ele.created_at)}</p>
                                       
                                             <span className='userreviewaction'> {
-                                                state.login &&
+                                                state?.login &&
                                                 state.Profile.id === ele.user && 
                                                 <>
                                                     <Select IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"

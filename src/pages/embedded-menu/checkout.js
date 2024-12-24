@@ -101,7 +101,7 @@ const checkout = () => {
                 })
         }
         React.useEffect(() => {
-            state.login && Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
+            state?.login && Axios.get(`https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`, config).then((data) => {
                 if (data.data.length !== 0) {
                     data.data.map((user, key) => {
 

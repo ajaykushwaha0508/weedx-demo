@@ -41,7 +41,7 @@ const AddToCartReview = () => {
                 if (result.isConfirmed) {
                     SetLoadingDelete(true);  // Show loading indicator
         
-                    if (state.login) {
+                    if (state?.login) {
                         // If user is logged in, send API request
                         try {
                             const config = {
@@ -82,7 +82,7 @@ const AddToCartReview = () => {
         async function Quantity(Id, Cart, Event) {
 
             if (Event?.Price?.Quantity > Event.Cart_Quantity) {
-                if (state.login || token_data) {
+                if (state?.login || token_data) {
 
                     const config = {
                         headers: { Authorization: `Bearer ${token_data}` }
@@ -140,7 +140,7 @@ const AddToCartReview = () => {
             }
         }
         async function decreaseQuantity(Id, Event) {
-            if (state.login || token_data) {
+            if (state?.login || token_data) {
                 const config = {
                     headers: { Authorization: `Bearer ${token_data}` }
                 };
@@ -212,6 +212,7 @@ const AddToCartReview = () => {
                         <div className={'Add_product_cart_left_container_item' }>
 
                             {AfterDiscount?.map((ele, index) => {
+                                console.log(AfterDiscount ,"AfterDiscount")
                                 let wrigh = Boolean(ele.Price.Weight) ? ele.Price.Weight : `${ele.Price.Unit} Unit`;
                                 return (
                                     <div className="row py-3 px-0 border-top border-bottom justify-content-center align-items-center" key={index}>
@@ -219,13 +220,13 @@ const AddToCartReview = () => {
                                             <div className={'Add_prod_item_image_cont'}>
                                                 <Link href={`/products/${modifystr(ele.category)}/${modifystr(ele.SubcategoryName)}/${modifystr(ele.ProductName)}/${ele.Product_id}`}>
                                                     <Image 
-                                                    width={100}
-                                                    height={100}
-                                                    src={`${ele.Image}`}
-                                                    alt={ele.StoreName}
-                                                    title={ele.StoreName} 
-                                                    priority
-                                                    onError={(e) => (e.target.src = '/blankImage.jpg')}
+                                                        width={100}
+                                                        height={100}
+                                                        src={`${ele.Image}`}
+                                                        alt={ele.StoreName}
+                                                        title={ele.StoreName}
+                                                        priority
+                                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                     />
                                                 </Link>
                                             </div>

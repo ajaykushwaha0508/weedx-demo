@@ -48,7 +48,7 @@ const PromoCode = () => {
         return timeString
     }
     function handlechnage() {
-        if (state.login) {
+        if (state?.login) {
             dispatch({ type: 'coupoun_code', coupoun_code: promocode })
 
             const data = {
@@ -84,7 +84,7 @@ const PromoCode = () => {
         }).then((res) => {
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
         }).catch((error) => {
-            if (!state.login) {
+            if (!state?.login) {
                 navigate.push('/login')
             }
         })

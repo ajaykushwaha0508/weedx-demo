@@ -17,8 +17,13 @@ import Box from "@mui/material/Box";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
+import Afterlogin from "@/component/navbar/component/afterlogin";
 const Embadednavbar=()=>{
     const classes = useStyles()
+    let accessToken 
+    if (typeof window !== 'undefined') {
+        accessToken = localStorage.getItem('User_Token_access');
+    }
     const { state, dispatch } = React.useContext(Createcontext)
     const [anchorEl, setAnchorEl] = useState(null);
     const [mobileAnchorEl, setMobileAnchorEl] = useState(null);
@@ -38,8 +43,6 @@ const Embadednavbar=()=>{
     const router = useRouter()
     const { id } = router.query
     React.useEffect(() => {
-      if(Boolean(id)){
-  
           axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
             "Store_Id": parseInt(id)
           }).then(async (response) => {
@@ -50,8 +53,8 @@ const Embadednavbar=()=>{
             })
             .catch((error) => {
                 console.error(error);
-            });
-      }
+          });
+      
   }, [id])
   return (
     <AppBar position="static" className={classes.Embadedappbar}>
@@ -87,13 +90,18 @@ const Embadednavbar=()=>{
             </Menu>
           </Box>
           <Box  className={classes.Embadedappbarauth} sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
-            <Button href="/embedded/login" sx={{ color: "white" }}>
-              Login
-            </Button>
-            <Button href="/embedded/signup" sx={{ color: "white" }}>
-              Signup
-            </Button>
-            <IconButton href="/cart" color="inherit">
+           {!state?.login?
+            <>
+              <Button onClick={()=>{ router.push("/embedded-menu/login")}} sx={{ color: "white" }}>
+                {'Login'}
+              </Button>
+              <Button onClick={()=>{ router.push("/embedded-menu/signup")}} sx={{ color: "white" }}>
+                {'Signup'}
+              </Button>
+            </>:
+            <Afterlogin/>
+             }
+            <IconButton onClick={()=>{router.push('/embedded-menu/cart')}}  color="inherit">
               <ShoppingCartIcon />
             </IconButton>
           </Box>
@@ -143,5 +151,4 @@ const Embadednavbar=()=>{
     </AppBar>
   )
 }
-
 export default Embadednavbar

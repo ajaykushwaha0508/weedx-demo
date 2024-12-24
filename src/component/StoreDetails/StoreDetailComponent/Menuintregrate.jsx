@@ -110,7 +110,7 @@ const Menuintregrate = ({tab = "Menu" }) => {
                                     </div>
                                     <div>
                                         {
-                                            state.login === true
+                                            state?.login === true
                                                 ?
                                                 <div className='position-relative' ref={profileRef}>
                                                     <Grid display={{ md: "flex" }} justifyContent="flex-end">

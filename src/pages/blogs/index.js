@@ -32,7 +32,7 @@ export default function Allblogs (props){
 
   function PostLike(item) {
 
-    if (state.login) {
+    if (state?.login) {
       Post_BlogLike(item?.id, !item.Liked).then((res) => {
 
         axios.get('https://api.cannabaze.com/UserPanel/GetNewbyUser/', {

@@ -74,7 +74,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 <div>
                     <div className=' col-12  mb-4 '>
                         {
-                            !state.login ?
+                            !state?.login ?
                                 <div className=" px-3 d-flex w-100 ml-0 py-3 align-items-center manuheader justify-content-between">
                                     <div className='w-50'>
                                         <span >
@@ -171,7 +171,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                 </div>
                 <div className=' col-12 d-flex align-items-center gap-1 mt-4 mb-3 '>
                     {
-                        !state.login ?
+                        !state?.login ?
                             <>
                                 <div className='col-5'>
                                     <Button onClick={Login} className={classes.muiBtn} >{`Login`}</Button>

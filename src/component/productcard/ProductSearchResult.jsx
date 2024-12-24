@@ -203,7 +203,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
         }
     }, [AddTOCard])
     const handleWhishList = (id) => {
-        if (state.login === false) {
+        if (state?.login === false) {
             SetWishList(!Whishlist)
         }
         else {
@@ -285,7 +285,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                             <Box className={classes.productSearchIcons2}>
                                                                 <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
                                                                     {
-                                                                        state.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                                                        state?.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
                                                                     }
                                                                 </IconButton>
                                                             </Box>
@@ -383,7 +383,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                     <Box className={classes.productSearchIcons2}>
                                                         <IconButton onClick={() => { handleWhishList(items.id) }} aria-label="Example">
                                                             {
-                                                                state.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
+                                                                state?.login ? state.WishList[items.id] ? <AiFillHeart color="31B665"></AiFillHeart> : <AiOutlineHeart color="31B665" /> : <AiOutlineHeart color="31B665" />
                                                             }
                                                         </IconButton>
                                                     </Box>

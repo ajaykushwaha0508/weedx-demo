@@ -20,8 +20,8 @@ export default function Storepageembeded(){
   const { state, dispatch } = useContext(Createcontext)
   const classes = useStyles()
   const [products  ,setProduct]= useState([])
-  const { id } = router.query
-  console.log(id)
+  const {storename ,  id } = router.query
+  console.log(router.query)
       const ProductFilterData= [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
       { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
       { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -30,15 +30,20 @@ export default function Storepageembeded(){
       { Id: 6, Name: "Unit", Type1: "Any", Type2: "$25", Price: "$100", Icons: <AiOutlineDeploymentUnit className={classes.muiIcons} /> },
       ]
       React.useEffect(() => {
-      if(Boolean(id)){
-          axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`).then(async (response) => {
-                setProduct(response.data)
-                // console.log(response.data ,'dguighi')
-          }).catch((error) => {
-              console.error(error);
-          });
-         dispatch({ type:'emdaddedStoreID', EmbadedStoreID: id})
-      }
+        if(Boolean(id)){
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`).then(async (response) => {
+                  setProduct(response.data)
+            }).catch((error) => {
+                console.error(error);
+            });
+            if(state.Embedded_StoreID === ''){
+              console.log("run")
+              dispatch({ type:'emdaddedStoreID', EmbadedStoreID: {
+                StoreID:  id,
+                StoreName: storename,
+               }})
+            }
+        }
       }, [id])
       React.useEffect(()=>{
         
@@ -50,21 +55,20 @@ export default function Storepageembeded(){
       },[state.Embedded_category])
       
   return ( <div>
-          <Head>
-           <meta name="robots" content="NOINDEX , INDEXIFEMBEDDED" />
-         </Head>
-          <div className="row" >
-              <ProductFilter Store_id={id}
-                  id={id}
-                  ProductFilterData={ProductFilterData}
-                  Setarr1={setProduct}
-                  arr={products}
-              />
-              <div className={ "col-12 col-lg-9 col-xxl-10"}>
-                  <ProductList arr={Boolean(products.length) ? products : []}  />
-              </div>
-            
-          </div>
+            <Head>
+            <meta name="robots" content="NOINDEX , INDEXIFEMBEDDED" />
+            </Head>
+            <div className="row" >
+                <ProductFilter Store_id={id}
+                    id={id}
+                    ProductFilterData={ProductFilterData}
+                    Setarr1={setProduct}
+                    arr={products}
+                />
+                <div className={ "col-12 col-lg-9 col-xxl-10"}>
+                    <ProductList arr={Boolean(products.length) ? products : []}  />
+                </div>
+            </div>
         </div>
   )
 }

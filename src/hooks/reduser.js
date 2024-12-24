@@ -16,11 +16,9 @@ const reducer = (state, action) => {
       case 'emdaddedcat':
         return { ...state, Embedded_category: action.Embedded_category }
       case 'emdaddedStoreID':
+        console.log(action.EmbadedStoreID, 'EmbadedStoreID')
         return { ...state, Embedded_StoreID: action.EmbadedStoreID }
-      case "DeliveryOption":
-        {
-          return { ...state, DeliveryOption: action.DeliveryOption }
-        }
+      case "DeliveryOption": {  return { ...state, DeliveryOption: action.DeliveryOption } }
       case "DeliveryInformation":
         {
           return { ...state, DeliveryInformation: action.DeliveryInformation }
@@ -33,10 +31,7 @@ const reducer = (state, action) => {
       case "Order_place": { return { ...state, Order_place: action.Order_place }}
       case "Dispensories": { return { ...state, Dispensories: action.Dispensories } }
       case "Location": { return { ...state, Location: action.Location }}
-      case "DefalutLocation":
-        {
-          return { ...state, DefalutLocation: action.DefalutLocation }
-        }
+      case "DefalutLocation": { return { ...state, DefalutLocation: action.DefalutLocation } }
       case "LocationData":
         {
           return { ...state, LocationData: action.LocationData }

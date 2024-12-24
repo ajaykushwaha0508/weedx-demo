@@ -66,7 +66,6 @@ const Blogscroller = () => {
             }
         }
     };
-    console.log(showabledata)
   return (
     <>
         <div className={Styled.blogListWrapper}>

@@ -30,7 +30,6 @@ export default function Login(props){
     const classes = useStyles()
     const [showPassword, setShowPassword] = React.useState(false);
     const router = useRouter()
-    console.log( state ,'state')
     const [dulicate] = React.useState([])
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     function Submit(data) {
