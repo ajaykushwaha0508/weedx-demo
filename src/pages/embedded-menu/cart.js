@@ -9,7 +9,7 @@ import EmptyCard from "@/component/Addtocard/EmptyCard";
 import { Cart } from "@/component/ScoPage/CommenpageSeo";
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import { modifystr } from "@/hooks/utilis/commonfunction";
-export default function cart(){
+export default function Carts(){
     const { state } = React.useContext(Createcontext)
     const location = useRouter()
     return(
@@ -44,6 +44,6 @@ export default function cart(){
         </div >
     )
 }
-cart.getLayout = function getLayout(page){
+Carts.getLayout = function getLayout(page){
     return <Layout1>{page}</Layout1>;
 }

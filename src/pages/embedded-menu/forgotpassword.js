@@ -11,7 +11,7 @@ import ForgetOtp from '@/component/Forgotpassword/Forgotopt';
 import { useRouter } from 'next/navigation'
 import axios from 'axios';
 import Layout1 from '@/layout/layout1';
-export default function forgotpassword(){
+export default function Forgotpassword(){
     const [Otppopup, Setotppopup] = React.useState(false)
     const [Email, SetEmail] = React.useState()
     const classes = useStyles()
@@ -94,6 +94,6 @@ export default function forgotpassword(){
         </React.Fragment>
     )
 }
-forgotpassword.getLayout = function getLayout(page) {
+Forgotpassword.getLayout = function getLayout(page) {
     return <Layout1>{page}</Layout1>;
 };

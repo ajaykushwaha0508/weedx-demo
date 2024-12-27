@@ -25,7 +25,7 @@ function ConfirmPassword(Email,password) {
     );
     return data;
 }
-export default function newpassword(){
+export default function Newpassword(){
     const router = useRouter();
     const { Email } = router.query;
     // console.log(router , 'email')
@@ -165,6 +165,6 @@ export default function newpassword(){
   )
 }
 
-newpassword.getLayout = function getLayout(page) {
+Newpassword.getLayout = function getLayout(page) {
     return <Layout1>{page}</Layout1>;
   }
