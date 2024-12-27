@@ -12,12 +12,11 @@ import { modifystr } from "@/hooks/utilis/commonfunction";
 export default function cart(){
     const { state } = React.useContext(Createcontext)
     const location = useRouter()
-    console.log( state.AllProduct[0]?.Store_id , state.Embedded_StoreID  , 'addtocart')    
     return(
         <div className="container py-lg-2 py-4">
             {state.permission === false && <Currentlocation></Currentlocation>}
             <Cart></Cart>
-            { ( ( !location.asPath.includes('embedded') && state?.AllProduct?.length !== 0) || (location.asPath.includes('embedded') && state.AllProduct[0]?.Store_id === Number(state.Embedded_StoreID) ))?
+            { ( ( !location.asPath.includes('embedded') && state?.AllProduct?.length !== 0) || (location.asPath.includes('embedded') && state.AllProduct[0]?.Store_id === Number(state.Embedded_Store.StoreID) ))?
                
                 <div className="row mt-sm-4">
                     <div className="col-12">

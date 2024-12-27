@@ -20,7 +20,7 @@ const layouts = {
 };
 export default function App({ Component, pageProps }) {
   const router = useRouter()
-    const cookies = new Cookies();
+  const cookies = new Cookies();
   const Layout = layouts[Component.layout] || layouts.default;
   const isNotWeedPath = React.useMemo(
     () => !/^\/weed-(deliveries|dispensaries)\/in\/.+/.test(router.pathname),

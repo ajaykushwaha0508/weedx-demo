@@ -8,6 +8,7 @@ import { TbLogout } from "react-icons/tb";
 import { TbEdit } from "react-icons/tb";
 import { FaHandsHelping } from "react-icons/fa";
 import useStyles from "@/styles/style";
+import {useRouter} from 'next/router'
 import Image from 'next/image';
 import clases from '@/styles/customstyle.module.css'
 import Avatar from '@mui/material/Avatar';
@@ -19,13 +20,10 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Log
                 <div className='position-relative' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
                         <div className={'Navbar_profile_logo_container'}>
-                            <Avatar
-                                alt="Profile"
+                            <Avatar  alt="Profile"
                                 src={state.Profile.googlelink === null ? state.Profile.image : state.Profile.googlelink}
-                                sx={{ width: 45, height: 45 }}
-                                title="Profile"
-                                
-                                onClick={handleClickDropdown}
+                                sx={state.Embedded_Store.StoreID ==="" ?{ width: 45, height: 45 }:{ width: 35, height: 35 }}
+                                title="Profile"  onClick={handleClickDropdown}
                             />
                         </div>
                     </Grid>
@@ -35,19 +33,22 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Log
                                 <p className={`profile_names ellipsis`}>{state.Profile.username}</p>
                             </section>
                             <hr />
-
                             <ol className={'navbar_profile_orderList'}>
-                                <Link href={'/editprofile'}> <li className={'profile_list'}> <span><TbEdit /></span> {`EDIT PROFILE`}</li></Link>
-                                <Link href={'/myorder'}> <li className={'profile_list'}> <span><FiShoppingBag /></span> {`MY ORDER`}</li></Link>
-                                <Link href={'/whislists'}> <li className={'profile_list'}> <span><FaHeart /></span> {`FAVORITES`} </li></Link>
-                                <Link href={'/myreviews'}> <li className={'profile_list'}> <span><MdReviews /></span>{`MY REVIEW`} </li></Link>
-                                <Link href={'/helpcenter'}> <li className={'profile_list'}> <span><FaHandsHelping /></span> {`HELP`}</li></Link>
+                                <Link href={ '/editprofile' }>
+                                 <li className={'profile_list'}> <span> <TbEdit />        </span> {`EDIT PROFILE`} </li></Link>
+                                <Link href={ '/myorder'
+                                } >     <li className={'profile_list'}> <span> <FiShoppingBag /> </span> {`MY ORDER`}     </li></Link>
+                                <Link href={ '/whislists'
+                                } >   <li className={'profile_list'}> <span> <FaHeart />       </span> {`FAVORITES`}    </li></Link>
+                                <Link href={ '/myreviews'
+                                }  >   <li className={'profile_list'}> <span> <MdReviews />     </span> {`MY REVIEW`}    </li></Link>
+                                <Link href={ '/helpcenter' } > 
+                                <li className={'profile_list'}> <span> <FaHandsHelping /></span> {`HELP`}         </li></Link>
                                 <li className={'profile_list'} onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
                             </ol>
                         </div>
                     }
                 </div>
-
                 :
                 <div className='col-12 d-flex align-items-center gap-1 justify-content-end Sapceing'>
                     <div className='col-lg-4 col-xl-5 col-sm-4'>

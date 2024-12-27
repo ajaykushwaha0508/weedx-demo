@@ -18,12 +18,24 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
 import Afterlogin from "@/component/navbar/component/afterlogin";
+import Badge from '@mui/material/Badge';
+
+  
+    async function Logout() {
+        localStorage.removeItem('User_Token_access');
+        cookies.remove('User_Token_access');
+        await dispatch({ type: 'Login', login: false });
+        await dispatch({ type: 'ApiProduct' });
+        await dispatch({ type: 'Profile', Profile: [] });
+    }
 const Embadednavbar=()=>{
     const classes = useStyles()
     let accessToken 
     if (typeof window !== 'undefined') {
         accessToken = localStorage.getItem('User_Token_access');
     }
+    const profileRef = React.useRef(null);
+    const [dropDownState, setDropDownState] = React.useState(false);
     const { state, dispatch } = React.useContext(Createcontext)
     const [anchorEl, setAnchorEl] = useState(null);
     const [mobileAnchorEl, setMobileAnchorEl] = useState(null);
@@ -49,20 +61,37 @@ const Embadednavbar=()=>{
                 const d = response.data.map(data => data[0]);
                 const uniqueUsersByID = _.uniqBy(d, 'id');
                 setCategories(uniqueUsersByID);
-                console.log(uniqueUsersByID)
+                
             })
             .catch((error) => {
                 console.error(error);
           });
       
-  }, [id])
+    }, [id])
+    React.useEffect(() => {
+        const handleClickOutsideProfile = (event) => {
+            if (profileRef.current && !profileRef.current.contains(event.target)) {
+                if (dropDownState) {
+                    setDropDownState(false);
+                }
+            }
+        };
+        document.addEventListener('click', handleClickOutsideProfile, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutsideProfile, true);
+        };
+    }, [dropDownState]);
+    const handleClickDropdown = React.useCallback(() => {
+      setDropDownState((prevState) => !prevState);
+  }, [])
+  console.log(state?.AllProduct[0]?.Store_id === Number(state?.Embedded_Store?.StoreID))
   return (
     <AppBar position="static" className={classes.Embadedappbar}>
       <div className="container">
         <Toolbar>
           <Box className={classes.Embadedappbarmenu} >
-            <Button href="/" sx={{ color: "white" }}>
-              Home
+            <Button onClick={()=>{router.push(`/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`)}} sx={{ color: "white" }}>
+              {'Home'}
             </Button>
             <Button onClick={handleMenuOpen} sx={{ color: "white" }}  >
               {'Categories'}  <RiArrowDropDownLine size={32} />
@@ -90,19 +119,18 @@ const Embadednavbar=()=>{
             </Menu>
           </Box>
           <Box  className={classes.Embadedappbarauth} sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
-           {!state?.login?
+           {!(state?.login)?
             <>
-              <Button onClick={()=>{ router.push("/embedded-menu/login")}} sx={{ color: "white" }}>
-                {'Login'}
-              </Button>
-              <Button onClick={()=>{ router.push("/embedded-menu/signup")}} sx={{ color: "white" }}>
-                {'Signup'}
-              </Button>
-            </>:
-            <Afterlogin/>
+              <Button onClick={()=>{ router.push("/embedded-menu/login")}} >  {'Login'}  </Button>
+              <Button onClick={()=>{ router.push("/embedded-menu/signup")}} >  {'Signup'} </Button>
+            </>
+            :
+            <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/>
              }
             <IconButton onClick={()=>{router.push('/embedded-menu/cart')}}  color="inherit">
-              <ShoppingCartIcon />
+                <Badge badgeContent={state?.AllProduct[0]?.Store_id === Number(state?.Embedded_Store?.StoreID) ? state?.AllProduct?.length : 0 } color="#D3D3D3">
+                  <ShoppingCartIcon  size={58} />
+                </Badge>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

@@ -386,13 +386,11 @@ export default function DispensoriesDetails(props) {
           />
         }
       ];
-    
     return (
         <div>
             <div>
-                {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
+                {   Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries"))
                     ?
-
                     <StoreDetails Despen={Despen} locationStore={location.asPath}></StoreDetails>
                     :
                     // <Embedded Despen={Despen} locationStore={location.asPath}></Embedded>
@@ -412,9 +410,7 @@ export default function DispensoriesDetails(props) {
             <div className=" product_container" >
                 {!location.asPath.includes('/menu-integration') && <NewFlavourBanner delBtn={Despen}></NewFlavourBanner>}
                 <div className="">
-
                     {Boolean((location.asPath.slice(0, 18) === "/weed-dispensaries" || location.asPath.slice(0, 16) === "/weed-deliveries")) && <StoreDetailMenuItem tab={tab || "Menu"} SelectionTab={SelectionTab}></StoreDetailMenuItem>}
-
                     {
                         (tab === 'menu' || tab === undefined) &&
                         <React.Fragment>
@@ -499,11 +495,9 @@ export default function DispensoriesDetails(props) {
                             </> :
                                 <DispensoriesAddressSkeleton />}
                         </React.Fragment>
-                    }
-                    {
+                    }{
                         tab === 'store-details' && <ComponentStoreDetails storeDetails={Despen}></ComponentStoreDetails>
-                    }
-                    {
+                    }{
                         tab === 'review' && <Review
                             HellFull={HellFull}
                             type={`store`}
@@ -520,8 +514,7 @@ export default function DispensoriesDetails(props) {
                             AllReview={AllReview}
                             SetReview={SetReview}
                         ></Review>
-                    }
-                    {
+                    }{
                         tab === 'deals' && <div className={newclases.noReview}>
                             <div className={newclases.noreviewicon}>
                                 <div className={newclases.iconcircl}> <Image onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={'/image/nodeal.png'} className="nodealsicon" alt="no Deals" title="no Deals" /></div>
@@ -540,7 +533,6 @@ export default function DispensoriesDetails(props) {
 
     )
 }
-
 DispensoriesDetails.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>;
 };
@@ -575,7 +567,6 @@ const fetchDispensariesAndProducts = async (id, country, state, city) => {
         console.error('Error fetching data:', error);
     }
 };
-
 export async function getStaticPaths() {
     const paths = [];
 
@@ -584,7 +575,6 @@ export async function getStaticPaths() {
         fallback: 'blocking', // Set to 'blocking' to generate pages on-demand
     };
 }
-
 export async function getStaticProps(context) {
     const storeId = _.findIndex(context.params.details, item => !isNaN(item) && !isNaN(parseFloat(item)));
     let data = [];

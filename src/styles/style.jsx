@@ -1194,6 +1194,7 @@ const useStyles = makeStyles({
   },
   Embadedappbar:{
     backgroundColor:'#31B655',
+    padding:'10px 0',
   },
   Embadedappbarmenu:{
     flexGrow:1,
@@ -1217,6 +1218,9 @@ const useStyles = makeStyles({
       fontSize: "16px",
       textTransform: "none",
       fontWeight: "600",
+      "& .MuiSvgIcon-root":{
+        fontSize:'32px',
+      },
       "&:hover": {
         color: "#31B655",
         backgroundColor: "#fff",

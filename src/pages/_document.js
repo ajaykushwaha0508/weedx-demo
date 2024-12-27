@@ -86,7 +86,6 @@ export default class MyDocument extends Document {
               })(window,document,'script','dataLayer','GTM-M27MSTCW');
             `}
           </Script>
-
           {/* Organization JSON-LD */}
           <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
             {`

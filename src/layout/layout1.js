@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React, { useContext } from "react";
+import Createcontext from "../hooks/context";
 import Embadedfooter from '@/component/Embeded/embededFooter/Embadedfooter';
 import Embadednavbar from '@/component/Embeded/embededNavbar/Embadednavbar';
 const Layout1 = ({ children }) => {

@@ -1,23 +1,23 @@
-import React, { useContext } from "react"
-import { IoChevronBackSharp } from "react-icons/io5"
-import EditProfileLogin from "@/component/EditProfile/EditProfileComponent/EditProfileLogin"
-import EditProfileOnlineOrder from "@/component/EditProfile/EditProfileOnlineOrder/EditProfileOnlineOrder"
+import React, { useContext } from "react";
+import { IoChevronBackSharp } from "react-icons/io5";
+import EditProfileLogin from "@/component/EditProfile/EditProfileComponent/EditProfileLogin";
+import EditProfileOnlineOrder from "@/component/EditProfile/EditProfileOnlineOrder/EditProfileOnlineOrder";
 // import Notification from "@/component/EditProfile/EditProfileComponent/Notification"
-import { IconButton } from "@mui/material"
-import Resizer from 'react-image-file-resizer';
+import { IconButton } from "@mui/material";
 import { AiFillCamera } from "react-icons/ai";
-import Link from "next/link"
+import Link from "next/link";
 import Cookies from 'universal-cookie';
-import clases from '../styles/customstyle.module.css'
-import Image from "next/image"
+import clases from '../styles/customstyle.module.css';
+import Image from "next/image";
+import { useRouter } from 'next/router';
 import Axios from 'axios';
-import Createcontext from "../hooks/context"
+import Createcontext from "../hooks/context";
 import  Swal from 'sweetalert2';
-import Router from 'next/router'
-import Layout from "@/layout/layout"
-
+// import Router from 'next/router';
+import Layout from "@/layout/layout";
+// import Layout1 from "@/layout/layout1";
 export default function EditProfile(){
-    
+    const router = useRouter();
     const { state, dispatch } = useContext(Createcontext)
     const cookies = new Cookies();
     const [Profile, SetProfile] = React.useState({})
@@ -109,7 +109,7 @@ export default function EditProfile(){
                     text: "Your file has been deleted.",
                     icon: "success"
                 });
-                Router.push('/');
+                router.push('/');
             }
         });
     }
@@ -169,4 +169,4 @@ export default function EditProfile(){
 }
 EditProfile.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>;
-  };
+};

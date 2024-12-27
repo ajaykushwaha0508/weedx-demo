@@ -9,7 +9,6 @@ import { CircularProgress } from '@mui/material';
 import DeliverAutoCompleteAddress from "./DeliverAutoCompleteAddress";
 import newclases from '@/styles/customstyle.module.css';
 import PromoCode from "./Promocode";
-import { Menuintegration_login } from "@/component/Login/menu-integration_login";
 const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -54,56 +53,59 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
       });
     }
   };
-  const CheckoutProcess = (event, j) => {
-    if (!state?.login) {
-      if (navigate.pathname === '/carts') {
-        setOpen(true);
-      } else {
-        navigate.push({
-          pathname: '/login',
-          query: { referer:  'cart'  }
-      })
-      }
-      return;
-    }
+  const CheckoutProcess = async (event, j) => {
   
-    const isCartPage = navigate.pathname === "/cart" || navigate.pathname === "/carts";
-    const isCheckoutPage = navigate.pathname === "/checkout" || navigate.pathname === "/menu-integration/checkout";
-  
-    if (state.selectDeliveryoptions === "delivery_btn") {
-      if (!state.DeliveryAddress) {
+   if(!state?.login){
+        if(navigate.asPath.includes('embedded')){
+          await navigate.push({
+            pathname: '/embedded-menu/login',
+            query: { referer:  'embeddedCart'  }
+          })
+        }else{
+          await   navigate.push({
+            pathname: '/login',
+            query: { referer:  'cart'  }
+          })
+        }
+    }else{
+      console.log(state.selectDeliveryoptions)
+      const isCartPage = navigate.pathname === "/cart" || navigate.pathname === "/embedded-menu/cart";
+      const isCheckoutPage = navigate.pathname === "/checkout" || navigate.pathname === "/embedded-menu/checkout";
+      if (state.selectDeliveryoptions === "delivery_btn") {
+        if (!state.DeliveryAddress) {
+          alert("Select Delivery address");
+          return;
+        }
+    
+        if (isCartPage) {
+          navigate.push(navigate.pathname === "/embedded-menu/cart" ? '/embedded-menu/checkout' : "/checkout", undefined, { shallow: true, state:  { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions } });
+        } else if (!state.DeliveryOption || !state.DeliveryInformation) {
+          alert("First fill the form");
+          return;
+        }
+        if (isCheckoutPage) {
+          SubmitData();
+        }
+      }else if(["pickup_btn", "CurbsidePickup"].includes(state.selectDeliveryoptions)) {
+        if (isCartPage) {
+          navigate.push({
+            pathname: navigate.pathname === "/embedded-menu/cart" ? '/embedded-menu/checkout' : "/checkout",
+            query: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
+          });
+        } else if (!state.DeliveryOption || !state.DeliveryInformation) {
+          alert("First fill the form");
+          return;
+        }
+    
+        if (isCheckoutPage) {
+          SubmitData();
+        }
+      }else {
         alert("Select Delivery address");
-        return;
       }
-  
-      if (isCartPage) {
-        navigate.push(navigate.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout", undefined, { shallow: true, state:  { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions } });
-      } else if (!state.DeliveryOption || !state.DeliveryInformation) {
-        alert("First fill the form");
-        return;
-      }
-      if (isCheckoutPage) {
-        SubmitData();
-      }
-    } else if (["pickup_btn", "CurbsidePickup"].includes(state.selectDeliveryoptions)) {
-      if (isCartPage) {
-
-        navigate.push({
-          pathname: navigate.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout",
-          query: { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions },
-        });
-        // navigate.push(location.pathname === "/carts" ? '/menu-integration/checkout' : "/checkout",{ state:   { InputValues, abc: state.Cart_subTotal, orderBtn: state.selectDeliveryoptions } });
-      } else if (!state.DeliveryOption || !state.DeliveryInformation) {
-        alert("First fill the form");
-        return;
-      }
-  
-      if (isCheckoutPage) {
-        SubmitData();
-      }
-    } else {
-      alert("Select Delivery address");
     }
+  
+
   };  
   React.useEffect(() => {
     if (navigate.pathname === "/cart") {
@@ -140,9 +142,9 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
     <div className={newclases.Add_product_cart_right_container_summary}>
         <h5 className={newclases.AddProdCartFont_weight}>Order Summary</h5>
        
-      {(Boolean(navigate.pathname !== "/checkout") || Boolean(navigate.pathname !== "/checkout")) ? (
+      { Boolean(navigate.pathname !== "/checkout") ? (
         <div className="w-100 d-flex align-items-center py-2 ">
-          {state.AllProduct[0]?.StoreDelivery && (
+          { state.AllProduct[0]?.StoreDelivery && (
             <div className="col-6">
               <Box
                 className={`px-1   ${classes.loadingBtnTextAndBack}`}
@@ -161,7 +163,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
               </Box>
             </div>
           )}
-
           <div className="col-6">
             {((state.AllProduct[0]?.StoreCurbsidePickup ||
               state.AllProduct[0]?.StorePickup)) && (
@@ -319,9 +320,7 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
           </Box>
         )}
       </div>
-      {
-        open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
-      }
+     
     </div>
   );
 };

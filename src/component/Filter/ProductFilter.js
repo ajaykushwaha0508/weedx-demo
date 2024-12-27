@@ -308,7 +308,6 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id  , id}) => {
                     //     return item.Store_id === Store_id
                     // })
                     Setarr1(response.data)
-                    console.log( response.data ,'newdata')
                     dispatch({ type: 'Loading', Loading: false })
                 }).catch(
                     function (error) {

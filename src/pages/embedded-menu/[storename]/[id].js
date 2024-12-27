@@ -20,8 +20,6 @@ export default function Storepageembeded(){
   const { state, dispatch } = useContext(Createcontext)
   const classes = useStyles()
   const [products  ,setProduct]= useState([])
-  const {storename ,  id } = router.query
-  console.log(router.query)
       const ProductFilterData= [{ Id: 1, Name: "Category", Type1: "Flower", Type2: "CBD", Icons: <BsLayoutSplit className={classes.muiIcons} /> },
       { Id: 2, Name: "Brand", Type1: "Leafly", Type2: "CBD", Icons: <MdOutlineBrandingWatermark className={classes.muiIcons} /> },
       { Id: 3, Name: "Strain", Type1: "Indica", Type2: "Hybrid", Icons: <BsStripe className={classes.muiIcons} /> },
@@ -30,21 +28,21 @@ export default function Storepageembeded(){
       { Id: 6, Name: "Unit", Type1: "Any", Type2: "$25", Price: "$100", Icons: <AiOutlineDeploymentUnit className={classes.muiIcons} /> },
       ]
       React.useEffect(() => {
-        if(Boolean(id)){
-            axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`).then(async (response) => {
+        if(Boolean(router.query.id)){
+            axios.get(`https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${router.query.id}`).then(async (response) => {
                   setProduct(response.data)
             }).catch((error) => {
                 console.error(error);
             });
-            if(state.Embedded_StoreID === ''){
-              console.log("run")
-              dispatch({ type:'emdaddedStoreID', EmbadedStoreID: {
-                StoreID:  id,
-                StoreName: storename,
+            if(state.Embedded_Store.StoreID === ""){
+            
+              dispatch({ type:'emdaddedStore', EmbadedStoredata: {
+                StoreID:  router.query.id,
+                StoreName: router.query.storename,
                }})
             }
         }
-      }, [id])
+      }, [router.query])
       React.useEffect(()=>{
         
          let productss = products.filter((item)=>{
@@ -53,14 +51,13 @@ export default function Storepageembeded(){
         
          setProduct(productss)
       },[state.Embedded_category])
-      
   return ( <div>
             <Head>
             <meta name="robots" content="NOINDEX , INDEXIFEMBEDDED" />
             </Head>
             <div className="row" >
-                <ProductFilter Store_id={id}
-                    id={id}
+                <ProductFilter Store_id={router.query.id}
+                    id={router.query.id}
                     ProductFilterData={ProductFilterData}
                     Setarr1={setProduct}
                     arr={products}

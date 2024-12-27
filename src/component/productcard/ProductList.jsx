@@ -26,9 +26,7 @@ const ProductList = ({ arr, link = "products" }) => {
   const showdata = arr
   const [productperpage, setproductperPage] = React.useState(8);
   const Navigate = useRouter();
-  console.log(Navigate.pathname.includes('embedded'));
   const location = useRouter();
-  console.log(location.pathname.includes('embedded'));
   const [CartClean, SetCartClean] = React.useState(false);
   const [adding, setadding] = React.useState('');
   const [popup, SetPopup] = React.useState(true);

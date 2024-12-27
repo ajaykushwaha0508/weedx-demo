@@ -142,8 +142,6 @@ export default function  MyOrder(){
     
     return (
         <React.Fragment>
-          
-        
                 <div className="row px-2 center">
                     <div className={`col-md-10 col-12 ${styled.myOrderPAge}`}>
                      
@@ -213,8 +211,7 @@ export default function  MyOrder(){
                         }
                     </div>
                     {/* <Loader/> */}
-                </div>
-           
+                </div>  
         </React.Fragment>
     )
 }

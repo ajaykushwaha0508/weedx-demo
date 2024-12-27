@@ -3,7 +3,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
 import TextField from '@mui/material/TextField';
-import { usePathname } from 'next/navigation'
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -22,16 +21,16 @@ import Createcontext from "@/hooks/context"
 import Layout1 from '@/layout/layout1';
 export default function Login(props){
     const cookies = new Cookies();
-    const pathname = usePathname()
-    const method = useForm()
-    const Swal = require('sweetalert2')
-    const { state, dispatch } = React.useContext(Createcontext)
-    const [loading, Setloading] = React.useState(false)
-    const classes = useStyles()
+    const method = useForm();
+    const Swal = require('sweetalert2');
+    const { state, dispatch } = React.useContext(Createcontext);
+    const [loading, Setloading] = React.useState(false);
+    const classes = useStyles();
     const [showPassword, setShowPassword] = React.useState(false);
-    const router = useRouter()
-    const [dulicate] = React.useState([])
+    const router = useRouter();
+    const [dulicate] = React.useState([]);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
+    console.log(router.query.referer = 'embeddedCart')
     function Submit(data) {
         Setloading(true)
         axios.post("https://api.cannabaze.com/UserPanel/Login/", {
@@ -46,7 +45,12 @@ export default function Login(props){
                 cookies.set('User_Token_access', response?.data?.tokens?.access, { expires: date })
                 dispatch({ type: 'Login', login: true })
                 dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct })
-                props.redirect === "cart" ?  router.push('/cart') : router.push('/')
+                if(router.query.referer = 'embeddedCart'){
+                     router.push('/embedded-menu/cart') 
+                }else{
+                    router.push(`/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`) 
+                }
+                
                 Setloading(false)
             }
             else {
@@ -162,7 +166,7 @@ export default function Login(props){
             <div className='crosslogin'>
                 <Tooltip title="Back">
                     <IconButton>
-                        <RxCross2 color={'#000'} size={22} onClick={() => { router.back() }} />
+                        <RxCross2 color={'#000'} size={22} onClick={() => {router.push(`/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`)}} />
                     </IconButton>
                 </Tooltip>
             </div>
