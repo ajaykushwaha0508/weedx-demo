@@ -55,6 +55,7 @@ const Embadednavbar=()=>{
     const router = useRouter()
     const { id } = router.query
     React.useEffect(() => {
+      if(state?.Embedded_Store?.StoreID !==""){
           axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
             "Store_Id": parseInt(id)
           }).then(async (response) => {
@@ -62,12 +63,11 @@ const Embadednavbar=()=>{
                 const uniqueUsersByID = _.uniqBy(d, 'id');
                 setCategories(uniqueUsersByID);
                 
-            })
-            .catch((error) => {
+          }).catch((error) => {
                 console.error(error);
           });
-      
-    }, [id])
+        }
+    }, [state?.Embedded_Store?.StoreID])
     React.useEffect(() => {
         const handleClickOutsideProfile = (event) => {
             if (profileRef.current && !profileRef.current.contains(event.target)) {
@@ -84,7 +84,6 @@ const Embadednavbar=()=>{
     const handleClickDropdown = React.useCallback(() => {
       setDropDownState((prevState) => !prevState);
   }, [])
-  console.log(state?.AllProduct[0]?.Store_id === Number(state?.Embedded_Store?.StoreID))
   return (
     <AppBar position="static" className={classes.Embadedappbar}>
       <div className="container">
@@ -100,38 +99,39 @@ const Embadednavbar=()=>{
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={handleMenuClose}
+              className={classes.Embadedbarcatdropdown}
             >
                       <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: "All" })}  key={1} >
                         <Stack direction="row" alignItems={'center'} spacing={2}>
-                          <Avatar alt="Remy Sharp"><FaProductHunt size={25} color="#31B655" /></Avatar> {' All Products'}
+                          <Avatar alt="Remy Sharp"><FaProductHunt size={18} color="#31B655" /></Avatar> {' All Products'}
                         </Stack>
                       </MenuItem>
               {
                 categories.map((item , index)=>{
-              
-              return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index+1} >
-                        <Stack direction="row" alignItems={'center'} spacing={2}>
-                          <Avatar alt={item.name} src={item.categoryImages} /> {item.name} 
-                        </Stack>
-                      </MenuItem>
+                    return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index+1} >
+                              <Stack direction="row" alignItems={'center'} spacing={2}>
+                                <Avatar alt={item.name} src={item.categoryImages} /> {item.name} 
+                              </Stack>
+                            </MenuItem>
                 })
               }
             </Menu>
           </Box>
           <Box  className={classes.Embadedappbarauth} sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
            {!(state?.login)?
-           ( <>
+           (
+            <>
               <Button onClick={()=>{ router.push("/embedded-menu/login")}} >  {'Login'}  </Button>
               <Button onClick={()=>{ router.push("/embedded-menu/signup")}} >  {'Signup'} </Button>
-            </>)
+            </>
+           )
             :
-             ( <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/>
-           )  }
+             ( <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/> )  }
             <IconButton onClick={()=>{router.push('/embedded-menu/cart')}}  color="inherit">
                 <Badge badgeContent={state?.AllProduct[0]?.Store_id === Number(state?.Embedded_Store?.StoreID) ? state?.AllProduct?.length : 0 } color="#D3D3D3">
-                  <ShoppingCartIcon  size={58} />
+                  <ShoppingCartIcon  size={24} />
                 </Badge>
-            </IconButton>
+            </IconButton> 
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -154,23 +154,35 @@ const Embadednavbar=()=>{
               <MenuItem onClick={handleMobileMenuOpen}>
                 Categories
                 <Menu
-                  anchorEl={mobileAnchorEl}
-                  open={Boolean(anchorEl)}
-                  onClose={handleMenuClose}
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleMenuClose}
                 >
-                  <MenuItem onClick={handleMenuClose}>Category 1</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Category 2</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Category 3</MenuItem>
+                      <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: "All" })}  key={1} >
+                        <Stack direction="row" alignItems={'center'} spacing={2}>
+                          <Avatar alt="Remy Sharp"><FaProductHunt size={25} color="#31B655" /></Avatar> {' All Products'}
+                        </Stack>
+                      </MenuItem>
+                      {
+                        categories.map((item , index)=>{
+                      
+                      return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index+1} >
+                                <Stack direction="row" alignItems={'center'} spacing={2}>
+                                  <Avatar alt={item.name} src={item.categoryImages} /> {item.name} 
+                                </Stack>
+                              </MenuItem>
+                        })
+                      }
                 </Menu>
               </MenuItem>
-              <MenuItem onClick={handleMobileMenuClose} href="/login">
-                Login
+              <MenuItem onClick={handleMobileMenuClose} href="/embedded-menu/login">
+                {'Login'}
               </MenuItem>
-              <MenuItem onClick={handleMobileMenuClose} href="/signup">
-                Signup
+              <MenuItem onClick={handleMobileMenuClose} href="/embedded-menu/signup">
+                {'Signup'}
               </MenuItem>
-              <MenuItem onClick={handleMobileMenuClose} href="/cart">
-                <ShoppingCartIcon /> Cart
+              <MenuItem onClick={handleMobileMenuClose} href="/embedded-menu/cart">
+                <ShoppingCartIcon /> {'Cart'}
               </MenuItem>
             </Menu>
           </Box>

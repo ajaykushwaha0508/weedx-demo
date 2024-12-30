@@ -68,7 +68,6 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
           })
         }
     }else{
-      console.log(state.selectDeliveryoptions)
       const isCartPage = navigate.pathname === "/cart" || navigate.pathname === "/embedded-menu/cart";
       const isCheckoutPage = navigate.pathname === "/checkout" || navigate.pathname === "/embedded-menu/checkout";
       if (state.selectDeliveryoptions === "delivery_btn") {

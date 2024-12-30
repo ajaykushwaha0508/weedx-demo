@@ -130,7 +130,7 @@ const Navbar = () => {
                             </Link>
                         </div>
                     </Grid>
-                    <Grid xs={5} md={4} xl={3}>
+                    <Grid xs={5} md={4} xl={3}  alignItems={'center'} >
 
                         <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}></Afterlogin >
                     </Grid>

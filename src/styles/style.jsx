@@ -1210,14 +1210,49 @@ const useStyles = makeStyles({
         transition: "all .3s ease",
       }
     },
+    "& .MuiPaper-root":{
+      "& .MuiList-root":{
+        "& .MuiMenuItem-root":{
+          "& .MuiStack-root":{
+            "& .MuiAvatar-root":{
+              width:'25px', 
+              height:'25px',
+            },
+            fontSize:'16px',
+            fontWeight:'600',
+          }
+        }
+      },
+    },
+  },
+  Embadedbarcatdropdown:{
+    "& .MuiPaper-root":{
+      "& .MuiList-root":{
+        "& .MuiMenuItem-root":{
+          "& .MuiStack-root":{
+            gap:'5px',
+            "& .MuiAvatar-root":{
+              width:'30px', 
+              height:'30px',
+            },
+            fontSize:'14px',
+            fontWeight:'500',
+          }
+        }
+      },
+    },
   },
   Embadedappbarauth:{
     gap:'10px',
+   
     "& .MuiButtonBase-root": {
       color: "#FFFFFF",
       fontSize: "16px",
       textTransform: "none",
       fontWeight: "600",
+      "& .MuiBadge-badge":{
+          backgroundColor:'#31B655',
+      },
       "& .MuiSvgIcon-root":{
         fontSize:'32px',
       },
@@ -1225,8 +1260,10 @@ const useStyles = makeStyles({
         color: "#31B655",
         backgroundColor: "#fff",
         transition: "all .3s ease",
-      }
+      },
+    
     },
+   
   },
   CookiesAccept: {
     "& .MuiButton-text": {

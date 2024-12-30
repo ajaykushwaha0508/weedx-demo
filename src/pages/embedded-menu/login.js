@@ -30,7 +30,6 @@ export default function Login(props){
     const router = useRouter();
     const [dulicate] = React.useState([]);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-    console.log(router.query.referer = 'embeddedCart')
     function Submit(data) {
         Setloading(true)
         axios.post("https://api.cannabaze.com/UserPanel/Login/", {

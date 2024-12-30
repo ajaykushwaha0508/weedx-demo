@@ -99,7 +99,6 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
               {AllOrder_data?.filter((item,index)=>{
                 return !searchitem.map((item)=>item.OrderId).includes(item.OrderId) 
               })?.map((val, index) => {
-               console.log(val.Store)
                 if(state.Embedded_Store.StoreID !== ""){
                   if(val.Store === Number(state.Embedded_Store.StoreID)){
                     return (
