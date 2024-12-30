@@ -120,13 +120,13 @@ const Embadednavbar=()=>{
           </Box>
           <Box  className={classes.Embadedappbarauth} sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
            {!(state?.login)?
-            <>
+           ( <>
               <Button onClick={()=>{ router.push("/embedded-menu/login")}} >  {'Login'}  </Button>
               <Button onClick={()=>{ router.push("/embedded-menu/signup")}} >  {'Signup'} </Button>
-            </>
+            </>)
             :
-            <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/>
-             }
+             ( <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/>
+           )  }
             <IconButton onClick={()=>{router.push('/embedded-menu/cart')}}  color="inherit">
                 <Badge badgeContent={state?.AllProduct[0]?.Store_id === Number(state?.Embedded_Store?.StoreID) ? state?.AllProduct?.length : 0 } color="#D3D3D3">
                   <ShoppingCartIcon  size={58} />
@@ -179,4 +179,4 @@ const Embadednavbar=()=>{
     </AppBar>
   )
 }
-export default Embadednavbar
+export default Embadednavbar  
