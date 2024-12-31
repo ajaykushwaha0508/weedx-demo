@@ -145,11 +145,11 @@ export default function  MyOrder(){
     return (
         <React.Fragment>
                 <div className="row px-2 center">
-                    <div className={`col-md-10 col-12 ${styled.myOrderPAge}`}>
+                    <div className={`col-md-10 col-12 myOrderPAge`}>
                      
                         <h1 className="d-flex align-items-center gap-2">
                             <IconButton > <AiOutlineLeft onClick={() => navigate.push(-1)} size={20} color="#000000" style={{ marginLeft: "-6px" }} /></IconButton>
-                            <span onClick={(() => navigate.push('/'))} className="My_order_span_name">{`Back`}</span>
+                            <span onClick={(() => navigate.push(state.Embedded_Store.StoreID ===""? '/' :`/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`))} className="My_order_span_name">{`Back`}</span>
                         </h1>
                         <div className="d-flex mt-4 " style={{ padding: "0" }}>
                             <div className="col-8 col-lg-6">

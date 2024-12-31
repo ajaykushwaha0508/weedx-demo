@@ -36,15 +36,15 @@ const HomePageBanner = ({ props , btype }) => {
 
   const headingStyle = {
     ...overlayTextStyle,
-    top: '50%',
-    fontSize:  isMobile ? "25px":'42px',
+    top: '40%',
+    fontSize:  isMobile ? "18px":'32px',
     transform: 'translate(-50%, -50%)', // Adjust for both axes
   };
 
   const paragraphStyle = {
     ...overlayTextStyle,
-    top: '60%',
-    width:  isMobile ? '100%' : "50%",
+    top:  isMobile ?'50%':'50%',
+    width:  isMobile ? '80%' : "50%",
     fontSize: isMobile ? "14px":'20px',
   };
   return (
