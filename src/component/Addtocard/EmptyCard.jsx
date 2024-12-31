@@ -23,6 +23,7 @@ const EmptyCard = () => {
             }
         }
     }
+    
     return (
         <div className=" Empty_container_margin_top">
             <div className="EmtyCard_container">
