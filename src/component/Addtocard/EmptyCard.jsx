@@ -1,4 +1,4 @@
-
+import React from 'react'
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
@@ -23,7 +23,7 @@ const EmptyCard = () => {
             }
         }
     }
-    
+
     return (
         <div className=" Empty_container_margin_top">
             <div className="EmtyCard_container">
