@@ -14,12 +14,14 @@ import Select from '@mui/material/Select';
 import Layout from "@/layout/layout";
 import styled from "@/styles/customstyle.module.css";
 import Loader from '@/component/Loader/Loader';
+import CreateContext from "@/hooks/context";
 export default function  MyOrder(){
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access');
     if (typeof window !== 'undefined') {  token_data = localStorage.getItem('User_Token_access'); }
     const [Getsearch, SetSearch] = React.useState("");
     const navigate = useRouter();
+    const {state} = React.useContext(CreateContext)
     const classes = useStyles();
     const [AllOrder_data, SetAllOrder_data] = React.useState([]);
     const [showabledata, setShowabledata] = React.useState([]);
@@ -139,7 +141,7 @@ export default function  MyOrder(){
         }, 1000)
         return () => clearTimeout(getData)
     },[Getsearch])
-    
+    console.log(state.Embedded_Store.StoreID , 'state')
     return (
         <React.Fragment>
                 <div className="row px-2 center">
@@ -200,12 +202,12 @@ export default function  MyOrder(){
                         </div>
                         { 
                             Boolean(AllOrder_data[0]) ? 
-                             <AllOrder AllOrder_data={showabledata} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} searchitem={searchitem} />:
+                            <AllOrder AllOrder_data={showabledata} loading={loading} CencelOrder={CencelOrder} ordertype={ordertype} searchitem={searchitem} />:
                             <div className={styled.NODataInOrderPage}>
                                 <div className={styled.nodataAlie}>
                                     <p className={styled.nodatainOderText}>{GetFilter}</p>
-                                    <p className={styled.nodatainOderTextp}> {`  No orders to display at the moment. Start shopping to see your order history here!`}</p>
-                                    <button onClick={()=>navigate.push("/products")} className="noorderbtn"> {`Shop Now`} </button>
+                                    <p className={styled.nodatainOderTextp}> {`No orders to display at the moment. Start shopping to see your order history here!`}</p>
+                                    <button onClick={()=>navigate.push(state.Embedded_Store.StoreID === "" ? "/products" : `/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`)} className="noorderbtn"> {`Shop Now`} </button>
                                 </div>
                             </div>
                         }
@@ -217,4 +219,4 @@ export default function  MyOrder(){
 }
 MyOrder.getLayout = function getLayout(page) {
     return <Layout>{page}</Layout>;
-  };
+};

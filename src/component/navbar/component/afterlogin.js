@@ -34,16 +34,11 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Log
                             </section>
                             <hr />
                             <ol className={'navbar_profile_orderList'}>
-                                <Link href={ '/editprofile' }>
-                                 <li className={'profile_list'}> <span> <TbEdit />        </span> {`EDIT PROFILE`} </li></Link>
-                                <Link href={ '/myorder'
-                                } >     <li className={'profile_list'}> <span> <FiShoppingBag /> </span> {`MY ORDER`}     </li></Link>
-                                <Link href={ '/whislists'
-                                } >   <li className={'profile_list'}> <span> <FaHeart />       </span> {`FAVORITES`}    </li></Link>
-                                <Link href={ '/myreviews'
-                                }  >   <li className={'profile_list'}> <span> <MdReviews />     </span> {`MY REVIEW`}    </li></Link>
-                                <Link href={ '/helpcenter' } > 
-                                <li className={'profile_list'}> <span> <FaHandsHelping /></span> {`HELP`}         </li></Link>
+                                <Link href={ '/editprofile' }><li className={'profile_list'}> <span> <TbEdit /></span> {`EDIT PROFILE`} </li></Link>
+                                <Link href={'/myorder'} ><li className={'profile_list'}> <span> <FiShoppingBag /></span>{`MY ORDER`}</li></Link>
+                                 {state.Embedded_Store.StoreID ==="" && <Link href={ '/whislists'}> <li className={'profile_list'}> <span> <FaHeart /></span>{`FAVORITES`}</li></Link>}
+                                 {state.Embedded_Store.StoreID ==="" &&  <Link href={ '/myreviews' }> <li className={'profile_list'}> <span> <MdReviews /></span>{`MY REVIEW`}</li></Link>}
+                                 {state.Embedded_Store.StoreID ==="" && <Link href={ '/helpcenter' }><li className={'profile_list'}> <span> <FaHandsHelping /></span>{`HELP`}</li></Link>}
                                 <li className={'profile_list'} onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
                             </ol>
                         </div>

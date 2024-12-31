@@ -376,7 +376,7 @@ const ProductList = ({ arr, link = "products" }) => {
       setproductperPage(6)
     }
   }, [])
-
+  console.log(state.Embedded_Store.StoreID ,'state')
   return (
     <>
       {(showdata?.length !== 0 && typeof (showdata) !== "string") ? (
@@ -514,7 +514,7 @@ const ProductList = ({ arr, link = "products" }) => {
                 (showdata.length > productperpage && location.pathname.includes('/menu-integration')) && <div className="d-flex justify-content-center"><Pagination count={showdata.length % productperpage === 0 ? parseInt(showdata.length / productperpage) : (parseInt(showdata.length / productperpage) + 1)} page={page} onChange={pagechanges} /></div>
               }
             </div>
-           {!  location.pathname.includes('embedded') &&  <PreCheckout />}
+           {state.Embedded_Store.StoreID ==="" &&  <PreCheckout />}
           </React.Fragment>
         ) : (
           <DispensoriesAddressSkeleton />

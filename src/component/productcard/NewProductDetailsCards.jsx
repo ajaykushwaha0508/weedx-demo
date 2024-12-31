@@ -39,15 +39,12 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
     const classes = useStyles();
     let token_data = cookies.get('User_Token_access')
     let accessToken
-    if (typeof window !== 'undefined') {
-        accessToken = localStorage.getItem('User_Token_access');
-    }
+    if(typeof window !== 'undefined'){  accessToken = localStorage.getItem('User_Token_access'); }  
     if (Boolean(accessToken)) { token_data = accessToken };
     const [CartClean, SetCartClean] = React.useState(false)
     // const [productdescription, setproductdescription] = React.useState(false)
     // const [startload, setstartload] = React.useState(false)
     const { state, dispatch } = React.useContext(Createcontext)
-
     const [AddTOCard, SetAddToCard] = React.useState(() => {
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem("items");
@@ -310,9 +307,10 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                             </div>
                         <div className={newclases.newProductdetails_rightSideContent_container}>
                             <h1 className={newclases.newProductDetails_heading}>{Product?.Product_Name}</h1>
-                            <Link href={`/${link}/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
+                            {   state.Embedded_Store.StoreID ==='' &&  <Link href={`/${link}/${modifystr(Product?.StoreName)}/${Product?.Store_id}`}>
                                 <h3 className={newclases.newProductDetails_subHeadingss}>{`By`} {Product.StoreName}</h3>
-                            </Link>
+                               </Link>
+                            }
                             <div className={newclases.newProductDetailsButon}>
                                 {Product.THC !== 0 && <button className={newclases.newProductdetailsButtonss}>{Product.THC}% THC</button>}
                                 {Product.CBD !== 0 && <button className={newclases.newProductdetailsButtonss}>{Product.CBD}% CBD</button>}

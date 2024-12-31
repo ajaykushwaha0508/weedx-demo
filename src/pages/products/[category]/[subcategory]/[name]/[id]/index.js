@@ -219,7 +219,6 @@ export default function NewProductDetails(props){
 // console.log(props , 'props props propsprops ')
   return (
     <div className="container-fluid">
-
       <ProductDetailsSeo
         robot={location.pathname.slice(0, 9) === "/products" ? "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1" : "NOINDEX,INDEXIFEMBEDDED"}
         rating={props.data[0]?.rating || 0}
@@ -245,17 +244,20 @@ export default function NewProductDetails(props){
           const prevUrl = location?.state?.prevuisurl;
 
           if (isOnProductsPage) {
-            if (prevUrl && prevUrl !== '/products') {
-              navigate.push(prevUrl);
-            } else {
-              navigate.push('/products');
+            if(state.Embedded_Store.StoreID !== '') {
+              navigate.push(`/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`);
+            }else{
+              if (prevUrl && prevUrl !== '/products') {
+                navigate.push(prevUrl);
+              } else {
+                navigate.push('/products');
+              }
             }
           } else {
             navigate.push(-1); // Go back to the previous page
           }
         }}
-        className="BackPageBtn"
-      >
+        className="BackPageBtn" >
         <AiOutlineLeft size={22} /> Back to products
       </span>
       <NewProductDetailsCards link={location.pathname.slice(0, 9) === "/products" ? props.data[0].Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries" : "menu-integration"} dynamicWeight={dynamicWeight} setdynamicWeight={setdynamicWeight} quentity={quentity} setquentity={setquentity} Product={props.data[0]} DiscountedValue={discount} Price={Price} SetPrice={SetPrice} />
@@ -283,7 +285,8 @@ export default function NewProductDetails(props){
       {Boolean(StoreProduct?.length !== 0) &&
         <ProductSearchResult link={location.pathname.slice(0, 9) === "/products" ? "products" : "menu-integration"} RelatedProductResult={props.likeproduct} currentProductID={props.data[0].id} title={'You may also like'} CategoryName={props.data[0]} />
       }
-      <Review
+      {
+        state.Embedded_Store.StoreID === '' &&  <Review
         delBtn={Despen}
         reviewloading={reviewloading}
         reviewtype={'Product'}
@@ -298,10 +301,8 @@ export default function NewProductDetails(props){
         AllReview={AllReview}
         SetReview={SetReview}
         type={"product"}
-      ></Review>
-
-
-
+        ></Review>
+      }
     </div>
   )
 }
