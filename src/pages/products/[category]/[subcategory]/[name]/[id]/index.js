@@ -254,7 +254,7 @@ export default function NewProductDetails(props){
               }
             }
           } else {
-            navigate.push(-1); // Go back to the previous page
+            navigate.push(-1);
           }
         }}
         className="BackPageBtn" >

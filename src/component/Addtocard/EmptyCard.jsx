@@ -4,7 +4,9 @@ import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
 import {BsCartXFill} from "react-icons/bs"
 import { useRouter } from 'next/router';
+import CreateContext from '@/hooks/context';
 const EmptyCard = () => {
+    const {state} = React.useContext(CreateContext)
     const classes = useStyles()
     const Navigate = useRouter()
     const location = useRouter()
@@ -13,10 +15,15 @@ const EmptyCard = () => {
             Navigate.push(-1)
         }
         else {
-            Navigate.push("/products")
+            if(state.Embedded_Store.StoreID ===""){
+                Navigate.push("/products")
+
+            }else{
+                Navigate.push(`/embedded-menu/${state.Embedded_Store.StoreName}/${state.Embedded_Store.StoreID}`)
+            }
         }
     }
-    return ( 
+    return (
         <div className=" Empty_container_margin_top">
             <div className="EmtyCard_container">
                     <div className="image_container">
