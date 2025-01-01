@@ -13,7 +13,7 @@ const PreCheckout = () => {
                 <div className="row">
                     <div className="col-12">
                         <div className="row justify-content-center">
-                            <Link href={params.pathname.includes('menu-integration') ? '/carts' :"/cart"} className="">
+                            <Link href={state.Embedded_Store.StoreID ==='' ? '/cart' :"/embedded-menu/cart"} className="">
                                 <div className="col-lg-3 col-md-6 col-sm-8 col-8  mx-auto border preCheckout_container">
                                     <div className=" preCheck_heading">
                                         <h6>{'CHECKOUT'}</h6>
@@ -24,10 +24,7 @@ const PreCheckout = () => {
                                 </div>
                             </Link>
                         </div>
-
                     </div>
-
-
                 </div>
             }
         </React.Fragment>

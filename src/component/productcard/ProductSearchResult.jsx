@@ -234,6 +234,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
             return "Free Shipping"
         }
     }
+    console.log(state.Embedded_Store.StoreID ,'state')
     return (
         <div>
             <div className="">
@@ -414,9 +415,10 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                 }} >
                                                     <p className={`${newclases.productSearchResultParagraph} text-truncate`}>{items.Product_Name}</p>
                                                 </Link>
-                                                <Link href={`/${items.Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries"}/${modifystr(items.StoreName)}/${items.Store_id}`}  >
+                                                {  state.Embedded_Store.StoreID ===''  && <Link href={`/${items.Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries"}/${modifystr(items.StoreName)}/${items.Store_id}`}  >
                                                     <p className={`${newclases.product_search_result_sub_heading} text-truncate`}>by {items.StoreName}</p>
                                                 </Link>
+                                                }
                                                 <div className={newclases.product_category_list}>
                                                     <span className={newclases.product_search_result_span1}>15{items.lab_Result !== "Magnesium" ? '%' : "Mg."} THC | 0.2{items.lab_Result !== "Magnesium" ? '%' : "Mg."} {`CBD`}</span>
                                                     <div className={'d-flex gap-1'}>
@@ -474,7 +476,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
               CartClean && 
               <AddToCartPopUp CartClean={CartClean} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard}   />
              }
-            <PreCheckout />
+            {state.Embedded_Store.StoreID ==="" && <PreCheckout />}
         </div>
     )
 }

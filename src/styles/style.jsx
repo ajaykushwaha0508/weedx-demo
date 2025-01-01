@@ -1252,10 +1252,9 @@ const useStyles = makeStyles({
       fontWeight: "600",
       "& .MuiBadge-badge":{
           backgroundColor:'#31B655',
+          color:'#fff',
       },
-      "& .MuiSvgIcon-root":{
-        fontSize:'32px',
-      },
+     
       "&:hover": {
         color: "#31B655",
         backgroundColor: "#fff",
