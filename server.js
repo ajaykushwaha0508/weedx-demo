@@ -56,16 +56,75 @@ app.prepare().
 
     // Custom route example
 
-    server.get('/custom-route', (req, res) => {
+    server.get('/sitemap.xml.gz', (req, res) => {
       // Get the origin from the request headers
       const origin = req.get('Origin') || req.headers.host;
-
-      // Create the full origin URL
       const fullOrigin = `${req.protocol}://${origin}`;
-      // console.log(origin, fullOrigin, "fdgdgfd")
-      // Return the origin as a response
-      res.json({ origin: fullOrigin });
-    });
+  
+      res.setHeader('Content-Type', 'application/zip');
+      res.setHeader('Content-Disposition', 'attachment; filename="sitemap.xml.gz"');
+      res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
+  
+      const gzip = createGzip({
+          level: 9 // Maximum compression level
+      });
+  
+      // XML sitemap content
+      const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <url>
+              <loc>${fullOrigin}/sitemap/law-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+          <url>
+              <loc>${fullOrigin}/sitemap/delivery-stores-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+           <url>
+              <loc>${fullOrigin}/sitemap/dispensaries-stores-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+           <url>
+              <loc>${fullOrigin}/sitemap/brand-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+            <url>
+              <loc>${fullOrigin}/sitemap/blogs-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+          <url>
+              <loc>${fullOrigin}/sitemap/news-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+          <url>
+              <loc>${fullOrigin}/sitemap/deliveries-location-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+          <url>
+              <loc>${fullOrigin}/sitemap/dispensaries-location-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+           <url>
+              <loc>${fullOrigin}/sitemap/products-sitemap.xml.gz</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+          </url>
+          <!-- Add more URLs dynamically if required -->
+      </urlset>`;
+  
+      // Send the gzipped response
+      res.writeHead(200);
+      gzip.pipe(res);
+      gzip.end(sitemapContent);
+  });
     //     // law-sitemap.xml.gz
     server.get("/sitemap/:category", async (req, res) => {
       switch (req.url) {
@@ -834,45 +893,45 @@ app.prepare().
 
           }
           break;
-          case "/sitemap/dispensaries-stores-sitemap.xml.gz":
-            const dispensaries = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
-          
-            if (dispensaries && dispensaries.data) {
-              // Filter the stores that are of type "dispensary" and map to XML format
-              const dispensaryUrls = dispensaries.data.filter(url => url.Store_Type === "dispensary")
-                .map(url => `
+        case "/sitemap/dispensaries-stores-sitemap.xml.gz":
+          const dispensaries = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Stores/`);
+
+          if (dispensaries && dispensaries.data) {
+            // Filter the stores that are of type "dispensary" and map to XML format
+            const dispensaryUrls = dispensaries.data.filter(url => url.Store_Type === "dispensary")
+              .map(url => `
                   <url>
                     <loc>https://www.weedx.io/weed-dispensaries/${modifystr(url.Store_Name)}/${url.id}</loc>
                     <changefreq>daily</changefreq>
                     <priority>0.8</priority>
                   </url>`).join('');
-          
-              // Create the XML sitemap structure
-              const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+
+            // Create the XML sitemap structure
+            const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
               <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                 ${dispensaryUrls}
               </urlset>`;
-          
-              // Set headers for gzipped content
-              res.setHeader('Content-Type', 'application/zip');
-              res.setHeader('Content-Disposition', 'attachment; filename="dispensaries-stores-sitemap.xml.gz"');
-              res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
-          
-              // Create a Gzip stream
-              const gzip = createGzip({ level: 9 }); // Maximum compression level
-          
-              // Write the gzip stream to the response
-              res.writeHead(200);
-              gzip.pipe(res);
-              gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
-            }
-            break;
-            case "/sitemap/brand-sitemap.xml.gz":
-              const responsebrandgz = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllBrand/`);
-              
-              if (responsebrand && responsebrand.data) {
-                // Generate the brand URLs in XML format
-                const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+
+            // Set headers for gzipped content
+            res.setHeader('Content-Type', 'application/zip');
+            res.setHeader('Content-Disposition', 'attachment; filename="dispensaries-stores-sitemap.xml.gz"');
+            res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
+
+            // Create a Gzip stream
+            const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+            // Write the gzip stream to the response
+            res.writeHead(200);
+            gzip.pipe(res);
+            gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+          }
+          break;
+        case "/sitemap/brand-sitemap.xml.gz":
+          const responsebrandgz = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllBrand/`);
+
+          if (responsebrand && responsebrand.data) {
+            // Generate the brand URLs in XML format
+            const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
                 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                   ${responsebrandgz.data.map((url) => `
                     <url>
@@ -882,37 +941,37 @@ app.prepare().
                     </url>
                   `).join('')}
                 </urlset>`;
-            
-                // Set headers for gzipped content
-                res.setHeader('Content-Type', 'application/zip');
-                res.setHeader('Content-Disposition', 'attachment; filename="brand-sitemap.xml.gz"');
-                res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
-            
-                // Create a Gzip stream
-                const gzip = createGzip({ level: 9 }); // Maximum compression level
-            
-                // Write the gzip stream to the response
-                res.writeHead(200);
-                gzip.pipe(res);
-                gzip.end(sitemapXmll); // Pipe the XML data into the gzip stream
+
+            // Set headers for gzipped content
+            res.setHeader('Content-Type', 'application/zip');
+            res.setHeader('Content-Disposition', 'attachment; filename="brand-sitemap.xml.gz"');
+            res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
+
+            // Create a Gzip stream
+            const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+            // Write the gzip stream to the response
+            res.writeHead(200);
+            gzip.pipe(res);
+            gzip.end(sitemapXmll); // Pipe the XML data into the gzip stream
+          }
+          break;
+        case "/sitemap/blogs-sitemap.xml.gz":
+          try {
+            // Fetch blog data from the API
+            const blogs = await axios.post('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+              category: 2,
+              limit: 49000
+            }, {
+              headers: {
+                'Content-Type': 'application/json'
               }
-              break;
-              case "/sitemap/blogs-sitemap.xml.gz":
-                try {
-                  // Fetch blog data from the API
-                  const blogs = await axios.post('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
-                    category: 2,
-                    limit: 49000
-                  }, {
-                    headers: {
-                      'Content-Type': 'application/json'
-                    }
-                  });
-              
-                  const data = blogs.data;
-                  if (data) {
-                    // Generate the sitemap XML content
-                    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+            });
+
+            const data = blogs.data;
+            if (data) {
+              // Generate the sitemap XML content
+              const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
                       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                         ${data.map((url) => `
                           <url>
@@ -922,46 +981,46 @@ app.prepare().
                           </url>
                         `).join('')}
                       </urlset>`;
-              
-                    // Set headers for gzipped content
-                    res.setHeader('Content-Type', 'application/zip');
-                    res.setHeader('Content-Disposition', 'attachment; filename="blogs-sitemap.xml.gz"');
-                    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
-              
-                    // Create a Gzip stream
-                    const gzip = createGzip({ level: 9 }); // Maximum compression level
-              
-                    // Pipe the Gzip stream to the response
-                    res.writeHead(200);
-                    gzip.pipe(res);
-                    gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
-                  } else {
-                    res.statusCode = 500;
-                    res.end("Error generating sitemap");
-                  }
-                } catch (error) {
-                  console.error('Error fetching news by category:', error);
-                  res.statusCode = 500;
-                  res.end("Error fetching news by category");
-                }
-                break;
-                case "/sitemap/news-sitemap.xml.gz":
-                  try {
-                    // Fetch news data from the API
-                    const news = await axios.post('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
-                      category: 1,
-                      limit: 49000
-                    }, {
-                      headers: {
-                        'Content-Type': 'application/json'
-                      }
-                    });
-                
-                    const data = news.data;
-                
-                    if (data) {
-                      // Generate the sitemap XML content
-                      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+
+              // Set headers for gzipped content
+              res.setHeader('Content-Type', 'application/zip');
+              res.setHeader('Content-Disposition', 'attachment; filename="blogs-sitemap.xml.gz"');
+              res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
+
+              // Create a Gzip stream
+              const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+              // Pipe the Gzip stream to the response
+              res.writeHead(200);
+              gzip.pipe(res);
+              gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+            } else {
+              res.statusCode = 500;
+              res.end("Error generating sitemap");
+            }
+          } catch (error) {
+            console.error('Error fetching news by category:', error);
+            res.statusCode = 500;
+            res.end("Error fetching news by category");
+          }
+          break;
+        case "/sitemap/news-sitemap.xml.gz":
+          try {
+            // Fetch news data from the API
+            const news = await axios.post('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
+              category: 1,
+              limit: 49000
+            }, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            });
+
+            const data = news.data;
+
+            if (data) {
+              // Generate the sitemap XML content
+              const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
                         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                           ${data.map((url) => `
                             <url>
@@ -971,37 +1030,37 @@ app.prepare().
                             </url>
                           `).join('')}
                         </urlset>`;
-                
-                      // Set headers for gzipped content
-                      res.setHeader('Content-Type', 'application/zip');
-                      res.setHeader('Content-Disposition', 'attachment; filename="news-sitemap.xml.gz"');
-                      res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
-                
-                      // Create a Gzip stream
-                      const gzip = createGzip({ level: 9 }); // Maximum compression level
-                
-                      // Pipe the Gzip stream to the response
-                      res.writeHead(200);
-                      gzip.pipe(res);
-                      gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
-                    } else {
-                      res.statusCode = 500;
-                      res.end("Error generating sitemap");
-                    }
-                  } catch (error) {
-                    console.error('Error fetching news by category:', error);
-                    res.statusCode = 500;
-                    res.end("Error fetching news by category");
-                  }
-                  break;
-                  case "/sitemap/deliveries-location-sitemap.xml.gz":
-                    try {
-                      // Fetch the delivery location sitemap data
-                      const responsedeliveries = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
-                  
-                      if (responsedeliveries.data[0].Xml) {
-                        // Generate the sitemap XML content
-                        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+
+              // Set headers for gzipped content
+              res.setHeader('Content-Type', 'application/zip');
+              res.setHeader('Content-Disposition', 'attachment; filename="news-sitemap.xml.gz"');
+              res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
+
+              // Create a Gzip stream
+              const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+              // Pipe the Gzip stream to the response
+              res.writeHead(200);
+              gzip.pipe(res);
+              gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+            } else {
+              res.statusCode = 500;
+              res.end("Error generating sitemap");
+            }
+          } catch (error) {
+            console.error('Error fetching news by category:', error);
+            res.statusCode = 500;
+            res.end("Error fetching news by category");
+          }
+          break;
+        case "/sitemap/deliveries-location-sitemap.xml.gz":
+          try {
+            // Fetch the delivery location sitemap data
+            const responsedeliveries = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`);
+
+            if (responsedeliveries.data[0].Xml) {
+              // Generate the sitemap XML content
+              const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
                           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                             ${responsedeliveries.data[0].Xml.map((url) => `
                               <url>
@@ -1011,39 +1070,39 @@ app.prepare().
                               </url>
                             `).join('')}
                           </urlset>`;
-                  
-                        // Set headers for gzipped content
-                        res.setHeader('Content-Type', 'application/zip');
-                        res.setHeader('Content-Disposition', 'attachment; filename="deliveries-location-sitemap.xml.gz"');
-                        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
-                  
-                        // Create a Gzip stream for compression
-                        const gzip = createGzip({ level: 9 }); // Max compression
-                  
-                        // Pipe the Gzip stream to the response
-                        res.writeHead(200);
-                        gzip.pipe(res);
-                        gzip.end(sitemapXml); // Pipe the sitemap XML data into the Gzip stream
-                      } else {
-                        res.statusCode = 500;
-                        res.end("Error generating sitemap");
-                      }
-                    } catch (error) {
-                      console.error('Error fetching deliveries location data:', error);
-                      res.statusCode = 500;
-                      res.end("Error fetching deliveries location data");
-                    }
-                    break;
-                    case "/sitemap/products-sitemap.xml.gz":
-                      try {
-                        // Fetch data for products, categories, and subcategories
-                        const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
-                        const responsecategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Categories/`);
-                        const responseSubCategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`);
-                    
-                        if (response4 && responsecategory && responseSubCategory) {
-                          // Generate the sitemap XML content
-                          const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
+
+              // Set headers for gzipped content
+              res.setHeader('Content-Type', 'application/zip');
+              res.setHeader('Content-Disposition', 'attachment; filename="deliveries-location-sitemap.xml.gz"');
+              res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+
+              // Create a Gzip stream for compression
+              const gzip = createGzip({ level: 9 }); // Max compression
+
+              // Pipe the Gzip stream to the response
+              res.writeHead(200);
+              gzip.pipe(res);
+              gzip.end(sitemapXml); // Pipe the sitemap XML data into the Gzip stream
+            } else {
+              res.statusCode = 500;
+              res.end("Error generating sitemap");
+            }
+          } catch (error) {
+            console.error('Error fetching deliveries location data:', error);
+            res.statusCode = 500;
+            res.end("Error fetching deliveries location data");
+          }
+          break;
+        case "/sitemap/products-sitemap.xml.gz":
+          try {
+            // Fetch data for products, categories, and subcategories
+            const response4 = await axios.get(`https://api.cannabaze.com/UserPanel/ListProductView/`);
+            const responsecategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-Categories/`);
+            const responseSubCategory = await axios.get(`https://api.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`);
+
+            if (response4 && responsecategory && responseSubCategory) {
+              // Generate the sitemap XML content
+              const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
                             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                               ${response4.data.map((url) => `
                                 <url>
@@ -1067,37 +1126,37 @@ app.prepare().
                                 </url>
                               `).join('')}
                             </urlset>`;
-                    
-                          // Set headers for gzipped content
-                          res.setHeader('Content-Type', 'application/zip');
-                          res.setHeader('Content-Disposition', 'attachment; filename="products-sitemap.xml.gz"');
-                          res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
-                    
-                          // Create a Gzip stream for compression
-                          const gzip = createGzip({ level: 9 }); // Max compression
-                    
-                          // Pipe the Gzip stream to the response
-                          res.writeHead(200);
-                          gzip.pipe(res);
-                          gzip.end(sitemapXml1); // Pipe the sitemap XML data into the Gzip stream
-                        } else {
-                          res.statusCode = 500;
-                          res.end("Error generating sitemap");
-                        }
-                      } catch (error) {
-                        console.error('Error fetching product, category, or subcategory data:', error);
-                        res.statusCode = 500;
-                        res.end("Error fetching product, category, or subcategory data");
-                      }
-                      break;
-                      case "/sitemap/dispensaries-location-sitemap.xml.gz":
-                        try {
-                          // Fetch the dispensaries location data
-                          const dispensaries = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
-                      
-                          if (dispensaries.data[0].Xml) {
-                            // Generate the sitemap XML content
-                            const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+
+              // Set headers for gzipped content
+              res.setHeader('Content-Type', 'application/zip');
+              res.setHeader('Content-Disposition', 'attachment; filename="products-sitemap.xml.gz"');
+              res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+
+              // Create a Gzip stream for compression
+              const gzip = createGzip({ level: 9 }); // Max compression
+
+              // Pipe the Gzip stream to the response
+              res.writeHead(200);
+              gzip.pipe(res);
+              gzip.end(sitemapXml1); // Pipe the sitemap XML data into the Gzip stream
+            } else {
+              res.statusCode = 500;
+              res.end("Error generating sitemap");
+            }
+          } catch (error) {
+            console.error('Error fetching product, category, or subcategory data:', error);
+            res.statusCode = 500;
+            res.end("Error fetching product, category, or subcategory data");
+          }
+          break;
+        case "/sitemap/dispensaries-location-sitemap.xml.gz":
+          try {
+            // Fetch the dispensaries location data
+            const dispensaries = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`);
+
+            if (dispensaries.data[0].Xml) {
+              // Generate the sitemap XML content
+              const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
                               <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                                 ${dispensaries.data[0].Xml.map((url) => `
                                   <url>
@@ -1107,30 +1166,30 @@ app.prepare().
                                   </url>
                                 `).join('')}
                               </urlset>`;
-                      
-                            // Set headers for gzipped content
-                            res.setHeader('Content-Type', 'application/zip');
-                            res.setHeader('Content-Disposition', 'attachment; filename="dispensaries-location-sitemap.xml.gz"');
-                            res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
-                      
-                            // Create a Gzip stream for compression
-                            const gzip = createGzip({ level: 9 }); // Max compression
-                      
-                            // Pipe the Gzip stream to the response
-                            res.writeHead(200);
-                            gzip.pipe(res);
-                            gzip.end(sitemapXml); // Pipe the sitemap XML data into the Gzip stream
-                          } else {
-                            res.statusCode = 500;
-                            res.end("Error generating sitemap");
-                          }
-                        } catch (error) {
-                          console.error('Error fetching dispensary location data:', error);
-                          res.statusCode = 500;
-                          res.end("Error fetching dispensary location data");
-                        }
-                        break;
-                      
+
+              // Set headers for gzipped content
+              res.setHeader('Content-Type', 'application/zip');
+              res.setHeader('Content-Disposition', 'attachment; filename="dispensaries-location-sitemap.xml.gz"');
+              res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+
+              // Create a Gzip stream for compression
+              const gzip = createGzip({ level: 9 }); // Max compression
+
+              // Pipe the Gzip stream to the response
+              res.writeHead(200);
+              gzip.pipe(res);
+              gzip.end(sitemapXml); // Pipe the sitemap XML data into the Gzip stream
+            } else {
+              res.statusCode = 500;
+              res.end("Error generating sitemap");
+            }
+          } catch (error) {
+            console.error('Error fetching dispensary location data:', error);
+            res.statusCode = 500;
+            res.end("Error fetching dispensary location data");
+          }
+          break;
+
         // additional cases as needed
         default:
       }
