@@ -4,8 +4,8 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Image from 'next/image';
 import { Box, Grid , useMediaQuery} from '@mui/material';
-import mobilestaticbanner from '../../../public/mobilestaticbanner.jpg'
-import destopstaticbanner from '../../../public/destopstaticbanner.png'
+import mobilestaticbanner from '../../../public/mobilestaticbanner.webp'
+import destopstaticbanner from '../../../public/destopstaticbanner.webp'
 import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props , btype }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -31,21 +31,29 @@ const HomePageBanner = ({ props , btype }) => {
     left: '50%',
     transform: 'translateX(-50%)',
     color: 'white',
-    textShadow: '0px 0px 10px rgba(0, 0, 0, 0.7)',
+    // textShadow: '0px 0px 10px rgba(0, 0, 0, 0.7)',
   };
-
-  const headingStyle = {
+    const testsectionarea = {
+      position: 'absolute',
+      width: isMobile ?"60%" :'50%',
+      height:'100%',
+      top: '0%',
+      left: isMobile ?'40%' :'50%',
+    }
+      const headingStyle = {
     ...overlayTextStyle,
-    top: '40%',
-    fontSize:  isMobile ? "18px":'32px',
+    top: !isMobile ?  '40%' : '30%',
+    color: '#FFBF00	',
+    fontSize:  isMobile ? "16px":'36px',
+    fontWeight: 'bold',
     transform: 'translate(-50%, -50%)', // Adjust for both axes
   };
 
   const paragraphStyle = {
     ...overlayTextStyle,
     top:  isMobile ?'50%':'50%',
-    width:  isMobile ? '80%' : "50%",
-    fontSize: isMobile ? "14px":'20px',
+    width:  isMobile ? '80%' : "80%",
+    fontSize: isMobile ? "12px":'20px',
   };
   return (
 
@@ -63,7 +71,7 @@ const HomePageBanner = ({ props , btype }) => {
         a11y={{ enabled: true }}
         modules={[Autoplay, A11y]}
       >
-  {btype !== 'submainbanner' && (
+   {btype !== 'submainbanner' && (
           <SwiperSlide >
    <div style={bannerStyle} aria-label="Weed Finder Banner">
       <Image
@@ -76,19 +84,15 @@ const HomePageBanner = ({ props , btype }) => {
         height={100}
         priority
       />
-      <div style={{ gap: '10px' }}>
-        <h1 style={headingStyle}>
-        {`Find Weed Near You`}
-        </h1>
-        <p style={paragraphStyle}>
-          {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with WeedX.io.`}
-        </p>
+      <div style={testsectionarea}>
+        <h1 style={headingStyle}>{`Find Weed Near You`}</h1>
+        <p style={paragraphStyle}> {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='https://www.weedx.io/'>{' WeedX.io.'}</a> </p>
       </div>
     </div>
 
           </SwiperSlide>
         )}
-        {props?.reverse()?.map((items, index) => (
+        {/* {props?.reverse()?.map((items, index) => (
           <SwiperSlide key={index}>
               <a href={items?.Link || '#'} target="_blank" rel="noopener noreferrer">
                 <Image
@@ -107,7 +111,7 @@ const HomePageBanner = ({ props , btype }) => {
               </a>
           </SwiperSlide>
         ))}
-        
+         */}
       </Swiper>
 
   );

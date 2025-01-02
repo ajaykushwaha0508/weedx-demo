@@ -141,7 +141,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
     <div className={newclases.Add_product_cart_right_container_summary}>
         <h5 className={newclases.AddProdCartFont_weight}>Order Summary</h5>
        
-      { Boolean(navigate.pathname !== "/checkout") ? (
+      { Boolean(navigate.pathname !== "/checkout") ? 
+      (
         <div className="w-100 d-flex align-items-center py-2 ">
           { state.AllProduct[0]?.StoreDelivery && (
             <div className="col-6">
@@ -184,8 +185,8 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
               )}
           </div>
         </div>
-      ) : ( Boolean(((state.AllProduct[0]?.StoreCurbsidePickup +
-        state.AllProduct[0]?.StorePickup) + state.AllProduct[0]?.StoreDelivery) !==1) &&
+      ) : 
+      ( Boolean(((state.AllProduct[0]?.StoreCurbsidePickup + state.AllProduct[0]?.StorePickup) + state.AllProduct[0]?.StoreDelivery) !==1) &&
         <Box  className={`py-2  ${classes.loadingBtnTextAndBack}`}  >
           <LoadingButton
             sx={{
@@ -202,40 +203,43 @@ const AddToCartSummary = ({ SubmitData, CheckOut_Loading }) => {
           </LoadingButton>
         </Box>
       )}
-        {OpenDelivery && (
-          <div className="my-3">
-            <div className=" w-xl-50 w-lg-75 w-100 mt-2">
-              <label htmlFor="name-field">{`Enter Your Delivery Location`}</label>
-              <DeliverAutoCompleteAddress
-                OpenDelivery={OpenDelivery}
+
+
+
+      {OpenDelivery && (
+        <div className="my-3">
+          <div className=" w-xl-50 w-lg-75 w-100 mt-2">
+            <label htmlFor="name-field">{`Enter Your Delivery Location`}</label>
+            <DeliverAutoCompleteAddress
+              OpenDelivery={OpenDelivery}
+              className={classes.textFieldcartsummeryPage}
+              Store={state.AllProduct[0].Store_id}
+            ></DeliverAutoCompleteAddress>
+          </div>
+          <div className="  w-xl-50 w-lg-75 w-100 mt-3">
+            <label htmlFor="name-field">
+              {`APARTMENT OR SUITE NUMBER`}
+              <TextField
                 className={classes.textFieldcartsummeryPage}
-                Store={state.AllProduct[0].Store_id}
-              ></DeliverAutoCompleteAddress>
-            </div>
-            <div className="  w-xl-50 w-lg-75 w-100 mt-3">
-              <label htmlFor="name-field">
-                {`APARTMENT OR SUITE NUMBER`}
-                <TextField
-                  className={classes.textFieldcartsummeryPage}
-                  name="contact"
-                  value={InputValues.contact}
-                  onChange={InputFieldHandler}
-                  id="outlined-basic"
-                  placeholder="APARTMENT OR SUITE NUMBER"
-                  variant="outlined"
-                  fullWidth
-                  size="small"
-                />
-              </label>
-            </div>
+                name="contact"
+                value={InputValues.contact}
+                onChange={InputFieldHandler}
+                id="outlined-basic"
+                placeholder="APARTMENT OR SUITE NUMBER"
+                variant="outlined"
+                fullWidth
+                size="small"
+              />
+            </label>
           </div>
-        )}
-        {OpenPickup && (
-          <div className={newclases.pickup_div} >
-            <h3 className={newclases.addresHeading}> {`Pickup Address`}</h3>
-            <p>{state.AllProduct[0]?.StoreAddress}</p>
-          </div>
-        )}
+        </div>
+      )}
+      {OpenPickup && (
+        <div className={newclases.pickup_div} >
+          <h3 className={newclases.addresHeading}> {`Pickup Address`}</h3>
+          <p>{state.AllProduct[0]?.StoreAddress}</p>
+        </div>
+      )}
       <div className={newclases.order_summary_flex}>
           <p className={newclases.add_prod_cart_summary_p}>{`Subtotal`}</p>
           <p>${state.Cart_subTotal}</p>
