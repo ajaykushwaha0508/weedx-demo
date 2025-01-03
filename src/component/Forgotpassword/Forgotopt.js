@@ -7,25 +7,26 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 // import { useNavigate } from "react-router-dom";
+import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { useRouter } from 'next/router';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
 import LoadingButton from '@mui/lab/LoadingButton';
 // import { Forget_Otp } from "./ForgetApi";
-import axios from "axios"; 
+import axios from "axios";
 const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
     const classes = useStyles()
     const [OTP, Setotp] = React.useState()
     const [invalide, Setinvalid] = React.useState(false)
     const router = useRouter()
     const [loading, Setloading] = React.useState(false)
-    const handleClose = () => {
+    const handleClose = () =>{
         Setotppopup(false)
     }
-    const handleChange = (Otp) => {
+    const handleChange = (Otp) =>{
         Setotp(Otp);
     }
-    function Forget_Otp(Otp,Email) {
+    const Forget_Otp = (Otp,Email)=>{
         let data = axios.post(`https://api.cannabaze.com/UserPanel/ValidateOTPForgetPassword/`,
             {
                 otp:Otp,
@@ -34,7 +35,6 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
         );
         return data;
     }
-
     const onSubmit = (data) => {
         const Otp = OTP
         Setloading(true)
@@ -51,16 +51,13 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
             console.error(error)
         })
     }
-
   return (
-    <div>
-
-    <Dialog open={Otppopup} style={{ maxwidth: "346px" }}
-        sx={{
+    <Dialog open={true} style={{ maxwidth: "346px" }} sx={{
             "& .MuiPaper-root": {
-                maxWidth: "280px"
-            }
-        }} >
+                maxWidth: "280px",
+                padding: "20px",
+         } }}>
+        <div className="d-flex justify-content-center align-item-center"><RiVerifiedBadgeFill size={48} color={'#31B655'}/></div>
         <Box
             className={classes.emailVer_title}  >
             <DialogTitle>{`Verification`}</DialogTitle>
@@ -70,6 +67,7 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
                 className={classes.muiDialogContent}>
                 <DialogContent>
                     <DialogContentText>
+                        
                         <div className=" mb-2">
                             <span className=" login_otp_heads">{`please check your email  we've sent a code to`} <span className="login_otp_email">{Email}</span></span>
                         </div>
@@ -92,35 +90,28 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
                                 />
                             </div>
                         </div>
-                        <div className="col-12 center ">
+                        <div className="col-12 my-2 center ">
                             <span>{`Didn't get  a code?`}<span> {`resend`}</span></span>
                         </div>
                     </div>
                 </DialogContent>
             </Box>
-
             <DialogActions>
                 <Box className={classes.muiNormalBtn}>
                     <Button onClick={handleClose}>{`Cancel`}</Button>
 
                 </Box>
-                <Box
-                    className={`${classes.emailVerLoadingBtn}`}
-                >
+                <Box  className={`${classes.emailVerLoadingBtn}`}  >
                     <LoadingButton
                         type="submit"
                         loading={loading}
-                        onClick={onSubmit}
-                    >
+                        onClick={onSubmit} >
                         {`Verify`}
                     </LoadingButton>
                 </Box>
             </DialogActions>
         </React.Fragment>
-
-
     </Dialog>
-</div>
   )
 }
 

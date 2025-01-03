@@ -191,7 +191,15 @@ a:hover {
   line-height: 1.25rem;
 }
 .login_otp_heads {
-  font-size: 0.7rem;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #000000;
+  width: 100%;
+  text-align: center;
+}
+.login_otp_heads .login_otp_email{
+  color: #31b655;
 }
 .otp_input input {
   position: relative;
@@ -199,6 +207,12 @@ a:hover {
   min-width: 25px;
   background-color: #f7f7f7;
   border: 1px solid green;
+  box-shadow: none;
+}
+.otp_input input:focus-visible{
+  outline: 1px solid #31b655;
+  border-radius: 2px;
+
 }
 .opning_time p.currentDay {
   color: #31b655;

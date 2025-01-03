@@ -1551,37 +1551,53 @@ const useStyles = makeStyles({
     }
   },
   emailVer_title: {
-    "& .MuiTypography-root": {
+    "& .MuiTypography-root":{
       color: "#000000",
       fontSize: "25px",
-      fontWeight: 700,
-      marginTop: "20px",
+      fontWeight: "700",
       display: 'flex',
       justifyContent: "center",
+      padding:'0px',
     }
   },
   muiDialogContent: {
-    "& .MuiDialogContent-root": {
-      padding: "10px 20px",
+    "& .MuiDialogContent-root":{
+      padding: "0px",
     }
   },
   muiNormalBtn: {
     "& .MuiButtonBase-root": {
       textTransform: "none",
+      "&.MuiButton-text": {
+        fontSize: "14px",
+        fontWeight: "600",
+        color: "#fff",
+        backgroundColor: "red",
+        border:'1px solid red',
+      },
+      "&:hover": {
+        backgroundColor: "#fff",
+        color: "red",
+      }
     },
-    "& .MuiButton-text": {
-      fontSize: ".7rem",
-      color: "blue",
-    }
+    
   },
   emailVerLoadingBtn: {
     "& .MuiLoadingButton-root": {
       textTransform: "none",
+      "&.MuiButton-text": {
+        fontSize: "14px",
+        fontWeight: "600",
+        color: "#fff",
+        backgroundColor: "#31B655",
+        border:'1px solid #31B655',
+      },
+      "&:hover": {
+        backgroundColor: "#fff",
+        color: "#31B655",
+      }
     },
-    "& .MuiButton-text": {
-      fontSize: ".7rem",
-      color: "blue",
-    }
+  
   },
   WriteReviewDialog: {
     "& .MuiDialog-container": {
@@ -1612,17 +1628,17 @@ const useStyles = makeStyles({
     "&.MuiButtonBase-root":{
       width: "100%",
        fontSize: "14px" ,
-       color:"red" ,
-        border: '2px solid red',
+        color:"#d00101" ,
+        border: '2px solid #d00101',
         borderRadius:'4px',
         "& span":{
           marginRight:'5px',
         }
     },
     "&.MuiButtonBase-root:hover":{
-        backgroundColor:'red',
+        backgroundColor:'#d00101',
         color:"#fff" ,
-        border: '2px solid red',
+        border: '2px solid #d00101',
     }
   },
   faqbox:{
