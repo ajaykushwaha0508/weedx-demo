@@ -70,55 +70,55 @@ app.prepare().
       });
   
       // XML sitemap content
-      const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          <url>
+      const sitemapContent = `
+      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <sitemap>
               <loc>${fullOrigin}/sitemap/law-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-          <url>
+              <priority>0.9</priority>
+          </sitemap>
+          <sitemap>
               <loc>${fullOrigin}/sitemap/delivery-stores-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-           <url>
+              <priority>0.9</priority>
+          </sitemap>
+           <sitemap>
               <loc>${fullOrigin}/sitemap/dispensaries-stores-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-           <url>
+              <priority>0.9</priority>
+          </sitemap>
+           <sitemap>
               <loc>${fullOrigin}/sitemap/brand-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-            <url>
+              <priority>0.9</priority>
+          </sitemap>
+            <sitemap>
               <loc>${fullOrigin}/sitemap/blogs-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-          <url>
+              <priority>0.9</priority>
+          </sitemap>
+          <sitemap>
               <loc>${fullOrigin}/sitemap/news-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-          <url>
+              <priority>0.9</priority>
+          </sitemap>
+          <sitemap>
               <loc>${fullOrigin}/sitemap/deliveries-location-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-          <url>
+              <priority>0.9</priority>
+          </sitemap>
+          <sitemap>
               <loc>${fullOrigin}/sitemap/dispensaries-location-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
-           <url>
+              <priority>0.9</priority>
+          </sitemap>
+           <sitemap>
               <loc>${fullOrigin}/sitemap/products-sitemap.xml.gz</loc>
               <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-          </url>
+              <priority>0.9</priority>
+          </sitemap>
           <!-- Add more URLs dynamically if required -->
-      </urlset>`;
+      </sitemapindex>`;
   
       // Send the gzipped response
       res.writeHead(200);
