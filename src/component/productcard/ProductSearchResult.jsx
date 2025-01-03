@@ -234,7 +234,6 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
             return "Free Shipping"
         }
     }
-    console.log(state.Embedded_Store.StoreID ,'state')
     return (
         <div>
             <div className="">
@@ -275,6 +274,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                             }}>
                             {
                                 RelatedProductResult?.map((items, index) => {
+                                    console.log(items, 'items')
                                     if (items.id !== currentProductID) {
                                         return (
                                             <SwiperSlide key={index}>
@@ -298,7 +298,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                             }} 
                                                         >
                                                             <Image
-                                                                onError={(e) => (e.target.src = '/blankImage.jpg')}
+                                                                onError={(e) => (e.target.src = './blankImage.jpg')}
                                                                 priority
                                                                 className={newclases.product_search_result_image}
                                                                 width={100}
@@ -374,6 +374,8 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                     <div className={newclases.product_card_wrapper}>
                         {
                             RelatedProductResult?.map((items, index) => {
+                                console.log(items, 'items')
+
                                 if (items.id !== currentProductID) {
                                     return (
                                         <div className={`${newclases.productSearch_result_container} ${newclases.productSearch_result_containermainapge}`} key={index}>

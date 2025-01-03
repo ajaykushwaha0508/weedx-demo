@@ -26,7 +26,6 @@ export default function NewProductDetails(props){
     CouponMassage: "",
     DiscountType: ""
   });
-
   const { state } = React.useContext(Createcontext)
   const navigate = useRouter();
   const [Product, SetProduct] = React.useState(props.data[0])
@@ -215,8 +214,6 @@ export default function NewProductDetails(props){
   if (!StoreProduct.length) {
     return location?.pathname?.includes('/menu-integration') ? '' : <Loader />
   }
-
-// console.log(props , 'props props propsprops ')
   return (
     <div className="container-fluid">
       <ProductDetailsSeo

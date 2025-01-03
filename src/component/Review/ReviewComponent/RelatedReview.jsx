@@ -23,12 +23,12 @@ import useStyles from "../../../styles/style";
 import { useRouter } from "next/router";
 import React from 'react';
 import Badge from '@mui/material/Badge';
-import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
-import newclases from '@/styles/customstyle.module.css'
+// import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
+import ReportReviewPopup from '@/component/Review/ReviewPopup/ReportReviewPopup';   
 import Cookies from 'universal-cookie';
 import { useState } from 'react';
 import Createcontext from "../../../hooks/context"
-import { Menuintegration_login } from '../../Login/menu-integration_login';
+// import { Menuintegration_login } from '../../Login/menu-integration_login';
 import Image from "next/image";
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
@@ -43,9 +43,9 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [imageopup , setImagepopup] = useState(false)
     const [sliderdata,setsliderdata]= useState({
-    image:[],
-    video:[],
-    index:0,
+        image:[],
+        video:[],
+        index:0,
     })
     const classes = useStyles();
     const navigate = useRouter();
@@ -65,15 +65,12 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
         }
         return finalstr
     }
-
     const moveObject = (arr, targetKey, targetValue, newIndex) => {
         try {
-            const target = arr.find(value => value[targetKey] === targetValue)
+            const target = arr?.find(value => value[targetKey] === targetValue)
             if (target === undefined) {
                 return arr;
-
-            }
-            else {
+            }else {
                 const newArray = arr.filter(value => value[targetKey] !== targetValue)
                 newArray.splice(newIndex, 0, target);
                 return newArray;
@@ -83,8 +80,6 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
             return arr;
         }
     }
-
- 
     function calculateTImefromDate(value){
         //  new Date() = 'Mon Nov 20 2023 13:00:15 GMT+0530 (India Standard Time)'
       let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
@@ -111,7 +106,6 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
         return secs + " secs ago"
       }
     }
-
     function readmoreopen(id){
         if(readopen === id){
             setreadopen('')
@@ -133,166 +127,167 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                     {(state?.login ? moveObject(AllReview, 'user', state.Profile.id, 0) : AllReview)?.map((ele, index) => {
                         const text = ele?.comment;
                         return (
-                            <div className={newclases.related_review_container} key={index}>
-                                          <div className="d-flex justify-content-between align-items-center">
-                                          
-                                            <p className={newclases.reviewdateTexyt}>{calculateTImefromDate(ele.created_at)}</p>
-                                      
-                                            <span className='userreviewaction'> {
-                                                state?.login &&
-                                                state.Profile.id === ele.user && 
-                                                <>
-                                                    <Select IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
-                                                        sx={{
-                                                            boxShadow: "none",
-                                                            padding: '0',
+                            <div className={'related_review_container'} key={index}>
+                                            <div className="d-flex justify-content-between align-items-center">
+                                            
+                                                <p className={'reviewdateTexyt'}>{calculateTImefromDate(ele.created_at)}</p>
+                                        
+                                                <span className='userreviewaction'> {
+                                                    state?.login &&
+                                                    state.Profile.id === ele.user && 
+                                                    <>
+                                                        <Select IconComponent={BsThreeDotsVertical} labelId="demo-simple-select-error-label"
+                                                            sx={{
+                                                                boxShadow: "none",
+                                                                padding: '0',
 
-                                                            ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                                                            "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                                                            {
-                                                                border: 0,
-                                                                outline: "none"
+                                                                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                                                                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                                                                {
+                                                                    border: 0,
+                                                                    outline: "none"
 
-                                                            },
-                                                            "& .MuiSelect-select": {
-                                                                padding: '0 10px !important'
-                                                            },
-                                                            "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                                                            {
-                                                                border: 0,
-                                                                outline: "none"
-                                                            },
-                                                            "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
-                                                            "&:hover": {
-                                                                ".MuiSelect-icon": {
-                                                                    color: "#31B665"
-                                                                }
-                                                            },
-                                                        }}>
-                                                        <List className={classes.orderEditList}>
-                                                            <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(ele.id)}>
-                                                                <AiFillDelete color='31B665' /> Delete
-                                                            </ListItem>
-                                                            <ListItem button className={classes.orderEditListitem} onClick={() => handleEdit()}>
-                                                                <FaEdit color='31B665' />  Edit
-                                                            </ListItem>
-                                                        </List>
-                                                    </Select>
-                                                </>
-                                            }</span>
-                                        </div>
-                                        <div className={newclases.reviwerName_rating}>
-
-                                       
-                                                {ele.rating && new Array(ele.rating).fill(null).map(( data , index) => (
-                                                    <BsStarFill key={index} size={16} color="#31B665"  />
-                                                ))}
-
-                                                {new Array(5 - ele.rating).fill(null).map(( data , index) => (
-                                                    <BsStar  key={index} size={16} color="#31B665"  />
-                                                ))}
-                                          
-                                        </div>
-                                        <div className="d-flex align-items-center gap-2 py-md-0 py-1 ">
-                                          
-                                                <div className={newclases.related_review_image}>
-                                                    <Image
-                                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
-                                                        priority
-                                                        width={100}
-                                                        height={100}
-                                                        src={`${ele?.userImage}`}
-                                                        alt="userImage"
-                                                        title='userImages'
-                                                    />
-                                                </div>
-                                                <div className={newclases.related_review_content}>
-                                                    <p className={newclases.reviews_writer}>{ele.username}</p>
-                                                </div>
-                                                <span>
-                                                    <Tooltip title="Verified">
-                                                    <IconButton>
-                                                        <MdVerified color={'#31B655'} size={22}/>
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                </span>
-                                        </div>
-                                        <h3 className={newclases.reviews_title}>{ele.Title}</h3>
-                                        {    
-                                            textgive(text) &&
-                                            <div className={newclases.review_description_container}>
-                                              <p>{textgive(text ,ele.id )}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id !==readopen ? "More" : "Less"}</span>}</p>
+                                                                },
+                                                                "& .MuiSelect-select": {
+                                                                    padding: '0 10px !important'
+                                                                },
+                                                                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                                                                {
+                                                                    border: 0,
+                                                                    outline: "none"
+                                                                },
+                                                                "&.Mui-focused .MuiSelect-icon": { color: "#31B665" },
+                                                                "&:hover": {
+                                                                    ".MuiSelect-icon": {
+                                                                        color: "#31B665"
+                                                                    }
+                                                                },
+                                                            }}>
+                                                            <List className={classes.orderEditList}>
+                                                                <ListItem button className={classes.orderEditListitem} onClick={() => handleDelete(ele.id)}>
+                                                                    <AiFillDelete color='31B665' /> Delete
+                                                                </ListItem>
+                                                                <ListItem button className={classes.orderEditListitem} onClick={() => handleEdit()}>
+                                                                    <FaEdit color='31B665' />  Edit
+                                                                </ListItem>
+                                                            </List>
+                                                        </Select>
+                                                    </>
+                                                }</span>
                                             </div>
-                                        }
-                                        {
-                                            ele.images.length !== 0 &&  <div className={newclases.reviewImagewrapper}>
-                                                {
-                                                    ele.images.map((item , index)=>{
-                                                         return     <div key={index} className={newclases.reviewimagebox} onClick={()=>openimageslider(ele , 'image' ,index)}>
-                                                                        <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={item.image} className='reviewImage' alt='review image' title='review image'/>
-                                                                    </div>
-                                                    })
-                                                }
-                                                {
-                                                    ele.videos.map((item , index)=>{
-                                                         return     <div key={index} className='reviewvideobox' >
-                                                                        <video  autoPlay={false} onClick={()=>{  openimageslider(ele , 'video' , index)}} muted  src={item.video} className='reviewVideo' alt='video'/>
-                                                                    </div>
-                                                    })
-                                                }
-                                             
+                                            <div className={"reviwerName_rating"}>
+
+                                        
+                                                    {ele.rating && new Array(ele.rating).fill(null).map(( data , index) => (
+                                                        <BsStarFill key={index} size={16} color="#31B665"  />
+                                                    ))}
+
+                                                    {new Array(5 - ele.rating).fill(null).map(( data , index) => (
+                                                        <BsStar  key={index} size={16} color="#31B665"  />
+                                                    ))}
+                                            
                                             </div>
-                                        }
-                                        {   
-                                            ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
-                                            <div className={newclases.review_reply}>
-                                                <div className="d-flex gap-2">
-                                                   
-                                                        <div className={newclases.related_review_image}>
-                                                            <Image
-                                                              onError={(e) => (e.target.src = '/blankImage.jpg')}
-                                                               priority
-                                                                width={100} 
-                                                                height={100}
-                                                               
-                                                                src={`${storeDetails?.Store_Image}`}
-                                                                alt={storeDetails?.Store_Image}
-                                                                title={storeDetails?.Store_Image}
-                                                            />
-                                                        </div>
+                                            <div className="d-flex align-items-center gap-2 py-md-0 py-1 ">
+                                            
+                                                    <div className={'related_review_image'}>
+                                                        {ele?.userImage ===`https://selnew.s3.amazonaws.com/"media/BlankImage.jpg"` && console.log(ele) }
+                                                        <Image
+                                                            onError={(e) => (e.target.src = './blankImage.jpg')}
+                                                            priority
+                                                            width={100}
+                                                            height={100}
+                                                            src={ele?.userImage !=="https://selnew.s3.amazonaws.com/media/BlankImage.jpg" ? `${ele?.userImage}` : './blankImage.jpg'}
+                                                            alt="userImage"
+                                                            title='userImages'
+                                                        />
+                                                    </div>
+                                                    <div className={'related_review_content'}>
+                                                        <p className={'reviews_writer'}>{ele.username}</p>
+                                                    </div>
+                                                    <span>
+                                                        <Tooltip title="Verified">
+                                                        <IconButton>
+                                                            <MdVerified color={'#31B655'} size={22}/>
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    </span>
+                                            </div>
+                                            <h3 className={"reviews_title"}>{ele.Title}</h3>
+                                            {    
+                                                textgive(text) &&
+                                                <div className={"review_description_container"}>
+                                                <p>{textgive(text ,ele.id )}   {text?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => readmoreopen(ele.id)}>...Read {ele.id !==readopen ? "More" : "Less"}</span>}</p>
+                                                </div>
+                                            }
+                                            {
+                                                ele.images.length !== 0 &&  <div className={'reviewImagewrapper'}>
+                                                    {
+                                                        ele.images.map((item , index)=>{
+                                                            return     <div key={index} className={'reviewimagebox'} onClick={()=>openimageslider(ele , 'image' ,index)}>
+                                                                            <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={item.image} className='reviewImage' alt='review image' title='review image'/>
+                                                                        </div>
+                                                        })
+                                                    }
+                                                    {
+                                                        ele.videos.map((item , index)=>{
+                                                            return     <div key={index} className='reviewvideobox' >
+                                                                            <video  autoPlay={false} onClick={()=>{  openimageslider(ele , 'video' , index)}} muted  src={item.video} className='reviewVideo' alt='video'/>
+                                                                        </div>
+                                                        })
+                                                    }
                                                 
-                                                    <div className={newclases.related_review_content}>
-                                                        <h3 className={newclases.reviews_title}>{`Response from the Owner`}</h3>
-                                                        <p className={newclases.reviews_writer}>{storeDetails?.Store_Name}</p>
-                                                        <div className={newclases.review_date}>
-                                                            <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                                </div>
+                                            }
+                                            {   
+                                                ele.Reply !== null && "Reply" in ele && ele.Reply !== "" &&
+                                                <div className={'review_reply'}>
+                                                    <div className="d-flex gap-2">
+                                                    
+                                                            <div className={'related_review_image'}>
+                                                                <Image
+                                                                onError={(e) => (e.target.src = '/blankImage.jpg')}
+                                                                priority
+                                                                    width={100} 
+                                                                    height={100}
+                                                                
+                                                                    src={`${storeDetails?.Store_Image}`}
+                                                                    alt={storeDetails?.Store_Image}
+                                                                    title={storeDetails?.Store_Image}
+                                                                />
+                                                            </div>
+                                                    
+                                                        <div className={"related_review_content"}>
+                                                            <h3 className={"reviews_title"}>{`Response from the Owner`}</h3>
+                                                            <p className={"reviews_writer"}>{storeDetails?.Store_Name}</p>
+                                                            <div className={"review_date"}>
+                                                                <p>{calculateTImefromDate(ele?.ReplyTime)}</p>
+                                                            </div>
                                                         </div>
+
+                                                    </div>
+                                                    <div className='review_description_container'>
+                                                        <p>{textgive(ele.Reply , `${ele.id}reply`)}   {ele.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => {readmoreopen(`${ele.id}reply`)}}>...Read {`${ele.id}reply` !== readopen ? "More" : "Less"}</span>}</p>
                                                     </div>
 
                                                 </div>
-                                                <div className='review_description_container'>
-                                                    <p>{textgive(ele.Reply , `${ele.id}reply`)}   {ele.Reply?.split(' ')?.length >= 100 && <span className='band_shlebtn' onClick={() => {readmoreopen(`${ele.id}reply`)}}>...Read {`${ele.id}reply` !== readopen ? "More" : "Less"}</span>}</p>
+                                            }
+
+                                            <div className={'related_review_footer'}>
+                                                <div className={`related_review_footer_paragraph ellipsis`}  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
+                                                        <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
+                                                        {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
+                                                        </Badge>
                                                 </div>
-
+                                                <div className=' ellipsis'>  <ReportReviewPopup />  </div>
                                             </div>
-                                        }
-
-                                <div className={'related_review_footer'}>
-                                    <div className={`related_review_footer_paragraph ellipsis`}  onClick={() =>{  state?.login ? HellFull(ele) : (location.pathname.includes('/menu-integration') ? setOpen(true):  navigate('/login') ) }}>
-                                            <Badge badgeContent={ele?.count} className={classes.sliderLink_badge}>
-                                               {ele?.helpfull?.includes(state?.Profile?.id) ? <AiTwotoneLike color='#31B655' size={25}/> : <AiOutlineLike color='#31B655' size={25} />} 
-                                            </Badge>
-                                    </div>
-                                    <div className=' ellipsis'>  <ReportReviewPopup />  </div>
-                                </div>
                                
                             </div>
                         )
                     })}
                 </div>
-            {
+            {/* {
                 open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
-            }
+            } */}
         </React.Fragment>
     )
 }

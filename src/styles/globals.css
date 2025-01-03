@@ -1096,107 +1096,101 @@ textarea:focus {
 }
 
 
-.hm_banner {
-
-  background-color: #a7ffe2;
-  border-radius: 8px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  max-width: 100%;
-  position: relative;
-}
-.hm_mainiamgebox{
-  width: 100%;
-}
-.hm_mainiamgebox img{
-   width: 100%;
-   height: auto;
-}
-.hm_bannerGlass{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(37, 37, 37, .8);
-  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
-  backdrop-filter: blur( 1px );
-  -webkit-backdrop-filter: blur( 1px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );  
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px;
-  gap: 30px;
-}
-.hm_banner-content {
-  flex: 1;
-  max-width: 500px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
-.hm_banner-heading {
-  font-size: 42px;
-  font-weight: 800;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 10px;
-}
-.hm_banner-description {
-  font-size: 20px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 1.5;
-}
-.hm_banner-image {
-  flex-shrink: 0;
-  /* width: 500px; */
-  height: auto;
-}
-
-.hm_banner-image img {
-    width: 100%;
-    height: auto;
-  border-radius: 8px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hm_banner {
-      flex-direction: column;
-      text-align: center;
-  }
-  .hm_banner-content {
-      padding-right: 0;
+    .hm_banner {
+      background-color: #a7ffe2;
+      border-radius: 8px;
+      max-width: 100%;
+      position: relative;
+    }
+    .hm_mainiamgebox{
       width: 100%;
-      margin-bottom: 0px;
-  }
-  .hm_bannerGlass{
-    padding: 20px;
-    border-radius: 4px;
-    gap: 0;
-  }
-  .hm_banner-image {
-      width: 0%;
-  }
+    }
+    .hm_mainiamgebox img{
+      width: 100%;
+      height: auto;
+    }
+    .hm_bannerGlass{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(37, 37, 37, .8);
+      /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+      backdrop-filter: blur( 1px );
+      -webkit-backdrop-filter: blur( 1px );
+      border: 1px solid rgba( 255, 255, 255, 0.18 );  
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px;
+      gap: 30px;
+    }
+    .hm_banner-content {
+      flex: 1;
+      max-width: 500px;
+      padding-right: 20px;
+      margin: 0 auto;
+    }
   .hm_banner-heading {
-    font-size: 28px;
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
     margin-bottom: 10px;
   }
   .hm_banner-description {
-    font-size: 16px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.5;
   }
-}
-
-
-.full-width {
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
-}
+  .hm_banner-image {
+    flex-shrink: 0;
+    /* width: 500px; */
+    height: auto;
+  }
+  .hm_banner-image img {
+      width: 100%;
+      height: auto;
+    border-radius: 8px;
+  }
+/* Responsive Design */
+  @media (max-width: 768px) {
+    .hm_banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hm_banner-content {
+        padding-right: 0;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .hm_bannerGlass{
+      padding: 20px;
+      border-radius: 4px;
+      gap: 0;
+    }
+    .hm_banner-image {
+        width: 0%;
+    }
+    .hm_banner-heading {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .hm_banner-description {
+      font-size: 16px;
+    }
+  }
+  .full-width {
+    width: 100%;
+    height: auto;
+  }
   .Defalut_full-width {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    filter: brightness(40%);
-    opacity: 0.8;
+    height: auto;
+    /* filter: brightness(40%); */
+    /* opacity: 0.8; */
   }
   .slider_h1{
     position: absolute ;
@@ -1207,6 +1201,6 @@ textarea:focus {
   .slider_P{
     position: absolute;
     top: 55%;
-        left: 50%;
+    left: 50%;
     transform: 'translate(-50%, -50%)',
-    }
+  }

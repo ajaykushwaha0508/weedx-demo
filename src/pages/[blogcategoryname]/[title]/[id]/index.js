@@ -35,13 +35,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import styled from '@/styles/customstyle.module.css'
 export default function Blogs (props){
+    console.log(props.data[0])
     let News = props.data[0]
     const router = useRouter()
     const { state } = React.useContext(Createcontext) 
     const [value, SetValue] = React.useState([])
     const [Getlikes, SetLikes] = React.useState([])
     const [Getcommnet, Setcommnet] = React.useState([])
-    const id = router?.query?.sluge;
+    const id = router?.query?.id;
+    console.log(router?.query?.id , "id");
     const [WishList, SetWishList] = React.useState(false)
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access')
@@ -154,7 +156,7 @@ export default function Blogs (props){
                         </div>
                         <div className={'blog_text_container'} >
                                <div className={'Linkofblog'}>
-                                    <div className={`col BlogSocal`} >
+                                    <div className={`col BlogSocal viewsBlog`} >
 
                                         <RWebShare
                                             data={{ url: "https://www.weedx.io" + props.url }}
@@ -168,7 +170,7 @@ export default function Blogs (props){
 
                                         <div className="blogViewCounts d-md-block d-none">Share</div>
                                     </div>
-                                    <div className={`col viewsBlog`}  >
+                                    <div className={`col viewsBlog BlogSocal`}  >
                                         <IconButton>
                                             <IoEyeSharp></IoEyeSharp>
                                         </IconButton>
@@ -183,7 +185,7 @@ export default function Blogs (props){
                                         </IconButton>
                                         <span className="blogViewCounts">{Getcommnet.CommentCounts} <span className="d-md-block d-none"> Comment</span> </span>
                                     </div>
-                                    <div className={`col viewsBlog} BlogSocal`} >
+                                    <div className={`col viewsBlog BlogSocal`} >
                                         <IconButton onClick={(() => { PostLike(color()?.like) })}>
                                             <AiFillHeart></AiFillHeart>
                                         </IconButton>

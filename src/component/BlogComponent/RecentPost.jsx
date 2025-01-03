@@ -1,12 +1,13 @@
 import React,{useEffect} from "react";
 import ScrollContainer from "react-indiana-drag-scroll"
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import clases from '@/styles/customstyle.module.css'
 import { modifystr } from "@/hooks/utilis/commonfunction";
 const RecentPost = () => {
- const id = useParams()
+   const Router = useRouter();
+   const id = Router?.query?.id 
    const [News, SetNews] = React.useState([])
    useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +21,7 @@ const RecentPost = () => {
         }
     };
     fetchData();
-}, [id]);
+   }, [id]);
 
     return (
         <React.Fragment>

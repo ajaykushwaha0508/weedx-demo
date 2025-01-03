@@ -8,8 +8,8 @@ import { useRouter } from "next/router";
 import style from "../../styles/style"
 import newclases from '@/styles/customstyle.module.css'
 import Select from '@mui/material/Select';
-import React,{useEffect, useState} from "react"
-import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup"
+import React,{useEffect, useState} from "react";
+import WriteReviewPopup from "./ReviewPopup/WriteReviewPopup";
 const Review = ({ reviewloading, handleEdit, delBtn,reviewtype, setReviewtype, type, Rating, handleDelete, onSubmit, api, SetApi, GetProductReview, SetGetProductReview, AllReview, SetReview, HellFull }) => {
     const [short,setSort] = useState('highrate')
     const location = useRouter()

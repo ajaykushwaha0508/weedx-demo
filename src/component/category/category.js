@@ -6,7 +6,6 @@ import Image from 'next/image';
 // import '@/styles/customstyle.module.min.css'
 const Category = React.memo(({ ShowCategoryProduct, Category }) => {
     const Params = useRouter().query;
-
     return (
 
         <div className={'CategoryBordrr'}>
@@ -14,14 +13,11 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                 {
                     Object.keys(Params).length === 0 ? <h2 className={'shopByCategoryHeading'}>{`Shop By Category`}</h2> : null
                 }
-           
-           
                 <ScrollContainer className="ScrollContainerRelative">
                     {Category?.map((ele, index) => {
 
                         return (
                             <div className={"CategorySliderImageBlock"} key={index}>
-
                                 <Image
                                     onClick={() => { ShowCategoryProduct(ele.id, ele.name) }}
                                     src={ele.categoryImages} alt={ele.name.substr(0, 100)}
@@ -35,15 +31,12 @@ const Category = React.memo(({ ShowCategoryProduct, Category }) => {
                                 <div className={`col center ${"Category_title"}`} >
                                     <p>{FirstLetterCaps(ele?.name?.substr(0, 100))}</p>
                                 </div>
-
                             </div>
                         )
                     })}
                 </ScrollContainer>
-
             </div>
         </div>
-
     )
 })
 Category.displayName = "Category";

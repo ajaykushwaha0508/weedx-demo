@@ -376,7 +376,6 @@ const ProductList = ({ arr, link = "products" }) => {
       setproductperPage(6)
     }
   }, [])
-  console.log(state.Embedded_Store.StoreID ,'state')
   return (
     <>
       {(showdata?.length !== 0 && typeof (showdata) !== "string") ? (

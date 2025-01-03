@@ -31,9 +31,7 @@ import Badge from '@mui/material/Badge';
 const Embadednavbar=()=>{
     const classes = useStyles()
     let accessToken 
-    if (typeof window !== 'undefined') {
-        accessToken = localStorage.getItem('User_Token_access');
-    }
+    if (typeof window !== 'undefined') {    accessToken = localStorage.getItem('User_Token_access'); }
     const profileRef = React.useRef(null);
     const [dropDownState, setDropDownState] = React.useState(false);
     const { state, dispatch } = React.useContext(Createcontext)
@@ -55,14 +53,21 @@ const Embadednavbar=()=>{
     const router = useRouter()
     const { id } = router.query
     React.useEffect(() => {
-      if(state?.Embedded_Store?.StoreID !==""){
+      console.log(state?.Embedded_Store?.StoreID)
+      if(state?.Embedded_Store?.StoreID !== ""){
           axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
             "Store_Id": parseInt(id)
           }).then(async (response) => {
-                const d = response.data.map(data => data[0]);
-                const uniqueUsersByID = _.uniqBy(d, 'id');
-                setCategories(uniqueUsersByID);
-                
+              let data = response.data.map((item) =>item[0])
+              let ids=[]
+              let filtereddata=[]
+              for(let i = 0; i < data.length; i++){
+                if(!ids.includes(data[i].id)){
+                  filtereddata.push(data[i])
+                  ids.push(data[i].id)
+                }
+              }
+              setCategories(filtereddata);
           }).catch((error) => {
                 console.error(error);
           });
@@ -83,7 +88,7 @@ const Embadednavbar=()=>{
     }, [dropDownState]);
     const handleClickDropdown = React.useCallback(() => {
       setDropDownState((prevState) => !prevState);
-  }, [])
+    }, [])
   return (
     <AppBar position="static" className={classes.Embadedappbar}>
       <div className="container">
@@ -109,9 +114,9 @@ const Embadednavbar=()=>{
               {
                 categories.map((item , index)=>{
                     return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index+1} >
-                              <Stack direction="row" alignItems={'center'} spacing={2}>
-                                <Avatar alt={item.name} src={item.categoryImages} /> {item.name} 
-                              </Stack>
+                                <Stack direction="row" alignItems={'center'} spacing={2}>
+                                  <Avatar alt={item?.name} src={item?.categoryImages} /> {item?.name} 
+                                </Stack>
                             </MenuItem>
                 })
               }
@@ -119,12 +124,12 @@ const Embadednavbar=()=>{
           </Box>
           <Box  className={classes.Embadedappbarauth} sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
            {!(state?.login)?
-           (
-            <>
-              <Button onClick={()=>{ router.push("/embedded-menu/login")}} >  {'Login'}  </Button>
-              <Button onClick={()=>{ router.push("/embedded-menu/signup")}} >  {'Signup'} </Button>
-            </>
-           )
+            (
+              <>
+                <Button onClick={()=>{ router.push("/embedded-menu/login")}} >{'Login'}</Button>
+                <Button onClick={()=>{ router.push("/embedded-menu/signup")}} >{'Signup'}</Button>
+              </>
+            )
             :
              ( <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/> )  }
             <IconButton onClick={()=>{router.push('/embedded-menu/cart')}}  color="inherit">
