@@ -3553,8 +3553,8 @@
                 display: inline-flex;
                 .blogViewCounts {
                     margin-left: 8px;
+                    min-width: fit-content;
                 }
-               
             }
         }
     }

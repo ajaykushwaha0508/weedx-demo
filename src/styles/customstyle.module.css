@@ -3459,6 +3459,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 }
 .blogEditorContainer .Linkofblog .viewsBlog .blogViewCounts {
   margin-left: 8px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer table tbody, .blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer td {
