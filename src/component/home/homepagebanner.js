@@ -46,6 +46,7 @@ const HomePageBanner = ({ props , btype }) => {
     color: '#FFBF00	',
     fontSize:  isMobile ? "16px":'36px',
     fontWeight: 'bold',
+    width:'100%',
     transform: 'translate(-50%, -50%)', // Adjust for both axes
   };
 
@@ -92,7 +93,7 @@ const HomePageBanner = ({ props , btype }) => {
 
           </SwiperSlide>
         )}
-        {/* {props?.reverse()?.map((items, index) => (
+        {props?.reverse()?.map((items, index) => (
           <SwiperSlide key={index}>
               <a href={items?.Link || '#'} target="_blank" rel="noopener noreferrer">
                 <Image
@@ -111,7 +112,7 @@ const HomePageBanner = ({ props , btype }) => {
               </a>
           </SwiperSlide>
         ))}
-         */}
+        
       </Swiper>
 
   );
