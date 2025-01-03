@@ -23,11 +23,12 @@ import useStyles from "../../../styles/style";
 import { useRouter } from "next/router";
 import React from 'react';
 import Badge from '@mui/material/Badge';
-import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
+// import ReportReviewPopup from '../ReviewPopup/ReportReviewPopup';
+import ReportReviewPopup from '@/component/Review/ReviewPopup/ReportReviewPopup';   
 import Cookies from 'universal-cookie';
 import { useState } from 'react';
 import Createcontext from "../../../hooks/context"
-import { Menuintegration_login } from '../../Login/menu-integration_login';
+// import { Menuintegration_login } from '../../Login/menu-integration_login';
 import Image from "next/image";
 const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, HellFull}) => {
     const cookies = new Cookies();
@@ -42,9 +43,9 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     if(  Boolean(accessToken) ){ token_data  =  accessToken}
     const [imageopup , setImagepopup] = useState(false)
     const [sliderdata,setsliderdata]= useState({
-    image:[],
-    video:[],
-    index:0,
+        image:[],
+        video:[],
+        index:0,
     })
     const classes = useStyles();
     const navigate = useRouter();
@@ -66,12 +67,10 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
     }
     const moveObject = (arr, targetKey, targetValue, newIndex) => {
         try {
-            const target = arr.find(value => value[targetKey] === targetValue)
+            const target = arr?.find(value => value[targetKey] === targetValue)
             if (target === undefined) {
                 return arr;
-
-            }
-            else {
+            }else {
                 const newArray = arr.filter(value => value[targetKey] !== targetValue)
                 newArray.splice(newIndex, 0, target);
                 return newArray;
@@ -191,12 +190,13 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <div className="d-flex align-items-center gap-2 py-md-0 py-1 ">
                                             
                                                     <div className={'related_review_image'}>
+                                                        {ele?.userImage ===`https://selnew.s3.amazonaws.com/"media/BlankImage.jpg"` && console.log(ele) }
                                                         <Image
-                                                            onError={(e) => (e.target.src = '/blankImage.jpg')}
+                                                            onError={(e) => (e.target.src = './blankImage.jpg')}
                                                             priority
                                                             width={100}
                                                             height={100}
-                                                            src={`${ele?.userImage}`}
+                                                            src={ele?.userImage !=="https://selnew.s3.amazonaws.com/media/BlankImage.jpg" ? `${ele?.userImage}` : './blankImage.jpg'}
                                                             alt="userImage"
                                                             title='userImages'
                                                         />
@@ -285,9 +285,9 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                         )
                     })}
                 </div>
-            {
+            {/* {
                 open && <Menuintegration_login open={open} setOpen={setOpen}></Menuintegration_login>
-            }
+            } */}
         </React.Fragment>
     )
 }

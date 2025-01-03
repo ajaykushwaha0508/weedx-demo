@@ -9,17 +9,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { modifystr } from '@/hooks/utilis/commonfunction';
 import clases from '@/styles/customstyle.module.css'
+import sortBy from 'lodash/sortBy';
 
- function Notification ({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
+function Notification ({ notify, setnotify,Settotalnotify, Setnotificationdata, notificationdata }) {
     const cookies = new Cookies();
     let token_data = cookies.get('User_Token_access');
-    if (typeof window !== 'undefined') {
-      token_data = localStorage.getItem('User_Token_access');
-    }
-  
+    if (typeof window !== 'undefined') {token_data = localStorage.getItem('User_Token_access');}
     const { state, dispatch } = React.useContext(Createcontext);
-  
-    // Memoizing the time calculation function to avoid recalculating on every render
     const calculateTImefromDate = React.useCallback((value) => {
       let diffTime = Math.abs(new Date().valueOf() - new Date(value).valueOf());
       let months = Math.trunc(diffTime / (24 * 60 * 60 * 1000) / 30);
@@ -41,13 +37,11 @@ import clases from '@/styles/customstyle.module.css'
         return secs + ' secs ago';
       }
     }, []);
-  
     React.useEffect(() => {
       if (state?.login) {
         const config = { headers: { Authorization: `Bearer ${token_data}` } };
   
-        axios
-          .get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`, config)
+        axios.get(`https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`, config)
           .then((res) => {
             let datax = [];
             res.data.forEach((item) => {
@@ -70,10 +64,17 @@ import clases from '@/styles/customstyle.module.css'
                 });
               }
             });
-  
-            let sortedData = debounce.sortBy(datax, (dateObj) => dateObj.date);
-            Settotalnotify(sortedData);
-            Setnotificationdata(sortedData.reverse());
+            console.log(datax , "datax")
+            const sortedData = sortBy(datax, (dateObj) => dateObj.date).reverse();
+
+            dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
+
+            // If you're using React and this is a state setter:
+              Setnotificationdata(sortedData);
+            // let sortedData = .sortBy(datax, (dateObj) => dateObj.date);
+            // console.log(sortedData , "sortedData") 
+            // Settotalnotify(sortedData);
+            // Setnotificationdata(sortedData.reverse());
           }).catch((err) => {
             console.error(err);
           });
@@ -130,10 +131,19 @@ import clases from '@/styles/customstyle.module.css'
             });
           }
         });
-  
-        let sortedData = debounce.sortBy(datax, (dateObj) => dateObj.date);
-        dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
-        Setnotificationdata(sortedData.reverse());
+        // console.log(datax , "datax")
+        // let sortedData = debounce.sortBy(datax, (dateObj) =>{
+        //   console.log(dateObj.date , "dateObj.date")
+        //   return dateObj.date
+        // });
+        // console.log(sortedData , "sortedData")
+        // dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
+        // Setnotificationdata(sortedData.reverse());
+
+        // const processAndSetData = debounce((data) => {
+        //   const sortedData = sortBy(data, (dateObj) => dateObj.date).reverse();
+        //   setNotificationData(sortedData);
+        // }, 300);
       } catch (err) {
         console.error(err);
       }

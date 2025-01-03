@@ -4,7 +4,6 @@ import { Grid, Avatar } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import useStyles from '@/styles/style';
-// import SearchBar from '@/component/navbar/component/SearchBar';
 const SearchBar = dynamic(() => import("@/component/navbar/component/SearchBar"));
 import { useRouter } from 'next/router';
 import Createcontext from "@/hooks/context";
@@ -14,16 +13,12 @@ import { AiFillHeart } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
-// import Notification from '../component/Notification';
 const Notification = dynamic(() => import("../component/Notification"), { ssr: false });
-// import Afterlogin from "../component/afterlogin";
 const Afterlogin = dynamic(() => import("../component/afterlogin"), { ssr: false });
-
 const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{  ssr: false,
   memo: false 
 });
 const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"), { ssr: false });
-// import SideNavbar from "../component/SideSlider/Slider"
 export default function Nevbar() {
     const cookies = new Cookies();
     const clasess = useStyles()
