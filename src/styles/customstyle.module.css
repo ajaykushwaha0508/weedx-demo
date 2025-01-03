@@ -3418,6 +3418,9 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 }
 .blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer table {
   border-collapse: separate !important;
+  width: 100% !important;
+  display: block;
+  overflow: scroll;
 }
 .blogEditorContainer .blog_text_container .blogEditorPaddings .linkTaginsideEditer table tbody {
   border: revert-layer !important;

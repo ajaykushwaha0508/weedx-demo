@@ -3509,6 +3509,9 @@
                     }
                     table {
                         border-collapse: separate !important;
+                        width: 100% !important;
+                        display: block;
+                        overflow: scroll;
                         tbody {
                             border: revert-layer !important;
                             border-color: inherit;
