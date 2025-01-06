@@ -57,73 +57,54 @@ app.prepare().
     // Custom route example
 
     server.get('/sitemap.xml.gz', (req, res) => {
-      // Get the origin from the request headers
-      const origin = req.get('Origin') || req.headers.host;
-      const fullOrigin = `${req.protocol}://${origin}`;
+      try {
+          // Get origin from request headers
+          const origin = req.get('Origin') || req.headers.host;
+          const protocol = req.protocol || 'https';
+          const fullOrigin = `${protocol}://${origin}`;
   
-      res.setHeader('Content-Type', 'application/zip');
-      res.setHeader('Content-Disposition', 'attachment; filename="sitemap.xml.gz"');
-      res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache for 24 hours
+          // Set response headers
+          res.setHeader('Content-Type', 'application/xml');
+          res.setHeader('Content-Encoding', 'gzip');
+          res.setHeader('Content-Disposition', 'attachment; filename="sitemap.xml.gz"');
+          res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate');
   
-      const gzip = createGzip({
-          level: 9 // Maximum compression level
-      });
+          // Define the sitemaps
+          const sitemaps = [
+              'law-sitemap',
+              'delivery-stores-sitemap',
+              'dispensaries-stores-sitemap',
+              'brand-sitemap',
+              'blogs-sitemap',
+              'news-sitemap',
+              'deliveries-location-sitemap',
+              'dispensaries-location-sitemap',
+              'products-sitemap'
+          ];
   
-      // XML sitemap content
-      const sitemapContent = `
-      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          <sitemap>
-              <loc>${fullOrigin}/sitemap/law-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-          <sitemap>
-              <loc>${fullOrigin}/sitemap/delivery-stores-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-           <sitemap>
-              <loc>${fullOrigin}/sitemap/dispensaries-stores-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-           <sitemap>
-              <loc>${fullOrigin}/sitemap/brand-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-            <sitemap>
-              <loc>${fullOrigin}/sitemap/blogs-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-          <sitemap>
-              <loc>${fullOrigin}/sitemap/news-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-          <sitemap>
-              <loc>${fullOrigin}/sitemap/deliveries-location-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-          <sitemap>
-              <loc>${fullOrigin}/sitemap/dispensaries-location-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-           <sitemap>
-              <loc>${fullOrigin}/sitemap/products-sitemap.xml.gz</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.9</priority>
-          </sitemap>
-          <!-- Add more URLs dynamically if required -->
-      </sitemapindex>`;
+          // Generate sitemap index XML
+          const sitemapContent = `
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+              ${sitemaps
+                  .map(
+                      (sitemap) => `
+                  <sitemap>
+                      <loc>${fullOrigin}/sitemap/${sitemap}.xml.gz</loc>
+                      <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+                  </sitemap>`
+                  )
+                  .join('\n')}
+          </sitemapindex>`.trim();
   
-      // Send the gzipped response
-      res.writeHead(200);
-      gzip.pipe(res);
-      gzip.end(sitemapContent);
+          // Compress and send the response
+          const gzip = createGzip({ level: 9 });
+          res.writeHead(200);
+          gzip.pipe(res);
+          gzip.end(sitemapContent);
+      } catch (error) {
+          console.error('Error generating sitemap:', error);
+          res.status(500).send('Internal Server Error');
+      }
   });
     //     // law-sitemap.xml.gz
     server.get("/sitemap/:category", async (req, res) => {
