@@ -18,9 +18,9 @@ const EditPasswordPopup = () => {
     const handleClickOpen = () => {
         SetOpen(true)
     }
-    const handleClose = () => {
-        SetOpen(false)
-    }
+    // const handleClose = () => {
+    //     SetOpen(false)
+    // }
     const [ShowPassword, SetShowPassword] = React.useState(false)
     const [NewPassword, SetNewPassword] = React.useState(false)
     const [ShowConfirmPassword, SetShowConfirmPassword] = React.useState(false)
@@ -42,13 +42,13 @@ const EditPasswordPopup = () => {
     }
     return (
         <div>
-            <Button className={`${classes.EditProfileBtn_Color}`} startIcon={<MdEdit color="#707070" size={18} />} onClick={handleClickOpen}>
+            <Button className={`${classes.EditProfileBtn_Color}`} startIcon={<MdEdit color="#707070" size={18} />} onClick={()=> SetOpen(true)}>
                 {`Edit`}
             </Button>
-            <Dialog open={Open} onClose={handleClose} className={classes.editPwd_Popup_dialog}>
+            <Dialog open={Open} onClose={()=> SetOpen(false)} className={classes.editPwd_Popup_dialog}>
                 <div className='editemilPopupcontainer'>
                     <div className='  editprofileCrossbtn'>
-                        <IconButton onClick={handleClose} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
+                        <IconButton onClick={()=>SetOpen(false)} aria-label="closebutton"><RiCloseCircleFill color='#949494' size={24} /></IconButton>
                     </div>
                     <div className='d-flex justify-content-center align-content-center w-100 h-100'>   
                         <div className='profileeditpopupContentbox'>
@@ -121,18 +121,17 @@ const EditPasswordPopup = () => {
                                     </div>
                                     <div className="col-12 mt-2">
                                         <p className="pwdAtLeastChar">{`Atleast 8 characters.`}</p>
-
                                     </div>
                                 </div>
                                 <div className='row'>
                                     <div className="col-6">
                                         <Box className={`mt-4 ${classes.editEmail_loadingBtn}`}>
-                                            <LoadingButton onClick={handleClose}>{`Save`}</LoadingButton>
+                                            <LoadingButton onClick={()=>SetOpen(false)}>{`Save`}</LoadingButton>
                                         </Box>
                                     </div>
                                     <div className="col-6">
                                         <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
-                                            <LoadingButton onClick={handleClose}>{`Cancel`}</LoadingButton>
+                                            <LoadingButton onClick={()=>SetOpen(false)}>{`Cancel`}</LoadingButton>
                                         </Box>
                                     </div>
                                 </div>

@@ -24,11 +24,11 @@ const EditProfileLogin = ({Profile, Api, SetApi}) => {
                                     <p className="editProfileLoginParaStyle ellipsis">{Profile?.email}</p>
                                 </div>
                             </div>
-                            <div className="col-6  editProfileLogin_emailField_container_edit">
+                            {/* <div className="col-6  editProfileLogin_emailField_container_edit">
                                 <div className="editSpan_div">
                                    <EditEmailPopup email={Profile?.email} Api={Api}  SetApi = {SetApi}/>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
                         <div className="row mt-2">
