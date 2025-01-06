@@ -2,8 +2,10 @@
 import React, { memo } from "react";
 import Button from '@mui/material/Button';
 import useStyles from "../../../../styles/style";
+import { FaBlog } from "react-icons/fa";
 import { useRouter } from 'next/router';
 import Link from "next/link";
+import { FaRegNewspaper } from "react-icons/fa6";
 import Createcontext from "../../../../hooks/context";
 import { FaHome, FaClinicMedical, FaIdeal, FaProductHunt } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -82,7 +84,7 @@ const SideNavbar = ({ closeNav, Open }) => {
                                                 <Image
                                                     onError={(e) => (e.target.src = '/blankImage.jpg')}
                                                     priority
-                                                    src="https://selnew.s3.amazonaws.com/media/BlankImage/weedx.webp"
+                                                    src="https://selnew.s3.amazonaws.com/media/BlankImage/WeedWhiteLogo.webp"
                                                     alt="WeedX.io logo"
                                                     title="WeedX.io logo"
                                                     width={50}
@@ -153,6 +155,14 @@ const SideNavbar = ({ closeNav, Open }) => {
                     <hr></hr>
                     <div className={`col-12 ${clases.Slider_content_center}`} >
                         <Link className="text-dark" href="/learn/laws-and-regulation"><p onClick={closeNav} className="m-0 d-flex"><span><SiFuturelearn color="#31B655" fontSize={25} /></span>Law</p></Link>
+                    </div>
+                    <hr></hr>
+                    <div className={`col-12 ${clases.Slider_content_center}`} >
+                        <Link className="text-dark" href="/cannabis-news"><p onClick={closeNav} className="m-0 d-flex"><span><FaRegNewspaper color="#31B655" fontSize={25} /></span>Cannabis News</p></Link>
+                    </div>
+                    <hr></hr>
+                    <div className={`col-12 ${clases.Slider_content_center}`} >
+                        <Link className="text-dark" href="/blogs"><p onClick={closeNav} className="m-0 d-flex"><span><FaBlog color="#31B655" fontSize={25} /></span>Blogs</p></Link>
                     </div>
                     <hr></hr>
                     <div className="d-flex justify-content-center align-items-center gap-2">

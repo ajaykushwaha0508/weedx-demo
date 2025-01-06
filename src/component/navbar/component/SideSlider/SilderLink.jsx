@@ -1,5 +1,6 @@
 
 // import React, { useEffect } from "react";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import Grid from "@mui/system/Unstable_Grid";
 import React, { useEffect, useCallback, memo } from 'react';
 import dynamic from 'next/dynamic';
@@ -15,10 +16,48 @@ import newclases from '@/styles/customstyle.module.css';
 import useStyles from '../../../../styles/style';
 const SearchBar = dynamic(() => import('../SearchBar'), { ssr: false });
 const Notification = dynamic(() => import('../Notification'));
+const styles = {
+  navLinks: {
+    listStyle: 'none',
+    display: 'flex',
+    gap: '20px',
+    margin: 0,
+    padding: 0,
+  },
+  dropdown: {
+    position: 'relative',
+    cursor: 'pointer',
+  },
+  dropdownMenu: {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    backgroundColor: '#444',
+    listStyle: 'none',
+    margin: 0,
+    padding: '10px 0',
+    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#fff',
+    borderRadius: '4px',
+    width:'140px',
+    textAlign: 'start',
+    justifyContent: 'center',
+  },
+  dropdownMenuItem: {
+    padding: '8px 16px',
+    cursor: 'pointer',
+    textAlign: 'center',
+    width: '100%',
+    justifyContent: 'flex-start',
+  
+  },
+};
+
 function DashBoardLink({ state }) {
   const classes = useStyles();
   const location = useRouter();
   const [current_route, Setcurrent_route] = React.useState();
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   const [notify, setnotify] = React.useState(false);
   const [notificationdata, Setnotificationdata] = React.useState([]);
   const [totalnotify, Settotalnotify] = React.useState([]);
@@ -64,7 +103,9 @@ function DashBoardLink({ state }) {
   const link1 = useCallback(() => {
     location.push('/advertise');
   }, [location]);
-
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <div className="container-fluid Top p-2 m-0">
       <Grid container spacing={2}>
@@ -116,15 +157,31 @@ function DashBoardLink({ state }) {
                   Deals
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/learn/laws-and-regulation"
-                  id={
-                    current_route === "/learn/laws-and-regulation" ? "Active" : ""
-                  }
-                >
+              <li
+                style={styles.dropdown}
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
+              >
+                {/* <Link href="/learn/laws-and-regulation"  id={  current_route === "/learn/laws-and-regulation" ? "Active" : ""  }  >
                   Law
-                </Link>
+                </Link> */}
+                    More    <span className='d-flex justify-content-center align-items-center mx-2'> <RiArrowDropDownLine size={22}/></span>
+                    <ul
+                      style={{
+                        ...styles.dropdownMenu,
+                        display: isDropdownOpen ? 'block' : 'none',
+                      }}
+                    >
+                    <li style={styles.dropdownMenuItem}>  <Link href="/learn/laws-and-regulation"  id={  current_route === "/learn/laws-and-regulation" ? "Active" : ""  }  >
+                      Law
+                    </Link></li>
+                    <li style={styles.dropdownMenuItem}>  <Link href="/cannabis-news"  id={  current_route === "/learn/laws-and-regulation" ? "Active" : ""  }  >
+                      All News
+                    </Link></li>
+                    <li style={styles.dropdownMenuItem}>  <Link href="/blogs"  id={  current_route === "/learn/laws-and-regulation" ? "Active" : ""  }  >
+                      Blogs
+                    </Link></li>
+                  </ul>
               </li>
             </ul>
           </div>

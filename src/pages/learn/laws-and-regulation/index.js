@@ -33,36 +33,7 @@ export default function Index (props){
         <div className="col-12">
           <Box sx={{ width: "100%", typography: "body1" }}>
             <TabContext value={value}>
-              <Box
-                className={`${classes.learn_tab_background} ${classes.learn_tab}`}
-                sx={{ marginLeft: "-5px", borderColor: "divider" }}
-              >
-                <TabList
-                  scrollButtons={false}
-                  variant="scrollable"
-                  onChange={handleChange}
-                  aria-label="lab API tabs example"
-                >
-                  <Tab label="Law" value="/learn/laws-and-regulation" />
-                  <p
-                    className="Lawsection_New"
-                    onClick={() => {
-                      router.push("/cannabis-news");
-                    }}
-                  >
-                   
-                    {`All News`}
-                  </p>
-                  <p
-                    className="Lawsection_New"
-                    onClick={() => {
-                      router.push("/blogs");
-                    }}
-                  >
-                    {`Blogs`}
-                  </p>
-                </TabList>
-              </Box>
+         
               <Box className={`${classes.learnTabPadding}`}>
                 <TabPanel value="/learn/laws-and-regulation">
                  
