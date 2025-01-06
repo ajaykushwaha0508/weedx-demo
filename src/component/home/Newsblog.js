@@ -47,6 +47,7 @@ const NewsCard = React.memo(({ ele, index }) => (
                 <Image
                     width={100}
                     height={100}
+                    quality={100}
                     src={`${ele.Image}`}
                     alt="Weedx"
                     title={ele.Title}
