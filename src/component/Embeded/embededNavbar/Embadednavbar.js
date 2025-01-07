@@ -53,7 +53,6 @@ const Embadednavbar=()=>{
     const router = useRouter()
     const { id } = router.query
     React.useEffect(() => {
-      console.log(state?.Embedded_Store?.StoreID)
       if(state?.Embedded_Store?.StoreID !== ""){
           axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
             "Store_Id": parseInt(id)

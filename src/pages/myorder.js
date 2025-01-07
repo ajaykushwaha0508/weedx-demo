@@ -141,7 +141,6 @@ export default function  MyOrder(){
         }, 1000)
         return () => clearTimeout(getData)
     },[Getsearch])
-    console.log(state.Embedded_Store.StoreID , 'state')
     return (
         <React.Fragment>
                 <div className="row px-2 center">

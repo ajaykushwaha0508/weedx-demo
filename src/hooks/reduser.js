@@ -16,7 +16,6 @@ const reducer = (state, action) => {
       case 'emdaddedcat':
         return { ...state, Embedded_category: action.Embedded_category }
       case 'emdaddedStore':
-        console.log('action.EmbadedStoredata', action.EmbadedStoredata)
         return { ...state, Embedded_Store: action.EmbadedStoredata }
       case "DeliveryOption": {  return { ...state, DeliveryOption: action.DeliveryOption } }
       case "DeliveryInformation":

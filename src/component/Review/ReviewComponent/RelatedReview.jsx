@@ -190,7 +190,6 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                             <div className="d-flex align-items-center gap-2 py-md-0 py-1 ">
                                             
                                                     <div className={'related_review_image'}>
-                                                        {ele?.userImage ===`https://selnew.s3.amazonaws.com/"media/BlankImage.jpg"` && console.log(ele) }
                                                         <Image
                                                             onError={(e) => (e.target.src = './blankImage.jpg')}
                                                             priority

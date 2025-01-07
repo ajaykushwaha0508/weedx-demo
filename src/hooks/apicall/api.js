@@ -106,7 +106,6 @@ if (typeof window !== 'undefined') {
             accessToken = localStorage.getItem('User_Token_access');
         }
         if(  Boolean(accessToken) ){ token_data  =  accessToken}
-        console.log(id , 'Comment' )
         let data = axios.post('https://api.cannabaze.com/UserPanel/Add-Comment/',
             {
                 Blog: id,

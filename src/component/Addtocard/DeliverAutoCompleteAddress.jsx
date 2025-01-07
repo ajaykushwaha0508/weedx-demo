@@ -20,14 +20,10 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
     onPlaceSelected: (place) => {
     
       if (place.address_components) {
-        console.log(place , 'place')
         try {
-          console.log('try')
           for (var i = 0; i < place?.address_components.length; i++) {
             var component = place.address_components[i];
-            console.log(component)
             if (component.types.indexOf('postal_code') !== -1) {
-              console.log('if')
               CheckPostal(component.long_name, place.formatted_address , place.address_components)
               SetAddress(place.formatted_address)
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: place.formatted_address })
@@ -36,7 +32,6 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
               // break;
             }
             else {
-              console.log('else')
               dispatch({ type: 'DeliveryAddress', DeliveryAddress: '' })
               Seterror("Street Address Missing")
               SetAddress(place.formatted_address)
@@ -44,16 +39,12 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
 
           }
         } catch (error) {
-          console.log('catch')
-
           Seterror("Street Address Missing")
         }
       }
       else {
-        console.log('main else')
         Axios(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
           .then(response => {
-          console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
             try {
               if (response.data.results.length !== 0) {
                 response.data.results[0]?.address_components?.map((data) => {

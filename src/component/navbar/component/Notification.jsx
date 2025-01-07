@@ -64,7 +64,6 @@ function Notification ({ notify, setnotify,Settotalnotify, Setnotificationdata, 
                 });
               }
             });
-            console.log(datax , "datax")
             const sortedData = sortBy(datax, (dateObj) => dateObj.date).reverse();
 
             dispatch({ type: 'ApiProduct', ApiProduct: !state.ApiProduct });
@@ -131,7 +130,7 @@ function Notification ({ notify, setnotify,Settotalnotify, Setnotificationdata, 
             });
           }
         });
-        // console.log(datax , "datax")
+
         // let sortedData = debounce.sortBy(datax, (dateObj) =>{
         //   console.log(dateObj.date , "dateObj.date")
         //   return dateObj.date

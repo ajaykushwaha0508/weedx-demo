@@ -9,8 +9,6 @@ import destopstaticbanner from '../../../public/destopstaticbanner.webp'
 import { A11y } from 'swiper/modules';
 const HomePageBanner = ({ props , btype }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
-
-
   const handleImageError = (event) => {
     if (event.type === "error") {
       event.target.src = '/blankImage.jpg'; // Fallback image URL
@@ -42,12 +40,17 @@ const HomePageBanner = ({ props , btype }) => {
     }
       const headingStyle = {
     ...overlayTextStyle,
-    top: !isMobile ?  '40%' : '30%',
-    color: '#FFBF00	',
-    fontSize:  isMobile ? "16px":'36px',
-    fontWeight: 'bold',
-    width:'100%',
-    transform: 'translate(-50%, -50%)', // Adjust for both axes
+        top: !isMobile ?  '40%' : '30%',
+        color: '#FFBF00	',
+        fontSize: isMobile ? "16px":'36px',
+        // fontSize: '36px',
+        fontWeight: 'bold',
+        width:'100%',
+        transform: 'translate(-50%, -50%)',
+        // '@media(max-Width: 480px)' : {
+        //   fontSize: '16px',
+        // }
+        
   };
 
   const paragraphStyle = {
@@ -74,22 +77,22 @@ const HomePageBanner = ({ props , btype }) => {
       >
    {btype !== 'submainbanner' && (
           <SwiperSlide >
-   <div style={bannerStyle} aria-label="Weed Finder Banner">
-      <Image
-        className="Defalut_full-width"
-        src={isMobile ? mobilestaticbanner : destopstaticbanner}
-        alt="Find Weed Near You"
-        layout="responsive"
-        quality={100}
-        width={100}
-        height={100}
-        priority
-      />
-      <div style={testsectionarea}>
-        <h1 style={headingStyle}>{`Find Weed Near You`}</h1>
-        <p style={paragraphStyle}> {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='https://www.weedx.io/'>{' WeedX.io.'}</a> </p>
-      </div>
-    </div>
+            <div style={bannerStyle} aria-label="Weed Finder Banner">
+              <Image
+                className="Defalut_full-width"
+                src={isMobile ? mobilestaticbanner : destopstaticbanner}
+                alt="Find Weed Near You"
+                layout="responsive"
+                quality={100}
+                width={100}
+                height={100}
+                priority
+              />
+              <div style={testsectionarea}>
+                <h1 style={{...headingStyle}} >{`Find Weed Near You`}</h1>
+                <p style={paragraphStyle}> {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='https://www.weedx.io/'>{' WeedX.io.'}</a> </p>
+              </div>
+            </div>
 
           </SwiperSlide>
         )}
