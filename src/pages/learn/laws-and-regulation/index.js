@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
+import { Box, Typography } from '@mui/material';
 import dynamic from 'next/dynamic'
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -39,8 +39,32 @@ export default function Index (props){
                  
                     <div className="row ">
                       <h2 className={'canabisLawMainHeadings'}>{`Cannabis Law in USA, Canada & Internationals`}</h2>
-                      <Bgheader text="Law" />
-                      <LawsOptions data={Content} />
+                           <Box
+                                sx={{
+                                  backgroundColor: '#f5f5f5', // Background color for the header
+                                  padding: '20px',
+                                  textAlign: 'center', 
+                                  backgroundImage: 'url(/LAW1copy.webp)',
+                                  backgroundSize: 'cover',
+                                  display: 'flex',
+                                  justifyContent: 'center',
+                                  alignItems: 'center',
+                                  height: '240px',
+                                }}
+                              >
+                                <Typography
+                                  variant="h1"
+                                  sx={{
+                                    color: '#fff', // Text color
+                                    // fontWeight: 'bold',
+                                    fontSize: '32px',
+                                    fontWeight:'700', // Font size for large header
+                                  }}
+                                >
+                                Laws
+                                </Typography>
+                              </Box>
+                                                <LawsOptions data={Content} />
                     </div>
                 
                 </TabPanel>

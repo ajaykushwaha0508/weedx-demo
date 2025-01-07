@@ -24,9 +24,10 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
     const [allcomment, setallcomment] = React.useState([])
     const classes = useStyles()
     const { state } = React.useContext(Createcontext)
-        const cookies = new Cookies();
-    
-    let token_data = cookies.get('User_Token_access')
+    let accessToken
+    if (typeof window !== 'undefined') {
+        accessToken = localStorage.getItem('User_Token_access');
+    }
     // const [CommentCardArrays, SetCommentCardArray] = React.useState()
     // let currentPosts = CommentCardArrays?.slice(indexOfFirstPost, indexOfLastPost);
     function WriteComment(e) {
@@ -63,7 +64,7 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
 
         axios.delete(`https://api.cannabaze.com/UserPanel/Delete-Comment/${id}`,
             {
-                headers: { Authorization: `Bearer ${token_data}` }
+                headers: { Authorization: `Bearer ${accessToken}` }
             },).then((response) => {
                 GetallComment()
             })

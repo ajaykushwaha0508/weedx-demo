@@ -48,6 +48,7 @@ export default function Blogs (props){
     if (typeof window !== 'undefined') {
         accessToken = localStorage.getItem('User_Token_access');
     }
+    
     function PostLike(like) {
         if (state?.login) {
             Post_BlogLike(News?.id, !like).then((res) => {
