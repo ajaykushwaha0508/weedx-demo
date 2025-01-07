@@ -129,6 +129,7 @@ const EditPasswordPopup = () => {
                                             <LoadingButton onClick={()=>SetOpen(false)}>{`Save`}</LoadingButton>
                                         </Box>
                                     </div>
+                                    
                                     <div className="col-6">
                                         <Box className={`mt-4 ${classes.editEmail_loadingBtn_cancel}`}>
                                             <LoadingButton onClick={()=>SetOpen(false)}>{`Cancel`}</LoadingButton>
