@@ -10,8 +10,6 @@ const RecentPost = dynamic(() => import('@/component/BlogComponent/RecentPost') 
 import { BsFillShareFill } from "react-icons/bs";
 const RecentPostComment = dynamic(() => import('@/component/BlogComponent/RecentPostComment') , {ssr:true});
 import { BiCommentDetail } from "react-icons/bi";
-import { FaEdit } from 'react-icons/fa';
-import { AiFillDelete } from 'react-icons/ai';
 import Select from '@mui/material/Select';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -129,7 +127,6 @@ export default function Blogs (props){
             console.error(error)
         })
     }
-    console.log(Getcommnet.UserComment , "Getcommnet")
     return(
         <React.Fragment>
             {state.permission && <Currentlocation />}
