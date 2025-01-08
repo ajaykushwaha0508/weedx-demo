@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import OtpInput from 'react-otp-input';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -10,7 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { useRouter } from 'next/router';
 import Box from '@mui/material/Box';
-import useStyles from "@/styles/style"
+import useStyles from "@/styles/style";
 import LoadingButton from '@mui/lab/LoadingButton';
 // import { Forget_Otp } from "./ForgetApi";
 import axios from "axios";
@@ -19,13 +19,8 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
     const [OTP, Setotp] = React.useState()
     const [invalide, Setinvalid] = React.useState(false)
     const router = useRouter()
+    const [time, setTime] = React.useState(300);
     const [loading, Setloading] = React.useState(false)
-    const handleClose = () =>{
-        Setotppopup(false)
-    }
-    const handleChange = (Otp) =>{
-        Setotp(Otp);
-    }
     const Forget_Otp = (Otp,Email)=>{
         let data = axios.post(`https://api.cannabaze.com/UserPanel/ValidateOTPForgetPassword/`,
             {
@@ -51,10 +46,21 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
             console.error(error)
         })
     }
+    useEffect(() => {
+        let timer = setInterval(() => {
+          setTime((time) => {
+            if (time === 0) {
+              clearInterval(timer);
+              return 0;
+            } else return time - 1;
+          });
+        }, 1000);
+      }, []);
+  
   return (
-    <Dialog open={true} style={{ maxwidth: "346px" }} sx={{
+    <Dialog open={true}  sx={{
             "& .MuiPaper-root": {
-                maxWidth: "280px",
+                maxWidth: "380px",
                 padding: "20px",
          } }}>
         <div className="d-flex justify-content-center align-item-center"><RiVerifiedBadgeFill size={48} color={'#31B655'}/></div>
@@ -69,7 +75,7 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
                     <DialogContentText>
                         
                         <div className=" mb-2">
-                            <span className=" login_otp_heads">{`please check your email  we've sent a code to`} <span className="login_otp_email">{Email}</span></span>
+                            <p className=" login_otp_heads">{`please check your email  we've sent a code to`} <span className="login_otp_email">{Email}</span></p>
                         </div>
                     </DialogContentText>
                     <div className="gap display">
@@ -80,7 +86,7 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
                                 }
                                 <OtpInput
                                     value={OTP}
-                                    onChange={handleChange}
+                                    onChange={(otp)=> Setotp(Otp)}
                                     numInputs={4}
                                     renderSeparator={<span>-</span>}
                                     shouldAutoFocus
@@ -92,13 +98,17 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
                         </div>
                         <div className="col-12 my-2 center ">
                             <span>{`Didn't get  a code?`}<span> {`resend`}</span></span>
+                            {/* {time === 0 &&  <span className="login_otp_heads">Didn't get  a code?  <span className="login_otp_email text-success" onClick={Resend}> resend</span> </span>}
+                            {time !== 0 && <p className="login_otp_email"> Didn't get  a code? resend after  {`${Math.floor(time / 60)}`.padStart(2, 0)}: {`${time % 60}`.padStart(2, 0)}</p>}
+                      */}
+                     
                         </div>
                     </div>
                 </DialogContent>
             </Box>
             <DialogActions>
                 <Box className={classes.muiNormalBtn}>
-                    <Button onClick={handleClose}>{`Cancel`}</Button>
+                    <Button onClick={()=>Setotppopup(false)}>{`Cancel`}</Button>
 
                 </Box>
                 <Box  className={`${classes.emailVerLoadingBtn}`}  >

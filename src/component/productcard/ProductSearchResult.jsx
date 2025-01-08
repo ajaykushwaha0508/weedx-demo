@@ -4,12 +4,11 @@ import { BsStar, BsStarFill } from "react-icons/bs";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "../../styles/style";
-import { AiOutlineHeart, AiFillHeart, AiOutlineLeft } from "react-icons/ai"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { Swiper, SwiperSlide } from "swiper/react";
 import IconButton from '@mui/material/IconButton';
 import ProductIncDecQuantity from "./ProductIncDecQuantity"
 import { FaShoppingCart } from "react-icons/fa";
-import { MdShoppingCart } from "react-icons/md";
 import "swiper/css";
 import PreCheckout from "./PreCheckout";
 import axios from "axios";
@@ -26,10 +25,9 @@ import { Navigation } from 'swiper/modules';
 import { modifystr } from "../../hooks/utilis/commonfunction";
 import Image from "next/image";
 const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentProductID, title, link = "products" }) => {
-    // console.log(RelatedProductResult ,'cfgnsdfjg fuisn ')
-    if (!Array.isArray(RelatedProductResult)) {
-        RelatedProductResult = [];  // Default to empty array if it's not an array
-      }
+    if(!Array.isArray(RelatedProductResult)) {
+        RelatedProductResult = [];
+    }
     const { state, dispatch } = React.useContext(Createcontext)
     const classes = useStyles()
     const cookies = new Cookies();
@@ -295,6 +293,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                                 id: items.id
                                                             }} 
                                                         >
+                                                        
                                                             <Image
                                                                 onError={(e) => (e.target.src = './blankImage.jpg')}
                                                                 priority
@@ -400,7 +399,6 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                         width={100}
                                                         height={100}
                                                         src={`${items?.images[0]?.image}`}
-
                                                         alt={items.Product_Name}
                                                         title={items.Product_Name}
                                                     />
@@ -414,7 +412,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
                                                     <p className={`productSearchResultParagraph text-truncate`}>{items.Product_Name}</p>
                                                 </Link>
                                                 {  state.Embedded_Store.StoreID ===''  && <Link href={`/${items.Store_Type === "dispensary" ? "weed-dispensaries" : "weed-deliveries"}/${modifystr(items.StoreName)}/${items.Store_id}`}  >
-                                                    <p className={`product_search_result_sub_heading} text-truncate`}>by {items.StoreName}</p>
+                                                    <p className={`product_search_result_sub_heading text-truncate`}>by {items.StoreName}</p>
                                                 </Link>
                                                 }
                                                 <div className={"product_category_list"}>
@@ -473,7 +471,7 @@ const ProductSearchResult = ({ RelatedProductResult= [], CategoryName, currentPr
             {
               CartClean && 
               <AddToCartPopUp CartClean={CartClean} SetCartClean={SetCartClean} NewData={NewData} SetAddToCard={SetAddToCard}   />
-             }
+            }
             {state.Embedded_Store.StoreID ==="" && <PreCheckout />}
         </div>
     )

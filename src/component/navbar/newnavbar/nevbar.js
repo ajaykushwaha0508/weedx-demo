@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState ,useContext , useRef} from 'react'
 import dynamic from 'next/dynamic'
 import { Grid, Avatar } from '@mui/material';
 import Link from 'next/link';
@@ -21,16 +21,16 @@ const SideNavbar = dynamic(() => import('../component/SideSlider/Slider'),{  ssr
 const SliderLink = dynamic(() => import("@/component/navbar/component/SideSlider/SilderLink"), { ssr: false });
 export default function Nevbar() {
     const cookies = new Cookies();
-    const clasess = useStyles()
-    const ref = React.useRef(null);
-    const profileRef = React.useRef(null);
+    const clasess = useStyles();
+    const ref = useRef(null);
+    const profileRef = useRef(null);
     const Location = useRouter();
-    const [open, setOpen] = React.useState(false);
-    const { state, dispatch } = React.useContext(Createcontext);
-    const [notify, setNotify] = React.useState(false);
-    const [dropDownState, setDropDownState] = React.useState(false);
-    const [notificationData, setNotificationData] = React.useState([]);
-    const [totalNotify, setTotalNotify] = React.useState([]);
+    const [open, setOpen] = useState(false);
+    const { state, dispatch } = useContext(Createcontext);
+    const [notify, setNotify] = useState(false);
+    const [dropDownState, setDropDownState] = useState(false);
+    const [notificationData, setNotificationData] = useState([]);
+    const [totalNotify, setTotalNotify] = useState([]);
     const openNav = React.useCallback(() => {
         setOpen((prevOpen) => !prevOpen);
     }, []);  // empty dependency array ensures this function is only created once
@@ -63,7 +63,6 @@ export default function Nevbar() {
             document.removeEventListener('click', handleClickOutsideProfile, true);
         };
     }, [dropDownState]);
-
     const handleClickDropdown = React.useCallback(() => {
         setDropDownState((prevState) => !prevState);
     }, [])
@@ -74,7 +73,6 @@ export default function Nevbar() {
         await dispatch({ type: 'ApiProduct' });
         await dispatch({ type: 'Profile', Profile: [] });
     }
-
     return (
         <div ref={ref} className={`${'NavbarBox'} container`} id='Navbar_box' >
             <Grid container spacing={0} rowSpacing={0.3} justifyContent="space-between">

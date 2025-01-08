@@ -33,14 +33,11 @@ export default function Index (props){
         <div className="col-12">
           <Box sx={{ width: "100%", typography: "body1" }}>
             <TabContext value={value}>
-         
               <Box className={`${classes.learnTabPadding}`}>
                 <TabPanel value="/learn/laws-and-regulation">
-                 
                     <div className="row ">
-                      <h2 className={'canabisLawMainHeadings'}>{`Cannabis Law in USA, Canada & Internationals`}</h2>
-                           <Box
-                                sx={{
+                        <h2 className={'canabisLawMainHeadings'}>{`Cannabis Law in USA, Canada & Internationals`}</h2>
+                        <Box   sx={{
                                   backgroundColor: '#f5f5f5', // Background color for the header
                                   padding: '20px',
                                   textAlign: 'center', 
@@ -61,12 +58,10 @@ export default function Index (props){
                                     fontWeight:'700', // Font size for large header
                                   }}
                                 >
-                                Laws
+                                {'Laws'}
                                 </Typography>
-                              </Box>
-                                                <LawsOptions data={Content} />
+                        </Box><LawsOptions data={Content} />
                     </div>
-                
                 </TabPanel>
               </Box>
             </TabContext>

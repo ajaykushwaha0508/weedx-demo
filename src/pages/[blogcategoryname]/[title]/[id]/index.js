@@ -122,7 +122,6 @@ export default function Blogs (props){
     }
     async function GetComment(id) {
         await Get_Comment(id).then((res) => {
-              console.log(res.data.Comments , "res.data.Comments")
             Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment': res.data.Comments })
         }).catch((error) => {
             console.error(error)

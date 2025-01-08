@@ -71,10 +71,8 @@ export default function Allblogs(props){
                   <div className="col-4">
                     <Link href={blogUrl} className='d-sm-block d-flex justify-content-center align-items-center h-100'>
                       <Image className={Styled.imageBlogSection}
-                        width={100}
-                        height={100}
-                        // priority
-                        quality={100}
+                        width={300}
+                        height={300}
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}

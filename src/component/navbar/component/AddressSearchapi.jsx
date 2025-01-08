@@ -179,13 +179,10 @@ const SearchingLocation = ({ openLocation, SearchBarWidth, open1, setOpenLocatio
         Setformatted_address(state.Location);
       }
 
-      if (!ci) {
-        dispatch({ type: 'City', City: '' });
-      }
+      if (!ci) { dispatch({ type: 'City', City: '' }); }
       if (!sta) {
         dispatch({ type: 'State', State: '' });
       }
-      
       const setLocation = {
         country: Coun || '',
         state: sta || "",
@@ -208,11 +205,10 @@ const SearchingLocation = ({ openLocation, SearchBarWidth, open1, setOpenLocatio
       dispatch({ type: 'location_Api', location_Api: false })
       dispatch({ type: 'Location', Location: placeDetails?.formatted_address })
     })
-  } else {
-    console.log('Places Service not available yet');
+    }else {
+      console.log('Places Service not available yet');
+    }
   }
-  }
-
   function OnBlur() {
 
     setOpenLocation(false)

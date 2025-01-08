@@ -38,20 +38,20 @@ const HomePageBanner = ({ props , btype }) => {
       top: '0%',
       left: isMobile ?'40%' :'50%',
     }
-      const headingStyle = {
-    ...overlayTextStyle,
-        top: !isMobile ?  '40%' : '30%',
-        color: '#FFBF00	',
-        fontSize: isMobile ? "16px":'36px',
-        // fontSize: '36px',
-        fontWeight: 'bold',
-        width:'100%',
-        transform: 'translate(-50%, -50%)',
-        // '@media(max-Width: 480px)' : {
-        //   fontSize: '16px',
-        // }
+  //     const headingStyle = {
+  //   ...overlayTextStyle,
+  //       top: !isMobile ?  '40%' : '30%',
+  //       color: '#FFBF00	',
+  //       fontSize: isMobile ? "16px":'36px',
+  //       // fontSize: '36px',
+  //       fontWeight: 'bold',
+  //       width:'100%',
+  //       transform: 'translate(-50%, -50%)',
+  //       // '@media(max-Width: 480px)' : {
+  //       //   fontSize: '16px',
+  //       // }
         
-  };
+  // };
 
   const paragraphStyle = {
     ...overlayTextStyle,
@@ -88,12 +88,18 @@ const HomePageBanner = ({ props , btype }) => {
                 height={100}
                 priority
               />
-              <div style={testsectionarea}>
-                <h1 style={{...headingStyle}} >{`Find Weed Near You`}</h1>
-                <p style={paragraphStyle}> {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='https://www.weedx.io/'>{' WeedX.io.'}</a> </p>
+              <div
+              // style={testsectionarea}
+              className='customBannertestcontainer' >
+                <h1 
+                // style={{...headingStyle}} 
+                className='customBannertitle'
+                >{`Find Weed Near You`}</h1>
+                <p 
+                // style={paragraphStyle}
+                 className='customBannerpara' > {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='https://www.weedx.io/'>{' WeedX.io.'}</a> </p>
               </div>
             </div>
-
           </SwiperSlide>
         )}
         {props?.reverse()?.map((items, index) => (

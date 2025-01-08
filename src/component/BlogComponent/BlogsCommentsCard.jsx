@@ -55,7 +55,6 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                 return (
                                     <React.Fragment key={index}>
                                         <div className="border blogCommentEachCards">
-
                                             <div className="col-12 blogsCommentCardDateCol">
                                                 <span className="blogsCommentCardDate">{CommentDate}</span>
                                             </div>
@@ -67,23 +66,18 @@ const BlogsCommentsCard = ({ Getcommnet }) => {
                                                 </section>
                                                 <section className="commentCradContentSection">
                                                     <h2 className="blogCommentName">{val.username}</h2>
+                                                    {/* <span className="blogsCommentCardDate">{CommentDate}</span> */}
                                                     <div className="col-12">
                                                     <p className="blogUserComments">{val.comment}</p>
                                                     </div>
                                                 </section>
                                                 {state?.login &&  state?.Profile?.id === val.user && (
-                                                    <div className="col d-flex justify-content-center align-items-center">
+                                                    <div className="">
                                                         <IconButton> <BsThreeDotsVertical color="#31B665" size={20} /></IconButton>
-
                                                     </div>
                                                 )}
-
-
-
-
                                             </div>
                                         </div>
-
                                     </React.Fragment>
                                 )
                             })}
