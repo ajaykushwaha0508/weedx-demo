@@ -55,12 +55,12 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
 
     }
     async function GetallComment() {
-            await Get_Comment(id).then((res) => {
-                setallcomment(res.data.Comments)
-                // Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment': res.data.Comments })
-            }).catch((error) => {
-                console.error(error)
-            })
+        await Get_Comment(id).then((res) => {
+            setallcomment(res.data.Comments)
+            // Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment': res.data.Comments })
+        }).catch((error) => {
+            console.error(error)
+        })
     }
     function handleDelete(id) {
 
@@ -71,7 +71,14 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
                 GetallComment()
             })
     }
-    React.useEffect(() => {GetallComment()}, [])
+    React.useEffect(() => {
+        Get_Comment(id).then((res) => {
+            setallcomment(res.data.Comments)
+            // Setcommnet({ ...Getcommnet, "CommentCounts": res.data.CommentCounts, 'UserComment': res.data.Comments })
+        }).catch((error) => {
+            console.error(error)
+        })
+    }, [])
     // let usercomment = currentPosts?.filter((item) => {
     //     return item.user === state?.Profile.id
     // })
@@ -146,8 +153,9 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
                     {allcomment?.map((val, index) => {
                         const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
                         return (
-                            <SwiperSlide>
-                                <div className="border blogCommentEachCards" key={index}>
+                            
+                            <SwiperSlide key={index}>
+                                <div className="border blogCommentEachCards" >
 
                                     {/* <div className="col-12 blogsCommentCardDateCol">
                                         <span className="blogsCommentCardDate">{CommentDate}</span>
