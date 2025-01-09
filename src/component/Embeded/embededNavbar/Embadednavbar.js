@@ -19,8 +19,6 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
 import Afterlogin from "@/component/navbar/component/afterlogin";
 import Badge from '@mui/material/Badge';
-
-  
     async function Logout() {
         localStorage.removeItem('User_Token_access');
         cookies.remove('User_Token_access');
@@ -105,11 +103,11 @@ const Embadednavbar=()=>{
               onClose={handleMenuClose}
               className={classes.Embadedbarcatdropdown}
             >
-                      <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: "All" })}  key={1} >
-                        <Stack direction="row" alignItems={'center'} spacing={2}>
-                          <Avatar alt="Remy Sharp"><FaProductHunt size={18} color="#31B655" /></Avatar> {' All Products'}
-                        </Stack>
-                      </MenuItem>
+              <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: "All" })}  key={1} >
+                <Stack direction="row" alignItems={'center'} spacing={2}>
+                  <Avatar alt="Remy Sharp"><FaProductHunt size={18} color="#31B655" /></Avatar> {' All Products'}
+                </Stack>
+              </MenuItem>
               {
                 categories.map((item , index)=>{
                     return  <MenuItem onClick={()=>   dispatch({ type: 'emdaddedcat', Embedded_category: item.name })}  key={index+1} >
@@ -130,12 +128,13 @@ const Embadednavbar=()=>{
               </>
             )
             :
-             ( <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/> )  }
+             <Afterlogin dropDownState={dropDownState} state={state} profileRef={profileRef} handleClickDropdown={handleClickDropdown} Logout={Logout}/>  
+          }
             <IconButton onClick={()=>{router.push('/embedded-menu/cart')}}  color="inherit">
                 <Badge badgeContent={state?.AllProduct[0]?.Store_id === Number(state?.Embedded_Store?.StoreID) ? state?.AllProduct?.length : 0 } color="#D3D3D3">
                   <ShoppingCartIcon  size={24} />
                 </Badge>
-            </IconButton> 
+            </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

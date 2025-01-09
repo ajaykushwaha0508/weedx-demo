@@ -3796,8 +3796,8 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
 
 .blogCommentEachCards {
   padding: 15px;
-  border: 1px solid;
-  width: 600px;
+  border: 1px solid lightgray;
+  width: 100%;
   position: relative;
   margin: 15px auto;
 }
@@ -4975,6 +4975,31 @@ footer .bottom_menu_items p span.footer_li:hover, footer .footer_main_list .foot
   }
 }
 @media (max-width: 768px) {
+  .blogCommentEachCards {
+    width: 100%;
+  }
+  .blogCommentEachCards .commentCardImages {
+    align-items: start;
+  }
+  .blogCommentEachCards .commentCardImages .imageContainer {
+    width: 60px;
+    height: 60px;
+  }
+  .blogCommentEachCards .commentCradContentSection .blogCommentName {
+    font-size: 14px;
+  }
+  .blogCommentEachCards .commentCradContentSection .blogsCommentCardDate {
+    color: #A8A8A8;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .blogCommentEachCards .commentCradContentSection .blogUserComments {
+    color: #252525;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 8px;
+    word-break: break-word;
+  }
   .Empty_container_margin_top {
     margin: 0px 0;
     width: 100%;

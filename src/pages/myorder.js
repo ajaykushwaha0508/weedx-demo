@@ -195,9 +195,7 @@ export default function  MyOrder(){
                         </div>
                         <div className={`${styled.Order_Text} mt-4`}>
                                 <p >  {` Welcome to your personalized order hub! Easily track and manage your purchases with the convenience of organized sections. Explore the status of your orders under the following categories`}</p>
-                            
                                 <h5 style={{ color: "black" }}> {`Keep tabs on every purchase journey seamlessly.`} </h5>
-                           
                         </div>
                         { 
                             Boolean(AllOrder_data[0]) ? 

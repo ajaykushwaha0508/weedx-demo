@@ -154,7 +154,7 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
                         const CommentDate = val.created_at.slice(0, 10).split("-").reverse().join("-")
                         return (
                             <SwiperSlide key={index}>
-                                <div className="border blogCommentEachCards" >
+                                <div className="blogCommentEachCards" >
 
                                     {/* <div className="col-12 blogsCommentCardDateCol">
                                         <span className="blogsCommentCardDate">{CommentDate}</span>

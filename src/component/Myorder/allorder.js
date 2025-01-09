@@ -12,7 +12,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
   const classes = useStyles()
   const { state, dispatch } = useContext(CreateContext);
   return (
-          <div>
+          <div> 
               {
                 searchitem.legnth !==0 && searchitem?.map((val , index)=>{
                   return (
@@ -96,9 +96,10 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
                   );
                 })
               }
-              {AllOrder_data?.filter((item,index)=>{
-                return !searchitem.map((item)=>item.OrderId).includes(item.OrderId) 
-              })?.map((val, index) => {
+              {
+                AllOrder_data?.filter((item,index)=>{
+                  return !searchitem.map((item)=>item.OrderId).includes(item.OrderId) 
+                })?.map((val, index) => {
                 if(state.Embedded_Store.StoreID !== ""){
                   if(val.Store === Number(state.Embedded_Store.StoreID)){
                     return (
@@ -264,7 +265,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
                     </div>
                   );
                 }
-              })
+                })
               }
           </div>
   );

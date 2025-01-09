@@ -15,17 +15,17 @@ import Avatar from '@mui/material/Avatar';
 const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Logout }) => {
     const classes = useStyles();
     return (
-        <div >
+        <React.Fragment >
             {state?.login ?
                 <div className='position-relative' ref={profileRef}>
                     <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
-                        <div className={'Navbar_profile_logo_container'}>
+                        {/* <div className={'Navbar_profile_logo_container'}> */}
                             <Avatar  alt="Profile"
                                 src={state.Profile.googlelink === null ? state.Profile.image : state.Profile.googlelink}
                                 sx={state.Embedded_Store.StoreID ==="" ?{ width: 40, height: 40 }:{ width: 35, height: 35 }}
                                 title="Profile"  onClick={handleClickDropdown}
                             />
-                        </div>
+                        {/* </div> */}
                     </Grid>
                     {dropDownState &&
                         <div className={'profileDropdown_container'}>
@@ -58,7 +58,7 @@ const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Log
                     </div>
                 </div>
             }
-        </div>
+        </React.Fragment>
     );
 };
 
