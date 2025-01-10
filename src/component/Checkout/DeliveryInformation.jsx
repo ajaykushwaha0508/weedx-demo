@@ -1,4 +1,4 @@
-import TextField from "@material-ui/core/TextField";
+import TextField from '@mui/material/TextField';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style"
@@ -6,7 +6,6 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import { AiTwotoneQuestionCircle } from "react-icons/ai";
-
 import { RxCross2 } from "react-icons/rx";
 import { FaCamera } from "react-icons/fa";
 import IconButton from '@mui/material/IconButton';
