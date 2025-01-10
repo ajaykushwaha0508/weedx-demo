@@ -13,7 +13,7 @@ const AllOrder = ({ AllOrder_data,ordertype,CencelOrder ,searchitem}) => {
   const { state, dispatch } = useContext(CreateContext);
   return (
           <div> 
-              {
+              { 
                 searchitem.legnth !==0 && searchitem?.map((val , index)=>{
                   return (
                     <div className={'orderCardBox'} key={index}>

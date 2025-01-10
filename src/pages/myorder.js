@@ -209,7 +209,6 @@ export default function  MyOrder(){
                             </div>
                         }
                     </div>
-                    {/* <Loader/> */}
                 </div>  
         </React.Fragment>
     )
