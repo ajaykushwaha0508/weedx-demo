@@ -7,7 +7,7 @@ function AboutusSeo() {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={`weedx.io discover cannabis products and order them from best delivery and dispensary services near you. Explore the best dispensary and get the best weed`} />
-            <link rel="canonical" href={`https://www.weedx.io/aboutus`} />
+            <link rel="canonical" href={`http://www.weedx.io/aboutus`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
            
            {/* Facebook tags */}
@@ -34,7 +34,7 @@ function TermsAndConditions() {
         <Head>
             <title>{` Terms And Conditions - weedx.io | `}</title>
             <meta name='description' content={`Terms & Conditions weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed. `} />
-            <link rel="canonical" href={`https://www.weedx.io/terms-and-conditions`} />
+            <link rel="canonical" href={`http://www.weedx.io/terms-and-conditions`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -57,7 +57,7 @@ function PrivacyPolicy() {
         <Head>
             <title>{`Privacy And Policy - weedx.io |`}</title>
             <meta name='description' content={`Privacy And Policy weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed`} />
-            <link rel="canonical" href={`https://www.weedx.io/privacy-policy`} />
+            <link rel="canonical" href={`http://www.weedx.io/privacy-policy`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -79,7 +79,7 @@ function CookiesPolicy() {
             <title>{`Cookies Policy | weedx.io`}</title>
           
             <meta name='description' content={`Cookies Policy weedx.io. Recreational and Medical Marijuana Dispensaries & Delivery Near you. Explore the best dispensary and get the best weed. `} />
-            <link rel="canonical" href={`https://www.weedx.io/cookies-policy`} />
+            <link rel="canonical" href={`http://www.weedx.io/cookies-policy`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -101,7 +101,7 @@ function LoginSeo() {
             <title>{` Log In to Weedx.io| Weed Dispensary & Delivery Near You |`}</title>
            
             <meta name='description' content={` Access your account on the Weedx.io login page. Enjoy convenient weed delivery near you and explore our menu. Log in now on Weedx.io!`} />
-            <link rel="canonical" href={`https://www.weedx.io/login`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/login`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -122,7 +122,7 @@ function SignupSeo() {
         <Head>
             <title>{`Sign Up for Weedx.io | Weed Dispensary & Delivery Near You`}</title>
             <meta name='description' content={`Create your account on Weedx.io and enjoy convenient weed delivery near you. Explore our menu and start your cannabis journey today!`} />
-            <link rel="canonical" href={`https://www.weedx.io/signup`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/signup`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -143,7 +143,7 @@ function WhislistSeo() {
         <Head>
             <title>{`Your WeedX.io Wishlist | Save Your Favorites`}</title>
             <meta name='description' content={`View and manage your wishlist on WeedX.io. Save your favorite products, stores, dispensaries, and delivery services for easy access and future reference.`} />
-            <link rel="canonical" href={`https://www.weedx.io/whislists`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/whislists`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -165,7 +165,7 @@ function Forgot() {
             <title>{`Forgot Password | Weedx.io | Reset Your Account Password`}</title>
            
             <meta name='description' content={`Reset your Weedx.io account password. Follow the steps to regain access to your account. Get back to exploring our menu and enjoying convenient weed delivery`} />
-            <link rel="canonical" href={`https://www.weedx.io/whislists`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/whislists`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -187,7 +187,7 @@ function Cart() {
             <title>{`Your WeedX.io Cart | Checkout Your Cannabis Selections`}</title>
           
             <meta name='description' content={`View and manage your selections in your WeedX.io cart. Proceed to checkout for convenient weed delivery and enjoy your chosen cannabis products`} />
-            <link rel="canonical" href={`https://www.weedx.io/whislists`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/whislists`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -210,7 +210,7 @@ function MyOrderSeo() {
             <title>{`Your WeedX.io Orders | Track Your Cannabis Deliveries`}</title>
         
             <meta name='description' content={`View and track your WeedX.io orders. Stay updated on the status of your cannabis deliveries and ensure a seamless experience with us.`} />
-            <link rel="canonical" href={`https://www.weedx.io/whislists`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/whislists`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -233,7 +233,7 @@ function MyOrderSeoDetail() {
             <title>{` WeedX.io Product Details | Explore Your Cannabis Selection`}</title>
           
             <meta name='description' content={`Discover detailed information about your ordered products on WeedX.io. Get insights into your cannabis selection before delivery`} />
-            <link rel="canonical" href={`https://www.weedx.io/whislists`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/whislists`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />

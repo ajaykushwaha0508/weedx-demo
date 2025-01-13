@@ -190,7 +190,7 @@ export default function AboutUs(){
 
                             </h2>
                             <p className={newclases.journey_paragraph}>
-                            {` WeedX.io was developed by `} <a href="https://selnox.com/">{`Selnox Infotech Pvt Ltd`}</a>,{` a leading tech company dedicated to creating cutting-edge solutions for various industries. Founded by Sandeep Kourav, Selnox Infotech brings together a team of experts passionate about technology and innovation. Our goal is to leverage our expertise to elevate the cannabis industry to new heights.`}
+                            {` WeedX.io was developed by `} <a href="http://selnox.com/">{`Selnox Infotech Pvt Ltd`}</a>,{` a leading tech company dedicated to creating cutting-edge solutions for various industries. Founded by Sandeep Kourav, Selnox Infotech brings together a team of experts passionate about technology and innovation. Our goal is to leverage our expertise to elevate the cannabis industry to new heights.`}
                             </p>
                         </div>
                         <div className={newclases.about_us_inner_section_container}>
@@ -226,7 +226,7 @@ export default function AboutUs(){
                         </div>
                         <div className={newclases.about_us_inner_section_container}>
                             <h2 className={newclases.About_Journey_heading}>
-                            {`Manage Your Inventory with `}  <a href="https://cannabaze.com/">{`Cannabaze POS`}</a>
+                            {`Manage Your Inventory with `}  <a href="http://cannabaze.com/">{`Cannabaze POS`}</a>
                             </h2>
                             <p className={newclases.journey_paragraph}>
                                 {`For dispensaries and cannabis businesses, managing inventory efficiently is crucial. That's where Cannabaze POS comes in. Our advanced Point of Sale system, Cannabaze POS, offers:`}

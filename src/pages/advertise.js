@@ -19,7 +19,7 @@ export default function advertise(){
             <Head>
             <title>{`Advertise with WeedX.io - Cannabis Industry Advertising Solutions`}</title>
             <meta name='description' content={` Advertise your cannabis business on WeedX.io. Choose from banner ads, sponsored listings, or blog posts to reach a targeted cannabis audience. Contact info@weedx.io to get started.`} />
-            <link rel="canonical" href={`https://www.weedx.io/advertise`} />
+            <link rel="canonical" href={`http://www.weedx.io/advertise`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -110,7 +110,7 @@ export default function advertise(){
                 <div> 
                   <h2>{`Contact Information:`}</h2>
                   <p> <span><MdEmail /></span> <b>{`Email:`}</b>  <Link href={'mailto:info@weedx.io'}>{` info@weedx.io`}</Link></p>
-                  <p> <span><FaPhoneAlt /></span> <b>{`WhatsApp:`}</b>  <a href={'https://api.whatsapp.com/send/?phone=+1530-385-8664'}>{`+1 530-385-8664`}</a></p>
+                  <p> <span><FaPhoneAlt /></span> <b>{`WhatsApp:`}</b>  <a href={'http://api.whatsapp.com/send/?phone=+1530-385-8664'}>{`+1 530-385-8664`}</a></p>
                 </div>
               </div>
           </div>

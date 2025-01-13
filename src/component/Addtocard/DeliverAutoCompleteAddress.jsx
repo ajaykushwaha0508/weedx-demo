@@ -43,7 +43,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
         }
       }
       else {
-        Axios(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+        Axios(`http://maps.googleapis.com/maps/api/geocode/json?address=${place.name}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
           .then(response => {
             try {
               if (response.data.results.length !== 0) {

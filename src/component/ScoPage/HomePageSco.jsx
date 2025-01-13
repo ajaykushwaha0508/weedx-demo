@@ -7,7 +7,7 @@ function HomePageSco({location  }) {
             <title>{"Find Weed Dispensaries & Delivery Near You - WeedX.io"}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name='description' content={" Find local marijuana dispensaries near you, browse menus for top-quality cannabis products, and enjoy fast delivery and easy pickup options"} />
-            <link rel="canonical" href={`https://www.weedx.io`} /> 
+            <link rel="canonical" href={`http://www.weedx.io`} /> 
             <meta itemProp="name" content="WeedX" />
             <meta name="keywords" content="Marijuana Dispensaries & Delivery Near Me,Marijuana Delivery Near Me,Marijuana Dispensary Near Me,Marijuana Dispensaries & Delivery Near You,Cannabis Dispensary Near You,Cannabis Delivery Near Me,Recreational Cannabis Delivery Near You,Weed Delivery Near Me,Medical Marijuana Near You,Recreational and Medical Marijuana Dispensaries & Delivery Near You,Recreational Weed Services,Trusted Weed Delivery Near Me,Speedy Marijuana Delivery Service,Convenient Cannabis Stores,High-Quality Marijuana Products,Marijuana Dispensaries Open Now  " />
             <meta itemProp="description" content=" Find local marijuana dispensaries near you, browse menus for top-quality cannabis products, and enjoy fast delivery and easy pickup options" />

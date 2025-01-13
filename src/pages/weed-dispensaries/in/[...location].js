@@ -329,10 +329,10 @@ export const getServerSideProps= async (context) => {
         city = cookies?.fetchlocation?.city || "";
         route = cookies?.fetchlocation?.route || "",
             formatted_address = cookies?.fetchlocation?.formatted_address || "";
-        const createurl = Boolean(route) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-            : Boolean(city) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
-                : Boolean(state) ? `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
-                    : Boolean(country1) && `https://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
+        const createurl = Boolean(route) ? `http://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+            : Boolean(city) ? `http://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}/${modifystr(city)}`
+                : Boolean(state) ? `http://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}/${modifystr(state)}`
+                    : Boolean(country1) && `http://www.weedx.io/weed-dispensaries/in/${modifystr(country1)}`
     
         await postData(createurl, false, formatted_address, 14)
     }

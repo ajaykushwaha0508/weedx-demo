@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName, TotalRating , image, rating, City, State, location,sellername,price, robot, Description,category,id,Subcategorge }) {
   
     const reviewSchema = {
-        "@context": "https://schema.org",
+        "@context": "http://schema.org",
         "@type": "Product",
         "name": Productnm,
         "image": image,
@@ -13,10 +13,10 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
         "description": Description.replace(/<\/?[^>]+(>|$)/g, ""),
         "offers": {
             "@type": "Offer",
-            "url":  `https://www.weedx.io/products/${category}/${Subcategorge}/${Productnm}/${id}`,
+            "url":  `http://www.weedx.io/products/${category}/${Subcategorge}/${Productnm}/${id}`,
             "priceCurrency": "USD",
             "price": price,
-            "availability": "https://schema.org/InStock",
+            "availability": "http://schema.org/InStock",
             "seller": {
                 "@type": "Organization",
                 "name": sellername
@@ -48,7 +48,7 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={`${Productnm} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis ${useRouter().pathname.slice(0, 16) === "/weed-deliveries" ? `Delivery` : `Dispensary`} in ${City}, ${State}.`} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} />
+            <link rel="canonical" href={`http://www.weedx.io${location}`} />
             <meta name="robots" content={robot}></meta>
             <meta property="og:image" content={'/weedxlogo.webp'} />
             {/* Facebook tags */}
@@ -80,7 +80,7 @@ function ProductSeo({ location, review }) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={"Shop High-Quality Marijuana products from top brands near you. Recreational and Medical Marijuana Dispensaries & Delivery Near me. Order online from weedx.io"} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} />
+            <link rel="canonical" href={`http://www.weedx.io${location}`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -90,7 +90,7 @@ function ProductSeo({ location, review }) {
             { /* End Facebook tags */}
             { /* Twitter tags */}
             <meta name="twitter:creator" content={"website"} />
-            <meta property="og:image" content="https://example.com/path/to/your-image.jpg" />
+            <meta property="og:image" content="http://example.com/path/to/your-image.jpg" />
             <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
             <meta name="twitter:title" content={"Shop High-Quality Marijuana products Near You | weedx.io |"} />
             <meta name="twitter:description" content={"Shop High-Quality Marijuana products from top brands near you. Recreational and Medical Marijuana Dispensaries & Delivery Near me. Order online from weedx.io"} />
@@ -108,7 +108,7 @@ function ProductCategorySeo({ categoryname, location }) {
             <title>{`Find Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You | weedx.io |`}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name='description' content={` weedx.io best place to find your favorite Cannabis ${categoryname.charAt(0).toUpperCase() + categoryname.slice(1)} Near You. Explore different strains from different brands with different deals and offers.`} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} />
+            <link rel="canonical" href={`http://www.weedx.io${location}`} />
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />

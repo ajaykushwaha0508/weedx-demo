@@ -20,7 +20,7 @@ const RelatedVerifyBanner = ({ BrandDetails }) => {
                   
                         <IconButton aria-label="share icons">
                             <RWebShare
-                                data={{ url: 'https://www.weedx.io/'+useRouter().asPath}}
+                                data={{ url: 'http://www.weedx.io/'+useRouter().asPath}}
                                 sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                 onClick={() => console.info("share successful!")}
                                 color="#31B665" >

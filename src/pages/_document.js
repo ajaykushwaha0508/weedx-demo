@@ -56,9 +56,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang={this.props.code}>
         <Head>
-          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          <link rel="dns-prefetch" href="http://www.googletagmanager.com" />
           <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU&libraries=places`}
+        src={`http://maps.googleapis.com/maps/api/js?key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU&libraries=places`}
         strategy="beforeInteractive"
       />
           <script
@@ -82,7 +82,7 @@ export default class MyDocument extends Document {
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              'http://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-M27MSTCW');
             `}
           </Script>
@@ -90,11 +90,11 @@ export default class MyDocument extends Document {
           <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
             {`
               {
-                "@context": "https://schema.org",
+                "@context": "http://schema.org",
                 "@type": "Organization",
                 "name": "weedx.io",
                 "alternateName": "weedx.io",
-                "url": "https://www.weedx.io/",
+                "url": "http://www.weedx.io/",
                 "logo": "./WEEDX(1).png",
                 "contactPoint": {
                   "@type": "ContactPoint",
@@ -104,11 +104,11 @@ export default class MyDocument extends Document {
                   "availableLanguage": "en"
                 },
                 "sameAs": [
-                  "https://www.facebook.com/profile.php?id=61550742531174",
-                  "https://twitter.com/Weedx_io",
-                  "https://www.youtube.com/@Weedx-io",
-                  "https://www.instagram.com/weedx_io",
-                  "https://www.linkedin.com/company/weedx-io/"
+                  "http://www.facebook.com/profile.php?id=61550742531174",
+                  "http://twitter.com/Weedx_io",
+                  "http://www.youtube.com/@Weedx-io",
+                  "http://www.instagram.com/weedx_io",
+                  "http://www.linkedin.com/company/weedx-io/"
                 ]
               }
             `}
@@ -120,10 +120,10 @@ export default class MyDocument extends Document {
               {
                 "@context": "http://schema.org",
                 "@type": "WebSite",
-                "url": "https://www.weedx.io/",
+                "url": "http://www.weedx.io/",
                 "potentialAction": {
                   "@type": "SearchAction",
-                  "target": "https://www.weedx.io/search/?q={search_term_string}",
+                  "target": "http://www.weedx.io/search/?q={search_term_string}",
                   "query-input": "required name=search_term_string"
                 }
               }
@@ -135,7 +135,7 @@ export default class MyDocument extends Document {
           <noscript>
             <iframe
 
-              src="https://www.googletagmanager.com/ns.html?id=GTM-M27MSTCW"
+              src="http://www.googletagmanager.com/ns.html?id=GTM-M27MSTCW"
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}

@@ -9,7 +9,7 @@ const Neighborhood = () => {
     React.useEffect(() => {
         if (Boolean(state.havecity) && Boolean(state.City) ) {
             SetAllCity([])
-            // axios.get(`https://nominatim.openstreetmap.org/search`, {
+            // axios.get(`http://nominatim.openstreetmap.org/search`, {
             //     params: {
             //         city: state.City,
             //         format: 'json',

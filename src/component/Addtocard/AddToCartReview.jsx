@@ -132,7 +132,7 @@ const AddToCartReview = () => {
                     text: "The requested quantity exceeds the available stock for this product.",
                     footer: `The maximum available quantity for this item is ${Event?.Price?.Quantity}.`,
                     timer: 4000,
-                    imageUrl: 'https://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
+                    imageUrl: 'http://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
                     imageAlt: 'Custom image',
                     imageWidth: 80,
                     imageHeight: 80,

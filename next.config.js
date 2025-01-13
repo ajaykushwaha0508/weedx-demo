@@ -5,15 +5,20 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   images: {
-    remotePatterns: [
+    remotePatterns: [ 
       {
         protocol: 'https',
-        hostname: 'selnew.s3.amazonaws.com',
+        hostname: 'selnew-selnoxnew.s3.amazonaws.com',
         pathname: '/media/**',
       },
       {
         protocol: 'https',
         hostname: 'selnoxmedia.s3.amazonaws.com',
+        pathname: '/media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'selnew-selnoxnew.s3.amazonaws.com',
         pathname: '/media/**',
       },
     ],

@@ -155,7 +155,7 @@ export default function Blogs (props){
                                     <div className={`col BlogSocal viewsBlog`} >
 
                                         <RWebShare
-                                            data={{ url: "https://www.weedx.io" + props.url }}
+                                            data={{ url: "http://www.weedx.io" + props.url }}
                                             sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                                             onClick={() => console.info("share successful!")}
                                             color="#31B665" >

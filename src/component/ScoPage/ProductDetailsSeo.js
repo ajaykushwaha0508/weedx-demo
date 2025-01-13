@@ -3,7 +3,7 @@ import Head from "next/head";
 function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName, TotalRating , image, rating, City, State, location,sellername,price, robot, Description,category,id,Subcategorge }) {
   
     const reviewSchema = {
-        "@context": "https://schema.org",
+        "@context": "http://schema.org",
         "@type": "Product",
         "name": Productnm,
         "image": image,
@@ -12,10 +12,10 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
         "description": Description.replace(/<\/?[^>]+(>|$)/g, ""),
         "offers": {
             "@type": "Offer",
-            "url":  `https://www.weedx.io/products/${category}/${Subcategorge}/${Productnm}/${id}`,
+            "url":  `http://www.weedx.io/products/${category}/${Subcategorge}/${Productnm}/${id}`,
             "priceCurrency": "USD",
             "price": price,
-            "availability": "https://schema.org/InStock",
+            "availability": "http://schema.org/InStock",
             "seller": {
                 "@type": "Organization",
                 "name": sellername
@@ -47,7 +47,7 @@ function ProductDetailsSeo({ Productname, Productnm, ProductCategory, StoreName,
             <title>{Productname}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name='description' content={`${Productnm} - ${ProductCategory} at ${StoreName} - Your Ultimate Cannabis Product in ${City}, ${State}.`} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} />
+            <link rel="canonical" href={`http://www.weedx.io${location}`} />
             <meta name="robots" content={robot}></meta>
             {/* Facebook tags */}
             <meta property="og:type" content="website" />

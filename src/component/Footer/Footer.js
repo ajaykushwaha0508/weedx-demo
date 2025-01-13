@@ -47,7 +47,7 @@ const Footer = () => {
                     <div className={`row ${'main_content_logo'}`}>
                         <div className={'footer_logo_container'}>
                             <div className={'footerLogo'}>
-                                <Image onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} className={'footer_logo_image'} src={'https://selnew.s3.amazonaws.com/media/BlankImage/weedx.webp'} alt="weedx.io logo" title="weedx.io logo" />
+                                <Image onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} className={'footer_logo_image'} src={'https://selnew-selnoxnew.s3.amazonaws.com/media/BlankImage/weedx.webp'} alt="weedx.io logo" title="weedx.io logo" />
                             </div>
                             <div className={'contact_info'}>
                                 <div className={'Footer_Left_side_menu'}>
@@ -57,7 +57,7 @@ const Footer = () => {
                                     <a href="tel:+1 (209) 655-0360">  <BiMobile color="#31B665" size={22} /><span className={'footer_middle_icons_text'}>{`+1 (209) 655-0360`}</span></a>
                                 </div>
                                 <div className={'Footer_Left_side_menu'}>
-                                    <Link href={'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&href=info@weedx.io'}>    <HiOutlineMail color="#31B665" size={22} /><span className={'footer_middle_icons_text'}>{` info@weedx.io`}</span></Link>
+                                    <Link href={'http://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&href=info@weedx.io'}>    <HiOutlineMail color="#31B665" size={22} /><span className={'footer_middle_icons_text'}>{` info@weedx.io`}</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -93,13 +93,13 @@ const Footer = () => {
                         <div className={'footer_list'}>
                             <div className={'footer_main_list'}>
                                 <p className={'footer_menu_heading'}>{`For Business`}</p>
-                                <Link href={`https://cannabaze.com/signup`} >
+                                <Link href={`http://cannabaze.com/signup`} >
                                     <span className={`${'footer_li'} ellipsis`} ><span className="text-capitalize"> {`Add Dispensaries`}</span></span>
                                 </Link>
-                                <Link href={`https://cannabaze.com/signup`}>
+                                <Link href={`http://cannabaze.com/signup`}>
                                     <span className={`${'footer_li'} ellipsis`} ><span className="text-capitalize">{`Add Brand`}</span></span>
                                 </Link>
-                                <Link href={`https://cannabaze.com/signup`}>
+                                <Link href={`http://cannabaze.com/signup`}>
                                     <span className={`${'footer_li'} ellipsis`} ><span className="text-capitalize">{`Add Delivery`}</span></span>
                                 </Link>
                                 <Link href={`/add-business`}>
@@ -138,29 +138,29 @@ const Footer = () => {
                         <div className={`col-lg-3 col-sm-3 ${'footer_icons_column'}`}>
                             <p className="px-0">
                                 <span>
-                                    {/* <Link target="_blank" href={"https://www.linkedin.com/company/weedx-io/"}>
+                                    {/* <Link target="_blank" href={"http://www.linkedin.com/company/weedx-io/"}>
                                             <BsLinkedin color="#31B655" size={22}/>
                                         </Link> */}
                                     <Link
                                         target="_blank"
-                                        href="https://www.linkedin.com/company/weedx-io/"
+                                        href="http://www.linkedin.com/company/weedx-io/"
                                         aria-label="Visit Weedx LinkedIn page"
                                     >
                                         <BsLinkedin color="#31B655" size={22} />
                                     </Link>
                                 </span>
                                 <span>
-                                    <Link aria-label="Visit Weedx LinkedIn page" target="_blank" href={"https://www.facebook.com/profile.php?id=61550742531174"}>
+                                    <Link aria-label="Visit Weedx LinkedIn page" target="_blank" href={"http://www.facebook.com/profile.php?id=61550742531174"}>
                                         <FaFacebook color="#31B655" size={22} />
                                     </Link>
                                 </span>
                                 <span>
-                                    <Link aria-label="Visit Weedx LinkedIn page" target="_blank" href={"https://www.instagram.com/weedx_io"}>
+                                    <Link aria-label="Visit Weedx LinkedIn page" target="_blank" href={"http://www.instagram.com/weedx_io"}>
                                         <FaInstagram color="#31B655" size={22} />
                                     </Link>
                                 </span>
                                 <span>
-                                    <Link aria-label="Visit Weedx LinkedIn page" target="_blank" href={"https://twitter.com/Weedx_io"}>
+                                    <Link aria-label="Visit Weedx LinkedIn page" target="_blank" href={"http://twitter.com/Weedx_io"}>
                                         <span className="x_icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="#31B665" height="1em" viewBox="0 0 500 500"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
                                         </span>

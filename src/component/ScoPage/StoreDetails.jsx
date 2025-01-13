@@ -53,7 +53,7 @@ function StoreDetails({ Despen  }) {
         : { ...defaultMeta, ...tabMetaMap[tab] };
 
     const reviewSchema = {
-        "@context": "https://schema.org",
+        "@context": "http://schema.org",
         "@type": "Store",
         "name": Despen[0]?.Store_Name || '',
         "image": Despen[0]?.Store_Image || '',
@@ -90,12 +90,12 @@ function StoreDetails({ Despen  }) {
             <title>{metaTag.title}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content={metaTag.description} />
-            <link rel="canonical" href={query.details[1] === "menu" ? `https://www.weedx.io/${ asPath.includes('weed-deliveries') ? "weed-deliveries" : 'weed-dispensaries'}/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`}  />
+            <link rel="canonical" href={query.details[1] === "menu" ? `http://www.weedx.io/${ asPath.includes('weed-deliveries') ? "weed-deliveries" : 'weed-dispensaries'}/${query.details[0]}/${query.details[2]}` : `http://www.weedx.io${asPath}`}  />
             <meta name="robots" content={metaTag.robot} />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={metaTag.title} />
             <meta property="og:description" content={metaTag.description} />
-            <meta property="og:url" content={query.details[1] === "menu" ? `https://www.weedx.io/${query.details[0]}/${query.details[2]}` : `https://www.weedx.io${asPath}`} />
+            <meta property="og:url" content={query.details[1] === "menu" ? `http://www.weedx.io/${query.details[0]}/${query.details[2]}` : `http://www.weedx.io${asPath}`} />
             <meta property="og:image" content={Despen[0]?.Store_Image || ''} />
             <meta property="og:image:alt" content={Despen[0]?.Store_Name || ''} />
             <meta property="twitter:card" content="summary_large_image" />

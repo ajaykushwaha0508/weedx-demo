@@ -27,7 +27,7 @@ const Oops = (props) => {
       answer:
         <span
           dangerouslySetInnerHTML={{
-            __html: ` ${props.delBtn[0].Store_Name} is located at  <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(props?.delBtn[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Store_Address}</a>`
+            __html: ` ${props.delBtn[0].Store_Name} is located at  <a target="#" href="http://www.google.com/maps/search/?api=1&query=${encodeURIComponent(props?.delBtn[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Store_Address}</a>`
           }}
         />
     },
@@ -103,7 +103,7 @@ const Oops = (props) => {
       answer:
         <span
           dangerouslySetInnerHTML={{
-            __html: ` ${props.delBtn[0].Store_Name} delivers to <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(props?.delBtn[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Store_Address}</a>`
+            __html: ` ${props.delBtn[0].Store_Name} delivers to <a target="#" href="http://www.google.com/maps/search/?api=1&query=${encodeURIComponent(props?.delBtn[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${props.delBtn[0].Store_Address}</a>`
           }}
         />
     },

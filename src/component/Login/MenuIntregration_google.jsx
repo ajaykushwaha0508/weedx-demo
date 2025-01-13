@@ -22,7 +22,7 @@ function MenuIntregration_google({handleClose}) {
        await axios.post("https://api.cannabaze.com/UserPanel/GoogleView/ ", {
             token: codeResponse.access_token
         }).then(response => {
-                 response.data.picture.slice(0,5) === "https" ?  dispatch({ type: 'GoogleImage', GoogleImage: response.data.picture }) :dispatch({ type: 'GoogleImage', GoogleImage: '' })
+                 response.data.picture.slice(0,5) === "http" ?  dispatch({ type: 'GoogleImage', GoogleImage: response.data.picture }) :dispatch({ type: 'GoogleImage', GoogleImage: '' })
                 let date = new Date();
                 date.setTime(date.getTime() + 60*60*24*365)
                 cookies.set('User_Token_access', response.data.access_token, { expires: date })

@@ -131,7 +131,7 @@ const NewFlavourBanner = ({ delBtn }) => {
                 }
                 <div className={'storeShareBtn'}>
                  <RWebShare
-                        data={{ url: `https://www.weedx.io`+location.asPath }}
+                        data={{ url: `http://www.weedx.io`+location.asPath }}
                         sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
                         onClick={() => console.info("share successful!")}
                         color="#31B665" >

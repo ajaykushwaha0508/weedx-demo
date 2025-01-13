@@ -6,7 +6,7 @@ function LearnSeo({location}) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+            <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -27,7 +27,7 @@ function Law({location}) {
         <Head>
             <title>{"Learn About Laws and Regulation in U.S. States | weedx.io |"}</title>
             <meta name='description' content={" Select a state or country to learn about recreational and medical cannabis laws and regulation in the US and its states. Read on to find a weed marijuana dispensary and delivery near you."} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+            <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -50,7 +50,7 @@ function LawState({Title,State , location}) {
         <Head>
             <title>{`${Title} | Laws and Regulation | weedx.io | `}</title>
             <meta name='description' content={`${Title} . Learn about cannabis laws and regulation in the country ${State}. Learn more about the important information you should be aware of here`} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+            <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -72,7 +72,7 @@ function StrainSeo({location}) {
         <Head>
             <title>{"Discover Weed Strains: Indica, Sativa, Hybrid | weedx.io |"}</title>
             <meta name='description' content={" Discover weed strains Indica, Sativa & Hybrid. Learn about these strains closely to choose best suited cannabis product. Get delivery and dispensary near you."} />
-           <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+           <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
            <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -94,7 +94,7 @@ function StrainSeo({location}) {
 //             <title>{"Explore Cannabis History | WeedX.io Articles"}</title>
 //             <meta name="title" content={'Explore Cannabis History | WeedX.io Articles'}/>
 //             <meta name='description' content={" Explore the history of cannabis prohibition and legalization on WeedX.io. Learn about dispensary POS systems and their importance in the cannabis industry."} />
-//            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+//            <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
 //            <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
 //             {/* Facebook tags */}
 //             <meta property="og:type" content={"website"} />
@@ -116,7 +116,7 @@ function ProductSeo({location}) {
         <Head>
             <title>{"Learn About Cannabis Products | WeedX.io Articles"}</title>
             <meta name='description' content={" Discover informative articles about various cannabis products on WeedX.io. Explore insights, reviews, and recommendations to enhance your cannabis experience."} />
-           <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+           <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
            <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />

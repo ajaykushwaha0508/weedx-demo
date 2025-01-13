@@ -195,7 +195,7 @@ const RelatedReview = ({ handleEdit, storeDetails, AllReview, handleDelete, Hell
                                                             priority
                                                             width={100}
                                                             height={100}
-                                                            src={ele?.userImage !=="https://selnew.s3.amazonaws.com/media/BlankImage.jpg" ? `${ele?.userImage}` : './blankImage.jpg'}
+                                                            src={ele?.userImage !=="https://selnew-selnoxnew.s3.amazonaws.com/media/BlankImage.jpg" ? `${ele?.userImage}` : './blankImage.jpg'}
                                                             alt="userImage"
                                                             title='userImages'
                                                         />

@@ -3,34 +3,34 @@ export async function getServerSideProps({ res }) {
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/products-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/products-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/law-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/law-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/brand-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/brand-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/deliveries-location-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/deliveries-location-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/dispensaries-location-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/dispensaries-location-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/news-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/news-sitemap.xml</loc>
     </sitemap>
      <sitemap>
-      <loc>https://www.weedx.io/sitemap/blogs-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/blogs-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/delivery-stores-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/delivery-stores-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/dispensaries-stores-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/dispensaries-stores-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.weedx.io/sitemap/allpages-sitemap.xml</loc>
+      <loc>http://www.weedx.io/sitemap/allpages-sitemap.xml</loc>
     </sitemap>
   </sitemapindex>`;
 

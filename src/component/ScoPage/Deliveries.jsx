@@ -17,7 +17,7 @@ function Delivery({ location ,formatted_address }) {
         name="description"
         content={`Find Nearby Weed Delivery in ${formatted_address} for Recreational & Medical Uses. Browse Top Cannabis Products and Place Orders from Trusted weed delivery near you.`}
       />
-      <link rel="canonical" href={`https://www.weedx.io${location}`} />
+      <link rel="canonical" href={`http://www.weedx.io${location}`} />
       <meta
         name="robots"
         content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"

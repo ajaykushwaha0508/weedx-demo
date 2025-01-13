@@ -13,7 +13,7 @@ const Staticcontent = () => {
                             <div className={"about_card_img"}>
                                 <Image priority width={100}
                                     height={100}
-                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs1/about1.webp'}
+                                    src={'https://selnew-selnoxnew.s3.amazonaws.com/media/AboutUs1/about1.webp'}
                                     alt=" Online Ordering"
                                     title=" Online Ordering"
                                     onError={(e) => (e.target.src = '/blankImage.jpg')}
@@ -37,7 +37,7 @@ const Staticcontent = () => {
                                     width={100}
                                     onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     height={100}
-                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs2/about2.webp'}
+                                    src={'https://selnew-selnoxnew.s3.amazonaws.com/media/AboutUs2/about2.webp'}
                                     alt="Delivery Services"
                                     title="Delivery Services"
                                 />
@@ -58,7 +58,7 @@ const Staticcontent = () => {
                                     width={100}
                                     onError={(e) => (e.target.src = '/blankImage.jpg')}
                                     height={100}
-                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs3/about3.webp'}
+                                    src={'https://selnew-selnoxnew.s3.amazonaws.com/media/AboutUs3/about3.webp'}
                                     alt="Dispensary Listings"
                                     title="Dispensary Listings"
                                 />
@@ -82,7 +82,7 @@ const Staticcontent = () => {
                                 <Image
                                     width={100}
                                     height={100}
-                                    src={'https://selnew.s3.amazonaws.com/media/AboutUs4/about4.webp'}
+                                    src={'https://selnew-selnoxnew.s3.amazonaws.com/media/AboutUs4/about4.webp'}
                                     alt="Retailer Listings"
                                     title="Retailer Listings"
                                     onError={(e) => (e.target.src = '/blankImage.jpg')}

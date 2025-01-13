@@ -10,7 +10,7 @@ const businesspageseo = () => {
 `} />
         
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
-            <link rel="canonical"  href={'https://www.weedx.io/add-business'} />
+            <link rel="canonical"  href={'http://www.weedx.io/add-business'} />
            {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={`Add Your Cannabis Business - Dispensary, Delivery Service, or Brand on WeedX.io

@@ -33,7 +33,7 @@ const  RoutingSearch = ({ city, State, country, pathname, route, com }) => {
 
   async function location(value, type) {
     // var ci, sta, Coun , route;    
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+    fetch(`http://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
       .then(res => res.json())
       .then(async response => {
         let Coun;
@@ -192,7 +192,7 @@ const  RoutingSearch = ({ city, State, country, pathname, route, com }) => {
             }
           }
           else {
-            fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${type === 'city' ? city + " " + State + " " + country : type === "state" && country}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+            fetch(`http://maps.googleapis.com/maps/api/geocode/json?address=${type === 'city' ? city + " " + State + " " + country : type === "state" && country}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
               .then(res => res.json())
               .then(response => {
                 if (response?.results?.length !== 0) {
@@ -235,7 +235,7 @@ const  RoutingSearch = ({ city, State, country, pathname, route, com }) => {
                   }
                 }
                 else {
-                  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+                  fetch(`http://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
                     .then(res => res.json())
                     .then(response => {
                       if (response.results.length !== 0) {
@@ -281,7 +281,7 @@ const  RoutingSearch = ({ city, State, country, pathname, route, com }) => {
                         }
                       }
                       else {
-                        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${"new-york"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+                        fetch(`http://maps.googleapis.com/maps/api/geocode/json?address=${"new-york"}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
                           .then(res => res.json())
                           .then(response => {
                             dispatch({ type: 'permission', permission: true })

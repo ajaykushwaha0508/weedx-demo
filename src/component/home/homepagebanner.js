@@ -97,7 +97,7 @@ const HomePageBanner = ({ props , btype }) => {
                 >{`Find Weed Near You`}</h1>
                 <p 
                 // style={paragraphStyle}
-                 className='customBannerpara' > {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='https://www.weedx.io/'>{' WeedX.io.'}</a> </p>
+                 className='customBannerpara' > {`Locate nearby dispensaries, view menus, and enjoy fast pickup or delivery with `} <a style={{color:'#FFBF00'}} href='http://www.weedx.io/'>{' WeedX.io.'}</a> </p>
               </div>
             </div>
           </SwiperSlide>

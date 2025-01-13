@@ -9,7 +9,7 @@ function NewsSeo({location}) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 <meta name='description' content={" Stay informed with the WeedX Blog! Get the latest tips, trends, and expert insights on all things cannabis. Enhance your knowledge and stay ahead in the industry."} />
-                <link rel="canonical" href={`https://www.weedx.io/${location}`} /> 
+                <link rel="canonical" href={`http://www.weedx.io/${location}`} /> 
                 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
                 <meta property="og:type" content={"website"} />
                 <meta property="og:title" content={"Weedx Blog: Cannabis Knowledge & Industry Insights."} />
@@ -29,7 +29,7 @@ function NewsSeo({location}) {
                 <title>{"Today's Latest Cannabis and Marijuana News | weedx.io"}</title>
                 <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
                 <meta name='description' content={" Weedx.io: Your trusted source for the latest cannabis industry news, updates, trends, and insights. Discover breaking stories and expert analysis here."} />
-                <link rel="canonical" href={`https://www.weedx.io/${location}`} /> 
+                <link rel="canonical" href={`http://www.weedx.io/${location}`} /> 
                 {/* Facebook tags */}
                 <meta property="og:type" content={"website"} />
                 <meta property="og:title" content={"Today's Latest Cannabis and Marijuana News | weedx.io"} />
@@ -52,7 +52,7 @@ function SingleNewsSeo({Title ,Description ,location , image}) {
         <Head>
             <title>{`${Title} | weedx.io`}</title>
             <meta name='description' content={Description} />
-            <link rel="canonical" href={`https://www.weedx.io${location}`} /> 
+            <link rel="canonical" href={`http://www.weedx.io${location}`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             
             {/* Facebook tags */}

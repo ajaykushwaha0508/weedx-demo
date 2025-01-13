@@ -48,7 +48,7 @@ async function location(value, type, data, id, weburl) {
   const short = {}
   const find = await axios.get(`https://api.cannabaze.com/UserPanel/Get-SitemapbyId/${id}`)
   const urls = find.data[0].Xml
-  const target = `https://www.weedx.io${data.resolvedUrl}`;
+  const target = `http://www.weedx.io${data.resolvedUrl}`;
   const matchedUrl = _.find(urls, url => {
     const cleanedUrl = url.split(',')[0].trim();
     return cleanedUrl === target;
@@ -56,7 +56,7 @@ async function location(value, type, data, id, weburl) {
   if (matchedUrl) {
     const formateAddresing = splitAtFirstComma(matchedUrl)[1];
     if (!formateAddresing) {
-      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
+      const response = await fetch(`http://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
       const data = await response.json();
       if (data.error_message) {
         return {
@@ -190,10 +190,10 @@ async function location(value, type, data, id, weburl) {
           }
 
         }
-        const createurl = Boolean(route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-          : Boolean(city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
-            : Boolean(state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
-              : Boolean(country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
+        const createurl = Boolean(route) ? `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+          : Boolean(city) ? `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
+            : Boolean(state) ? `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
+              : Boolean(country) && `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
         await postData(createurl, false, formatted_address, id)
 
         return {
@@ -226,7 +226,7 @@ async function location(value, type, data, id, weburl) {
     }
   }
   else {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
+    const response = await fetch(`http://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU`);
     const data = await response.json();
     if (data.error_message) {
       console.warn(data.error_message)
@@ -361,10 +361,10 @@ async function location(value, type, data, id, weburl) {
         }
 
       }
-      const createurl = Boolean(route) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
-        : Boolean(city) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
-          : Boolean(state) ? `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
-            : Boolean(country) && `https://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
+      const createurl = Boolean(route) ? `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}/${modifystr(route)}`
+        : Boolean(city) ? `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}/${modifystr(city)}`
+          : Boolean(state) ? `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}/${modifystr(state)}`
+            : Boolean(country) && `http://www.weedx.io/weed-${weburl}/in/${modifystr(country)}`
       await postData(createurl, false, formatted_address, id)
       return {
         city,

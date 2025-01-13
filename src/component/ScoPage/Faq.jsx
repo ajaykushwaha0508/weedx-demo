@@ -6,7 +6,7 @@ function Faqseo() {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={"FAQs of WeedX.Io for insights on cannabis orders, shipping, compliance, and more. Find the best Recreational and Medical Marijuana Dispensaries & Delivery Near you."} />
-            <link rel="canonical" href={`https://www.weedx.io/faq`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/faq`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
@@ -28,7 +28,7 @@ function HelpcenterSeo() {
             <title>{" WeedX Help Center: Your Cannabis Guide"}</title>
      
             <meta name='description' content={"Get started with WeedX.io - register, order online, track deliveries, find cannabis dispensaries & deliveries near you, and report concerns for a safe experience."} />
-            <link rel="canonical" href={`https://www.weedx.io/helpcenter`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/helpcenter`} /> 
             {/* Facebook tags */}
             <meta property="og:type" content={"website"} />
             <meta property="og:title" content={"Learn everything about you favorite Cannabis | weedx.io |"} />

@@ -1293,7 +1293,7 @@ const Content = [
                     },
                     {
                         title: "Where is it Safe to Purchase Weed in Illinois?",
-                        content: `<p><b>Licensed Dispensaries:</b> The only legal places to purchase marijuana in Illinois. Explore our <a href={https://www.weedx.io/weed-dispensaries/in/united-states/illinois}> list of recreational dispensaries in Illinois</a> for more details.</p>`
+                        content: `<p><b>Licensed Dispensaries:</b> The only legal places to purchase marijuana in Illinois. Explore our <a href={http://www.weedx.io/weed-dispensaries/in/united-states/illinois}> list of recreational dispensaries in Illinois</a> for more details.</p>`
                     },
                     {
                         title: "Where is it Safe to Consume Cannabis?",
@@ -1310,7 +1310,7 @@ const Content = [
                                  <li>Taxes: 10% for products with <35% THC, 25% for products with >35% THC, 20% for infused products.</li>
                                  <li>Local taxes: 6.25% state tax + potential local taxes (up to 3% for cities and 3.75% for counties).</li>
                                </ul>
-                               <p> <b>Fact:</b> Consumers should anticipate taxes factored into the overall product cost. Also refer to this report of the Illinois Govt related to the <a href={https://www2.illinois.gov/IISNews/20242-Summary_of_HB_1438__The_Cannabis_Regulation_and_Tax_Act.pdf}>Adult Use of Cannabis.</a></p>
+                               <p> <b>Fact:</b> Consumers should anticipate taxes factored into the overall product cost. Also refer to this report of the Illinois Govt related to the <a href={http://www2.illinois.gov/IISNews/20242-Summary_of_HB_1438__The_Cannabis_Regulation_and_Tax_Act.pdf}>Adult Use of Cannabis.</a></p>
                             </div>`
                     },
                     {
@@ -2051,7 +2051,7 @@ const Content = [
                         title: "The Evolution of Cannabis Legislation in Michigan",
                         content: `<div>
                                     <p>Michigan's journey began in 2008 with the legalization of medical marijuana through the <b>Michigan Medical Marihuana Act (MMMA).</b>
-                                     A decade later, in 2018, Michigan became the first Midwestern state to legalize adult recreational use with the <a href={'https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Initiated-Law-1-of-2018.pdf'}> Michigan Regulation and Taxation of Marihuana Act (MRTMA). </a>Together, these laws created a robust framework for medical and recreational cannabis, establishing Michigan as a progressive leader in cannabis regulation.</p>
+                                     A decade later, in 2018, Michigan became the first Midwestern state to legalize adult recreational use with the <a href={'http://www.legislature.mi.gov/documents/mcl/pdf/mcl-Initiated-Law-1-of-2018.pdf'}> Michigan Regulation and Taxation of Marihuana Act (MRTMA). </a>Together, these laws created a robust framework for medical and recreational cannabis, establishing Michigan as a progressive leader in cannabis regulation.</p>
                                   
                                 </div>`
                     },
@@ -2436,7 +2436,7 @@ const Content = [
                              <h5>2022: Continued Push for Medical Marijuana:</h5>
                              <p>In 2022, the push for medical cannabis legalization in Nebraska continued:</p>
                             <ul>
-                                <li><b>Initiative 427,</b> which aimed to legalize medical marijuana for patients with qualifying conditions, was blocked by the state legislature again. However, supporters of the bill rallied to get it on the <a href="https://sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20Ballot%20Measures%20Pamphlet.pdf">2024 ballot measures.</a> </li>
+                                <li><b>Initiative 427,</b> which aimed to legalize medical marijuana for patients with qualifying conditions, was blocked by the state legislature again. However, supporters of the bill rallied to get it on the <a href="http://sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20Ballot%20Measures%20Pamphlet.pdf">2024 ballot measures.</a> </li>
                             </ul>
                         </div>`
                     },

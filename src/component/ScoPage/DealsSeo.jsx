@@ -8,7 +8,7 @@ function DealsSeo() {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <meta name='description' content={`Get the best marijuana Deals Near You on weedx.io. Find special sales, promo codes, coupons, and discounts from cannabis dispensaries in your neighborhood`} />
-            <link rel="canonical" href={`https://www.weedx.io/deals`} /> 
+            <link rel="canonical" href={`http://www.weedx.io/deals`} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             <meta property="og:image" content={'/weedxlogo.webp'} />
             {/* Facebook tags */}
@@ -30,7 +30,7 @@ function SitemapSeo() {
         <Head>
             <title> {`WeedX Sitemap - Complete Site Navigation`}</title>
             <meta name='description' content={`View the WeedX HTML sitemap to quickly access all website pages, categories, and resources. Navigate our site effortlessly.`} />
-            <link rel="canonical" href={`https://www.weedx.io/sitemap   `} /> 
+            <link rel="canonical" href={`http://www.weedx.io/sitemap   `} /> 
             <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
             <meta property="og:image" content={'/weedxlogo.webp'} />
             {/* Facebook tags */}

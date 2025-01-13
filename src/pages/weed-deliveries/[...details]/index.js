@@ -310,7 +310,7 @@ export default function DispensoriesDetails(props) {
           answer:
             <span
               dangerouslySetInnerHTML={{
-                __html: ` ${Despen[0].Store_Name} delivers to <a target="#" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Despen[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Store_Address}</a>`
+                __html: ` ${Despen[0].Store_Name} delivers to <a target="#" href="http://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Despen[0]?.Store_Address)}" style="cursor: pointer; color: #31B665; text-decoration: underline;">${Despen[0].Store_Address}</a>`
               }}
             />
     

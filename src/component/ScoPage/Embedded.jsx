@@ -153,7 +153,7 @@ function Embedded({ Despen, locationStore  }) {
         <Head>
             <title>{MetaTag.title}</title>
             <meta name='description' content={MetaTag.discription} />
-            <link rel="canonical" href={`https://www.weedx.io${locationStore}`} />
+            <link rel="canonical" href={`http://www.weedx.io${locationStore}`} />
             <meta itemProp="name" content="WeedX" />
             <meta itemProp="description" content={MetaTag.discription} />
             <meta name="robots" content="NOINDEX,INDEXIFEMBEDDED" />

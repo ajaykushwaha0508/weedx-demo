@@ -16,7 +16,7 @@ const Currentlocation = () => {
   });
 
   const fetchLocationData = React.useCallback(async (latitude, longitude) => {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`;
+    const url = `http://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`;
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -65,7 +65,7 @@ const Currentlocation = () => {
       else {
         const location = cookies.get("Location") || "New York";
         if (location) {
-          const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'}`;
+          const url = `http://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${'AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU'}`;
           const response = await fetch(url);
           const data = await response.json();
           if (data.error_message) {

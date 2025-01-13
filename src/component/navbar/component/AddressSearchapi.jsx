@@ -228,7 +228,7 @@ const SearchingLocation = ({ openLocation, SearchBarWidth, open1, setOpenLocatio
         alert('Please allow location access.');
       } else {
         navigator.geolocation.getCurrentPosition(function (position) {
-          fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
+          fetch(`http://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${"AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU"}`)
             .then(res => res.json())
             .then((response) => {
 

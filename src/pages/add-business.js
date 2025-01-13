@@ -229,7 +229,7 @@ export default function Businesspage(){
                               </li>
                             </ul> */}
                             <div className='text-center'>
-                              <button className={classes.addbusinessbtn}> <Link href={'https://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></button>
+                              <button className={classes.addbusinessbtn}> <Link href={'http://cannabaze.com/signup'}> {`Add Your Business Now`}</Link></button>
                             </div>
                         </div>
                     </div>

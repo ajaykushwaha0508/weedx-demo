@@ -241,7 +241,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                     text: "The requested quantity exceeds the available stock for this product.",
                     footer: `The maximum available quantity for this item is ${item.Stock === "Out of Stock" ? "0" : quentity}.`,
                     timer: 4000,
-                    imageUrl: 'https://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
+                    imageUrl: 'http://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
                     imageAlt: 'Custom image',
                     imageWidth: 80,
                     imageHeight: 80,
@@ -251,7 +251,7 @@ const NewProductDetailsCards = ({ Product, DiscountedValue, Price, SetPrice, que
                 Swal.fire({
                     title: " Insufficient Stock  ",
                     text: "The requested quantity exceeds the available stock for this product.",
-                    imageUrl: 'https://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
+                    imageUrl: 'http://i.ibb.co/k0kZTwd/Empty-Card-Image.png',
                     imageAlt: 'Custom image',
                     footer: `The maximum available quantity for this item is 1.`,
                     imageWidth: 60,
