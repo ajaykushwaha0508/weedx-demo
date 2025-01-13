@@ -11,6 +11,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@mkyy/mui-search-bar": "^0.5.2",
     "@mui/icons-material": "^5.16.7",
     "@mui/lab": "^5.0.0-alpha.170",
@@ -65,7 +66,7 @@
     "react-web-share": "^2.0.2",
     "redis": "^4.7.0",
     "rimraf": "^6.0.1",
-    "sass": "^1.77.8",
+    "sass": "^1.83.1",
     "sharp": "^0.33.4",
     "slick-carousel": "^1.8.1",
     "source-map-explorer": "^2.5.3",
