@@ -18,7 +18,7 @@ module.exports = withBundleAnalyzer({
       },
       {
         protocol: 'https',
-        hostname: 'selnew-selnoxnew.s3.amazonaws.com',
+        hostname: 'selnew.s3.amazonaws.com',
         pathname: '/media/**',
       },
     ],
