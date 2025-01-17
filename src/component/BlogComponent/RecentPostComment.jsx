@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import useStyles from "@/styles/style";
-// import { Post_Comment } from "@/hooks/apicall/api";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import Image from "next/image";
 import { FaEdit } from 'react-icons/fa';
@@ -13,7 +12,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-// import BlogPaginate from "@/component/BlogComponent/BlogPaginate.jsx";  
 import { IconButton } from "@material-ui/core";
 import Select from '@mui/material/Select';
 import List from "@material-ui/core/List";
@@ -21,7 +19,6 @@ import ListItem from "@material-ui/core/ListItem";
 import { BlogLike, Get_Comment,Post_Comment, Post_BlogLike } from "@/hooks/apicall/api"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Createcontext from "@/hooks/context"
-// import _ from "lodash"
 const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserComment,Get }) => {
     const [ShowCards, SetShowCards] = React.useState(false)
     const [GetCommentmsg, SetCommentmsg] = React.useState('')
@@ -32,8 +29,6 @@ const RecentPostComment = ({  scrolltocomment, id, GetUserComment, SetUserCommen
     if (typeof window !== 'undefined') {
         accessToken = localStorage.getItem('User_Token_access');
     }
-    // const [CommentCardArrays, SetCommentCardArray] = React.useState()
-    // let currentPosts = CommentCardArrays?.slice(indexOfFirstPost, indexOfLastPost);
     function WriteComment(e) {
         if (state?.login) {
             SetCommentmsg(e.target.value)
