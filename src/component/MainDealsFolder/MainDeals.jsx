@@ -10,7 +10,7 @@ const MainDeals = () => {
 
   React.useEffect(() => {
     axios
-      .get("http://127.0.0.1:1331/UserPanel/BuyXGetYDiscount/")
+      .get("https://api.cannabaze.com/UserPanel/BuyXGetYDiscount/")
       .then((res) => {
         setdeals(res.data);
       })

@@ -42,7 +42,7 @@ const PlaceOrder = ({ orderid }) => {
     };
 
     Axios.get(
-      `http://127.0.0.1:1331/UserPanel/Get-GetOrderBYID/${orderid}`,
+      `https://api.cannabaze.com/UserPanel/Get-GetOrderBYID/${orderid}`,
       config
     )
       .then((res) => {

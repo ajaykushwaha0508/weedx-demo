@@ -32,7 +32,7 @@ export function Menuintegration_login({ open, setOpen }) {
   function Submit(data) {
     Setloading(true);
     axios
-      .post("http://127.0.0.1:1331/UserPanel/Login/", {
+      .post("https://api.cannabaze.com/UserPanel/Login/", {
         email: data.email,
         password: data.password,
       })

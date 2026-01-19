@@ -27,7 +27,7 @@ export default function SignupWithEmail(props) {
   function Submit(data) {
     Setloading(true);
     axios
-      .post("http://127.0.0.1:1331/UserPanel/RegisterAPI/", {
+      .post("https://api.cannabaze.com/UserPanel/RegisterAPI/", {
         username: data.Name,
         email: props.email,
         password: data.password,

@@ -58,7 +58,7 @@ export default function NewProductDetails(props) {
   });
 
   React.useEffect(() => {
-    // Axios(`http://127.0.0.1:1331/UserPanel/Get-ProductById/${id}`, {
+    // Axios(`https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`, {
     // }).then(response => {
     //   if (response.data.length === 0) {
     //     navigate.push('/404')
@@ -90,12 +90,12 @@ export default function NewProductDetails(props) {
     // })
     // )
     Axios.get(
-      `http://127.0.0.1:1331/UserPanel/Get-StoreById/${props.data[0]?.Store_id}`,
+      `https://api.cannabaze.com/UserPanel/Get-StoreById/${props.data[0]?.Store_id}`,
       {}
     ).then((response) => {
       SetDespens(response.data[0]);
     });
-    // Axios.post(`http://127.0.0.1:1331/UserPanel/YouMayAlsoLike/`,
+    // Axios.post(`https://api.cannabaze.com/UserPanel/YouMayAlsoLike/`,
     //   {
     //     category: props.data[0].category_id,
     //     store_id: props.data[0].Store_id
@@ -383,7 +383,7 @@ export async function getServerSideProps(context) {
   const { category, subcategory, name, id } = context.params;
   console.log("product details ===>", { category, subcategory, name, id });
   const res = await fetch(
-    `http://127.0.0.1:1331/UserPanel/Get-ProductById/${id}`
+    `https://api.cannabaze.com/UserPanel/Get-ProductById/${id}`
   );
 
   const data = await res.json();
@@ -407,7 +407,7 @@ export async function getServerSideProps(context) {
     };
   }
   const response = await fetch(
-    "http://127.0.0.1:1331/UserPanel/YouMayAlsoLike/",
+    "https://api.cannabaze.com/UserPanel/YouMayAlsoLike/",
     {
       method: "POST",
       headers: {

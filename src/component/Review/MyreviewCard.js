@@ -37,7 +37,7 @@ const MyreviewCard = () => {
   useEffect(() => {
     if (state?.login) {
       axios
-        .get("http://127.0.0.1:1331/UserPanel/Get-ProductReviewbyUser/", {
+        .get("https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/", {
           headers: { Authorization: `Bearer ${token_data}` },
         })
         .then((res) => {
@@ -45,7 +45,7 @@ const MyreviewCard = () => {
         });
 
       axios
-        .get("http://127.0.0.1:1331/UserPanel/Get-StoreReviewbyUser/", {
+        .get("https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/", {
           headers: { Authorization: `Bearer ${token_data}` },
         })
         .then((res) => {
@@ -59,9 +59,12 @@ const MyreviewCard = () => {
       ProductHelpFull(reviewId.id, state.Profile.id)
         .then(() => {
           axios
-            .get("http://127.0.0.1:1331/UserPanel/Get-ProductReviewbyUser/", {
-              headers: { Authorization: `Bearer ${token_data}` },
-            })
+            .get(
+              "https://api.cannabaze.com/UserPanel/Get-ProductReviewbyUser/",
+              {
+                headers: { Authorization: `Bearer ${token_data}` },
+              }
+            )
             .then((res) => {
               setAllProductReviews(res.data);
             });
@@ -77,7 +80,7 @@ const MyreviewCard = () => {
       StoreHelpFull(reviewId.id, state.Profile.id)
         .then(() => {
           axios
-            .get("http://127.0.0.1:1331/UserPanel/Get-StoreReviewbyUser/", {
+            .get("https://api.cannabaze.com/UserPanel/Get-StoreReviewbyUser/", {
               headers: { Authorization: `Bearer ${token_data}` },
             })
             .then((res) => {

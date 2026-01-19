@@ -39,7 +39,7 @@ const SearchBar = ({ path }) => {
     }
     setLoading(true);
     setOpen(true);
-    Axios.post("http://127.0.0.1:1331/UserPanel/Get-HomePageFilter/", {
+    Axios.post("https://api.cannabaze.com/UserPanel/Get-HomePageFilter/", {
       search: debouncedSearchValue,
     })
       .then((response) => {

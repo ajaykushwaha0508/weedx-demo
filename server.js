@@ -113,7 +113,7 @@ app.prepare().then(() => {
   //     switch (req.url) {
   //       case "/sitemap/dispensaries-location-sitemap.xml":
   //         const response1 = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/14`
+  //           `https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`
   //         );
   //         if (response1.data[0].Xml) {
   //           // split(':')[0].trim()
@@ -141,13 +141,13 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/products-sitemap.xml":
   //         const response4 = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/ListProductView/`
+  //           `https://api.cannabaze.com/UserPanel/ListProductView/`
   //         );
   //         const responsecategory = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-Categories/`
+  //           `https://api.cannabaze.com/UserPanel/Get-Categories/`
   //         );
   //         const responseSubCategory = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-AllSubCategoriesForSitemap/`
+  //           `https://api.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`
   //         );
   //         if (response4) {
   //           const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
@@ -205,7 +205,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/deliveries-location-sitemap.xml":
   //         const response2 = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/11`
+  //           `https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`
   //         );
 
   //         if (response2.data[0].Xml) {
@@ -234,7 +234,7 @@ app.prepare().then(() => {
   //       case "/sitemap/news-sitemap.xml":
   //         try {
   //           const res1 = await axios.post(
-  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
   //             {
   //               category: 1,
   //               limit: 49000,
@@ -288,7 +288,7 @@ app.prepare().then(() => {
   //       case "/sitemap/blogs-sitemap.xml":
   //         try {
   //           const res1 = await axios.post(
-  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
   //             {
   //               category: 2,
   //               limit: 49000,
@@ -339,7 +339,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/brand-sitemap.xml":
   //         const responsebrand = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-AllBrand/`
+  //           `https://api.cannabaze.com/UserPanel/Get-AllBrand/`
   //         );
   //         if (responsebrand) {
   //           const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
@@ -369,7 +369,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/dispensaries-stores-sitemap.xml":
   //         const response5 = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //           `https://api.cannabaze.com/UserPanel/Get-Stores/`
   //         );
 
   //         if (response5 && response5.data) {
@@ -403,7 +403,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/delivery-stores-sitemap.xml":
   //         const response6 = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //           `https://api.cannabaze.com/UserPanel/Get-Stores/`
   //         );
   //         if (response6 && response6.data) {
   //           const dispensaryUrls = response6.data
@@ -959,7 +959,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/delivery-stores-sitemap.xml.gz":
   //         const responsedelivery = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //           `https://api.cannabaze.com/UserPanel/Get-Stores/`
   //         );
   //         if (responsedelivery && responsedelivery.data) {
   //           // Filter the stores that are not of type "dispensary" and map to XML format
@@ -1005,7 +1005,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/dispensaries-stores-sitemap.xml.gz":
   //         const dispensaries = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //           `https://api.cannabaze.com/UserPanel/Get-Stores/`
   //         );
 
   //         if (dispensaries && dispensaries.data) {
@@ -1052,7 +1052,7 @@ app.prepare().then(() => {
   //         break;
   //       case "/sitemap/brand-sitemap.xml.gz":
   //         const responsebrandgz = await axios.get(
-  //           `http://127.0.0.1:1331/UserPanel/Get-AllBrand/`
+  //           `https://api.cannabaze.com/UserPanel/Get-AllBrand/`
   //         );
 
   //         if (responsebrand && responsebrand.data) {
@@ -1098,7 +1098,7 @@ app.prepare().then(() => {
   //         try {
   //           // Fetch blog data from the API
   //           const blogs = await axios.post(
-  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
   //             {
   //               category: 2,
   //               limit: 49000,
@@ -1164,7 +1164,7 @@ app.prepare().then(() => {
   //         try {
   //           // Fetch news data from the API
   //           const news = await axios.post(
-  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
   //             {
   //               category: 1,
   //               limit: 49000,
@@ -1231,7 +1231,7 @@ app.prepare().then(() => {
   //         try {
   //           // Fetch the delivery location sitemap data
   //           const responsedeliveries = await axios.get(
-  //             `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/11`
+  //             `https://api.cannabaze.com/UserPanel/Get-SitemapbyId/11`
   //           );
 
   //           if (responsedeliveries.data[0].Xml) {
@@ -1281,13 +1281,13 @@ app.prepare().then(() => {
   //         try {
   //           // Fetch data for products, categories, and subcategories
   //           const response4 = await axios.get(
-  //             `http://127.0.0.1:1331/UserPanel/ListProductView/`
+  //             `https://api.cannabaze.com/UserPanel/ListProductView/`
   //           );
   //           const responsecategory = await axios.get(
-  //             `http://127.0.0.1:1331/UserPanel/Get-Categories/`
+  //             `https://api.cannabaze.com/UserPanel/Get-Categories/`
   //           );
   //           const responseSubCategory = await axios.get(
-  //             `http://127.0.0.1:1331/UserPanel/Get-AllSubCategoriesForSitemap/`
+  //             `https://api.cannabaze.com/UserPanel/Get-AllSubCategoriesForSitemap/`
   //           );
 
   //           if (response4 && responsecategory && responseSubCategory) {
@@ -1374,7 +1374,7 @@ app.prepare().then(() => {
   //         try {
   //           // Fetch the dispensaries location data
   //           const dispensaries = await axios.get(
-  //             `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/14`
+  //             `https://api.cannabaze.com/UserPanel/Get-SitemapbyId/14`
   //           );
 
   //           if (dispensaries.data[0].Xml) {
@@ -1472,7 +1472,7 @@ app.prepare().then(() => {
         for (const data of jsonData) {
           try {
             const response = await axios.post(
-              `http://127.0.0.1:1331/UserPanel/UpdateSiteMapManual/14`,
+              `https://api.cannabaze.com/UserPanel/UpdateSiteMapManual/14`,
               {
                 j: `http://www.weedx.io/weed-dispensaries/in/${modifystr(
                   data.country
@@ -1537,7 +1537,7 @@ app.prepare().then(() => {
         for (const data of jsonData) {
           try {
             const response = await axios.post(
-              `http://127.0.0.1:1331/UserPanel/Update-SiteMap/11`,
+              `https://api.cannabaze.com/UserPanel/Update-SiteMap/11`,
               {
                 j: `http://www.weedx.io/weed-deliveries/in/${modifystr(
                   data.country

@@ -17,7 +17,7 @@ import axios from "axios";
 
 function ConfirmPassword(Email, password) {
   let data = axios.post(
-    `http://127.0.0.1:1331/UserPanel/VerifyOtpForgetPassword/ `,
+    `https://api.cannabaze.com/UserPanel/VerifyOtpForgetPassword/ `,
     {
       email: Email,
       password: password,

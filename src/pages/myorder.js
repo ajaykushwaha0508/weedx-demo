@@ -45,7 +45,7 @@ export default function MyOrder() {
     });
     SetLoading(true);
     axios
-      .get(`http://127.0.0.1:1331/UserPanel/Get-Order/`, {
+      .get(`https://api.cannabaze.com/UserPanel/Get-Order/`, {
         headers: { Authorization: `Bearer ${token_data}` },
       })
       .then((res) => {
@@ -135,7 +135,7 @@ export default function MyOrder() {
       if (Getsearch.length !== 0) {
         axios
           .post(
-            `http://127.0.0.1:1331/UserPanel/OrderSearch/`,
+            `https://api.cannabaze.com/UserPanel/OrderSearch/`,
             {
               search: Getsearch,
             },

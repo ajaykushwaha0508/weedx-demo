@@ -49,7 +49,7 @@ const AddToCartReview = () => {
               headers: { Authorization: `Bearer ${token_data}` },
             };
             await Axios.delete(
-              `http://127.0.0.1:1331/UserPanel/DeleteAddtoCart/${id}`,
+              `https://api.cannabaze.com/UserPanel/DeleteAddtoCart/${id}`,
               config
             );
 
@@ -106,7 +106,7 @@ const AddToCartReview = () => {
           PriceId: Event.Price.id,
         };
         await Axios.post(
-          `http://127.0.0.1:1331/UserPanel/Update-AddtoCart/${Id}`,
+          `https://api.cannabaze.com/UserPanel/Update-AddtoCart/${Id}`,
           Arry,
           config,
           SetLoadingPluse(true)
@@ -153,7 +153,7 @@ const AddToCartReview = () => {
       };
 
       await Axios.post(
-        `http://127.0.0.1:1331/UserPanel/Update-AddtoCart/${Id}`,
+        `https://api.cannabaze.com/UserPanel/Update-AddtoCart/${Id}`,
         {
           Product_id: Event.Product_id,
           Store_id: Event.Store_id,

@@ -70,7 +70,7 @@ const RecentPostComment = ({
   }
   function handleDelete(id) {
     axios
-      .delete(`http://127.0.0.1:1331/UserPanel/Delete-Comment/${id}`, {
+      .delete(`https://api.cannabaze.com/UserPanel/Delete-Comment/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then((response) => {

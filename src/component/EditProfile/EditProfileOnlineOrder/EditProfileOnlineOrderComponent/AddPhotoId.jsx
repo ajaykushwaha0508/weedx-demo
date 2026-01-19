@@ -49,7 +49,7 @@ const AddPhotoId = ({ image, Api, SetApi }) => {
     const formdata = new FormData();
     formdata.append("PhotoId", image1);
     Axios.post(
-      `http://127.0.0.1:1331/UserPanel/Update-UpdateUserProfile/`,
+      `https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
       formdata,
       {
         headers: {

@@ -36,7 +36,7 @@ const AddDateOfBirth = ({ Profile, Api, SetApi }) => {
   };
   const onSubmit = (data) => {
     Axios.post(
-      `http://127.0.0.1:1331/UserPanel/Update-UpdateUserProfile/`,
+      `https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
       {
         DateOfBirth: data.DateOfBirth,
       },

@@ -97,7 +97,7 @@ const ProductSearchResult = ({
       });
       await axios
         .post(
-          "http://127.0.0.1:1331/UserPanel/Add-AddtoCart/",
+          "https://api.cannabaze.com/UserPanel/Add-AddtoCart/",
 
           {
             Brand_Id: Event.Brand_id,

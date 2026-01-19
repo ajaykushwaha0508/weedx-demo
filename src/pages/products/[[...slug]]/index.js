@@ -122,7 +122,7 @@ export default function Product(props) {
       limit: Product.length + 10,
     };
     const response = await fetch(
-      "http://127.0.0.1:1331/UserPanel/Get-AllProduct/",
+      "https://api.cannabaze.com/UserPanel/Get-AllProduct/",
       {
         method: "POST", // Assuming you are making a POST request. Change if needed.
         headers: {
@@ -373,7 +373,7 @@ export const getServerSideProps = async (context) => {
   try {
     // Fetch category data
     const apidata = await fetch(
-      "http://127.0.0.1:1331/UserPanel/Get-Categories"
+      "https://api.cannabaze.com/UserPanel/Get-Categories"
     );
     const category = await apidata.json();
     console.log("Sluges===>", params.slug);
@@ -420,7 +420,7 @@ export const getServerSideProps = async (context) => {
 const fetchProductByCategory = async (categoryId, locationObject) => {
   try {
     const response = await fetch(
-      `http://127.0.0.1:1331/UserPanel/Get-ProductByCategory/${categoryId}`,
+      `https://api.cannabaze.com/UserPanel/Get-ProductByCategory/${categoryId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -436,7 +436,7 @@ const fetchProductByCategory = async (categoryId, locationObject) => {
 const fetchProductBySubCategory = async (subCategoryId, locationObject) => {
   try {
     const response = await fetch(
-      `http://127.0.0.1:1331/UserPanel/Get-ProductBySubCategory/${subCategoryId}`,
+      `https://api.cannabaze.com/UserPanel/Get-ProductBySubCategory/${subCategoryId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -453,7 +453,7 @@ const fetchProductBySubCategory = async (subCategoryId, locationObject) => {
 const fetchAllProducts = async (locationObject) => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:1331/UserPanel/Get-AllProduct/",
+      "https://api.cannabaze.com/UserPanel/Get-AllProduct/",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

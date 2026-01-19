@@ -12,7 +12,9 @@ const RecentPost = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:1331/UserPanel/Get-News/");
+        const res = await fetch(
+          "https://api.cannabaze.com/UserPanel/Get-News/"
+        );
         const data = await res.json();
         const newdata = data.filter((item) => item.id !== id.id);
         SetNews(newdata);

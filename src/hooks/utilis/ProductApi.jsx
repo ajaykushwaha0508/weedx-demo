@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 
 async function product_OverAllGet_Review(id) {
   let res = await axios.get(
-    ` http://127.0.0.1:1331/UserPanel/Get-AverageReviewAndRating/${id}`
+    ` https://api.cannabaze.com/UserPanel/Get-AverageReviewAndRating/${id}`
   );
   return res;
 }
@@ -18,9 +18,13 @@ function Product_Add_Review(data) {
   if (Boolean(accessToken)) {
     token_data = accessToken;
   }
-  let res = axios.post(` http://127.0.0.1:1331/UserPanel/Add-Review/`, data, {
-    headers: { Authorization: `Bearer ${token_data}` },
-  });
+  let res = axios.post(
+    ` https://api.cannabaze.com/UserPanel/Add-Review/`,
+    data,
+    {
+      headers: { Authorization: `Bearer ${token_data}` },
+    }
+  );
   return res;
 }
 
@@ -35,7 +39,7 @@ async function Product_Get_UserComment(id, ProductId) {
     token_data = accessToken;
   }
   let res = await axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-getReviewbyId/${id}/${ProductId}`,
+    `https://api.cannabaze.com/UserPanel/Get-getReviewbyId/${id}/${ProductId}`,
     {
       headers: { Authorization: `Bearer ${token_data}` },
     }
@@ -44,7 +48,7 @@ async function Product_Get_UserComment(id, ProductId) {
 }
 async function Product_Get_Review(id) {
   let res = await axios.get(
-    ` http://127.0.0.1:1331/UserPanel/Get-Review/${id}`
+    ` https://api.cannabaze.com/UserPanel/Get-Review/${id}`
   );
   return res;
 }
@@ -59,7 +63,7 @@ async function Delete_Review(id) {
     token_data = accessToken;
   }
   let res = await axios.delete(
-    ` http://127.0.0.1:1331/UserPanel/Delete-Review/${id}`,
+    ` https://api.cannabaze.com/UserPanel/Delete-Review/${id}`,
     {
       headers: { Authorization: `Bearer ${token_data}` },
     }
@@ -81,7 +85,7 @@ function ProductHelpFull(ReviewID, USerID) {
   };
   return axios
     .post(
-      `http://127.0.0.1:1331/UserPanel/Add-ProductHelpfull/`,
+      `https://api.cannabaze.com/UserPanel/Add-ProductHelpfull/`,
 
       {
         review: ReviewID,

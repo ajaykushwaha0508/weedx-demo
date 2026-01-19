@@ -88,7 +88,7 @@ export default function DeliverAutoCompleteAddress({ OpenDelivery, Store }) {
     },
   });
   function CheckPostal(data, name, alldata) {
-    Axios.post(`http://127.0.0.1:1331/UserPanel/Get-GetDeliveryCheck/`, {
+    Axios.post(`https://api.cannabaze.com/UserPanel/Get-GetDeliveryCheck/`, {
       PinCode: data,
       Store: Store,
     }).then((response) => {

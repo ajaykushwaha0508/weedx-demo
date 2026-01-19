@@ -19,7 +19,7 @@ export default function Forgotpassword() {
   const router = useRouter();
   function Forget_password(res) {
     let data = axios.post(
-      `http://127.0.0.1:1331/UserPanel/ForgetPasswordAPI/`,
+      `https://api.cannabaze.com/UserPanel/ForgetPasswordAPI/`,
       res
     );
     return data;

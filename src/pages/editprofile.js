@@ -43,7 +43,10 @@ export default function EditProfile() {
         headers: { Authorization: `Bearer ${token_data}` },
       };
 
-      Axios.get(`http://127.0.0.1:1331/UserPanel/Get-GetUserProfile/`, config)
+      Axios.get(
+        `https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
+        config
+      )
         .then((res) => {
           SetProfile(res.data);
           dispatch({ type: "Profile", Profile: res.data });
@@ -67,7 +70,7 @@ export default function EditProfile() {
     formdata.append("image", w);
     formdata.append("googlelink", "");
     Axios.post(
-      `http://127.0.0.1:1331/UserPanel/Update-UpdateUserProfile/`,
+      `https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
       formdata,
       {
         headers: {

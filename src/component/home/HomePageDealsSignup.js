@@ -14,7 +14,7 @@ const HomePageDealsSignup = () => {
   const { register, handleSubmit, errors, reset, setError } = useForm();
   const [email, setEmail] = React.useState("");
   const onSubmit = (data) => {
-    Axios.post(`http://127.0.0.1:1331/UserPanel/Add-Subscribe/`, {
+    Axios.post(`https://api.cannabaze.com/UserPanel/Add-Subscribe/`, {
       email: email,
     })
       .then((res) => {

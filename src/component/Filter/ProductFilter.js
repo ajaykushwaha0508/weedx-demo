@@ -70,7 +70,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
     }
     if (Name === "Category") {
       setloading(true);
-      Axios.post("http://127.0.0.1:1331/UserPanel/Get-CategoryByStore/ ", {
+      Axios.post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/ ", {
         Store_Id: parseInt(Store_id),
       })
         .then(async (response) => {
@@ -87,7 +87,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
         .catch(function (error) {});
     } else if (Name === "Brand") {
       setloading(true);
-      Axios(`http://127.0.0.1:1331/UserPanel/Get-BrandByStore/${Store_id}`)
+      Axios(`https://api.cannabaze.com/UserPanel/Get-BrandByStore/${Store_id}`)
         .then((response) => {
           SetFilter(_.uniqBy(response.data, "name"));
           setloading(false);
@@ -105,7 +105,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
       ]);
     } else if (Name === "Weight") {
       setloading(true);
-      Axios.get("http://127.0.0.1:1331/UserPanel/Get-Net_Weight/").then(
+      Axios.get("https://api.cannabaze.com/UserPanel/Get-Net_Weight/").then(
         (res) => {
           let newArr = res.data.data.map((item) => {
             return {
@@ -127,7 +127,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
   function Category_Drop(i, name, values = {}) {
     if (name === "Category") {
       Axios.post(
-        `http://127.0.0.1:1331/UserPanel/Get-filterSubcategorybyStoreandCategory/`,
+        `https://api.cannabaze.com/UserPanel/Get-filterSubcategorybyStoreandCategory/`,
         {
           Store_Id: Store_id,
           Category_Id: i,
@@ -140,7 +140,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
     } else if (name === "Brand") {
       dispatch({ type: "Loading", Loading: true });
       Axios(
-        `http://127.0.0.1:1331/UserPanel/Get-ProductByStoreAndBrand/${id}/${i}`,
+        `https://api.cannabaze.com/UserPanel/Get-ProductByStoreAndBrand/${id}/${i}`,
         {}
       )
         .then((response) => {
@@ -171,7 +171,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
         ref.current.childNodes[0].childNodes[0].childNodes[0].childNodes[1]
           .checked
       ) {
-        Axios.post("http://127.0.0.1:1331/UserPanel/UnitFilter/", {
+        Axios.post("https://api.cannabaze.com/UserPanel/UnitFilter/", {
           store: Store_id,
           unit: true,
         }).then((res) => {
@@ -179,7 +179,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
         });
       } else {
         Axios.get(
-          `http://127.0.0.1:1331/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
+          `https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
           {}
         ).then((response) => {
           Setarr1(response?.data);
@@ -189,7 +189,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
   }
   React.useEffect(() => {
     if (weightitems.length !== 0) {
-      Axios.post("http://127.0.0.1:1331/UserPanel/WeightFilter/", {
+      Axios.post("https://api.cannabaze.com/UserPanel/WeightFilter/", {
         store: Store_id,
         weight: weightitems,
       }).then((res) => {
@@ -197,7 +197,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
       });
     } else {
       Axios.get(
-        `http://127.0.0.1:1331/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
+        `https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
         {}
       ).then((response) => {
         Setarr1(response.data);
@@ -206,7 +206,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
   }, [weightitems]);
   React.useEffect(() => {
     if (stainitems.length !== 0) {
-      Axios.post("http://127.0.0.1:1331/UserPanel/StrainFilterProduct/", {
+      Axios.post("https://api.cannabaze.com/UserPanel/StrainFilterProduct/", {
         store: Store_id,
         strain: stainitems,
       }).then((res) => {
@@ -214,7 +214,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
       });
     } else {
       Axios.get(
-        `http://127.0.0.1:1331/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
+        `https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${id}`,
         {}
       ).then((response) => {
         Setarr1(response.data);
@@ -231,7 +231,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
         dispatch({ type: "Loading", Loading: true });
     }
     Axios.post(
-      `http://127.0.0.1:1331/UserPanel/Get-filterProductbyStoreandSubCategory/`,
+      `https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandSubCategory/`,
       {
         Store_Id: Store_id,
         SubCategory_Id: SubCategoryid,
@@ -252,7 +252,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
   const handleChange = (event) => {
     setselect(event.target.value);
     if (event.target.value === "Sort by A to Z") {
-      Axios.get(`http://127.0.0.1:1331/UserPanel/Get-SortingFilterAtoZ/${id}`)
+      Axios.get(
+        `https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/${id}`
+      )
         .then((response) => {
           let newdata = response.data.map((res) => {
             return res;
@@ -263,7 +265,9 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
           console.trace(error);
         });
     } else if (event.target.value === "Sort by Z to A") {
-      Axios.get(`http://127.0.0.1:1331/UserPanel/Get-SortingFilterAtoZ/${id}`)
+      Axios.get(
+        `https://api.cannabaze.com/UserPanel/Get-SortingFilterAtoZ/${id}`
+      )
         .then((response) => {
           let newdata = response.data.map((res) => {
             return res;
@@ -274,7 +278,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
           console.trace(error);
         });
     } else if (event.target.value === "Price hight to low") {
-      Axios.get(`http://127.0.0.1:1331/UserPanel/HighPriceToLowPrice/${id}`)
+      Axios.get(`https://api.cannabaze.com/UserPanel/HighPriceToLowPrice/${id}`)
         .then((response) => {
           let newdata = response.data.map((res) => {
             return res[0];
@@ -285,7 +289,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
           console.trace(error);
         });
     } else {
-      Axios.get(`http://127.0.0.1:1331/UserPanel/HighPriceToLowPrice/${id}`)
+      Axios.get(`https://api.cannabaze.com/UserPanel/HighPriceToLowPrice/${id}`)
         .then((response) => {
           let newdata = response.data.map((res) => {
             return res[0];
@@ -304,7 +308,7 @@ const ProductFilter = ({ ProductFilterData, arr, Setarr1, Store_id, id }) => {
     timer = setTimeout(() => {
       if (searchtext !== "") {
         dispatch({ type: "Loading", Loading: true });
-        Axios.post(`http://127.0.0.1:1331/UserPanel/Get-SearchFilter/`, {
+        Axios.post(`https://api.cannabaze.com/UserPanel/Get-SearchFilter/`, {
           search: e,
           store: Store_id,
         })

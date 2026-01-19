@@ -35,7 +35,7 @@ export default function Allblogs(props) {
       Post_BlogLike(item?.id, !item.Liked)
         .then((res) => {
           axios
-            .get("http://127.0.0.1:1331/UserPanel/GetNewsbyUser/", {
+            .get("https://api.cannabaze.com/UserPanel/GetNewsbyUser/", {
               headers: { Authorization: `Bearer ${token_data}` },
             })
             .then(async (res) => {
@@ -219,7 +219,7 @@ Allblogs.getLayout = function getLayout(page) {
 export async function getStaticProps(context) {
   try {
     const res = await fetch(
-      "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+      "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
       {
         method: "POST",
         headers: {

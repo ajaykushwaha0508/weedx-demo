@@ -122,7 +122,7 @@ export default function Blogs(props) {
   }
   function handleDelete(id) {
     axios
-      .delete(`http://127.0.0.1:1331/UserPanel/Delete-Comment/${id}`, {
+      .delete(`https://api.cannabaze.com/UserPanel/Delete-Comment/${id}`, {
         headers: { Authorization: `Bearer ${token_data}` },
       })
       .then((response) => {
@@ -299,7 +299,7 @@ export async function getServerSideProps(context) {
     const { id, title, blogcategoryname } = context.params;
 
     const res = await fetch(
-      `http://127.0.0.1:1331/UserPanel/Get-GetNewsById/${id}`
+      `https://api.cannabaze.com/UserPanel/Get-GetNewsById/${id}`
     );
     if (!res.ok) {
       throw new Error("Failed to fetch");

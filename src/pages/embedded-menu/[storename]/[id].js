@@ -77,7 +77,7 @@ export default function Storepageembeded() {
     if (Boolean(router.query.id)) {
       axios
         .get(
-          `http://127.0.0.1:1331/UserPanel/Get-ProductAccordingToDispensaries/${router.query.id}`
+          `https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${router.query.id}`
         )
         .then(async (response) => {
           setProduct(response.data);

@@ -47,7 +47,7 @@ const Blogscroller = () => {
       limit = showabledata.length === 0 ? 20 : showabledata.length + 10;
       try {
         const res = await fetch(
-          "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+          "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
           {
             method: "POST",
             headers: {

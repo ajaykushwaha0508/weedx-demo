@@ -17,7 +17,7 @@ export async function getStaticProps() {
   let verifyArrayData = [];
   try {
     const response = await fetch(
-      "http://127.0.0.1:1331/UserPanel/Get-AllBrand/"
+      "https://api.cannabaze.com/UserPanel/Get-AllBrand/"
     );
     if (response.ok) {
       verifyArrayData = await response.json();

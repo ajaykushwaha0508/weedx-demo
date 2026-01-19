@@ -15,7 +15,7 @@ const VerifyBrands = () => {
   const [VerifyArrayData, SetVerifyArrayData] = React.useState([]);
 
   React.useEffect(() => {
-    Axios.get("http://127.0.0.1:1331/UserPanel/Get-AllBrand/ ")
+    Axios.get("https://api.cannabaze.com/UserPanel/Get-AllBrand/ ")
       .then((response) => {
         SetVerifyArrayData(response.data);
       })

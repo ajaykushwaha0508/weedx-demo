@@ -55,7 +55,7 @@ const Embadednavbar = () => {
   React.useEffect(() => {
     if (state?.Embedded_Store?.StoreID !== "") {
       axios
-        .post("http://127.0.0.1:1331/UserPanel/Get-CategoryByStore/", {
+        .post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
           Store_Id: parseInt(id),
         })
         .then(async (response) => {

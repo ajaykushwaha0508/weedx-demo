@@ -101,7 +101,7 @@ export default function Checkout() {
         state?.Cart_subTotal - state.CoupounAmount
       );
     await Axios.post(
-      "http://127.0.0.1:1331/UserPanel/Add-Order/",
+      "https://api.cannabaze.com/UserPanel/Add-Order/",
       formdata,
       config,
       {
@@ -136,7 +136,7 @@ export default function Checkout() {
   React.useEffect(() => {
     state?.login &&
       Axios.get(
-        `http://127.0.0.1:1331/UserPanel/Get-UserProfileOrderDetails/`,
+        `https://api.cannabaze.com/UserPanel/Get-UserProfileOrderDetails/`,
         config
       ).then((data) => {
         if (data.data.length !== 0) {

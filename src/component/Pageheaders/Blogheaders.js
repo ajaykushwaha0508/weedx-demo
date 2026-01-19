@@ -17,7 +17,7 @@ const Blogheaders = (props) => {
     const getData = setTimeout(() => {
       axios
         .post(
-          `http://127.0.0.1:1331/UserPanel/Get-BlogSearchApi/`,
+          `https://api.cannabaze.com/UserPanel/Get-BlogSearchApi/`,
           {
             search: searchtext,
           },

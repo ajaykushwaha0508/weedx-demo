@@ -357,7 +357,7 @@ export default function Dispensaries(props) {
 }
 
 async function postData(createurl, value, address) {
-  const url = "http://127.0.0.1:1331/UserPanel/Update-SiteMap/14";
+  const url = "https://api.cannabaze.com/UserPanel/Update-SiteMap/14";
   const data = {
     j: createurl,
     address: value,
@@ -491,19 +491,19 @@ export const getServerSideProps = async (context) => {
   try {
     // Fetch product data and webpage content in parallel
     const [productResponse, Dispensaries, Webcontent] = await Promise.all([
-      fetch("http://127.0.0.1:1331/UserPanel/Get-AllProduct/", {
+      fetch("https://api.cannabaze.com/UserPanel/Get-AllProduct/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(object1),
       }),
-      fetch("http://127.0.0.1:1331/UserPanel/Get-Dispensaries/", {
+      fetch("https://api.cannabaze.com/UserPanel/Get-Dispensaries/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(object2),
       }),
       !Boolean(route) &&
         fetch(
-          "http://127.0.0.1:1331/UserPanel/Get-WebpageDescriptionDispensary/",
+          "https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDispensary/",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

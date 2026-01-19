@@ -13,7 +13,7 @@ function WishListPost(id) {
   }
 
   let data = axios.post(
-    ` http://127.0.0.1:1331/UserPanel/Add-Wishlist/`,
+    ` https://api.cannabaze.com/UserPanel/Add-Wishlist/`,
     { product: id },
     {
       headers: { Authorization: `Bearer ${token_data}` },
@@ -36,7 +36,7 @@ async function WishListget() {
   };
 
   let data = await axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-Wishlist/`,
+    `https://api.cannabaze.com/UserPanel/Get-Wishlist/`,
     config
   );
   return data;

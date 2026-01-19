@@ -22,7 +22,7 @@ export default function RelatedVerifyBrand(props) {
   // React.useEffect(() => {
   //     if (searchval?.length !== 0) {
   //         const getData = setTimeout(() => {
-  //             Axios.post(`http://127.0.0.1:1331/UserPanel/SearchProductbyBrand/`, {
+  //             Axios.post(`https://api.cannabaze.com/UserPanel/SearchProductbyBrand/`, {
   //                 "brand": id,
   //                 "search": searchval,
   //             }).then((response) => {
@@ -69,7 +69,7 @@ export async function getServerSideProps(context) {
   try {
     const brandresponse = await (
       await fetch(
-        `http://127.0.0.1:1331/UserPanel/Get-BrandById/${context.params.id}`
+        `https://api.cannabaze.com/UserPanel/Get-BrandById/${context.params.id}`
       )
     ).json();
     if (
@@ -78,7 +78,7 @@ export async function getServerSideProps(context) {
     ) {
       brand = brandresponse;
       const response = await fetch(
-        `http://127.0.0.1:1331/UserPanel/Get-ProductbyBrand/${context.params.id}`
+        `https://api.cannabaze.com/UserPanel/Get-ProductbyBrand/${context.params.id}`
       );
       if (response.ok) {
         product = await response.json();

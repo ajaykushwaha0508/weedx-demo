@@ -22,7 +22,7 @@ export default function Signup() {
   const method = useForm();
   const classes = useStyles();
   function Submit(State) {
-    Axios.post("http://127.0.0.1:1331/UserPanel/UserAlreadyExist/", {
+    Axios.post("https://api.cannabaze.com/UserPanel/UserAlreadyExist/", {
       email: State.email,
     })
       .then((res) => {

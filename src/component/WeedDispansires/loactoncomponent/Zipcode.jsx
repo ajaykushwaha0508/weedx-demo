@@ -2,14 +2,14 @@ import React from "react";
 import Createcontext from "../../../hooks/context";
 import axios from "axios";
 const Zipcode = () => {
-  // http://127.0.0.1:1331/VendorPanel/Get-CountryFilter/
+  // https://api.cannabaze.com/VendorPanel/Get-CountryFilter/
   const { state } = React.useContext(Createcontext);
   const [AllZipcode, SetZipcode] = React.useState([]);
   // console.log(state)
   React.useEffect(() => {
     if (Boolean(state.havecity) && Boolean(state.City)) {
       axios
-        .post(`http://127.0.0.1:1331/VendorPanel/Get-CountryFilter/`, {
+        .post(`https://api.cannabaze.com/VendorPanel/Get-CountryFilter/`, {
           AdministratorArea: "administrative_area_level_2",
           search: state.City.replace(/-/g, " "),
         })
@@ -19,7 +19,7 @@ const Zipcode = () => {
     } else {
       Boolean(state.havestate) &&
         axios
-          .post(`http://127.0.0.1:1331/VendorPanel/Get-CountryFilter/`, {
+          .post(`https://api.cannabaze.com/VendorPanel/Get-CountryFilter/`, {
             AdministratorArea: "administrative_area_level_1",
             search: Boolean(state.State)
               ? state.State.replace(/-/g, " ")

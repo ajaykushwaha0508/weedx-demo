@@ -4,7 +4,7 @@ const _ = require("lodash");
 import Cookies from "universal-cookie";
 
 async function postData(createurl, value, address, id) {
-  const url = `http://127.0.0.1:1331/UserPanel/Update-SiteMap/${id}`;
+  const url = `https://api.cannabaze.com/UserPanel/Update-SiteMap/${id}`;
   const data = {
     j: createurl,
     address: value,
@@ -51,7 +51,7 @@ async function location(value, type, data, id, weburl) {
   const object = {};
   const short = {};
   const find = await axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/${id}`
+    `https://api.cannabaze.com/UserPanel/Get-SitemapbyId/${id}`
   );
   const urls = find.data[0].Xml;
   const target = `http://www.weedx.io${data.resolvedUrl}`;

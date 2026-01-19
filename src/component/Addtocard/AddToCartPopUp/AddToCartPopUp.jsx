@@ -35,7 +35,7 @@ const AddToCartPopUp = ({ CartClean, SetCartClean, NewData, SetAddToCard }) => {
       };
       axios
         .post(
-          "http://127.0.0.1:1331/UserPanel/ClearAddtoCart/",
+          "https://api.cannabaze.com/UserPanel/ClearAddtoCart/",
           NewData,
           config
         )

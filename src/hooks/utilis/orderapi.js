@@ -14,7 +14,10 @@ function order() {
   const config = {
     headers: { Authorization: `Bearer ${token_data}` },
   };
-  let data = axios.get(`http://127.0.0.1:1331/UserPanel/Get-Order/`, config);
+  let data = axios.get(
+    `https://api.cannabaze.com/UserPanel/Get-Order/`,
+    config
+  );
   return data;
 }
 function PendingOrder() {
@@ -32,7 +35,7 @@ function PendingOrder() {
   };
 
   let data = axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-GetPendingOrder/`,
+    `https://api.cannabaze.com/UserPanel/Get-GetPendingOrder/`,
     config
   );
   return data;
@@ -53,7 +56,7 @@ function OrderBYID(id) {
   };
 
   let data = axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-GetOrderBYID/${id}`,
+    `https://api.cannabaze.com/UserPanel/Get-GetOrderBYID/${id}`,
     config
   );
   return data;
@@ -73,7 +76,7 @@ function Cancel(id) {
   };
 
   let data = axios.post(
-    `http://127.0.0.1:1331/UserPanel/Update-Order/${id}`,
+    `https://api.cannabaze.com/UserPanel/Update-Order/${id}`,
     { Order_Status: "Cancel" },
     config
   );
@@ -95,7 +98,7 @@ function GetCancelOrder() {
   };
 
   let data = axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-GetCancelOrder/`,
+    `https://api.cannabaze.com/UserPanel/Get-GetCancelOrder/`,
     config
   );
   return data;
@@ -116,7 +119,7 @@ function GetDeliveredOrder() {
   };
 
   let data = axios.get(
-    `http://127.0.0.1:1331/UserPanel/Get-GetDeliveredOrder/`,
+    `https://api.cannabaze.com/UserPanel/Get-GetDeliveredOrder/`,
     config
   );
   return data;

@@ -23,7 +23,7 @@ const Forgotopt = ({ Otppopup, Setotppopup, Email, setLoading, reset }) => {
   const [loading, Setloading] = React.useState(false);
   const Forget_Otp = (Otp, Email) => {
     let data = axios.post(
-      `http://127.0.0.1:1331/UserPanel/ValidateOTPForgetPassword/`,
+      `https://api.cannabaze.com/UserPanel/ValidateOTPForgetPassword/`,
       {
         otp: Otp,
         email: Email,

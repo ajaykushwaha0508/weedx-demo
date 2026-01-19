@@ -11,7 +11,7 @@ const FaceBookLogin = () => {
     try {
       if (response) {
         axios
-          .post("http://127.0.0.1:1331/UserPanel/FacebookSignInView/", {
+          .post("https://api.cannabaze.com/UserPanel/FacebookSignInView/", {
             access_token: response.accessToken,
           })
           .then((response) => {})

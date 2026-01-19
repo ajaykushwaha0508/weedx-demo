@@ -100,7 +100,7 @@ export default function DispensoriesDetails(props) {
       dispatch({ type: "Embeddedstore", Embeddedstore: data });
     }
     axios
-      .post("http://127.0.0.1:1331/UserPanel/Get-CategoryByStore/", {
+      .post("https://api.cannabaze.com/UserPanel/Get-CategoryByStore/", {
         Store_Id: parseInt(id),
       })
       .then(async (response) => {
@@ -129,14 +129,14 @@ export default function DispensoriesDetails(props) {
   useEffect(() => {
     if (reviewtype === "All") {
       axios
-        .get(`http://127.0.0.1:1331/UserPanel/Get-AllAverage/${id}`)
+        .get(`https://api.cannabaze.com/UserPanel/Get-AllAverage/${id}`)
         .then((res) => {
           SetRating(res.data);
         })
         .catch(() => {});
     } else if (reviewtype === "product") {
       axios
-        .get(`http://127.0.0.1:1331/UserPanel/Get-AverageofProduct/${id}`)
+        .get(`https://api.cannabaze.com/UserPanel/Get-AverageofProduct/${id}`)
         .then((res) => {
           SetRating(res.data);
         })
@@ -183,7 +183,7 @@ export default function DispensoriesDetails(props) {
     dispatch({ type: "Loading", Loading: true });
     axios
       .post(
-        `http://127.0.0.1:1331/UserPanel/Get-filterProductbyStoreandCategory/`,
+        `https://api.cannabaze.com/UserPanel/Get-filterProductbyStoreandCategory/`,
         {
           Store_Id: parseInt(id),
           Category_Id: Id,
@@ -246,9 +246,12 @@ export default function DispensoriesDetails(props) {
   useEffect(() => {
     if (reviewtype === "product") {
       axios
-        .post("http://127.0.0.1:1331/UserPanel/GetallProductReviewbyStore/", {
-          store: id,
-        })
+        .post(
+          "https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/",
+          {
+            store: id,
+          }
+        )
         .then((res) => {
           SetReview(res.data);
         });
@@ -275,7 +278,7 @@ export default function DispensoriesDetails(props) {
         .then((res) => {
           axios
             .post(
-              "http://127.0.0.1:1331/UserPanel/GetallProductReviewbyStore/",
+              "https://api.cannabaze.com/UserPanel/GetallProductReviewbyStore/",
               {
                 store: id,
               }
@@ -783,10 +786,14 @@ const fetchDispensariesAndProducts = async (country, state, city) => {
   };
   try {
     const [dispensariesResponse, productsResponse] = await Promise.all([
-      axios.post("http://127.0.0.1:1331/UserPanel/Get-Dispensaries/", object2, {
-        headers: { "Content-Type": "application/json" },
-      }),
-      fetch("http://127.0.0.1:1331/UserPanel/Get-AllProduct/", {
+      axios.post(
+        "https://api.cannabaze.com/UserPanel/Get-Dispensaries/",
+        object2,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      ),
+      fetch("https://api.cannabaze.com/UserPanel/Get-AllProduct/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(object2),
@@ -826,13 +833,13 @@ export async function getStaticProps(context) {
 
   try {
     const storeResponse = await axios.get(
-      `http://127.0.0.1:1331/UserPanel/Get-StoreById/${context.params.details[storeId]}`
+      `https://api.cannabaze.com/UserPanel/Get-StoreById/${context.params.details[storeId]}`
     );
     const reviewResponse = await axios.get(
-      `http://127.0.0.1:1331/UserPanel/Get-StoreReview/${context.params.details[storeId]}`
+      `https://api.cannabaze.com/UserPanel/Get-StoreReview/${context.params.details[storeId]}`
     );
     const productResponse = await axios.get(
-      `http://127.0.0.1:1331/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`
+      `https://api.cannabaze.com/UserPanel/Get-ProductAccordingToDispensaries/${context.params.details[storeId]}`
     );
     review = reviewResponse.data;
     data = storeResponse.data;

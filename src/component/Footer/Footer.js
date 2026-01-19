@@ -32,7 +32,7 @@ const Footer = () => {
   const fetchCategories = async () => {
     try {
       const response = await Axios.get(
-        "http://127.0.0.1:1331/UserPanel/Get-Categories/"
+        "https://api.cannabaze.com/UserPanel/Get-Categories/"
       );
       SetCategorys(response.data);
     } catch (error) {

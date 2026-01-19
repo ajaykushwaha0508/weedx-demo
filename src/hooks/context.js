@@ -79,7 +79,7 @@ const Context = (props) => {
 
       try {
         const { data: cartProducts } = await axios.get(
-          "http://127.0.0.1:1331/UserPanel/Get-Addtocart/",
+          "https://api.cannabaze.com/UserPanel/Get-Addtocart/",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -134,7 +134,7 @@ const Context = (props) => {
     const initializeUserProfile = async (token) => {
       try {
         const { data: userProfile } = await axios.get(
-          "http://127.0.0.1:1331/UserPanel/Get-GetUserProfile/",
+          "https://api.cannabaze.com/UserPanel/Get-GetUserProfile/",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

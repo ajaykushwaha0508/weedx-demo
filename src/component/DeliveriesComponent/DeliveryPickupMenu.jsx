@@ -19,7 +19,7 @@
 //     const [Pickup , SetPickup] = React.useState([])
 //     React.useEffect(() => {
 //         axios.get(
-//             'http://127.0.0.1:1331/UserPanel/Get-DeliveryStores/',
+//             'https://api.cannabaze.com/UserPanel/Get-DeliveryStores/',
 //         ).then(response => {
 
 //             SetDelivery(response.data)
@@ -28,7 +28,7 @@
 
 //             })
 //             axios.get(
-//                 'http://127.0.0.1:1331/UserPanel/Get-PickupStores/',
+//                 'https://api.cannabaze.com/UserPanel/Get-PickupStores/',
 //             ).then(response => {
 
 //                 SetPickup(response.data)

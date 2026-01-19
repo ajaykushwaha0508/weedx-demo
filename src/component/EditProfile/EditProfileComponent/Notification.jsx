@@ -144,7 +144,7 @@ const Notification = ({ Profile, Api, SetApi }) => {
   };
   React.useEffect(() => {
     Axios.post(
-      `http://127.0.0.1:1331/UserPanel/Update-UpdateUserProfile/`,
+      `https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
       {
         EmailBoolean: Checked.Email,
         NewsLetter: Checked.News_Letter ? Checked.News_Letter : false,
@@ -182,7 +182,10 @@ const Notification = ({ Profile, Api, SetApi }) => {
         headers: { Authorization: `Bearer ${token_data}` },
       };
 
-      Axios.get(`http://127.0.0.1:1331/UserPanel/Get-GetUserProfile/`, config)
+      Axios.get(
+        `https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
+        config
+      )
         .then((res) => {
           SetChecked({
             ...Checked,

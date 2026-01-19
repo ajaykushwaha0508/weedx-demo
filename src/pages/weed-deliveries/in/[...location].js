@@ -344,7 +344,7 @@ Deliveries.getLayout = function getLayout(page) {
 export async function GetAllDelivery(object) {
   try {
     const response = await fetch(
-      "http://127.0.0.1:1331/UserPanel/Get-DeliveryStores/",
+      "https://api.cannabaze.com/UserPanel/Get-DeliveryStores/",
       {
         method: "POST",
         headers: {
@@ -397,7 +397,7 @@ function capitalizeFirstLetter(string) {
 }
 
 async function postData(createurl, value, address, id) {
-  const url = `http://127.0.0.1:1331/UserPanel/Update-SiteMap/${id}`;
+  const url = `https://api.cannabaze.com/UserPanel/Update-SiteMap/${id}`;
   const data = {
     j: createurl,
     address: value,
@@ -529,14 +529,14 @@ export const getServerSideProps = async (context) => {
 
     // Fetch product data and webpage content in parallel
     const [productResponse, Webcontent] = await Promise.all([
-      fetch("http://127.0.0.1:1331/UserPanel/Get-AllProduct/", {
+      fetch("https://api.cannabaze.com/UserPanel/Get-AllProduct/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(object1),
       }),
       !Boolean(route) &&
         fetch(
-          "http://127.0.0.1:1331/UserPanel/Get-WebpageDescriptionDeliveries/",
+          "https://api.cannabaze.com/UserPanel/Get-WebpageDescriptionDeliveries/",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

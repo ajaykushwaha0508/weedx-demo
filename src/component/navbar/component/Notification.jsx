@@ -56,7 +56,7 @@ function Notification({
 
       axios
         .get(
-          `http://127.0.0.1:1331/UserPanel/GetUserNotificationByLogin/`,
+          `https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
           config
         )
         .then((res) => {
@@ -108,7 +108,7 @@ function Notification({
 
     try {
       await axios.post(
-        "http://127.0.0.1:1331/UserPanel/ClearNotification/",
+        "https://api.cannabaze.com/UserPanel/ClearNotification/",
         { Clear: notificationIds },
         config
       );
@@ -124,13 +124,13 @@ function Notification({
 
     try {
       await axios.post(
-        "http://127.0.0.1:1331/UserPanel/ClearNotification/",
+        "https://api.cannabaze.com/UserPanel/ClearNotification/",
         { Clear: [e.Id] },
         config
       );
 
       const response = await axios.get(
-        `http://127.0.0.1:1331/UserPanel/GetUserNotificationByLogin/`,
+        `https://api.cannabaze.com/UserPanel/GetUserNotificationByLogin/`,
         config
       );
 
