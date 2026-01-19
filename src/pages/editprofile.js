@@ -6,167 +6,202 @@ import EditProfileOnlineOrder from "@/component/EditProfile/EditProfileOnlineOrd
 import { IconButton } from "@mui/material";
 import { AiFillCamera } from "react-icons/ai";
 import Link from "next/link";
-import Cookies from 'universal-cookie';
-import clases from '../styles/customstyle.module.css';
+import Cookies from "universal-cookie";
+import clases from "../styles/customstyle.module.css";
 import Image from "next/image";
-import { useRouter } from 'next/router';
-import Axios from 'axios';
+import { useRouter } from "next/router";
+import Axios from "axios";
 import Createcontext from "../hooks/context";
-import  Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 // import Router from 'next/router';
 import Layout from "@/layout/layout";
 // import Layout1 from "@/layout/layout1";
-export default function EditProfile(){
-    const router = useRouter();
-    const { state, dispatch } = useContext(Createcontext)
-    const cookies = new Cookies();
-    const [Profile, SetProfile] = React.useState({})
-    let token_data = cookies.get('User_Token_access')
-    let accessToken
-    if (typeof window !== 'undefined') {
+export default function EditProfile() {
+  const router = useRouter();
+  const { state, dispatch } = useContext(Createcontext);
+  const cookies = new Cookies();
+  const [Profile, SetProfile] = React.useState({});
+  let token_data = cookies.get("User_Token_access");
+  let accessToken;
+  if (typeof window !== "undefined") {
+    accessToken = localStorage.getItem("User_Token_access");
+  }
+  if (Boolean(accessToken)) {
+    token_data = accessToken;
+  }
+  React.useEffect(() => {
+    SetProfile((prevProfile) => {
+      return state.Profile;
+    });
+  }, []);
+  const [Api, SetApi] = React.useState(false);
+  const [selectedImage, setSelectedImage] = React.useState(null);
+  const [Error, SetError] = React.useState("");
+  React.useEffect(() => {
+    if (Boolean(token_data)) {
+      const config = {
+        headers: { Authorization: `Bearer ${token_data}` },
+      };
 
-        accessToken = localStorage.getItem('User_Token_access');
-
-    }
-    if(Boolean(accessToken)){token_data=accessToken};
-   React.useEffect(()=>{
-    SetProfile((prevProfile) => {return  state.Profile});
-   },[])
-    const [Api, SetApi] = React.useState(false)
-    const [selectedImage, setSelectedImage] = React.useState(null);
-    const [Error, SetError] = React.useState('')
-    React.useEffect(() => {
-        if (Boolean(token_data)) {
-            const config = {
-                headers: {Authorization: `Bearer ${token_data}` }
-            };
-
-            Axios.get(`https://api.cannabaze.com/UserPanel/Get-GetUserProfile/`,
-                config,
-
-            )
-                .then((res) => {
-                    SetProfile(res.data)
-                    dispatch({ type: 'Profile', Profile: res.data })
-                })
-                .catch((error) => {
-                    console.error("error")
-                })
-        }  
-    }, [Api, token_data])
-    const handleImage = (event) => {
-        const file = event.target.files[0];
-        compressImage(file)
-    }
-    const compressImage = (file) => {
-    
-                setSelectedImage(URL.createObjectURL(file))
-                SetError('')
-                Submit(file)
-        
-    };
-    const Submit = (w) => {
-        const formdata = new FormData();
-        formdata.append('image', w);
-        formdata.append('googlelink', '');
-        Axios.post(`https://api.cannabaze.com/UserPanel/Update-UpdateUserProfile/`,
-            formdata,
-            {
-                headers: {
-                    'Authorization': `Bearer ${token_data}`
-                }
-                ,
-            }
-        ).then((res) => {
-            dispatch({ type: 'Profile', Profile: res.data.data })
-        }).catch((error) => {
-
-            setError("Username", {
-                type: "manual",
-                message: error.response.data.error.username[0],
-            })
+      Axios.get(`http://127.0.0.1:1331/UserPanel/Get-GetUserProfile/`, config)
+        .then((res) => {
+          SetProfile(res.data);
+          dispatch({ type: "Profile", Profile: res.data });
         })
-    }
-    const deleteaccount = ()=>{
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then( async (result) => {
-            if (result.isConfirmed) {
-                localStorage.removeItem('User_Token_access');
-                cookies.remove('User_Token_access');
-                await dispatch({ type: 'Login', login: false });
-                await dispatch({ type: 'ApiProduct' });
-                await dispatch({ type: 'Profile', Profile: [] });
-               
-                await Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-                router.push('/');
-            }
+        .catch((error) => {
+          console.error("error");
         });
     }
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12 mt-4">
-                    <div className="EditProfile_heading_cont d-lg-none d-block">
-                        <Link href="/"><span><IconButton><IoChevronBackSharp color="#707070" size={18} /></IconButton></span><span className="editProfile_backBtn">Back to Home</span></Link>
-                    </div>
-                    <div className="EditProfile_heading_cont">
-                        <h1 className="EditProfile_heading">{`Profile Setting`}</h1>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-8">
-                        <div className="text-center">
-                            <div className="ProfileImageWrapper">
-
-                                {
-                                    selectedImage !== null ? <Image   onError={(e) => (e.target.src = '/blankImage.jpg')} priority width={100} height={100} src={selectedImage} alt='profile_image'
-                                        title='profile_image'
-                                        className="profile_images" />
-                                        :
-                                        <Image
-                                        onError={(e) => (e.target.src = '/blankImage.jpg')}
-                                        priority
-                                            width={100}
-                                            height={100}
-                                            src={state.Profile.googlelink === null ? `${state.Profile.image} ` : state.Profile.googlelink}
-                                            alt='profile_image'
-                                            title='profile_image'
-                                            className="profile_images"
-                                        />
-                                }
-                            </div>
-                            <div className="w-100 profileInput_container">
-                                <label for="profile image" className="change_profile_container_padding loginwithgoogle">
-                                    <input onChange={(event) => { handleImage(event) }}  type="file"  accept="image/*" multiple={false} hidden id="profile image" />
-                                    <AiFillCamera color="#707070" size={22} /><span className="nameChangeProfile">{`Change profile`}</span>
-                                    {Error !== '' && <p style={{ color: "red", fontSize: 'x-small' }}>{Error}</p>}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <EditProfileLogin Profile={Profile} Api={Api} SetApi={SetApi} />
-                <EditProfileOnlineOrder Profile={Profile} Api={Api} SetApi={SetApi} />
-                {/* <Notification Profile={Profile} Api={Api} SetApi={SetApi} /> */}
-                <div className={clases.delete_account_btn_wrapper}>
-                    <button onClick={()=>{deleteaccount()}}>Delete Account</button>
-                </div>
-            </div>
-
-        </div>
+  }, [Api, token_data]);
+  const handleImage = (event) => {
+    const file = event.target.files[0];
+    compressImage(file);
+  };
+  const compressImage = (file) => {
+    setSelectedImage(URL.createObjectURL(file));
+    SetError("");
+    Submit(file);
+  };
+  const Submit = (w) => {
+    const formdata = new FormData();
+    formdata.append("image", w);
+    formdata.append("googlelink", "");
+    Axios.post(
+      `http://127.0.0.1:1331/UserPanel/Update-UpdateUserProfile/`,
+      formdata,
+      {
+        headers: {
+          Authorization: `Bearer ${token_data}`,
+        },
+      }
     )
+      .then((res) => {
+        dispatch({ type: "Profile", Profile: res.data.data });
+      })
+      .catch((error) => {
+        setError("Username", {
+          type: "manual",
+          message: error.response.data.error.username[0],
+        });
+      });
+  };
+  const deleteaccount = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("User_Token_access");
+        cookies.remove("User_Token_access");
+        await dispatch({ type: "Login", login: false });
+        await dispatch({ type: "ApiProduct" });
+        await dispatch({ type: "Profile", Profile: [] });
+
+        await Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+        router.push("/");
+      }
+    });
+  };
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-12 mt-4">
+          <div className="EditProfile_heading_cont d-lg-none d-block">
+            <Link href="/">
+              <span>
+                <IconButton>
+                  <IoChevronBackSharp color="#707070" size={18} />
+                </IconButton>
+              </span>
+              <span className="editProfile_backBtn">Back to Home</span>
+            </Link>
+          </div>
+          <div className="EditProfile_heading_cont">
+            <h1 className="EditProfile_heading">{`Profile Setting`}</h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-8">
+            <div className="text-center">
+              <div className="ProfileImageWrapper">
+                {selectedImage !== null ? (
+                  <Image
+                    onError={(e) => (e.target.src = "/blankImage.jpg")}
+                    priority
+                    width={100}
+                    height={100}
+                    src={selectedImage}
+                    alt="profile_image"
+                    title="profile_image"
+                    className="profile_images"
+                  />
+                ) : (
+                  <Image
+                    onError={(e) => (e.target.src = "/blankImage.jpg")}
+                    priority
+                    width={100}
+                    height={100}
+                    src={
+                      state.Profile.googlelink === null
+                        ? `${state.Profile.image} `
+                        : state.Profile.googlelink
+                    }
+                    alt="profile_image"
+                    title="profile_image"
+                    className="profile_images"
+                  />
+                )}
+              </div>
+              <div className="w-100 profileInput_container">
+                <label
+                  for="profile image"
+                  className="change_profile_container_padding loginwithgoogle"
+                >
+                  <input
+                    onChange={(event) => {
+                      handleImage(event);
+                    }}
+                    type="file"
+                    accept="image/*"
+                    multiple={false}
+                    hidden
+                    id="profile image"
+                  />
+                  <AiFillCamera color="#707070" size={22} />
+                  <span className="nameChangeProfile">{`Change profile`}</span>
+                  {Error !== "" && (
+                    <p style={{ color: "red", fontSize: "x-small" }}>{Error}</p>
+                  )}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <EditProfileLogin Profile={Profile} Api={Api} SetApi={SetApi} />
+        <EditProfileOnlineOrder Profile={Profile} Api={Api} SetApi={SetApi} />
+        {/* <Notification Profile={Profile} Api={Api} SetApi={SetApi} /> */}
+        <div className={clases.delete_account_btn_wrapper}>
+          <button
+            onClick={() => {
+              deleteaccount();
+            }}
+          >
+            Delete Account
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 EditProfile.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>;
+  return <Layout>{page}</Layout>;
 };

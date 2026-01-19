@@ -1,57 +1,56 @@
-import React from 'react'
+import React from "react";
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
-import Link from 'next/link';
+import Link from "next/link";
 import axios from "axios";
-import { useRouter } from 'next/router';
-import { Post_BlogLike } from "@/hooks/apicall/api.js"
+import { useRouter } from "next/router";
+import { Post_BlogLike } from "@/hooks/apicall/api.js";
 import { FaRegHeart } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
 import { NewsSeo } from "@/component/ScoPage/NewsSeo";
 import _ from "lodash";
-import Image from 'next/image';
-import Createcontext from '@/hooks/context.js';
+import Image from "next/image";
+import Createcontext from "@/hooks/context.js";
 import { RWebShare } from "react-web-share";
-import Cookies from 'universal-cookie';
-import Blogheaders from '@/component/Pageheaders/Blogheaders';
-import { modifystr } from "@/hooks/utilis/commonfunction"
+import Cookies from "universal-cookie";
+import Blogheaders from "@/component/Pageheaders/Blogheaders";
+import { modifystr } from "@/hooks/utilis/commonfunction";
 import Layout from "@/layout/layout";
-import Currentlocation from '@/component/currentlocation/CurrentLocation';
-import Styled from '@/styles/customstyle.module.css';
-export default function Allblogs(props){
-  const router = useRouter()
-  const { state } = React.useContext(Createcontext)
+import Currentlocation from "@/component/currentlocation/CurrentLocation";
+import Styled from "@/styles/customstyle.module.css";
+export default function Allblogs(props) {
+  const router = useRouter();
+  const { state } = React.useContext(Createcontext);
   const cookies = new Cookies();
-  let token_data = cookies.get('User_Token_access')
-  let accessToken
-  if (typeof window !== 'undefined') {
-    accessToken = localStorage.getItem('User_Token_access');
+  let token_data = cookies.get("User_Token_access");
+  let accessToken;
+  if (typeof window !== "undefined") {
+    accessToken = localStorage.getItem("User_Token_access");
   }
-  if (Boolean(accessToken)) { token_data = accessToken }
+  if (Boolean(accessToken)) {
+    token_data = accessToken;
+  }
   function PostLike(item) {
-
     if (state?.login) {
-      Post_BlogLike(item?.id, !item.Liked).then((res) => {
+      Post_BlogLike(item?.id, !item.Liked)
+        .then((res) => {
+          axios
+            .get("http://127.0.0.1:1331/UserPanel/GetNewsbyUser/", {
+              headers: { Authorization: `Bearer ${token_data}` },
+            })
+            .then(async (res) => {
+              setallblogs(res.data);
+              setloader(false);
 
-        axios.get('https://api.cannabaze.com/UserPanel/GetNewsbyUser/', {
-
-          headers: { Authorization: `Bearer ${token_data}` }
-
-        }).then(async (res) => {
-          setallblogs(res.data)
-          setloader(false)
-
-          setisdata(true)
-        }).catch((err) => {
-          console.trace(err)
+              setisdata(true);
+            })
+            .catch((err) => {
+              console.trace(err);
+            });
         })
-
-      }).catch(() => {
-
-      })
-    }
-    else {
-      router.push('/login')
+        .catch(() => {});
+    } else {
+      router.push("/login");
     }
   }
 
@@ -63,23 +62,30 @@ export default function Allblogs(props){
         <Blogheaders title="Latest news" />
         <div className={Styled.blogListWrapper}>
           {props?.initialData.map((items, index) => {
-            const modifiedSlug = items.Url_slug ? modifystr(items.Url_slug) : modifystr(items.Title);
-            const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${items.id}`;
+            const modifiedSlug = items.Url_slug
+              ? modifystr(items.Url_slug)
+              : modifystr(items.Title);
+            const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${
+              items.id
+            }`;
             return (
               <div className={`row ${Styled.blogListCard} mx-0`} key={index}>
-                <div className='row'>
+                <div className="row">
                   <div className="col-4">
-                    <Link href={blogUrl} className='d-sm-block d-flex justify-content-center align-items-center h-100'>
-                      <Image className={Styled.imageBlogSection}
+                    <Link
+                      href={blogUrl}
+                      className="d-sm-block d-flex justify-content-center align-items-center h-100"
+                    >
+                      <Image
+                        className={Styled.imageBlogSection}
                         width={300}
                         height={300}
                         src={items.Image}
                         alt={items.Alt_Text}
                         title={items.Alt_Text}
-                        onError={(e) => (e.target.src = '/blankImage.jpg')}
+                        onError={(e) => (e.target.src = "/blankImage.jpg")}
                       />
                     </Link>
-
                   </div>
                   <div className="col">
                     <div className={Styled.blogcardText}>
@@ -87,20 +93,32 @@ export default function Allblogs(props){
                         <span>{items?.Publish_Date?.slice(0, 10)}</span>
                       </div>
                       <Link href={blogUrl}>
-                        <h2 className={Styled.blogcardHeading}>{items.Title}</h2>
+                        <h2 className={Styled.blogcardHeading}>
+                          {items.Title}
+                        </h2>
                       </Link>
                       <div
-                        onClick={() => { router.push(blogUrl) }}
+                        onClick={() => {
+                          router.push(blogUrl);
+                        }}
                         className={Styled.blogcardDescription}
-                        dangerouslySetInnerHTML={{ __html: items.Description?.split('</p>')[0] }}
+                        dangerouslySetInnerHTML={{
+                          __html: items.Description?.split("</p>")[0],
+                        }}
                       />
-                      <div className={`row d-md-flex d-none ${Styled.extra_function} `}>
+                      <div
+                        className={`row d-md-flex d-none ${Styled.extra_function} `}
+                      >
                         <div className="col-3">
-                          <span className={Styled.action_icons}><AiFillEye /></span>
+                          <span className={Styled.action_icons}>
+                            <AiFillEye />
+                          </span>
                           <span>{items.ViewCount} Views</span>
                         </div>
                         <div className="col-3">
-                          <span className={Styled.action_icons}><BiCommentDetail /></span>
+                          <span className={Styled.action_icons}>
+                            <BiCommentDetail />
+                          </span>
                           <span>{items.commentCount}</span>
                         </div>
                         <div className="col-3">
@@ -119,8 +137,20 @@ export default function Allblogs(props){
                         <div className="col-3">
                           <span className={Styled.action_icons}>
                             <RWebShare
-                              data={{ url: `http://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
-                              sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                              data={{
+                                url: `http://www.weedx.io/${router.pathname.substring(
+                                  1
+                                )}/${modifystr(items.Title)}/${items.id}`,
+                              }}
+                              sites={[
+                                "facebook",
+                                "twitter",
+                                "whatsapp",
+                                "telegram",
+                                "linkedin",
+                                "mail",
+                                "copy",
+                              ]}
                               onClick={() => console.info("share successful!")}
                               color="#31B665"
                             >
@@ -134,13 +164,19 @@ export default function Allblogs(props){
                   </div>
                 </div>
                 <div className="col-12 d-md-none d-block mt-1">
-                  <div className={`row ${Styled.extra_function} ${Styled.extra_function_mobile}`}>
+                  <div
+                    className={`row ${Styled.extra_function} ${Styled.extra_function_mobile}`}
+                  >
                     <div className="col-4">
-                      <span className={Styled.action_icons}><AiFillEye   color="#31B655"/></span>
+                      <span className={Styled.action_icons}>
+                        <AiFillEye color="#31B655" />
+                      </span>
                       <span>{items.ViewCount}</span>
                     </div>
                     <div className="col-4">
-                      <span className={Styled.action_icons}><BiCommentDetail  color="#31B655" /></span>
+                      <span className={Styled.action_icons}>
+                        <BiCommentDetail color="#31B655" />
+                      </span>
                       <span>{items.commentCount}</span>
                     </div>
                     <div className="col-4">
@@ -152,11 +188,10 @@ export default function Allblogs(props){
                           <AiFillHeart color="#31B655" />
                         ) : (
                           <FaRegHeart color="#31B655" />
-                        )}    </span>
-                        <span>{items.likeCount}</span>
-                  
+                        )}{" "}
+                      </span>
+                      <span>{items.likeCount}</span>
                     </div>
-                  
                   </div>
                 </div>
               </div>
@@ -165,11 +200,10 @@ export default function Allblogs(props){
         </div>
       </div>
     </div>
-
-  )
+  );
 }
 
- Allblogs.getLayout = function getLayout(page) {
+Allblogs.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
@@ -182,21 +216,23 @@ export default function Allblogs(props){
 //   };
 // }
 
-
 export async function getStaticProps(context) {
   try {
-    const res = await fetch('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "category": 1,
-        "limit": 1000
-      })
-    }).catch(() => null);
-    const json = await res.json()
-    const data = _.orderBy(json, ['created'], ['desc']); // Assuming 'created' is a date field  
+    const res = await fetch(
+      "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          category: 1,
+          limit: 1000,
+        }),
+      }
+    ).catch(() => null);
+    const json = await res.json();
+    const data = _.orderBy(json, ["created"], ["desc"]); // Assuming 'created' is a date field
     // console.log(data)
     return {
       props: {
@@ -205,7 +241,7 @@ export async function getStaticProps(context) {
       revalidate: 60,
     };
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     return {
       props: {
         initialData: [],

@@ -2,29 +2,35 @@ import React from "react";
 import { useRouter } from "next/router";
 import Layout from "@/layout/layout";
 // import { HomePageSco } from "../component/ScoPage/HomePageSco"
-import dynamic from 'next/dynamic'
-const HomePageSco = dynamic(() => import('../component/ScoPage/HomePageSco'),{ 
-  memo: true 
+import dynamic from "next/dynamic";
+const HomePageSco = dynamic(() => import("../component/ScoPage/HomePageSco"), {
+  memo: true,
 });
 
-import  HomePageBanner from "../component/home/homepagebanner"
-const HomePageDealsSignup = dynamic(() => import('../component/home/HomePageDealsSignup'), { ssr: true ,  memo: true });
-const CategoryProduct = dynamic(() => import('../component/category/category'),{ 
-  memo: true 
-});
+import HomePageBanner from "../component/home/homepagebanner";
+const HomePageDealsSignup = dynamic(
+  () => import("../component/home/HomePageDealsSignup"),
+  { ssr: true, memo: true }
+);
+const CategoryProduct = dynamic(
+  () => import("../component/category/category"),
+  {
+    memo: true,
+  }
+);
 // const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'), { ssr: false ,  memo: true });
 // const DeliveryServices = dynamic(() => import('../component/home/deliveryservice'));
-import  DeliveryServices from '../component/home/deliveryservice'
-const Staticcontent = dynamic(() => import('../component/home/staticcontent'), { 
-  memo: true 
+import DeliveryServices from "../component/home/deliveryservice";
+const Staticcontent = dynamic(() => import("../component/home/staticcontent"), {
+  memo: true,
 });
-const Newsblog = dynamic(() => import('@/component/home/Newsblog'), {
+const Newsblog = dynamic(() => import("@/component/home/Newsblog"), {
   ssr: false, // Disable server-side rendering for this component
   loading: () => <p>Loading Newsblog...</p>, // Optional loading placeholder
 });
 
-const FeaturedBrand = dynamic(() => import('@/component/home/FeaturedBrand'), { 
-  memo: true 
+const FeaturedBrand = dynamic(() => import("@/component/home/FeaturedBrand"), {
+  memo: true,
 });
 import Currentlocation from "@/component/currentlocation/CurrentLocation";
 import Createcontext from "@/hooks/context";
@@ -33,66 +39,86 @@ import axios from "axios";
 
 const transformString = (str) => {
   if (typeof str !== "string" || !str.trim()) {
-    return '';
+    return "";
   }
 
   return str
-    .replace(/-/g, " ")  // Replace hyphens with spaces
-    .split(' ')          // Split the string into an array of words
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
-    .join(' ');          // Join the words back into a single string
+    .replace(/-/g, " ") // Replace hyphens with spaces
+    .split(" ") // Split the string into an array of words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
+    .join(" "); // Join the words back into a single string
 };
 export default function Home({ initialData }) {
   const { state, dispatch } = React.useContext(Createcontext);
 
-  const Navigate = useRouter()
-  
-  const ShowCategoryProduct = React.useCallback((id, name) => {
-    Navigate.push(`/products/${modifystr(name)}/${id}`);
-  }, [Navigate]);
+  const Navigate = useRouter();
+
+  const ShowCategoryProduct = React.useCallback(
+    (id, name) => {
+      Navigate.push(`/products/${modifystr(name)}/${id}`);
+    },
+    [Navigate]
+  );
 
   return (
     <>
       {state.permission && <Currentlocation></Currentlocation>}
       <HomePageSco location={useRouter().pathname}></HomePageSco>
-  
-      <HomePageBanner props={initialData?.topbanner} btype={'mainbanner'}> </HomePageBanner>
 
-      <CategoryProduct Category={initialData.category} ShowCategoryProduct={ShowCategoryProduct} ></CategoryProduct>
-      <DeliveryServices link={"weed-deliveries"} title={"Delivery services"} data={initialData.GetDelivery} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
-      <HomePageBanner props={initialData.bottembannner} btype={'submainbanner'}></HomePageBanner>
-      <DeliveryServices  link={"weed-dispensaries"} title={"Weed Dispensaries Near You"} data={initialData.Dispensaries} initialData={initialData} location={initialData.formatted_address}></DeliveryServices>
+      <HomePageBanner props={initialData?.topbanner} btype={"mainbanner"}>
+        {" "}
+      </HomePageBanner>
+
+      <CategoryProduct
+        Category={initialData.category}
+        ShowCategoryProduct={ShowCategoryProduct}
+      ></CategoryProduct>
+      <DeliveryServices
+        link={"weed-deliveries"}
+        title={"Delivery services"}
+        data={initialData.GetDelivery}
+        initialData={initialData}
+        location={initialData.formatted_address}
+      ></DeliveryServices>
+      <HomePageBanner
+        props={initialData.bottembannner}
+        btype={"submainbanner"}
+      ></HomePageBanner>
+      <DeliveryServices
+        link={"weed-dispensaries"}
+        title={"Weed Dispensaries Near You"}
+        data={initialData.Dispensaries}
+        initialData={initialData}
+        location={initialData.formatted_address}
+      ></DeliveryServices>
       <FeaturedBrand CardDataArray={initialData.brand} />
       <Staticcontent></Staticcontent>
       <Newsblog data={initialData.news}></Newsblog>
-      <HomePageDealsSignup /> 
+      <HomePageDealsSignup />
     </>
   );
 }
-
-
 
 Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
-
 export async function getServerSideProps(context) {
-  const cookies = JSON.parse(context.req.headers['x-fetchlocation'] || '');
+  const cookies = JSON.parse(context.req.headers["x-fetchlocation"] || "");
 
   const object = {
-    City: transformString(cookies.city) || '',
-    State: transformString(cookies.state) || '',
-    Country: transformString(cookies.country) || '',
-    limit: 10
+    City: transformString(cookies.city) || "",
+    State: transformString(cookies.state) || "",
+    Country: transformString(cookies.country) || "",
+    limit: 10,
   };
   for (const key in object) {
-    if (object[key] === '') {
+    if (object[key] === "") {
       delete object[key];
     }
   }
   const handleError = (error) => {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     return {
       props: {
         initialData: {
@@ -101,7 +127,7 @@ export async function getServerSideProps(context) {
           bottembannner: [],
           brand: [],
         },
-        error: 'Failed to fetch data',
+        error: "Failed to fetch data",
       },
     };
   };
@@ -120,9 +146,9 @@ export async function getServerSideProps(context) {
     } catch (error) {
       clearTimeout(timeoutId);
       if (axios.isCancel(error)) {
-        console.error('Request canceled due to timeout');
+        console.error("Request canceled due to timeout");
       } else {
-        console.error('Request failed:', error);
+        console.error("Request failed:", error);
       }
       throw error;
     }
@@ -131,38 +157,68 @@ export async function getServerSideProps(context) {
     // Start timer
     const startTime = Date.now();
 
-    const [banner, callcategory, bannner2, brand, GetDelivery, Dispensaries, news] = await Promise.all([
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/').catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-Categories/').catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/').catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-AllBrand/').catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/', {
-        method: 'POST',
+    const [
+      banner,
+      callcategory,
+      bannner2,
+      brand,
+      GetDelivery,
+      Dispensaries,
+      news,
+    ] = await Promise.all([
+      fetchWithTimeout(
+        "http://127.0.0.1:1331/UserPanel/Get-AllHomePageBanner/"
+      ).catch(() => null),
+      fetchWithTimeout("http://127.0.0.1:1331/UserPanel/Get-Categories/").catch(
+        () => null
+      ),
+      fetchWithTimeout(
+        "http://127.0.0.1:1331/UserPanel/Get-PromotionalBanners/"
+      ).catch(() => null),
+      fetchWithTimeout("http://127.0.0.1:1331/UserPanel/Get-AllBrand/").catch(
+        () => null
+      ),
+      fetchWithTimeout(
+        "http://127.0.0.1:1331/UserPanel/Get-GetDeliveryStoresHomepage/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify(object),
+        }
+      ).catch(() => null),
+      fetchWithTimeout("http://127.0.0.1:1331/UserPanel/Get-Dispensaries/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         data: JSON.stringify(object),
       }).catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-Dispensaries/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: JSON.stringify(object),
-      }).catch(() => null),
-      fetchWithTimeout('https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: JSON.stringify({
-          category: 2,
-          limit: 10,
-        }),
-      }).catch(() => null),
+      fetchWithTimeout(
+        "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify({
+            category: 2,
+            limit: 10,
+          }),
+        }
+      ).catch(() => null),
     ]);
 
-    const [topbanner, category, bottembannner, getbrand, GetDelivery1, Dispensaries1, news1] = await Promise.all([
+    const [
+      topbanner,
+      category,
+      bottembannner,
+      getbrand,
+      GetDelivery1,
+      Dispensaries1,
+      news1,
+    ] = await Promise.all([
       banner ? banner.data : [],
       callcategory ? callcategory.data : [],
       bannner2 ? bannner2.data : [],
@@ -182,13 +238,14 @@ export async function getServerSideProps(context) {
       category: category || [],
       bottembannner: bottembannner || [],
       brand: getbrand || [],
-      GetDelivery: GetDelivery1 === 'No Delivery in your Area' ? [] : GetDelivery1,
+      GetDelivery:
+        GetDelivery1 === "No Delivery in your Area" ? [] : GetDelivery1,
       Dispensaries: Dispensaries1 || [],
       news: news1,
       formatted_address: cookies.formatted_address,
-      City: transformString(cookies.city) || '',
-      State: transformString(cookies.state) || '',
-      Country: transformString(cookies.country) || '',
+      City: transformString(cookies.city) || "",
+      State: transformString(cookies.state) || "",
+      Country: transformString(cookies.country) || "",
     };
 
     return {
@@ -200,4 +257,3 @@ export async function getServerSideProps(context) {
     return handleError(error);
   }
 }
-
