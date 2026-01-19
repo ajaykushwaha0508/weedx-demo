@@ -127,7 +127,7 @@ export async function getServerSideProps(context) {
           bottembannner: [],
           brand: [],
         },
-        error: "Failed to fetch data",
+        error: "Failed to fetching data",
       },
     };
   };
