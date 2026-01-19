@@ -167,19 +167,19 @@ export async function getServerSideProps(context) {
       news,
     ] = await Promise.all([
       fetchWithTimeout(
-        "http://127.0.0.1:1331/UserPanel/Get-AllHomePageBanner/"
+        "https://api.cannabaze.com/UserPanel/Get-AllHomePageBanner/"
       ).catch(() => null),
-      fetchWithTimeout("http://127.0.0.1:1331/UserPanel/Get-Categories/").catch(
-        () => null
-      ),
       fetchWithTimeout(
-        "http://127.0.0.1:1331/UserPanel/Get-PromotionalBanners/"
+        "https://api.cannabaze.com/UserPanel/Get-Categories/"
       ).catch(() => null),
-      fetchWithTimeout("http://127.0.0.1:1331/UserPanel/Get-AllBrand/").catch(
-        () => null
-      ),
       fetchWithTimeout(
-        "http://127.0.0.1:1331/UserPanel/Get-GetDeliveryStoresHomepage/",
+        "https://api.cannabaze.com/UserPanel/Get-PromotionalBanners/"
+      ).catch(() => null),
+      fetchWithTimeout(
+        "https://api.cannabaze.com/UserPanel/Get-AllBrand/"
+      ).catch(() => null),
+      fetchWithTimeout(
+        "https://api.cannabaze.com/UserPanel/Get-GetDeliveryStoresHomepage/",
         {
           method: "POST",
           headers: {
@@ -188,15 +188,18 @@ export async function getServerSideProps(context) {
           data: JSON.stringify(object),
         }
       ).catch(() => null),
-      fetchWithTimeout("http://127.0.0.1:1331/UserPanel/Get-Dispensaries/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: JSON.stringify(object),
-      }).catch(() => null),
       fetchWithTimeout(
-        "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+        "https://api.cannabaze.com/UserPanel/Get-Dispensaries/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify(object),
+        }
+      ).catch(() => null),
+      fetchWithTimeout(
+        "https://api.cannabaze.com/UserPanel/Get-GetNewsbycategory/",
         {
           method: "POST",
           headers: {
@@ -227,6 +230,8 @@ export async function getServerSideProps(context) {
       Dispensaries ? Dispensaries.data : [],
       news ? news.data : [],
     ]);
+
+    console.log("category", category);
 
     // End timer and calculate total time
     const endTime = Date.now();
