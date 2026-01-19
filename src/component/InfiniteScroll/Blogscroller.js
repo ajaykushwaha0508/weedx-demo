@@ -1,0 +1,318 @@
+import React, { useState, useContext, useEffect } from "react";
+import { modifystr } from "@/hooks/utilis/commonfunction";
+import { useRouter } from "next/router";
+import Styled from "@/styles/customstyle.module.css";
+import Skeleton from "@mui/material/Skeleton";
+import Link from "next/link";
+import { AiFillHeart, AiFillEye } from "react-icons/ai";
+import { RWebShare } from "react-web-share";
+import { FaRegHeart } from "react-icons/fa";
+import { BsShareFill } from "react-icons/bs";
+import { BiCommentDetail } from "react-icons/bi";
+import Createcontext from "@/hooks/context.js";
+import _, { assignWith } from "lodash";
+import Image from "next/image";
+let limit = 0;
+
+const Blogscroller = () => {
+  const router = useRouter();
+  const { state } = useContext(Createcontext);
+  const [showabledata, setshowabledata] = useState([]);
+  let pageheightfixed = 0;
+  useEffect(() => {
+    const handleScroll = () => {
+      let scroll = window.scrollY;
+      const element = document.getElementById("skeleton");
+
+      if (element) {
+        let height = window.innerHeight;
+        const rect = element.getBoundingClientRect().top + window.pageYOffset;
+        if (
+          rect - height < scroll &&
+          (pageheightfixed !== rect || pageheightfixed === 0)
+        ) {
+          pageheightfixed = rect;
+          calldata();
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [showabledata]);
+  const calldata = async () => {
+    if (showabledata.length === limit) {
+      limit = showabledata.length === 0 ? 20 : showabledata.length + 10;
+      try {
+        const res = await fetch(
+          "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              category: 2,
+              limit: showabledata.length === 0 ? 20 : showabledata.length + 10,
+            }),
+          }
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const json = await res.json();
+        const data = await _.orderBy(json, ["created"], ["desc"]);
+
+        setshowabledata(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+  };
+  return (
+    <>
+      <div className={Styled.blogListWrapper}>
+        {showabledata.map((items, index) => {
+          const modifiedSlug = items.Url_slug
+            ? modifystr(items.Url_slug)
+            : modifystr(items.Title);
+          const blogUrl = `/${router.pathname.substring(1)}/${modifiedSlug}/${
+            items.id
+          }`;
+          return (
+            <div className={`row ${Styled.blogListCard} mx-0`} key={index}>
+              <div className="row">
+                <div className="col-4">
+                  <Link href={blogUrl} className="d-block">
+                    <Image
+                      className={Styled.imageBlogSection}
+                      width={100}
+                      height={100}
+                      priority
+                      src={items.Image}
+                      alt={items.Alt_Text}
+                      title={items.Alt_Text}
+                      onError={(e) => (e.target.src = "/blankImage.jpg")}
+                    />
+                  </Link>
+                </div>
+                <div className="col">
+                  <div className={Styled.blogcardText}>
+                    <div className={Styled.blogDate}>
+                      <span>{items.Publish_Date.slice(0, 10)}</span>
+                    </div>
+                    <Link href={blogUrl}>
+                      <h2 className={Styled.blogcardHeading}>{items.Title}</h2>
+                    </Link>
+                    <div
+                      onClick={() => {
+                        router.push(blogUrl);
+                      }}
+                      className={Styled.blogcardDescription}
+                      dangerouslySetInnerHTML={{
+                        __html: items.Description?.split("</p>")[0],
+                      }}
+                    />
+                    <div
+                      className={`row d-md-flex d-none ${Styled.extra_function}`}
+                    >
+                      <div className="col-3">
+                        <span className={Styled.action_icons}>
+                          <AiFillEye />
+                        </span>
+                        <span>{items.ViewCount} Views</span>
+                      </div>
+                      <div className="col-3">
+                        <span className={Styled.action_icons}>
+                          <BiCommentDetail />
+                        </span>
+                        <span>{items.commentCount}</span>
+                      </div>
+                      <div className="col-3">
+                        <span
+                          onClick={() => PostLike(items)}
+                          className={Styled.action_icons}
+                        >
+                          {state?.login && items.Liked ? (
+                            <AiFillHeart color="#31B655" />
+                          ) : (
+                            <FaRegHeart color="#31B655" />
+                          )}
+                        </span>
+                        <span>{items.likeCount}</span>
+                      </div>
+                      <div className="col-3">
+                        <span className={Styled.action_icons}>
+                          {/* <RWebShare
+                              data={{ url: `http://www.weedx.io/${router.pathname.substring(1)}/${modifystr(items.Title)}/${items.id}` }}
+                              sites={["facebook", "twitter", "whatsapp", "telegram", "linkedin", 'mail', 'copy']}
+                              onClick={() => console.info("share successful!")}
+                              color="#31B665"
+                            > <BsShareFill />
+                            </RWebShare> */}
+                        </span>
+                        <span>Share</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 d-md-none d-block mt-1">
+                <div
+                  className={`row ${Styled.extra_function} ${Styled.extra_function_mobile}`}
+                >
+                  <div className="col-3">
+                    <span className={Styled.action_icons}>
+                      <AiFillEye />
+                    </span>
+                    <span>{items.ViewCount}</span>
+                  </div>
+                  <div className="col-3">
+                    <span className={Styled.action_icons}>
+                      <BiCommentDetail />
+                    </span>
+                    <span>{items.commentCount}</span>
+                  </div>
+                  <div className="col-3">
+                    <span
+                      className={Styled.action_icons}
+                      onClick={() => PostLike(items)}
+                    >
+                      {state?.login && items.Liked ? (
+                        <AiFillHeart color="#31B655" />
+                      ) : (
+                        <FaRegHeart color="#31B655" />
+                      )}
+                      <span>{items.likeCount}</span>
+                    </span>
+                  </div>
+                  <div className="col-3"></div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div id="skeleton">
+        {showabledata.length % 10 === 0 && (
+          <div
+            className={`col-md-12 col-12 ${Styled.DeliveryItemsCardSkeleton}`}
+          >
+            {[1, 2, 3].map((items, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <div
+                    className={`col-12 ${Styled.eachDeliveryItemsCardLeftSkeleton}`}
+                  >
+                    <div className="col-12 d-flex ">
+                      <div
+                        className={`col-4 ${Styled.DeliveryItemsCardLeftSkeleton}`}
+                      >
+                        <Skeleton
+                          variant="rectangular"
+                          sx={{
+                            height: "150px",
+                            width: "90%",
+                            borderRadius: "10px",
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={`col-8 ${Styled.DeliveryItemsCardRightSkeleton} d-flex`}
+                      >
+                        <div
+                          className={`col-6 ${Styled.deliveryItemFirstRightSide}`}
+                        >
+                          <Skeleton
+                            variant="text"
+                            sx={{ height: "20px", width: "90%" }}
+                          />
+                          <Skeleton
+                            variant="text"
+                            sx={{
+                              height: "20px",
+                              marginTop: "10px",
+                              width: "60%",
+                            }}
+                          />
+                          <Skeleton
+                            variant="text"
+                            sx={{
+                              height: "20px",
+                              width: "70%",
+                              marginTop: "10px",
+                            }}
+                          />
+                        </div>
+                        <div
+                          className={`col-6 ${Styled.deliveryItemRightSide}`}
+                        >
+                          <Skeleton
+                            variant="text"
+                            sx={{ height: "20px", width: "90%" }}
+                          />
+                          <Skeleton
+                            variant="text"
+                            sx={{
+                              height: "20px",
+                              width: "60%",
+                              marginTop: "10px",
+                            }}
+                          />
+                          <Skeleton
+                            variant="text"
+                            sx={{
+                              height: "20px",
+                              width: "80%",
+                              marginTop: "10px",
+                            }}
+                          />
+                          <Skeleton
+                            variant="text"
+                            sx={{
+                              height: "20px",
+                              width: "60%",
+                              marginTop: "10px",
+                            }}
+                          />
+                          <Skeleton
+                            variant="text"
+                            sx={{
+                              height: "20px",
+                              width: "90%",
+                              marginTop: "10px",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={`col-12 ${Styled.DeliveryItemsCardRightSkeletonBtn}`}
+                    >
+                      <Skeleton
+                        variant="text"
+                        sx={{ height: "20px", width: "30%" }}
+                      />
+                      <Skeleton
+                        variant="text"
+                        sx={{
+                          height: "50px",
+                          width: "20%",
+                          borderRadius: "25px",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Blogscroller;

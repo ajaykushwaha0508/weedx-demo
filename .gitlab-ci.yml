@@ -1,0 +1,68 @@
+stages:
+  - install
+  - build
+  - dockerize
+  - deploy
+
+services:
+  - docker:dind
+
+variables:
+  NODE_IMAGE: "node:21"
+  DOCKER_IMAGE: "docker:latest"
+  DOCKER_CLI: "docker/compose:1.29.2"
+  IMAGE_USER: "msawood"
+  IMAGE_NAME: "weedx"
+
+
+cache:
+  paths:
+    - node_modules/
+    - build/
+
+install-job:
+  stage: install
+  image: $NODE_IMAGE
+  script:
+    - npm install --force
+  artifacts:
+    paths:
+      - node_modules/
+
+build-job:
+  stage: build
+  image: $NODE_IMAGE
+  script:
+    - CI=false ANALYZE=true npm run build -- --max-warnings=0
+  dependencies:
+    - install-job
+  artifacts:
+    paths:
+      - build/
+
+dockerize-job:
+  stage: dockerize
+  image: $DOCKER_IMAGE
+  variables:
+    DOCKER_DRIVER: overlay2
+  script:
+    - docker build -t $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA .
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+    - docker push $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA
+    - docker tag $IMAGE_USER/$IMAGE_NAME:$CI_COMMIT_SHA $IMAGE_USER/$IMAGE_NAME:main
+    - docker push $IMAGE_USER/$IMAGE_NAME:main
+  dependencies:
+    - build-job
+
+deploy-job:
+  stage: deploy
+  image: python:3.9
+  variables:
+    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+  script:
+    - pip install awscli
+    - aws ecs update-service --cluster $CLUSTER --service $SERVICE --force-new-deployment
+  dependencies:
+    - dockerize-job

@@ -1,0 +1,150 @@
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheets } from '@mui/styles';
+import Script from 'next/script';
+import countries from "i18n-iso-countries";
+countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+
+    const sheets = new ServerStyleSheets();
+    const originalRenderPage = ctx.renderPage;
+
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+      });
+    const transformString = (str) => {
+      if (typeof str !== "string" || !str.trim()) {
+        return '';
+      }
+
+      return str
+        .replace(/-/g, " ")  // Replace hyphens with spaces
+        .split(' ')          // Split the string into an array of words
+        .map(word => word.charAt(0) + word.slice(1).toLowerCase())  // Capitalize the first letter of each word
+        .join(' ');          // Join the words back into a single string
+    };
+
+    const initialProps = await Document.getInitialProps(ctx);
+    var code
+    if (Boolean(ctx?.req?.url.startsWith('/weed-dispensaries/in')) || Boolean(ctx?.req?.url.startsWith('/weed-deliveries/in'))) {
+      if (ctx.req.url.startsWith('/weed-dispensaries/in')) {
+        const k = ctx.req.url.slice('/weed-dispensaries/in/'.length)
+        const parts = k.split('/')
+        code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
+      }
+      else {
+        const k = ctx.req.url.slice('/weed-deliveries/in/'.length)
+        const parts = k.split('/')
+        code = "en-" + countries.getAlpha2Code(transformString(parts[0]), "en") || "US"
+      }
+    }
+    else {
+      code = ctx.req?.cookies?.locale || 'en-US'; // Default to English
+    }
+    return {
+      ...initialProps,
+      styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+      code
+    };
+  }
+
+
+  render() {
+
+    return (
+      <Html lang={this.props.code}>
+        <Head>
+          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          <Script
+        src={`http://maps.googleapis.com/maps/api/js?key=AIzaSyBRchIzUTBZskwvoli9S0YxLdmklTcOicU&libraries=places`}
+        strategy="beforeInteractive"
+      />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'GA_MEASUREMENT_ID', {
+                            cookie_flags: 'SameSite=None;Secure',
+                            anonymize_ip: true 
+                        });
+                        `,
+            }}
+          ></script>
+
+
+          {/* Google Tag Manager */}
+          <Script id="gtm-script" strategy="afterInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-M27MSTCW');
+            `}
+          </Script>
+          {/* Organization JSON-LD */}
+          <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
+            {`
+              {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "weedx.io",
+                "alternateName": "weedx.io",
+                "url": "http://www.weedx.io/",
+                "logo": "./WEEDX(1).png",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+1 (209) 655-0360",
+                  "contactType": "customer service",
+                  "areaServed": ["US", "GB", "CA", "AF", "AX", "AL", "AS", "AD", "DZ", "IN"],
+                  "availableLanguage": "en"
+                },
+                "sameAs": [
+                  "http://www.facebook.com/profile.php?id=61550742531174",
+                  "http://twitter.com/Weedx_io",
+                  "http://www.youtube.com/@Weedx-io",
+                  "http://www.instagram.com/weedx_io",
+                  "http://www.linkedin.com/company/weedx-io/"
+                ]
+              }
+            `}
+          </Script>
+
+          {/* Website JSON-LD */}
+          <Script id="website-jsonld" type="application/ld+json" strategy="afterInteractive">
+            {`
+              {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "url": "http://www.weedx.io/",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "http://www.weedx.io/search/?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            `}
+          </Script>
+        </Head>
+        <body>
+          {/* GTM Fallback for NoScript */}
+          <noscript>
+            <iframe
+
+              src="https://www.googletagmanager.com/ns.html?id=GTM-M27MSTCW"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            ></iframe>
+          </noscript>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}

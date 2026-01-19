@@ -1,0 +1,65 @@
+import { Button, Grid } from '@mui/material';
+import Link from 'next/link';
+import React, { memo } from 'react';
+import { FiShoppingBag } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
+import { MdReviews } from "react-icons/md";
+import { TbLogout } from "react-icons/tb";
+import { TbEdit } from "react-icons/tb";
+import { FaHandsHelping } from "react-icons/fa";
+import useStyles from "@/styles/style";
+import {useRouter} from 'next/router'
+import Image from 'next/image';
+import clases from '@/styles/customstyle.module.css'
+import Avatar from '@mui/material/Avatar';
+const Afterlogin = ({ dropDownState, state, profileRef, handleClickDropdown, Logout }) => {
+    const classes = useStyles();
+    return (
+        <React.Fragment >
+            {state?.login ?
+                <div className='position-relative' ref={profileRef}>
+                    <Grid display={{ xs: "none", md: "flex" }} justifyContent="flex-end">
+                        {/* <div className={'Navbar_profile_logo_container'}> */}
+                            <Avatar  alt="Profile"
+                                src={state.Profile.googlelink === null ? state.Profile.image : state.Profile.googlelink}
+                                sx={state.Embedded_Store.StoreID ==="" ?{ width: 40, height: 40 }:{ width: 35, height: 35 }}
+                                title="Profile"  onClick={handleClickDropdown}
+                            />
+                        {/* </div> */}
+                    </Grid>
+                    {dropDownState &&
+                        <div className={'profileDropdown_container'}>
+                            <section className={'Navbar_proflie_image_name_section'}>
+                                <p className={`profile_names ellipsis`}>{state.Profile.username}</p>
+                            </section>
+                            <hr />
+                            <ol className={'navbar_profile_orderList'}>
+                                <Link href={ '/editprofile' }><li className={'profile_list'}> <span> <TbEdit /></span> {`EDIT PROFILE`} </li></Link>
+                                <Link href={'/myorder'} ><li className={'profile_list'}> <span> <FiShoppingBag /></span>{`MY ORDER`}</li></Link>
+                                 {state.Embedded_Store.StoreID ==="" && <Link href={ '/whislists'}> <li className={'profile_list'}> <span> <FaHeart /></span>{`FAVORITES`}</li></Link>}
+                                 {state.Embedded_Store.StoreID ==="" &&  <Link href={ '/myreviews' }> <li className={'profile_list'}> <span> <MdReviews /></span>{`MY REVIEW`}</li></Link>}
+                                 {state.Embedded_Store.StoreID ==="" && <Link href={ '/helpcenter' }><li className={'profile_list'}> <span> <FaHandsHelping /></span>{`HELP`}</li></Link>}
+                                <li className={'profile_list'} onClick={Logout}> <span><TbLogout /></span> {`LOGOUT`}</li>
+                            </ol>
+                        </div>
+                    }
+                </div>
+                :
+                <div className='col-12 d-flex align-items-center gap-1 justify-content-end Sapceing'>
+                    <div className='col-lg-4 col-xl-5 col-sm-4'>
+                        <Grid display={{ xs: "none", md: "block", lg: "block", }}>
+                            <Link href="/login"><Button className={classes.muiBtn}>{`Log In`}</Button></Link>
+                        </Grid>
+                    </div>
+                    <div className='col-lg-4 col-xl-5 col-sm-4'>
+                        <Grid display={{ xs: "none", md: "block", lg: "block" }}>
+                            <Link href="/signup"><Button sx={{ boxShadow: 3 }} className={classes.muiBtn_Signup}>{`Sign Up`}</Button></Link>
+                        </Grid>
+                    </div>
+                </div>
+            }
+        </React.Fragment>
+    );
+};
+
+export default memo(Afterlogin);

@@ -1,0 +1,117 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { FaSearch } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
+import Image from "next/image";
+import { ClickAwayListener } from "@mui/base/ClickAwayListener";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { modifystr } from "@/hooks/utilis/commonfunction";
+import newclases from "@/styles/customstyle.module.css";
+const Blogheaders = (props) => {
+  const [searchtext, setsearchtext] = useState("");
+  const [allblogs, setallblogs] = useState([]);
+  const router = useRouter();
+
+  React.useEffect(() => {
+    const getData = setTimeout(() => {
+      axios
+        .post(
+          `http://127.0.0.1:1331/UserPanel/Get-BlogSearchApi/`,
+          {
+            search: searchtext,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          setallblogs(response.data);
+        });
+    }, 1000);
+
+    return () => clearTimeout(getData);
+  }, [searchtext]);
+  return (
+    <div className="d-md-flex py-3 justify-content-between align-items-center">
+      <div className="col-lg-3">
+        {" "}
+        <h1 className={newclases.section_main_title}>{props.title}</h1>{" "}
+      </div>
+      <ClickAwayListener
+        onClickAway={() => {
+          setsearchtext("");
+          setallblogs([]);
+        }}
+      >
+        <div className={newclases.customsearchbarbox}>
+          {Boolean(searchtext === "") && (
+            <span>
+              <FaSearch />
+            </span>
+          )}
+          <input
+            type="text"
+            placeholder="search..."
+            onChange={(e) => setsearchtext(e.target.value)}
+            value={searchtext}
+          />
+          {Boolean(searchtext !== "") && (
+            <span
+              onClick={() => {
+                setsearchtext("");
+                setallblogs([]);
+              }}
+            >
+              <RxCross2 />
+            </span>
+          )}
+
+          {Boolean(searchtext !== "") && (
+            <div className={newclases.searchedlsit}>
+              {Boolean(allblogs.length !== 0) ? (
+                <ul className="p-0">
+                  {allblogs.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <Link
+                          href={`/${router?.pathname?.substring(1)}/${
+                            item?.Url_slug === ("" || null || undefined)
+                              ? modifystr(item?.Title)
+                              : modifystr(item?.Url_slug)
+                          }/${item?.id}`}
+                        >
+                          <div className="searcheslists">
+                            <div className="searcheslists_image">
+                              <Image
+                                onError={(e) =>
+                                  (e.target.src = "/blankImage.jpg")
+                                }
+                                width={100}
+                                height={100}
+                                src={item.Image}
+                                alt="image"
+                              />
+                            </div>
+                            <h3>{item.Title}</h3>
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <div className="loadingspinner">
+                  <p> Your Data is loading......</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </ClickAwayListener>
+    </div>
+  );
+};
+export default Blogheaders;

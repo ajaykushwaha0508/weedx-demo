@@ -1,0 +1,26 @@
+import Head from "next/head"
+function FourZeroFour() {
+    return (
+        <Head>
+            <title>{"404 | weedx.io |"}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+            <meta name='description' content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
+            <link rel="canonical" href={`http://www.weedx.io/404/`} /> 
+            <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1"></meta>
+            <meta property="og:image" content={'/weedxlogo.webp'} />
+            {/* Facebook tags */}
+            <meta property="og:type" content={"website"} />
+            <meta property="og:title" content={"Learn everything about you favorite Cannabis | weedx.io |"} />
+            <meta property="og:description" content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
+            { /* End Facebook tags */}
+            { /* Twitter tags */}
+            <meta name="twitter:creator" content={"website"} />
+            <meta name="twitter:card" content={"Marijuana Dispensaries & Delivery Near Me"} />
+            <meta name="twitter:title" content={"Learn everything about you favorite Cannabis | weedx.io |"} />
+            <meta name="twitter:description" content={"Learn everything about your favorite Cannabis. Read this guide on weedx.io to understand the laws related to marijuana and about its legalization worldwide."} />
+        </Head>
+    )
+}
+
+export {FourZeroFour}

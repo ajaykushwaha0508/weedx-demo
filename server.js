@@ -1,0 +1,1568 @@
+const express = require("express");
+const next = require("next");
+const multer = require("multer");
+const cookieParser = require("cookie-parser");
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
+const ip = "192.168.1.20";
+const axios = require("axios");
+
+const args = process.argv;
+const portIndex = args.indexOf("-p");
+const port = portIndex !== -1 ? args[portIndex + 1] : 3000;
+
+console.log("port===>", port);
+
+const { createGzip } = require("zlib");
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+function modifystr(str) {
+  if (typeof str !== "string") {
+    return "";
+  } else {
+    str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    str = str?.trim().replaceAll(" ", "-");
+    let a = 0;
+    while (a < 1) {
+      if (str?.includes("--")) {
+        str = str?.replaceAll("--", "-");
+      } else if (str?.includes("//")) {
+        str = str?.replaceAll("//", "/");
+      } else if (str?.includes("//")) {
+        str = str?.replaceAll("-/", "/");
+      } else if (str?.includes("//")) {
+        str = str?.replaceAll("/-", "/");
+      } else if (str?.includes("/")) {
+        str = str?.replaceAll("/", "-");
+      } else {
+        a++;
+      }
+    }
+    if (str.toLowerCase().slice(-1) === "-") {
+      str = str.slice(0, -1); // Remove the trailing hyphen
+    }
+    return str.toLowerCase();
+  }
+}
+app.prepare().then(() => {
+  const server = express();
+  server.use(cookieParser());
+
+  // Custom route example
+
+  //   server.get("/sitemap.xml.gz", (req, res) => {
+  //     try {
+  //       // Get origin from request headers
+  //       const origin = req.get("Origin") || req.headers.host;
+  //       const protocol = req.protocol || "http";
+  //       const fullOrigin = `${protocol}://${origin}`;
+
+  //       // Set response headers
+  //       res.setHeader("Content-Type", "application/xml");
+  //       res.setHeader("Content-Encoding", "gzip");
+  //       res.setHeader(
+  //         "Content-Disposition",
+  //         'attachment; filename="sitemap.xml.gz"'
+  //       );
+  //       res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
+
+  //       // Define the sitemaps
+  //       const sitemaps = [
+  //         "law-sitemap",
+  //         "delivery-stores-sitemap",
+  //         "dispensaries-stores-sitemap",
+  //         "brand-sitemap",
+  //         "blogs-sitemap",
+  //         "news-sitemap",
+  //         "deliveries-location-sitemap",
+  //         "dispensaries-location-sitemap",
+  //         "products-sitemap",
+  //       ];
+
+  //       // Generate sitemap index XML
+  //       const sitemapContent = `
+  //           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //               ${sitemaps
+  //                 .map(
+  //                   (sitemap) => `
+  //                   <sitemap>
+  //                       <loc>${fullOrigin}/sitemap/${sitemap}.xml.gz</loc>
+  //                       <lastmod>${
+  //                         new Date().toISOString().split("T")[0]
+  //                       }</lastmod>
+  //                   </sitemap>`
+  //                 )
+  //                 .join("\n")}
+  //           </sitemapindex>`.trim();
+
+  //       // Compress and send the response
+  //       const gzip = createGzip({ level: 9 });
+  //       res.writeHead(200);
+  //       gzip.pipe(res);
+  //       gzip.end(sitemapContent);
+  //     } catch (error) {
+  //       console.error("Error generating sitemap:", error);
+  //       res.status(500).send("Internal Server Error");
+  //     }
+  //   });
+  //   //     // law-sitemap.xml.gz
+  //   server.get("/sitemap/:category", async (req, res) => {
+  //     switch (req.url) {
+  //       case "/sitemap/dispensaries-location-sitemap.xml":
+  //         const response1 = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/14`
+  //         );
+  //         if (response1.data[0].Xml) {
+  //           // split(':')[0].trim()
+  //           const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+  //           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //             ${response1.data[0].Xml.map(
+  //               (url) => `
+  //               <url>
+  //                 <loc>${url.split(",")[0].trim()}</loc>
+  //                 <changefreq>daily</changefreq>
+  //                 <priority>0.8</priority>
+  //               </url>
+  //             `
+  //             ).join("")}
+  //           </urlset>`;
+  //           res.setHeader("Content-Type", "text/xml");
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache the feed for 24 hours
+  //           res.write(sitemapXmll);
+  //           res.end();
+  //           //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+  //         }
+  //         break;
+  //       case "/sitemap/products-sitemap.xml":
+  //         const response4 = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/ListProductView/`
+  //         );
+  //         const responsecategory = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-Categories/`
+  //         );
+  //         const responseSubCategory = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-AllSubCategoriesForSitemap/`
+  //         );
+  //         if (response4) {
+  //           const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
+  //         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //             ${response4.data
+  //               .map(
+  //                 (url) => `
+  //                 <url>
+  //                     <loc>http://www.weedx.io/products/${modifystr(
+  //                       url.category_name
+  //                     )}/${modifystr(url.SubcategoryName)}/${modifystr(
+  //                   url.Product_Name
+  //                 )}/${url.id}</loc>
+  //                     <changefreq>daily</changefreq>
+  //                     <priority>0.8</priority>
+  //                 </url>
+  //             `
+  //               )
+  //               .join("")}
+  //             ${responsecategory.data
+  //               .map(
+  //                 (url) => `
+  //             <url>
+  //                 <loc>http://www.weedx.io/products/${modifystr(url.name)}/${
+  //                   url.id
+  //                 }</loc>
+  //                 <changefreq>daily</changefreq>
+  //                 <priority>0.80</priority>
+  //             </url>
+  //         `
+  //               )
+  //               .join("")}
+  //         ${responseSubCategory.data
+  //           .map(
+  //             (url) => `
+  //         <url>
+  //         <loc>http://www.weedx.io/products/${modifystr(
+  //           url.category_name
+  //         )}/${modifystr(url.name)}/${url.id}</loc>
+  //             <changefreq>daily</changefreq>
+  //             <priority>0.80</priority>
+  //         </url>
+  //     `
+  //           )
+  //           .join("")}
+  //         </urlset>`;
+  //           res.setHeader("Content-Type", "text/xml");
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache the feed for 24 hours
+  //           res.write(sitemapXml1);
+  //           res.end();
+  //         }
+  //         break;
+  //       case "/sitemap/deliveries-location-sitemap.xml":
+  //         const response2 = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/11`
+  //         );
+
+  //         if (response2.data[0].Xml) {
+  //           const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+  //           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //             ${response2.data[0].Xml.map(
+  //               (url) => `
+  //               <url>
+  //                 <loc>${url.split(",")[0].trim()}</loc>
+  //                 <changefreq>daily</changefreq>
+  //                 <priority>0.8</priority>
+  //               </url>
+  //             `
+  //             ).join("")}
+  //           </urlset>`;
+  //           res.setHeader("Content-Type", "text/xml");
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache the feed for 24 hours
+  //           res.write(sitemapXmll);
+  //           res.end();
+  //           //   fs.writeFileSync('./build/Sitemap/weed-dispensaries.xml', sitemapXmll);
+  //         }
+  //         break;
+  //       case "/sitemap/news-sitemap.xml":
+  //         try {
+  //           const res1 = await axios.post(
+  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             {
+  //               category: 1,
+  //               limit: 49000,
+  //             },
+  //             {
+  //               headers: {
+  //                 "Content-Type": "application/json",
+  //               },
+  //             }
+  //           );
+
+  //           const data = res1.data;
+
+  //           if (data) {
+  //             const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //                   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                     ${data
+  //                       .map(
+  //                         (url) => `
+  //                       <url>
+  //                         <loc>${`http://www.weedx.io/cannabis-news/${
+  //                           url.Url_slug === ("" || null || undefined)
+  //                             ? modifystr(url.Title)
+  //                             : modifystr(url.Url_slug)
+  //                         }/${url.id}`}</loc>
+  //                         <changefreq>daily</changefreq>
+  //                         <priority>0.8</priority>
+  //                       </url>
+  //                     `
+  //                       )
+  //                       .join("")}
+  //                   </urlset>`;
+
+  //             res.setHeader("Content-Type", "text/xml");
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache the feed for 24 hours
+  //             res.write(sitemapXml);
+  //             res.end();
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error("Error fetching news by category:", error);
+  //           res.statusCode = 500;
+  //           res.end("Error fetching news by category");
+  //         }
+  //         break;
+  //       case "/sitemap/blogs-sitemap.xml":
+  //         try {
+  //           const res1 = await axios.post(
+  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             {
+  //               category: 2,
+  //               limit: 49000,
+  //             },
+  //             {
+  //               headers: {
+  //                 "Content-Type": "application/json",
+  //               },
+  //             }
+  //           );
+  //           const data = res1.data;
+  //           if (data) {
+  //             const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //                     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                       ${data
+  //                         .map(
+  //                           (url) => `
+  //                         <url>
+  //                           <loc>${`http://www.weedx.io/blogs/${
+  //                             url.Url_slug === ("" || null || undefined)
+  //                               ? modifystr(url.Title)
+  //                               : modifystr(url.Url_slug)
+  //                           }/${url.id}`}</loc>
+  //                           <changefreq>daily</changefreq>
+  //                           <priority>0.8</priority>
+  //                         </url>
+  //                       `
+  //                         )
+  //                         .join("")}
+  //                     </urlset>`;
+
+  //             res.setHeader("Content-Type", "text/xml");
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache the feed for 24 hours
+  //             res.write(sitemapXml);
+  //             res.end();
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error("Error fetching news by category:", error);
+  //           res.statusCode = 500;
+  //           res.end("Error fetching news by category");
+  //         }
+  //         break;
+  //       case "/sitemap/brand-sitemap.xml":
+  //         const responsebrand = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-AllBrand/`
+  //         );
+  //         if (responsebrand) {
+  //           const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+  //             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //               ${responsebrand.data
+  //                 .map(
+  //                   (url) => `
+  //                 <url>
+  //                   <loc>${`${"http://www.weedx.io/brands"}/${modifystr(
+  //                     url.name
+  //                   )}/${url.id}`}</loc>
+  //                   <changefreq>daily</changefreq>
+  //                   <priority>0.7</priority>
+  //                 </url>
+  //               `
+  //                 )
+  //                 .join("")}
+  //             </urlset>`;
+  //           res.setHeader("Content-Type", "text/xml");
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache the feed for 24 hours
+  //           res.write(sitemapXmll);
+  //           res.end();
+  //         }
+  //         break;
+  //       case "/sitemap/dispensaries-stores-sitemap.xml":
+  //         const response5 = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //         );
+
+  //         if (response5 && response5.data) {
+  //           const dispensaryUrls = response5.data
+  //             .filter((url) => url.Store_Type === "dispensary")
+  //             .map(
+  //               (url) => `
+  //                 <url>
+  //                   <loc>http://www.weedx.io/weed-dispensaries/${modifystr(
+  //                     url.Store_Name
+  //                   )}/${url.id}</loc>
+  //                   <changefreq>daily</changefreq>
+  //                   <priority>0.8</priority>
+  //                 </url>`
+  //             )
+  //             .join("");
+
+  //           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //             ${dispensaryUrls}
+  //           </urlset>`;
+
+  //           res.setHeader("Content-Type", "text/xml");
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache the feed for 24 hours
+  //           res.write(sitemapXml);
+  //           res.end();
+  //         }
+  //         break;
+  //       case "/sitemap/delivery-stores-sitemap.xml":
+  //         const response6 = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //         );
+  //         if (response6 && response6.data) {
+  //           const dispensaryUrls = response6.data
+  //             .filter((url) => url.Store_Type !== "dispensary")
+  //             .map(
+  //               (url) => `
+  //                   <url>
+  //                     <loc>http://www.weedx.io/weed-deliveries/${modifystr(
+  //                       url.Store_Name
+  //                     )}/${url.id}</loc>
+  //                     <changefreq>daily</changefreq>
+  //                     <priority>0.8</priority>
+  //                   </url>`
+  //             )
+  //             .join("");
+
+  //           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //               ${dispensaryUrls}
+  //             </urlset>`;
+
+  //           res.setHeader("Content-Type", "text/xml");
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache the feed for 24 hours
+  //           res.write(sitemapXml);
+  //           res.end();
+  //         }
+  //         break;
+  //       case "/sitemap/allpages-sitemap.xml":
+  //         res.setHeader("Content-Type", "text/xml");
+  //         res.setHeader(
+  //           "Cache-Control",
+  //           "s-maxage=86400, stale-while-revalidate"
+  //         ); // Cache the feed for 24 hours
+  //         res.write(`
+  //           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //           <url>
+  //           <loc>http://www.weedx.io</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>1</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/blogs</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/brands</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/products</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/deals</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/learn</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/aboutus</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/faq</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/helpcenter</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/cannabis-news</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/terms-and-conditions</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/privacy-policy</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           <url>
+  //           <loc>http://www.weedx.io/cookies-policy</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.80</priority>
+  //           </url>
+  //           </urlset>
+  //           `);
+  //         res.end();
+
+  //         break;
+  //       case "/sitemap/law-sitemap.xml":
+  //         res.setHeader("Content-Type", "text/xml");
+  //         res.setHeader(
+  //           "Cache-Control",
+  //           "s-maxage=86400, stale-while-revalidate"
+  //         ); // Cache the feed for 24 hours
+  //         res.write(`<?xml version="1.0" encoding="UTF-8"?>
+  //   <urlset
+  // 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alabama/1</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alaska/2</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-arizona/3</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-arkansas/4</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-california/5</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-colorado/6</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-connecticut/7</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-delaware/8</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-florida/9</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-georgia/10</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-guam/11</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-hawaii/12</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-idaho/13</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-illinois/14</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-indiana/15</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-kansas/16</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-kentucky/17</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-louisiana/18</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-lowa/19</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-maine/20</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-maryland/21</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-massachusetts/22</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-michigan/23</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-minnesota/24</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  //   <url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nebraska/25</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-york/26</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  //   <url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-washington/27</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-west-virginia/28</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wisconsin/29</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wyoming/30</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alberta/31</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-british-columbia/32</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-canada/33</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-manitoba/34</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-brunswickers/35</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-newfoundland-and-labrador/36</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-northwest-territories/37</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nova-scotia/38</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nunavut/39</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-ontario/40</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  //   <url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-yukon/41</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // </urlset>`);
+  //         res.end();
+
+  //         break;
+  //       case "/sitemap/law-sitemap.xml.gz":
+  //         res.setHeader("Content-Type", "application/zip");
+  //         res.setHeader(
+  //           "Content-Disposition",
+  //           'attachment; filename="law-sitemap.gz"'
+  //         );
+  //         res.setHeader(
+  //           "Cache-Control",
+  //           "s-maxage=86400, stale-while-revalidate"
+  //         ); // Cache the feed for 24 hours
+
+  //         const gzip = createGzip({
+  //           level: 9, // Maximum compression level
+  //         });
+
+  //         // Pipe the archive data to the response object
+
+  //         // Add the XML sitemap to the ZIP file
+  //         const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+  //           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //              	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alabama/1</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alaska/2</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-arizona/3</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-arkansas/4</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-california/5</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-colorado/6</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-connecticut/7</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-delaware/8</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-florida/9</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-georgia/10</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-guam/11</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-hawaii/12</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-idaho/13</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-illinois/14</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-indiana/15</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-kansas/16</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-kentucky/17</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-louisiana/18</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-lowa/19</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-maine/20</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-maryland/21</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-massachusetts/22</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-michigan/23</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-minnesota/24</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-york/26</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  //   <url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-washington/27</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-west-virginia/28</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wisconsin/29</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-wyoming/30</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-alberta/31</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-british-columbia/32</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-canada/33</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-manitoba/34</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-new-brunswickers/35</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-newfoundland-and-labrador/36</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-northwest-territories/37</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nova-scotia/38</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-nunavut/39</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  // 	<url>
+  // 		<loc>http://www.weedx.io/learn/laws-and-regulation/cannabis-law-in-ontario/40</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  //   <url>
+  // 		<loc>http://www.weedx.io/learn/learn/laws-and-regulation/cannabis-law-in-yukon/41</loc>
+  // 		<changefreq>daily</changefreq>
+  // 		<priority>0.7</priority>
+  // 	</url>
+  //           </urlset>`;
+
+  //         // Write the sitemap to a file inside the zip
+  //         res.writeHead(200);
+  //         gzip.pipe(res);
+  //         gzip.end(sitemapContent);
+  //         break;
+  //       case "/sitemap/delivery-stores-sitemap.xml.gz":
+  //         const responsedelivery = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //         );
+  //         if (responsedelivery && responsedelivery.data) {
+  //           // Filter the stores that are not of type "dispensary" and map to XML format
+  //           const dispensaryUrls = responsedelivery.data
+  //             .filter((url) => url.Store_Type !== "dispensary")
+  //             .map(
+  //               (url) => `
+  //         <url>
+  //           <loc>http://www.weedx.io/weed-deliveries/${modifystr(
+  //             url.Store_Name
+  //           )}/${url.id}</loc>
+  //           <changefreq>daily</changefreq>
+  //           <priority>0.8</priority>
+  //         </url>`
+  //             )
+  //             .join("");
+
+  //           // Create the XML sitemap structure
+  //           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //       ${dispensaryUrls}
+  //     </urlset>`;
+
+  //           // Set headers for gzipped content
+  //           res.setHeader("Content-Type", "application/zip");
+  //           res.setHeader(
+  //             "Content-Disposition",
+  //             'attachment; filename="delivery-stores-sitemap.xml.gz"'
+  //           );
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache for 24 hours
+
+  //           // Create a Gzip stream
+  //           const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+  //           // Write the gzip stream to the response
+  //           res.writeHead(200);
+  //           gzip.pipe(res);
+  //           gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+  //         }
+  //         break;
+  //       case "/sitemap/dispensaries-stores-sitemap.xml.gz":
+  //         const dispensaries = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-Stores/`
+  //         );
+
+  //         if (dispensaries && dispensaries.data) {
+  //           // Filter the stores that are of type "dispensary" and map to XML format
+  //           const dispensaryUrls = dispensaries.data
+  //             .filter((url) => url.Store_Type === "dispensary")
+  //             .map(
+  //               (url) => `
+  //                   <url>
+  //                     <loc>http://www.weedx.io/weed-dispensaries/${modifystr(
+  //                       url.Store_Name
+  //                     )}/${url.id}</loc>
+  //                     <changefreq>daily</changefreq>
+  //                     <priority>0.8</priority>
+  //                   </url>`
+  //             )
+  //             .join("");
+
+  //           // Create the XML sitemap structure
+  //           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //               <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                 ${dispensaryUrls}
+  //               </urlset>`;
+
+  //           // Set headers for gzipped content
+  //           res.setHeader("Content-Type", "application/zip");
+  //           res.setHeader(
+  //             "Content-Disposition",
+  //             'attachment; filename="dispensaries-stores-sitemap.xml.gz"'
+  //           );
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache for 24 hours
+
+  //           // Create a Gzip stream
+  //           const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+  //           // Write the gzip stream to the response
+  //           res.writeHead(200);
+  //           gzip.pipe(res);
+  //           gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+  //         }
+  //         break;
+  //       case "/sitemap/brand-sitemap.xml.gz":
+  //         const responsebrandgz = await axios.get(
+  //           `http://127.0.0.1:1331/UserPanel/Get-AllBrand/`
+  //         );
+
+  //         if (responsebrand && responsebrand.data) {
+  //           // Generate the brand URLs in XML format
+  //           const sitemapXmll = `<?xml version="1.0" encoding="UTF-8"?>
+  //                 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                   ${responsebrandgz.data
+  //                     .map(
+  //                       (url) => `
+  //                     <url>
+  //                       <loc>${`http://www.weedx.io/brands/${modifystr(
+  //                         url.name
+  //                       )}/${url.id}`}</loc>
+  //                       <changefreq>daily</changefreq>
+  //                       <priority>0.7</priority>
+  //                     </url>
+  //                   `
+  //                     )
+  //                     .join("")}
+  //                 </urlset>`;
+
+  //           // Set headers for gzipped content
+  //           res.setHeader("Content-Type", "application/zip");
+  //           res.setHeader(
+  //             "Content-Disposition",
+  //             'attachment; filename="brand-sitemap.xml.gz"'
+  //           );
+  //           res.setHeader(
+  //             "Cache-Control",
+  //             "s-maxage=86400, stale-while-revalidate"
+  //           ); // Cache for 24 hours
+
+  //           // Create a Gzip stream
+  //           const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+  //           // Write the gzip stream to the response
+  //           res.writeHead(200);
+  //           gzip.pipe(res);
+  //           gzip.end(sitemapXmll); // Pipe the XML data into the gzip stream
+  //         }
+  //         break;
+  //       case "/sitemap/blogs-sitemap.xml.gz":
+  //         try {
+  //           // Fetch blog data from the API
+  //           const blogs = await axios.post(
+  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             {
+  //               category: 2,
+  //               limit: 49000,
+  //             },
+  //             {
+  //               headers: {
+  //                 "Content-Type": "application/json",
+  //               },
+  //             }
+  //           );
+
+  //           const data = blogs.data;
+  //           if (data) {
+  //             // Generate the sitemap XML content
+  //             const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //                       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                         ${data
+  //                           .map(
+  //                             (url) => `
+  //                           <url>
+  //                             <loc>${`http://www.weedx.io/blogs/${
+  //                               url.Url_slug === ("" || null || undefined)
+  //                                 ? modifystr(url.Title)
+  //                                 : modifystr(url.Url_slug)
+  //                             }/${url.id}`}</loc>
+  //                             <changefreq>daily</changefreq>
+  //                             <priority>0.8</priority>
+  //                           </url>
+  //                         `
+  //                           )
+  //                           .join("")}
+  //                       </urlset>`;
+
+  //             // Set headers for gzipped content
+  //             res.setHeader("Content-Type", "application/zip");
+  //             res.setHeader(
+  //               "Content-Disposition",
+  //               'attachment; filename="blogs-sitemap.xml.gz"'
+  //             );
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache for 24 hours
+
+  //             // Create a Gzip stream
+  //             const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+  //             // Pipe the Gzip stream to the response
+  //             res.writeHead(200);
+  //             gzip.pipe(res);
+  //             gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error("Error fetching news by category:", error);
+  //           res.statusCode = 500;
+  //           res.end("Error fetching news by category");
+  //         }
+  //         break;
+  //       case "/sitemap/news-sitemap.xml.gz":
+  //         try {
+  //           // Fetch news data from the API
+  //           const news = await axios.post(
+  //             "http://127.0.0.1:1331/UserPanel/Get-GetNewsbycategory/",
+  //             {
+  //               category: 1,
+  //               limit: 49000,
+  //             },
+  //             {
+  //               headers: {
+  //                 "Content-Type": "application/json",
+  //               },
+  //             }
+  //           );
+
+  //           const data = news.data;
+
+  //           if (data) {
+  //             // Generate the sitemap XML content
+  //             const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //                         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                           ${data
+  //                             .map(
+  //                               (url) => `
+  //                             <url>
+  //                               <loc>${`http://www.weedx.io/cannabis-news/${
+  //                                 url.Url_slug === ("" || null || undefined)
+  //                                   ? modifystr(url.Title)
+  //                                   : modifystr(url.Url_slug)
+  //                               }/${url.id}`}</loc>
+  //                               <changefreq>daily</changefreq>
+  //                               <priority>0.8</priority>
+  //                             </url>
+  //                           `
+  //                             )
+  //                             .join("")}
+  //                         </urlset>`;
+
+  //             // Set headers for gzipped content
+  //             res.setHeader("Content-Type", "application/zip");
+  //             res.setHeader(
+  //               "Content-Disposition",
+  //               'attachment; filename="news-sitemap.xml.gz"'
+  //             );
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache for 24 hours
+
+  //             // Create a Gzip stream
+  //             const gzip = createGzip({ level: 9 }); // Maximum compression level
+
+  //             // Pipe the Gzip stream to the response
+  //             res.writeHead(200);
+  //             gzip.pipe(res);
+  //             gzip.end(sitemapXml); // Pipe the XML data into the gzip stream
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error("Error fetching news by category:", error);
+  //           res.statusCode = 500;
+  //           res.end("Error fetching news by category");
+  //         }
+  //         break;
+  //       case "/sitemap/deliveries-location-sitemap.xml.gz":
+  //         try {
+  //           // Fetch the delivery location sitemap data
+  //           const responsedeliveries = await axios.get(
+  //             `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/11`
+  //           );
+
+  //           if (responsedeliveries.data[0].Xml) {
+  //             // Generate the sitemap XML content
+  //             const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //                           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                             ${responsedeliveries.data[0].Xml.map(
+  //                               (url) => `
+  //                               <url>
+  //                                 <loc>${url.split(",")[0].trim()}</loc>
+  //                                 <changefreq>daily</changefreq>
+  //                                 <priority>0.8</priority>
+  //                               </url>
+  //                             `
+  //                             ).join("")}
+  //                           </urlset>`;
+
+  //             // Set headers for gzipped content
+  //             res.setHeader("Content-Type", "application/zip");
+  //             res.setHeader(
+  //               "Content-Disposition",
+  //               'attachment; filename="deliveries-location-sitemap.xml.gz"'
+  //             );
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache the feed for 24 hours
+
+  //             // Create a Gzip stream for compression
+  //             const gzip = createGzip({ level: 9 }); // Max compression
+
+  //             // Pipe the Gzip stream to the response
+  //             res.writeHead(200);
+  //             gzip.pipe(res);
+  //             gzip.end(sitemapXml); // Pipe the sitemap XML data into the Gzip stream
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error("Error fetching deliveries location data:", error);
+  //           res.statusCode = 500;
+  //           res.end("Error fetching deliveries location data");
+  //         }
+  //         break;
+  //       case "/sitemap/products-sitemap.xml.gz":
+  //         try {
+  //           // Fetch data for products, categories, and subcategories
+  //           const response4 = await axios.get(
+  //             `http://127.0.0.1:1331/UserPanel/ListProductView/`
+  //           );
+  //           const responsecategory = await axios.get(
+  //             `http://127.0.0.1:1331/UserPanel/Get-Categories/`
+  //           );
+  //           const responseSubCategory = await axios.get(
+  //             `http://127.0.0.1:1331/UserPanel/Get-AllSubCategoriesForSitemap/`
+  //           );
+
+  //           if (response4 && responsecategory && responseSubCategory) {
+  //             // Generate the sitemap XML content
+  //             const sitemapXml1 = `<?xml version="1.0" encoding="UTF-8"?>
+  //                             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                               ${response4.data
+  //                                 .map(
+  //                                   (url) => `
+  //                                 <url>
+  //                                   <loc>http://www.weedx.io/products/${modifystr(
+  //                                     url.category_name
+  //                                   )}/${modifystr(
+  //                                     url.SubcategoryName
+  //                                   )}/${modifystr(url.Product_Name)}/${
+  //                                     url.id
+  //                                   }</loc>
+  //                                   <changefreq>daily</changefreq>
+  //                                   <priority>0.8</priority>
+  //                                 </url>
+  //                               `
+  //                                 )
+  //                                 .join("")}
+  //                               ${responsecategory.data
+  //                                 .map(
+  //                                   (url) => `
+  //                                 <url>
+  //                                   <loc>http://www.weedx.io/products/${modifystr(
+  //                                     url.name
+  //                                   )}/${url.id}</loc>
+  //                                   <changefreq>daily</changefreq>
+  //                                   <priority>0.80</priority>
+  //                                 </url>
+  //                               `
+  //                                 )
+  //                                 .join("")}
+  //                               ${responseSubCategory.data
+  //                                 .map(
+  //                                   (url) => `
+  //                                 <url>
+  //                                   <loc>http://www.weedx.io/products/${modifystr(
+  //                                     url.category_name
+  //                                   )}/${modifystr(url.name)}/${url.id}</loc>
+  //                                   <changefreq>daily</changefreq>
+  //                                   <priority>0.80</priority>
+  //                                 </url>
+  //                               `
+  //                                 )
+  //                                 .join("")}
+  //                             </urlset>`;
+
+  //             // Set headers for gzipped content
+  //             res.setHeader("Content-Type", "application/zip");
+  //             res.setHeader(
+  //               "Content-Disposition",
+  //               'attachment; filename="products-sitemap.xml.gz"'
+  //             );
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache the feed for 24 hours
+
+  //             // Create a Gzip stream for compression
+  //             const gzip = createGzip({ level: 9 }); // Max compression
+
+  //             // Pipe the Gzip stream to the response
+  //             res.writeHead(200);
+  //             gzip.pipe(res);
+  //             gzip.end(sitemapXml1); // Pipe the sitemap XML data into the Gzip stream
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error(
+  //             "Error fetching product, category, or subcategory data:",
+  //             error
+  //           );
+  //           res.statusCode = 500;
+  //           res.end("Error fetching product, category, or subcategory data");
+  //         }
+  //         break;
+  //       case "/sitemap/dispensaries-location-sitemap.xml.gz":
+  //         try {
+  //           // Fetch the dispensaries location data
+  //           const dispensaries = await axios.get(
+  //             `http://127.0.0.1:1331/UserPanel/Get-SitemapbyId/14`
+  //           );
+
+  //           if (dispensaries.data[0].Xml) {
+  //             // Generate the sitemap XML content
+  //             const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  //                               <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //                                 ${dispensaries.data[0].Xml.map(
+  //                                   (url) => `
+  //                                   <url>
+  //                                     <loc>${url.split(",")[0].trim()}</loc>
+  //                                     <changefreq>daily</changefreq>
+  //                                     <priority>0.8</priority>
+  //                                   </url>
+  //                                 `
+  //                                 ).join("")}
+  //                               </urlset>`;
+
+  //             // Set headers for gzipped content
+  //             res.setHeader("Content-Type", "application/zip");
+  //             res.setHeader(
+  //               "Content-Disposition",
+  //               'attachment; filename="dispensaries-location-sitemap.xml.gz"'
+  //             );
+  //             res.setHeader(
+  //               "Cache-Control",
+  //               "s-maxage=86400, stale-while-revalidate"
+  //             ); // Cache the feed for 24 hours
+
+  //             // Create a Gzip stream for compression
+  //             const gzip = createGzip({ level: 9 }); // Max compression
+
+  //             // Pipe the Gzip stream to the response
+  //             res.writeHead(200);
+  //             gzip.pipe(res);
+  //             gzip.end(sitemapXml); // Pipe the sitemap XML data into the Gzip stream
+  //           } else {
+  //             res.statusCode = 500;
+  //             res.end("Error generating sitemap");
+  //           }
+  //         } catch (error) {
+  //           console.error("Error fetching dispensary location data:", error);
+  //           res.statusCode = 500;
+  //           res.end("Error fetching dispensary location data");
+  //         }
+  //         break;
+
+  //       // additional cases as needed
+  //       default:
+  //     }
+  //   });
+  //   server.get("/robots.txt", (req, res) => {
+  //     res.type("text/plain");
+  //     res.send(`User-agent: *
+  // Disallow:
+  // Sitemap: http://www.weedx.io/sitemap.xml`);
+  //   });
+  server.post(
+    "/weed-dispensaries/upload-csv",
+    upload.single("csvFile"),
+    async (req, res) => {
+      try {
+        // Check if a file is uploaded
+        if (!req.file) {
+          res.status(400).send("No CSV file uploaded");
+          return;
+        }
+
+        // Parse CSV data into JSON
+        const jsonData = req.file.buffer
+          .toString("utf8")
+          .split("\n")
+          .map((line, index) => {
+            // Skip empty lines
+            if (!line.trim()) return null;
+
+            // Split the line into columns
+            const columns = line.split(",");
+
+            // Skip headers (assuming they are in the first row)
+            if (index === 0) return null;
+
+            // Create an object for each row
+            return {
+              country: columns[0].trim(),
+              state: columns[1].trim(),
+              city: columns[2].trim(),
+            };
+          })
+          .filter((row) => row !== null); // Remove null entries (headers or empty lines)
+
+        // Array to store all HTTP request promises
+        const requestPromises = [];
+
+        // Send HTTP requests for each row of data
+        for (const data of jsonData) {
+          try {
+            const response = await axios.post(
+              `http://127.0.0.1:1331/UserPanel/UpdateSiteMapManual/14`,
+              {
+                j: `http://www.weedx.io/weed-dispensaries/in/${modifystr(
+                  data.country
+                )}/${modifystr(data.state)}/${modifystr(data.city)}`,
+              }
+            );
+            // Do something with the response if needed
+          } catch (error) {
+            res
+              .status(200)
+              .send("CSV file received and processed successfully");
+            console.error("Error making HTTP request:", error);
+          }
+        }
+
+        // Send the response after all requests have completed
+        res.status(200).send("CSV file received and processed successfully");
+      } catch (error) {
+        console.error("Error processing CSV file:", error);
+        res.status(500).send("Internal Server Error");
+      }
+    }
+  );
+  server.post(
+    "/weed-deliveries/upload-csv",
+    upload.single("csvFile"),
+    async (req, res) => {
+      try {
+        // Check if a file is uploaded
+        if (!req.file) {
+          res.status(400).send("No CSV file uploaded");
+          return;
+        }
+
+        // Parse CSV data into JSON
+        const jsonData = req.file.buffer
+          .toString("utf8")
+          .split("\n")
+          .map((line, index) => {
+            // Skip empty lines
+            if (!line.trim()) return null;
+
+            // Split the line into columns
+            const columns = line.split(",");
+
+            // Skip headers (assuming they are in the first row)
+            if (index === 0) return null;
+
+            // Create an object for each row
+            return {
+              country: columns[0].trim(),
+              state: columns[1].trim(),
+              city: columns[2].trim(),
+            };
+          })
+          .filter((row) => row !== null); // Remove null entries (headers or empty lines)
+
+        // Array to store all HTTP request promises
+        const requestPromises = [];
+
+        // Send HTTP requests for each row of data
+        for (const data of jsonData) {
+          try {
+            const response = await axios.post(
+              `http://127.0.0.1:1331/UserPanel/Update-SiteMap/11`,
+              {
+                j: `http://www.weedx.io/weed-deliveries/in/${modifystr(
+                  data.country
+                )}/${modifystr(data.state)}/${modifystr(data.city)}`,
+              }
+            );
+            // Do something with the response if needed
+          } catch (error) {
+            console.error("Error making HTTP request:", error);
+          }
+        }
+
+        // Send the response after all requests have completed
+        res.status(200).send("CSV file received and processed successfully");
+      } catch (error) {
+        console.error("Error processing CSV file:", error);
+        res.status(500).send("Internal Server Error");
+      }
+    }
+  );
+  server.get("*", (req, res) => {
+    return handle(req, res);
+  });
+  server.listen(port, (err) => {
+    if (err) throw err;
+    console.log(`> woking on http://localhost:${port}`);
+  });
+});
